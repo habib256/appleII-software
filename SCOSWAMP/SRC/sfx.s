@@ -16,6 +16,7 @@ SPEAKER = $C030
         .bss
 period: .res 1
 count:  .res 1
+steplen:.res 1                  ; demi-ondes par palier d'un balayage
 
         .code
 
@@ -35,13 +36,19 @@ delay:  dey
 .endproc
 
 ; ---------------------------------------------------------------------------
-; sweep : balaye la periode de A vers X, quelques demi-ondes a chaque palier.
+; sweep : balaye la periode de A vers X, `steplen` demi-ondes a chaque palier.
 ; A < X monte vers les graves (chute), A > X descend vers les aigus.
+;
+; steplen fait la difference entre un coup et une chute : peu de demi-ondes
+; par palier donne un transitoire bref -- l'oreille entend un impact et non
+; une note -- tandis qu'un palier long fait chanter le balayage.
 ; ---------------------------------------------------------------------------
 .proc sweep
         sta     period
         stx     count           ; periode d'arrivee
-step:   ldy     #12             ; demi-ondes par palier
+        ; Tout appelant de sweep DOIT poser steplen avant : a zero, le
+        ; `ldy` chargerait 0 et la boucle ferait 256 tours par palier.
+step:   ldy     steplen
 :       lda     SPEAKER
         ldx     period
 :       dex
@@ -59,30 +66,51 @@ up:     inc     period          ; vers le grave
 done:   rts
 .endproc
 
-; --- Le heros touche : un claquement bref et haut, sec comme une lame. ------
-.proc _sfx_hit
-        lda     #40
-        ldx     #90
-        jmp     tone
-.endproc
-
-; --- Le heros encaisse : plus grave et plus long, un coup sourd. ------------
-.proc _sfx_hurt
-        lda     #170
-        ldx     #70
-        jmp     tone
-.endproc
-
-; --- Esquive : deux clics tres courts, rien de plus. ------------------------
-.proc _sfx_dodge
-        lda     #70
-        ldx     #6
-        jsr     tone
-        ldy     #100            ; un silence entre les deux
+; --- Un silence court, pour detacher deux coups. ---------------------------
+.proc gap
+        ldx     #40
+outer:  ldy     #0
 :       dey
         bne     :-
-        lda     #70
-        ldx     #6
+        dex
+        bne     outer
+        rts
+.endproc
+
+; --- Le heros touche ------------------------------------------------------
+; Une note pure sonnait comme un bip de terminal. Un balayage tres court vers
+; le grave donne un transitoire : l'oreille y entend un choc, pas une note.
+.proc _sfx_hit
+        lda     #4
+        sta     steplen
+        lda     #22
+        ldx     #60
+        jmp     sweep
+.endproc
+
+; --- Le heros encaisse ----------------------------------------------------
+; Deux coups sourds plutot qu'un bourdonnement : le premier est l'impact, le
+; second, plus grave, le corps qui accuse.
+.proc _sfx_hurt
+        lda     #150
+        ldx     #26
+        jsr     tone
+        jsr     gap
+        lda     #205
+        ldx     #22
+        jmp     tone
+.endproc
+
+; --- Esquive --------------------------------------------------------------
+; Deux ticks de hauteurs differentes : deux lames qui se croisent, pas un
+; double clic de souris.
+.proc _sfx_dodge
+        lda     #48
+        ldx     #7
+        jsr     tone
+        jsr     gap
+        lda     #38
+        ldx     #7
         jmp     tone
 .endproc
 
@@ -91,14 +119,22 @@ done:   rts
 ; balayer 60->200 mettait plus d'une seconde -- une eternite quand la page
 ; aligne trois BRIGANDS.
 .proc _sfx_fall
+        lda     #12
+        sta     steplen
         lda     #60
         ldx     #140
-        jmp     sweep
+        jsr     sweep
+        jsr     gap
+        lda     #235            ; le corps qui touche le sol
+        ldx     #30
+        jmp     tone
 .endproc
 
 ; --- Mort du heros : la meme chute, plus lente et plus basse. ---------------
 ; La mort du heros a droit a sa longueur : c'est la fin de la partie.
 .proc _sfx_death
+        lda     #16             ; paliers plus longs : la chute chante
+        sta     steplen
         lda     #90
         ldx     #220
         jsr     sweep

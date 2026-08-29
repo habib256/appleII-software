@@ -220,6 +220,11 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   La duree se paie : chaque palier d'un balayage coute `period * 5 * 12`
   cycles, et une chute de 60 a 200 mettait **plus d'une seconde** — une
   eternite quand la page aligne trois BRIGANDS. La plage a ete resserree.
+  Le parametre qui compte est le nombre de demi-ondes par palier d'un
+  balayage : peu de demi-ondes donnent un transitoire, que l'oreille entend
+  comme un choc, beaucoup font chanter le balayage. C'est ce qui separe le
+  coup d'epee de la chute d'un corps. Une note pure, elle, sonne comme un bip
+  de terminal — c'etait le premier jet.
   Ces routines ne connaissent que `$C030`, present sur toutes les machines.
   **Le Mockingboard viendra plus tard** : il demandera une autre couche, pas
   une retouche de celle-ci.
