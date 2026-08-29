@@ -172,6 +172,18 @@ void monster_memory_reset(void);
 int  monster_enter(unsigned int scene, Monster* foes, int count);
 void monster_remember(unsigned int scene, int index, const Monster* m);
 
+/* ── Les clairieres deja parcourues ────────────────────────────────────────
+ * "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui suit."
+ * Quatorze pages du livre ouvrent sur cette phrase : la clairiere a une
+ * description longue la premiere fois et une courte ensuite. Le livre confie
+ * ce comptage au joueur ; le portage le tient lui-meme, par la ligne `V`.
+ *
+ * Un bit par paragraphe, 402 bits = 51 octets -- assez peu pour ne pas
+ * chercher plus malin, et sans le plafond d'une table clairsemee. */
+void scene_memory_reset(void);
+int  scene_visited(unsigned int scene);
+void scene_mark_visited(unsigned int scene);
+
 /* ── La Magie ─────────────────────────────────────────────────────────────
  * "chacune d'elle vous permettra de jeter un sort, mais un seul, car les
  * Pierres de Magie se desintegrent des qu'on les a utilisees." */

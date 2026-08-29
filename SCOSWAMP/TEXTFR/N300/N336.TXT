@@ -1,11 +1,11 @@
 T 336 Le bassin de Vase
+V 137
 
 Vous vous trouvez dans une zone particulierement marecageuse, et chacun de vos
 pas produit sur le sol un bruit de succion. Bientot, le chemin tourne
 legerement et longe un grand bassin. Vous vous trouvez dans une clairiere a
 laquelle on ne peut acceder que par ce seul sentier. C'est la Clairiere n 28.
-Si vous y etes deja venu, rendez-vous au137. Sinon, lisez ce qui suit. L'eau
-du bassin est agite de vaguelettes et une Vase verdatre en recouvre la
+L'eau du bassin est agite de vaguelettes et une Vase verdatre en recouvre la
 surface. Ce n'est certainement pas la que vous souhaiteriez vous desalterer !
 Soudain, la fange du bassin parait se contracter et vous etes stupefait de la
 voir se soulever et se repandre sur le sentier, vous barrant le passage. Il

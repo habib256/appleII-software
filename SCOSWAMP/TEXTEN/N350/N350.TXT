@@ -1,11 +1,12 @@
 T 350 The Eagle's Nest
+V 331
 
 An immense tree, planted in hard bare ground, stands in the middle of the
 clearing you're in. At this tree's summit , a gigantic nest has been built
-using branches. You're in Clearing No. 16. If you've been there before, go to
-331. Otherwise, read what follows. You stop at the tree's foot to contemplate
-this large nest, but, soon, you hear wingbeats behind you and see an enormous
-EAGLE flying above the clearing observing you attentively. Do you have:
+using branches. You're in Clearing No. 16. You stop at the tree's foot to
+contemplate this large nest, but, soon, you hear wingbeats behind you and see
+an enormous EAGLE flying above the clearing observing you attentively. Do you
+have:
 
 C 392 Parrot Feathers
 C 025 A Silver bird-shaped Amulet

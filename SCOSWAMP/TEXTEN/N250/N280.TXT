@@ -1,9 +1,9 @@
 T 280 Road to Courbensaule
+V 355
 
 You follow the trail heading north. It gradually widens and the Swamp itself
 becomes less sinister. Then, soon, the marshes give way to forest and you
-finally arrive before a signpost that reads: ROAD TO COURBENSAULE. If you've
-been to Courbensaule before, go to 355. Otherwise, read what follows. A few
+finally arrive before a signpost that reads: ROAD TO COURBENSAULE. A few
 minutes later, you hear voices and meet forest guards with whom you walk to
 the town of Courbensaule. After so many adventures, the only thing you need is
 to find an inn to spend a good night's sleep. The Forest Guards tell you there

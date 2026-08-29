@@ -1,9 +1,8 @@
 T 118 The Scorpion Clearing
+V 303
 
 Some distance away, two paths join the one you are following. The crossing
 occurs in a small clearing: No. 13.
-
-If you've been here before, ignore this passage.
 
 Your Copper Ring tingles on your finger. Looking down, you see dozens of small
 scorpions rushing toward you.
@@ -11,4 +10,3 @@ scorpions rushing toward you.
 Test your Luck.
 
 CL 070 182
-C 303 If you have already been here

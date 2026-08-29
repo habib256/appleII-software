@@ -31,7 +31,7 @@ WRAP        = 78
 RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # Les directives de jeu : ni titre, ni corps, ni choix. Elles ne se replient
 # pas -- une ligne M coupee en deux ne veut plus rien dire.
-DIRECTIVE = re.compile(r"^(M|MD|MS|E|P|PC|CF|CP|CU|CL) ")
+DIRECTIVE = re.compile(r"^(M|MD|MS|E|P|PC|CF|CP|CU|CL|V) ")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -282,6 +282,54 @@ def derive_effects(body, directives):
     return lines, warns
 
 
+# "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui suit."
+# Le livre confie ce comptage au joueur ; le moteur le tient, donc la phrase
+# n'a plus rien a faire dans le texte -- la laisser demanderait au joueur de
+# faire a la main ce que la page vient de faire pour lui.
+#
+# Tous les blancs sont des \s+ : la phrase enjambe une fin de ligne dans sept
+# pages sur quatorze, et une version a espace litteral n'en voyait que la
+# moitie -- des deux cotes differents, ce qui a saute aux yeux au recoupement
+# FR/EN. Les cesures du scan ont par ailleurs mange des espaces ("au238",
+# "rendez- vous").
+REVISIT = re.compile(
+    r"\s*(?:Si\s+vous\s+(?:y\s+)?etes\s+deja\s+venu[^.]*?,\s*rendez-\s*vous\s*au\s*(\d+)\."
+    r"(?:\s*(?:Sinon|Autrement)[^.]*\.)?"
+    r"|If\s+you(?:'ve|\s+have)\s+been\s+[^.]*?before,\s*go\s+to\s*(\d+)\."
+    r"(?:\s*Otherwise[^.]*\.)?)")
+
+# La meme regle sans son but : il est porte par un choix, que le joueur devait
+# prendre lui-meme (N118).
+REVISIT_MUTE = re.compile(
+    r"\s*(?:Si\s+vous\s+y\s+etes\s+deja\s+venu,\s*ignorez\s+ce\s+passage\."
+    r"|If\s+you(?:'ve|\s+have)\s+been\s+here\s+before,\s*ignore\s+this\s+passage\.)")
+REVISIT_CHOICE = re.compile(r"deja\s+venu|already\s+been|been\s+here\s+before", re.I)
+
+
+def _cut(text, m):
+    """Retire la phrase et recolle sans laisser la double espace du trou."""
+    return text[:m.start()].rstrip() + " " + text[m.end():].lstrip()
+
+
+def derive_revisit(body, choices, directives):
+    """Rend (corps, choix, ligne V) pour une clairiere a description double."""
+    if any(d.startswith("V ") for d in directives):
+        return body, choices, None
+    text = "\n".join(body)
+    m = REVISIT.search(text)
+    if m:
+        target = int(m.group(1) or m.group(2))
+        return _cut(text, m).split("\n"), choices, f"V {target:03d}"
+    m = REVISIT_MUTE.search(text)
+    if not m:
+        return body, choices, None
+    for i, (cid, ctitle) in enumerate(choices):
+        if REVISIT_CHOICE.search(ctitle):
+            return _cut(text, m).split("\n"), \
+                   choices[:i] + choices[i+1:], f"V {cid:03d}"
+    return body, choices, None
+
+
 def derive_flee(choices, directives):
     """Transforme le choix de Fuite en ligne CF. Rend (choix_restants, cf)."""
     if any(d.startswith("CF ") for d in directives):
@@ -317,6 +365,9 @@ def parse(path):
     return title, body, choices, directives
 
 def _w(text, width):
+    # Les blancs multiples sont ramenes a un : textwrap les conserve, et le
+    # trou laisse par une phrase retiree se voyait a l'ecran.
+    text = re.sub(r"\s+", " ", text)
     # break_on_hyphens=False : sinon "spider-shaped" est coupe en deux mots et
     # la ligne se termine sur un tiret orphelin. break_long_words=False : aucun
     # mot n'est jamais casse ; le controle de largeur ci-dessous le verifierait.
@@ -354,7 +405,13 @@ def choice_rows(choices):
     return rows
 
 def render(scene_id, title, body, choices, directives):
-    out = [f"T {scene_id:03d} {title}", ""]
+    out = [f"T {scene_id:03d} {title}"]
+    # La ligne V passe devant tout : le moteur court-circuite la page des
+    # qu'il la lit, et une ligne E placee avant elle serait appliquee pour
+    # rien -- une seconde fois, en fait, puisqu'on est deja passe par la.
+    out += [d for d in directives if d.startswith("V ")]
+    directives = [d for d in directives if not d.startswith("V ")]
+    out += [""]
     out += body
     out.append("")
     out += directives
@@ -385,6 +442,10 @@ def main():
                     body = text.split("\n")
                     choices, cf = derive_flee(choices, found_dirs)
                     directives = found_dirs + ([cf] if cf else [])
+            if derive:
+                body, choices, rv = derive_revisit(body, choices, directives)
+                if rv:
+                    directives = [rv] + directives
             if derive and not any(d.startswith("CL ") for d in directives):
                 choices, cl = derive_luck(choices, body)
                 if cl:
@@ -445,7 +506,7 @@ def main():
             # Combien de champs portent de la mecanique, par directive : le
             # reste est du titre, qui se traduit.
             KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3,
-                    "CU": 3, "CP": 3, "E": None}
+                    "CU": 3, "CP": 3, "E": None, "V": None}
 
             def mechanics(dirs):
                 out = []

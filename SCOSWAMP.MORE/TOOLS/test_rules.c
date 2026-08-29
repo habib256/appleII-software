@@ -340,6 +340,34 @@ static void test_pierres(void)
     }
 }
 
+static void test_clairieres_vues(void)
+{
+    /* "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui
+     * suit." Quatorze pages ouvrent la-dessus ; c'est ce drapeau qui les
+     * departage, la ou le livre s'en remettait a la memoire du joueur. */
+    unsigned int i;
+    scene_memory_reset();
+
+    CHECK(scene_visited(10) == 0, "au depart, aucune clairiere n'est vue");
+    scene_mark_visited(10);
+    CHECK(scene_visited(10) == 1, "la clairiere 10 est retenue");
+    CHECK(scene_visited(11) == 0, "sa voisine ne l'est pas");
+    CHECK(scene_visited(2)  == 0, "ni celle qui partage son octet");
+
+    /* Le dernier paragraphe du livre est le 402 : il doit tenir, et ce qui le
+     * depasse doit repondre non plutot que d'ecrire hors du tableau. */
+    scene_mark_visited(401);
+    CHECK(scene_visited(401) == 1, "le dernier paragraphe tient");
+    scene_mark_visited(9999);
+    CHECK(scene_visited(9999) == 0, "hors bornes : non, et rien d'ecrit");
+
+    /* Une mort remet le marais a neuf : sans cela la partie suivante sauterait
+     * les descriptions longues de clairieres ou elle n'est jamais allee. */
+    scene_memory_reset();
+    for (i = 0; i < 402; ++i)
+        if (scene_visited(i)) { CHECK(0, "la remise a zero a laisse %u", i); break; }
+}
+
 int main(void)
 {
     test_dice();
@@ -350,6 +378,7 @@ int main(void)
     test_blessures();
     test_fuite();
     test_memoire_clairieres();
+    test_clairieres_vues();
     test_pierres();
     if (failures == 0) printf("regles : tout passe\n");
     else               printf("regles : %d echec(s)\n", failures);

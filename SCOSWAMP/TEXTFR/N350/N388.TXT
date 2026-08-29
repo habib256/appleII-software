@@ -1,13 +1,13 @@
 T 388 Herbe a pinces
+V 263
 
 Bientot, vous entrez dans une agreable clairiere envahie d'herbes. Deux
-chemins vous permettent d'aller plus loin. C'est la Clairiere n 0 24. Si vous
-y etes deja venu, rendez-vous au263. Sinon, lisez ce qui suit. Vous restez un
-instant immobile, jetant un coup d'oeil autour de vous. Vous vous apercevez
-alors que cette herbe a quelque chose d'etrange. Elle pousse en effet si vite
-qu'on peut la voir bouger. Et tandis que vous l'observez, des pinces
-apparaissent aux extremites de ses tiges, des pinces qui essayent de vous
-saisir. Vous vous trouvez au plein milieu d'une etendue d'HERBE A PINCES!
+chemins vous permettent d'aller plus loin. C'est la Clairiere n 0 24. Vous
+restez un instant immobile, jetant un coup d'oeil autour de vous. Vous vous
+apercevez alors que cette herbe a quelque chose d'etrange. Elle pousse en
+effet si vite qu'on peut la voir bouger. Et tandis que vous l'observez, des
+pinces apparaissent aux extremites de ses tiges, des pinces qui essayent de
+vous saisir. Vous vous trouvez au plein milieu d'une etendue d'HERBE A PINCES!
 
 C 134 Vous defendre avec votre epee
 C 167 Recourir a la magie

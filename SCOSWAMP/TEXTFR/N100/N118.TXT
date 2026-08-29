@@ -1,9 +1,8 @@
 T 118 La clairiere des scorpions
+V 303
 
 A quelque distance, deux sentiers rejoignent celui que vous suivez. Le
 croisement se fait dans une petite clairiere : la no 13.
-
-Si vous y etes deja venu, ignorez ce passage.
 
 Votre Anneau de Cuivre vous picote au doigt. En baissant les yeux, vous voyez
 des dizaines de petits scorpions accourir vers vous.
@@ -11,4 +10,3 @@ des dizaines de petits scorpions accourir vers vous.
 Tentez votre Chance.
 
 CL 070 182
-C 303 Si vous etes deja venu ici

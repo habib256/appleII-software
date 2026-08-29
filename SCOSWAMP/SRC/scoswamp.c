@@ -90,6 +90,7 @@ typedef struct {
     int       foe_cur;       /* adversaire en cours dans la file */
     int       flee_target;   /* scene ou mene la Fuite, -1 si la page n'en offre pas */
     int       pending_scene; /* scene a charger au prochain tour de boucle, -1 sinon */
+    int       revisit;       /* ligne V : ou aller si la clairiere est deja vue, -1 sinon */
     unsigned char choose_n;  /* Pierres a choisir en entrant, 0 si aucune */
     char      choose_cats[4];/* categories permises : N, B, M */
     int       luck_ok;       /* scene si Chanceux, -1 si la page ne teste rien */
@@ -339,6 +340,9 @@ static char* take_word(char* t, char** word)
 /* Classe une ligne du fichier. Le format d'une page :
  *
  *   T  <id> <titre>             titre, en video inverse ligne 1
+ *   V  <id>                     "si vous y etes deja venu, rendez-vous au
+ *                               <id>" -- doit preceder tout le reste de la
+ *                               page, qu'un detour annule
  *   M  <hab> <end> <nom>        la creature de la clairiere (Batailles)
  *   MD <n>                      ses coups coutent n ENDURANCE (defaut 2)
  *   MS <n>                      le combat cesse a n ENDURANCE (defaut 0)
@@ -365,6 +369,8 @@ static void classify_line(char* l)
     char* t;
     char* word;
     unsigned int a, b;
+
+    if (app.revisit >= 0) return;   /* la page est court-circuitee (ligne V) */
 
     /* MD et MS qualifient le dernier adversaire declare. */
     if (l[0] == 'M' && l[1] == 'D' && l[2] == ' ' && app.foe_count > 0) {
@@ -464,6 +470,17 @@ static void classify_line(char* l)
             app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
             app.num_choices++;
         }
+        return;
+    }
+    if (l[0] == 'V' && l[1] == ' ') {
+        /* "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui
+         * suit." Le detour decide, plus rien de la page ne doit jouer : ni
+         * son texte, ni ses choix, ni surtout ses lignes E et P, qui
+         * donneraient une seconde fois ce qu'on a deja pris. D'ou le garde
+         * en tete de fonction -- et l'invariant, verifie par reflow_txt.py,
+         * que la ligne V precede tout le reste. */
+        take_uint(l + 2, &a);
+        if (scene_visited((unsigned int)app.current_scene)) app.revisit = (int)a;
         return;
     }
     if (l[0] == 'C' && l[1] == 'F' && l[2] == ' ') {
@@ -584,7 +601,7 @@ int parse_text_file(int scene_id, int display_mode) {
         if (crlf) p++;
     }
 
-    if (display_mode) {
+    if (display_mode && app.revisit < 0) {
         render_scene();
     }
 
@@ -1027,6 +1044,7 @@ void load_scene(int scene_id) {
     app.foe_count = 0;
     app.foe_cur = 0;
     app.flee_target = -1;
+    app.revisit = -1;
     app.choose_n = 0;
     app.luck_ok = -1;
     app.luck_dok = 0;
@@ -1039,6 +1057,15 @@ void load_scene(int scene_id) {
      * P (Pierres reçues) : elles jouent une fois par visite. */
     app.video_mode = 0;
     display_scene_text(scene_id);
+
+    /* Deja venu : la page longue cede la place a sa version courte, sans rien
+     * afficher entre les deux. Le passage n'est PAS marque -- c'est la page
+     * courte qui l'est, et de toute facon celle-ci l'etait deja. */
+    if (app.revisit >= 0) {
+        app.pending_scene = app.revisit;
+        return;
+    }
+    scene_mark_visited((unsigned int)scene_id);
 
     /* L'image est decodee en page HGR 1 mais PAS montree : on reste sur le
      * texte, c'est au joueur de basculer. Le decodage se fait donc sous un
@@ -1078,6 +1105,7 @@ void load_scene(int scene_id) {
     if (issue == 0) {
         game_over();
         monster_memory_reset();
+        scene_memory_reset();
         roll_character();
         app.pending_scene = 0;
     } else if (issue == 2) {
@@ -1226,8 +1254,10 @@ void main(void) {
     app.foe_cur = 0;
     app.hero_ready = 0;
     app.flee_target = -1;
+    app.revisit = -1;
     app.pending_scene = -1;
     monster_memory_reset();
+    scene_memory_reset();
     strcpy(app.language, "FR");  /* Valeur par défaut */
 
     /* BASIC.SYSTEM ne garantit pas le préfixe cc65. Le fixer explicitement

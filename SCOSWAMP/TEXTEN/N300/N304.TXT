@@ -1,12 +1,12 @@
 T 304 The Parrot
+V 149
 
 As you advance northward, the Swamp changes appearance. It becomes less gloomy
 and looks more and more like a tropical jungle. Brightly colored birds fly
 among the trees and you soon see a clearing a little further. This is Clearing
-No. 14. If you've been there before, go to 149. Otherwise, read what follows.
-Perched on a branch, a large red and yellow Parrot observes you attentively.
-When you approach it, it speaks to you: "Who are you and what do you want from
-the Bird Mistress?" it asks. What will you do?
+No. 14. Perched on a branch, a large red and yellow Parrot observes you
+attentively. When you approach it, it speaks to you: "Who are you and what do
+you want from the Bird Mistress?" it asks. What will you do?
 
 C 071 Attack the Parrot
 C 131 Ask to meet its Mistress

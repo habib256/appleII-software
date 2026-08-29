@@ -221,6 +221,29 @@ void monster_remember(unsigned int scene, int index, const Monster* m)
     }
 }
 
+/* ── Les clairieres deja parcourues ────────────────────────────────────── */
+
+#define SCENE_BITS 52          /* 402 paragraphes arrondis a l'octet */
+
+static unsigned char visited[SCENE_BITS];
+
+void scene_memory_reset(void)
+{
+    unsigned int i;
+    for (i = 0; i < SCENE_BITS; ++i) visited[i] = 0;
+}
+
+int scene_visited(unsigned int scene)
+{
+    if (scene >= SCENE_BITS * 8) return 0;
+    return (visited[scene >> 3] & (1 << (scene & 7))) != 0;
+}
+
+void scene_mark_visited(unsigned int scene)
+{
+    if (scene < SCENE_BITS * 8) visited[scene >> 3] |= (1 << (scene & 7));
+}
+
 /* ── La Magie ────────────────────────────────────────────────────────────── */
 
 void character_give_stone(Character* c, Stone s, unsigned char n)
