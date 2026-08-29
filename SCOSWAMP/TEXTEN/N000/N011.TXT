@@ -1,15 +1,13 @@
 T 011 The Beast's Dead End
-You advance westward; the swamp becomes even more sinister.
-Finally the path widens and leads to a narrow, long clearing.
-There is no other path: you have reached a dead end.
-You approach a large grey rock to lie down and
-rest. Suddenly, the rock moves: it wasn't stone.
-A rough fur unfolds; two red eyes stare at you, furious.
-A FOUL BEAST with six clawed legs immediately advances toward you.
-Its heavy breathing makes the wood vibrate; its claws tear the earth.
-What do you do?
+
+You advance westward; the swamp becomes even more sinister. Finally the path
+widens and leads to a narrow, long clearing. There is no other path: you have
+reached a dead end. You approach a large grey rock to lie down and rest.
+Suddenly, the rock moves: it wasn't stone. A rough fur unfolds; two red eyes
+stare at you, furious. A FOUL BEAST with six clawed legs immediately advances
+toward you. Its heavy breathing makes the wood vibrate; its claws tear the
+earth. What do you do?
 
 C 176 Face it in combat
 C 102 Flee immediately
 C 374 Try to cast a spell on it
-

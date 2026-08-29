@@ -1,16 +1,14 @@
 T 001 The Path to the Swamp
 
-The journey to the Swamp in the far west of the kingdom has been
-long. As you progress, the mountains become hills, then plains, and
-finally low, humid lands. You reach Marshville. In the tavern, you
-proclaim your intention to explore the Scorpion Swamp. Immediately,
-the patrons gather around, worried. "Explore the Swamp? You can't
-be serious! Others have been lost there, their bones bleaching in
-its depths! The place is crawling with vermin, monsters and bandits.
-The Masters, a clan of evil sorcerers, are its lords. One of them,
-a brutal giant, came here with two grey wolves. He doesn't like
-intruders." The villagers want to hold you back. What do you do?
+The journey to the Swamp in the far west of the kingdom has been long. As you
+progress, the mountains become hills, then plains, and finally low, humid
+lands. You reach Marshville. In the tavern, you proclaim your intention to
+explore the Scorpion Swamp. Immediately, the patrons gather around, worried.
+"Explore the Swamp? You can't be serious! Others have been lost there, their
+bones bleaching in its depths! The place is crawling with vermin, monsters and
+bandits. The Masters, a clan of evil sorcerers, are its lords. One of them, a
+brutal giant, came here with two grey wolves. He doesn't like intruders." The
+villagers want to hold you back. What do you do?
 
 C 048 Draw your sword to show that it's unwise to bar your way
 C 095 Politely explain that your decision is irrevocable
-

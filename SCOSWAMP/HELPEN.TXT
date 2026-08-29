@@ -1,0 +1,15 @@
+THE KEYS
+
+  [A-Z]                 Make a choice
+  [SPACE/RETURN/ESC]    Text, HGR picture, then HGR + 4 text lines
+  [I]                   The backpack and the Magic Stones
+  [H]                   This help
+  [Q]                   Quit the adventure
+
+IN A FIGHT
+
+  [SPACE]               Fight one round
+  [C]                   Test your Luck on the wound just dealt
+  [F]                   Flee, when the page allows it
+  [I]                   The bag, until the first blow is struck
+  [ESC]                 See the battle picture

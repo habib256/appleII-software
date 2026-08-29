@@ -1,12 +1,12 @@
 T 014 Scorpion et nain
+
 Le sentier conduit a une petite clairiere ou plusieurs arbres sont tombes.
 Vous approchez et entendez des bruits de lutte derriere un large tronc.
-L'image qui se deploie est terrible: un SCORPION GEANT tient un NAIN.
-La bete a attrape le nain par le cou dans une pince et le precipite a terre.
-Le nain reste etendu, sans vie, tandis que le scorpion semble le devorer.
-Il vous semble peu probable que vos Pierres de Magie aient de l'effet ici.
-Vous etes dans la Clairiere n 032.
-Que faites-vous?
+L'image qui se deploie est terrible: un SCORPION GEANT tient un NAIN. La bete
+a attrape le nain par le cou dans une pince et le precipite a terre. Le nain
+reste etendu, sans vie, tandis que le scorpion semble le devorer. Il vous
+semble peu probable que vos Pierres de Magie aient de l'effet ici. Vous etes
+dans la Clairiere n 032. Que faites-vous?
 
 C 088 Quitter la clairiere pendant que le monstre se repait
 C 312 Attaquer le Scorpion pour le combattre

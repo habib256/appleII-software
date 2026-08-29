@@ -1,7 +1,8 @@
 T 152 Choix de la pierre magique
-Face au Maitre des Jardins, vous preparez une Pierre Magique.
-Laquelle allez-vous utiliser? Chaque pierre peut declencher un effet
-different, mais le choix est crucial et irreversible.
+
+Face au Maitre des Jardins, vous preparez une Pierre Magique. Laquelle
+allez-vous utiliser? Chaque pierre peut declencher un effet different, mais le
+choix est crucial et irreversible.
 
 C 136 Utiliser une Pierre de Feu
 C 264 Utiliser une Pierre de Fletrissure

@@ -1,16 +1,12 @@
 T 207 The Sorcerer's Payment
 
-Stratagus frowns and an evil smile lights up his face.
-"Insolent... but clever!" he says, opening a leather purse.
-Under your wary gaze, he slowly counts five hundred gold pieces
-for each amulet you handed him. The metal's tinkling
-fills the room, mixture of promise and threat.
+Stratagus frowns and an evil smile lights up his face. "Insolent... but
+clever!" he says, opening a leather purse. Under your wary gaze, he slowly
+counts five hundred gold pieces for each amulet you handed him. The metal's
+tinkling fills the room, mixture of promise and threat.
 
-When he's finished, he pushes the bag toward you with a sharp gesture.
-His gaze glows with a strange flame, and you feel you shouldn't
-delay leaving this cursed place.
+When he's finished, he pushes the bag toward you with a sharp gesture. His
+gaze glows with a strange flame, and you feel you shouldn't delay leaving this
+cursed place.
 
 C 358 Leave Stratagus's tower with your gold
-
-
-

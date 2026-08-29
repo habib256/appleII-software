@@ -1,9 +1,9 @@
 T 109 L adversaire indecis
 
-Il peste et ronchonne, mais il vous a vu combattre et n est pas
-encore assez furieux pour vous attaquer. 
+Il peste et ronchonne, mais il vous a vu combattre et n est pas encore assez
+furieux pour vous attaquer.
 
-Que faites-vous ? 
+Que faites-vous ?
 
 C 349 Quitter les lieux
 C 124 L attaquer

@@ -1,17 +1,13 @@
 T 146 Combat des grenouilles
 
-Deux enormes grenouilles vous attaquent en meme temps.
-A votre grande surprise, leurs machoires sont herisses de dents.
-HABILETE ENDURANCE
-Premiere GRENOUILLE GEANTE 5 6
-Deuxieme GRENOUILLE GEANTE 6 5
-Chaque grenouille vous combattra a son tour a chaque assaut.
-Avant chaque assaut, vous choisirez celle a affronter en priorite.
-Si votre Force d'Attaque depasse celle de l'adversaire choisi,
-vous n'infligerez aucune blessure a l'autre: vous l'aurez esquive.
-Si, au contraire, la seconde a une Force superieure, vous subirez
-une blessure selon les regles habituelles.
-Si vous tuez l'une des deux grenouilles, le combat se poursuit
-contre l'autre selon les regles normales.
+Deux enormes grenouilles vous attaquent en meme temps. A votre grande
+surprise, leurs machoires sont herisses de dents. HABILETE ENDURANCE Premiere
+GRENOUILLE GEANTE 5 6 Deuxieme GRENOUILLE GEANTE 6 5 Chaque grenouille vous
+combattra a son tour a chaque assaut. Avant chaque assaut, vous choisirez
+celle a affronter en priorite. Si votre Force d'Attaque depasse celle de
+l'adversaire choisi, vous n'infligerez aucune blessure a l'autre: vous l'aurez
+esquive. Si, au contraire, la seconde a une Force superieure, vous subirez une
+blessure selon les regles habituelles. Si vous tuez l'une des deux
+grenouilles, le combat se poursuit contre l'autre selon les regles normales.
 
 C 230 Si vous etes vainqueur, poursuivez votre aventure.

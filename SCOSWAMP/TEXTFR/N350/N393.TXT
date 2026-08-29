@@ -1,14 +1,12 @@
 T 393 Pierre de Fletrissure
 
-Vous etes convaincu que la Pierre Magique de Fletrissure
-convient a merveille dans ce genre de situation et vous la jetez
-aussiteot aux Arbres-eEpes. A votre grand soulagement, vous les
-voyez alors prendre une teinte jaunatre puis se dessecher a vue
-d'oeil. Vous jetez ensuite un regard autour de vous, mais vous ne
-trouvez rien d'interessant a part quelques graines qui
-proviennent sans doute de ces Arbres-eEpes. Vous decidez de les
-ramasser en pensant qu'elles vous seront peut-etre utiles plus
-tard et vous vous remettez en route.
+Vous etes convaincu que la Pierre Magique de Fletrissure convient a merveille
+dans ce genre de situation et vous la jetez aussiteot aux Arbres-eEpes. A
+votre grand soulagement, vous les voyez alors prendre une teinte jaunatre puis
+se dessecher a vue d'oeil. Vous jetez ensuite un regard autour de vous, mais
+vous ne trouvez rien d'interessant a part quelques graines qui proviennent
+sans doute de ces Arbres-eEpes. Vous decidez de les ramasser en pensant
+qu'elles vous seront peut-etre utiles plus tard et vous vous remettez en
+route.
 
-C 22 Continuer
-
+C 022 Continuer

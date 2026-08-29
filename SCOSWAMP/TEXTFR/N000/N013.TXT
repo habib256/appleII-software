@@ -1,8 +1,8 @@
 T 013 Choix du sorcier
-"Je suis un guerrier en mission", repliquez-vous calmement.
-Votre Anneau ne vous avertit d'aucun danger; vous vous adressez
-au Maitre des Grenouilles sans la moindre inquietude.
-Quel sorcier choisissez-vous de servir?
+
+"Je suis un guerrier en mission", repliquez-vous calmement. Votre Anneau ne
+vous avertit d'aucun danger; vous vous adressez au Maitre des Grenouilles sans
+la moindre inquietude. Quel sorcier choisissez-vous de servir?
 
 C 212 Gayolard
 C 287 Stratagus

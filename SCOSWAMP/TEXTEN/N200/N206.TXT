@@ -1,19 +1,19 @@
 T 206 Stratagus's Mission
 
-The sorcerer Stratagus welcomes you in a room with shelves loaded
-with grimoires and vials. On the wall, a living mirror shows changing
-scenes. In a grave voice, he speaks of new sorcerers settled
-in the Scorpion Swamp. Some control wolves, others
-plants. All draw their power from Silver Amulets they wear around their necks.
+The sorcerer Stratagus welcomes you in a room with shelves loaded with
+grimoires and vials. On the wall, a living mirror shows changing scenes. In a
+grave voice, he speaks of new sorcerers settled in the Scorpion Swamp. Some
+control wolves, others plants. All draw their power from Silver Amulets they
+wear around their necks.
 
-"I want these amulets," he says. "At least three. I don't care how
-you obtain them. I'll give you five hundred gold pieces for each."
+"I want these amulets," he says. "At least three. I don't care how you obtain
+them. I'll give you five hundred gold pieces for each."
 
-He laughs when asked for protection: "I can almost make you
-a sorcerer. Take six Magic Stones, but not those of Good."
+He laughs when asked for protection: "I can almost make you a sorcerer. Take
+six Magic Stones, but not those of Good."
 
-You feel the Swamp will be less dangerous than this gloomy tower.
-Your mission begins: bring back to Stratagus the Masters' Amulets.
+You feel the Swamp will be less dangerous than this gloomy tower. Your mission
+begins: bring back to Stratagus the Masters' Amulets.
 
+PC 6 NM
 C 009 Leave the tower and go to the Swamp
-

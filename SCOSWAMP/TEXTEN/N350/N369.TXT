@@ -1,16 +1,10 @@
 T 369 Another Ice Stone
 
-You realize that, even with another Ice
-Stone, you won't manage to sufficiently strengthen the
-bridge; you therefore throw the Stone at your feet to form a large
-piece of ice on which you can drift along the
-river, eastward. On both sides, the banks are
-covered with thick vegetation. Suddenly, you see at
-some distance ahead of you an old stone bridge of impressive
-size.
+You realize that, even with another Ice Stone, you won't manage to
+sufficiently strengthen the bridge; you therefore throw the Stone at your feet
+to form a large piece of ice on which you can drift along the river, eastward.
+On both sides, the banks are covered with thick vegetation. Suddenly, you see
+at some distance ahead of you an old stone bridge of impressive size.
 
 C 384 Try to grab onto it
 C 313 Continue to let yourself drift
-
-
-

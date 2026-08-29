@@ -1,21 +1,16 @@
 T 286 The Giant's Handkerchief
-An idea suddenly comes to you that almost makes you burst
-out laughing, but you hold back not to offend the unfortunate
-Giant. You then search in your Backpack and pull out
-the Red Cape. "Is this your handkerchief?" you ask him
+
+An idea suddenly comes to you that almost makes you burst out laughing, but
+you hold back not to offend the unfortunate Giant. You then search in your
+Backpack and pull out the Red Cape. "Is this your handkerchief?" you ask him
 handing him the fabric. The Giant immediately takes it from your hands,
-looking quite joyful. "Where did you find it?" he asks. You
-tell him about your encounter with the Thief, it's doubtless he
-who stole his handkerchief from the Giant. The latter starts
-crying again, but this time they're tears of joy flowing on
-his face. He swears he'll be your friend forever and asks
-you what brought you here. "Is there something I
-can do to help you?" he inquires. You tell him of
-your mission. Which Sorcerer's service did you enter?
+looking quite joyful. "Where did you find it?" he asks. You tell him about
+your encounter with the Thief, it's doubtless he who stole his handkerchief
+from the Giant. The latter starts crying again, but this time they're tears of
+joy flowing on his face. He swears he'll be your friend forever and asks you
+what brought you here. "Is there something I can do to help you?" he inquires.
+You tell him of your mission. Which Sorcerer's service did you enter?
 
 C 244 Gayolard
 C 317 Stratagus
 C 103 Pompatarte
-
-
-

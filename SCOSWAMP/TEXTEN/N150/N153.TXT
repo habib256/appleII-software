@@ -1,11 +1,9 @@
 T 153 Flight from the Clearing
-You leave the clearing as quickly as possible, short of breath.
-The air is heavy, and you cast a last look behind you before
-resuming the path. Two directions offer themselves to you: north
-or west. The ground seems drier there, but danger remains.
+
+You leave the clearing as quickly as possible, short of breath. The air is
+heavy, and you cast a last look behind you before resuming the path. Two
+directions offer themselves to you: north or west. The ground seems drier
+there, but danger remains.
 
 C 218 Go north
 C 065 Take the western path
-
-
-

@@ -1,12 +1,10 @@
 T 063 Rejected Magnet
-You search through your backpack and offer him the Gold Magnet taken
-from the warrior's corpse. He begins to laugh: "Sorry, I don't want it."
-"That object is cursed. Throw it in the pond water," he advises you.
-You suddenly feel stupid and follow his advice.
-Now that the magnet has disappeared, you can offer another object
-or try a different strategy.
-What do you do?
+
+You search through your backpack and offer him the Gold Magnet taken from the
+warrior's corpse. He begins to laugh: "Sorry, I don't want it." "That object
+is cursed. Throw it in the pond water," he advises you. You suddenly feel
+stupid and follow his advice. Now that the magnet has disappeared, you can
+offer another object or try a different strategy. What do you do?
 
 C 015 Offer another object
 C 212 Try another tactic
-

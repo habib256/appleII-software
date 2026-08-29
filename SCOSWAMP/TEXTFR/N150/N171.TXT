@@ -1,12 +1,11 @@
 T 171 Combat contre la Vase
-La crature qui se dresse devant vous est une masse visqueuse
-et puissante, presque sans intelligence mais d'une force
-terrible.
 
-VASE - HABILETE : 5 / ENDURANCE : 17
+La crature qui se dresse devant vous est une masse visqueuse et puissante,
+presque sans intelligence mais d'une force terrible.
 
-Vous pouvez choisir de fuir a tout moment,
-mais il vous faudra rebrousser chemin.
+Vous pouvez choisir de fuir a tout moment, mais il vous faudra rebrousser
+chemin.
 
-C 153 Prendre la fuite 
+M 5 17 VASE
+CF 153 Prendre la fuite
 C 038 Tuer la Vase et poursuivre votre route

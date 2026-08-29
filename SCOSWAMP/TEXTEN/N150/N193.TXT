@@ -1,18 +1,13 @@
 T 193 Stratagus's Potions
-Stratagus observes the disorder of the room, then shrugs
-laughing: "So be it, let's talk business now."
-He leads you to another room and returns with several vials
-of shimmering colors. "Drink, it will do you good," he says.
 
-You hesitate, then taste the contents of a bottle.
-The sorcerer laughs at your caution, but he was telling the truth: you feel
-your strength returning.
-It was a Healing Potion!
-You empty the other vials and, against all expectations, none are
-poisoned. Your SKILL, STAMINA and LUCK points
-return to their initial total.
+Stratagus observes the disorder of the room, then shrugs laughing: "So be it,
+let's talk business now." He leads you to another room and returns with
+several vials of shimmering colors. "Drink, it will do you good," he says.
+
+You hesitate, then taste the contents of a bottle. The sorcerer laughs at your
+caution, but he was telling the truth: you feel your strength returning. It
+was a Healing Potion! You empty the other vials and, against all expectations,
+none are poisoned. Your SKILL, STAMINA and LUCK points return to their initial
+total.
 
 C 206 Continue after this strange meeting
-
-
-

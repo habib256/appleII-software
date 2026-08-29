@@ -1,10 +1,8 @@
 T 246 Brigands' Loot
-You search the Brigands' corpses. One of them had a jar
-containing a powder with a bitter smell. It could be useful or
-just a worthless remnant. What do you do?
+
+You search the Brigands' corpses. One of them had a jar containing a powder
+with a bitter smell. It could be useful or just a worthless remnant. What do
+you do?
 
 C 019 Abandon the powder and continue your path
 C 067 Rub your wounds with the powder
-
-
-

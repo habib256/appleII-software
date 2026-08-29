@@ -1,11 +1,7 @@
 T 325 The Bridge Melts
 
-You try to reach the other shore before the bridge melts,
-but you're not fast enough and it breaks into several
-pieces.
+You try to reach the other shore before the bridge melts, but you're not fast
+enough and it breaks into several pieces.
 
 C 369 If you have another Ice Magic Stone
-C 43 Otherwise
-
-
-
+C 043 Otherwise

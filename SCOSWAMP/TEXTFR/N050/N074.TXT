@@ -1,7 +1,7 @@
 T 074 Le Maitre des Araignes
 
-Vous avez decide de combattre le Maitre des Araignes a l aide
-d une de vos Pierres de Magie. Mais laquelle choisir ?
+Vous avez decide de combattre le Maitre des Araignes a l aide d une de vos
+Pierres de Magie. Mais laquelle choisir ?
 
 C 361 Utiliser la Pierre d Amitie
 C 261 Utiliser la Pierre de Malediction

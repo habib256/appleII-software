@@ -75,8 +75,8 @@ Le programme s'attend à cette arborescence relative :
   ├── STARTUP.BAS         (script de démarrage optionnel)
   ├── IMG/
   │   ├── N000/           (scènes 0-49)
-  │   │   ├── N000.HGR.BIN
-  │   │   ├── N001.HGR.BIN
+  │   │   ├── N000.RLE.BIN
+  │   │   ├── N001.RLE.BIN
   │   │   └── ...
   │   ├── N050/           (scènes 50-99)
   │   └── ...
@@ -110,7 +110,7 @@ La page HGR 1 occupe **$2000-$3FFF** (8192 octets). Si le programme démarrait �
 $0000-$03FF : Zero page + Stack
 $0400-$07FF : Zone texte (1024 octets, 40×24 caractères)
 $0800-$1FFF : Zone libre système
-$2000-$3FFF : HGR Page 1 (8 KB, chargé depuis fichiers .HGR.BIN)
+$2000-$3FFF : HGR Page 1 (8 KB, décompressé depuis fichiers .RLE)
 $4000-$BFFF : Programme SCOSWAMP.BIN et données
 $C000-$FFFF : ROM et I/O
 ```
@@ -170,4 +170,3 @@ Voir la documentation ProDOS MLI : `../DOCS/PRODOS-MLI.md`
 ## Auteur
 
 VERHILLE Arnaud - gist974@gmail.com
-

@@ -1,25 +1,61 @@
-# Fichiers intermédiaires de compilation cc65
+# ── Intermédiaires cc65 ────────────────────────────────────────────────────
+# PAS de `*.s` global : hgr_loader.s est un source 6502 écrit à la main, et
+# l'ancien .gitignore du projet le masquait — ses corrections de 2026-08-29
+# n'apparaissaient dans aucun diff. On ne liste que les .s VRAIMENT générés
+# par cc65 (un par .c compilé).
+scoswamp.s
+paths.s
+memory_swap.s
+rules.s
+dice.s
+messages.s
+combat.s
+spacetrip.s
 *.o
-*.s
 *.lst
 *.map
 
 # Exception : sources assembleur volontaires (pas des intermédiaires cc65)
 !DOCS/HELLO_WORLD-ASM/*.s
 
-# Images disque ProDOS (artefacts de build, publiées en GitHub Release)
-# Voir DOCS/RELEASE.md pour la procédure de génération et de publication.
+*.bak
+*~
+
+# ── Artefacts de build ─────────────────────────────────────────────────────
+SCOSWAMP.MORE/TOOLS/build/
+dist/
+
+# ── Sorties dérivées, régénérables depuis les sources ci-dessus ────────────
+# 564 Mo : le rendu HGR intermédiaire de chaque scène. build_prodos_volume +
+# scoswamp_hgr les reconstruisent.
+SCOSWAMP.MORE/GENERATED/
+SCOSWAMP.MORE/HGR-PREVIEW/
+
+# Images disque ProDOS : sorties de build (37 Mo), reconstruites par TOOLS et
+# publiées en GitHub Release. Voir DOCS/RELEASE.md.
 *.2mg
 *.2img
 *.po
 *.dsk
+*.hdv
+*.HDV
 
-# Fichiers de backup
-*~
-*.bak
-*.swp
+# ── Matériel tiers, volontairement hors dépôt ─────────────────────────────
+# Scan du livre-jeu de Steve Jackson & Ian Livingstone : c'est l'œuvre source
+# dont ce portage est un hommage, pas un asset du projet. Le pousser sur un
+# dépôt public le republierait.
+# Sans ancre, la regle vaut partout : le PDF a deja ete depose a la racine, ou
+# `SCOSWAMP.MORE/*.pdf` ne l'attrapait pas, et un `git add -A` l'aurait publie
+# sur un depot public.
+*.pdf
+SCOSWAMP.MORE/Le.Marais.aux.scorpions.png
 
-# Fichiers macOS
+# ── Art de travail (16 Mo de PNG sources) ─────────────────────────────────
+# Non suivi par défaut pour garder le dépôt léger. Supprimer cette ligne si
+# tu veux qu'il voyage avec le code.
+SPACETRIP.MORE/
+
+# ── Ferraille macOS ───────────────────────────────────────────────────────
 .DS_Store
 ._*
 .Spotlight-V100

@@ -1,8 +1,7 @@
 T 069 Searching the Log
-You have killed the Bear and search the hollow log that served
-as its den. You find nothing interesting or valuable.
-Silence falls on the clearing; only the rustling of leaves
-accompanies your gestures. It's time to resume the journey.
+
+You have killed the Bear and search the hollow log that served as its den. You
+find nothing interesting or valuable. Silence falls on the clearing; only the
+rustling of leaves accompanies your gestures. It's time to resume the journey.
 
 C 390 Leave the clearing and continue the journey
-

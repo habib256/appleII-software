@@ -1,18 +1,15 @@
 T 118 The Scorpion Clearing
 
-Some distance away, two paths join the one you
-are following. The crossing occurs in a small clearing: No. 13.
+Some distance away, two paths join the one you are following. The crossing
+occurs in a small clearing: No. 13.
 
 If you've been here before, ignore this passage.
 
-Your Copper Ring tingles on your finger. Looking down,
-you see dozens of small scorpions rushing toward you.
+Your Copper Ring tingles on your finger. Looking down, you see dozens of small
+scorpions rushing toward you.
 
 Test your Luck.
 
 C 070 If you are Lucky
 C 182 If you are Unlucky
 C 303 If you have already been here
-
-
-

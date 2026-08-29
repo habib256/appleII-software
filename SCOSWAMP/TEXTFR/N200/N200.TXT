@@ -1,10 +1,11 @@
 T 200 Defi a l'ours
-Vous avez tue un nombre impressionnant de monstres et de betes.
-Un ours ne vous fait donc pas peur: vous poussez un cri de defi
-et brandissez votre epee, pret au combat.
-L'ours est massif, ses griffes laceraient une armure fragile.
-OURS HABILETE: 7 ENDURANCE: 8
+
+Vous avez tue un nombre impressionnant de monstres et de betes. Un ours ne
+vous fait donc pas peur: vous poussez un cri de defi et brandissez votre epee,
+pret au combat. L'ours est massif, ses griffes laceraient une armure fragile.
 
 Si vous sentez que vous avez le dessous, prenez la Fuite.
-C 390 Prendre la fuite
+
+M 7 8 OURS
+CF 390 Prendre la fuite
 C 069 Tuer l'Ours

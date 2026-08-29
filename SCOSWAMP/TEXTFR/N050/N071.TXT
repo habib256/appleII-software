@@ -1,7 +1,8 @@
 T 071 Le perroquet
-Craignant que l'oiseau ne donne l'alerte, vous le decapitez d'un
-coup d'epee. Le corps du perroquet tombe a terre sans un bruit.
-Vous lui arrachez quelques plumes aux couleurs vives et rangez
-votre epee. Puis vous reprenez le chemin avec plus de prudence.
+
+Craignant que l'oiseau ne donne l'alerte, vous le decapitez d'un coup d'epee.
+Le corps du perroquet tombe a terre sans un bruit. Vous lui arrachez quelques
+plumes aux couleurs vives et rangez votre epee. Puis vous reprenez le chemin
+avec plus de prudence.
 
 C 149 Poursuivre votre route

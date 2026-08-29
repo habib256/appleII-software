@@ -1,25 +1,19 @@
 T 371 The Antherique Quest
 
-"You're the one I was waiting for," says Gayolard. "I'll
-entrust you with a quest. There exists a rare plant, the Antherique, with
-curative properties precious for White Magic. The forces
-of Evil have almost entirely destroyed it. Thanks to my crystal
-ball, I've discovered a last bush survives in the
-Scorpion Swamp. It's small, dark green, with white
-flowers and purple berries. Bring me back a single berry and
-I can revive this plant throughout the world.
+"You're the one I was waiting for," says Gayolard. "I'll entrust you with a
+quest. There exists a rare plant, the Antherique, with curative properties
+precious for White Magic. The forces of Evil have almost entirely destroyed
+it. Thanks to my crystal ball, I've discovered a last bush survives in the
+Scorpion Swamp. It's small, dark green, with white flowers and purple berries.
+Bring me back a single berry and I can revive this plant throughout the world.
 
-In the Swamp reign magical forces against which
-a sword isn't enough. I'm giving you six Magic Stones.
-Choose them from the list (Beneficial or Neutral Stones
-only, no Malefic Stones). Write them down on your
-Adventure Sheet. Once all used, you can
-only count on your sword and intelligence.
+In the Swamp reign magical forces against which a sword isn't enough. I'm
+giving you six Magic Stones. Choose them from the list (Beneficial or Neutral
+Stones only, no Malefic Stones). Write them down on your Adventure Sheet. Once
+all used, you can only count on your sword and intelligence.
 
-You put the Stones in your purse and take leave.
-Your mission: find an Antherique berry and bring it back."
+You put the Stones in your purse and take leave. Your mission: find an
+Antherique berry and bring it back."
 
+PC 6 NB
 C 009 Begin your adventure
-
-
-

@@ -1,16 +1,11 @@
 T 135 Orc Loot
 
-You search the corpses of the Swamp Orcs.
-Their weapons are mediocre, their food repugnant.
+You search the corpses of the Swamp Orcs. Their weapons are mediocre, their
+food repugnant.
 
-One of them has some Gold Pieces.
-Roll a die to know the number.
+One of them has some Gold Pieces. Roll a die to know the number.
 
-The other carries a crude map. You find your
-position on it, but nothing new... except a drawing:
-a crowned frog, all the way south on the map.
+The other carries a crude map. You find your position on it, but nothing
+new... except a drawing: a crowned frog, all the way south on the map.
 
 C 309 Go toward the crowned frog
-
-
-

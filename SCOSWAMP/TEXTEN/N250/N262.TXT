@@ -1,13 +1,10 @@
 T 262 In Pompatarte's Service
 
-"I'm in Pompatarte the merchant's service," you reply calmly.
-You add that you don't know if he's good or evil, and that you're only
-drawing him a map to help him cross the Swamp. The tone is
-neutral, the truth partial - enough to get an answer without conflict.
-According to your previous journey, two directions offer themselves to you.
+"I'm in Pompatarte the merchant's service," you reply calmly. You add that you
+don't know if he's good or evil, and that you're only drawing him a map to
+help him cross the Swamp. The tone is neutral, the truth partial - enough to
+get an answer without conflict. According to your previous journey, two
+directions offer themselves to you.
 
 C 166 I've already reached Courbensaule
 C 115 I haven't yet reached Courbensaule
-
-
-

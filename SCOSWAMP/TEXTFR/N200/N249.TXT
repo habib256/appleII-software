@@ -1,9 +1,9 @@
 T 249 Saut dans l'obscurite
-Tentez votre CHANCE. Test: lancez 2 des (2d6). Si total <= CHANCE,
-vous atteignez la clairiere sans dommage. Sinon, vous tombez et
-vous vous blessez au bras; perdez 1 point d'HABILETE, puis atteignez
-quand meme la clairiere. Appliquez l'effet immediat avant de poursuivre.
-Oeu allez-vous ensuite?
+
+Tentez votre CHANCE. Test: lancez 2 des (2d6). Si total <= CHANCE, vous
+atteignez la clairiere sans dommage. Sinon, vous tombez et vous vous blessez
+au bras; perdez 1 point d'HABILETE, puis atteignez quand meme la clairiere.
+Appliquez l'effet immediat avant de poursuivre. Oeu allez-vous ensuite?
 
 C 336 Prendre la direction du sud
 C 121 Prendre la direction de l'est

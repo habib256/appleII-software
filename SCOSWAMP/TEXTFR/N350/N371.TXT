@@ -1,22 +1,21 @@
 T 371 La quete de l'Antherique
 
-"Vous etes celui que j'attendais, dit Gayolard. Je vais vous
-confier une quete. Il existe une plante rare, l'Antherique, aux
-proprietes curatives precieuses pour la Magie Blanche. Les forces
-du Mal l'ont presque entierement detruite. Grace a ma boule de
-cristal, j'ai decouvert qu'un dernier buisson subsiste dans le
-Marais aux Scorpions. Il est petit, vert fonce, avec des fleurs
-blanches et des baies violettes. Rapportez-moi une seule baie et
-je pourrai faire revivre cette plante a travers le monde.
+"Vous etes celui que j'attendais, dit Gayolard. Je vais vous confier une
+quete. Il existe une plante rare, l'Antherique, aux proprietes curatives
+precieuses pour la Magie Blanche. Les forces du Mal l'ont presque entierement
+detruite. Grace a ma boule de cristal, j'ai decouvert qu'un dernier buisson
+subsiste dans le Marais aux Scorpions. Il est petit, vert fonce, avec des
+fleurs blanches et des baies violettes. Rapportez-moi une seule baie et je
+pourrai faire revivre cette plante a travers le monde.
 
-Dans le Marais regnent des forces magiques contre lesquelles
-une epee ne suffit pas. Je vous donne six Pierres Magiques.
-Choisissez-les dans la liste (Pierres Benefiques ou Neutres
-uniquement, pas de Pierres Malefiques). Inscrivez-les sur votre
-Feuille d'Aventure. Une fois toutes utilisees, vous ne pourrez
-compter que sur votre epee et votre intelligence.
+Dans le Marais regnent des forces magiques contre lesquelles une epee ne
+suffit pas. Je vous donne six Pierres Magiques. Choisissez-les dans la liste
+(Pierres Benefiques ou Neutres uniquement, pas de Pierres Malefiques).
+Inscrivez-les sur votre Feuille d'Aventure. Une fois toutes utilisees, vous ne
+pourrez compter que sur votre epee et votre intelligence.
 
-Vous rangez les Pierres dans votre bourse et prenez conge.
-Votre mission : trouver une baie d'Antherique et la rapporter."
+Vous rangez les Pierres dans votre bourse et prenez conge. Votre mission :
+trouver une baie d'Antherique et la rapporter."
 
+PC 6 NB
 C 009 Commencer votre aventure

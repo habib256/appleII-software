@@ -1,9 +1,9 @@
 T 202 Trois directions
-Vous n'avez aucune raison de rester ici. 
-La clairiere est calme, mais le vent apporte une odeur de marecage. 
-Trois chemins s'ouvrent devant vous; chacun mene vers l'inconnu. 
-Quelle direction allez-vous choisir ?
 
-C 138 Prendre le sentier du sud 
-C 041 Suivre la piste vers l'est 
+Vous n'avez aucune raison de rester ici. La clairiere est calme, mais le vent
+apporte une odeur de marecage. Trois chemins s'ouvrent devant vous; chacun
+mene vers l'inconnu. Quelle direction allez-vous choisir ?
+
+C 138 Prendre le sentier du sud
+C 041 Suivre la piste vers l'est
 C 014 Marcher vers l'ouest

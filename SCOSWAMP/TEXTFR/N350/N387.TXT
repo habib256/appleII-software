@@ -6,5 +6,4 @@ C 107 Pierre de Malediction
 C 278 de Terreur
 C 148 d'Illusion
 C 318 d'Amitie
-C 65 Aucune de celles-ci
-
+C 065 Aucune de celles-ci

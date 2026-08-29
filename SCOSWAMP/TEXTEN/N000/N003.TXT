@@ -1,11 +1,11 @@
 T 003 Scorpion Swamp
-You stumble into a hole; both your feet immediately sink into
-the mud. You try in vain to free yourself by grabbing a plant,
-but its stem breaks and you sink even deeper. Small cries ring
-out behind you. You try to grab your sword, but sharp teeth sink
-into your hand. A few moments later, dozens of rats assault you.
-It's impossible to flee or fight them; the mud holds you from all
-sides. Soon, as the villagers had predicted, only a skeleton under
-the trees remains of you. Your adventure is over. Next time,
-without magic, you won't leave the Scorpion Swamp alive.
+
+You stumble into a hole; both your feet immediately sink into the mud. You try
+in vain to free yourself by grabbing a plant, but its stem breaks and you sink
+even deeper. Small cries ring out behind you. You try to grab your sword, but
+sharp teeth sink into your hand. A few moments later, dozens of rats assault
+you. It's impossible to flee or fight them; the mud holds you from all sides.
+Soon, as the villagers had predicted, only a skeleton under the trees remains
+of you. Your adventure is over. Next time, without magic, you won't leave the
+Scorpion Swamp alive.
 

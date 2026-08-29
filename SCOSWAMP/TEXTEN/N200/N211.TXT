@@ -1,17 +1,13 @@
 T 211 The Flaming Beard
 
-A crazy idea crosses your mind: set the Giant's beard on fire.
-You throw your Fire Stone, and immediately his long gray beard
-ignites in a dry crackling. The colossus screams, beating his
-hands on his smoking chin until extinguishing the flames.
+A crazy idea crosses your mind: set the Giant's beard on fire. You throw your
+Fire Stone, and immediately his long gray beard ignites in a dry crackling.
+The colossus screams, beating his hands on his smoking chin until
+extinguishing the flames.
 
-His roar makes the clearing tremble. Your spell has diminished his
-strength, but his fury is terrible and he blocks all retreat.
-Confrontation is inevitable.
+His roar makes the clearing tremble. Your spell has diminished his strength,
+but his fury is terrible and he blocks all retreat. Confrontation is
+inevitable.
 
-GIANT SKILL: 6 STAMINA: 12
-
+M 6 12 GIANT
 C 366 If you manage to strike down the Giant
-
-
-

@@ -1,15 +1,12 @@
 T 093 Le Maitre des Loups
 
-Vous lancez votre Malediction au Maitre des Loups. Il porte
-aussitot une main a sa gorge sous l effet de la douleur. Mais de
-l autre main il tire son epee et la pointe vers vous. 
+Vous lancez votre Malediction au Maitre des Loups. Il porte aussitot une main
+a sa gorge sous l effet de la douleur. Mais de l autre main il tire son epee
+et la pointe vers vous.
 
-C est votre tour de ressentir les effets de votre Pierre de Magie :
-jetez un de et perdez autant de points d ENDURANCE que le
-chiffre obtenu. 
+jetez un de et perdez autant de points d ENDURANCE que le chiffre obtenu.
 
-Si vous survivez, vous devez combattre le Maitre des Loups,
-mais deduisez 2 points de son total d HABILETE et de son total
-d ENDURANCE. 
+Si vous survivez, vous devez combattre le Maitre des Loups, mais deduisez 2
+points de son total d HABILETE et de son total d ENDURANCE.
 
 C 120 Combattre le Maitre des Loups

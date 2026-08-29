@@ -1,9 +1,9 @@
 T 032 Fleurs envahissantes
-Vous coupez les fleurs a grands coups d'epee, mais elles repoussent.
-Elles sont trop nombreuses; vos efforts restent vains et vous vous epuisez.
-Vos coups vous coutent 2 points d'ENDURANCE et vous perdez 1 point
-d'HABILETE a force de lutter contre cette vegetation implacable.
-Que faites-vous?
+
+Vous coupez les fleurs a grands coups d'epee, mais elles repoussent. Elles
+sont trop nombreuses; vos efforts restent vains et vous vous epuisez. Vos
+coups vous coutent 2 points d'ENDURANCE et vous perdez 1 point d'HABILETE a
+force de lutter contre cette vegetation implacable. Que faites-vous?
 
 C 269 Abandonner la partie et prendre la fuite
 C 080 Faire appel a la magie contre les fleurs

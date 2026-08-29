@@ -1,8 +1,9 @@
 T 037 Dire la verite ou mentir
-Vous prenez un instant pour peser vos paroles. Dire la verite peut
-gagner la confiance, mais vous denoncerait si vous servez un sorcier.
-Mentir permet de gagner du temps, mais risque d'etre retourne contre vous.
-Choisissez en fonction de votre strategie et de l'information dont vous disposez.
+
+Vous prenez un instant pour peser vos paroles. Dire la verite peut gagner la
+confiance, mais vous denoncerait si vous servez un sorcier. Mentir permet de
+gagner du temps, mais risque d'etre retourne contre vous. Choisissez en
+fonction de votre strategie et de l'information dont vous disposez.
 
 C 292 Dire la verite au sujet de votre quete
 C 220 Inventer une histoire et bavarder

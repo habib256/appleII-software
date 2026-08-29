@@ -1,9 +1,10 @@
 T 143 Retour de la bete
-A peine entre dans la clairiere, un grognement atroce retentit.
-La BETE IMMONDE n'a pas reussi a vous devorer la premiere fois;
-elle veut retenter sa chance et se jette vers vous, tenaille baveuse.
-Vous pesez vos options: recourir aux Pierres Magiques comme avant,
-ou tenir bon et l'affronter a l'epee, sans artifice.
+
+A peine entre dans la clairiere, un grognement atroce retentit. La BETE
+IMMONDE n'a pas reussi a vous devorer la premiere fois; elle veut retenter sa
+chance et se jette vers vous, tenaille baveuse. Vous pesez vos options:
+recourir aux Pierres Magiques comme avant, ou tenir bon et l'affronter a
+l'epee, sans artifice.
 
 C 374 Utiliser des Pierres Magiques contre la bete
 C 176 Combattre la bete au corps a corps

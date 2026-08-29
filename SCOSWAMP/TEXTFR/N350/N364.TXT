@@ -1,12 +1,10 @@
 T 364 Attaque au bassin
 
-Vous vous trouvez a nouveau dans la clairiere oeu vous avez bu
-dans un bassin une au qui a soulage vos blessures. Vous vous
-approchez de cette au bienfaisante, mais, un instant plus tard,
-une fleche siffle a vos oreilles, puis une autre. Il vous est
-impossible de determiner l'endroit d'oeu elles sont tires et vous
-prenez la Fuite par le chemin que vous avez emprunte pour
+Vous vous trouvez a nouveau dans la clairiere oeu vous avez bu dans un bassin
+une au qui a soulage vos blessures. Vous vous approchez de cette au
+bienfaisante, mais, un instant plus tard, une fleche siffle a vos oreilles,
+puis une autre. Il vous est impossible de determiner l'endroit d'oeu elles
+sont tires et vous prenez la Fuite par le chemin que vous avez emprunte pour
 arriver jusqu'ici.
 
-C 47 Fuir
-
+C 047 Fuir

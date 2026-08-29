@@ -1,10 +1,9 @@
 T 149 La clairiere aux oisaux
 
-Vous entrez dans une clairiere envahie d'oisaux aux couleurs vives.
-Il n'y a aucune trace d'une presence humaine; la Maitresse des Oisaux a du
-s'absenter.
-Vous parcourez la clairiere a la recherche d'indices.
-Tout ce que vous trouvez, ce sont des plumes eparses, jonchant le sol.
-Un silence leger flotte, comme si les branches retenaient leur souffle.
+Vous entrez dans une clairiere envahie d'oisaux aux couleurs vives. Il n'y a
+aucune trace d'une presence humaine; la Maitresse des Oisaux a du s'absenter.
+Vous parcourez la clairiere a la recherche d'indices. Tout ce que vous
+trouvez, ce sont des plumes eparses, jonchant le sol. Un silence leger flotte,
+comme si les branches retenaient leur souffle.
 
 C 217 Vous decidez de poursuivre votre route.

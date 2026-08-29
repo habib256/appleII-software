@@ -1,15 +1,10 @@
 T 106 The Thief's Trap
 
-A cord wraps around your neck: the Thief has
-tricked you! Fortunately, you are much stronger than him and
-force him to let go before flipping him
-over your shoulder. You are now free, short of breath.
-The struggle has cost you 2 STAMINA points. The Thief has drawn
-a dagger and threatens you with a quick gesture. He's ready to
-fight to the end. What do you do?
+A cord wraps around your neck: the Thief has tricked you! Fortunately, you are
+much stronger than him and force him to let go before flipping him over your
+shoulder. You are now free, short of breath. The struggle has cost you 2
+STAMINA points. The Thief has drawn a dagger and threatens you with a quick
+gesture. He's ready to fight to the end. What do you do?
 
 C 267 Attack the Thief and finish it
 C 179 Flee immediately
-
-
-

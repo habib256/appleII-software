@@ -2,17 +2,17 @@ T 000 LE MARAIS AUX SCORPIONS
 
 Vous etes un(e) aventurier(e) aguerri(e) en quete de gloire !
 
-Le Marais aux Scorpions est un lieu maudit que nul n'ose explorer.
-Monstres, pieges et sorciers malfaisants vous y attendent. Mais la
-legende parle d'un tresor fabuleux cache en ses profondeurs...
+Le Marais aux Scorpions est un lieu maudit que nul n'ose explorer. Monstres,
+pieges et sorciers malfaisants vous y attendent. Mais la legende parle d'un
+tresor fabuleux cache en ses profondeurs...
 
-Saurez-vous survivre aux perils du Marais et decouvrir ses secrets ?
-Vos choix determineront votre destin !
+Saurez-vous survivre aux perils du Marais et decouvrir ses secrets ? Vos choix
+determineront votre destin !
 
 Commandes :
- [ESPACE/RETURN/ESC] - Basculer entre mode texte et graphique
- [A-Z] - Faire un choix
- [Q] - Quitter l'aventure
+ [ESPACE/RETURN/ESC] - Texte, puis image HGR, puis HGR + 4 lignes de texte
+ [A-Z]               - Faire un choix
+ [I] [H]             - Le sac a dos, l'aide
+ [Q]                 - Quitter l'aventure
 
 C 001 Commencer l'aventure
-

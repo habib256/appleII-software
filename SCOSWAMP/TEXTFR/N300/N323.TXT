@@ -1,9 +1,8 @@
 T 323 Retour aux Orques
 
-Vous vous trouvez dans la clairiere oeu vous avez rencontre les
-Orques des Marais. Si vous les avez deja tues, rendez-vous au
-309. Sinon, vous devrez les combattre avec le total d'ENDURANCE
-qu'ils avaient lorsque vous les avez quittes.
+Vous vous trouvez dans la clairiere oeu vous avez rencontre les Orques des
+Marais. Si vous les avez deja tues, rendez-vous au 309. Sinon, vous devrez les
+combattre avec le total d'ENDURANCE qu'ils avaient lorsque vous les avez
+quittes.
 
 C 281 Combattre les Orques
-

@@ -1,10 +1,9 @@
 T 105 Pierres et tronc
-Vous apercevez une clairiere a quelque distance devant vous.
-Le sol y est ferme; vous pouvez y penetrer d'un pas assure.
-Des pierres plates de grande taille, un tronc creux massif,
-et deux chemins se dessinent un peu plus loin.
-Vous etes dans la Clairiere n 012.
-Que voulez-vous faire?
+
+Vous apercevez une clairiere a quelque distance devant vous. Le sol y est
+ferme; vous pouvez y penetrer d'un pas assure. Des pierres plates de grande
+taille, un tronc creux massif, et deux chemins se dessinent un peu plus loin.
+Vous etes dans la Clairiere n 012. Que voulez-vous faire?
 
 C 021 S'asseoir sur une pierre pour se reposer
 C 055 Inspecter le tronc creux

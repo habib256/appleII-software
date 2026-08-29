@@ -1,10 +1,10 @@
 T 185 Le conseil du Patrouilleur
-Le Patrouilleur semble convaincu par votre recit. 
-"Vous etes sur la bonne voie," dit-il d'un ton calme. 
-"Plus a l'est vit le Maitre des Jardins, un sorcier bienveillant 
-et puissant. Cherchez-le, il pourra vous aider."
 
-Vous le remerciez sincerement pour cette indication precieuse, 
-puis reprenez votre marche vers l'est.
+Le Patrouilleur semble convaincu par votre recit. "Vous etes sur la bonne
+voie," dit-il d'un ton calme. "Plus a l'est vit le Maitre des Jardins, un
+sorcier bienveillant et puissant. Cherchez-le, il pourra vous aider."
+
+Vous le remerciez sincerement pour cette indication precieuse, puis reprenez
+votre marche vers l'est.
 
 C 234 Continuer votre route vers le Maitre des Jardins

@@ -1,8 +1,8 @@
 T 005 Epreuve de chance
-Tentez votre chance: le sort decide de la suite de votre route.
-Si la fortune vous sourit, les evenements vous seront favorables.
-Si la malchance vous atteint, les consequences seront facheuses.
-Que faites-vous?
+
+Tentez votre chance: le sort decide de la suite de votre route. Si la fortune
+vous sourit, les evenements vous seront favorables. Si la malchance vous
+atteint, les consequences seront facheuses. Que faites-vous?
 
 C 273 Vous etes chanceux
 C 297 Vous etes malchanceux

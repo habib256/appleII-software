@@ -1,12 +1,9 @@
 T 151 The Lost Arrows
-You leap aside. One arrow misses you,
-but the other cuts your arm: you lose 1 SKILL point.
-Blood flows slightly; the pain reminds you of the danger.
-The archers don't release the tension of their bows. You must act fast.
+
+You leap aside. One arrow misses you, but the other cuts your arm: you lose 1
+SKILL point. Blood flows slightly; the pain reminds you of the danger. The
+archers don't release the tension of their bows. You must act fast.
 
 C 281 Attack with sword
 C 399 Resort to magic
 C 309 Flee at full speed
-
-
-

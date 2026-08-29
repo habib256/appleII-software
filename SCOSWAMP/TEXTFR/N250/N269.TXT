@@ -1,7 +1,7 @@
 T 269 Fuite des Fleurs d'Angoisse
-La terreur vous gagne tandis que vous fuyez les Fleurs d'Angoisse.
-Vous perdez 1 point d'HABILETE supplementaire en reculant a toute
-vitesse. Quand enfin vous etes a distance, votre peur diminue.
+
+La terreur vous gagne tandis que vous fuyez les Fleurs d'Angoisse. Vous perdez
+1 point d'HABILETE supplementaire en reculant a toute vitesse. Quand enfin
+vous etes a distance, votre peur diminue.
 
 C 367 Continuer apres la fuite
-

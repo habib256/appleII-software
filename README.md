@@ -1,3 +1,32 @@
+<!-- Déplacé le 2026-08-29 depuis ~/Emu/AppleII/apple2src/apple2adventure
+     vers ~/src/pom2adventure, à côté de l'émulateur. Historique git conservé. -->
+
+> **pom2adventure — l'atelier logiciel Apple II.**
+>
+> Dépôt distinct de [POM2](../pom2), qui est l'émulateur : ici on écrit les
+> programmes *pour* la machine, chaîne cc65 `apple2enh` + ProDOS 8.
+>
+> Construire SCOSWAMP :
+> `cd SCOSWAMP/SRC && make hdv` — relie le jeu, le lanceur ProDOS, et
+> reconstruit `dist/SCOSWAMP.HDV`.
+>
+> Les règles de jeu se testent sur la machine hôte, sans émulateur :
+> `cmake -S SCOSWAMP.MORE/TOOLS -B SCOSWAMP.MORE/TOOLS/build && cd $_ && ctest`.
+>
+> Test dans l'émulateur voisin :
+> `../pom2/build/POM2 --preset iie <image.hdv>` — ajouter `--ai-control=PORT`
+> pour le piloter sans les mains (HTTP sur la boucle locale ; attention, son
+> parseur JSON ne décode pas les échappements `\uXXXX`, une touche de contrôle
+> se passe en octet brut dans le corps de la requête).
+>
+> Le disque ne porte plus BASIC.SYSTEM : le jeu occupe sa place en mémoire et
+> démarre par `SCOSWAMP.SYSTEM`, un lanceur ProDOS. Voir `SRC/loader.c`.
+>
+> Backlog : [`TODO.md`](TODO.md). Ce qui n'est pas suivi par git et pourquoi :
+> [`.gitignore`](.gitignore).
+
+---
+
 # Apple II - Moteurs de Jeu Pilotés par Données
 
 Deux jeux d'aventure pour Apple IIe Enhanced démontrant une architecture moderne : moteur compact (~13 Ko) + contenu illimité sur disque ProDOS.

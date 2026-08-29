@@ -1,10 +1,8 @@
 T 085 The Flight
 
-You flee and must necessarily retrace your steps
-following the path that brought you here.
+You flee and must necessarily retrace your steps following the path that
+brought you here.
 
-You find the initial trail and prepare your next
-decision.
+You find the initial trail and prepare your next decision.
 
 C 153 Return by the direction from which you arrived
-

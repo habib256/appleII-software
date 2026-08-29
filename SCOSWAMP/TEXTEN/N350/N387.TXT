@@ -6,7 +6,4 @@ C 107 Curse Stone
 C 278 Terror
 C 148 Illusion
 C 318 Friendship
-C 65 None of these
-
-
-
+C 065 None of these

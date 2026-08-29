@@ -1,7 +1,7 @@
 T 057 Dernier recours
-Aucune des Pierres de Magie que vous possedez ne semble utile ici.
-Il ne vous reste donc plus qu'a tirer votre epee et attaquer le sorcier.
-L'affrontement est ineluctable; preparez-vous au corps a corps.
-Que faites-vous?
+
+Aucune des Pierres de Magie que vous possedez ne semble utile ici. Il ne vous
+reste donc plus qu'a tirer votre epee et attaquer le sorcier. L'affrontement
+est ineluctable; preparez-vous au corps a corps. Que faites-vous?
 
 C 124 Attaquer le sorcier au corps a corps

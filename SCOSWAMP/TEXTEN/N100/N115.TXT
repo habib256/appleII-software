@@ -2,14 +2,10 @@ T 115 The Patroller's Advice
 
 The Patroller bursts out laughing and appreciates your honesty.
 
-"You're looking for Courbensaule," he says. "Then go south,
-then west to the crossroads.
-From there, follow the path without ever straying from it and you
+"You're looking for Courbensaule," he says. "Then go south, then west to the
+crossroads. From there, follow the path without ever straying from it and you
 will reach the town."
 
 You thank him and resume the journey.
 
 C 234 Continue toward Courbensaule
-
-
-

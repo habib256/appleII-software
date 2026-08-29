@@ -1,12 +1,11 @@
 T 242 Sac leger
 
-En ouvrant le sac vous constatez qu'il n'est pas aussi lourd
-qu'il devrait l'etre. Vous avez traverse le Marais pour lui;
-et voici qu'en rentrant, le contenu manque. Stratagus vous a
-trompe, ou bien il y a eu une erreur: la colere monte.
-Que faites-vous? Reprendre la tour et le frapper? Tenter la
-voie magique pour recuperer ce qui vous revient? Ou vous resigner
-et partir avec ce qui vous a ete donne pour eviter d'autres perils?
+En ouvrant le sac vous constatez qu'il n'est pas aussi lourd qu'il devrait
+l'etre. Vous avez traverse le Marais pour lui; et voici qu'en rentrant, le
+contenu manque. Stratagus vous a trompe, ou bien il y a eu une erreur: la
+colere monte. Que faites-vous? Reprendre la tour et le frapper? Tenter la voie
+magique pour recuperer ce qui vous revient? Ou vous resigner et partir avec ce
+qui vous a ete donne pour eviter d'autres perils?
 
 C 124 Retourner a la tour et l'attaquer
 C 256 Y retourner mais recourir a la magie

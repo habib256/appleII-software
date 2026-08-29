@@ -1,13 +1,10 @@
 T 185 The Patroller's Advice
-The Patroller seems convinced by your account.
-"You are on the right path," he says calmly.
-"Further east lives the Garden Master, a benevolent
-and powerful sorcerer. Seek him, he can help you."
 
-You thank him sincerely for this precious indication,
-then resume your walk eastward.
+The Patroller seems convinced by your account. "You are on the right path," he
+says calmly. "Further east lives the Garden Master, a benevolent and powerful
+sorcerer. Seek him, he can help you."
+
+You thank him sincerely for this precious indication, then resume your walk
+eastward.
 
 C 234 Continue your journey to the Garden Master
-
-
-

@@ -1,12 +1,8 @@
 T 348 Four Paths
 
-Four paths allow you to leave. In which
-direction do you wish to go?
+Four paths allow you to leave. In which direction do you wish to go?
 
-C 94 North
+C 094 North
 C 157 South
-C 10 East
+C 010 East
 C 204 West
-
-
-

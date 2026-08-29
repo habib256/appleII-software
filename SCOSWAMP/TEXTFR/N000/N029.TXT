@@ -1,11 +1,11 @@
 T 029 Mensonge utile
-Vous concluez qu'il serait stupide de reveler que vous servez un sorcier.
-Vous mentez: "Je sers les forces du Bien. Pour l'instant je cherche
-seulement le chemin pour sortir du Marais; je cherche un des Maitres."
-Tentez votre Chance: le sort decide si votre mensonge passe inapercu.
-Si la fortune vous sourit, la ruse fonctionne et il vous croit.
-Si la malchance vous atteint, votre mensonge vous trahit.
-Que faites-vous?
+
+Vous concluez qu'il serait stupide de reveler que vous servez un sorcier. Vous
+mentez: "Je sers les forces du Bien. Pour l'instant je cherche seulement le
+chemin pour sortir du Marais; je cherche un des Maitres." Tentez votre Chance:
+le sort decide si votre mensonge passe inapercu. Si la fortune vous sourit, la
+ruse fonctionne et il vous croit. Si la malchance vous atteint, votre mensonge
+vous trahit. Que faites-vous?
 
 C 185 Vous etes Chanceux
 C 378 Vous etes Malchanceux

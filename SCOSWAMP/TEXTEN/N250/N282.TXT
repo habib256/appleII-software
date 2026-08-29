@@ -1,10 +1,7 @@
 T 282 Ice Stone
-You throw the Ice Stone at the Slime. It was indeed this
-spell that was appropriate to choose, for the Slime is a creature
-made of water and, under the effect of your Magic Stone, it freezes
-instantly and dies.
 
-C 38 Go to 38
+You throw the Ice Stone at the Slime. It was indeed this spell that was
+appropriate to choose, for the Slime is a creature made of water and, under
+the effect of your Magic Stone, it freezes instantly and dies.
 
-
-
+C 038 Go to 38

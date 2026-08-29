@@ -1,9 +1,10 @@
 T 030 Morsure fatale
-Vous jetez vos bottes et votre sac a dos au pied de la falaise
-puis vous plongez. Helas, l'au est trop peu profonde et le fond
-est recouvert d'une epaisse couche de vase: vous vous retrouvez
-enlises. Vous luttez, parvenez a remonter a la surface, essouffle.
-Face a vous, un crocodile ouvre ses machoires enormes.
-Vous empoignez votre epee et tentez un geste, mais il est vain.
-Les machoires se referment; la douleur est breve.
-Votre aventure s'acheve dans l'estomac du reptile.
+
+Vous jetez vos bottes et votre sac a dos au pied de la falaise puis vous
+plongez. Helas, l'au est trop peu profonde et le fond est recouvert d'une
+epaisse couche de vase: vous vous retrouvez enlises. Vous luttez, parvenez a
+remonter a la surface, essouffle. Face a vous, un crocodile ouvre ses
+machoires enormes. Vous empoignez votre epee et tentez un geste, mais il est
+vain. Les machoires se referment; la douleur est breve. Votre aventure
+s'acheve dans l'estomac du reptile.
+

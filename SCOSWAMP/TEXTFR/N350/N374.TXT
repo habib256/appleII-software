@@ -1,11 +1,10 @@
 T 374 Magie contre la Bete Immonde
 
-Il vaut mieux combattre un tel monstre avec le secours de la
-magie. Quel sortilege allez-vous lui lancer ?
+Il vaut mieux combattre un tel monstre avec le secours de la magie. Quel
+sortilege allez-vous lui lancer ?
 
 C 299 Terreur
-C 60 Illusion
+C 060 Illusion
 C 228 Croissance
 C 160 Amitie
-C 11 Aucun de ceux-ci
-
+C 011 Aucun de ceux-ci

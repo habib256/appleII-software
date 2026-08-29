@@ -1,15 +1,12 @@
 T 162 The Trusting Master
-He believes your story and chatters willingly; you thus learn
-that the Masters form a circle of sorcerers with changing alliances.
-Their bond lies in the Amulets they wear: a Master cannot kill
-another as long as he wears his amulet. These jewels have power
-only when a sorcerer wears them, he says, then resumes his speech.
-You thank him and back up to the path entrance, out of his sight.
-What do you do?
+
+He believes your story and chatters willingly; you thus learn that the Masters
+form a circle of sorcerers with changing alliances. Their bond lies in the
+Amulets they wear: a Master cannot kill another as long as he wears his
+amulet. These jewels have power only when a sorcerer wears them, he says, then
+resumes his speech. You thank him and back up to the path entrance, out of his
+sight. What do you do?
 
 C 352 Leave for good
 C 245 Try to steal the Amulet with an Illusion Stone
 C 062 Attack him with your sword
-
-
-

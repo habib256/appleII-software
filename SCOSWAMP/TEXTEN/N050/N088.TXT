@@ -4,4 +4,3 @@ You leave the clearing and arrive at a fork.
 
 C 121 Go north
 C 331 Go east
-

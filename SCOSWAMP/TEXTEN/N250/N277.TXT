@@ -1,11 +1,8 @@
 T 277 The Unicorn Horn
-The Unicorn is dead. Knowing that its horn has great
-magical powers, you cut it with your sword and
-store it in your Backpack (record it on your Adventure
+
+The Unicorn is dead. Knowing that its horn has great magical powers, you cut
+it with your sword and store it in your Backpack (record it on your Adventure
 Sheet).
 
 C 348 Leave right now
-C 86 Stay a while to search the clearing
-
-
-
+C 086 Stay a while to search the clearing

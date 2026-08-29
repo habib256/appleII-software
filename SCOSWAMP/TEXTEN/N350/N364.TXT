@@ -1,14 +1,8 @@
 T 364 Attack at the Basin
 
-You're again in the clearing where you drank
-from a basin water that relieved your wounds. You
-approach this beneficial water, but, a moment later,
-an arrow whistles past your ears, then another. It's
-impossible for you to determine where they're fired from and you
-Flee by the path you took to
-get here.
+You're again in the clearing where you drank from a basin water that relieved
+your wounds. You approach this beneficial water, but, a moment later, an arrow
+whistles past your ears, then another. It's impossible for you to determine
+where they're fired from and you Flee by the path you took to get here.
 
-C 47 Flee
-
-
-
+C 047 Flee

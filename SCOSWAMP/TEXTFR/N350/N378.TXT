@@ -1,11 +1,9 @@
 T 378 Combat contre le Patrouilleur
 
-Le Patrouilleur n'est pas un sot et il sent bien que vous travaillez
-pour le compte d'un sorcier malefique. Il saute alors a bas de son
-rocher et vous attaque.
-PATROUILLEUR HABILETE: 10 ENDURANCE: 10
-Vous pourrez, a tout moment, prendre la Fuite.
+Le Patrouilleur n'est pas un sot et il sent bien que vous travaillez pour le
+compte d'un sorcier malefique. Il saute alors a bas de son rocher et vous
+attaque. Vous pourrez, a tout moment, prendre la Fuite.
 
-C 234 Prendre la Fuite
+M 10 10 PATROUILLEUR
+CF 234 Prendre la Fuite
 C 219 Si vous tuez le Patrouilleur
-

@@ -1,6 +1,6 @@
 T 101 Le vieux pont
 
-Le pont est ancien mais solide. 
+Le pont est ancien mais solide.
 
 C 350 Traverser vers le nord
 C 118 Traverser vers le sud

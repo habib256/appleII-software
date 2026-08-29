@@ -1,15 +1,14 @@
 T 127 Conversation avec le Maitre
 
-Il n a pas l air mechant, juste timide. 
-Vous lancez une Pierre d Amitie pour l amadouer. 
+Il n a pas l air mechant, juste timide. Vous lancez une Pierre d Amitie pour l
+amadouer.
 
-Aussitot, son visage s illumine. 
-"Je ne recois pas baucoup de visites, dit-il. Si vous avez besoin
-de savoir quelque chose, je serais ravi de vous aider. 
-Je suis un puissant sorcier, savez-vous ? 
-Mais asseyez-vous donc, bavardons un peu." 
+Aussitot, son visage s illumine. "Je ne recois pas baucoup de visites, dit-il.
+Si vous avez besoin de savoir quelque chose, je serais ravi de vous aider. Je
+suis un puissant sorcier, savez-vous ? Mais asseyez-vous donc, bavardons un
+peu."
 
-Vous parlez avec le Maitre des Grenouilles, puis abordez a
-nouveau la plante que vous cherchez. 
+Vous parlez avec le Maitre des Grenouilles, puis abordez a nouveau la plante
+que vous cherchez.
 
 C 104 Poursuivre la discussion sur la plante

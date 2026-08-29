@@ -1,13 +1,8 @@
 T 389 Antherique Bush Found
 
-According to Gayolard's description of it, there's no
-doubt you've found the Antherique bush there. Half
-of your mission is thus accomplished but, now, you
-must return to the sorcerer taking with you the
-precious berry. The only path you can take for
-now is oriented south.
+According to Gayolard's description of it, there's no doubt you've found the
+Antherique bush there. Half of your mission is thus accomplished but, now, you
+must return to the sorcerer taking with you the precious berry. The only path
+you can take for now is oriented south.
 
 C 342 Continue south
-
-
-

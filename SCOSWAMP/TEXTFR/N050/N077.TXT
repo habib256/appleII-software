@@ -1,8 +1,7 @@
 T 077 Le bassin bienfaisant
 
-Vous vous sentez tout ragaillardi. L au de ce bassin a des
-proprietes benefiques et vous recuperez 3 points d ENDURANCE.
-Vous repartez ensuite vers l ouest, vigilant dans le silence
-du marais.
+Vous vous sentez tout ragaillardi. L au de ce bassin a des proprietes
+benefiques et vous recuperez 3 points d ENDURANCE. Vous repartez ensuite vers
+l ouest, vigilant dans le silence du marais.
 
 C 047 Repartir vers l ouest

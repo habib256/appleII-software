@@ -1,14 +1,13 @@
 T 092 Les deux loups
 
-Le chemin vers le nord s eleve peu a peu. Le sol devient plus sec
-et la vegetation des marais cede place a une foret profonde. 
+Le chemin vers le nord s eleve peu a peu. Le sol devient plus sec et la
+vegetation des marais cede place a une foret profonde.
 
-Bientot, les arbres s eclaircissent et vous atteignez une vaste
-clairiere parseme de buissons : la Clairiere no 11. 
+Bientot, les arbres s eclaircissent et vous atteignez une vaste clairiere
+parseme de buissons : la Clairiere no 11.
 
-Vous tendez l oreille, mais rien d anormal ne trouble le silence. 
-Puis, soudain, deux enormes loups apparaissent et vous fixent
-dans l ombre. 
+Vous tendez l oreille, mais rien d anormal ne trouble le silence. Puis,
+soudain, deux enormes loups apparaissent et vous fixent dans l ombre.
 
 C 344 Si vous possedez l Amulette en forme de Loup
 C 068 Sinon

@@ -1,14 +1,8 @@
 T 345 The Clearing on Fire
 
-As you approach the place where you killed the
-terrible Spider Master, you experience an increasingly
-intense heat sensation. At the clearing's edge, you
-notice it's on fire: there's only an immense
-blaze forbidding you passage. The smoke given off by
-the fire half chokes you and you lose 1
-STAMINA point.
+As you approach the place where you killed the terrible Spider Master, you
+experience an increasingly intense heat sensation. At the clearing's edge, you
+notice it's on fire: there's only an immense blaze forbidding you passage. The
+smoke given off by the fire half chokes you and you lose 1 STAMINA point.
 
 C 165 Continue
-
-
-

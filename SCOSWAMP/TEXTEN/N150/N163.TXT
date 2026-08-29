@@ -1,23 +1,19 @@
 T 163 The Brigands' Duel
-You advance into the clearing with a calm step.
-The five Brigands, surprised by your assurance, stop short.
-"Hey there! Where are you going like that?" asks one of them.
-"North," you reply calmly.
 
-Your composure impresses them.
-These men are used to taxing travelers, but they're not assassins.
-Their chief, a fellow with a battle beard, then advances:
+You advance into the clearing with a calm step. The five Brigands, surprised
+by your assurance, stop short. "Hey there! Where are you going like that?"
+asks one of them. "North," you reply calmly.
 
-"We don't rob brave folk," he says.
-"But if you're so sure of yourself, let's prove it in a duel!
-First blood declares the winner:
-- If I touch you, you'll give me a valuable object.
-- If you wound me, we'll let you pass without asking anything."
+Your composure impresses them. These men are used to taxing travelers, but
+they're not assassins. Their chief, a fellow with a battle beard, then
+advances:
+
+"We don't rob brave folk," he says. "But if you're so sure of yourself, let's
+prove it in a duel! First blood declares the winner: - If I touch you, you'll
+give me a valuable object. - If you wound me, we'll let you pass without
+asking anything."
 
 Do you accept this challenge?
 
 C 079 Accept the duel
 C 353 Refuse and try another approach
-
-
-

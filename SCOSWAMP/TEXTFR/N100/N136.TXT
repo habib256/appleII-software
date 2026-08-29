@@ -1,8 +1,8 @@
 T 136 Flamme detourne
 
-Vous lancez une Pierre de Feu sur le Maitre des Jardins. 
-Mais d un simple geste, il detourne la flamme sans effort. 
+Vous lancez une Pierre de Feu sur le Maitre des Jardins. Mais d un simple
+geste, il detourne la flamme sans effort.
 
-Vous decidez alors de l attaquer. 
+Vous decidez alors de l attaquer.
 
 C 379 Passer a l attaque

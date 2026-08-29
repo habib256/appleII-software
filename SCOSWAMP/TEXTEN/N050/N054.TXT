@@ -1,11 +1,9 @@
 T 054 Angry Accusation
-His features convulse with fury; he begins to shout.
-"How dare you return empty-handed?" he thunders, voice breaking.
-Test your LUCK. Test: roll 2 dice (2d6). If total <= LUCK then
-you are Lucky; otherwise you are Unlucky.
-Immediately apply the effects of the result before continuing.
-What do you do?
+
+His features convulse with fury; he begins to shout. "How dare you return
+empty-handed?" he thunders, voice breaking. Test your LUCK. Test: roll 2 dice
+(2d6). If total <= LUCK then you are Lucky; otherwise you are Unlucky.
+Immediately apply the effects of the result before continuing. What do you do?
 
 C 109 You are Lucky
 C 285 You are Unlucky
-

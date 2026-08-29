@@ -1,12 +1,8 @@
 T 392 Combat against the Eagle
 
-The Eagle knows you're an enemy and attacks you. You
-have no possibility of fleeing, for it's larger
-and faster than you. All you can do is trust
-your sword.
-EAGLE SKILL: 7 STAMINA: 6
+The Eagle knows you're an enemy and attacks you. You have no possibility of
+fleeing, for it's larger and faster than you. All you can do is trust your
+sword.
 
+M 7 6 EAGLE
 C 132 If you kill the Eagle
-
-
-

@@ -1,20 +1,14 @@
 T 275 The Giant
-A hole in the ground soon makes you stumble. You look
-down and then realize that the hole in question is
-actually a fifty-centimeter-long footprint, left there
-by an enormous hobnailed boot. You're at the entrance of
-Clearing No. 7. If you've been there before, go to 342.
-Otherwise, read what follows. You enter the clearing and find
-yourself face to face with a GIANT of fantastic size. He looks
-furious and brandishes a large spiked club.
-Your Copper Ring remains cold, so it's not an
-evil creature. The Giant is nonetheless dangerous for
-that. "IT IS FORBIDDEN TO PASS!" he yells at you.
-What will you do?
 
-C 12 Attack him
+A hole in the ground soon makes you stumble. You look down and then realize
+that the hole in question is actually a fifty-centimeter-long footprint, left
+there by an enormous hobnailed boot. You're at the entrance of Clearing No. 7.
+If you've been there before, go to 342. Otherwise, read what follows. You
+enter the clearing and find yourself face to face with a GIANT of fantastic
+size. He looks furious and brandishes a large spiked club. Your Copper Ring
+remains cold, so it's not an evil creature. The Giant is nonetheless dangerous
+for that. "IT IS FORBIDDEN TO PASS!" he yells at you. What will you do?
+
+C 012 Attack him
 C 229 Try to calm him
 C 145 Resort to magic
-
-
-

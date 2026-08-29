@@ -1,13 +1,11 @@
 T 050 Confrontation at the Door
-Stratagus listens to your story with manifest interest.
-"A magic ring? Really?" he exclaims, eyes wide.
-You extend your hand to show him the glowing Copper Ring.
-He steps back, makes a strange hand gesture: a spell forms.
-The ring heats up intensely; you feel the magic rising.
-Act quickly: his pass may be offensive or a test of control.
-What do you do?
+
+Stratagus listens to your story with manifest interest. "A magic ring?
+Really?" he exclaims, eyes wide. You extend your hand to show him the glowing
+Copper Ring. He steps back, makes a strange hand gesture: a spell forms. The
+ring heats up intensely; you feel the magic rising. Act quickly: his pass may
+be offensive or a test of control. What do you do?
 
 C 373 Leap and attack Stratagus
 C 222 Wait and observe what he will do
 C 315 Flee from the tower
-

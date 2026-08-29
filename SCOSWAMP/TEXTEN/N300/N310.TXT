@@ -1,10 +1,6 @@
 T 310 Fire on the Pincer Grass
 
-You throw your Fire Magic Stone at the Pincer Grass. It's
-not entirely burned however, but it retreats
-sufficiently to allow you to escape.
+You throw your Fire Magic Stone at the Pincer Grass. It's not entirely burned
+however, but it retreats sufficiently to allow you to escape.
 
 C 187 Escape
-
-
-

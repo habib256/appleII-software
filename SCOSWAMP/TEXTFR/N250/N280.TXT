@@ -1,19 +1,17 @@
 T 280 Route de Courbensaule
-Vous suivez le sentier en direction du nord. Il s'elargit peu a peu
-et le Marais lui-meme devient moins sinistre. Puis, bientot, les
-marecages font place a la foret et vous finissez par arriver devant
-un poteau indicateur qui signale : ROUTE DE COURBENSAULE. Si
-vous etes deja venu a Courbensaule auparavant, rendez-vous
-au355. Sinon, lisez ce qui suit. Quelques minutes plus tard, vous
-entendez des voix et vous rencontrez des gardes forestiers en
-compagnie desquels vous marchez jusqu'a la ville de
-Courbensaule.
-Apres tant d'aventures, la seule chose dont vous ayez besoin, c'est
-de trouver une auberge pour y passer une bonne nuit de
-sommeil. Les gardes forestiers vous indiquent qu'il existe trois
-auberges a Courbensaule. Laquelle choisirez-vous ?
+
+Vous suivez le sentier en direction du nord. Il s'elargit peu a peu et le
+Marais lui-meme devient moins sinistre. Puis, bientot, les marecages font
+place a la foret et vous finissez par arriver devant un poteau indicateur qui
+signale : ROUTE DE COURBENSAULE. Si vous etes deja venu a Courbensaule
+auparavant, rendez-vous au355. Sinon, lisez ce qui suit. Quelques minutes plus
+tard, vous entendez des voix et vous rencontrez des gardes forestiers en
+compagnie desquels vous marchez jusqu'a la ville de Courbensaule. Apres tant
+d'aventures, la seule chose dont vous ayez besoin, c'est de trouver une
+auberge pour y passer une bonne nuit de sommeil. Les gardes forestiers vous
+indiquent qu'il existe trois auberges a Courbensaule. Laquelle choisirez-vous
+?
 
 C 395 L'Ours Noir
-C 78 La Lance Tordue
+C 078 La Lance Tordue
 C 289 Le Cheval Volant de Tancrede
-

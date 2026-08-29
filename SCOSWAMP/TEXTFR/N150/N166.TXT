@@ -1,19 +1,18 @@
 T 166 Le Patrouilleur et le Chemin du Retour
-Le Patrouilleur vous felicite pour votre bravoure. 
-"Vous vous en etes bien sorti, aventurier !" dit-il avec un sourire. 
-"Tout ce qu'il vous reste a faire maintenant, c'est de sortir vivant du Marais aux Scorpions. 
-Ecoutez bien mes instructions :"
 
- -> Prenez **la direction du sud**, 
- -> puis allez **vers l'est**, 
- -> puis **au sud encore** lorsque vous atteindrez **le Nid d'Aigle**, 
- -> ensuite, partez **vers l'ouest**, 
- -> et enfin **au sud** une derniere fois.
+Le Patrouilleur vous felicite pour votre bravoure. "Vous vous en etes bien
+sorti, aventurier !" dit-il avec un sourire. "Tout ce qu'il vous reste a faire
+maintenant, c'est de sortir vivant du Marais aux Scorpions. Ecoutez bien mes
+instructions :"
 
-"Si vous suivez ce trajet a la lettre, vous atteindrez la lisiere sud du Marais. 
-Au-dela, le sol redevient ferme et vous serez sauf."
+-> Prenez **la direction du sud**, -> puis allez **vers l'est**, -> puis **au
+sud encore** lorsque vous atteindrez **le Nid d'Aigle**, -> ensuite, partez
+**vers l'ouest**, -> et enfin **au sud** une derniere fois.
 
-Vous le remerciez sincerement, notant avec soin ces precieuses indications. 
-Le Patrouilleur vous salue d'un signe de tete avant de disparaitre dans la brume.
+"Si vous suivez ce trajet a la lettre, vous atteindrez la lisiere sud du
+Marais. Au-dela, le sol redevient ferme et vous serez sauf."
+
+Vous le remerciez sincerement, notant avec soin ces precieuses indications. Le
+Patrouilleur vous salue d'un signe de tete avant de disparaitre dans la brume.
 
 C 234 Suivre les indications du Patrouilleur

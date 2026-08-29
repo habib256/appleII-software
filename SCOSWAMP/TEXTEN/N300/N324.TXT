@@ -1,11 +1,8 @@
 T 324 After the Combat
 
-The monster is dead. As for the Dwarf, it seems he's no longer
-breathing. What will you do?
+The monster is dead. As for the Dwarf, it seems he's no longer breathing. What
+will you do?
 
-C 88 Leave the clearing immediately
+C 088 Leave the clearing immediately
 C 383 Cast a Blessing spell on the Dwarf
-C 42 Search the Dwarf's corpse
-
-
-
+C 042 Search the Dwarf's corpse

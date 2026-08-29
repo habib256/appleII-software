@@ -1,8 +1,8 @@
 T 178 Le champignon maudit
-Vous croquez prudemment dans le champignon, esperant y
-trouver quelque vertu magique. Helas, vous n'etes pas sorcier,
-et ce qui nourrit la magie nuit aux simples mortels. 
-Une sensation etrange vous parcourt, et la malchance semble
+
+Vous croquez prudemment dans le champignon, esperant y trouver quelque vertu
+magique. Helas, vous n'etes pas sorcier, et ce qui nourrit la magie nuit aux
+simples mortels. Une sensation etrange vous parcourt, et la malchance semble
 s'abattre sur vous.
 
 Perdez 1 point de CHANCE.

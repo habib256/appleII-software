@@ -1,12 +1,8 @@
 T 176 The Foul Beast
-A monstrous creature surges before you: thick skin,
-giant claws, furious gaze. It leaps with unexpected
-agility and you understand that no escape is possible.
-The combat will be total, to the death.
 
-FOUL BEAST - SKILL: 9 / STAMINA: 10
+A monstrous creature surges before you: thick skin, giant claws, furious gaze.
+It leaps with unexpected agility and you understand that no escape is
+possible. The combat will be total, to the death.
 
+M 9 10 FOUL BEAST
 C 125 If you manage to kill it
-
-
-

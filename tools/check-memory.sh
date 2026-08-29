@@ -39,7 +39,13 @@
 set -uo pipefail
 
 MAP=""
-HIMEM=0x9600     # "presumed RAM end" cc65 : BASIC.SYSTEM occupe $9600-$BEFF
+# Valeur par defaut cc65 : BASIC.SYSTEM occupe $9600-$BEFF. Elle n'est qu'un
+# repli -- si le programme a ete lie avec un autre __HIMEM__, la carte memoire
+# le dit, et c'est elle qui fait foi. Sans cette lecture, un binaire lie a
+# $BF00 (celui de SCOSWAMP depuis le moteur de combat) declenchait a tort
+# l'alerte de debordement.
+HIMEM=""
+HIMEM_DEFAUT=0x9600
 
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -64,6 +70,16 @@ readonly STACKSIZE=$((0x0800))    # pile C, 2 Ko
 readonly LOAD_ADDR=$((0x4000))    # -Wl -S,0x4000, préserve HGR page 1
 readonly HGR1_START=$((0x2000))   # HGR page 1 : $2000-$3FFF
 readonly HGR1_END=$((0x3FFF))
+if [ -z "$HIMEM" ]; then
+    # ld65 exporte __HIMEM__ dans la liste des symboles de la carte, en hexa
+    # sur six chiffres : "__HIMEM__              00BF00 REA".
+    himem_map=$(sed -n 's/.*__HIMEM__ *\([0-9A-F]\{6\}\).*/\1/p' "$MAP" | head -1)
+    if [ -n "$himem_map" ]; then
+        HIMEM="0x$himem_map"
+    else
+        HIMEM="$HIMEM_DEFAUT"
+    fi
+fi
 readonly HIMEM_D=$((HIMEM))       # accepte 0x9600 comme 38400
 readonly CEILING=$((HIMEM_D - STACKSIZE))
 

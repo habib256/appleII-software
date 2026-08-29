@@ -1,12 +1,12 @@
-T 283 Le Maeitre des Jardins
-Le Maeitre des Jardins est enchante. Vous lui promettez de
-demander a Gayolard qu'il lui envoie des baies d'Antherique puis
-vous lui indiquez le chemin qui permet d'aller jusqu'a la clairiere
-oeu vous avez trouve le buisson. Il vous donne alors une Pierre de
-Magie benefique (choisissez vous-meme laquelle, en vous
-reportant a la liste) et vous poursuivez ensuite votre chemin. Un
-seul sentier permet de quitter cette clairiere, vous l'empruntez
-donc en retournant vers l'ouest.
+T 283 Le Maitre des Jardins
 
-C 363 Rendez-vous au 363
+Le Maitre des Jardins est enchante. Vous lui promettez de demander a Gayolard
+qu'il lui envoie des baies d'Antherique, puis vous lui indiquez le chemin qui
+mene a la clairiere ou vous avez trouve le buisson. Il vous donne alors une
+Pierre de Magie benefique : choisissez vous-meme laquelle.
 
+Un seul sentier permet de quitter cette clairiere, vous l'empruntez donc en
+retournant vers l'ouest.
+
+PC 1 B
+C 363 Continuer vers l'ouest

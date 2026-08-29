@@ -1,14 +1,10 @@
 T 116 Restless Night
 
-You try to ignore the racket rising from the ground floor,
-but the laughter and songs become deafening.
-You don't find sleep until well after midnight.
+You try to ignore the racket rising from the ground floor, but the laughter
+and songs become deafening. You don't find sleep until well after midnight.
 
-At dawn, the tumult of the market below your windows wakes you.
-Furious, you gather your belongings and leave the town, taking
-the southern direction toward the Swamp.
+At dawn, the tumult of the market below your windows wakes you. Furious, you
+gather your belongings and leave the town, taking the southern direction
+toward the Swamp.
 
 C 343 Reach the Swamp
-
-
-

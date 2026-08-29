@@ -1,9 +1,8 @@
 T 380 Pierre de Fletrissure inefficace
 
-Vous lancez votre Pierre Magique de Fletrissure. La Vase aussiteot
-change de couleur, passant du vert au brun, mais c'est le seul
-effet que le sortilege produise sur elle.
+Vous lancez votre Pierre Magique de Fletrissure. La Vase aussiteot change de
+couleur, passant du vert au brun, mais c'est le seul effet que le sortilege
+produise sur elle.
 
 C 400 Essayer une autre Pierre de Magie
 C 336 Changer entierement de tactique
-

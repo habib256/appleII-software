@@ -1,21 +1,16 @@
 T 128 The Price of Defeat
 
-You are skillful, but the Brigand Chief is a formidable
-swordsman. Soon, his blade grazes your ribs: you have
-lost.
+You are skillful, but the Brigand Chief is a formidable swordsman. Soon, his
+blade grazes your ribs: you have lost.
 
-He congratulates you however for your bravery and spreads his cloak
-so you can sit down.
+He congratulates you however for your bravery and spreads his cloak so you can
+sit down.
 
 "Let's get to our bargain," he says. "What have I won?"
 
-You must give him a Magic Stone, a jewel or any
-other object.
+You must give him a Magic Stone, a jewel or any other object.
 
 If you only possess the Copper Ring:
 
 C 180 Give him the Copper Ring
 C 019 If you give him another object of your choice
-
-
-

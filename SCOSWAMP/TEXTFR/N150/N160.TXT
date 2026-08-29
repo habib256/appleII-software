@@ -1,8 +1,9 @@
 T 160 L'echec de l'amitie
-Vous pensez que la crature pourrait devenir un allie
-et vous lui lancez une Pierre Magique d'Amitie.
 
-Mais la Bete Immonde n'a pas d'amis ! 
-Elle avance toujours vers vous, ses six pattes griffues labourant le sol.
+Vous pensez que la crature pourrait devenir un allie et vous lui lancez une
+Pierre Magique d'Amitie.
 
-C 176 Vous devez la combattre. 
+Mais la Bete Immonde n'a pas d'amis ! Elle avance toujours vers vous, ses six
+pattes griffues labourant le sol.
+
+C 176 Vous devez la combattre.

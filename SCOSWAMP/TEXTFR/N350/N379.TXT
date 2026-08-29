@@ -1,14 +1,12 @@
 T 379 Attaque du Maeitre des Jardins
 
-Vous tirez votre epee et vous essayez de lui en porter un coup,
-mais il recule d'un pas et vous le manquez. " Pourquoi
-m'attaquez-vous ? u s'ecrie-t-il, stupefait. Il s'enfuit aussiteot et,
-n'ayant pas d'armure, parvient a courir plus vite que vous.
-Ramassant alors une faucille, il se met en garde, a l'autre bout de
-la clairiere. Lorsque vous arrivez pres de lui, il fait un geste de la
-main pour vous jeter un sort et vous perdez 3 points d'HABILETE.
-MAITRE DESJARDINS HABILETE: 7 ENDURANCE: 10
+Vous tirez votre epee et vous essayez de lui en porter un coup, mais il recule
+d'un pas et vous le manquez. " Pourquoi m'attaquez-vous? u s'ecrie-t-il,
+stupefait. Il s'enfuit aussiteot et, n'ayant pas d'armure, parvient a courir
+plus vite que vous. Ramassant alors une faucille, il se met en garde, a
+l'autre bout de la clairiere. Lorsque vous arrivez pres de lui, il fait un
+geste de la main pour vous jeter un sort et vous perdez 3 points d'HABILETE.
 
-C 363 Prendre la Fuite
+M 7 10 MAITRE DES JARDINS
+CF 363 Prendre la Fuite
 C 251 Si vous tuez le Maeitre des Jardins
-

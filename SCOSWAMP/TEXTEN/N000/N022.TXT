@@ -1,16 +1,13 @@
 T 022 Rapid Shoots
 
-As you slip the seeds into your pocket, barely
-new shoots already appear at the base of the trees.
-They grow with strange speed, wrapping around
-the roots and closing the ground behind you. You must
-leave as quickly as possible before the trees regain strength.
-Which direction will you take? Choose without delay.
-North offers a path that rises toward drier lands.
-South leads back to the deep river. West presents a
-narrow passage, perhaps less dangerous.
+As you slip the seeds into your pocket, barely new shoots already appear at
+the base of the trees. They grow with strange speed, wrapping around the roots
+and closing the ground behind you. You must leave as quickly as possible
+before the trees regain strength. Which direction will you take? Choose
+without delay. North offers a path that rises toward drier lands. South leads
+back to the deep river. West presents a narrow passage, perhaps less
+dangerous.
 
 C 320 Take the path that climbs to the north
 C 090 Join the deep river to the south
 C 011 Take the narrow passage to the west
-

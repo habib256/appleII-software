@@ -1,7 +1,7 @@
 T 287 Un homme mysterieux
-Il ne semble pas dangereux, mais vous hesitez a lui parler de
-votre veritable mission.
+
+Il ne semble pas dangereux, mais vous hesitez a lui parler de votre veritable
+mission.
 
 C 198 Lui dire que vous etes venu pour les Amulettes
 C 359 Inventer une histoire
-

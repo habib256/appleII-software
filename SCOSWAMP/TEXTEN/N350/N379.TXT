@@ -1,16 +1,12 @@
 T 379 Garden Master's Attack
 
-You draw your sword and try to strike him with it,
-but he steps back and you miss him. "Why
-are you attacking me?" he exclaims, astonished. He immediately flees and,
-having no armor, manages to run faster than you.
-Then picking up a sickle, he takes a defensive stance at the clearing's other end.
-When you arrive near him, he makes a hand
-gesture to cast a spell on you and you lose 3 SKILL points.
-GARDEN MASTER SKILL: 7 STAMINA: 10
+You draw your sword and try to strike him with it, but he steps back and you
+miss him. "Why are you attacking me?" he exclaims, astonished. He immediately
+flees and, having no armor, manages to run faster than you. Then picking up a
+sickle, he takes a defensive stance at the clearing's other end. When you
+arrive near him, he makes a hand gesture to cast a spell on you and you lose 3
+SKILL points.
 
-C 363 Flee
+M 7 10 GARDEN MASTER
+CF 363 Flee
 C 251 If you kill the Garden Master
-
-
-

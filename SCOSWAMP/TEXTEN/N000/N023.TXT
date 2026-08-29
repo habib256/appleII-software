@@ -1,11 +1,9 @@
 T 023 The Mistress's Help
-The Copper Ring remains cold: a sign that the Bird Mistress
-is benevolent. You explain the object of your quest to her.
-"That merchant is a fool," she says, shaking her head; "even if he
-manages to get a map of the Swamp, the dishonest sorcerers
-will steal it from him and plunder his caravans. You are brave;
-I will help you avoid the greatest dangers of your journey."
-What do you do?
+
+The Copper Ring remains cold: a sign that the Bird Mistress is benevolent. You
+explain the object of your quest to her. "That merchant is a fool," she says,
+shaking her head; "even if he manages to get a map of the Swamp, the dishonest
+sorcerers will steal it from him and plunder his caravans. You are brave; I
+will help you avoid the greatest dangers of your journey." What do you do?
 
 C 248 Accept her help and follow her advice
-

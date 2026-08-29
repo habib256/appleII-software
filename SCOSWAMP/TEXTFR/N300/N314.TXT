@@ -1,8 +1,7 @@
 T 314 Deux directions
 
-Vous avez le choix entre deux directions.
-Un enorme escargot passe doucement devant vous.
+Vous avez le choix entre deux directions. Un enorme escargot passe doucement
+devant vous.
 
-C 90 Aller au nord
+C 090 Aller au nord
 C 195 Aller a l'est
-

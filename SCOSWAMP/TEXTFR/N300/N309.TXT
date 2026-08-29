@@ -1,9 +1,8 @@
 T 309 Trois chemins
 
-Trois chemins vous permettent de quitter cette clairiere. Dans
-quelle direction souhaitez-vous aller ?
+Trois chemins vous permettent de quitter cette clairiere. Dans quelle
+direction souhaitez-vous aller ?
 
-C 47 Au nord
-C 53 Au sud
+C 047 Au nord
+C 053 Au sud
 C 388 A l'ouest
-

@@ -1,14 +1,9 @@
 T 264 Withering Stone Failure
 
-You throw the Withering Stone at the Garden Master,
-but he's not a plant: the spell has no effect on
-him. A tree located behind him however dies immediately.
-Furious, the Master throws a Fire spell at you. Your hair
-ignites; you smother it by striking your head.
-The burns cost you 2 STAMINA points.
-You then brandish your sword and prepare for combat.
+You throw the Withering Stone at the Garden Master, but he's not a plant: the
+spell has no effect on him. A tree located behind him however dies
+immediately. Furious, the Master throws a Fire spell at you. Your hair
+ignites; you smother it by striking your head. The burns cost you 2 STAMINA
+points. You then brandish your sword and prepare for combat.
 
 C 379 Attack the Garden Master
-
-
-

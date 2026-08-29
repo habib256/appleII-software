@@ -227,3 +227,27 @@ VERHILLE Arnaud - gist974@gmail.com
 - Traduction anglaise complète : 24 octobre 2024
 - Statut : Version bilingue 100% opérationnelle ✓
 
+## Les directives de page
+
+Depuis 2026-08-29 une page ne porte plus seulement du texte et des choix : ce
+qui se joue mecaniquement y est ecrit en clair, une directive par ligne.
+
+| Ligne | Effet |
+| --- | --- |
+| `T <id> <titre>` | le titre, affiche en video inverse ligne 1 |
+| `M <hab> <end> <nom>` | la creature de la clairiere |
+| `MD <n>` | ses coups coutent n ENDURANCE (defaut 2) |
+| `MS <n>` | le combat cesse a n ENDURANCE (defaut 0) |
+| `E <CARAC> <delta>` | effet applique en entrant |
+| `P <PIERRE> <n>` | Pierres Magiques recues |
+| `PC <n> <cats>` | n Pierres a choisir parmi les categories N, B, M |
+| `CF <id> <titre>` | la Fuite, quand la page l'autorise |
+| `CP <PIERRE> <id> <titre>` | choix qui remet une Pierre |
+| `C <id> <titre>` | choix ordinaire |
+
+La plupart se **derivent de la prose** : `SCOSWAMP.MORE/TOOLS/reflow_txt.py
+--derive` lit le bloc de stats que la page ecrit deja en toutes lettres et en
+fait une ligne `M`. Le meme outil verifie les invariants de mise en page --
+corps ≤ 19 lignes une fois replie a 78 colonnes, choix ≤ 4 lignes (ce sont
+celles que le mode mixte laisse voir sous l'illustration), et pas un mot
+change. A lancer apres toute retouche du corpus.

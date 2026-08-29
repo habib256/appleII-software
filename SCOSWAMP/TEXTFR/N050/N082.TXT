@@ -1,9 +1,9 @@
 T 082 Combat au bassin
-La Pierre Precieuse brille a la surface; vous tirez votre epee.
-La BETE DU BASSIN surgit des eaux et vous frappe de ses tentacules.
-Ses coups caoutchouteux peuvent vous desarconner; le duel commence.
 
-BETE DU BASSIN HABILETE: 8 ENDURANCE: 10
+La Pierre Precieuse brille a la surface; vous tirez votre epee. La BETE DU
+BASSIN surgit des eaux et vous frappe de ses tentacules. Ses coups
+caoutchouteux peuvent vous desarconner; le duel commence.
 
-C 330 Prendre la fuite vers l'ouest
+M 8 10 BETE DU BASSIN
+CF 330 Prendre la fuite vers l'ouest
 C 308 Tuer la Bete

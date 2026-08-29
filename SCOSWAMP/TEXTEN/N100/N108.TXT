@@ -1,15 +1,11 @@
 T 108 Return to the Clearing
 
-You enter again the clearing where you had encountered
-the wolves. All is calm and nothing seems abnormal.
+You enter again the clearing where you had encountered the wolves. All is calm
+and nothing seems abnormal.
 
-The bush remains in the center, but it no longer bears any
-berries. Nothing interesting to discover here.
+The bush remains in the center, but it no longer bears any berries. Nothing
+interesting to discover here.
 
-So you leave southward, toward the Giant's
-clearing.
+So you leave southward, toward the Giant's clearing.
 
 C 342 Go to the Giant's clearing
-
-
-

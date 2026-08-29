@@ -1,8 +1,7 @@
 T 282 Pierre de Glace
-Vous lancez la Pierre de Glace sur la Vase. C'etait bien ce
-sortilege qu'il convenait de choisir, car la Vase est une creature
-constitue d'au et, sous l'effet le votre Pierre de Magie, elle gele
-instantanement et meurt.
 
-C 38 Rendez-vous au 38
+Vous lancez la Pierre de Glace sur la Vase. C'etait bien ce sortilege qu'il
+convenait de choisir, car la Vase est une creature constitue d'au et, sous
+l'effet le votre Pierre de Magie, elle gele instantanement et meurt.
 
+C 038 Rendez-vous au 38

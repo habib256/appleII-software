@@ -1,10 +1,9 @@
 T 074 The Spider Master
 
-You have decided to fight the Spider Master using
-one of your Magic Stones. But which one to choose?
+You have decided to fight the Spider Master using one of your Magic Stones.
+But which one to choose?
 
 C 361 Use the Friendship Stone
 C 261 Use the Curse Stone
 C 113 Use the Fire Stone
 C 144 Don't use these Stones and make another choice
-

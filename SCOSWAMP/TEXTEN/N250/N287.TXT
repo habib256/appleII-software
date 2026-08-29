@@ -1,9 +1,6 @@
 T 287 A Mysterious Man
-He doesn't seem dangerous, but you hesitate to tell him
-your true mission.
+
+He doesn't seem dangerous, but you hesitate to tell him your true mission.
 
 C 198 Tell him you came for the Amulets
 C 359 Invent a story
-
-
-

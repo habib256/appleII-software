@@ -1,6 +1,7 @@
 T 223 Retour sur vos pas
-Vous rebroussez chemin et empruntez en sens inverse le sentier par lequel
-vous etiez arrive. Le bois vous semble plus hostile a present mais
-vous avancez sans hesiter, vigilant a chaque craquement.
+
+Vous rebroussez chemin et empruntez en sens inverse le sentier par lequel vous
+etiez arrive. Le bois vous semble plus hostile a present mais vous avancez
+sans hesiter, vigilant a chaque craquement.
 
 C 270 Reprendre le chemin en sens inverse

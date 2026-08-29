@@ -1,18 +1,16 @@
 T 274 Malediction du Sorcier
-Vous lancez votre Malediction au Sorcier malefique, en utilisant
-une des Pierres de Magie qu'il vous a lui-meme donnes. Il se
-met alors a hurler en se tenant la gorge a deux mains. Son propre
-sortilege a sur lui un effet radical puisqu'il s'ecroule a vos pieds et
-meurt en quelques instants. C'est alors que vous ressentez sur
-vous-meme les consequences de la Malediction. Lancez un de : le
-chiffre obtenu represente le nombre de points d'ENDURANCE que
-vous avez perdus. Si vous etes toujours vivant, vous fouillez la
-sinistre tour dans l'espoir de decouvrir ses tresors caches. Mais
-l'atmosphere devient bienteot lourde et oppressante. Quant a
-votre anneau, il reste chaud vous avertissant qu'un danger plane
-toujours sur vous, un danger peut-etre meme plus grand
+
+Vous lancez votre Malediction au Sorcier malefique, en utilisant une des
+Pierres de Magie qu'il vous a lui-meme donnes. Il se met alors a hurler en se
+tenant la gorge a deux mains. Son propre sortilege a sur lui un effet radical
+puisqu'il s'ecroule a vos pieds et meurt en quelques instants. C'est alors que
+vous ressentez sur vous-meme les consequences de la Malediction. Lancez un de
+: le chiffre obtenu represente le nombre de points d'ENDURANCE que vous avez
+perdus. Si vous etes toujours vivant, vous fouillez la sinistre tour dans
+l'espoir de decouvrir ses tresors caches. Mais l'atmosphere devient bienteot
+lourde et oppressante. Quant a votre anneau, il reste chaud vous avertissant
+qu'un danger plane toujours sur vous, un danger peut-etre meme plus grand
 qu'auparavant. Soudain, vous sentez une odeur de soufre.
 
 C 375 Rester quelques minutes dans la tour
 C 298 Partir immediatement
-

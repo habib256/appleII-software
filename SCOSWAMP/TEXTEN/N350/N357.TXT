@@ -1,18 +1,12 @@
 T 357 The Cursed Magnet
 
-The two other arrows also miss their mark but,
-suddenly, they change direction mid-course and come
-strike you in the chest. You immediately lose 5
-STAMINA points; if you're still alive, you realize
-the Gold Magnet found on the warrior's body is actually a
-cursed object. It attracts arrows, indeed, and almost killed you
-after causing the death of whoever wore it before you. The
-Orcs are preparing new arrows. What will
-you do?
+The two other arrows also miss their mark but, suddenly, they change direction
+mid-course and come strike you in the chest. You immediately lose 5 STAMINA
+points; if you're still alive, you realize the Gold Magnet found on the
+warrior's body is actually a cursed object. It attracts arrows, indeed, and
+almost killed you after causing the death of whoever wore it before you. The
+Orcs are preparing new arrows. What will you do?
 
 C 281 Attack them with your sword
 C 399 Resort to magic
 C 309 Flee
-
-
-

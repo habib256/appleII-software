@@ -1,20 +1,13 @@
 T 146 Frog Combat
 
-Two enormous frogs attack you at the same time.
-To your great surprise, their jaws are bristling with teeth.
-SKILL STAMINA
-First GIANT FROG 5 6
-Second GIANT FROG 6 5
-Each frog will fight you in turn at each assault.
-Before each assault, you will choose which one to face as a priority.
-If your Attack Strength exceeds that of the chosen adversary,
-you will inflict no injury on the other: you will have dodged it.
-If, on the contrary, the second has superior Strength, you will suffer
-an injury according to the usual rules.
-If you kill one of the two frogs, the combat continues
-against the other according to normal rules.
+Two enormous frogs attack you at the same time. To your great surprise, their
+jaws are bristling with teeth. SKILL STAMINA First GIANT FROG 5 6 Second GIANT
+FROG 6 5 Each frog will fight you in turn at each assault. Before each
+assault, you will choose which one to face as a priority. If your Attack
+Strength exceeds that of the chosen adversary, you will inflict no injury on
+the other: you will have dodged it. If, on the contrary, the second has
+superior Strength, you will suffer an injury according to the usual rules. If
+you kill one of the two frogs, the combat continues against the other
+according to normal rules.
 
 C 230 If you are victorious, continue your adventure.
-
-
-

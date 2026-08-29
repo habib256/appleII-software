@@ -1,15 +1,10 @@
 T 124 Le duel final
 
-Le sorcier malefique, fou de rage, tire de sa toge une baguette 
-qui brille soudain et se transforme en une lame dentele. 
+Le sorcier malefique, fou de rage, tire de sa toge une baguette qui brille
+soudain et se transforme en une lame dentele.
 
-Il se met en garde. L arme etincelle : elle est clairement magique. 
-Ce combat sera le dernier de votre aventure. 
+Il se met en garde. L arme etincelle: elle est clairement magique. Ce combat
+sera le dernier de votre aventure.
 
-STRATAGUS 
-HABILETE : 13 
-ENDURANCE : 18 
-
-C est un duel a mort. Vous ne pouvez pas fuir. 
-
+M 13 18 STRATAGUS
 C 340 Si vous parvenez a tuer Stratagus

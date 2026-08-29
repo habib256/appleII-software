@@ -1,13 +1,9 @@
 T 225 Stratagus's Anger
-Stratagus straightens up, eyes black with fury. With a quick
-movement, he pulls from his robe an ebony wand that transforms
-into a serrated, glowing sword. His snapping voice threatens you:
-"I'm going to kill you!" The assault is inevitable; you must engage
-combat without delay.
 
-STRATAGUS SKILL: 9 STAMINA: 10
+Stratagus straightens up, eyes black with fury. With a quick movement, he
+pulls from his robe an ebony wand that transforms into a serrated, glowing
+sword. His snapping voice threatens you: "I'm going to kill you!" The assault
+is inevitable; you must engage combat without delay.
 
+M 9 10 STRATAGUS
 C 140 If you manage to kill him
-
-
-

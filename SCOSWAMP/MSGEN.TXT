@@ -1,0 +1,37 @@
+[SPACE] continue
+[SPACE] take it   [C] Test your Luck (LUCK %u)
+YOU          SKL %u  STA %2u/%u
+BACKPACK -- %u Gold Pieces, a sword, chainmail
+   forbidden mid-fight
+No Magic Stones.
+A Stone crumbles when used.  [A-Z] use  [ESC] close
+The first blow was struck.
+No such Stone.
+The %s Stone crumbles.
+[SPACE] engage   [I] backpack   [ESC] picture%s
+   [F] Flee
+[SPACE] next round   [ESC] picture%s
+   [F] Flee
+You flee: it wounds you on the way.
+Lucky!
+Unlucky!
+Round %u -- Attack Strength: you %u, it %u
+You have each dodged.
+You have wounded it.
+It has wounded you.
+Lucky!
+Unlucky!
+%s collapses.
+HELPEN
+Help file not found.
+Your STAMINA has fallen to zero.
+[SPACE] start again
+ADVENTURE SHEET
+SKILL    %2u   (1 die + 6)
+STAMINA  %2u   (2 dice + 12)
+LUCK     %2u   (1 die + 6)
+A sword, chainmail, a backpack, %u Gold Pieces.
+None of these three scores may ever rise above its start value.
+[SPACE] enter the Swamp
+CHOOSE YOUR MAGIC STONES -- %u left to take
+You may take the same one several times.  [A-Z] take

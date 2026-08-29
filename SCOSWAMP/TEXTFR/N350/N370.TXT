@@ -1,9 +1,8 @@
 T 370 Pont de glace
 
-Grace a votre Pierre Magique de Glace, un pont solide se forme a
-la surface de l'au et vous pouvez le franchir sans encombre.
-Vous pouvez prendre la direction du nord ou celle du sud.
+Grace a votre Pierre Magique de Glace, un pont solide se forme a la surface de
+l'au et vous pouvez le franchir sans encombre. Vous pouvez prendre la
+direction du nord ou celle du sud.
 
 C 157 Aller au nord
 C 398 Aller au sud
-
