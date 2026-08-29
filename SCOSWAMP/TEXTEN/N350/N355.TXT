@@ -9,8 +9,8 @@ have the impression of being followed. You immediately turn around to find
 yourself face to face with two ragged CUTPURSES. They attack you immediately,
 convinced you must have brought back a fabulous treasure from your wanderings
 in the Swamp. You can't flee and you don't have enough time to resort to
-magic. All that's left is to fight them.
+magic. All that's left is to fight them...
 
-SKILL STAMINA First CUTPURSE 7 5 Second CUTPURSE 8 5
-
+M 7 5 FIRST CUTPURSE
+M 8 5 SECOND CUTPURSE
 C 186 If you kill them both

@@ -8,8 +8,8 @@ has its own effect; some effects can turn against you if the situation isn't
 adapted. You feel the power vibrating in your hand; the slightest error could
 be fatal. Think quickly and well. Here are your options:
 
-C 224 Use a Terror Stone
-C 294 Use a Friendship Stone
-C 093 Use a Curse Stone
-C 064 Use a Fire Stone
+CU AMITIE 294 Use a Friendship Stone
+CU MALEDICTION 093 Use a Curse Stone
+CU FEU 064 Use a Fire Stone
+CU TERREUR 224 Use a Terror Stone
 C 398 Give up magic and make another choice

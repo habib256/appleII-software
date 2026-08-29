@@ -11,5 +11,4 @@ scorpions rushing toward you.
 Test your Luck.
 
 CL 070 182
-
 C 303 If you have already been here

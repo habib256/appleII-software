@@ -2,9 +2,9 @@ T 301 Combat contre les Brigands
 
 Deux Brigands se reposent dans la clairiere qui semble etre leur lieu de
 ralliement. Lorsqu'ils vous voient, ils se relevent et vous attaquent. Il vous
-faut les combattre tous les deux a la fois.
+faut les combattre tous les deux a la fois...
 
-HABILETE ENDURANCE Premier BRIGAND 8 10 Deuxieme BRIGAND 8 11
-
-C 019 Prendre la Fuite
+M 8 10 PREMIER BRIGAND
+M 8 11 DEUXIEME BRIGAND
+CF 019 Prendre la Fuite
 C 246 Si vous tuez les deux Brigands

@@ -6,8 +6,8 @@ il faudra agir vite.
 
 Quelle Pierre allez-vous tenter pour la neutraliser ?
 
-C 039 Utiliser une Pierre d Amitie
-C 293 Utiliser une Pierre de Terreur
-C 381 Utiliser une Pierre de Benediction
-C 337 Utiliser une Pierre de Feu
+CU TERREUR 293 Utiliser une Pierre de Terreur
+CU BENEDICTION 381 Utiliser une Pierre de Benediction
+CU FEU 337 Utiliser une Pierre de Feu
+CU AMITIE 039 Utiliser une Pierre d Amitie
 C 320 Ne pas utiliser ces Pierres et faire un autre choix

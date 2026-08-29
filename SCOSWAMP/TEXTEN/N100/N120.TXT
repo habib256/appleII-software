@@ -2,11 +2,12 @@ T 120 The Master's Wolves
 
 The Wolf Master makes a gesture and his two creatures leap at you. You must
 fight them one after another. If you kill them, you'll then have to face the
-Master himself.
-
-SKILL STAMINA First Wolf 7 5 Second Wolf 6 6 Wolf Master 11 10
+Master himself....
 
 If the fight turns bad, you can flee.
 
-C 314 Flee
+M 7 5 FIRST WOLF
+M 6 6 SECOND WOLF
+M 11 10 WOLF MASTER
+CF 314 Flee
 C 154 If you kill your three opponents

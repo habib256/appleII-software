@@ -5,7 +5,7 @@ anger. Before you, four slots hold different stones, each emitting a faint
 enigmatic glow. Which talisman will you choose to defy the Giant and pass
 alive?
 
-C 252 Curse Stone
-C 328 Friendship Stone
-C 211 Fire Stone
+CU MALEDICTION 252 Curse Stone
+CU AMITIE 328 Friendship Stone
+CU FEU 211 Fire Stone
 C 275 None of these stones

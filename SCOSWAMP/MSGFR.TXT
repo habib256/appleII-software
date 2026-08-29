@@ -37,3 +37,4 @@ CHOISISSEZ VOS PIERRES MAGIQUES -- il en reste %u a prendre
 Vous pouvez prendre plusieurs fois la meme.  [A-Z] prendre
 Le sort en decide. [ESPACE] Tentez votre Chance (CHANCE %u)
 Vous jetez les deux des : %u, contre une CHANCE de %u.
+[R] recommencer une aventure   [Q] quitter vers ProDOS

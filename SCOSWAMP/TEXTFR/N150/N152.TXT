@@ -4,8 +4,8 @@ Face au Maitre des Jardins, vous preparez une Pierre Magique. Laquelle
 allez-vous utiliser? Chaque pierre peut declencher un effet different, mais le
 choix est crucial et irreversible.
 
-C 136 Utiliser une Pierre de Feu
-C 264 Utiliser une Pierre de Fletrissure
-C 347 Utiliser une Pierre d'Illusion
-C 117 Utiliser une Pierre d'Amitie
+CU FEU 136 Utiliser une Pierre de Feu
+CU FLETRISSURE 264 Utiliser une Pierre de Fletrissure
+CU ILLUSION 347 Utiliser une Pierre d'Illusion
+CU AMITIE 117 Utiliser une Pierre d'Amitie
 C 334 N'utiliser aucune de ces pierres et faire un autre choix

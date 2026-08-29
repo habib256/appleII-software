@@ -9,8 +9,8 @@ peuvent se retourner contre vous si la situation n'est pas adapte. Vous sentez
 le pouvoir vibrer dans votre main ; la moindre erreur pourrait etre fatale.
 Reflechissez vite et bien. Voici vos options :
 
-C 224 Utiliser une Pierre de Terreur
-C 294 Utiliser une Pierre d'Amitie
-C 093 Utiliser une Pierre de Malediction
-C 064 Utiliser une Pierre de Feu
+CU TERREUR 224 Utiliser une Pierre de Terreur
+CU AMITIE 294 Utiliser une Pierre d'Amitie
+CU MALEDICTION 093 Utiliser une Pierre de Malediction
+CU FEU 064 Utiliser une Pierre de Feu
 C 398 Renoncer a la magie et faire un autre choix

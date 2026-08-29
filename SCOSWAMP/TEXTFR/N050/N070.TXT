@@ -5,6 +5,6 @@ ragir vite: Marcher dessus et les frapper a l'epee pour tenter de les ecraser.
 Utiliser une Pierre Magique de Feu pour les faire fuir. Sauter en un bond par
 dessus eux et gagner l'abri proche. Que faites-vous?
 
+CU FEU 110 Utiliser une Pierre Magique de Feu
 C 216 Marcher dessus et frapper a l'epee
-C 110 Utiliser une Pierre Magique de Feu
 C 377 Sauter par dessus pour se mettre a l'abri

@@ -6,4 +6,3 @@ Malchanceux. Appliquez immediatement les effets du resultat (degats, gains,
 flags). Que faites-vous?
 
 CL 339 313
-

@@ -66,6 +66,9 @@ MESSAGES = [
     ('M_JET_DE_CHANCE',
      'Vous jetez les deux des : %u, contre une CHANCE de %u.',
      'You roll two dice: %u, against a LUCK of %u.'),
+    ('M_MORT_RECOMMENCER',
+     '[R] recommencer une aventure   [Q] quitter vers ProDOS',
+     '[R] start a new adventure   [Q] quit to ProDOS'),
 ]
 
 

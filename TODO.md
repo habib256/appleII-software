@@ -230,6 +230,42 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   une retouche de celle-ci.
   → `SCOSWAMP/SRC/sfx.s`
 
+- **Les Pierres se depensaient sans jamais toucher au sac.** 43 choix du corpus
+  disent « Utiliser une Pierre de Feu » : ils partaient en `C` ordinaire, donc
+  rien ne verifiait qu'on possedait la Pierre et rien ne la consommait. D'ou
+  les deux symptomes signales — l'inventaire qui ne suit pas, et le droit de
+  lancer un sort qu'on n'a pas. La ligne `CU <PIERRE> <id> <titre>` exige la
+  Pierre et la consomme ; un choix dont la Pierre manque **s'affiche sans
+  lettre** — on le voit, le livre l'ecrit, mais on ne peut pas le prendre.
+
+- **Cinq rencontres ne se lancaient pas du tout**, dont le Maitre des Loups et
+  ses deux betes (`N120`). Ces pages posent leurs adversaires en TABLEAU —
+  `HABILETE ENDURANCE Premier Loup 7 5 Deuxieme Loup 6 6 Maitre des Loups
+  11 10` — que le motif en phrase ne voyait pas. **Les pages ont ete
+  corrigees**, pas l'outil : le corpus a maintenant une seule facon d'ecrire un
+  bloc de stats, `<NOM> HABILETE: h ENDURANCE: e`, avec les noms en capitales.
+  Une deuxieme grammaire dans l'analyseur aurait ete une dette permanente pour
+  cinq pages. `N281` en profite pour perdre sa coquille : `ORQUEDES MARAIS`.
+
+- **Le recoupement FR/EN etait aveugle a la moitie des directives** : il ne
+  retenait que `M`, `MD`, `MS` et `CF` a l'entree, si bien que l'extension aux
+  `CU` et `CL` ne servait a rien. Il enregistre tout desormais, et c'est ce qui
+  a fait sortir trois pages ou l'anglais depensait une Pierre que le francais
+  gardait — le corpus francais ecrivant `Pierre d Amitie`, avec une espace au
+  lieu de l'apostrophe.
+
+- **La barre parlait francais en partie anglaise.** Les caracteristiques
+  s'affichent maintenant `SKL / STA / LCK`, les trois mots de Fighting Fantasy,
+  et le rappel devient `I:BAG H:HELP`.
+
+- **A la mort, on choisit** : recommencer une aventure, ou rendre la main a
+  ProDOS. Avec ProDOS 2.4 c'est Bitsy Bye qui reprend, et l'on peut lancer
+  autre chose sans redemarrer la machine.
+
+- **Le choix des Pierres ne se repeint plus a chaque prise.** La liste des
+  Pierres permises ne bouge pas ; seul le compteur change. Six Pierres, c'etait
+  neuf lignes redessinees neuf fois.
+
 - **Le mode carte a ete retire.** Il avait ete construit (fichier `MAP` genere
   depuis les directions de la prose, cercles numerotes, sentiers, rayons pour
   les chemins connus mais pas empruntes) et il fonctionnait. Il coutait

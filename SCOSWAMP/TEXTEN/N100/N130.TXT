@@ -2,7 +2,7 @@ T 130 Stone Choice
 
 Which Magic Stone will you try?
 
-C 260 Use a Curse Stone
-C 111 Use a Friendship Stone
-C 201 Use a Terror Stone
+CU MALEDICTION 260 Use a Curse Stone
+CU AMITIE 111 Use a Friendship Stone
+CU TERREUR 201 Use a Terror Stone
 C 288 Don't use these Stones and make another choice

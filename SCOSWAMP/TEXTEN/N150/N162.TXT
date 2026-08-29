@@ -7,6 +7,6 @@ amulet. These jewels have power only when a sorcerer wears them, he says, then
 resumes his speech. You thank him and back up to the path entrance, out of his
 sight. What do you do?
 
+CU ILLUSION 245 Try to steal the Amulet with an Illusion Stone
 C 352 Leave for good
-C 245 Try to steal the Amulet with an Illusion Stone
 C 062 Attack him with your sword

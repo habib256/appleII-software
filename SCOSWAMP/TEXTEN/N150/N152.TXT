@@ -4,8 +4,8 @@ Facing the Garden Master, you prepare a Magic Stone. Which one will you use?
 Each stone can trigger a different effect, but the choice is crucial and
 irreversible.
 
-C 136 Use a Fire Stone
-C 264 Use a Withering Stone
-C 347 Use an Illusion Stone
-C 117 Use a Friendship Stone
+CU FEU 136 Use a Fire Stone
+CU FLETRISSURE 264 Use a Withering Stone
+CU ILLUSION 347 Use an Illusion Stone
+CU AMITIE 117 Use a Friendship Stone
 C 334 Don't use any of these stones and make another choice

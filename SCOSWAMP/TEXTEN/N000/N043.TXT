@@ -6,4 +6,3 @@ Immediately apply the effects of the result (damage, gains, flags). What do
 you do?
 
 CL 339 313
-

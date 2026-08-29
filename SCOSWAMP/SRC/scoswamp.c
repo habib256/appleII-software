@@ -58,6 +58,12 @@ typedef struct {
      * livre pose le cas au paragraphe 283 : "Il vous donne alors une Pierre de
      * Magie benefique (choisissez vous-meme laquelle)". */
     unsigned char grant;
+    /* Pierre exigee par ce choix, STONE_COUNT si aucune. Elle est consommee
+     * en le prenant : "les Pierres de Magie se desintegrent des qu'on les a
+     * utilisees". Sans ce champ, les 37 choix du corpus qui depensent une
+     * Pierre ne touchaient pas au sac -- et rien n'empechait d'en lancer une
+     * qu'on n'avait pas. */
+    unsigned char require;
     char title[CHOICE_TITLE];
 } Choice;
 
@@ -213,19 +219,33 @@ static void render_title_bar(void)
         if (n > 40) n = 40;
         memcpy(title_bar + 1, scene_title, n);
         /* Le rappel se glisse apres le titre : c'est le seul endroit visible
-         * en permanence, et [H] mene au detail. */
-        if (app.hero_ready) memcpy(title_bar + n + 3, "I:SAC   H:AIDE", 14);
+         * en permanence, et [H] mene au detail. Il suit la langue, comme les
+         * etiquettes de caracteristiques. */
+        if (app.hero_ready) {
+            memcpy(title_bar + n + 3,
+                   (app.language[0] == 'F') ? "I:SAC   H:AIDE"
+                                            : "I:BAG   H:HELP", 14);
+        }
     }
     if (app.hero_ready) {
         /* Formatage a la main : `sprintf` ferait entrer tout le formateur de
          * chaines dans le binaire pour ces six nombres, et la fenetre
          * $4000-$9600 est pleine. */
+        /* Les etiquettes suivent la langue : en anglais ce sont SKILL,
+         * STAMINA et LUCK, les trois mots de Fighting Fantasy. Elles restaient
+         * en francais quelle que soit la partie. */
+        /* Le test en clair plutot que is_fr() : cette fonction est definie
+         * plus bas, avec le reste de l'ecran de combat. */
         char* q = sheet;
-        q = put_str(q, "HAB ");  q = put_u8(q, app.hero.hab); *q++ = '/';
+        const int fr = (app.language[0] == 'F');
+        q = put_str(q, fr ? "HAB " : "SKL ");
+        q = put_u8(q, app.hero.hab); *q++ = '/';
         q = put_u8(q, app.hero.hab0);
-        q = put_str(q, "  END "); q = put_u8(q, app.hero.end); *q++ = '/';
+        q = put_str(q, fr ? "  END " : "  STA ");
+        q = put_u8(q, app.hero.end); *q++ = '/';
         q = put_u8(q, app.hero.end0);
-        q = put_str(q, "  CHA "); q = put_u8(q, app.hero.cha); *q++ = '/';
+        q = put_str(q, fr ? "  CHA " : "  LCK ");
+        q = put_u8(q, app.hero.cha); *q++ = '/';
         q = put_u8(q, app.hero.cha0);
         n = (int)(q - sheet);
         memcpy(title_bar + 79 - n, sheet, n);
@@ -246,6 +266,20 @@ static void render_title_bar(void)
  * (6 scenes du livre en ont 5). Rien n'est jamais ecrit dans la derniere
  * cellule de l'ecran : le firmware ferait scroller et toute la mise en page
  * remonterait d'une ligne. */
+/* Un choix qui exige une Pierre absente du sac ne porte pas de lettre : on
+ * le voit -- le livre l'ecrit, et savoir ce qu'une Pierre aurait permis fait
+ * partie de la lecture -- mais on ne peut pas le prendre. */
+static int choice_available(int i)
+{
+    unsigned char req = app.choices[i].require;
+    return req >= STONE_COUNT || character_has_stone(&app.hero, (Stone)req);
+}
+
+static char choice_tag(int i)
+{
+    return choice_available(i) ? (char)('A' + i) : '-';
+}
+
 static void render_choices(void)
 {
     int i = 0;
@@ -256,13 +290,13 @@ static void render_choices(void)
             (int)strlen(app.choices[i].title)     <= CHOICE_WIDTH - 3 &&
             (int)strlen(app.choices[i + 1].title) <= CHOICE_WIDTH - 3) {
             gotoxy(0, row);
-            cprintf("%c) %s", 'A' + i, app.choices[i].title);
+            cprintf("%c) %s", choice_tag(i), app.choices[i].title);
             gotoxy(CHOICE_COL2, row);
-            cprintf("%c) %s", 'A' + i + 1, app.choices[i + 1].title);
+            cprintf("%c) %s", choice_tag(i + 1), app.choices[i + 1].title);
             i += 2;
         } else {
             gotoxy(0, row);
-            cprintf("%c) %.75s", 'A' + i, app.choices[i].title);
+            cprintf("%c) %.75s", choice_tag(i), app.choices[i].title);
             i += 1;
         }
         row++;
@@ -320,6 +354,7 @@ static char* take_word(char* t, char** word)
  *                               etes Chanceux, vous perdez 2 points
  *                               d'ENDURANCE et vous vous rendez au 270")
  *   CP <PIERRE> <id> <titre>    choix qui remet une Pierre Magique
+ *   CU <PIERRE> <id> <titre>    choix qui EXIGE et consomme une Pierre
  *   C  <id> <titre>             choix
  *   CF <id> <titre>             Fuite -- "n'est possible que si elle est
  *                               specifiee a la page ou vous vous trouverez"
@@ -401,6 +436,21 @@ static void classify_line(char* l)
         }
         return;
     }
+    if (l[0] == 'C' && l[1] == 'U' && l[2] == ' ') {
+        Stone st;
+        t = take_word(l + 3, &word);
+        st = stone_from_name(word);
+        t = take_uint(t, &a);
+        if (st != STONE_COUNT && app.num_choices < MAX_CHOICES) {
+            app.choices[app.num_choices].scene_id = (int)a;
+            app.choices[app.num_choices].grant    = (unsigned char)STONE_COUNT;
+            app.choices[app.num_choices].require  = (unsigned char)st;
+            strncpy(app.choices[app.num_choices].title, t, CHOICE_TITLE - 1);
+            app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
+            app.num_choices++;
+        }
+        return;
+    }
     if (l[0] == 'C' && l[1] == 'P' && l[2] == ' ') {
         Stone st;
         t = take_word(l + 3, &word);
@@ -409,6 +459,7 @@ static void classify_line(char* l)
         if (st != STONE_COUNT && app.num_choices < MAX_CHOICES) {
             app.choices[app.num_choices].scene_id = (int)a;
             app.choices[app.num_choices].grant    = (unsigned char)st;
+            app.choices[app.num_choices].require  = (unsigned char)STONE_COUNT;
             strncpy(app.choices[app.num_choices].title, t, CHOICE_TITLE - 1);
             app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
             app.num_choices++;
@@ -435,6 +486,7 @@ static void classify_line(char* l)
             if (t != l + 2 && *t != '\0') {
                 app.choices[app.num_choices].scene_id = (int)a;
                 app.choices[app.num_choices].grant    = (unsigned char)STONE_COUNT;
+                app.choices[app.num_choices].require  = (unsigned char)STONE_COUNT;
                 strncpy(app.choices[app.num_choices].title, t, CHOICE_TITLE - 1);
                 app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
                 app.num_choices++;
@@ -722,24 +774,28 @@ static void choose_stones(void)
     char key;
     Stone s;
 
+    /* La liste des Pierres permises ne bouge pas d'un choix a l'autre : on la
+     * dessine UNE fois. Seul le compteur change, et il tient sur une ligne.
+     * Tout repeindre a chaque prise faisait clignoter l'ecran neuf fois de
+     * suite pour six Pierres. */
+    set_video_mode(0);
+    clrscr();
+    render_title_bar();
+
+    count = 0;
+    for (s = 0; s < STONE_COUNT; s++) {
+        const char k = kKindLetter[stone_kind(s)];
+        if (strchr(app.choose_cats, k) == NULL) continue;
+        gotoxy(0, 4 + count);
+        cprintf("%c) %-12s %c", 'A' + count, stone_name(s, !is_fr()), k);
+        allowed[count++] = s;
+    }
+    if (count == 0) { app.choose_n = 0; return; }
+    print_at(20, msg(M_PRENDRE_UNE_PIERRE));
+
     while (app.choose_n > 0) {
-        set_video_mode(0);
-        clrscr();
-        render_title_bar();
         gotoxy(0, 2);
         cprintf(msg(M_CHOISISSEZ_PIERRES), (unsigned)app.choose_n);
-
-        count = 0;
-        for (s = 0; s < STONE_COUNT; s++) {
-            const char k = kKindLetter[stone_kind(s)];
-            if (strchr(app.choose_cats, k) == NULL) continue;
-            gotoxy(0, 4 + count);
-            cprintf("%c) %-12s %c", 'A' + count, stone_name(s, !is_fr()), k);
-            allowed[count++] = s;
-        }
-        if (count == 0) { app.choose_n = 0; return; }
-
-        print_at(20, msg(M_PRENDRE_UNE_PIERRE));
         key = cgetc();
         i = (key >= 'a') ? (key - 'a') : (key - 'A');
         if (i >= 0 && i < count) {
@@ -909,12 +965,30 @@ static void show_help(void)
 
 /* Fin de partie : "jusqu'a ce que vos points d'ENDURANCE [...] aient ete
  * reduits a zero (mort)". */
+/* "jusqu'a ce que vos points d'ENDURANCE [...] aient ete reduits a zero
+ * (mort)". Le joueur repart de zero ou rend la main a ProDOS -- avec ProDOS
+ * 2.4 c'est Bitsy Bye qui reprend, et l'on peut lancer autre chose sans
+ * redemarrer la machine. Le stub de sortie cc65 fait le QUIT du MLI ; c'est
+ * la seule sortie possible depuis que le jeu occupe la place de
+ * BASIC.SYSTEM. */
 static void game_over(void)
 {
+    char key;
+
+    set_video_mode(0);
     clrscr();
     gotoxy(0, 6);
     cprintf(msg(M_VOTRE_ENDURANCE_EST));
-    wait_key_at(8, msg(M_ESPACE_RECOMMENCER));
+    print_at(8, msg(M_MORT_RECOMMENCER));
+    for (;;) {
+        key = cgetc();
+        if (key == 'R' || key == 'r') return;
+        if (key == 'Q' || key == 'q') {
+            videomode(VIDEOMODE_40COL);
+            clrscr();
+            exit(0);
+        }
+    }
 }
 
 /* La creation du personnage, telle que le livre l'ouvre. */
@@ -1117,7 +1191,19 @@ void handle_user_input(char key) {
         /* Choix par lettre */
         choice_num = (key >= 'a') ? (key - 'a') : (key - 'A');
         if (choice_num < app.num_choices) {
-            /* Une Pierre attachee au choix change de main avant le saut. */
+            if (!choice_available(choice_num)) {
+                /* On ne lance pas un sort qu'on n'a pas. */
+                clear_bottom();
+                print_at(CHOICE_ROW0, msg(M_PIERRE_ABSENTE));
+                wait_key_at(CHOICE_ROWN, msg_continue());
+                render_scene();
+                return;
+            }
+            /* La Pierre exigee se desintegre en servant. */
+            if (app.choices[choice_num].require < STONE_COUNT) {
+                stone_use(&app.hero, (Stone)app.choices[choice_num].require, 0);
+            }
+            /* Une Pierre offerte par le choix change de main avant le saut. */
             if (app.choices[choice_num].grant < STONE_COUNT) {
                 character_give_stone(&app.hero,
                                      (Stone)app.choices[choice_num].grant, 1);

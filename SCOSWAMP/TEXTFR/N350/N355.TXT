@@ -11,9 +11,8 @@ faites aussiteot volte-face pour vous retrouver nez a nez avec deux COUPEURS
 DE BOURSES en haillons. Ils vous attaquent a l'instant meme, convaincus que
 vous avez du rapporter un fabuleux tresor de vos peregrinations dans le
 Marais. Vous ne pouvez pas vous enfuir et vous n'avez pas assez de temps pour
-avoir recours a la magie. Il ne vous reste donc plus qu'a les combattre.
+avoir recours a la magie. Il ne vous reste donc plus qu'a les combattre...
 
-HABILETE ENDURANCE Premier COUPEUR DE BOURSES 7 5 Deuxieme COUPEUR DE BOURSES
-8 5
-
+M 7 5 PREMIER COUPEUR DE BOUR
+M 8 5 DEUXIEME COUPEUR DE BOU
 C 186 Si vous les tuez tous les deux

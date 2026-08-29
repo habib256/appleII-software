@@ -9,4 +9,3 @@ sortir. Si vous etes malchanceux, la situation devient plus dangereuse. Vous
 etes dans la Clairiere n 030. Que faites-vous?
 
 CL 270 087 -2 0
-

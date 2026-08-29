@@ -3,7 +3,7 @@ T 203 Magie contre adversaires etranges
 Contre ces etranges adversaires, mieux vaut recourir a la magie. Quelle Pierre
 allez-vous utiliser ? Choisissez avec soin.
 
-C 075 Utiliser la Pierre de Feu
-C 393 Utiliser la Pierre de Fletrissure
-C 114 Utiliser la Pierre de Croissance
+CU FEU 075 Utiliser la Pierre de Feu
+CU FLETRISSURE 393 Utiliser la Pierre de Fletrissure
+CU CROISSANCE 114 Utiliser la Pierre de Croissance
 C 028 Aucune: passer au corps a corps et combattre

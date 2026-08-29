@@ -2,11 +2,12 @@ T 120 Les loups du Maitre
 
 Le Maitre des Loups fait un geste et ses deux cratures bondissent sur vous.
 Vous devez les combattre tour a tour. Si vous les tuez, il faudra ensuite
-affronter le Maitre lui-meme.
-
-HABILETE ENDURANCE Premier Loup 7 5 Deuxieme Loup 6 6 Maitre des Loups 11 10
+affronter le Maitre lui-meme....
 
 Si le combat tourne mal, vous pouvez fuir.
 
-C 314 Prendre la fuite
+M 7 5 PREMIER LOUP
+M 6 6 DEUXIEME LOUP
+M 11 10 MAITRE DES LOUPS
+CF 314 Prendre la fuite
 C 154 Si vous tuez vos trois adversaires

@@ -2,8 +2,8 @@ T 387 Choix de Pierre Magique
 
 De quelle Pierre Magique allez-vous faire usage ?
 
-C 107 Pierre de Malediction
-C 278 de Terreur
-C 148 d'Illusion
-C 318 d'Amitie
+CU MALEDICTION 107 Pierre de Malediction
+CU TERREUR 278 de Terreur
+CU ILLUSION 148 d'Illusion
+CU AMITIE 318 d'Amitie
 C 065 Aucune de celles-ci

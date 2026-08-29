@@ -13,6 +13,7 @@
   CL <ok> <ko> [<dok> <dko>]  Tentez votre Chance : ou l'on va, et ce que
                       chaque branche coute en ENDURANCE
   CP <PIERRE> <id> <Titre>  choix qui remet une Pierre Magique
+  CU <PIERRE> <id> <Titre>  choix qui exige et consomme une Pierre
   C  <id> <Titre>     choix, rendus dans les 4 lignes du bas
 
 Ne touche pas aux mots : seuls les retours a la ligne changent. Les lignes
@@ -30,7 +31,7 @@ WRAP        = 78
 RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # Les directives de jeu : ni titre, ni corps, ni choix. Elles ne se replient
 # pas -- une ligne M coupee en deux ne veut plus rien dire.
-DIRECTIVE = re.compile(r"^(M|MD|MS|E|P|PC|CF|CP) ")
+DIRECTIVE = re.compile(r"^(M|MD|MS|E|P|PC|CF|CP|CU|CL) ")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -160,6 +161,76 @@ def derive_luck(choices, body):
     return rest, line
 
 
+# Les douze Pierres, dans les deux langues, telles que le corpus les nomme.
+STONE_NAMES = {
+    "FEU": "FEU", "FIRE": "FEU",
+    "GLACE": "GLACE", "ICE": "GLACE",
+    "ILLUSION": "ILLUSION",
+    "AMITIE": "AMITIE", "FRIENDSHIP": "AMITIE",
+    "CROISSANCE": "CROISSANCE", "GROWTH": "CROISSANCE",
+    "BENEDICTION": "BENEDICTION", "BLESSING": "BENEDICTION",
+    "TERREUR": "TERREUR", "FEAR": "TERREUR", "TERROR": "TERREUR",
+    "FLETRISSURE": "FLETRISSURE", "FETRISSURE": "FLETRISSURE",
+    "WITHERING": "FLETRISSURE",
+    "MALEDICTION": "MALEDICTION", "CURSE": "MALEDICTION",
+    "HABILETE": "HABILETE", "SKILL": "HABILETE",
+    "ENDURANCE": "ENDURANCE", "STAMINA": "ENDURANCE",
+    "CHANCE": "CHANCE", "LUCK": "CHANCE",
+}
+# "Utiliser une Pierre de Feu", "Use a Magic Fire Stone", "Pierre d'Amitie",
+# "Throw an Ice Magic Stone" : le nom peut preceder ou suivre le mot Pierre.
+STONE_IN_TITLE = re.compile(
+    # "d Amitie" : le corpus ecrit parfois l'elision avec une espace au
+    # lieu d'une apostrophe.
+    r"\bPierres?\b(?:\s+Magiques?)?\s+(?:de\s+la\s+|de\s+|d[e']\s*|d\s+)([A-Za-zÀ-ÿ]+)"
+    r"|\b([A-Za-z]+)\s+(?:Magic\s+)?Stone\b"
+    r"|\bStone\s+of\s+([A-Za-z]+)\b", re.I)
+
+
+def stone_of_title(title):
+    """La Pierre qu'un choix depense, ou None."""
+    m = STONE_IN_TITLE.search(title)
+    if not m:
+        return None
+    word = next(g for g in m.groups() if g)
+    key = (word.upper()
+              .replace("É", "E").replace("È", "E").replace("Ê", "E"))
+    return STONE_NAMES.get(key)
+
+
+# Une liste de Pierres s'ecrit souvent en ellipse : "Une Pierre de Terreur /
+# d'Illusion / Aucune de celles-ci". Les suivantes ne repetent pas le mot.
+ELLIPSIS = re.compile(r"^(?:de\s+la\s+|de\s+|d[e']\s*)?([A-Za-zÀ-ÿ]+)\s*$", re.I)
+
+
+def derive_stone_use(choices, already):
+    """Un choix qui nomme une Pierre l'EXIGE et la consomme (ligne CU).
+
+    Sans ca, 37 choix du corpus depensaient une Pierre sans toucher au sac, et
+    rien n'empechait d'en lancer une qu'on n'avait pas.
+
+    `already` dit si la page porte deja un CU : dans ce cas seulement, un titre
+    qui n'est QU'un nom de Pierre est lu comme la suite de la liste. Hors de ce
+    contexte la regle serait trop large -- "Illusion" peut etre un mot ordinaire.
+    """
+    rest, lines = [], []
+    listing = already
+    for cid, title in choices:
+        stone = stone_of_title(title)
+        if stone is None and listing:
+            m = ELLIPSIS.match(title.strip())
+            if m:
+                key = (m.group(1).upper().replace("É", "E")
+                       .replace("È", "E").replace("Ê", "E"))
+                stone = STONE_NAMES.get(key)
+        if stone:
+            lines.append(f"CU {stone} {cid:03d} {title}")
+            listing = True
+        else:
+            rest.append((cid, title))
+    return rest, lines
+
+
 def derive_flee(choices, directives):
     """Transforme le choix de Fuite en ligne CF. Rend (choix_restants, cf)."""
     if any(d.startswith("CF ") for d in directives):
@@ -267,14 +338,22 @@ def main():
                 choices, cl = derive_luck(choices, body)
                 if cl:
                     directives = directives + [cl]
+            if derive:
+                has_cu = any(d.startswith("CU ") for d in directives)
+                choices, cus = derive_stone_use(choices, has_cu)
+                directives = directives + cus
             if derive and not any(d.startswith("PC ") for d in directives) \
                      and not any(d.startswith("P ") for d in directives) \
                      and STONES_GIVEN.search(" ".join(body)):
                 problems.append(f"{f}: une Pierre semble remise ici, mais la "
                                 f"page n'a ni ligne PC ni ligne P")
             if derive and directives:
-                found[(lang, sid)] = [d for d in directives
-                                      if d.split()[0] in ("M", "MD", "MS", "CF")]
+                # Tout enregistrer : c'est `mechanics` qui decide ensuite ce
+                # qui compte. Filtrer ici avait rendu le recoupement aveugle
+                # aux CU, CL et PC -- et il a laisse passer trois pages ou
+                # l'anglais depensait une Pierre que le francais ne depensait
+                # pas.
+                found[(lang, sid)] = list(directives)
             w = wrap(body)
             if len(w) > BODY_ROWS:
                 problems.append(f"{f}: corps {len(w)} lignes > {BODY_ROWS}")
@@ -309,7 +388,8 @@ def main():
             # en choix libres pendant que TEXTFR passait au jet de Chance.
             # Combien de champs portent de la mecanique, par directive : le
             # reste est du titre, qui se traduit.
-            KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3}
+            KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3,
+                    "CU": 3, "CP": 3}
 
             def mechanics(dirs):
                 out = []
