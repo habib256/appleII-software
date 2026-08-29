@@ -1,6 +1,14 @@
 <!-- Déplacé le 2026-08-29 depuis ~/Emu/AppleII/apple2src/apple2adventure
      vers ~/src/pom2adventure, à côté de l'émulateur. Historique git conservé. -->
 
+> **Hommage, gratuit, non commercial.** SCOSWAMP est un portage Apple II du
+> *Marais aux Scorpions*, huitième volume des *Défis Fantastiques* de Steve
+> Jackson et Ian Livingstone, illustré par Duncan Smith, paru chez Gallimard
+> en 1985. L'œuvre appartient à ses auteurs et à son éditeur ; ce dépôt en est
+> un hommage écrit par un lecteur, distribué librement sous GPL v3, dont
+> personne ne tire un centime. Si un ayant droit souhaite qu'il disparaisse, il
+> disparaîtra.
+
 > **pom2adventure — l'atelier logiciel Apple II.**
 >
 > Dépôt distinct de [POM2](../pom2), qui est l'émulateur : ici on écrit les
