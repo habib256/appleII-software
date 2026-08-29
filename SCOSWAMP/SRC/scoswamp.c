@@ -43,6 +43,10 @@
 #define CHOICE_COL2  40   /* colonne du 2e choix quand deux tiennent sur 1 ligne */
 #define CHOICE_WIDTH 39   /* largeur utile d'une colonne de choix */
 
+/* Le livre ne met jamais plus de trois adversaires sur une page : les deux
+ * LOUPS du 224, les trois BRIGANDS du 235. */
+#define MAX_FOES 3
+
 /* Le titre de choix le plus long du corpus fait 72 caracteres ; 76 laisse de
  * quoi respirer sans gaspiller dix fois la difference. */
 #define CHOICE_TITLE 76
@@ -70,8 +74,13 @@ typedef struct {
     /* La Feuille d'Aventure et la rencontre en cours. */
     Character hero;
     int       hero_ready;    /* les des ont ete jetes */
-    Monster   monster;
-    int       has_monster;   /* la page porte une ligne M */
+    /* "Parfois, vous les affronterez comme si elles n'etaient qu'un seul
+     * monstre ; parfois, vous les combattrez une par une." Les deux rencontres
+     * a plusieurs du Marais sont du second type : une file, affrontee dans
+     * l'ordre ou la page la donne. */
+    Monster   foes[MAX_FOES];
+    int       foe_count;     /* nombre de lignes M sur la page */
+    int       foe_cur;       /* adversaire en cours dans la file */
     int       flee_target;   /* scene ou mene la Fuite, -1 si la page n'en offre pas */
     int       pending_scene; /* scene a charger au prochain tour de boucle, -1 sinon */
     unsigned char choose_n;  /* Pierres a choisir en entrant, 0 si aucune */
@@ -321,24 +330,31 @@ static void classify_line(char* l)
     char* word;
     unsigned int a, b;
 
-    if (l[0] == 'M' && l[1] == 'D' && l[2] == ' ') {
+    /* MD et MS qualifient le dernier adversaire declare. */
+    if (l[0] == 'M' && l[1] == 'D' && l[2] == ' ' && app.foe_count > 0) {
         take_uint(l + 3, &a);
-        app.monster.damage = (unsigned char)a;
+        app.foes[app.foe_count - 1].damage = (unsigned char)a;
         return;
     }
-    if (l[0] == 'M' && l[1] == 'S' && l[2] == ' ') {
+    if (l[0] == 'M' && l[1] == 'S' && l[2] == ' ' && app.foe_count > 0) {
         take_uint(l + 3, &a);
-        app.monster.stop_at = (unsigned char)a;
+        app.foes[app.foe_count - 1].stop_at = (unsigned char)a;
         return;
     }
     if (l[0] == 'M' && l[1] == ' ') {
-        t = take_uint(l + 2, &a);
-        t = take_uint(t, &b);
-        app.monster.hab = (unsigned char)a;
-        app.monster.end = (unsigned char)b;
-        strncpy(app.monster.name, t, sizeof(app.monster.name) - 1);
-        app.monster.name[sizeof(app.monster.name) - 1] = '\0';
-        app.has_monster = 1;
+        /* Chaque ligne M ajoute un adversaire a la file, dans l'ordre de la
+         * page -- c'est l'ordre dans lequel le livre les fait venir. */
+        if (app.foe_count < MAX_FOES) {
+            Monster* f = &app.foes[app.foe_count];
+            monster_init(f);
+            t = take_uint(l + 2, &a);
+            t = take_uint(t, &b);
+            f->hab = (unsigned char)a;
+            f->end = (unsigned char)b;
+            strncpy(f->name, t, sizeof(f->name) - 1);
+            f->name[sizeof(f->name) - 1] = '\0';
+            app.foe_count++;
+        }
         return;
     }
     if (l[0] == 'E' && l[1] == ' ') {
@@ -573,8 +589,10 @@ static void show_fighters(void)
             app.hero.hab, app.hero.end, app.hero.end0);
     gotoxy(CHOICE_COL2, CHOICE_ROW0);
     cprintf("%-12s HAB %u  END %2u/%u",
-            app.monster.name, app.monster.hab,
-            app.monster.end, app.monster.end0);
+            app.foes[app.foe_cur].name, app.foes[app.foe_cur].hab,
+            app.foes[app.foe_cur].end, app.foes[app.foe_cur].end0);
+    /* Quand ils sont plusieurs, dire lequel : des chiffres, pas de traduction. */
+    if (app.foe_count > 1) cprintf("  %d/%d", app.foe_cur + 1, app.foe_count);
 }
 
 static void clear_bottom(void)
@@ -773,14 +791,14 @@ static int run_combat(void)
             prompt_luck();
             key = cgetc();
             use_luck = (key == 'C' || key == 'c');
-            lucky = combat_flee(&app.hero, &app.monster, use_luck);
+            lucky = combat_flee(&app.hero, &app.foes[app.foe_cur], use_luck);
             render_title_bar();
             gotoxy(0, CHOICE_ROW0 + 2);
             if (use_luck) cprintf(lucky ? (msg(M_CHANCEUX))
                                         : (msg(M_MALCHANCEUX)));
             /* La creature blessee garde son ENDURANCE entamee : on peut
              * revenir dans la clairiere et reprendre le combat. */
-            monster_remember((unsigned int)app.current_scene, &app.monster);
+            monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
             wait_key_at(CHOICE_ROWN, msg_continue());
             set_video_mode(0);
             return character_is_dead(&app.hero) ? 0 : 2;
@@ -788,7 +806,7 @@ static int run_combat(void)
         if (key != ' ' && key != '\r') continue;
 
         assaut++;
-        combat_round(&app.hero, &app.monster, &r);
+        combat_round(&app.hero, &app.foes[app.foe_cur], &r);
         clear_bottom();
         show_fighters();
         gotoxy(0, CHOICE_ROW0 + 1);
@@ -812,7 +830,7 @@ static int run_combat(void)
         prompt_luck();
         key = cgetc();
         use_luck = (key == 'C' || key == 'c');
-        lucky = combat_apply(&app.hero, &app.monster, &r, use_luck);
+        lucky = combat_apply(&app.hero, &app.foes[app.foe_cur], &r, use_luck);
         render_title_bar();
 
         clear_bottom();
@@ -823,16 +841,26 @@ static int run_combat(void)
                           : (msg(M_MALCHANCEUX2)));
         }
 
-        if (monster_is_beaten(&app.monster)) {
-            monster_remember((unsigned int)app.current_scene, &app.monster);
+        if (monster_is_beaten(&app.foes[app.foe_cur])) {
             gotoxy(0, CHOICE_ROW0 + 2);
-            cprintf(msg(M_S_EFFONDRE), app.monster.name);
+            cprintf(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
+            /* "vous devrez les combattre tous deux a tour de role" : le
+             * suivant se presente, et le heros garde l'ENDURANCE qui lui
+             * reste -- aucun repit entre deux adversaires. */
+            app.foe_cur++;
+            monster_remember((unsigned int)app.current_scene, app.foe_cur,
+                             &app.foes[app.foe_cur < app.foe_count
+                                       ? app.foe_cur : app.foe_count - 1]);
             wait_key_at(CHOICE_ROWN, msg_continue());
-            set_video_mode(0);
-            return 1;
+            if (app.foe_cur >= app.foe_count) {
+                set_video_mode(0);
+                return 1;
+            }
+            assaut = 0;          /* le sac redevient ouvrable avant l'assaut */
+            continue;
         }
         if (character_is_dead(&app.hero)) {
-            monster_remember((unsigned int)app.current_scene, &app.monster);
+            monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
             set_video_mode(0);
             return 0;
         }
@@ -915,13 +943,13 @@ void load_scene(int scene_id) {
     app.current_scene = scene_id;
     app.num_choices = 0;  /* Réinitialiser les choix */
     app.has_image = 0;
-    app.has_monster = 0;
+    app.foe_count = 0;
+    app.foe_cur = 0;
     app.flee_target = -1;
     app.choose_n = 0;
     app.luck_ok = -1;
     app.luck_dok = 0;
     app.luck_dko = 0;
-    monster_init(&app.monster);
 
     /* Charger d'abord le texte et les choix. Le chargeur HGR assembleur est
      * ensuite le dernier client ProDOS de la scène : son décodage direct en
@@ -952,17 +980,18 @@ void load_scene(int scene_id) {
     /* Une clairiere avec un adversaire prend son image de bataille si elle
      * existe, sinon son illustration ordinaire. */
     app.has_image = 0;
-    if (app.has_monster) app.has_image = load_hgr_image_as(scene_id, 'B');
+    if (app.foe_count > 0) app.has_image = load_hgr_image_as(scene_id, 'B');
     if (!app.has_image)  app.has_image = load_hgr_image_as(scene_id, 'N');
 
-    if (!app.has_monster) return;
+    if (app.foe_count == 0) return;
 
-    monster_seal(&app.monster);
+    for (issue = 0; issue < app.foe_count; issue++) monster_seal(&app.foes[issue]);
 
     /* "il est possible que vous reveniez plus tard dans cette clairiere et que
      * ce ou ces monstres s'y trouvent encore" : monster_enter rend l'ENDURANCE
      * laissee au dernier passage, et 0 si la creature est deja morte. */
-    if (!monster_enter((unsigned int)scene_id, &app.monster)) return;
+    app.foe_cur = monster_enter((unsigned int)scene_id, app.foes, app.foe_count);
+    if (app.foe_cur >= app.foe_count) return;   /* file deja abattue */
 
     issue = run_combat();
     if (issue == 0) {
@@ -1100,7 +1129,8 @@ void main(void) {
     app.video_mode = 0;  /* Démarrer en mode texte 80 colonnes */
     app.num_choices = 0;
     app.has_image = 0;
-    app.has_monster = 0;
+    app.foe_count = 0;
+    app.foe_cur = 0;
     app.hero_ready = 0;
     app.flee_target = -1;
     app.pending_scene = -1;

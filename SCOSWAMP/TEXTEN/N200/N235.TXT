@@ -4,7 +4,7 @@ You lean against a large tree; only one brigand can approach at a time. Three
 of them show determination. The position prevents you from fleeing: you must
 withstand the shock.
 
-BRIGAND CHIEF SKILL: 9 STAMINA: 10 SECOND BRIGAND SKILL: 8 STAMINA: 8 THIRD
-BRIGAND SKILL: 8 STAMINA: 11
-
+M 9 10 BRIGAND CHIEF
+M 8 8 SECOND BRIGAND
+M 8 11 THIRD BRIGAND
 C 019 If you kill these three opponents, resume the journey

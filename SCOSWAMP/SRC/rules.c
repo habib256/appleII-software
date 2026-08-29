@@ -170,13 +170,21 @@ int combat_flee(Character* c, const Monster* m, int use_luck)
 
 /* Table clairsemee : seules les clairieres ou l'on a effectivement combattu y
  * figurent. `scene == 0` marque un emplacement libre -- la clairiere 0 est
- * l'ecran de titre, elle n'a pas d'adversaire. */
-static struct { unsigned int scene; unsigned char end; } seen[MONSTER_SLOTS];
+ * l'ecran de titre, elle n'a pas d'adversaire. `index` retient lequel de la
+ * file etait en cours ; sans lui, fuir devant le deuxieme LOUP puis revenir
+ * ferait recommencer au premier. */
+static struct {
+    unsigned int  scene;
+    unsigned char index;
+    unsigned char end;
+} seen[MONSTER_SLOTS];
 
 void monster_memory_reset(void)
 {
     unsigned int i;
-    for (i = 0; i < MONSTER_SLOTS; ++i) { seen[i].scene = 0; seen[i].end = 0; }
+    for (i = 0; i < MONSTER_SLOTS; ++i) {
+        seen[i].scene = 0; seen[i].index = 0; seen[i].end = 0;
+    }
 }
 
 static int slot_of(unsigned int scene)
@@ -186,20 +194,31 @@ static int slot_of(unsigned int scene)
     return -1;
 }
 
-int monster_enter(unsigned int scene, Monster* m)
+int monster_enter(unsigned int scene, Monster* foes, int count)
 {
     int i = slot_of(scene);
-    if (i >= 0) m->end = seen[i].end;
-    return !monster_is_beaten(m);
+    int idx;
+
+    if (i < 0) return 0;                 /* jamais combattu ici */
+    idx = (int)seen[i].index;
+    if (idx >= count) return count;      /* toute la file est tombee */
+    foes[idx].end = seen[i].end;
+    /* L'adversaire en cours peut avoir ete acheve juste avant la fuite. */
+    if (monster_is_beaten(&foes[idx])) return idx + 1;
+    return idx;
 }
 
-void monster_remember(unsigned int scene, const Monster* m)
+void monster_remember(unsigned int scene, int index, const Monster* m)
 {
     int i = slot_of(scene);
     if (i < 0) i = slot_of(0);      /* premier emplacement libre */
-    /* Table pleine : on oublie cette creature, elle sera de nouveau entiere au
-     * prochain passage. Impossible avec les 29 adversaires du livre. */
-    if (i >= 0) { seen[i].scene = scene; seen[i].end = m->end; }
+    /* Table pleine : on oublie cette clairiere, ses adversaires seront de
+     * nouveau entiers au prochain passage. Impossible avec les 26 du livre. */
+    if (i >= 0) {
+        seen[i].scene = scene;
+        seen[i].index = (unsigned char)index;
+        seen[i].end   = m->end;
+    }
 }
 
 /* ── La Magie ────────────────────────────────────────────────────────────── */

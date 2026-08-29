@@ -158,12 +158,19 @@ int combat_flee(Character* c, const Monster* m, int use_luck);
  * coute 402 -- et sur cette machine 282 octets, c'est un ecran de texte. */
 #define MONSTER_SLOTS 40
 
-void          monster_memory_reset(void);
-/* Prepare `m` pour la scene : rend l'ENDURANCE deja entamee si on est deja
- * passe par la, sinon la valeur du livre. Rend 0 si la creature est morte lors
- * d'une visite precedente (il n'y a plus de combat a livrer). */
-int           monster_enter(unsigned int scene, Monster* m);
-void          monster_remember(unsigned int scene, const Monster* m);
+void monster_memory_reset(void);
+
+/* Reprend la file d'adversaires d'une clairiere la ou on l'avait laissee.
+ *
+ * "Parfois, vous les affronterez comme si elles n'etaient qu'un seul monstre ;
+ * parfois, vous les combattrez une par une" : les deux rencontres a plusieurs
+ * du Marais sont du second type, d'ou une file. Il faut donc se souvenir non
+ * seulement de l'ENDURANCE entamee mais de QUEL adversaire etait en cours.
+ *
+ * Rend l'indice ou reprendre, et ajuste l'ENDURANCE de cet adversaire-la.
+ * Rend `count` si toute la file est tombee lors d'une visite precedente. */
+int  monster_enter(unsigned int scene, Monster* foes, int count);
+void monster_remember(unsigned int scene, int index, const Monster* m);
 
 /* ── La Magie ─────────────────────────────────────────────────────────────
  * "chacune d'elle vous permettra de jeter un sort, mais un seul, car les

@@ -359,7 +359,7 @@ une Pierre bénéfique au choix.
 | À convertir | Scènes |
 |---|---|
 | Un combat / un adversaire à affronter | 88 |
-| ~~Un bloc de stats en clair → `M`~~ | ~~26~~ **24 faits, 2 en attente** |
+| ~~Un bloc de stats en clair → `M`~~ | ~~26~~ **26 faits** |
 | Choix écrits comme une condition → `CL` / `CS` | 68 |
 | Les Pierres Magiques (12 noms) → `P` / `CP` | 53 |
 | Une variation chiffrée (« perdez 2 points d'ENDURANCE ») → `E` | 14 |
@@ -412,10 +412,22 @@ une Pierre bénéfique au choix.
   fois. `Character` fait une trentaine d'octets, la mémoire des clairières 120 :
   un fichier ProDOS de rien du tout.
 
-- 🟠 **Combat contre plusieurs créatures.** « Parfois, vous les affronterez
+- ✅ **Combat contre plusieurs créatures.** « Parfois, vous les affronterez
   comme si elles n'étaient qu'un seul monstre ; parfois, vous les combattrez
-  une par une. » Le moteur n'en gère qu'une, et c'est ce qui bloque les deux
-  dernières pages de combat : `N224` (deux LOUPS) et `N235` (trois BRIGANDS).
+  une par une. » Les deux rencontres à plusieurs du Marais sont du second
+  type — `N224` (deux LOUPS, « à tour de rôle »), `N235` (trois BRIGANDS, « un
+  seul à la fois ») — et une page porte désormais autant de lignes `M` que
+  d'adversaires. Le suivant se présente entier dès que le précédent tombe, et
+  le héros garde l'ENDURANCE qui lui reste : aucun répit entre deux.
+  La mémoire des clairières retient **lequel** de la file était en cours, pas
+  seulement son ENDURANCE — sans quoi fuir devant le deuxième LOUP puis
+  revenir ferait recommencer au premier. Pinné par `test_rules`.
+  Le mode « comme un seul monstre » n'existe pas dans ce livre-ci ; il faudra
+  une directive le jour où un autre le demandera.
+
+  Au passage, le motif de dérivation absorbe l'ordinal : le corpus écrit
+  « Premier LOUP » et « Deuxieme LOUP », et sans lui les deux portaient le
+  même nom dans le bandeau — « Premier » restant orphelin dans la prose.
 
 - 🟢 **Les Provisions et l'or** existent dans `Character` mais aucune page ne
   les touche encore.

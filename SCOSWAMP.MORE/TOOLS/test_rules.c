@@ -205,39 +205,61 @@ static void test_memoire_clairieres(void)
     /* "conservez ces indications car il est possible que vous reveniez plus
      * tard dans cette clairiere [...] reprendre le combat la ou vous l'aviez
      * laisse." */
-    Monster m;
+    Monster m[3];
     monster_memory_reset();
 
-    monster_init(&m); m.hab = 9; m.end = 12; strcpy(m.name, "GEANT");
-    monster_seal(&m);
-    CHECK(m.end0 == 12, "l'ENDURANCE de depart est figee, vu %u", m.end0);
-    CHECK(monster_enter(12, &m) == 1, "premiere visite : combat a livrer");
-    CHECK(m.end == 12, "premiere visite : l'ENDURANCE du livre, vu %u", m.end);
+    monster_init(&m[0]); m[0].hab = 9; m[0].end = 12; strcpy(m[0].name, "GEANT");
+    monster_seal(&m[0]);
+    CHECK(m[0].end0 == 12, "l'ENDURANCE de depart est figee, vu %u", m[0].end0);
+    CHECK(monster_enter(12, m, 1) == 0, "premiere visite : on commence au premier");
+    CHECK(m[0].end == 12, "premiere visite : l'ENDURANCE du livre, vu %u", m[0].end);
 
-    m.end = 4;
-    monster_remember(12, &m);
-    CHECK(m.end0 == 12, "la jauge garde le maximum du livre, vu %u", m.end0);
+    m[0].end = 4;
+    monster_remember(12, 0, &m[0]);
+    CHECK(m[0].end0 == 12, "la jauge garde le maximum du livre, vu %u", m[0].end0);
 
-    monster_init(&m); m.hab = 9; m.end = 12;     /* la page redonne le livre */
-    CHECK(monster_enter(12, &m) == 1, "retour : le combat reprend");
-    CHECK(m.end == 4, "retour : ENDURANCE entamee, vu %u", m.end);
+    monster_init(&m[0]); m[0].hab = 9; m[0].end = 12;   /* la page redonne le livre */
+    CHECK(monster_enter(12, m, 1) == 0, "retour : le combat reprend");
+    CHECK(m[0].end == 4, "retour : ENDURANCE entamee, vu %u", m[0].end);
 
-    m.end = 0; monster_remember(12, &m);
-    m.end = 12;
-    CHECK(monster_enter(12, &m) == 0, "creature morte : plus de combat");
+    m[0].end = 0; monster_remember(12, 0, &m[0]);
+    m[0].end = 12;
+    CHECK(monster_enter(12, m, 1) == 1, "creature morte : la file est finie");
 
-    m.end = 9;
-    CHECK(monster_enter(300, &m) == 1 && m.end == 9, "clairiere jamais visitee");
+    monster_init(&m[0]); m[0].end = 9;
+    CHECK(monster_enter(300, m, 1) == 0 && m[0].end == 9, "clairiere jamais visitee");
 
     /* Le seuil du paragraphe 12 : "si vous parvenez a reduire a 6 les points
      * d'ENDURANCE du Geant, rendez-vous au 61". Le combat cesse a 6, pas a 0. */
-    monster_init(&m); m.end = 12; m.stop_at = 6;
-    CHECK(monster_is_beaten(&m) == 0, "12 > 6 : le combat continue");
-    m.end = 6;
-    CHECK(monster_is_beaten(&m) == 1, "a 6, le Geant flechit");
-    monster_remember(200, &m);
-    m.end = 12;
-    CHECK(monster_enter(200, &m) == 0, "retour : le seuil est deja atteint");
+    monster_init(&m[0]); m[0].end = 12; m[0].stop_at = 6;
+    CHECK(monster_is_beaten(&m[0]) == 0, "12 > 6 : le combat continue");
+    m[0].end = 6;
+    CHECK(monster_is_beaten(&m[0]) == 1, "a 6, le Geant flechit");
+    monster_remember(200, 0, &m[0]);
+    m[0].end = 12;
+    CHECK(monster_enter(200, m, 1) == 1, "retour : le seuil est deja atteint");
+
+    /* Une file : "vous devrez les combattre tous deux a tour de role"
+     * (paragraphe 224, les deux LOUPS). Fuir devant le second puis revenir
+     * doit reprendre AU SECOND, pas au premier. */
+    monster_memory_reset();
+    monster_init(&m[0]); m[0].hab = 7; m[0].end = 5;
+    monster_init(&m[1]); m[1].hab = 6; m[1].end = 6;
+    CHECK(monster_enter(224, m, 2) == 0, "premiere visite : le premier LOUP");
+
+    m[0].end = 0;                       /* le premier tombe */
+    m[1].end = 3;                       /* le second est entame, on fuit */
+    monster_remember(224, 1, &m[1]);
+
+    monster_init(&m[0]); m[0].hab = 7; m[0].end = 5;
+    monster_init(&m[1]); m[1].hab = 6; m[1].end = 6;
+    CHECK(monster_enter(224, m, 2) == 1, "retour : on reprend au second LOUP");
+    CHECK(m[1].end == 3, "et il est toujours entame, vu %u", m[1].end);
+    CHECK(m[0].end == 5, "le premier n'est pas ressuscite pour autant, vu %u", m[0].end);
+
+    m[1].end = 0; monster_remember(224, 1, &m[1]);
+    monster_init(&m[1]); m[1].hab = 6; m[1].end = 6;
+    CHECK(monster_enter(224, m, 2) == 2, "les deux tombes : plus de combat");
 }
 
 static void test_pierres(void)

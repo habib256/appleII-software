@@ -23,6 +23,7 @@ from pathlib import Path
 
 BODY_ROWS   = 19   # lignes 2..20
 CHOICE_ROWS = 4    # lignes 21..24
+MAX_FOES    = 3    # doit suivre MAX_FOES dans scoswamp.c
 COL         = 39   # largeur d'une colonne de choix (2 par ligne)
 WRAP        = 78
 
@@ -48,7 +49,13 @@ STATS = {
     "TEXTFR": (r"HABILETE", r"ENDURANCE"),
     "TEXTEN": (r"SKILL",    r"STAMINA"),
 }
-NAME = r"((?:[A-ZÀ-Ý][A-ZÀ-Ý'-]*\s+){0,3}[A-ZÀ-Ý][A-ZÀ-Ý'-]*)"
+# Le nom est une suite de mots en capitales, precedee au besoin d'un ordinal
+# ecrit normalement : le corpus dit "Premier LOUP HABILETE: 7 ... Deuxieme LOUP
+# HABILETE: 6", et sans l'ordinal les deux loups portaient le meme nom dans le
+# bandeau -- et "Premier" restait orphelin dans la prose.
+NAME = (r"((?:Premier|Premiere|Deuxieme|Troisieme|Second|Seconde|"
+        r"First|Second|Third)?\s*"
+        r"(?:[A-ZÀ-Ý][A-ZÀ-Ý'-]*\s+){0,3}[A-ZÀ-Ý][A-ZÀ-Ý'-]*)")
 FLEE  = re.compile(r"\b(fuite|fuir|enfuir|flee|fleeing)\b", re.I)
 DMG   = re.compile(r"\((\d+)\s*(?:au lieu de|instead of)\s*2\)", re.I)
 STOP  = re.compile(r"(?:r[eé]duis\w*|reduce\w*)[^.]{0,30}?\b(?:a|to)\s+(\d+)", re.I)
@@ -72,21 +79,25 @@ def derive_combat(text, choices, lang):
     hits = list(block.finditer(text))
     if not hits:
         return text, [], []
-    if len(hits) > 1:
-        # "Parfois, vous les affronterez comme si elles n'etaient qu'un seul
-        # monstre ; parfois, vous les combattrez une par une." Le moteur n'en
-        # gere qu'un : on ne devine pas, on signale.
-        return text, [], [f"{len(hits)} adversaires "
-                          f"({', '.join(h.group(1) for h in hits)}) : "
-                          f"le moteur n'en gere qu'un, page laissee en prose"]
-
-    m = hits[0]
-    name = " ".join(m.group(1).split())[:23]
-    directives = [f"M {int(m.group(2))} {int(m.group(3))} {name}"]
     warnings = []
+    if len(hits) > MAX_FOES:
+        return text, [], [f"{len(hits)} adversaires, le moteur en gere "
+                          f"{MAX_FOES} : page laissee en prose"]
 
-    # Le bloc de stats sort de la prose : le bandeau de combat l'affiche.
-    text = (text[:m.start()] + text[m.end():]).replace("  ", " ").strip()
+    # "Parfois, vous les affronterez comme si elles n'etaient qu'un seul
+    # monstre ; parfois, vous les combattrez une par une." Les deux rencontres
+    # a plusieurs du Marais sont du second type : une ligne M par adversaire,
+    # dans l'ordre de la page.
+    directives = []
+    for m in hits:
+        name = " ".join(m.group(1).split())[:23]
+        directives.append(f"M {int(m.group(2))} {int(m.group(3))} {name}")
+
+    # Les blocs de stats sortent de la prose : le bandeau les affiche. On
+    # retire de la fin vers le debut pour ne pas decaler les positions.
+    for m in reversed(hits):
+        text = text[:m.start()] + text[m.end():]
+    text = text.replace("  ", " ").strip()
     text = re.sub(r"\s+([.,;:!?])", r"\1", text)
 
     d = DMG.search(text)
