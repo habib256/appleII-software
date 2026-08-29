@@ -1,7 +1,7 @@
 T 345 La clairiere en feu
 
-A mesure que vous approchez de l'endroit oeu vous avez tue le terrible Maeitre
-des Araignes, vous eprouvez une sensation de chaleur de plus en plus intense.
+A mesure que vous approchez de l'endroit ou vous avez tue le terrible Maitre
+des Araignees, vous eprouvez une sensation de chaleur de plus en plus intense.
 A l'ore de la clairiere, vous constatez qu'elle est en feu : il n'y a plus la
 qu'un immense brasier qui vous interdit le passage. La fume qui se degage de
 l'incendie vous etouffe a moitie et vous perdez 1 point d'ENDURANCE.

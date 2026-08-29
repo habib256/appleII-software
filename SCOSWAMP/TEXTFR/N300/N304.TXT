@@ -2,12 +2,12 @@ T 304 Le Perroquet
 
 A mesure que vous avancez en direction du nord, le Marais change d'aspect. Il
 devient moins lugubre et ressemble de plus en plus a une jungle tropicale. Des
-oisaux aux couleurs eclatantes volent parmi les arbres et vous apercevez
-bienteot une clairiere un peu plus loin. C'est la Clairiere n 14. Si vous y
+oiseaux aux couleurs eclatantes volent parmi les arbres et vous apercevez
+bientot une clairiere un peu plus loin. C'est la Clairiere n 14. Si vous y
 etes deja venu, rendez-vous au 149. Sinon, lisez ce qui suit. Perche sur une
 branche, un gros Perroquet rouge et jaune vous observe attentivement. Lorsque
 vous vous approchez de lui, il vous parle : "Qui etes-vous et que voulez-vous
-a la Maitresse des Oisaux ? " demande-t-il. Qu'allez-vous faire ?
+a la Maitresse des Oiseaux ? " demande-t-il. Qu'allez-vous faire ?
 
 C 071 Attaquer le Perroquet
 C 131 Demander a rencontrer sa Maitresse

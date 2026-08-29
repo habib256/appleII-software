@@ -1,9 +1,9 @@
-T 391 Attaque de la Maitresse des Oisaux
+T 391 Attaque de la Maitresse des Oiseaux
 
 Vous tirez votre epee et vous faites un pas vers elle. Elle vous considere
-alors sans terreur, pluteot avec tristesse. Puis soudain, des centaines
-d'oisaux aux couleurs etincelantes vous entourent et vous ne voyez plus rien.
-Lorsque les oisaux s'eloignent enfin, leur Maitresse a disparu. Vous perdez 2
+alors sans terreur, plutot avec tristesse. Puis soudain, des centaines
+d'oiseaux aux couleurs etincelantes vous entourent et vous ne voyez plus rien.
+Lorsque les oiseaux s'eloignent enfin, leur Maitresse a disparu. Vous perdez 2
 points de CHANCE.
 
 E CHANCE -2

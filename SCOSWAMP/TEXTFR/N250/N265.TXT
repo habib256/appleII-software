@@ -2,7 +2,7 @@ T 265 Clairiere de la Licorne
 
 Vous etes de retour dans la clairiere ou vous aviez rencontre la Licorne, mais
 l'endroit est deserte maintenant; le silence pese. Les traces sur le sol
-montrent que la crature est partie. La route vous appelle, il est temps
+montrent que la creature est partie. La route vous appelle, il est temps
 d'avancer.
 
 C 348 Poursuivre hors de la clairiere

@@ -1,8 +1,8 @@
 T 211 La barbe en flammes
 
-Une ide folle vous traverse l'esprit: enflammer la barbe du Gant. Vous lancez
-votre Pierre de Feu, et aussitot sa longue barbe grise s'embrase dans un
-crepitement sec. Le colosse hurle, battant des mains sur son menton enfume
+Une idee folle vous traverse l'esprit: enflammer la barbe du Geant. Vous
+lancez votre Pierre de Feu, et aussitot sa longue barbe grise s'embrase dans
+un crepitement sec. Le colosse hurle, battant des mains sur son menton enfume
 jusqu'a eteindre les flammes.
 
 Son rugissement fait trembler la clairiere. Votre sort a diminue sa force,
@@ -10,4 +10,4 @@ mais sa fureur est terrible et il vous barre toute retraite. L'affrontement
 est inevitable.
 
 M 6 12 GEANT
-C 366 Si vous parvenez a terrasser le Gant
+C 366 Si vous parvenez a terrasser le Geant

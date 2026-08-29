@@ -5,9 +5,9 @@ envahi d'herbes. C'est la Clairiere n 29. Si vous y etes deja venu,
 rendez-vous au 265. Sinon, lisez ce qui suit. Un animal de couleur blanche est
 couche au centre de la clairiere. Vous pensez d'abord qu'il s'agit d'un
 cheval, mais lorsqu'il tourne la tete dans votre direction, vous reconnaissez
-aussiteot une LICORNE. Elle semble blesse : des traces de griffes sont
-visibles sur son flanc. Elle se releve cependant et baisse sa corne vers vous
-en lane ant un grognement qui ressemble fort a un defi. Qu'allez-vous faire ?
+aussitot une LICORNE. Elle semble blesse : des traces de griffes sont visibles
+sur son flanc. Elle se releve cependant et baisse sa corne vers vous en lane
+ant un grognement qui ressemble fort a un defi. Qu'allez-vous faire ?
 
 C 368 Vous enfuir
 C 221 La combattre

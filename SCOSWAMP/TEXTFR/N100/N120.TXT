@@ -1,6 +1,6 @@
 T 120 Les loups du Maitre
 
-Le Maitre des Loups fait un geste et ses deux cratures bondissent sur vous.
+Le Maitre des Loups fait un geste et ses deux creatures bondissent sur vous.
 Vous devez les combattre tour a tour. Si vous les tuez, il faudra ensuite
 affronter le Maitre lui-meme....
 

@@ -7,6 +7,6 @@ vous etes plus petit et plus trapu que d'habitude, et votre nez devient
 sensiblement plus gros. Au bout d'une heure vous retrouverez votre apparence
 normale, mais vous devrez reduire de 1 point votre total d'HABILETE lors du
 prochain combat que vous aurez a livrer. Des la fin de ce combat, vos points
-d'HABILETE reviennent a leur nivau initial.
+d'HABILETE reviennent a leur niveau initial.
 
 C 088 Reprendre la route et poursuivre (aller au 88)

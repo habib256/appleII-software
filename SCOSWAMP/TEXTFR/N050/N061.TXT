@@ -1,11 +1,11 @@
-T 061 Le gant en colere
+T 061 Le geant en colere
 
-Le Gant s'ecrie, la colere tord ses traits et sa voix retentit. "Comment
+Le Geant s'ecrie, la colere tord ses traits et sa voix retentit. "Comment
 osez-vous? Vous, les petits, vous me volez mon bien et ensuite vous venez
 m'attaquer! Moi, je ne veux de mal a personne!" Ses paroles sonnent sinceres,
 mais la situation peut cacher une ruse. Croire sa protestation permet d'eviter
 le sang; continuer le combat signifie risquer la vie pour tenter de le tuer.
 Que faites-vous?
 
-C 229 Croire le Gant et partir en paix
-C 366 Continuer le combat pour tenter de tuer le Gant
+C 229 Croire le Geant et partir en paix
+C 366 Continuer le combat pour tenter de tuer le Geant

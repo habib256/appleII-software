@@ -1,7 +1,7 @@
 T 221 Le combat contre la Licorne
 
 Vous tirez votre epee et vous vous preparez a recevoir la charge. Vous avez de
-la chance: la crature est deja gravement blesse. Il vous faudra lui porter au
+la chance: la creature est deja gravement blesse. Il vous faudra lui porter au
 moins deux Assauts pour l'abattre. Apres ces deux Assauts, si vous le desirez,
 vous pourrez prendre la fuite afin de sauver votre vie. Si la Licorne succombe
 sous vos coups, vous pourrez alors recolter ce qui doit l'etre et poursuivre

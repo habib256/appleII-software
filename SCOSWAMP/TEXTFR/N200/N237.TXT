@@ -1,6 +1,6 @@
 T 237 Fletrissure inefficace
 
-Vous lancez la Pierre de Fletrissure; le sort n'a aucun effet. La crature du
+Vous lancez la Pierre de Fletrissure; le sort n'a aucun effet. La creature du
 Bassin est un animal, pas une plante: la magic ne la touche pas. Il ne vous
 reste donc qu'a l'affronter au corps a corps. Que faites-vous?
 

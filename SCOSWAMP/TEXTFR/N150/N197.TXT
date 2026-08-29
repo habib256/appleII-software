@@ -1,10 +1,10 @@
 T 197 Deuil de gante
 
-Le cadavre du Gant repose au centre de la clairiere. A genoux pres de lui, une
-femme immense pleure a chaudes larmes. C'est sans doute son epouse. Elle vous
-regarde, desespere, sans vous menacer. Vous ne songez pas a l'attaquer. Le
-remords vous gagne: perdez 2 points de CHANCE. Vous jurez de ne plus revenir
-ici, sauf necessite absolue.
+Le cadavre du Geant repose au centre de la clairiere. A genoux pres de lui,
+une femme immense pleure a chaudes larmes. C'est sans doute son epouse. Elle
+vous regarde, desespere, sans vous menacer. Vous ne songez pas a l'attaquer.
+Le remords vous gagne: perdez 2 points de CHANCE. Vous jurez de ne plus
+revenir ici, sauf necessite absolue.
 
 E CHANCE -2
 C 161 Quitter la clairiere

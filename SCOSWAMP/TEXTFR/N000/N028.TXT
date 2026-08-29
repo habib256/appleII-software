@@ -1,4 +1,4 @@
-T 028 Les Arbres-Epes
+T 028 Les Arbres-Epees
 
 Plusieurs ARBRES-EPEES vous attaquent comme s'ils formaient un seul
 adversaire. Ils ne peuvent pas vous voir et ne se reperent que par les bruits
@@ -10,5 +10,5 @@ de combat du livre. Si vous les vainquez, poursuivez la lecture au numero
 indique. Sinon, votre cadavre servira d'engrais pour le marais.
 
 M 9 12 ARBRES-EPEES
-C 362 Vaincre les Arbres-Epes et poursuivre
+C 362 Vaincre les Arbres-Epees et poursuivre
 C 000 En cas de mort : votre cadavre sert d'engrais

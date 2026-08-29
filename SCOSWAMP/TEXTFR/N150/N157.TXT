@@ -1,4 +1,4 @@
-T 157 La clairiere des Arbres-Epes
+T 157 La clairiere des Arbres-Epees
 
 Le chemin se retrecit de facon inquietante et vous craignez d'aboutir a un
 cul-de-sac. Quelques metres plus loin, il s'elargit et vous entrez dans une
@@ -9,5 +9,5 @@ ressemblent a des bras. Bientot, vous remarquez que chaque bras tient une epee
 a son extremite. Ces arbres se meuvent et convergent vers vous. Vous etes
 attaque par des ARBRES-EPEES ! Ils vous encerclent et preparent leur assaut.
 
-C 028 Combattre les Arbres-Epes a l'epee
+C 028 Combattre les Arbres-Epees a l'epee
 C 203 Recourir a la magie pour vous defendre

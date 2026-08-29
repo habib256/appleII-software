@@ -1,8 +1,8 @@
 T 090 La riviere profonde
 
 Vous avez traverse plusieurs cours d'eau faciles a franchir, mais celui qui se
-trouve devant vous est baucoup plus profond. Vous etes dans la Clairiere n 34.
-La riviere tourbillonne en remous et n'inspire guere confiance : qui sait
+trouve devant vous est beaucoup plus profond. Vous etes dans la Clairiere n
+34. La riviere tourbillonne en remous et n'inspire guere confiance : qui sait
 quelles creatures se cachent dans son lit ? Qu'allez-vous faire face a cet
 obstacle ?
 

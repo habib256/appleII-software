@@ -1,0 +1,102 @@
+{
+  "_comment": [
+    "Bible des decors. Le Marais doit se ressembler d'une clairiere a l'autre :",
+    "meme lumiere, meme vegetation, meme sol. Meme regle que les deux autres",
+    "fichiers, palette HGR uniquement."
+  ],
+  "characters": [
+    {
+      "id": "MARAIS",
+      "aliases": [
+        "marais",
+        "marecage",
+        "swamp"
+      ],
+      "source": "portage",
+      "look": "THE SWAMP (the world of every scene): flat wetland under a BLACK sky, standing BLUE water, tussocks of coarse GREEN reeds, VIOLET mud, bare BLACK tree trunks; heavy still air, no horizon line."
+    },
+    {
+      "id": "CLAIRIERE",
+      "aliases": [
+        "clairiere",
+        "clearing"
+      ],
+      "source": "livre, Cartographie",
+      "look": "A CLEARING: a roughly circular opening in the swamp, ringed by close BLACK trunks, floor of GREEN grass and VIOLET mud, one or more narrow paths leading out."
+    },
+    {
+      "id": "SENTIER",
+      "aliases": [
+        "sentier",
+        "path",
+        "trail"
+      ],
+      "source": "livre, Cartographie",
+      "look": "A PATH: a narrow trail of packed VIOLET earth between walls of GREEN reeds, running straight out of frame."
+    },
+    {
+      "id": "TOUR",
+      "aliases": [
+        "tour de Stratagus",
+        "tower"
+      ],
+      "source": "livre, paragraphe 40",
+      "look": "STRATAGUS'S TOWER: a squat BLACK stone tower with a single iron door bearing a carved hideous face, BLACK bats wheeling around its top."
+    },
+    {
+      "id": "BASSIN",
+      "aliases": [
+        "bassin",
+        "etang",
+        "pool"
+      ],
+      "source": "livre, paragraphe 82",
+      "look": "THE POOL: still BLUE water in a ring of WHITE sand, a small beach on one side, GREEN reeds behind."
+    },
+    {
+      "id": "RIVIERE",
+      "aliases": [
+        "riviere",
+        "ruisseau",
+        "river",
+        "stream"
+      ],
+      "source": "portage",
+      "look": "THE RIVER: a slow BLUE channel with VIOLET muddy banks, GREEN weed trailing in the current."
+    },
+    {
+      "id": "VILLAGE",
+      "aliases": [
+        "Bourbenville",
+        "village"
+      ],
+      "source": "livre, paragraphe 1",
+      "look": "BOURBENVILLE: a handful of low ORANGE-thatched huts at the swamp's edge, a rutted VIOLET track between them."
+    },
+    {
+      "id": "CHAMPIGNON",
+      "aliases": [
+        "champignon"
+      ],
+      "source": "portage",
+      "look": "THE GIANT MUSHROOMS: pale WHITE stalks taller than a man, ORANGE caps, growing in clusters."
+    },
+    {
+      "id": "JARDIN",
+      "aliases": [
+        "jardin",
+        "garden"
+      ],
+      "source": "portage",
+      "look": "THE GARDEN: cultivated rows of GREEN plants inside a low stone wall, ORANGE blossoms, unnaturally orderly for the swamp."
+    },
+    {
+      "id": "COURBENSAULE",
+      "aliases": [
+        "Courbensaule"
+      ],
+      "source": "portage",
+      "look": "COURBENSAULE: a hamlet of leaning WHITE-walled houses under enormous drooping GREEN willows, at the far edge of the swamp."
+    }
+  ]
+}

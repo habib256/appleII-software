@@ -1,8 +1,8 @@
-T 201 Le cri des oisaux
+T 201 Le cri des oiseaux
 
-Vous lancez une Pierre de Terreur vers la Maitresse des Oisaux. Elle pousse un
-hurlement d'epouvante, mais aussitot, le ciel s'assombrit: des centaines
-d'oisaux chatoyants fondent sur vous. Ils ne vous attaquent pas, ils la
+Vous lancez une Pierre de Terreur vers la Maitresse des Oiseaux. Elle pousse
+un hurlement d'epouvante, mais aussitot, le ciel s'assombrit: des centaines
+d'oiseaux chatoyants fondent sur vous. Ils ne vous attaquent pas, ils la
 protegent. Leurs ailes battent autour de vous, vous aveuglant completement.
 Quand enfin le tumulte cesse, la Maitresse a disparu.
 

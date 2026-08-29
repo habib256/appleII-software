@@ -1,8 +1,8 @@
-T 334 Stratagus et le Maeitre des Jardins
+T 334 Stratagus et le Maitre des Jardins
 
-Le Maeitre des Jardins porte autour du cou l'une des Amulettes que vous etes
+Le Maitre des Jardins porte autour du cou l'une des Amulettes que vous etes
 charge de rapporter. Qu'allez-vous faire ?
 
-C 379 Attaquer le Maeitre avec votre epee
+C 379 Attaquer le Maitre avec votre epee
 C 152 Recourir a la magie
 C 037 Bavarder paisiblement avec lui

@@ -1,6 +1,6 @@
 T 188 Feu inutile
 
-Vous lancez une Pierre de Feu, mais la VASE est faite d'au: rien ne brule. Le
+Vous lancez une Pierre de Feu, mais la VASE est faite d'eau: rien ne brule. Le
 sort se dissipe sans effet notable. Il faut changer de strategie.
 
 C 400 Utiliser une autre Pierre de Magie

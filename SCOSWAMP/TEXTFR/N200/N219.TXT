@@ -1,6 +1,6 @@
 T 219 Victoire sur le Patrouilleur
 
-Votre adversaire geit a terre, terrasse apres un combat acharne. En fouillant
+Votre adversaire git a terre, terrasse apres un combat acharne. En fouillant
 le corps, vous trouvez un poignard effile, des vivres, et un casque solide. En
 le mettant, vous gagnez +1 en HABILETE. Revigore, vous reprenez votre marche
 vers de nouveaux dangers.

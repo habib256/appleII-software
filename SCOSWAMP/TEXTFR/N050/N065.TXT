@@ -1,7 +1,7 @@
 T 065 Clairiere aux brigands
 
 Le sentier suit un trace sinueux; vous ne vous en ecartez pas. Vous contournez
-un grand champignon ou grouillent des cratures. Bientot, vous approchez d'une
+un grand champignon ou grouillent des creatures. Bientot, vous approchez d'une
 autre clairiere: des voix parviennent. Cache derriere un arbre, vous epiez un
 groupe de cinq hommes. D'apres leur tenue et leur langage, ce sont
 probablement des BRIGANDS. L'Anneau de Cuivre reste froid: ils ne paraissent

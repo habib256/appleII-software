@@ -9,4 +9,4 @@ etes dans la Clairiere n 021. Que faites-vous?
 
 C 047 Quitter les lieux en retournant vers l'ouest
 C 394 Attendre quelques minutes pour observer
-C 077 Boire l'au du bassin
+C 077 Boire l'eau du bassin

@@ -1,10 +1,10 @@
 T 339 Radeau de glace
 
 Lorsque le pont se brise, vous vous arrangez pour prendre pied sur le plus
-gros des morcaux de glace. Vous disposez ainsi d'une sorte de radeau sur
+gros des morceaux de glace. Vous disposez ainsi d'une sorte de radeau sur
 lequel vous pouvez descendre le cours de la riviere en direction de l'est. De
 part et d'autre, les berges sont recouvertes d'une epaisse vegetation.
-Bienteot, vous apercevez devant vous un vieux pont de pierre d'une taille
+Bientot, vous apercevez devant vous un vieux pont de pierre d'une taille
 impressionnante.
 
 C 384 Vous y accrocher

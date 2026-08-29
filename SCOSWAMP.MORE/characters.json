@@ -1,65 +1,48 @@
 {
   "_comment": [
-    "La bible des personnages : une description visuelle, ecrite UNE fois, que",
-    "chaque prompt d'image reprend mot pour mot des que le personnage apparait",
-    "dans la page. Sans elle, chaque image inventait sa propre version -- le",
-    "Maitre des Loups changeait de tete d'une illustration a l'autre, et le",
-    "heros lui-meme n'etait pas le meme d'une scene a la suivante.",
+    "Bible des personnages. Une description visuelle ecrite UNE fois, que",
+    "chaque prompt d'image reprend mot pour mot des qu'un alias apparait dans",
+    "la page. C'est la constance du TEXTE qui fait la constance de l'image :",
+    "ne pas reformuler une fiche sans regenerer les images concernees.",
     "",
-    "`look` est le texte injecte, verbatim. `aliases` sert a reperer le",
-    "personnage dans le texte de la page, dans les deux langues.",
-    "`source` dit d'ou vient la description : le livre, ou un choix assume.",
-    "Ne PAS reformuler un `look` sans regenerer toutes les images concernees :",
-    "c'est la constance du texte qui fait la constance de l'image."
+    "Les couleurs ne nomment que la palette HGR de l'Apple II -- noir, blanc,",
+    "violet, vert, bleu, orange. Dire 'gris' produisait du bleu a la",
+    "conversion, de facon coherente mais pas voulue.",
+    "",
+    "`source` : `livre` = tire du texte original, `portage` = choix assume."
   ],
   "characters": [
-    {
-      "id": "HERO", "always": true, "source": "portage",
-      "look": "THE HERO (in every image, always identical): a lean human adventurer in a hooded green cloak over chainmail, a round wooden shield on the left arm, a straight sword, a leather backpack, seen three-quarters from behind so the face stays hidden."
-    },
-    {
-      "id": "STRATAGUS", "aliases": ["Stratagus"], "source": "livre, paragraphe 40",
-      "look": "STRATAGUS: tall and skeletally gaunt, wrapped in a black toga embroidered with scarlet motifs that seem to writhe; hollow face, long thin hands."
-    },
-    {
-      "id": "GAYOLARD", "aliases": ["Gayolard"], "source": "portage",
-      "look": "GAYOLARD, the good wizard: a stooped old man with a long white beard, a plain blue robe, a knotted wooden staff; kindly, unarmed."
-    },
-    {
-      "id": "POMPATARTE", "aliases": ["Pompatarte"], "source": "portage",
-      "look": "POMPATARTE, the merchant: heavy-set and prosperous, orange tunic over a round belly, rings on his fingers, a sly smile."
-    },
-    {
-      "id": "JARDINS", "aliases": ["Maitre des Jardins", "Garden Master"], "source": "portage, Amulette a Fleur du livre",
-      "look": "THE GARDEN MASTER: a lean man in long green robes, bare-headed, a flower-shaped amulet on a chain at his neck, earth on his hands."
-    },
-    {
-      "id": "LOUPS", "aliases": ["Maitre des Loups", "Wolf Master"], "source": "portage",
-      "look": "THE WOLF MASTER: a burly man in grey wolf pelts, iron-grey hair and a short beard, a wolf-shaped amulet at his neck, heavy fists, no sword."
-    },
-    {
-      "id": "GROGNARD", "aliases": ["Grognard"], "source": "livre, paragraphe 380",
-      "look": "GROGNARD: rough and plain-looking at first glance, a cross embroidered on his tunic, a sword suddenly at his side; taller than he first appeared."
-    },
-    {
-      "id": "LOUP", "aliases": ["LOUP", "LOUPS", "WOLF", "WOLVES"], "source": "portage",
-      "look": "THE WOLVES: lean grey timber wolves, low shoulders, yellow eyes, bared teeth."
-    },
-    {
-      "id": "BASSIN", "aliases": ["BETE DU BASSIN", "POOL BEAST"], "source": "portage",
-      "look": "THE POOL BEAST: a mass of thick rubbery tentacles bursting from dark water, no visible head, pale suckers."
-    },
-    {
-      "id": "BRIGAND", "aliases": ["BRIGAND", "BRIGANDS"], "source": "portage",
-      "look": "THE BRIGANDS: ragged men in patched leather, hoods and scarves over the face, short curved blades."
-    },
-    {
-      "id": "ARAIGNEE", "aliases": ["ARAIGNEE", "ARAIGNEES", "SPIDER", "SPIDERS"], "source": "portage",
-      "look": "THE SPIDERS: black long-legged spiders the size of dogs, glossy abdomens, clustered eyes."
-    },
-    {
-      "id": "SCORPION", "aliases": ["SCORPION"], "source": "portage",
-      "look": "THE SCORPIONS: violet-black scorpions the size of a man's torso, raised segmented tail, heavy pincers."
-    }
+    { "id": "HERO", "always": true, "source": "livre, paragraphe 155",
+      "look": "THE HERO, the young paladin (in every image, always identical): a lean human adventurer in a hooded GREEN cloak over white chainmail, a round wooden shield on the left arm, a straight white sword, an ORANGE leather backpack, seen three-quarters from behind so the face stays hidden." },
+
+    { "id": "GROGNARD", "aliases": ["Grognard"], "source": "livre, paragraphe 155",
+      "look": "GROGNARD, a paladin in disguise: at first glance a rough, plain, heavy-set traveller in worn ORANGE-brown clothes; look closely and a WHITE cross is embroidered on his tunic and a plain WHITE sword hangs at his side. He stands taller than his clothes suggest." },
+
+    { "id": "STRATAGUS", "aliases": ["Stratagus"], "source": "livre, paragraphe 40",
+      "look": "STRATAGUS, the evil sorcerer: tall and skeletally gaunt, wrapped in a BLACK toga embroidered with VIOLET motifs that seem to writhe; hollow face, long thin hands, no weapon." },
+
+    { "id": "GAYOLARD", "aliases": ["Gayolard"], "source": "portage",
+      "look": "GAYOLARD, the good wizard: a stooped old man, long WHITE beard, plain BLUE robe, knotted wooden staff, kindly and unarmed." },
+
+    { "id": "POMPATARTE", "aliases": ["Pompatarte"], "source": "portage",
+      "look": "POMPATARTE, the merchant: heavy-set and prosperous, ORANGE tunic over a round belly, rings on his fingers, a sly smile." },
+
+    { "id": "M_JARDINS", "aliases": ["Maitre des Jardins", "Garden Master"], "source": "livre, Amulette a Fleur",
+      "look": "THE GARDEN MASTER: a lean man in long GREEN robes, bare-headed, a flower-shaped amulet on a chain at his neck, earth on his hands." },
+
+    { "id": "M_LOUPS", "aliases": ["Maitre des Loups", "Wolf Master"], "source": "portage",
+      "look": "THE WOLF MASTER: a burly man wrapped in shaggy WHITE-and-BLACK wolf pelts, iron-hard face, short beard, a wolf-head amulet at his neck, heavy bare fists, no sword." },
+
+    { "id": "M_OISEAUX", "aliases": ["Maitresse des Oisaux", "Maitresse des Oiseaux", "Bird Mistress", "Mistress of Birds"], "source": "livre, paragraphe 131",
+      "look": "THE MISTRESS OF BIRDS: a beautiful woman seated on a stone pedestal in a WHITE gown, long dark hair, a SILVER bird-shaped amulet at her throat; eagles and herons walk freely around her." },
+
+    { "id": "M_ARAIGNEES", "aliases": ["Maitre des Araignes", "Maitre des Araignees", "Spider Master"], "source": "livre, paragraphe 26",
+      "look": "THE SPIDER MASTER: a gaunt figure in tattered BLACK robes, a spider-shaped amulet at his neck, holding a slim glinting wand whose tip is smeared GREEN with poison." },
+
+    { "id": "M_GRENOUILLES", "aliases": ["Maitre des Grenouilles", "Frog Master", "Toad Master"], "source": "portage",
+      "look": "THE FROG MASTER, a toad of a man: squat and wide-mouthed, damp GREEN-mottled skin, bulging eyes set high on the head, webbed fingers, a frog-shaped amulet at his neck, robes the colour of pond water." },
+
+    { "id": "PERROQUET", "aliases": ["Perroquet", "Parrot"], "source": "livre, paragraphe 131",
+      "look": "THE PARROT: a large talking parrot with ORANGE, GREEN and BLUE plumage, perched and watching with one round eye." }
   ]
 }

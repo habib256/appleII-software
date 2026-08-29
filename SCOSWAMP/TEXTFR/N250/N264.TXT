@@ -1,6 +1,6 @@
-T 264 Echec de la Pierre de Fetrissure
+T 264 Echec de la Pierre de Fletrissure
 
-Vous jetez la Pierre de Fetrissure sur le Maitre des Jardins, mais celui-ci
+Vous jetez la Pierre de Fletrissure sur le Maitre des Jardins, mais celui-ci
 n'est pas une plante : le sort n'a aucun effet sur lui. Un arbre situe
 derriere lui meurt cependant sur-le-champ. Furieux, le Maitre vous lance un
 sort de Feu. Vos cheveux s'enflamment; vous les etouffez en vous frappant la

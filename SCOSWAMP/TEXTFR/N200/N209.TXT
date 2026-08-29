@@ -1,11 +1,11 @@
 T 209 Bete du bassin
 
-Vous marchez vers l'est et decouvrez une clairiere avec un bassin. Une crature
-enorme a la pau brune et caoutchouteuse emerge soudain du bassin et tente de
-vous saisir d'un tentacule. Vous faites un bond en arriere: la BETE DU BASSIN
-s'avance vers vous. Un magnifique Bijou Violet brille a son front, attirant le
-regard. L'eau du bassin remue; des remous trahissent la puissance de la bete.
-Vous etes dans la Clairiere n 025. Que faites-vous?
+Vous marchez vers l'est et decouvrez une clairiere avec un bassin. Une
+creature enorme a la peau brune et caoutchouteuse emerge soudain du bassin et
+tente de vous saisir d'un tentacule. Vous faites un bond en arriere: la BETE
+DU BASSIN s'avance vers vous. Un magnifique Bijou Violet brille a son front,
+attirant le regard. L'eau du bassin remue; des remous trahissent la puissance
+de la bete. Vous etes dans la Clairiere n 025. Que faites-vous?
 
 C 397 Prendre la fuite
 C 082 Attaquer avec votre epee

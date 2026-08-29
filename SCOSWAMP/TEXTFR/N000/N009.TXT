@@ -1,4 +1,4 @@
-T 009 L'entre du Marais
+T 009 L'entree du Marais
 
 Vous etes a la lisiere sud du Marais aux Scorpions. Grace a l'Anneau de
 Cuivre, vous saurez toujours ou est le nord. Vous decouvrez un sentier oriente
@@ -8,7 +8,7 @@ s'ajoutent a cette menace. Vous n'y pretez pas attention. D'une demarche
 assure, vous franchissez la lisiere. L'air devient plus lourd, la vase suinte
 de partout. Tres vite, vous comprenez qu'il serait fou de quitter le chemin.
 Le sol trompeur aspire vos bottes. Seule issue : suivre le sentier sans jamais
-vous en ecarter. La moiteur colle a votre pau et les insectes tournoient en
+vous en ecarter. La moiteur colle a votre peau et les insectes tournoient en
 nuages. Le Marais s'ouvre devant vous, hostile et silencieux, comme un piege
 vivant.
 

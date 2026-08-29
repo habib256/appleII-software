@@ -96,10 +96,18 @@ def battle_rows(root, characters):
 # faut que le MEME TEXTE decrive le personnage dans tous les prompts ou il
 # apparait. C'est ce que fait cette injection.
 
+# Trois bibles, un seul mecanisme. L'ordre compte a l'affichage du prompt :
+# le decor pose le monde, les personnages et les creatures s'y tiennent.
+BIBLES = ("decors.json", "characters.json", "monsters.json", "objects.json")
+
+
 def load_characters(root):
-    data = json.loads((root / "SCOSWAMP.MORE" / "characters.json")
-                      .read_text(encoding="utf-8"))
-    return data["characters"]
+    out = []
+    for name in BIBLES:
+        data = json.loads((root / "SCOSWAMP.MORE" / name)
+                          .read_text(encoding="utf-8"))
+        out.extend(data["characters"])
+    return out
 
 
 def characters_in(text, characters):
@@ -111,6 +119,29 @@ def characters_in(text, characters):
         for alias in c.get("aliases", []):
             if re.search(r"\b" + re.escape(alias) + r"\b", text, re.I):
                 out.append(c["look"]); break
+    return out
+
+
+# Un nom propre qu'aucune fiche ne couvre est une incoherence en puissance :
+# rien ne le decrit, donc chaque image l'inventera.
+PROPER = re.compile(r"\b([A-ZÀ-Ý][a-zà-ÿ]{3,}(?:\s+d[eu']\s*[A-ZÀ-Ýa-zà-ÿ]+)?)\b")
+COMMON = {"Vous", "Cette", "Cela", "Alors", "Mais", "Dans", "Pour", "Elle",
+          "Rendez", "Tentez", "Chaque", "Votre", "Deux", "Trois", "Quand",
+          "Apres", "Avant", "Depuis", "Enfin", "Aucun", "Aucune", "Toute",
+          "Tous", "Plus", "Bien", "Cependant", "Soudain", "Puis", "Voici"}
+
+
+def uncovered_names(text, characters):
+    known = " ".join(a for c in characters for a in c.get("aliases", [])).lower()
+    out = set()
+    for m in PROPER.finditer(text):
+        name = m.group(1)
+        first = name.split()[0]
+        if first in COMMON or len(first) < 4:
+            continue
+        if first.lower() in known:
+            continue
+        out.add(name)
     return out
 
 
@@ -128,6 +159,9 @@ def main() -> int:
     parser.add_argument("--root", type=Path, required=True,
                         help="apple2adventure directory")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--all", action="store_true",
+                        help="toutes les pages, pas seulement celles dont "
+                             "l'image manque (apres un changement de bible)")
     parser.add_argument("--battle", action="store_true",
                         help="manifeste des illustrations de bataille (une par "
                              "clairiere avec adversaire) au lieu des scenes")
@@ -143,6 +177,7 @@ def main() -> int:
         return 0
 
     characters = load_characters(args.root)
+    all_pages = args.all
     game = args.root / "SCOSWAMP"
     more = args.root / "SCOSWAMP.MORE"
     rows = []
@@ -151,7 +186,10 @@ def main() -> int:
         bucket = f"N{(scene_id // 50) * 50:03d}"
         text_path = game / "TEXTFR" / bucket / f"N{sid}.TXT"
         rle_path = game / "IMG" / bucket / f"N{sid}.RLE.BIN"
-        if rle_path.exists():
+        # Par defaut on ne demande que les images manquantes. --all les demande
+        # toutes : c'est ce qu'il faut apres une modification des bibles, sans
+        # quoi les anciennes images gardent leur ancienne interpretation.
+        if rle_path.exists() and not all_pages:
             continue
         scene = text_path.read_text(encoding="utf-8").strip()
         rows.append({

@@ -1,10 +1,10 @@
-T 075 Les Arbres-Epes
+T 075 Les Arbres-Epees
 
-Lorsque vous lancez votre Pierre Magique de Feu, les Arbres- Epes se
+Lorsque vous lancez votre Pierre Magique de Feu, les Arbres- Epees se
 retractent quelque peu, visiblement furieux, mais sans etre gravement
 atteints.
 
 Vous allez a present devoir les combattre, mais leur total d ENDURANCE est
 reduit de 2 points avant le debut du combat.
 
-C 028 Affronter les Arbres-Epes
+C 028 Affronter les Arbres-Epees

@@ -1,9 +1,9 @@
 T 347 Sortilege d'Illusion
 
 Grace a votre Sortilege d'Illusion, vous prenez l'apparence d'une plante.
-Stupefait, le Maeitre des Jardins s'approche alors de vous et vous essayez de
+Stupefait, le Maitre des Jardins s'approche alors de vous et vous essayez de
 lui arracher son Amulette. Votre mouvement cependant a rompu le sortilege et
-le Maeitre des Jardins, vous voyant reparaeitre sous votre forme habituelle,
+le Maitre des Jardins, vous voyant reparaeitre sous votre forme habituelle,
 fait un bond en arriere. La tentative a echoue.
 
 C 379 L'attaquer avec votre epee

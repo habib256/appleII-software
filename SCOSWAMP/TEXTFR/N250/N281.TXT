@@ -1,9 +1,9 @@
 T 281 Combat contre les Orques
 
 Vous vous ruez sur les Orques des Marais et votre bravoure les surprend. Ils
-laissent alors tomber leurs arcs et degainent des epes. Heureusement pour vous
-ce sont des combattants peu habiles, mais il va falloir les affronter tous en
-meme temps....
+laissent alors tomber leurs arcs et degainent des epees. Heureusement pour
+vous ce sont des combattants peu habiles, mais il va falloir les affronter
+tous en meme temps....
 
 M 6 7 PREMIER ORQUE
 M 7 7 DEUXIEME ORQUE

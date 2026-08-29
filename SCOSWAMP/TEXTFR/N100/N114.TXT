@@ -7,4 +7,4 @@ Helas, de nouvelles branches jaillissent de leurs troncs et vous frappent plus
 violemment encore. Vous devrez les combattre avec leur total d ENDURANCE
 double.
 
-C 028 Combattre les Arbres-Epes
+C 028 Combattre les Arbres-Epees

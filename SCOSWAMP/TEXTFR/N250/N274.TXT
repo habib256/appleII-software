@@ -7,7 +7,7 @@ puisqu'il s'ecroule a vos pieds et meurt en quelques instants. C'est alors que
 vous ressentez sur vous-meme les consequences de la Malediction. Lancez un de
 : le chiffre obtenu represente le nombre de points d'ENDURANCE que vous avez
 perdus. Si vous etes toujours vivant, vous fouillez la sinistre tour dans
-l'espoir de decouvrir ses tresors caches. Mais l'atmosphere devient bienteot
+l'espoir de decouvrir ses tresors caches. Mais l'atmosphere devient bientot
 lourde et oppressante. Quant a votre anneau, il reste chaud vous avertissant
 qu'un danger plane toujours sur vous, un danger peut-etre meme plus grand
 qu'auparavant. Soudain, vous sentez une odeur de soufre.

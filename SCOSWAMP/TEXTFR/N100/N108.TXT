@@ -6,6 +6,6 @@ Tout est calme et rien ne semble anormal.
 Le buisson demeure au centre, mais il ne porte plus aucune baie. Rien d
 interessant a decouvrir ici.
 
-Vous repartez donc vers le sud, en direction de la clairiere du Gant.
+Vous repartez donc vers le sud, en direction de la clairiere du Geant.
 
-C 342 Aller vers la clairiere du Gant
+C 342 Aller vers la clairiere du Geant

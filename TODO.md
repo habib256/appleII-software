@@ -230,6 +230,25 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   une retouche de celle-ci.
   → `SCOSWAMP/SRC/sfx.s`
 
+- **263 coquilles corrigees dans le corpus francais.** Le corpus est
+  volontairement sans accents -- l'Apple II n'en affiche pas -- mais la
+  conversion qui les a retires s'est mal passee. Deux familles de degats :
+  un circonflexe rendu par deux lettres (`maitre` -> `maeitre`, `aussitot` ->
+  `aussiteot`, `ou` -> `oeu`, `git` -> `geit`) et une lettre avalee avec
+  l'accent (`geant` -> `gant`, `creature` -> `crature`, `eau` -> `au`,
+  `beaucoup` -> `baucoup`, `epees` -> `epes`).
+
+  La liste vient d'une comparaison avec le vocabulaire du **livre**, ou les
+  accents sont intacts : un mot du corpus absent du livre est un suspect, et
+  le mot du livre le plus proche donne la correction. Chaque entree a ete
+  verifiee en contexte, ce qui a evite deux pieges : `vent` est bien le vent
+  et non `vient`, et `gant` designe toujours le Geant, jamais un gant.
+  → `SCOSWAMP.MORE/TOOLS/fix_typos.py`
+
+  Cote anglais, le dictionnaire systeme ne laisse que 50 suspects, tous des
+  noms propres ou des mots qu'il ne connait pas (`backpack`, `trapdoor`). Rien
+  a corriger -- `Croupie` est le nom de la riviere.
+
 - **Les personnages changeaient de tete d'une image a l'autre.** Chaque image
   etait generee seule, a partir de sa seule page : rien ne reliait le Maitre
   des Loups d'une illustration a la suivante, ni la creature d'une scene a

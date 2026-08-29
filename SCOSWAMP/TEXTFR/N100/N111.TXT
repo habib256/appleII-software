@@ -1,6 +1,6 @@
-T 111 La Maitresse des Oisaux
+T 111 La Maitresse des Oiseaux
 
-Vous ne souhaitez pas attaquer la Maitresse des Oisaux, mais vous voulez
+Vous ne souhaitez pas attaquer la Maitresse des Oiseaux, mais vous voulez
 obtenir ce que vous cherchez.
 
 Vous lui lancez une Pierre Magique d Amitie. Elle rit aussitot : "Stupide
