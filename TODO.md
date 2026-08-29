@@ -211,6 +211,20 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   `kbhit()` / `cgetc()`.
   → `SCOSWAMP/SRC/dice.c`
 
+- **Des bruitages sur le haut-parleur interne.** Cinq ponctuations pendant le
+  combat : la lame qui touche, le coup encaisse, la double esquive, la chute
+  d'une creature, la mort du heros. Tout est en assembleur (`sfx.s`) — une
+  boucle C sur cc65 met plusieurs dizaines de cycles par tour, ce qui
+  plafonnerait les sons dans les graves et lierait leur hauteur a l'humeur de
+  l'optimiseur.
+  La duree se paie : chaque palier d'un balayage coute `period * 5 * 12`
+  cycles, et une chute de 60 a 200 mettait **plus d'une seconde** — une
+  eternite quand la page aligne trois BRIGANDS. La plage a ete resserree.
+  Ces routines ne connaissent que `$C030`, present sur toutes les machines.
+  **Le Mockingboard viendra plus tard** : il demandera une autre couche, pas
+  une retouche de celle-ci.
+  → `SCOSWAMP/SRC/sfx.s`
+
 - **Le mode carte a ete retire.** Il avait ete construit (fichier `MAP` genere
   depuis les directions de la prose, cercles numerotes, sentiers, rayons pour
   les chemins connus mais pas empruntes) et il fonctionnait. Il coutait

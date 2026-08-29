@@ -13,6 +13,7 @@
 #include "rules.h"
 #include "dice.h"
 #include "messages.h"
+#include "sfx.h"
 
 /* Adresse de la page HGR 1 */
 #define HGR_PAGE1 ((unsigned char*)0x2000)
@@ -814,6 +815,7 @@ static int run_combat(void)
                 assaut, r.hero_force, r.monster_force);
 
         if (r.outcome == ROUND_DODGE) {
+            sfx_dodge();
             gotoxy(0, CHOICE_ROW0 + 2);
             cprintf(msg(M_VOUS_AVEZ_CHACUN));
             wait_key_at(CHOICE_ROWN, msg_continue());
@@ -823,6 +825,9 @@ static int run_combat(void)
         /* Le livre place le choix de la Chance APRES la blessure, une fois
          * qu'on sait qui a touche : c'est pour ca que l'assaut est jete
          * d'abord et applique ensuite. */
+        /* Le bruitage suit QUI a touche : lame seche contre coup sourd. Il
+         * part avant le texte, pour tomber en meme temps que l'annonce. */
+        if (r.outcome == ROUND_HERO_HITS) sfx_hit(); else sfx_hurt();
         gotoxy(0, CHOICE_ROW0 + 2);
         cprintf(r.outcome == ROUND_HERO_HITS
                 ? (msg(M_VOUS_L_AVEZ))
@@ -842,6 +847,7 @@ static int run_combat(void)
         }
 
         if (monster_is_beaten(&app.foes[app.foe_cur])) {
+            sfx_fall();
             gotoxy(0, CHOICE_ROW0 + 2);
             cprintf(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
             /* "vous devrez les combattre tous deux a tour de role" : le
@@ -860,6 +866,7 @@ static int run_combat(void)
             continue;
         }
         if (character_is_dead(&app.hero)) {
+            sfx_death();
             monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
             set_video_mode(0);
             return 0;
