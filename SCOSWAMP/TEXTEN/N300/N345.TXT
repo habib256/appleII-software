@@ -5,4 +5,5 @@ experience an increasingly intense heat sensation. At the clearing's edge, you
 notice it's on fire: there's only an immense blaze forbidding you passage. The
 smoke given off by the fire half chokes you and you lose 1 STAMINA point.
 
+E ENDURANCE -1
 C 165 Continue

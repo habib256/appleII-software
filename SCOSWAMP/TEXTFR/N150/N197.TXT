@@ -6,4 +6,5 @@ regarde, desespere, sans vous menacer. Vous ne songez pas a l'attaquer. Le
 remords vous gagne: perdez 2 points de CHANCE. Vous jurez de ne plus revenir
 ici, sauf necessite absolue.
 
+E CHANCE -2
 C 161 Quitter la clairiere

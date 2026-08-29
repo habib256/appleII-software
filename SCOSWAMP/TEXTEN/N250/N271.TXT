@@ -5,4 +5,5 @@ behind. This cowardly act costs you 1 LUCK point. The wound inflicted on the
 Master will reduce by 2 points his STAMINA total during the combat that
 follows.
 
+E CHANCE -1
 C 120 Fight the Wolf Master

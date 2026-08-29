@@ -6,4 +6,5 @@ desperate, without threatening you. You don't think of attacking her. Remorse
 overcomes you: lose 2 LUCK points. You swear never to return here, except in
 absolute necessity.
 
+E CHANCE -2
 C 161 Leave the clearing

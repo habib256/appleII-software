@@ -10,6 +10,7 @@ terreur et vous sentez vos mains trembler. Vous perdez 1 point d'HABILETE.
 
 Que faites-vous ?
 
+E HABILETE -1
 C 269 Fuir droit devant vous
 C 032 Les trancher a coups d'epee
 C 080 Tenter un sort de magie

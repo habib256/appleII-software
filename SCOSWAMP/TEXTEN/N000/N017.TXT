@@ -7,4 +7,5 @@ points. Upon waking, you feel weak and have dizziness. All your Stones and
 other magical items have disappeared. There is no trace of the thief; you are
 stripped and abandoned. What do you do?
 
+E ENDURANCE -3
 C 179 Regain consciousness and continue the journey

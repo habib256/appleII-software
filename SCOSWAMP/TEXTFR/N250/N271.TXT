@@ -5,4 +5,5 @@ lame par derriere. Ce geste de lacherte vous coute 1 point de CHANCE. La
 blessure inflige au Maitre reduira de 2 points son total d'ENDURANCE lors du
 combat qui suit.
 
+E CHANCE -1
 C 120 Combattre le Maitre des Loups

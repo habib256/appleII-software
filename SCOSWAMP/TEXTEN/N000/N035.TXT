@@ -5,6 +5,7 @@ your Backpack. Only one scratches your shoulder. You lose 1 STAMINA point. You
 then understand that the Gold Magnet is cursed: it attracts arrows. By luck,
 it was stored in your bag and not worn on you. What do you do?
 
+E ENDURANCE -1
 C 281 Attack with your sword
 C 399 Resort to magic
 C 309 Flee

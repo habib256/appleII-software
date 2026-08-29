@@ -5,5 +5,7 @@ numerous; your efforts remain futile and you exhaust yourself. Your blows cost
 you 2 STAMINA points and you lose 1 SKILL point from struggling against this
 relentless vegetation. What do you do?
 
+E ENDURANCE -2
+E HABILETE -1
 C 269 Give up and flee
 C 080 Use magic against the flowers

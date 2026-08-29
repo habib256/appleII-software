@@ -231,6 +231,57 @@ def derive_stone_use(choices, already):
     return rest, lines
 
 
+# Une page qui annonce une perte de caracteristique doit l'appliquer : sans
+# ligne E, "vous perdez 3 points d'HABILETE" n'etait que du decor.
+# Le verbe qualifie la PHRASE ; les valeurs se lisent ensuite partout dedans.
+# "vous perdez 3 points d'HABILETE et 1 point d'ENDURANCE" ne porte qu'un seul
+# verbe pour deux effets, et le second passait a la trappe.
+EFFECT_VERB = re.compile(
+    r"\b(perdez|perdrez|coutent|coute|regagnez|gagnez|ajoutez"
+    r"|lose|loses|cost|costs|regain|regains|gain|gains)\b", re.I)
+# Les deux langues n'ordonnent pas pareil : "3 points d'HABILETE" contre
+# "3 SKILL points". Et l'elision s'ecrit parfois avec une espace.
+EFFECT_VALUE = re.compile(
+    r"(\d+)\s*(?:points?\s*(?:d[e']\s*|d\s+|of\s+))?"
+    r"(ENDURANCE|HABILETE|CHANCE|STAMINA|SKILL|LUCK)", re.I)
+# Ce qui rend une perte conditionnelle ou deja prise en charge ailleurs.
+EFFECT_GUARD = re.compile(
+    r"\b(si|sinon|supplementaire|au lieu de|chaque|initial"
+    r"|if|otherwise|instead|additional|each)\b", re.I)
+CARAC = {"ENDURANCE": "ENDURANCE", "STAMINA": "ENDURANCE",
+         "HABILETE": "HABILETE", "SKILL": "HABILETE",
+         "CHANCE": "CHANCE", "LUCK": "CHANCE"}
+GAIN = ("regagnez", "gagnez", "ajoutez", "regain", "gain")
+
+
+def derive_effects(body, directives):
+    """Rend (lignes E, avertissements) pour les pertes annoncees par la page.
+
+    Une perte prise dans une branche de jet (CL) ou dans une regle de combat
+    (MD) est deja appliquee ailleurs : on ne la compte pas deux fois. Et une
+    phrase qui porte "si", "sinon" ou "supplementaire" n'est pas une perte
+    seche -- on la signale plutot que de la deviner.
+    """
+    if any(d.startswith(("E ", "CL ", "MD ")) for d in directives):
+        return [], []
+    lines, warns = [], []
+    for sentence in re.split(r"(?<=[.!?])\s+", " ".join(body)):
+        verb = EFFECT_VERB.search(sentence)
+        if not verb:
+            continue
+        hits = EFFECT_VALUE.findall(sentence)
+        if not hits:
+            continue
+        if EFFECT_GUARD.search(sentence):
+            warns.append("perte de caracteristique sous condition, "
+                         "a trancher a la main : " + " ".join(sentence.split())[:70])
+            continue
+        sign = "+" if verb.group(1).lower() in GAIN else "-"
+        for n, carac in hits:
+            lines.append(f"E {CARAC[carac.upper()]} {sign}{int(n)}")
+    return lines, warns
+
+
 def derive_flee(choices, directives):
     """Transforme le choix de Fuite en ligne CF. Rend (choix_restants, cf)."""
     if any(d.startswith("CF ") for d in directives):
@@ -339,6 +390,11 @@ def main():
                 if cl:
                     directives = directives + [cl]
             if derive:
+                eff, ewarn = derive_effects(body, directives)
+                directives = directives + eff
+                for w in ewarn:
+                    problems.append(f"{f}: {w}")
+            if derive:
                 has_cu = any(d.startswith("CU ") for d in directives)
                 choices, cus = derive_stone_use(choices, has_cu)
                 directives = directives + cus
@@ -389,7 +445,7 @@ def main():
             # Combien de champs portent de la mecanique, par directive : le
             # reste est du titre, qui se traduit.
             KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3,
-                    "CU": 3, "CP": 3}
+                    "CU": 3, "CP": 3, "E": None}
 
             def mechanics(dirs):
                 out = []

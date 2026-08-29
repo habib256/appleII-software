@@ -7,6 +7,7 @@ Gold Piece to the innkeeper. Unfortunately, there's so much noise downstairs
 you can't close your eyes. The revelers thus make you lose 1 STAMINA point.
 What will you do now?
 
+E ENDURANCE -1
 C 116 Bury your head under the pillow
 C 236 Go down brandishing your sword
 C 078 Go to the "Crooked Lance"

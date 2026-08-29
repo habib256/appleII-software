@@ -10,4 +10,5 @@ these places.
 The heat is so intense that you give up searching. You flee this blaze, not
 without suffering burns that cost you 3 STAMINA points.
 
+E ENDURANCE -3
 C 165 Leave the clearing hastily

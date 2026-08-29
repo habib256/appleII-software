@@ -6,4 +6,5 @@ strange sensation runs through you, and misfortune seems to befall you.
 
 Lose 1 LUCK point.
 
+E CHANCE -1
 C 352 Leave the place

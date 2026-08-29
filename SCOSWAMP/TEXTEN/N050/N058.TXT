@@ -8,6 +8,7 @@ everything, you continue. The clearing is before you, and you must choose a
 direction. To the west, a dark path. To the east, a passage bordering tall
 grass. To the south, the way back. Your fate is in your hands.
 
+E ENDURANCE -1
 C 398 Take the path heading west
 C 105 Follow the grassy path to the east
 C 208 Retrace your steps and return south

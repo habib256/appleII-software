@@ -6,4 +6,5 @@ immediately. Furious, the Master throws a Fire spell at you. Your hair
 ignites; you smother it by striking your head. The burns cost you 2 STAMINA
 points. You then brandish your sword and prepare for combat.
 
+E ENDURANCE -2
 C 379 Attack the Garden Master

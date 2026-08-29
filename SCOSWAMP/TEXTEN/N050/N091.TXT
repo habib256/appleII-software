@@ -13,6 +13,7 @@ snake through tall grass. To the south, the passage through which you arrived
 seems less inviting, but it remains possible to take it again. You weigh your
 choices, knowing that each step can have serious consequences.
 
+E HABILETE -1
 C 398 Take the path that plunges westward
 C 105 Follow the grassy path eastward
 C 208 Retrace your steps by the southern path

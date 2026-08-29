@@ -7,4 +7,5 @@ vous frappe le bras d'un grand coup. Votre epee tombe a terre; votre bras est
 contusionne. Vous perdez 2 points d'HABILETE. Il est vain de combattre tous
 ces hommes: vous retournez dans votre chambre.
 
+E HABILETE -2
 C 116 Revenir dans votre chambre

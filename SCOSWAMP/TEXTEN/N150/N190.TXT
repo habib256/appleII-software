@@ -5,4 +5,5 @@ total <= LUCK, you are Lucky and jump to the other side without difficulty.
 Otherwise, you are Unlucky: your leap is too short and you must wade through
 the quicksand. Lose 2 STAMINA. Then resume walking.
 
+E ENDURANCE -2
 C 270 Continue after the jump

@@ -6,6 +6,7 @@ plantent dans votre Sac a Dos. Une seule vous egratigne l'epaule. Vous perdez
 attire les fleches. Par chance, il etait range dans votre sac et non porte sur
 vous. Que faites-vous?
 
+E ENDURANCE -1
 C 281 Attaquer avec votre epee
 C 399 Recourir a la magie
 C 309 Prendre la fuite

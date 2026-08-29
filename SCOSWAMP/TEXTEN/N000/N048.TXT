@@ -10,4 +10,5 @@ leaving. The humid wind already carries a heavy smell of mud. The Swamp awaits
 you, and the memory of your anger weighs on you. Nothing will change your
 decision: adventure lies ahead.
 
+E CHANCE -1
 C 095 Continue your journey to the Scorpion Swamp

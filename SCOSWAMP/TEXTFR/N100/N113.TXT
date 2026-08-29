@@ -11,4 +11,5 @@ lieux.
 La chaleur est si intense que vous renoncez a fouiller. Vous fuyez ce brasier,
 non sans subir des brulures qui vous coutent 3 points d ENDURANCE.
 
+E ENDURANCE -3
 C 165 Quitter la clairiere en hate

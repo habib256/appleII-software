@@ -5,4 +5,5 @@ terror, rather with sadness. Then suddenly, hundreds of brilliantly colored
 birds surround you and you see nothing more. When the birds finally move away,
 their Mistress has disappeared. You lose 2 LUCK points.
 
+E CHANCE -2
 C 217 Continue

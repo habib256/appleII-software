@@ -9,4 +9,5 @@ SKILL points.
 
 M 7 10 GARDEN MASTER
 CF 363 Flee
+E HABILETE -3
 C 251 If you kill the Garden Master

@@ -6,4 +6,5 @@ the flower-shaped Amulet he wore around his neck, then resume the only path
 that allows leaving the clearing. The trail is oriented toward the west and
 plunges between old twisted oaks.
 
+E CHANCE -3
 C 363 Follow the path westward, wearing the Amulet

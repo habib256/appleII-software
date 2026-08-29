@@ -4,5 +4,6 @@ Contact with the Slime burns you like acid and you stagger backward. These
 burns cost you 2 SKILL points. You now have the choice between fleeing by the
 path you took to get here or fighting the Slime.
 
+E HABILETE -2
 C 085 Retrace your steps
 C 171 Face the creature

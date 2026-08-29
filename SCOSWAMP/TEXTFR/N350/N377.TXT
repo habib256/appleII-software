@@ -6,4 +6,5 @@ superieur a vos points d'ENDURANCE, votre bond est trop court et vous vous
 faites piquer. Vous perdrez alors 3 points d'ENDURANCE. Si vous etes toujours
 vivant.
 
+E ENDURANCE -3
 C 319 Continuer

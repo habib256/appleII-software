@@ -5,6 +5,7 @@ entaille le bras: vous perdez 1 point d'HABILETE. Le sang coule legerement; la
 douleur vous rappelle le danger. Les tireurs ne relachent pas la tension de
 leur arc. Il faut agir vite.
 
+E HABILETE -1
 C 281 Attaquer a l'epee
 C 399 Recourir a la magie
 C 309 Fuir a toutes jambes

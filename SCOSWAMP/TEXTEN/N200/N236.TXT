@@ -7,4 +7,5 @@ with a great blow. Your sword falls to the ground; your arm is bruised. You
 lose 2 SKILL points. It's vain to fight all these men: you return to your
 room.
 
+E HABILETE -2
 C 116 Return to your room

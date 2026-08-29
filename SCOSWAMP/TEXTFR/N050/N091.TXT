@@ -15,6 +15,7 @@ passage par lequel vous etes arrive parait moins engagant, mais il reste
 possible de l'emprunter de nouveau. Vous pesez vos choix, sachant que chaque
 pas peut etre lourd de consequences.
 
+E HABILETE -1
 C 398 Prendre le sentier qui s'enfonce vers l'ouest
 C 105 Suivre le chemin herbeux vers l'est
 C 208 Revenir sur vos pas par le sentier du sud

@@ -6,4 +6,5 @@ d'oisaux aux couleurs etincelantes vous entourent et vous ne voyez plus rien.
 Lorsque les oisaux s'eloignent enfin, leur Maitresse a disparu. Vous perdez 2
 points de CHANCE.
 
+E CHANCE -2
 C 217 Continuer

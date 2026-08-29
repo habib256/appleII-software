@@ -10,6 +10,7 @@ feel your hands trembling. You lose 1 SKILL point.
 
 What do you do?
 
+E HABILETE -1
 C 269 Flee straight ahead
 C 032 Slash them with sword blows
 C 080 Attempt a magic spell

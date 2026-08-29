@@ -8,4 +8,5 @@ faible et avez le tournis. Toutes vos Pierres et autres objets magiques ont
 disparu. Il ne reste aucune trace du voleur; vous etes depouille et abandonne.
 Que faites-vous?
 
+E ENDURANCE -3
 C 179 Reprendre connaissance et poursuivre la route

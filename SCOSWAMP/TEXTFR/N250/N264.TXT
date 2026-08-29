@@ -7,4 +7,5 @@ sort de Feu. Vos cheveux s'enflamment; vous les etouffez en vous frappant la
 tete. Les brulures vous coutent 2 points d'ENDURANCE. Vous brandissez ensuite
 votre epee et vous vous preparez au combat.
 
+E ENDURANCE -2
 C 379 Attaquer le Maitre des Jardins
