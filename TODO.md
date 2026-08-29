@@ -230,6 +230,35 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   une retouche de celle-ci.
   → `SCOSWAMP/SRC/sfx.s`
 
+- **Les personnages changeaient de tete d'une image a l'autre.** Chaque image
+  etait generee seule, a partir de sa seule page : rien ne reliait le Maitre
+  des Loups d'une illustration a la suivante, ni la creature d'une scene a
+  celle de son image de bataille, et le heros n'etait decrit que dans les
+  prompts de bataille.
+
+  On n'obtient pas la constance en demandant « le meme personnage » : il faut
+  que **le meme texte** decrive le personnage dans tous les prompts ou il
+  apparait. D'ou `SCOSWAMP.MORE/characters.json`, douze fiches ecrites une
+  fois, que `build_manifest.py` injecte mot pour mot des qu'un alias est
+  repere dans la page. Les 31 images de bataille sont regenerees ; le Maitre
+  des Loups apparait dans trois d'entre elles et y est desormais le meme
+  homme.
+
+  Stratagus vient du livre (paragraphe 40) ; pour les autres le livre ne
+  decrit presque rien, les illustrations portaient tout, et chaque fiche dit
+  sa source. **Ne pas reformuler une fiche sans regenerer les images
+  concernees** : c'est la constance du texte qui fait celle de l'image.
+
+  Reste a decider : 135 pages sur 402 portent un personnage recurrent
+  (Stratagus 40, Pompatarte 25, Gayolard 23, les loups 20, les brigands 20),
+  et le heros est dans les 402. Les illustrations de scene n'ont pas ete
+  regenerees.
+
+  Et un detail de palette : les fiches disent « grey wolf pelts », or le gris
+  n'existe pas en HGR — il ressort bleu. Les fiches gagneraient a nommer les
+  six couleurs disponibles, mais les changer imposerait une regeneration.
+  → `SCOSWAMP.MORE/characters.json`, `TOOLS/build_manifest.py`
+
 - **Les Pierres se depensaient sans jamais toucher au sac.** 43 choix du corpus
   disent « Utiliser une Pierre de Feu » : ils partaient en `C` ordinaire, donc
   rien ne verifiait qu'on possedait la Pierre et rien ne la consommait. D'ou

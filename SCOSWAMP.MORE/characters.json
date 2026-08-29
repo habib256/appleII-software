@@ -1,0 +1,65 @@
+{
+  "_comment": [
+    "La bible des personnages : une description visuelle, ecrite UNE fois, que",
+    "chaque prompt d'image reprend mot pour mot des que le personnage apparait",
+    "dans la page. Sans elle, chaque image inventait sa propre version -- le",
+    "Maitre des Loups changeait de tete d'une illustration a l'autre, et le",
+    "heros lui-meme n'etait pas le meme d'une scene a la suivante.",
+    "",
+    "`look` est le texte injecte, verbatim. `aliases` sert a reperer le",
+    "personnage dans le texte de la page, dans les deux langues.",
+    "`source` dit d'ou vient la description : le livre, ou un choix assume.",
+    "Ne PAS reformuler un `look` sans regenerer toutes les images concernees :",
+    "c'est la constance du texte qui fait la constance de l'image."
+  ],
+  "characters": [
+    {
+      "id": "HERO", "always": true, "source": "portage",
+      "look": "THE HERO (in every image, always identical): a lean human adventurer in a hooded green cloak over chainmail, a round wooden shield on the left arm, a straight sword, a leather backpack, seen three-quarters from behind so the face stays hidden."
+    },
+    {
+      "id": "STRATAGUS", "aliases": ["Stratagus"], "source": "livre, paragraphe 40",
+      "look": "STRATAGUS: tall and skeletally gaunt, wrapped in a black toga embroidered with scarlet motifs that seem to writhe; hollow face, long thin hands."
+    },
+    {
+      "id": "GAYOLARD", "aliases": ["Gayolard"], "source": "portage",
+      "look": "GAYOLARD, the good wizard: a stooped old man with a long white beard, a plain blue robe, a knotted wooden staff; kindly, unarmed."
+    },
+    {
+      "id": "POMPATARTE", "aliases": ["Pompatarte"], "source": "portage",
+      "look": "POMPATARTE, the merchant: heavy-set and prosperous, orange tunic over a round belly, rings on his fingers, a sly smile."
+    },
+    {
+      "id": "JARDINS", "aliases": ["Maitre des Jardins", "Garden Master"], "source": "portage, Amulette a Fleur du livre",
+      "look": "THE GARDEN MASTER: a lean man in long green robes, bare-headed, a flower-shaped amulet on a chain at his neck, earth on his hands."
+    },
+    {
+      "id": "LOUPS", "aliases": ["Maitre des Loups", "Wolf Master"], "source": "portage",
+      "look": "THE WOLF MASTER: a burly man in grey wolf pelts, iron-grey hair and a short beard, a wolf-shaped amulet at his neck, heavy fists, no sword."
+    },
+    {
+      "id": "GROGNARD", "aliases": ["Grognard"], "source": "livre, paragraphe 380",
+      "look": "GROGNARD: rough and plain-looking at first glance, a cross embroidered on his tunic, a sword suddenly at his side; taller than he first appeared."
+    },
+    {
+      "id": "LOUP", "aliases": ["LOUP", "LOUPS", "WOLF", "WOLVES"], "source": "portage",
+      "look": "THE WOLVES: lean grey timber wolves, low shoulders, yellow eyes, bared teeth."
+    },
+    {
+      "id": "BASSIN", "aliases": ["BETE DU BASSIN", "POOL BEAST"], "source": "portage",
+      "look": "THE POOL BEAST: a mass of thick rubbery tentacles bursting from dark water, no visible head, pale suckers."
+    },
+    {
+      "id": "BRIGAND", "aliases": ["BRIGAND", "BRIGANDS"], "source": "portage",
+      "look": "THE BRIGANDS: ragged men in patched leather, hoods and scarves over the face, short curved blades."
+    },
+    {
+      "id": "ARAIGNEE", "aliases": ["ARAIGNEE", "ARAIGNEES", "SPIDER", "SPIDERS"], "source": "portage",
+      "look": "THE SPIDERS: black long-legged spiders the size of dogs, glossy abdomens, clustered eyes."
+    },
+    {
+      "id": "SCORPION", "aliases": ["SCORPION"], "source": "portage",
+      "look": "THE SCORPIONS: violet-black scorpions the size of a man's torso, raised segmented tail, heavy pincers."
+    }
+  ]
+}

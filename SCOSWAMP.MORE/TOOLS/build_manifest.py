@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import json
 from pathlib import Path
 
@@ -48,7 +49,7 @@ The adversary, and the French scene it comes from:
 """
 
 
-def battle_rows(root):
+def battle_rows(root, characters):
     """Une entree par clairiere portant un adversaire."""
     import re
     game = root / "SCOSWAMP"
@@ -78,10 +79,48 @@ def battle_rows(root):
             "source_png": str((more / "GENERATED" / f"B{sid}.png").relative_to(root)),
             "hgr_rle": str((game / "IMG" / bucket / f"B{sid}.RLE.BIN").relative_to(root)),
             "preview_png": str((more / "HGR-PREVIEW" / f"B{sid}.png").relative_to(root)),
-            "prompt": BATTLE_STYLE + "Adversary: " + ", ".join(names) + "\n\n" + text.strip(),
+            "prompt": (BATTLE_STYLE + "Adversary: " + ", ".join(names)
+                       + "\n\n" + text.strip()
+                       + character_block(text + " " + " ".join(names), characters)),
             "status": "pending",
         })
     return rows
+
+
+# ── La bible des personnages ────────────────────────────────────────────────
+#
+# Chaque image etait generee seule, a partir de sa seule page : rien ne liait
+# le Maitre des Loups d'une illustration a celui de la suivante, ni la creature
+# d'une scene a celle de son image de bataille. Le heros lui-meme changeait de
+# visage. La constance ne s'obtient pas en demandant "le meme personnage" : il
+# faut que le MEME TEXTE decrive le personnage dans tous les prompts ou il
+# apparait. C'est ce que fait cette injection.
+
+def load_characters(root):
+    data = json.loads((root / "SCOSWAMP.MORE" / "characters.json")
+                      .read_text(encoding="utf-8"))
+    return data["characters"]
+
+
+def characters_in(text, characters):
+    """Les fiches a injecter pour cette page, dans l'ordre de la bible."""
+    out = []
+    for c in characters:
+        if c.get("always"):
+            out.append(c["look"]); continue
+        for alias in c.get("aliases", []):
+            if re.search(r"\b" + re.escape(alias) + r"\b", text, re.I):
+                out.append(c["look"]); break
+    return out
+
+
+def character_block(text, characters):
+    looks = characters_in(text, characters)
+    if not looks:
+        return ""
+    return ("\n\nRecurring characters — draw them EXACTLY as described here, "
+            "these descriptions are fixed across the whole series:\n"
+            + "\n".join("- " + l for l in looks))
 
 
 def main() -> int:
@@ -95,7 +134,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.battle:
-        rows = battle_rows(args.root)
+        rows = battle_rows(args.root, load_characters(args.root))
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open("w", encoding="utf-8") as stream:
             for row in rows:
@@ -103,6 +142,7 @@ def main() -> int:
         print(f"wrote {len(rows)} battle prompts to {args.output}")
         return 0
 
+    characters = load_characters(args.root)
     game = args.root / "SCOSWAMP"
     more = args.root / "SCOSWAMP.MORE"
     rows = []
@@ -121,7 +161,7 @@ def main() -> int:
             "source_png": str((more / "GENERATED" / f"N{sid}.png").relative_to(args.root)),
             "hgr_rle": str(rle_path.relative_to(args.root)),
             "preview_png": str((more / "HGR-PREVIEW" / f"N{sid}.png").relative_to(args.root)),
-            "prompt": STYLE + scene,
+            "prompt": STYLE + scene + character_block(scene, characters),
             "status": "pending",
         })
 
