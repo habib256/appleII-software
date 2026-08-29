@@ -20,6 +20,7 @@ spacetrip.s
 
 *.bak
 *~
+__pycache__/
 
 # ── Artefacts de build ─────────────────────────────────────────────────────
 SCOSWAMP.MORE/TOOLS/build/
@@ -30,6 +31,10 @@ dist/
 # scoswamp_hgr les reconstruisent.
 SCOSWAMP.MORE/GENERATED/
 SCOSWAMP.MORE/HGR-PREVIEW/
+
+# En revanche SCOSWAMP.MORE/REF/ est SUIVI : ces 45 planches sont le canon
+# dont toutes les illustrations decoulent (voir TODO § coherence). Les
+# regenerer changerait les visages ; elles pesent 250 Ko, elles restent.
 
 # Images disque ProDOS : sorties de build (37 Mo), reconstruites par TOOLS et
 # publiées en GitHub Release. Voir DOCS/RELEASE.md.

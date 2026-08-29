@@ -13,7 +13,8 @@
         "swamp"
       ],
       "source": "portage",
-      "look": "THE SWAMP (the world of every scene): flat wetland under a BLACK sky, standing BLUE water, tussocks of coarse GREEN reeds, VIOLET mud, bare BLACK tree trunks; heavy still air, no horizon line."
+      "look": "THE SWAMP (the world of every scene): flat wetland under a BLACK sky, standing BLUE water, tussocks of coarse GREEN reeds, VIOLET mud, bare BLACK tree trunks; heavy still air, no horizon line.",
+      "ref": "SCOSWAMP.MORE/REF/MARAIS.png"
     },
     {
       "id": "CLAIRIERE",
@@ -22,7 +23,8 @@
         "clearing"
       ],
       "source": "livre, Cartographie",
-      "look": "A CLEARING: a roughly circular opening in the swamp, ringed by close BLACK trunks, floor of GREEN grass and VIOLET mud, one or more narrow paths leading out."
+      "look": "A CLEARING: a roughly circular opening in the swamp, ringed by close BLACK trunks, floor of GREEN grass and VIOLET mud, one or more narrow paths leading out.",
+      "ref": "SCOSWAMP.MORE/REF/CLAIRIERE.png"
     },
     {
       "id": "SENTIER",
@@ -32,7 +34,8 @@
         "trail"
       ],
       "source": "livre, Cartographie",
-      "look": "A PATH: a narrow trail of packed VIOLET earth between walls of GREEN reeds, running straight out of frame."
+      "look": "A PATH: a narrow trail of packed VIOLET earth between walls of GREEN reeds, running straight out of frame.",
+      "ref": "SCOSWAMP.MORE/REF/SENTIER.png"
     },
     {
       "id": "TOUR",
@@ -41,7 +44,8 @@
         "tower"
       ],
       "source": "livre, paragraphe 40",
-      "look": "STRATAGUS'S TOWER: a squat BLACK stone tower with a single iron door bearing a carved hideous face, BLACK bats wheeling around its top."
+      "look": "STRATAGUS'S TOWER: a squat BLACK stone tower with a single iron door bearing a carved hideous face, BLACK bats wheeling around its top.",
+      "ref": "SCOSWAMP.MORE/REF/TOUR.png"
     },
     {
       "id": "BASSIN",
@@ -51,7 +55,9 @@
         "pool"
       ],
       "source": "livre, paragraphe 82",
-      "look": "THE POOL: still BLUE water in a ring of WHITE sand, a small beach on one side, GREEN reeds behind."
+      "look": "THE POOL: still BLUE water in a ring of WHITE sand, a small beach on one side, GREEN reeds behind.",
+      "scale": "three times the hero's height, filling half the frame",
+      "ref": "SCOSWAMP.MORE/REF/BASSIN.png"
     },
     {
       "id": "RIVIERE",
@@ -62,7 +68,8 @@
         "stream"
       ],
       "source": "portage",
-      "look": "THE RIVER: a slow BLUE channel with VIOLET muddy banks, GREEN weed trailing in the current."
+      "look": "THE RIVER: a slow BLUE channel with VIOLET muddy banks, GREEN weed trailing in the current.",
+      "ref": "SCOSWAMP.MORE/REF/RIVIERE.png"
     },
     {
       "id": "VILLAGE",
@@ -71,7 +78,8 @@
         "village"
       ],
       "source": "livre, paragraphe 1",
-      "look": "BOURBENVILLE: a handful of low ORANGE-thatched huts at the swamp's edge, a rutted VIOLET track between them."
+      "look": "BOURBENVILLE: a handful of low ORANGE-thatched huts at the swamp's edge, a rutted VIOLET track between them.",
+      "ref": "SCOSWAMP.MORE/REF/VILLAGE.png"
     },
     {
       "id": "CHAMPIGNON",
@@ -79,7 +87,8 @@
         "champignon"
       ],
       "source": "portage",
-      "look": "THE GIANT MUSHROOMS: pale WHITE stalks taller than a man, ORANGE caps, growing in clusters."
+      "look": "THE GIANT MUSHROOMS: pale WHITE stalks taller than a man, ORANGE caps, growing in clusters.",
+      "ref": "SCOSWAMP.MORE/REF/CHAMPIGNON.png"
     },
     {
       "id": "JARDIN",
@@ -88,7 +97,8 @@
         "garden"
       ],
       "source": "portage",
-      "look": "THE GARDEN: cultivated rows of GREEN plants inside a low stone wall, ORANGE blossoms, unnaturally orderly for the swamp."
+      "look": "THE GARDEN: cultivated rows of GREEN plants inside a low stone wall, ORANGE blossoms, unnaturally orderly for the swamp.",
+      "ref": "SCOSWAMP.MORE/REF/JARDIN.png"
     },
     {
       "id": "COURBENSAULE",
@@ -96,7 +106,8 @@
         "Courbensaule"
       ],
       "source": "portage",
-      "look": "COURBENSAULE: a hamlet of leaning WHITE-walled houses under enormous drooping GREEN willows, at the far edge of the swamp."
+      "look": "COURBENSAULE: a hamlet of leaning WHITE-walled houses under enormous drooping GREEN willows, at the far edge of the swamp.",
+      "ref": "SCOSWAMP.MORE/REF/COURBENSAULE.png"
     }
   ]
 }

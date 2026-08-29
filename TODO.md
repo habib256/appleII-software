@@ -255,28 +255,57 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   celle de son image de bataille, et le heros n'etait decrit que dans les
   prompts de bataille.
 
-  On n'obtient pas la constance en demandant « le meme personnage » : il faut
-  que **le meme texte** decrive le personnage dans tous les prompts ou il
-  apparait. D'ou `SCOSWAMP.MORE/characters.json`, douze fiches ecrites une
-  fois, que `build_manifest.py` injecte mot pour mot des qu'un alias est
-  repere dans la page. Les 31 images de bataille sont regenerees ; le Maitre
-  des Loups apparait dans trois d'entre elles et y est desormais le meme
-  homme.
+  On n'obtient pas la constance en demandant « le meme personnage ». Quatre
+  pieces la donnent, dans cet ordre :
 
-  Stratagus vient du livre (paragraphe 40) ; pour les autres le livre ne
-  decrit presque rien, les illustrations portaient tout, et chaque fiche dit
-  sa source. **Ne pas reformuler une fiche sans regenerer les images
-  concernees** : c'est la constance du texte qui fait celle de l'image.
+  1. **Les bibles** -- `characters.json` (11), `monsters.json` (20),
+     `decors.json` (10), `objects.json` (4). Une fiche par sujet, ecrite une
+     fois, injectee mot pour mot dans tout prompt dont la page cite un de ses
+     alias. Chaque fiche porte son `look`, sa `source` (le livre quand il
+     decrit, l'illustration sinon), et son `scale` -- toujours relatif au
+     heros, parce qu'un modele ne sait pas de lui-meme qu'un Maitre des Loups
+     depasse un homme d'une tete.
+  2. **Les planches de reference** -- `build_manifest.py --refs` produit un
+     prompt par fiche vers `SCOSWAMP.MORE/REF/<ID>.png` : le sujet seul, plein
+     pied sur fond noir pour une figure, une vue large et vide pour un decor.
+     C'est le canon. Il se genere **avant** tout le reste.
+  3. **L'attachement** -- `generate_images.sh` joint les planches au prompt
+     avec `codex exec -i`. Le texte decrit, la planche montre : c'est la
+     difference entre « un maitre des loups » et *ce* maitre des loups. Quatre
+     planches au plus par image (heros, puis figures nommees, puis decor) :
+     au-dela le modele moyenne au lieu de copier.
+  4. **L'empreinte** -- chaque ligne de manifeste porte le sha1 des fiches qui
+     l'ont formee. `--record` la classe apres une generation, `--stale` nomme
+     ensuite exactement les images qu'une fiche modifiee a rendues fausses.
+     Sans ca on regenere 433 images ou on en oublie trois.
 
-  Reste a decider : 135 pages sur 402 portent un personnage recurrent
-  (Stratagus 40, Pompatarte 25, Gayolard 23, les loups 20, les brigands 20),
-  et le heros est dans les 402. Les illustrations de scene n'ont pas ete
-  regenerees.
+  Le style commun (palette, cadrage, trait) est factorise dans `COMMON_STYLE`,
+  partage par les prompts de scene, de bataille et de reference : il ne peut
+  plus deriver entre eux.
 
-  Et un detail de palette : les fiches disent « grey wolf pelts », or le gris
-  n'existe pas en HGR — il ressort bleu. Les fiches gagneraient a nommer les
-  six couleurs disponibles, mais les changer imposerait une regeneration.
-  → `SCOSWAMP.MORE/characters.json`, `TOOLS/build_manifest.py`
+  La chaine complete :
+
+  ```
+  build_manifest.py --refs    ->  REF/<ID>.png          (45 planches, d'abord)
+  build_manifest.py --all     ->  scene_manifest.jsonl  (402 pages)
+  build_manifest.py --battle  ->  battle_manifest.jsonl (31 batailles)
+  generate_images.sh <manifeste>  ->  GENERATED/*.png
+  build_manifest.py --record  ->  GENERATED/bible.stamp.json
+  TOOLS/convert_images.sh     ->  SCOSWAMP/IMG/<bucket>/*.RLE.BIN
+  ```
+
+  `generate_images.sh` saute une image deja presente : il est relancable, et
+  une generation interrompue reprend ou elle s'etait arretee.
+
+  **Ne pas reformuler une fiche sans lancer `--stale`** : c'est la constance du
+  texte et de la planche qui fait celle de l'image.
+
+  Reste a faire : la regeneration elle-meme (433 images), et un detail de
+  palette -- les fiches disent « grey wolf pelts », or le gris n'existe pas en
+  HGR, il ressort bleu ; les fiches gagneraient a ne nommer que les six
+  couleurs disponibles.
+  → `SCOSWAMP.MORE/{characters,monsters,decors,objects}.json`,
+    `TOOLS/build_manifest.py`, `TOOLS/generate_images.sh`
 
 - **Les Pierres se depensaient sans jamais toucher au sac.** 43 choix du corpus
   disent « Utiliser une Pierre de Feu » : ils partaient en `C` ordinaire, donc
