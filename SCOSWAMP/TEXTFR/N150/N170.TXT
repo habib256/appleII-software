@@ -1,11 +1,10 @@
 T 170 Le Patrouilleur vert
-Le sentier etroit serpente entre de gros rochers dans un brouillard
-epais. La brume se leve soudain et vous debouchez dans une clairiere.
-Un homme, grand et bronze, entierement vetu de vert, vous salue
-du sommet d'un rocher. C'est un PATROUILLEUR.
-"He, l'aventurier ! Es-tu au service du Bien ou du Mal ?"
-Vous etes dans la Clairiere n 019.
-Quel sorcier servez-vous?
+
+Le sentier etroit serpente entre de gros rochers dans un brouillard epais. La
+brume se leve soudain et vous debouchez dans une clairiere. Un homme, grand et
+bronze, entierement vetu de vert, vous salue du sommet d'un rocher. C'est un
+PATROUILLEUR. "He, l'aventurier ! Es-tu au service du Bien ou du Mal ?" Vous
+etes dans la Clairiere n 019. Quel sorcier servez-vous?
 
 C 029 Stratagus
 C 262 Pompatarte

@@ -1,13 +1,9 @@
 T 378 Combat against the Patroller
 
-The Patroller's no fool and senses well you're working
-for an evil sorcerer's account. He then jumps down from his
-rock and attacks you.
-PATROLLER SKILL: 10 STAMINA: 10
-You can, at any time, Flee.
+The Patroller's no fool and senses well you're working for an evil sorcerer's
+account. He then jumps down from his rock and attacks you. You can, at any
+time, Flee.
 
-C 234 Flee
+M 10 10 PATROLLER
+CF 234 Flee
 C 219 If you kill the Patroller
-
-
-

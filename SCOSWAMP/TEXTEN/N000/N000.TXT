@@ -1,22 +1,20 @@
-000 : THE SCORPION SWAMP
-========================
+T 000 THE SCORPION SWAMP
 
 A Gamebook Adventure
 
 You are a seasoned adventurer seeking glory!
 
-The Scorpion Swamp is a cursed place that no one dares explore.
-Monsters, traps and evil sorcerers await you there. But legend
-speaks of a fabulous treasure hidden in its depths...
+The Scorpion Swamp is a cursed place that no one dares explore. Monsters,
+traps and evil sorcerers await you there. But legend speaks of a fabulous
+treasure hidden in its depths...
 
-Can you survive the perils of the Swamp and discover its secrets?
-Your choices will determine your fate!
-
+Can you survive the perils of the Swamp and discover its secrets? Your choices
+will determine your fate!
 
 Commands:
-  [SPACE]  - Toggle between text and graphic mode
-  [A-Z]    - Make a choice
-  [Q]      - Quit the adventure
+ [SPACE/RETURN/ESC]  - Text, then HGR picture, then HGR + 4 text lines
+ [A-Z]               - Make a choice
+ [I] [H]             - The backpack, the help
+ [Q]                 - Quit the adventure
 
-C 1 Start the adventure
-
+C 001 Start the adventure

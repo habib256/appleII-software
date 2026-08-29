@@ -1,0 +1,15 @@
+LES TOUCHES
+
+  [A-Z]                 Faire un choix
+  [ESPACE/RETURN/ESC]   Texte, image HGR, puis HGR + 4 lignes de texte
+  [I]                   Le sac a dos et les Pierres Magiques
+  [H]                   Cette aide
+  [Q]                   Quitter l'aventure
+
+EN COMBAT
+
+  [ESPACE]              Porter un assaut
+  [C]                   Tentez votre Chance sur la blessure qui vient
+  [F]                   Prendre la Fuite, quand la page l'autorise
+  [I]                   Le sac, tant que le premier coup n'est pas donne
+  [ESC]                 Voir l'illustration du combat

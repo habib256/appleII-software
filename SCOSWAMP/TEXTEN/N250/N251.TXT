@@ -1,12 +1,9 @@
 T 251 Garden Master
-You have killed the Garden Master. He was a good sorcerer who meant
-no harm to anyone, and you begin to regret your act.
-You lose 3 LUCK points. You seize the flower-shaped
-Amulet he wore around his neck, then resume the only
-path that allows leaving the clearing. The trail is oriented toward
-the west and plunges between old twisted oaks.
+
+You have killed the Garden Master. He was a good sorcerer who meant no harm to
+anyone, and you begin to regret your act. You lose 3 LUCK points. You seize
+the flower-shaped Amulet he wore around his neck, then resume the only path
+that allows leaving the clearing. The trail is oriented toward the west and
+plunges between old twisted oaks.
 
 C 363 Follow the path westward, wearing the Amulet
-
-
-

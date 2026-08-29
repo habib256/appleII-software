@@ -1,18 +1,12 @@
 T 124 The Final Duel
 
-The evil sorcerer, mad with rage, draws from his robe a wand
-that suddenly shines and transforms into a serrated blade.
+The evil sorcerer, mad with rage, draws from his robe a wand that suddenly
+shines and transforms into a serrated blade.
 
-He takes his guard. The weapon sparkles: it is clearly magical.
-This combat will be the last of your adventure.
-
-STRATAGUS
-SKILL: 13
-STAMINA: 18
+He takes his guard. The weapon sparkles: it is clearly magical. This combat
+will be the last of your adventure.
 
 It's a duel to the death. You cannot flee.
 
+M 13 18 STRATAGUS
 C 340 If you manage to kill Stratagus
-
-
-

@@ -1,8 +1,6 @@
 T 268 Empty Clearing
-There's nothing in the clearing except a few gnawed bones.
-The path is clear; you hasten to continue your journey.
+
+There's nothing in the clearing except a few gnawed bones. The path is clear;
+you hasten to continue your journey.
 
 C 390 Continue on the trail
-
-
-

@@ -1,15 +1,10 @@
 T 189 The Discovered Stones
 
 You notice that the earth has been disturbed at the foot of one of the trees
-bordering the clearing. You dig immediately at this precise
-spot and find two Magic Stones: one of Friendship,
-the other of LUCK. Record them on your Adventure Sheet.
-These objects may be useful to you later in your
-quest. You carefully stow the Stones in your purse,
-then resume the journey, your heart light at having gained these
-precious resources.
+bordering the clearing. You dig immediately at this precise spot and find two
+Magic Stones: one of Friendship, the other of LUCK. Record them on your
+Adventure Sheet. These objects may be useful to you later in your quest. You
+carefully stow the Stones in your purse, then resume the journey, your heart
+light at having gained these precious resources.
 
 C 348 Resume the journey and leave
-
-
-

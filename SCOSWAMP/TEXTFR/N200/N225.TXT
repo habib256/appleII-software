@@ -1,10 +1,9 @@
 T 225 Colere de Stratagus
-Stratagus se redresse, les yeux noirs de fureur. D'un mouvement
-rapide, il sort de sa toge une baguette d'ebene qui se transforme
-en une epee dentele, rougeoyante. Sa voix claquante vous menace:
-"Je vais te tuer !" L'assaut est inevitable; il vous faut engager le
-combat sans tarder.
 
-STRATAGUS HABILETE: 9 ENDURANCE: 10
+Stratagus se redresse, les yeux noirs de fureur. D'un mouvement rapide, il
+sort de sa toge une baguette d'ebene qui se transforme en une epee dentele,
+rougeoyante. Sa voix claquante vous menace: "Je vais te tuer!" L'assaut est
+inevitable; il vous faut engager le combat sans tarder.
 
+M 9 10 STRATAGUS
 C 140 Si vous parvenez a le tuer

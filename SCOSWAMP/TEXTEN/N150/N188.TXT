@@ -1,10 +1,7 @@
 T 188 Useless Fire
-You throw a Fire Stone, but the SLIME is made of water:
-nothing burns. The spell dissipates without notable effect.
-You must change strategy.
+
+You throw a Fire Stone, but the SLIME is made of water: nothing burns. The
+spell dissipates without notable effect. You must change strategy.
 
 C 400 Use another Magic Stone
 C 336 Try an entirely different tactic
-
-
-

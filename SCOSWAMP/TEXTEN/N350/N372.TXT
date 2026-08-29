@@ -1,15 +1,10 @@
 T 372 Guards Arrive
 
-You hear shouts rising from the ground floor. The
-Goblin maid calls for help: "Soldiers! Quick! Help!
-He's killing my master!" she screams. While
-you wonder if it wouldn't be better to flee, the
-door suddenly bursts open behind Pompatarte, and three
-guards dressed in red mail coats rush inside the
-room pointing their crossbows at your chest. Without
-waiting for orders and without warning, they immediately fire and the
-arrows pierce your body. You collapse on the floor,
-killed instantly. Thus ends your adventure.
-
-
+You hear shouts rising from the ground floor. The Goblin maid calls for help:
+"Soldiers! Quick! Help! He's killing my master!" she screams. While you wonder
+if it wouldn't be better to flee, the door suddenly bursts open behind
+Pompatarte, and three guards dressed in red mail coats rush inside the room
+pointing their crossbows at your chest. Without waiting for orders and without
+warning, they immediately fire and the arrows pierce your body. You collapse
+on the floor, killed instantly. Thus ends your adventure.
 

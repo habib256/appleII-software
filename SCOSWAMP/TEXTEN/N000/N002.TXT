@@ -1,11 +1,10 @@
 T 002 The Globe and the Offer
-His story fascinates you; soon he rises with a slow movement.
-He approaches a table where a globe is placed and makes it spin.
-The rotation reveals a hiding place in the sphere: Coins are
-stacked there in abundance. Your eyes widen at so much gold.
-Pompatarte smiles at you: "Would you accept to sell it to me?"
+
+His story fascinates you; soon he rises with a slow movement. He approaches a
+table where a globe is placed and makes it spin. The rotation reveals a hiding
+place in the sphere: Coins are stacked there in abundance. Your eyes widen at
+so much gold. Pompatarte smiles at you: "Would you accept to sell it to me?"
 He offers in exchange one hundred fine Gold Pieces.
 
 C 049 Accept the offer and sell your ring
 C 173 Refuse and keep your ring
-

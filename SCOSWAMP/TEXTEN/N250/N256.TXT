@@ -1,16 +1,13 @@
 T 256 Spell Choice
 
-You're brave - or perhaps simply reckless - to dare
-use magic against the evil Sorcerer. The air vibrates around you
-and your hands heat as the spell's essence pulses at fingertips.
-It's time to choose the incantation that will decide the duel's outcome.
-Weigh the power, cost and risk; each spell has its consequences.
+You're brave - or perhaps simply reckless - to dare use magic against the evil
+Sorcerer. The air vibrates around you and your hands heat as the spell's
+essence pulses at fingertips. It's time to choose the incantation that will
+decide the duel's outcome. Weigh the power, cost and risk; each spell has its
+consequences.
 
 C 274 Cast the Curse
 C 365 Pronounce Terror
 C 385 Ignite - Fire spell
 C 351 Create a deceptive Illusion
 C 057 Cast no spell - seek another way
-
-
-

@@ -1,10 +1,8 @@
 T 312 Le Scorpion Geant
 
-Le Scorpion Geant vous menace de ses pinces. Il n'est pas
-gravement blesse : a l'evidence, le Nain n'etait pas un combattant
-tres habile.
-SCORPION GEANT HABILETE: 9 ENDURANCE: 10
+Le Scorpion Geant vous menace de ses pinces. Il n'est pas gravement blesse: a
+l'evidence, le Nain n'etait pas un combattant tres habile.
 
-C 88 Prendre la Fuite
+M 9 10 SCORPION GEANT
+CF 088 Prendre la Fuite
 C 324 Si vous tuez le Scorpion Geant
-

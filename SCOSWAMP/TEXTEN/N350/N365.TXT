@@ -1,13 +1,9 @@
 T 365 Returned Spell
 
-You think a Terror spell will give you the
-best chance of defeating Stratagus and you therefore throw
-your Magic Stone at him. Alas! he makes a hand gesture and it's
-you who then suffers the spell's effects.
-An icy sensation immediately invades you: you're afraid,
-terribly afraid, and you lose one SKILL point.
+You think a Terror spell will give you the best chance of defeating Stratagus
+and you therefore throw your Magic Stone at him. Alas! he makes a hand gesture
+and it's you who then suffers the spell's effects. An icy sensation
+immediately invades you: you're afraid, terribly afraid, and you lose one
+SKILL point.
 
 C 124 Fight
-
-
-

@@ -2,7 +2,7 @@ T 130 Choix de Pierre
 
 Quelle Pierre de Magie allez-vous essayer ?
 
-C 260 Utiliser une Pierre de Malediction 
-C 111 Utiliser une Pierre d Amitie 
-C 201 Utiliser une Pierre de Terreur 
+C 260 Utiliser une Pierre de Malediction
+C 111 Utiliser une Pierre d Amitie
+C 201 Utiliser une Pierre de Terreur
 C 288 Ne pas utiliser ces Pierres et faire un autre choix

@@ -1,10 +1,8 @@
 T 244 The Giant's Advice
+
 The Giant bursts into joyous laughter and tells you what he's seen recently.
-He indicates that a bush similar to the one you seek is found
-in a clearing further north, but warns you: "Beware
-of the Wolves!" You thank him and take leave, resuming your journey.
+He indicates that a bush similar to the one you seek is found in a clearing
+further north, but warns you: "Beware of the Wolves!" You thank him and take
+leave, resuming your journey.
 
 C 161 Resume the journey northward
-
-
-

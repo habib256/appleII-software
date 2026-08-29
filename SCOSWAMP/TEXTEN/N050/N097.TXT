@@ -1,12 +1,10 @@
 T 097 The Goblin Statue
 
-"Perfect!" he replies smiling, and you then notice
-his pointed teeth.
+"Perfect!" he replies smiling, and you then notice his pointed teeth.
 
-With a gesture, he points to the wall where stands the statue of a
-goblin. Immediately, the statue trembles and advances toward you,
-brandishing a stone sword.
+With a gesture, he points to the wall where stands the statue of a goblin.
+Immediately, the statue trembles and advances toward you, brandishing a stone
+sword.
 
 C 315 Flee
 C 284 Fight the statue
-

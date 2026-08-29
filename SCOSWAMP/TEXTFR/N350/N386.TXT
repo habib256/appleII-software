@@ -1,10 +1,9 @@
 T 386 Le butin du voleur
 
-Le cadavre du Voleur est etendu a vos pieds : il n'etait pas si
-habile qu'il l'avait cru ! Vous fouiller alors dans ses affaires et la
-seule chose utile que vous y trouviez est une grande Cape Rouge
-que vous pouvez emporter avec vous si vous le desirez. Vous
-grignotez ensuite un morceau de fromage que vous trouvez dans
-son panier, puis vous poursuivez votre chemin.
+Le cadavre du Voleur est etendu a vos pieds : il n'etait pas si habile qu'il
+l'avait cru ! Vous fouiller alors dans ses affaires et la seule chose utile
+que vous y trouviez est une grande Cape Rouge que vous pouvez emporter avec
+vous si vous le desirez. Vous grignotez ensuite un morceau de fromage que vous
+trouvez dans son panier, puis vous poursuivez votre chemin.
 
 C 179 Continuer

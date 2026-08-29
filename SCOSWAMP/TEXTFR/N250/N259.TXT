@@ -1,8 +1,8 @@
 T 259 Les brigands
 
-Les brigands sursautent sous l'effet de la surprise, mais ils se
-reprennent vite et vous font face. Lorsqu'ils voient que vous etes
-seul, leur colere monte; ils vous couvrent d'injures et se precipitent
-sur vous, armes brandies. Il n'y a plus d'issue que le combat.
+Les brigands sursautent sous l'effet de la surprise, mais ils se reprennent
+vite et vous font face. Lorsqu'ils voient que vous etes seul, leur colere
+monte; ils vous couvrent d'injures et se precipitent sur vous, armes brandies.
+Il n'y a plus d'issue que le combat.
 
 C 235 Les combattre

@@ -1,15 +1,9 @@
 T 301 Combat Against the Brigands
 
-Two Brigands rest in the clearing which seems to be their
-rallying point. When they see you, they rise and
-attack you. You must fight both of them at once.
+Two Brigands rest in the clearing which seems to be their rallying point. When
+they see you, they rise and attack you. You must fight both of them at once.
 
-SKILL STAMINA
-First BRIGAND 8 10
-Second BRIGAND 8 11
+SKILL STAMINA First BRIGAND 8 10 Second BRIGAND 8 11
 
-C 19 Flee
+C 019 Flee
 C 246 If you kill the two Brigands
-
-
-

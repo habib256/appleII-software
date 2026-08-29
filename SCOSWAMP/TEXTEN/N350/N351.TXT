@@ -1,15 +1,10 @@
 T 351 Illusion Spell
 
-You hesitate to use against Stratagus one of his own
-Magic Stones: that could be dangerous for you. You
-throw instead an Illusion spell or, at least, you
-try, for the sorcerer makes a hand gesture and the image you
-wanted to create dissipates before even being able to take form. "
-You won't succeed in deceiving me with these childish tricks!
-Stratagus exclaims contemptuously. Prepare yourself rather to die,
-poor fool!"
+You hesitate to use against Stratagus one of his own Magic Stones: that could
+be dangerous for you. You throw instead an Illusion spell or, at least, you
+try, for the sorcerer makes a hand gesture and the image you wanted to create
+dissipates before even being able to take form. " You won't succeed in
+deceiving me with these childish tricks! Stratagus exclaims contemptuously.
+Prepare yourself rather to die, poor fool!"
 
 C 124 Fight
-
-
-

@@ -1,12 +1,7 @@
 T 337 Fire on the Unicorn
 
-You throw a Fire Magic Stone at the Unicorn. Its
-mane ignites then, but for a brief moment only,
-for the animal used its own magical powers to
-neutralize your spell. All that's left now is to
-fight it.
+You throw a Fire Magic Stone at the Unicorn. Its mane ignites then, but for a
+brief moment only, for the animal used its own magical powers to neutralize
+your spell. All that's left now is to fight it.
 
 C 221 Fight the Unicorn
-
-
-

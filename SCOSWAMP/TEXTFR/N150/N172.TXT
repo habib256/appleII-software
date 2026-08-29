@@ -1,17 +1,14 @@
 T 172 L entretien avec le Maitre des Loups
 
-Vous bavardez pendant quelques instants.
-"Prenez le chemin le plus simple pour traverser la riviere,
-vous conseille le Maitre des Loups, ne voyez pas de pieges la
-ou il n'y en a pas."
-Il vous enseigne egalement une formule magique courte que
-vous pourrez prononcer si jamais des Loups vous menacent.
-Si vous la dites, ils se montreront alors tout a fait bienveillants
-a votre egard et vous permettront de passer sans aggression.
-Vous l ecoutez attentivement et la repetez a mi-voix pour
-mieux la retenir. Le Maitre sourit comme s'il vous accordait
-sa confiance. Il est temps de quitter la clairiere : vous prenez
-conge, rangez vos affaires et vous vous disposez a repartir,
-plus serein grace a cet enseignement.
+Vous bavardez pendant quelques instants. "Prenez le chemin le plus simple pour
+traverser la riviere, vous conseille le Maitre des Loups, ne voyez pas de
+pieges la ou il n'y en a pas." Il vous enseigne egalement une formule magique
+courte que vous pourrez prononcer si jamais des Loups vous menacent. Si vous
+la dites, ils se montreront alors tout a fait bienveillants a votre egard et
+vous permettront de passer sans aggression. Vous l ecoutez attentivement et la
+repetez a mi-voix pour mieux la retenir. Le Maitre sourit comme s'il vous
+accordait sa confiance. Il est temps de quitter la clairiere : vous prenez
+conge, rangez vos affaires et vous vous disposez a repartir, plus serein grace
+a cet enseignement.
 
 C 314 Repartir en suivant le conseil du Maitre des Loups

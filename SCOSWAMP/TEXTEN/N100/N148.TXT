@@ -1,16 +1,11 @@
 T 148 The Fat Pig
 
-You wonder what kind of illusion could deceive
-the Brigands; they look ragged and hungry.
-Doubtless they would be delighted with a good meal.
-You sketch a smile: a good idea comes to you.
-You create the illusion of a fat pig crossing the clearing,
-then running along a path leading there.
-In their haste to capture this unhoped-for prey, the Brigands
-jostle each other and rush in pursuit without seeing you.
-You take advantage of their disorder and cross the clearing.
+You wonder what kind of illusion could deceive the Brigands; they look ragged
+and hungry. Doubtless they would be delighted with a good meal. You sketch a
+smile: a good idea comes to you. You create the illusion of a fat pig crossing
+the clearing, then running along a path leading there. In their haste to
+capture this unhoped-for prey, the Brigands jostle each other and rush in
+pursuit without seeing you. You take advantage of their disorder and cross the
+clearing.
 
 C 019 Go to 19.
-
-
-

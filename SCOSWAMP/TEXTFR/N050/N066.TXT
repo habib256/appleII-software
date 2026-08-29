@@ -1,15 +1,13 @@
 T 066 Le pique-nique suspect
 
-Vous entrez dans une agrable clairiere entoure de chenes noueux.
-Vous etes dans la Clairiere n 9. Si vous y etes deja venu,
-rendez-vous au 192. Sinon, lisez ce qui suit.
-Un petit homme a l'air joyeux est assis par terre, le dos appuye
-contre le tronc d'un arbre. Il mange du fromage, un panier
-a pique-nique ouvert a cote de lui. Il ne semble pas arme,
-si ce n'est d'un coutau qu'il utilise pour couper sa part.
-Il vous remarque et vous salue : "Bonjour, l'aventurier, voulez
-vous partager mon repas ?" L'Anneau de Cuivre diffuse une
-chaleur autour de votre doigt qui vous avertit : ne vous fiez pas.
+Vous entrez dans une agrable clairiere entoure de chenes noueux. Vous etes
+dans la Clairiere n 9. Si vous y etes deja venu, rendez-vous au 192. Sinon,
+lisez ce qui suit. Un petit homme a l'air joyeux est assis par terre, le dos
+appuye contre le tronc d'un arbre. Il mange du fromage, un panier a
+pique-nique ouvert a cote de lui. Il ne semble pas arme, si ce n'est d'un
+coutau qu'il utilise pour couper sa part. Il vous remarque et vous salue :
+"Bonjour, l'aventurier, voulez vous partager mon repas ?" L'Anneau de Cuivre
+diffuse une chaleur autour de votre doigt qui vous avertit : ne vous fiez pas.
 Bientot, vous comprenez qu'il s'agit d'un VOLEUR. Que faites-vous ?
 
 C 267 Attaquer le voleur sur-le-champ

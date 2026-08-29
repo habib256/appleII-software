@@ -1,10 +1,8 @@
 T 384 Escalade du pont
 
-Vous n'avez aucun mal a vous accrocher a l'un des piliers du pont
-et a l'escalader. Les gros blocs de pierre dont il est constitue
-offrent de solides points d'appui et vous ne tardez pas a vous
-hisser sur le parapet et a sauter a pieds joints sur le pont lui-
-meme.
+Vous n'avez aucun mal a vous accrocher a l'un des piliers du pont et a
+l'escalader. Les gros blocs de pierre dont il est constitue offrent de solides
+points d'appui et vous ne tardez pas a vous hisser sur le parapet et a sauter
+a pieds joints sur le pont lui- meme.
 
 C 101 Continuer
-

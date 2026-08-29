@@ -1,7 +1,8 @@
 T 196 Fletrissure victorieuse
-Vous lancez une Pierre de Fletrissure sur les Fleurs d'Angoisse.
-Elles se fanent aussitot et meurent, retombant en lambaux ternes.
-Vous inspectez les lieux: rien d'interessant ne subsiste.
-Un squelette gisant dans l'herbe temoigne d'un aventurier moins chanceux.
+
+Vous lancez une Pierre de Fletrissure sur les Fleurs d'Angoisse. Elles se
+fanent aussitot et meurent, retombant en lambaux ternes. Vous inspectez les
+lieux: rien d'interessant ne subsiste. Un squelette gisant dans l'herbe
+temoigne d'un aventurier moins chanceux.
 
 C 367 Quitter la clairiere et poursuivre la route

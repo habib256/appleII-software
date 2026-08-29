@@ -1,18 +1,12 @@
 T 388 Pincer Grass
 
-Soon, you enter a pleasant grass-covered clearing.
-Two paths allow you to go further. This is Clearing
-No. 24. If you've been there before, go to 263. Otherwise, read
-what follows. You remain motionless for a moment, casting a glance
-around you. You then realize this grass has
-something strange. It indeed grows so fast you can
-see it move. And while you observe it, pincers
-appear at its stems' ends, pincers trying
-to grab you. You're right in the middle of an
-expanse of PINCER GRASS!
+Soon, you enter a pleasant grass-covered clearing. Two paths allow you to go
+further. This is Clearing No. 24. If you've been there before, go to 263.
+Otherwise, read what follows. You remain motionless for a moment, casting a
+glance around you. You then realize this grass has something strange. It
+indeed grows so fast you can see it move. And while you observe it, pincers
+appear at its stems' ends, pincers trying to grab you. You're right in the
+middle of an expanse of PINCER GRASS!
 
 C 134 Defend yourself with your sword
 C 167 Resort to magic
-
-
-

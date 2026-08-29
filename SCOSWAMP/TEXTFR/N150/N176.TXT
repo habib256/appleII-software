@@ -1,9 +1,8 @@
 T 176 La Bete Immonde
-Une crature monstrueuse surgit devant vous : pau epaisse,
-griffes gantes, regard de fureur. Elle bondit avec une souplesse
-inattendue et vous comprenez qu'aucune fuite n'est possible.
-Le combat sera total, jusqu'a la mort.
 
-BETE IMMONDE - HABILETE : 9 / ENDURANCE : 10
+Une crature monstrueuse surgit devant vous: pau epaisse, griffes gantes,
+regard de fureur. Elle bondit avec une souplesse inattendue et vous comprenez
+qu'aucune fuite n'est possible. Le combat sera total, jusqu'a la mort.
 
+M 9 10 BETE IMMONDE
 C 125 Si vous parvenez a la tuer

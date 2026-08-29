@@ -1,12 +1,8 @@
 T 400 Magic against the Slime
 
-Which Magic Stone will you use to defend yourself
-against the Slime?
+Which Magic Stone will you use to defend yourself against the Slime?
 
 C 336 A Fire Stone
 C 336 Withering
 C 282 Ice
 C 336 None of these
-
-
-

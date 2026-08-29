@@ -1,9 +1,8 @@
 T 324 Apres le combat
 
-Le monstre est mort. Quant au Nain, il semble qu'il ne respire
-plus. Qu'allez-vous faire ?
+Le monstre est mort. Quant au Nain, il semble qu'il ne respire plus.
+Qu'allez-vous faire ?
 
-C 88 Quitter la clairiere a l'instant meme
+C 088 Quitter la clairiere a l'instant meme
 C 383 Lancer au Nain un sortilege de Benediction
-C 42 Fouiller le cadavre du Nain
-
+C 042 Fouiller le cadavre du Nain

@@ -1,12 +1,8 @@
 T 312 The Giant Scorpion
 
-The Giant Scorpion threatens you with its pincers. It's not
-seriously wounded: obviously, the Dwarf wasn't a very
-skilled fighter.
-GIANT SCORPION SKILL: 9 STAMINA: 10
+The Giant Scorpion threatens you with its pincers. It's not seriously wounded:
+obviously, the Dwarf wasn't a very skilled fighter.
 
-C 88 Flee
+M 9 10 GIANT SCORPION
+CF 088 Flee
 C 324 If you kill the Giant Scorpion
-
-
-

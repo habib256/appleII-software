@@ -1,13 +1,11 @@
 T 044 Les sangsues
 
-Personne ne vous attaque lorsque vous traversez la riviere,
-mais, sur l'autre rive, de grosses sangsues se sont accroches
-a vos jambes et vous sucent le sang. Lancez deux des.
-Reduisez votre total d'ENDURANCE du plus petit des deux
-chiffres obtenus. En cas de double, vous perdez la somme
-des deux des (soit 2 fois la valeur indique). Si vous
-survivez, vous pourrez ensuite reprendre la route.
-Voulez-vous aller au nord ou au sud ?
+Personne ne vous attaque lorsque vous traversez la riviere, mais, sur l'autre
+rive, de grosses sangsues se sont accroches a vos jambes et vous sucent le
+sang. Lancez deux des. Reduisez votre total d'ENDURANCE du plus petit des deux
+chiffres obtenus. En cas de double, vous perdez la somme des deux des (soit 2
+fois la valeur indique). Si vous survivez, vous pourrez ensuite reprendre la
+route. Voulez-vous aller au nord ou au sud ?
 
 C 157 Prendre le sentier vers le nord
 C 398 Prendre le sentier vers le sud

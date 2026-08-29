@@ -1,19 +1,13 @@
 T 273 Flight from the Tower
-As you hurry along the path leading to the
-village, your Copper Ring starts tingling your finger.
-You then glance over your shoulder and
-see a black form flying from the tower. You immediately
-hide in bushes and observe the creature
-that has thus launched in pursuit of you, but you'll never
-know who or what it was exactly. After a
-moment, indeed, the mysterious black silhouette returns to
-the tower's summit and you start running at full speed
-until you've reached the village where you arrive out
-of breath and considerably disheveled. You'd better
-choose another patron!
+
+As you hurry along the path leading to the village, your Copper Ring starts
+tingling your finger. You then glance over your shoulder and see a black form
+flying from the tower. You immediately hide in bushes and observe the creature
+that has thus launched in pursuit of you, but you'll never know who or what it
+was exactly. After a moment, indeed, the mysterious black silhouette returns
+to the tower's summit and you start running at full speed until you've reached
+the village where you arrive out of breath and considerably disheveled. You'd
+better choose another patron!
 
 C 335 Confer with the good sorcerer Gayolard
-C 27 Make contact with Pompatarte
-
-
-
+C 027 Make contact with Pompatarte

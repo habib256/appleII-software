@@ -1,11 +1,10 @@
 T 264 Echec de la Pierre de Fetrissure
 
-Vous jetez la Pierre de Fetrissure sur le Maitre des Jardins,
-mais celui-ci n'est pas une plante : le sort n'a aucun effet sur
-lui. Un arbre situe derriere lui meurt cependant sur-le-champ.
-Furieux, le Maitre vous lance un sort de Feu. Vos cheveux
-s'enflamment; vous les etouffez en vous frappant la tete.
-Les brulures vous coutent 2 points d'ENDURANCE.
-Vous brandissez ensuite votre epee et vous vous preparez au combat.
+Vous jetez la Pierre de Fetrissure sur le Maitre des Jardins, mais celui-ci
+n'est pas une plante : le sort n'a aucun effet sur lui. Un arbre situe
+derriere lui meurt cependant sur-le-champ. Furieux, le Maitre vous lance un
+sort de Feu. Vos cheveux s'enflamment; vous les etouffez en vous frappant la
+tete. Les brulures vous coutent 2 points d'ENDURANCE. Vous brandissez ensuite
+votre epee et vous vous preparez au combat.
 
 C 379 Attaquer le Maitre des Jardins

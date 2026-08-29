@@ -4,6 +4,3 @@ Test your Luck.
 
 C 051 If you're Lucky
 C 401 If you're Unlucky
-
-
-

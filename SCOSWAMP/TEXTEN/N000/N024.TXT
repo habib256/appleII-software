@@ -1,15 +1,14 @@
 T 024 Will-o'-the-Wisp Trap
-The Will-o'-the-Wisp dances before you and you follow it without suspecting anything.
-The ground becomes increasingly wet; suddenly you fall into a hole
-filled with mud. The Will-o'-the-Wisp disappears: its presence was a deception.
-Test your Luck: if you are Lucky, you will extract yourself without harm.
-If you are Unlucky, you manage to get out but lose 2
-STAMINA points. You eventually reach firmer ground.
-Thanks to the Copper Ring you know which path to take to find
-the clearing.
+
+The Will-o'-the-Wisp dances before you and you follow it without suspecting
+anything. The ground becomes increasingly wet; suddenly you fall into a hole
+filled with mud. The Will-o'-the-Wisp disappears: its presence was a
+deception. Test your Luck: if you are Lucky, you will extract yourself without
+harm. If you are Unlucky, you manage to get out but lose 2 STAMINA points. You
+eventually reach firmer ground. Thanks to the Copper Ring you know which path
+to take to find the clearing.
 
 What do you do?
 
 C 273 You are lucky
 C 297 You are unlucky
-

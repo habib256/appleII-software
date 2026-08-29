@@ -1,18 +1,16 @@
 T 284 Statue de Gobelin
-La creature de pierre s'avance vers vous en traeinant les pieds
-tandis que Stratagus, fort satisfait de ce spectacle, emet de petits
-rires diaboliques. De toute evidence, votre epee ne vous sera
-d'aucun secours contre un adversaire dur comme le roc. Vous
-reflechissez une fraction de seconde puis vous abattez votre arme
-sur la table du sorcier : la lame en fend le bois et vous parvenez a
-detacher l'un des pieds de la table. Vous laissez alors tomber
-votre epee et vous affrontez la statue avec cette massue
-improvise qui sera baucoup plus efficace dans la situation
-presente. Stratagus, impressionne par votre force et la
-promptitude de vos reflexes, cesse de rire et observe
+
+La creature de pierre s'avance vers vous en traeinant les pieds tandis que
+Stratagus, fort satisfait de ce spectacle, emet de petits rires diaboliques.
+De toute evidence, votre epee ne vous sera d'aucun secours contre un
+adversaire dur comme le roc. Vous reflechissez une fraction de seconde puis
+vous abattez votre arme sur la table du sorcier: la lame en fend le bois et
+vous parvenez a detacher l'un des pieds de la table. Vous laissez alors tomber
+votre epee et vous affrontez la statue avec cette massue improvise qui sera
+baucoup plus efficace dans la situation presente. Stratagus, impressionne par
+votre force et la promptitude de vos reflexes, cesse de rire et observe
 attentivement le combat.
-STATUE DEGOBELIN HABILETE: 7 ENDURANCE: 6
 
+M 7 6 STATUE DEGOBELIN
+CF 315 Prendre la Fuite
 C 156 Si vous parvenez a detruire la statue
-C 315 Prendre la Fuite
-

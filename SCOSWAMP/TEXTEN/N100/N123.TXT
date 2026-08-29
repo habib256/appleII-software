@@ -1,16 +1,12 @@
 T 123 Magical Interruption
 
-The sorcerer opens wide eyes and leaps backward.
-In his momentum, he loses his hat and knocks over a vase
-that shatters on the ground.
+The sorcerer opens wide eyes and leaps backward. In his momentum, he loses his
+hat and knocks over a vase that shatters on the ground.
 
-A pestilential vapor escapes from it and the animated statue
-immediately freezes.
+A pestilential vapor escapes from it and the animated statue immediately
+freezes.
 
 You have broken his concentration and neutralized his spell.
 
 C 225 Continue your attack
 C 315 Take advantage of the hesitation to flee
-
-
-

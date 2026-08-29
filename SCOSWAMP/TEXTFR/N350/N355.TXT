@@ -1,24 +1,19 @@
 T 355 Retour a Courbensaule
 
-Le chemin qui mene a Courbensaule vous est desormais familier,
-mais lorsque vous entrez a nouveau dans la ville, quelque chose
-vous semble avoir change. Vous sentez en effet que les gens vous
-regardent et que des murmures s'elevent sur votre passage. Vous
-comprenez alors que la rumeur de vos exploits s'est repandue
-alentour et qu'ils sont a present de notoriete publique. Vous
-eprouvez un certain malaise a vous sentir ainsi observe et, tandis
-que vous vous engagez dans une rue laterale, vous avez
-l'impression d'etre suivi. Vous faites aussiteot volte-face pour vous
-retrouver nez a nez avec deux COUPEURS DE BOURSES en
-haillons. Ils vous attaquent a l'instant meme, convaincus que
-vous avez du rapporter un fabuleux tresor de vos peregrinations
-dans le Marais. Vous ne pouvez pas vous enfuir et vous n'avez
-pas assez de temps pour avoir recours a la magie. Il ne vous reste
-donc plus qu'a les combattre.
+Le chemin qui mene a Courbensaule vous est desormais familier, mais lorsque
+vous entrez a nouveau dans la ville, quelque chose vous semble avoir change.
+Vous sentez en effet que les gens vous regardent et que des murmures s'elevent
+sur votre passage. Vous comprenez alors que la rumeur de vos exploits s'est
+repandue alentour et qu'ils sont a present de notoriete publique. Vous
+eprouvez un certain malaise a vous sentir ainsi observe et, tandis que vous
+vous engagez dans une rue laterale, vous avez l'impression d'etre suivi. Vous
+faites aussiteot volte-face pour vous retrouver nez a nez avec deux COUPEURS
+DE BOURSES en haillons. Ils vous attaquent a l'instant meme, convaincus que
+vous avez du rapporter un fabuleux tresor de vos peregrinations dans le
+Marais. Vous ne pouvez pas vous enfuir et vous n'avez pas assez de temps pour
+avoir recours a la magie. Il ne vous reste donc plus qu'a les combattre.
 
-HABILETE ENDURANCE
-Premier COUPEUR DE BOURSES 7 5
-Deuxieme COUPEUR DE BOURSES 8 5
+HABILETE ENDURANCE Premier COUPEUR DE BOURSES 7 5 Deuxieme COUPEUR DE BOURSES
+8 5
 
 C 186 Si vous les tuez tous les deux
-

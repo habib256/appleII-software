@@ -1,13 +1,11 @@
 T 140 La chute de Stratagus
 
-Votre lame perce sa poitrine. Il meurt sans un mot, la lame 
-dentele tombant de ses doigts. 
+Votre lame perce sa poitrine. Il meurt sans un mot, la lame dentele tombant de
+ses doigts.
 
-C est une Epe Magique : elle vous donne +2 en HABILETE. 
+Mais l atmosphere s assombrit. Votre anneau reste chaud. Une odeur de soufre s
+eleve. Le danger n est pas ecarte.
 
-Mais l atmosphere s assombrit. Votre anneau reste chaud. 
-Une odeur de soufre s eleve. Le danger n est pas ecarte. 
-
-C 375 Rester explorer la tour 
-C 335 Retourner voir Gayolard 
+C 375 Rester explorer la tour
+C 335 Retourner voir Gayolard
 C 027 Revenir voir Pompatarte

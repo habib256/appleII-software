@@ -4,6 +4,3 @@ This large nest attracts your attention.
 
 C 073 Climb to examine it
 C 202 Leave
-
-
-

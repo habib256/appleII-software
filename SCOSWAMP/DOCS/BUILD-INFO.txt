@@ -14,7 +14,7 @@ SCENE INITIALE
 --------------
 Scene    : N000 (scène 0 = écran titre)
 Mode     : HGR plein écran (l'image s'affiche dès le chargement)
-Fichiers : IMG/N000/N000.HGR.BIN + TEXTFR/N000/N000.TXT (ou TEXTEN)
+Fichiers : IMG/N000/N000.RLE.BIN + TEXTFR/N000/N000.TXT (ou TEXTEN)
 Action   : Appuyer sur [ESPACE] pour voir le texte du titre
 
 CARTOGRAPHIE MEMOIRE
@@ -31,7 +31,7 @@ le programme démarrerait à l'adresse par défaut (~$0803) et ECRASERAIT
 la zone graphique lors de son exécution !
 
 En démarrant à $4000, on préserve toute la zone HGR pour les images
-chargées depuis les fichiers .HGR.BIN.
+décompressées depuis les fichiers .RLE.BIN.
 
 FLAGS DE COMPILATION UTILISES
 ------------------------------
@@ -63,7 +63,7 @@ SCOSWAMP/
   │   └── README.md       ← Documentation
   ├── IMG/                ← Images HGR
   │   ├── N000/           ← Scènes 0-49
-  │   │   └── N*.HGR.BIN  (8192 octets/fichier)
+  │   │   └── N*.RLE.BIN  (flux HGRR, 8192 octets décompressés)
   │   ├── N050/           ← Scènes 50-99
   │   └── ...
   ├── TEXTFR/             ← Textes français
@@ -94,7 +94,7 @@ CONFORMITE PRODOS
 ✓ Séparateur / (ProDOS)
 ✓ Longueur max 64 caractères (FILENAME_MAX)
 ✓ Composants ≤ 15 caractères
-✓ Structure hiérarchique : IMG/N050/N075.HGR.BIN
+✓ Structure hiérarchique : IMG/N050/N075.RLE.BIN
 ✓ Buffer I/O 1 Ko par fichier (géré par libc)
 
 FONCTIONNALITES
@@ -119,4 +119,3 @@ VERHILLE Arnaud - gist974@gmail.com
 
 Date de compilation : 5 octobre 2025
 ===============================================================================
-

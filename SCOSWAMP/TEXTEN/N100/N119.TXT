@@ -1,8 +1,8 @@
 T 119 The Threatening Unicorn
 
-The unicorn paws the ground and lowers its head, ready to charge.
-Its mane stands up like a white flame.
-You feel the magic vibrating around it: you'll need to act quickly.
+The unicorn paws the ground and lowers its head, ready to charge. Its mane
+stands up like a white flame. You feel the magic vibrating around it: you'll
+need to act quickly.
 
 Which Stone will you try to neutralize it?
 
@@ -11,6 +11,3 @@ C 293 Use a Terror Stone
 C 381 Use a Blessing Stone
 C 337 Use a Fire Stone
 C 320 Don't use these Stones and make another choice
-
-
-

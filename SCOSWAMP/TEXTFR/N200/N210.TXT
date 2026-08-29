@@ -1,9 +1,9 @@
 T 210 Retour a la clairiere maudite
 
-Vous retrouvez la clairiere ou la Bete Immonde vous avait attaque. 
-Le sol porte encore les traces du combat, couvert de griffures et de 
-terre remue. Un silence lourd pese entre les arbres, comme si le lieu 
-retenait son souffle, attendant votre decision. 
+Vous retrouvez la clairiere ou la Bete Immonde vous avait attaque. Le sol
+porte encore les traces du combat, couvert de griffures et de terre remue. Un
+silence lourd pese entre les arbres, comme si le lieu retenait son souffle,
+attendant votre decision.
 
-C 243 Si la crature est morte et que le lieu est sur 
+C 243 Si la crature est morte et que le lieu est sur
 C 143 Si la Bete Immonde vit encore dans la clairiere

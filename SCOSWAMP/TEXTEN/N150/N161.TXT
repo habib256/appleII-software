@@ -1,11 +1,9 @@
 T 161 Crossroads After the Giant
-You leave the Giant's clearing and resume your journey.
-Before you, three possible directions open under the trees.
-Choose quickly, the wind turns and carries swamp smells.
+
+You leave the Giant's clearing and resume your journey. Before you, three
+possible directions open under the trees. Choose quickly, the wind turns and
+carries swamp smells.
 
 C 092 Go north
 C 041 Go south
 C 121 Take the western road
-
-
-

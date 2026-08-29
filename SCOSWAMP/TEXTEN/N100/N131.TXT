@@ -1,19 +1,16 @@
 T 131 The Bird Mistress
 
-The Parrot stares at you with a round eye.
-"Come closer," it says, "she knows you're coming."
+The Parrot stares at you with a round eye. "Come closer," it says, "she knows
+you're coming."
 
-You pass through a curtain of palm trees and discover a
-splendid clearing, populated by thousands of birds with
-shimmering feathers. Eagles and Herons walk freely.
+You pass through a curtain of palm trees and discover a splendid clearing,
+populated by thousands of birds with shimmering feathers. Eagles and Herons
+walk freely.
 
-In the center, a magnificent woman sits on a pedestal.
-It's the Bird Mistress. She greets you and calls you
-by your name. "Which sorcerer do you serve?" she asks.
+In the center, a magnificent woman sits on a pedestal. It's the Bird Mistress.
+She greets you and calls you by your name. "Which sorcerer do you serve?" she
+asks.
 
 C 023 Pompatarte
 C 164 Gayolard
 C 288 Stratagus
-
-
-

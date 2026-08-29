@@ -1,13 +1,12 @@
 T 261 Malediction et Araigne
 
-Vous jetez votre Malediction contre le Maitre des Araignes.
-Son cri sechange en convulsions; il s'effondre, se tord et puis
-se releve dans une forme abominable : une immense araigne grise
-au corps gant et a la tete d'homme, les yeux pleins de haine.
-Un froid vous traverse - la Malediction vous atteint aussi.
-Lancez un de; vous perdez autant de points d'ENDURANCE que le
-chiffre obtenu. Si vous survivez, l'Araigne Gante vous attaque.
-ARAIGNEE GEANTE HABILETE: 8 ENDURANCE: 9
-Vous ne pouvez pas fuir; il vous faut combattre jusqu'a la mort.
+Vous jetez votre Malediction contre le Maitre des Araignes. Son cri sechange
+en convulsions; il s'effondre, se tord et puis se releve dans une forme
+abominable: une immense araigne grise au corps gant et a la tete d'homme, les
+yeux pleins de haine. Un froid vous traverse - la Malediction vous atteint
+aussi. Lancez un de; vous perdez autant de points d'ENDURANCE que le chiffre
+obtenu. Si vous survivez, l'Araigne Gante vous attaque. Vous ne pouvez pas
+fuir; il vous faut combattre jusqu'a la mort.
 
+M 8 9 ARAIGNEE GEANTE
 C 354 Combattre l'Araigne jusqu'a ce que l'un de vous meure

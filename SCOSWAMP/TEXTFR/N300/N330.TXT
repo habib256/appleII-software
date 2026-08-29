@@ -1,8 +1,6 @@
 T 330 Le tronc creux
 
-Vous vous trouvez dans la clairiere au gros tronc creux. Si vous y
-avez vu une creature lors d'une precedente visite, rendez-vous au
-129.
+Vous vous trouvez dans la clairiere au gros tronc creux. Si vous y avez vu une
+creature lors d'une precedente visite, rendez-vous au 129.
 
 C 268 Examiner la clairiere
-

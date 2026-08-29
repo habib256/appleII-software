@@ -1,11 +1,8 @@
 T 159 Return to the Master
-You have done everything in your power. Now,
-it's time to return to see your master to report
-your success or failure.
+
+You have done everything in your power. Now, it's time to return to see your
+master to report your success or failure.
 
 C 006 If you serve Gayolard
 C 226 If you are in Stratagus's service
 C 056 If you chose Pompatarte
-
-
-

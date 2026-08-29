@@ -1,10 +1,8 @@
 T 220 Vain Conversation
-You talk at length with the Garden Master, but without
-learning anything useful. His Amulet shines on his neck, out of
-your reach, and the conversation fizzles without result.
+
+You talk at length with the Garden Master, but without learning anything
+useful. His Amulet shines on his neck, out of your reach, and the conversation
+fizzles without result.
 
 C 292 Tell the truth and ask for the Amulet
 C 334 Try another approach
-
-
-

@@ -1,7 +1,6 @@
 T 368 Fuite de la Licorne
 
-Vous devrez repartir de cette clairiere par le meme chemin que
-vous avez emprunte pour y arriver.
+Vous devrez repartir de cette clairiere par le meme chemin que vous avez
+emprunte pour y arriver.
 
 C 348 Prendre ce chemin
-

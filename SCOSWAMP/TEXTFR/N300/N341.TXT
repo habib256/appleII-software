@@ -1,18 +1,16 @@
 T 341 Attaque contre Pompatarte
 
-Son attitude desinvolte a votre egard, alors que vous avez risque
-votre vie pour tenter de remplir votre mission, vous paraeit tout a
-fait inacceptable. Vous tirez donc votre epee et vous l'attaquez
-avec la ferme intention de lui faire payer cher sa legerete. Il est
-surpris, mais esquive malgre tout votre premier coup. Malgre sa
-masse imposante, il se deplace avec baucoup d'adresse et tire
-bienteot une epee de derriere son bureau. Il se defend avec
-vigueur et vous vous apercevez tres vite que vous avez affaire la a
-un redoutable adversaire.
-POMPATARTE HABILETE: 9 ENDURANCE: 14
-Il tourne le dos a la porte, et si vous souhaitez prendre la Fuite, il
-vous faudra plonger par la fenetre.
+Son attitude desinvolte a votre egard, alors que vous avez risque votre vie
+pour tenter de remplir votre mission, vous paraeit tout a fait inacceptable.
+Vous tirez donc votre epee et vous l'attaquez avec la ferme intention de lui
+faire payer cher sa legerete. Il est surpris, mais esquive malgre tout votre
+premier coup. Malgre sa masse imposante, il se deplace avec baucoup d'adresse
+et tire bienteot une epee de derriere son bureau. Il se defend avec vigueur et
+vous vous apercevez tres vite que vous avez affaire la a un redoutable
+adversaire. Il tourne le dos a la porte, et si vous souhaitez prendre la
+Fuite, il vous faudra plonger par la fenetre.
 
+M 9 14 POMPATARTE
+MS 6
 C 327 Plonger par la fenetre
 C 372 Si vous reduisez a 6 ou moins son ENDURANCE
-

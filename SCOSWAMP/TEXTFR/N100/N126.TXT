@@ -1,10 +1,8 @@
 T 126 Givre inutile
 
-Vous jetez votre Pierre au Gant alors qu il se tient devant vous. 
-Du givre se forme sur sa barbe et ses sourcils, et il frissonne. 
+Vous jetez votre Pierre au Gant alors qu il se tient devant vous. Du givre se
+forme sur sa barbe et ses sourcils, et il frissonne.
 
-"Il commence a faire froid dans le coin", marmonne-t-il. 
-
-C est tout l effet produit. 
+"Il commence a faire froid dans le coin", marmonne-t-il.
 
 C 145 Revenir en arriere pour faire un autre choix

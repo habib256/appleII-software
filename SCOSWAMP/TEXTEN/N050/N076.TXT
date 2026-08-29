@@ -1,15 +1,12 @@
 T 076 The Patroller
 
-You know that a Patroller is a fighter in the service of
-Good. This one undoubtedly knows the Scorpion Swamp and you
-can trust him.
+You know that a Patroller is a fighter in the service of Good. This one
+undoubtedly knows the Scorpion Swamp and you can trust him.
 
-So you tell him your story. He has heard of
-Gayolard and says he's ready to help you.
+So you tell him your story. He has heard of Gayolard and says he's ready to
+help you.
 
-He offers you Healing Herbs that restore 1
-SKILL point if you have lost any.
+He offers you Healing Herbs that restore 1 SKILL point if you have lost any.
 
 C 166 If you have already found the Asphodel bush
 C 333 Otherwise
-

@@ -1,17 +1,14 @@
 T 359 Mensonge au Maeitre des Grenouilles
 
-Vous etes convaincu que le Maeitre des Grenouilles se montrerait
-baucoup moins amical s'il connaissait la nature exacte de votre
-mission et vous inventez donc un mensonge. " Je suis au service
-de Sukumvit, Baron de Fang, pretendez-vous. Il m'a envoye
-explorer le Marais aux Scorpions pour y chercher de nouveaux
-monstres dont il pourrait peupler son celebre Labyrinthe de la
-Mort. Lorsque je suis arrive au village qui se trouve a proximite
-du Marais, j'ai entendu parler des Maitres qui y ont elu domicile
-et je me suis promis d'en apprendre davantage a leur sujet. Qui
-etes-vous donc et pourquoi etes-vous venu vous installer ici ? "
-Tentez votre Chance.
+Vous etes convaincu que le Maeitre des Grenouilles se montrerait baucoup moins
+amical s'il connaissait la nature exacte de votre mission et vous inventez
+donc un mensonge. " Je suis au service de Sukumvit, Baron de Fang,
+pretendez-vous. Il m'a envoye explorer le Marais aux Scorpions pour y chercher
+de nouveaux monstres dont il pourrait peupler son celebre Labyrinthe de la
+Mort. Lorsque je suis arrive au village qui se trouve a proximite du Marais,
+j'ai entendu parler des Maitres qui y ont elu domicile et je me suis promis
+d'en apprendre davantage a leur sujet. Qui etes-vous donc et pourquoi
+etes-vous venu vous installer ici ? " Tentez votre Chance.
 
 C 162 Si vous etes Chanceux
-C 16 Si vous etes Malchanceux
-
+C 016 Si vous etes Malchanceux

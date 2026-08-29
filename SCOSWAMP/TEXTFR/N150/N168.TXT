@@ -1,11 +1,12 @@
-168 : Retour a la Clairiere du Bassin
-----------------------------------------------
-Vous etes de retour dans la clairiere ou vous aviez rencontre  
-la Bete du Bassin.
+T 168 Retour a la Clairiere du Bassin
 
-Si vous l'avez deja tuee, il ne reste rien d'interessant ici.  
+Vous etes de retour dans la clairiere ou vous aviez rencontre la Bete du
+Bassin.
+
+Si vous l'avez deja tuee, il ne reste rien d'interessant ici.
+
+Si vous ne l'avez pas encore vaincue, elle vous attend, avec le meme total
+d'ENDURANCE qu'au moment de votre fuite.
+
 C 330 Quitter la clairiere
-
-Si vous ne l'avez pas encore vaincue, elle vous attend,  
-avec le meme total d'ENDURANCE qu'au moment de votre fuite.  
 C 209 Reprendre le combat contre la Bete du Bassin

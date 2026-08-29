@@ -1,15 +1,11 @@
 T 290 Swamp Orcs
-You make out traces indicating someone passed through
-recently. At some distance before you lies
-another clearing. This is Clearing No. 26. If you've been before,
-go to 323. Otherwise, read what follows. When you enter
-this new clearing, an arrow grazes your head
-whistling. You then see three SWAMP ORCS with
-skin eaten by scabies. They have bows in hand, and the two
-creatures who haven't yet fired shoot their arrows at you.
 
-C 83 If you possess the Gold Magnet
+You make out traces indicating someone passed through recently. At some
+distance before you lies another clearing. This is Clearing No. 26. If you've
+been before, go to 323. Otherwise, read what follows. When you enter this new
+clearing, an arrow grazes your head whistling. You then see three SWAMP ORCS
+with skin eaten by scabies. They have bows in hand, and the two creatures who
+haven't yet fired shoot their arrows at you.
+
+C 083 If you possess the Gold Magnet
 C 151 Otherwise
-
-
-

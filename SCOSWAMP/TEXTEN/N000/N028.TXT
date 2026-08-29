@@ -1,16 +1,13 @@
 T 028 The Sword Trees
 
-Several SWORD TREES attack you as if they formed a
-single adversary. They cannot see you and only locate
-themselves by the sounds you make. Each of them bears several
-branches armed with sharp blades, and they converge in silence.
-You have an advantage: they only detect sound. Show
-caution and precision in your attack.
-SWORD TREES SKILL: 9 STAMINA: 12
-Face them by applying the combat rules from the book.
-If you defeat them, continue reading at the indicated number.
-Otherwise, your corpse will serve as fertilizer for the swamp.
+Several SWORD TREES attack you as if they formed a single adversary. They
+cannot see you and only locate themselves by the sounds you make. Each of them
+bears several branches armed with sharp blades, and they converge in silence.
+You have an advantage: they only detect sound. Show caution and precision in
+your attack. Face them by applying the combat rules from the book. If you
+defeat them, continue reading at the indicated number. Otherwise, your corpse
+will serve as fertilizer for the swamp.
 
+M 9 12 SWORD TREES
 C 362 Defeat the Sword Trees and continue
 C 000 In case of death: your corpse serves as fertilizer
-

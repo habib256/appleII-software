@@ -1,21 +1,21 @@
 T 175 Le miracle de l'Antherique
-Vous sortez avec precaution de votre poche la baie d'Antherique. 
-"Merveilleux !" s'ecrie Gayolard, rayonnant de joie. 
-Il la prend dans ses mains tremblantes et la depose dans son jardin. 
 
-Quelques mots magiques plus tard, la terre s'anime : 
-une tige jaillit, s'eleve, et devient un grand buisson charge 
-de grappes violettes embaumant l'air. 
-Le vieux sorcier replante plusieurs baies, et d'autres pousses 
-apparaissent aussitot. Le cycle de vie renait sous vos yeux. 
+Vous sortez avec precaution de votre poche la baie d'Antherique. "Merveilleux
+!" s'ecrie Gayolard, rayonnant de joie. Il la prend dans ses mains tremblantes
+et la depose dans son jardin.
 
-Gayolard se tourne vers vous, emu : 
-"Grace a vous, l'Antherique revivra. 
-Je vais en envoyer a mes freres mages. 
-Le monde magique te devra baucoup, aventurier." 
+Quelques mots magiques plus tard, la terre s'anime : une tige jaillit,
+s'eleve, et devient un grand buisson charge de grappes violettes embaumant
+l'air. Le vieux sorcier replante plusieurs baies, et d'autres pousses
+apparaissent aussitot. Le cycle de vie renait sous vos yeux.
 
-Il vous offre des Potions de Guerison et un repas chaud. 
-Vous passez la soire a discuter avant de repartir, 
-le coeur leger, le devoir accompli, pret pour d'autres quetes.
+Gayolard se tourne vers vous, emu : "Grace a vous, l'Antherique revivra. Je
+vais en envoyer a mes freres mages. Le monde magique te devra baucoup,
+aventurier."
+
+Il vous offre des Potions de Guerison et un repas chaud. Vous passez la soire
+a discuter avant de repartir, le coeur leger, le devoir accompli, pret pour
+d'autres quetes.
 
 FIN DE L'AVENTURE - SUCCES COMPLET
+

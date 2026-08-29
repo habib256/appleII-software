@@ -1,8 +1,7 @@
 T 025 L'aigle s'envole
-L'Aigle lance un cri et tourne en cercle au-dessus de la clairiere.
-Il s'eloigne ensuite vers son nid; vous pouvez vous estimer heureux
-de repartir sans dommage.
-Vous etes dans la Clairiere n 025.
-Que faites-vous?
+
+L'Aigle lance un cri et tourne en cercle au-dessus de la clairiere. Il
+s'eloigne ensuite vers son nid; vous pouvez vous estimer heureux de repartir
+sans dommage. Vous etes dans la Clairiere n 025. Que faites-vous?
 
 C 202 Reprendre la route et poursuivre l'aventure

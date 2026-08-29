@@ -1,8 +1,7 @@
 T 057 Last Resort
-None of the Magic Stones you possess seems useful here.
-So you have no choice but to draw your sword and attack the sorcerer.
-The confrontation is inevitable; prepare for hand-to-hand combat.
-What do you do?
+
+None of the Magic Stones you possess seems useful here. So you have no choice
+but to draw your sword and attack the sorcerer. The confrontation is
+inevitable; prepare for hand-to-hand combat. What do you do?
 
 C 124 Attack the sorcerer hand-to-hand
-

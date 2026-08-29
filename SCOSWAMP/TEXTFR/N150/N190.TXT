@@ -1,9 +1,9 @@
 T 190 Saut au-dessus des sables
-Vous reculez pour prendre votre elan et tentez votre CHANCE.
-Test: lancez 2 des (2d6). Si total <= CHANCE, vous etes Chanceux
-et vous sautez de l'autre cote sans difficulte.
-Sinon, vous etes Malchanceux: votre bond est trop court et vous
-devez patauger dans les sables mouvants. Perdez 2 ENDURANCE.
-Puis reprenez la marche.
+
+Vous reculez pour prendre votre elan et tentez votre CHANCE. Test: lancez 2
+des (2d6). Si total <= CHANCE, vous etes Chanceux et vous sautez de l'autre
+cote sans difficulte. Sinon, vous etes Malchanceux: votre bond est trop court
+et vous devez patauger dans les sables mouvants. Perdez 2 ENDURANCE. Puis
+reprenez la marche.
 
 C 270 Continuer apres le saut

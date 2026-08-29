@@ -1,10 +1,10 @@
 T 156 Tas de graviers
-A bout de souffle mais vivant, vous voyez votre adversaire reduit
-a un tas de graviers sur le sol. Vous eclatez de rire, lancez un
-regard narquois a Stratagus et jetez par-dessus votre epaule le pied
-de la table, qui retombe sur des debris de bibliotheque.
-Stratagus contemple le desordre qui regne a present dans la piece.
-Evaluez vos blessures et decidez de la suite.
+
+A bout de souffle mais vivant, vous voyez votre adversaire reduit a un tas de
+graviers sur le sol. Vous eclatez de rire, lancez un regard narquois a
+Stratagus et jetez par-dessus votre epaule le pied de la table, qui retombe
+sur des debris de bibliotheque. Stratagus contemple le desordre qui regne a
+present dans la piece. Evaluez vos blessures et decidez de la suite.
 
 C 241 Aucune blessure recue pendant le combat
 C 193 Blesse (perte <= 5 points d'ENDURANCE)

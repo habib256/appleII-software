@@ -1,11 +1,8 @@
 T 334 Stratagus and the Garden Master
 
-The Garden Master wears around his neck one of the Amulets
-you're tasked to bring back. What will you do?
+The Garden Master wears around his neck one of the Amulets you're tasked to
+bring back. What will you do?
 
 C 379 Attack the Master with your sword
 C 152 Resort to magic
-C 37 Chat peacefully with him
-
-
-
+C 037 Chat peacefully with him

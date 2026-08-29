@@ -1,10 +1,10 @@
 T 181 Le retour de l'Ours
-A travers les arbres, vous distinguez une silhouette familiere. 
-L'Ours est de retour - et cette fois, il semble bien decide a en
-decoudre. Ses yeux luisent d'une rage tenace : il se souvient de
-vous.
 
-S'il avait ete blesse auparavant, il a regagne 1 point d'ENDURANCE. 
-Sinon, il combat avec toute sa vigueur.
+A travers les arbres, vous distinguez une silhouette familiere. L'Ours est de
+retour - et cette fois, il semble bien decide a en decoudre. Ses yeux luisent
+d'une rage tenace : il se souvient de vous.
+
+S'il avait ete blesse auparavant, il a regagne 1 point d'ENDURANCE. Sinon, il
+combat avec toute sa vigueur.
 
 C 200 Affronter l'Ours

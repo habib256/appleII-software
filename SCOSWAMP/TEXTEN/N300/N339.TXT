@@ -1,15 +1,9 @@
 T 339 Ice Raft
 
-When the bridge breaks, you manage to set foot
-on the largest piece of ice. You thus have a
-sort of raft on which you can descend the river's
-course eastward. On both sides, the banks are
-covered with thick vegetation. Soon, you see
-before you an old stone bridge of impressive
-size.
+When the bridge breaks, you manage to set foot on the largest piece of ice.
+You thus have a sort of raft on which you can descend the river's course
+eastward. On both sides, the banks are covered with thick vegetation. Soon,
+you see before you an old stone bridge of impressive size.
 
 C 384 Grab onto it
 C 313 Continue floating
-
-
-

@@ -1,12 +1,8 @@
 T 190 Jump Over the Sands
-You step back to get momentum and test your LUCK.
-Test: roll 2 dice (2d6). If total <= LUCK, you are Lucky
-and jump to the other side without difficulty.
-Otherwise, you are Unlucky: your leap is too short and you
-must wade through the quicksand. Lose 2 STAMINA.
-Then resume walking.
+
+You step back to get momentum and test your LUCK. Test: roll 2 dice (2d6). If
+total <= LUCK, you are Lucky and jump to the other side without difficulty.
+Otherwise, you are Unlucky: your leap is too short and you must wade through
+the quicksand. Lose 2 STAMINA. Then resume walking.
 
 C 270 Continue after the jump
-
-
-

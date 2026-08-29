@@ -1,7 +1,8 @@
 T 161 Carrefour apres le Gant
-Vous quittez la clairiere du Gant et reprenez votre route.
-Devant vous, trois directions possibles s'ouvrent sous les arbres.
-Choisissez vite, le vent tourne et charrie des odeurs de marais.
+
+Vous quittez la clairiere du Gant et reprenez votre route. Devant vous, trois
+directions possibles s'ouvrent sous les arbres. Choisissez vite, le vent
+tourne et charrie des odeurs de marais.
 
 C 092 Aller vers le nord
 C 041 Aller vers le sud

@@ -1,10 +1,10 @@
 T 218 Feu follet a l'ore
-Le chemin s'elargit et debouche sur une clairiere calme.
-Une faible lueur flotte a l'ouest: un FEU FOLLET danse dans l'air.
-Il recule de quelques metres, revelant un sentier boueux et envahi.
-Ailleurs, des pistes menent au sud et a l'est sous les arbres.
-Vous etes dans la Clairiere n 015.
-Le suivez-vous ou l'ignorez-vous ?
+
+Le chemin s'elargit et debouche sur une clairiere calme. Une faible lueur
+flotte a l'ouest: un FEU FOLLET danse dans l'air. Il recule de quelques
+metres, revelant un sentier boueux et envahi. Ailleurs, des pistes menent au
+sud et a l'est sous les arbres. Vous etes dans la Clairiere n 015. Le
+suivez-vous ou l'ignorez-vous ?
 
 C 072 Suivre le Feu Follet vers l'ouest
 C 336 L'ignorer et partir vers le sud

@@ -1,10 +1,7 @@
 T 314 Two Directions
 
-You have the choice between two directions.
-An enormous snail slowly passes before you.
+You have the choice between two directions. An enormous snail slowly passes
+before you.
 
-C 90 Go north
+C 090 Go north
 C 195 Go east
-
-
-

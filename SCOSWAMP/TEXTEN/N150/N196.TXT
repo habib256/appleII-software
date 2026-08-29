@@ -1,10 +1,8 @@
 T 196 Victorious Withering
-You throw a Withering Stone at the Anguish Flowers.
-They immediately wither and die, falling in dull shreds.
-You inspect the place: nothing interesting remains.
-A skeleton lying in the grass testifies to a less fortunate adventurer.
+
+You throw a Withering Stone at the Anguish Flowers. They immediately wither
+and die, falling in dull shreds. You inspect the place: nothing interesting
+remains. A skeleton lying in the grass testifies to a less fortunate
+adventurer.
 
 C 367 Leave the clearing and continue the journey
-
-
-

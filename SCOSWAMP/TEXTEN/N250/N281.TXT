@@ -1,15 +1,9 @@
 T 281 Combat Against the Orcs
-You rush at the Swamp Orcs and your bravery
-surprises them. They then drop their bows and draw
-swords. Fortunately for you they're unskilled
-fighters, but you'll have to face them all at once.
 
-SKILL STAMINA
-First SWAMP ORC 6 7
-Second SWAMP ORC 7 7
-Third SWAMP ORC 6 5
+You rush at the Swamp Orcs and your bravery surprises them. They then drop
+their bows and draw swords. Fortunately for you they're unskilled fighters,
+but you'll have to face them all at once.
+
+SKILL STAMINA First SWAMP ORC 6 7 Second SWAMP ORC 7 7 Third SWAMP ORC 6 5
 
 C 135 In case of victory
-
-
-

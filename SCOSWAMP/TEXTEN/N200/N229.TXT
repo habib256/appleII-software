@@ -1,11 +1,10 @@
 T 229 The Red Handkerchief
-The Giant's corpse lies; his companion, a Giantess, weeps kneeling.
-She looks at you, desperate, without threat. She explains that someone
-stole a red handkerchief made by his wife and he can't return
-without finding it. You wish to help, but first, check your
-belongings: do you have a Red Cape in your Backpack?
+
+The Giant's corpse lies; his companion, a Giantess, weeps kneeling. She looks
+at you, desperate, without threat. She explains that someone stole a red
+handkerchief made by his wife and he can't return without finding it. You wish
+to help, but first, check your belongings: do you have a Red Cape in your
+Backpack?
+
 C 286 I have a Red Cape
 C 177 I don't have a Red Cape
-
-
-

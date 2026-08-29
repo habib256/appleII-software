@@ -1,15 +1,12 @@
 T 103 The Giant
 
-You explain to the Giant the purpose of your mission.
-He nods and gives you some information:
+You explain to the Giant the purpose of your mission. He nods and gives you
+some information:
 
-"Here we are near the northern edge of the Swamp," he says,
-"and the town of Courbensaule is very far to the west.
-You should therefore take that direction."
+"Here we are near the northern edge of the Swamp," he says, "and the town of
+Courbensaule is very far to the west. You should therefore take that
+direction."
 
 You thank him then resume your journey.
 
 C 161 Go west
-
-
-

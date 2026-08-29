@@ -1,15 +1,10 @@
 T 171 Combat Against the Slime
-The creature standing before you is a viscous mass
-and powerful, almost without intelligence but of terrible
-strength.
 
-SLIME - SKILL: 5 / STAMINA: 17
+The creature standing before you is a viscous mass and powerful, almost
+without intelligence but of terrible strength.
 
-You can choose to flee at any time,
-but you will have to retrace your steps.
+You can choose to flee at any time, but you will have to retrace your steps.
 
-C 153 Flee
+M 5 17 SLIME
+CF 153 Flee
 C 038 Kill the Slime and continue your journey
-
-
-

@@ -4,4 +4,3 @@ Deux chemins permettent de quitter cette clairiere.
 
 C 304 Aller au nord
 C 265 Aller vers l'est
-

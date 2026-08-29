@@ -4,6 +4,3 @@ Two paths allow leaving this clearing.
 
 C 304 Go north
 C 265 Go east
-
-
-

@@ -1,20 +1,15 @@
 T 274 Sorcerer's Curse
-You throw your Curse at the evil Sorcerer, using
-one of the Magic Stones he himself gave you. He then
-starts screaming while holding his throat with both hands. His own
-spell has a radical effect on him since he collapses at your feet and
-dies within moments. It's then that you feel on
-yourself the consequences of the Curse. Roll a die: the
-number obtained represents the number of STAMINA points you've
-lost. If you're still alive, you search the
-sinister tower hoping to discover its hidden treasures. But
-the atmosphere soon becomes heavy and oppressive. As for
-your ring, it remains hot warning you that danger still
-hangs over you, perhaps even greater danger
-than before. Suddenly, you smell sulfur.
+
+You throw your Curse at the evil Sorcerer, using one of the Magic Stones he
+himself gave you. He then starts screaming while holding his throat with both
+hands. His own spell has a radical effect on him since he collapses at your
+feet and dies within moments. It's then that you feel on yourself the
+consequences of the Curse. Roll a die: the number obtained represents the
+number of STAMINA points you've lost. If you're still alive, you search the
+sinister tower hoping to discover its hidden treasures. But the atmosphere
+soon becomes heavy and oppressive. As for your ring, it remains hot warning
+you that danger still hangs over you, perhaps even greater danger than before.
+Suddenly, you smell sulfur.
 
 C 375 Stay a few minutes in the tower
 C 298 Leave immediately
-
-
-

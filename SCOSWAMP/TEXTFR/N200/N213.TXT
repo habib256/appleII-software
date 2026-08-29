@@ -1,9 +1,9 @@
 T 213 Reflexe salvateur
 
-L'Anneau de Cuivre se met soudain a bruler votre doigt. 
-Le danger est proche. Sans reflechir, vous vous jetez en arriere, 
-evitant de justesse la cordelette qu'un homme tentait de passer 
-autour de votre cou. Le Voleur, surpris, perd l'equilibre et vous 
-profitez de l'instant pour vous redresser, pret a riposter. 
+L'Anneau de Cuivre se met soudain a bruler votre doigt. Le danger est proche.
+Sans reflechir, vous vous jetez en arriere, evitant de justesse la cordelette
+qu'un homme tentait de passer autour de votre cou. Le Voleur, surpris, perd
+l'equilibre et vous profitez de l'instant pour vous redresser, pret a
+riposter.
 
 C 267 Vous relevez d'un bond pour affronter le Voleur

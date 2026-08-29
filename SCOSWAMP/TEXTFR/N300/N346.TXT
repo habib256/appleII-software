@@ -1,9 +1,7 @@
 T 346 Pierre de Terreur sur les Orques
 
-Vous lancez votre Pierre Magique de Terreur sur les Orques des
-Marais. L'un d'eux se met a hurler, lache ses armes et s'enfuit
-dans les marecages. Mais les deux autres avancent vers vous et
-vous devrez les combattre.
+Vous lancez votre Pierre Magique de Terreur sur les Orques des Marais. L'un
+d'eux se met a hurler, lache ses armes et s'enfuit dans les marecages. Mais
+les deux autres avancent vers vous et vous devrez les combattre.
 
 C 281 Combattre les deux Orques
-

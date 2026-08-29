@@ -1,13 +1,9 @@
 T 178 The Cursed Mushroom
-You cautiously bite into the mushroom, hoping to
-find some magical virtue. Alas, you are not a sorcerer,
-and what nourishes magic harms mere mortals.
-A strange sensation runs through you, and misfortune seems
-to befall you.
+
+You cautiously bite into the mushroom, hoping to find some magical virtue.
+Alas, you are not a sorcerer, and what nourishes magic harms mere mortals. A
+strange sensation runs through you, and misfortune seems to befall you.
 
 Lose 1 LUCK point.
 
 C 352 Leave the place
-
-
-

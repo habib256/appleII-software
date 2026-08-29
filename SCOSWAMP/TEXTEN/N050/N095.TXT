@@ -1,19 +1,15 @@
 T 095 The Meeting with Grognard
 
-The villagers shake their heads with a sad air. As you
-approach the door, a man suddenly blocks your passage.
-Of small stature, middle-aged, he sports a black beard trimmed at
-right angles. Without a word, he grabs you by the arm and
-leads you to an isolated table. The other customers, indifferent,
-resume their conversations. Intrigued, you sit down.
-The man introduces himself: "My name is Grognard," he says in a
-deep voice. He observes you at length then adds: "If you
-really want to face the perils of the Swamp, you need a
-goal worthier than drawing a simple map or slaughtering
-creatures." His words vibrate with a strange conviction.
-Grognard awaits your response in silence. Do you accept his
-advice, or do you follow your own path?
+The villagers shake their heads with a sad air. As you approach the door, a
+man suddenly blocks your passage. Of small stature, middle-aged, he sports a
+black beard trimmed at right angles. Without a word, he grabs you by the arm
+and leads you to an isolated table. The other customers, indifferent, resume
+their conversations. Intrigued, you sit down. The man introduces himself: "My
+name is Grognard," he says in a deep voice. He observes you at length then
+adds: "If you really want to face the perils of the Swamp, you need a goal
+worthier than drawing a simple map or slaughtering creatures." His words
+vibrate with a strange conviction. Grognard awaits your response in silence.
+Do you accept his advice, or do you follow your own path?
 
 C 240 Approve Grognard's words and accept his help
 C 122 Refuse his advice and pursue your own route
-

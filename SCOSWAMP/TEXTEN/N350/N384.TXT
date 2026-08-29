@@ -1,12 +1,7 @@
 T 384 Bridge Climb
 
-You have no trouble grabbing onto one of the bridge's pillars
-and climbing it. The big stone blocks it's made of
-offer solid footholds and you soon
-hoist yourself onto the parapet and jump with both feet on the bridge
-itself.
+You have no trouble grabbing onto one of the bridge's pillars and climbing it.
+The big stone blocks it's made of offer solid footholds and you soon hoist
+yourself onto the parapet and jump with both feet on the bridge itself.
 
 C 101 Continue
-
-
-

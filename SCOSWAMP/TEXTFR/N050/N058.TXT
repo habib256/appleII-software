@@ -1,15 +1,13 @@
 T 058 Le passage prudent
 
-Tentez votre CHANCE. Si vous etes chanceux, vous atteignez
-le chemin choisi sans dommage. Si vous etes malchanceux,
-votre pied accroche une racine et vous tombez en heurtant
-violemment votre jambe contre une pierre. Cette contusion
-vous coute 1 point d'ENDURANCE. Vous reprenez vos esprits,
-la douleur rappelant que le Marais n'epargne personne. Malgre
-tout, vous continuez. La clairiere est devant vous, et vous devez
-choisir une direction. A l'ouest, un chemin sombre. A l'est, un
-passage bordant les hautes herbes. Au sud, la voie du retour.
-Votre destin est entre vos mains.
+Tentez votre CHANCE. Si vous etes chanceux, vous atteignez le chemin choisi
+sans dommage. Si vous etes malchanceux, votre pied accroche une racine et vous
+tombez en heurtant violemment votre jambe contre une pierre. Cette contusion
+vous coute 1 point d'ENDURANCE. Vous reprenez vos esprits, la douleur
+rappelant que le Marais n'epargne personne. Malgre tout, vous continuez. La
+clairiere est devant vous, et vous devez choisir une direction. A l'ouest, un
+chemin sombre. A l'est, un passage bordant les hautes herbes. Au sud, la voie
+du retour. Votre destin est entre vos mains.
 
 C 398 Prendre le sentier qui part vers l'ouest
 C 105 Suivre le chemin herbeux vers l'est

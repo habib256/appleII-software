@@ -1,16 +1,13 @@
 T 065 Brigands Clearing
-The path follows a winding trail; you don't stray from it.
-You go around a large mushroom where creatures swarm.
-Soon, you approach another clearing: voices reach you.
-Hidden behind a tree, you spy on a group of five men.
-From their attire and language, they are probably BRIGANDS.
-The Copper Ring remains cold: they don't seem evil.
-It would however be foolish to take unnecessary risks.
-You are in Clearing No. 009.
-What do you do?
+
+The path follows a winding trail; you don't stray from it. You go around a
+large mushroom where creatures swarm. Soon, you approach another clearing:
+voices reach you. Hidden behind a tree, you spy on a group of five men. From
+their attire and language, they are probably BRIGANDS. The Copper Ring remains
+cold: they don't seem evil. It would however be foolish to take unnecessary
+risks. You are in Clearing No. 009. What do you do?
 
 C 137 Retrace your steps along the path taken
 C 231 Rush at them shouting and brandishing your sword
 C 387 Use magic from your hiding place
 C 163 Advance confidently and greet them
-

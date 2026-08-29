@@ -1,15 +1,12 @@
 T 258 Resorting to Magic
 
-Resorting to magic against a sorcerer is a hazardous enterprise.
-The air vibrates, energy rumbles around your hands. Each spell has a price.
-"Fear" can break his will, but risks provoking paralyzing visions.
-"Friendship" attempts to corrupt his heart or sow doubt; subtle approach.
-Doing nothing allows you to observe and keep the initiative, but you
-lose the advantage of being first to act. Weigh the power, cost and risk.
+Resorting to magic against a sorcerer is a hazardous enterprise. The air
+vibrates, energy rumbles around your hands. Each spell has a price. "Fear" can
+break his will, but risks provoking paralyzing visions. "Friendship" attempts
+to corrupt his heart or sow doubt; subtle approach. Doing nothing allows you
+to observe and keep the initiative, but you lose the advantage of being first
+to act. Weigh the power, cost and risk.
 
 C 198 Pronounce the Fear spell to break his will
 C 127 Attempt the Friendship spell to sow doubt and hesitation
 C 212 Cast neither, wait and choose another spell
-
-
-

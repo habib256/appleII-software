@@ -1,11 +1,9 @@
 T 160 The Failure of Friendship
-You think the creature could become an ally
-and you throw it a Magic Friendship Stone.
 
-But the Foul Beast has no friends!
-It continues advancing toward you, its six clawed legs plowing the ground.
+You think the creature could become an ally and you throw it a Magic
+Friendship Stone.
+
+But the Foul Beast has no friends! It continues advancing toward you, its six
+clawed legs plowing the ground.
 
 C 176 You must fight it.
-
-
-

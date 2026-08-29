@@ -1,13 +1,10 @@
 T 181 The Bear's Return
-Through the trees, you make out a familiar silhouette.
-The Bear is back - and this time, it seems determined to
-fight. Its eyes gleam with tenacious rage: it remembers
-you.
 
-If it had been wounded previously, it has regained 1 STAMINA point.
-Otherwise, it fights with all its vigor.
+Through the trees, you make out a familiar silhouette. The Bear is back - and
+this time, it seems determined to fight. Its eyes gleam with tenacious rage:
+it remembers you.
+
+If it had been wounded previously, it has regained 1 STAMINA point. Otherwise,
+it fights with all its vigor.
 
 C 200 Face the Bear
-
-
-

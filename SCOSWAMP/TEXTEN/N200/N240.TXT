@@ -1,21 +1,15 @@
 T 240 Grognard's Proposal
 
-You approve Grognard's words. The idea of a specific
-mission would make your journey more interesting. He nods,
-satisfied, then continues: "There are three men in this village.
-None can enter the Swamp themselves, but each
-seeks an adventurer bold enough to risk it." You
-perceive in his eyes a gleam of mischief. The first, he says,
-is an old sorcerer who has always devoted himself to Good.
-Grognard pauses and drinks a gulp from his tankard,
-letting a thick silence hang. You feel the moment is
-important: accept to listen or declare your position.
-Grognard stares at you without blinking, awaiting your decision.
-Will you agree to know more about the others, or
-proclaim your loyalty to Good without further delay?
+You approve Grognard's words. The idea of a specific mission would make your
+journey more interesting. He nods, satisfied, then continues: "There are three
+men in this village. None can enter the Swamp themselves, but each seeks an
+adventurer bold enough to risk it." You perceive in his eyes a gleam of
+mischief. The first, he says, is an old sorcerer who has always devoted
+himself to Good. Grognard pauses and drinks a gulp from his tankard, letting a
+thick silence hang. You feel the moment is important: accept to listen or
+declare your position. Grognard stares at you without blinking, awaiting your
+decision. Will you agree to know more about the others, or proclaim your
+loyalty to Good without further delay?
 
 C 205 Want to know more and listen to Grognard attentively
 C 155 Declare you will serve only the cause of Good
-
-
-

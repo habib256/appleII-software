@@ -1,6 +1,7 @@
 T 239 Maison du Maitre des Loups
-Vous etes devant la maison du Maitre des Loups: la porte est
-ferme a double tour et aucun signe de vie n'apparait alentour.
-Ne souhaitant pas attendre, vous repartez sur le chemin.
+
+Vous etes devant la maison du Maitre des Loups: la porte est ferme a double
+tour et aucun signe de vie n'apparait alentour. Ne souhaitant pas attendre,
+vous repartez sur le chemin.
 
 C 314 Repartir et reprendre le sentier

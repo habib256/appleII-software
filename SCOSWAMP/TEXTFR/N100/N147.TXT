@@ -1,15 +1,13 @@
 T 147 Le pique-nique du voleur
 
-Vous vous asseyez en face de lui. "Que faites-vous dans la
-vie ?" lui demandez-vous. "Je detrousse les voyageurs,"
-repond-il sans se troubler. "Quand quelqu'un passe par ce
-sentier, mes filets tombent et le capturent ; apres, je me sers."
-Il indique du doigt le feuillage. Votre regard suit la direction
-qu'il montre et vous distinguez a peine, caches entre les
-branches, de fines cordes pret a se tendre. Le voleur sourit et
-semble attendre que vous fassiez le premier geste. Tentez
-votre CHANCE : si le sort vous favorise, vous eviterez le piege ;
-sinon, vous tomberez dans le filet et devrez vous en
+Vous vous asseyez en face de lui. "Que faites-vous dans la vie ?" lui
+demandez-vous. "Je detrousse les voyageurs," repond-il sans se troubler.
+"Quand quelqu'un passe par ce sentier, mes filets tombent et le capturent ;
+apres, je me sers." Il indique du doigt le feuillage. Votre regard suit la
+direction qu'il montre et vous distinguez a peine, caches entre les branches,
+de fines cordes pret a se tendre. Le voleur sourit et semble attendre que vous
+fassiez le premier geste. Tentez votre CHANCE : si le sort vous favorise, vous
+eviterez le piege ; sinon, vous tomberez dans le filet et devrez vous en
 degager par la force.
 
 C 213 Vous etes CHANCEUX - vous evitez le piege et decouvrez un indice

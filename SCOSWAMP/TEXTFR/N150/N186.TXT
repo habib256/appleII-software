@@ -1,6 +1,7 @@
 T 186 Fuite de Courbensaule
-Vous avez tue les deux coupeurs de bourses, mais vous ne prenez
-pas le temps de fouiller leurs corps. Vous rengainez votre epee
-et quittez Courbensaule au plus vite pour eviter d'autres ennuis.
+
+Vous avez tue les deux coupeurs de bourses, mais vous ne prenez pas le temps
+de fouiller leurs corps. Vous rengainez votre epee et quittez Courbensaule au
+plus vite pour eviter d'autres ennuis.
 
 C 343 Quitter la ville sans tarder

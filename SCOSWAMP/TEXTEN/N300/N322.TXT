@@ -1,9 +1,6 @@
 T 322 Withering Stone
 
-The Withering Stone dries the Pincer Grass and you now
-only have to cut its dead stems before going to 81.
+The Withering Stone dries the Pincer Grass and you now only have to cut its
+dead stems before going to 81.
 
-C 81 Continue
-
-
-
+C 081 Continue

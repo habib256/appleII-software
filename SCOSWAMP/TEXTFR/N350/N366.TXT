@@ -1,9 +1,7 @@
 T 366 Victoire sur le Geant
 
-Vous avez vaincu le Geant et vous fouillez son enorme cadavre,
-mais vous ne trouvez rien d'interessant en dehors de sa grosse
-massue herisse de pointes ; elle est trop lourde pour vous
-cependant, et vous ne pouvez pas l'emporter.
+Vous avez vaincu le Geant et vous fouillez son enorme cadavre, mais vous ne
+trouvez rien d'interessant en dehors de sa grosse massue herisse de pointes ;
+elle est trop lourde pour vous cependant, et vous ne pouvez pas l'emporter.
 
 C 161 Continuer
-

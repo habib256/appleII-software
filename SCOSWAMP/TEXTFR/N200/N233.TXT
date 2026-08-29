@@ -1,8 +1,8 @@
 T 233 L'Aigle menae ant
-Un aigle se pose sur une branche et vous observe, regard feroce.
-Son grand bec crochu s'ouvre et se referme d'un air menae ant.
-Il vous suffit d'un geste brutal pour declencher l'assaut.
-Que faites-vous?
+
+Un aigle se pose sur une branche et vous observe, regard feroce. Son grand bec
+crochu s'ouvre et se referme d'un air menae ant. Il vous suffit d'un geste
+brutal pour declencher l'assaut. Que faites-vous?
 
 C 392 Attaquer l'aigle
 C 025 Reculer prudemment et le laisser partir

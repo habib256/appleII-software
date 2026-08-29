@@ -1,10 +1,7 @@
 T 356 Ineffective Terror Stone
 
-You throw the Terror Magic Stone at the Basin Beast,
-but your spell remains without effect. The creature is too stupid
-to know what fear is. It attacks you.
+You throw the Terror Magic Stone at the Basin Beast, but your spell remains
+without effect. The creature is too stupid to know what fear is. It attacks
+you.
 
-C 82 Fight the Basin Beast
-
-
-
+C 082 Fight the Basin Beast

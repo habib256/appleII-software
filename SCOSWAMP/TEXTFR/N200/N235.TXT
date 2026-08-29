@@ -1,10 +1,10 @@
 T 235 Dos au tronc
-Vous vous adossez contre un grand arbre; un seul brigand peut
-s'approcher a la fois. Trois d'entre eux se montrent decides.
-La position vous empeche de fuir: il faut tenir le choc.
 
-CHEF DES BRIGANDS HABILETE: 9 ENDURANCE: 10
-DEUXIEME BRIGAND HABILETE: 8 ENDURANCE: 8
-TROISIEME BRIGAND HABILETE: 8 ENDURANCE: 11
+Vous vous adossez contre un grand arbre; un seul brigand peut s'approcher a la
+fois. Trois d'entre eux se montrent decides. La position vous empeche de fuir:
+il faut tenir le choc.
+
+CHEF DES BRIGANDS HABILETE: 9 ENDURANCE: 10 DEUXIEME BRIGAND HABILETE: 8
+ENDURANCE: 8 TROISIEME BRIGAND HABILETE: 8 ENDURANCE: 11
 
 C 019 Si vous tuez ces trois adversaires, reprendre la route

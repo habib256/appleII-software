@@ -1,7 +1,6 @@
 T 080 Les Fleurs d Angoisse
 
-Quelle Pierre de Magie allez-vous utiliser contre les Fleurs
-d Angoisse ?
+Quelle Pierre de Magie allez-vous utiliser contre les Fleurs d Angoisse ?
 
 C 307 Utiliser la Pierre de Feu
 C 196 Utiliser la Pierre de Fletrissure

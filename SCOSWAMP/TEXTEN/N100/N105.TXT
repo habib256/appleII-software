@@ -1,14 +1,10 @@
 T 105 Stones and Log
-You notice a clearing some distance ahead.
-The ground there is firm; you can enter it with a confident step.
-Large flat stones, a massive hollow log,
-and two paths appear a little further on.
-You are in Clearing No. 012.
-What do you want to do?
+
+You notice a clearing some distance ahead. The ground there is firm; you can
+enter it with a confident step. Large flat stones, a massive hollow log, and
+two paths appear a little further on. You are in Clearing No. 012. What do you
+want to do?
 
 C 021 Sit on a stone to rest
 C 055 Inspect the hollow log
 C 390 Leave the clearing immediately
-
-
-

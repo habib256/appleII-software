@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Genere le catalogue de messages de l'interface.
+
+Le texte du jeu est une donnee : les pages, l'aide et la carte vivent sur le
+disque ProDOS. Les messages de l'interface faisaient exception -- 39 paires
+FR/EN en dur, 2 409 octets de litteraux dans un binaire qui n'avait plus 21
+octets de libre. Ils vivent maintenant dans MSGFR / MSGEN, et le binaire n'en
+charge qu'une langue.
+
+Ce script est la seule source : il ecrit d'un meme geste l'enumeration C et les
+deux fichiers. Editer l'un sans l'autre decalerait tout le catalogue, et le jeu
+afficherait les messages les uns pour les autres.
+
+    python3 build_messages.py --root <depot>
+"""
+import argparse
+from pathlib import Path
+
+# (nom C, francais, anglais) -- L'ORDRE FAIT FOI, il fixe les indices.
+MESSAGES = [
+    ('M_ESPACE_CONTINUER', '[ESPACE] continuer', '[SPACE] continue'),
+    ('M_ESPACE_ENCAISSER_C', '[ESPACE] encaisser   [C] Tentez votre Chance (CHANCE %u)', '[SPACE] take it   [C] Test your Luck (LUCK %u)'),
+    ('M_VOUS_HAB_END', 'VOUS         HAB %u  END %2u/%u', 'YOU          SKL %u  STA %2u/%u'),
+    ('M_SAC_A_DOS', "SAC A DOS -- %u Pieces d'Or, une epee, une cotte de mailles", 'BACKPACK -- %u Gold Pieces, a sword, chainmail'),
+    ('M_INTERDITE_EN_PLEIN', '   interdite en plein combat', '   forbidden mid-fight'),
+    ('M_AUCUNE_PIERRE_MAGIQUE', 'Aucune Pierre Magique.', 'No Magic Stones.'),
+    ('M_UNE_PIERRE_SE', "Une Pierre se desintegre a l'usage.  [A-Z] utiliser  [ESC] fermer", 'A Stone crumbles when used.  [A-Z] use  [ESC] close'),
+    ('M_LE_PREMIER_COUP', 'Le premier coup a ete donne.', 'The first blow was struck.'),
+    ('M_PIERRE_ABSENTE', 'Pierre absente.', 'No such Stone.'),
+    ('M_LA_PIERRE_DE', 'La Pierre de %s se desintegre.', 'The %s Stone crumbles.'),
+    ('M_ESPACE_ENGAGER_I', '[ESPACE] engager   [I] sac a dos   [ESC] image%s', '[SPACE] engage   [I] backpack   [ESC] picture%s'),
+    ('M_F_FUITE', '   [F] Fuite', '   [F] Flee'),
+    ('M_ESPACE_ASSAUT_SUIVANT', '[ESPACE] assaut suivant   [ESC] image%s', '[SPACE] next round   [ESC] picture%s'),
+    ('M_F_FUITE2', '   [F] Fuite', '   [F] Flee'),
+    ('M_VOUS_FUYEZ_ELLE', 'Vous fuyez : elle vous blesse au passage.', 'You flee: it wounds you on the way.'),
+    ('M_CHANCEUX', 'Chanceux !', 'Lucky!'),
+    ('M_MALCHANCEUX', 'Malchanceux !', 'Unlucky!'),
+    ('M_ASSAUT_FORCE_D', "Assaut %u -- Force d'Attaque : vous %u, elle %u", 'Round %u -- Attack Strength: you %u, it %u'),
+    ('M_VOUS_AVEZ_CHACUN', 'Vous avez chacun esquive.', 'You have each dodged.'),
+    ('M_VOUS_L_AVEZ', "Vous l'avez blesse.", 'You have wounded it.'),
+    ('M_ELLE_VOUS_A', 'Elle vous a blesse.', 'It has wounded you.'),
+    ('M_CHANCEUX2', 'Chanceux !', 'Lucky!'),
+    ('M_MALCHANCEUX2', 'Malchanceux !', 'Unlucky!'),
+    ('M_S_EFFONDRE', "%s s'effondre.", '%s collapses.'),
+    ('M_HELPFR', 'HELPFR', 'HELPEN'),
+    ('M_FICHIER_D_AIDE', "Fichier d'aide introuvable.", 'Help file not found.'),
+    ('M_VOTRE_ENDURANCE_EST', 'Votre ENDURANCE est tombee a zero.', 'Your STAMINA has fallen to zero.'),
+    ('M_ESPACE_RECOMMENCER', '[ESPACE] recommencer', '[SPACE] start again'),
+    ('M_FEUILLE_D_AVENTURE', "FEUILLE D'AVENTURE", 'ADVENTURE SHEET'),
+    ('M_HABILETE_DE', 'HABILETE  %2u   (1 de + 6)', 'SKILL    %2u   (1 die + 6)'),
+    ('M_ENDURANCE_DES', 'ENDURANCE %2u   (2 des + 12)', 'STAMINA  %2u   (2 dice + 12)'),
+    ('M_CHANCE_DE', 'CHANCE    %2u   (1 de + 6)', 'LUCK     %2u   (1 die + 6)'),
+    ('M_UNE_EPEE_UNE', "Une epee, une cotte de mailles, un sac a dos, %u Pieces d'Or.", 'A sword, chainmail, a backpack, %u Gold Pieces.'),
+    ('M_AUCUN_DE_CES', 'Aucun de ces trois totaux ne pourra depasser sa valeur de depart.', 'None of these three scores may ever rise above its start value.'),
+    ('M_ESPACE_ENTRER_DANS', '[ESPACE] entrer dans le Marais', '[SPACE] enter the Swamp')
+,
+    ('M_CHOISISSEZ_PIERRES',
+     'CHOISISSEZ VOS PIERRES MAGIQUES -- il en reste %u a prendre',
+     'CHOOSE YOUR MAGIC STONES -- %u left to take'),
+    ('M_PRENDRE_UNE_PIERRE',
+     'Vous pouvez prendre plusieurs fois la meme.  [A-Z] prendre',
+     'You may take the same one several times.  [A-Z] take'),
+]
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--root", type=Path, required=True)
+    args = ap.parse_args()
+
+    header = ["/* Genere par SCOSWAMP.MORE/TOOLS/build_messages.py -- ne pas editer.",
+              " * L'ordre suit MSGFR / MSGEN sur le disque. */",
+              "",
+              "#ifndef MESSAGES_H",
+              "#define MESSAGES_H",
+              "",
+              "enum {"]
+    header += [f"    {name}," for name, _, _ in MESSAGES]
+    header += ["    MSG_COUNT",
+               "};",
+               "",
+               "/* Charge le catalogue de la langue voulue. Rend 0 si le fichier manque",
+               " * ou ne contient pas MSG_COUNT lignes -- mieux vaut un ecran vide",
+               " * qu'un catalogue decale d'une ligne. */",
+               "int  messages_load(int english);",
+               "char* msg(int id);",
+               "",
+               "#endif /* MESSAGES_H */",
+               ""]
+    (args.root / "SCOSWAMP" / "SRC" / "messages.h").write_text("\n".join(header), encoding="utf-8")
+
+    for suffix, index in (("FR", 1), ("EN", 2)):
+        lines = [m[index] for m in MESSAGES]
+        (args.root / "SCOSWAMP" / f"MSG{suffix}.TXT").write_text(
+            "\n".join(lines) + "\n", encoding="utf-8")
+
+    longest = max(len(m[1]) for m in MESSAGES)
+    total = max(sum(len(m[i]) + 1 for m in MESSAGES) for i in (1, 2))
+    print(f"{len(MESSAGES)} messages ; {total} octets pour la langue la plus longue ; "
+          f"ligne la plus longue {longest}")
+
+
+main()

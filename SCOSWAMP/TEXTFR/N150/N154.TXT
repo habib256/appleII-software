@@ -1,7 +1,8 @@
 T 154 L'amulette du Loup
-Le Maitre des Loups geit a vos pieds. Vous fouillez son corps et
-trouvez une Amulette en forme de Loup, seul objet digne d'interet.
-Le metal froid pulse d'une energie etrange, presque vivante.
-Vous la prenez et la glissez a votre cou, sentant son poids mystique.
+
+Le Maitre des Loups geit a vos pieds. Vous fouillez son corps et trouvez une
+Amulette en forme de Loup, seul objet digne d'interet. Le metal froid pulse
+d'une energie etrange, presque vivante. Vous la prenez et la glissez a votre
+cou, sentant son poids mystique.
 
 C 046 Quitter les lieux

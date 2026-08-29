@@ -1,12 +1,8 @@
 T 353 Offense to the Brigands
 
-You've gravely offended the Brigands. They thought they'd
-offered you a fair chance to settle the matter with
-honor and you refused it. Now, you'll have to
-fight several at once, instead of just one, and it won't be
-a first-blood duel...
+You've gravely offended the Brigands. They thought they'd offered you a fair
+chance to settle the matter with honor and you refused it. Now, you'll have to
+fight several at once, instead of just one, and it won't be a first-blood
+duel...
 
 C 235 Fight the Brigands
-
-
-

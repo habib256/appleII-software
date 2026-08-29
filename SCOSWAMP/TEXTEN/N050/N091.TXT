@@ -1,23 +1,18 @@
 T 091 The Risky Leap
 
-Roll two dice. If the total is less than or equal to your
-STAMINA points, you succeed in crossing the swampy zone
-and reach the other side safe and sound. Otherwise, your
-leap is too short: your foot sinks into the mud, you
-fall heavily and twist your arm. This bad
-fall costs you 1 SKILL point. Regaining your senses, you
-get up with difficulty. Insects swirl around
-you while mud clings to your clothes. Short of breath,
-you head toward the exit of the clearing, determined to
-continue despite this setback. Three directions then offer themselves to you,
-and each leads to the unknown. To the west, a dark path
-disappears behind the damp trunks. To the east, a brighter
-path seems to snake through tall grass. To the south, the
-passage through which you arrived seems less inviting,
-but it remains possible to take it again. You weigh
-your choices, knowing that each step can have serious consequences.
+Roll two dice. If the total is less than or equal to your STAMINA points, you
+succeed in crossing the swampy zone and reach the other side safe and sound.
+Otherwise, your leap is too short: your foot sinks into the mud, you fall
+heavily and twist your arm. This bad fall costs you 1 SKILL point. Regaining
+your senses, you get up with difficulty. Insects swirl around you while mud
+clings to your clothes. Short of breath, you head toward the exit of the
+clearing, determined to continue despite this setback. Three directions then
+offer themselves to you, and each leads to the unknown. To the west, a dark
+path disappears behind the damp trunks. To the east, a brighter path seems to
+snake through tall grass. To the south, the passage through which you arrived
+seems less inviting, but it remains possible to take it again. You weigh your
+choices, knowing that each step can have serious consequences.
 
 C 398 Take the path that plunges westward
 C 105 Follow the grassy path eastward
 C 208 Retrace your steps by the southern path
-

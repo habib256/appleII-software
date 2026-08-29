@@ -1,16 +1,14 @@
 T 048 Le defi aux villageois
 
-Vous empoignez le pommau de votre epee, pret a degainer, et
-lancez un defi d'une voix retentissante. Votre attitude ne les
-impressionne pas : au contraire, ils eclatent de rire. "Nous ne
-sommes pas des bagarreurs, vous disent-ils. Mais un gaillard
-comme vous, toujours pret a brandir son epee, devrait aller
-faire un tour dans le Marais. Pour les gens de votre espece,
-c'est l'endroit ida." Vous vous sentez gene et perdez 1
-point de CHANCE pour vous etre montre trop agressif. Vous
-decrochez quelques regards moqueurs avant de sortir. Le vent
-humide porte deja une odeur lourde de vase. Le Marais vous
-attend, et le souvenir de votre colere vous pese. Rien ne
-changera votre decision : l'aventure est devant vous.
+Vous empoignez le pommau de votre epee, pret a degainer, et lancez un defi
+d'une voix retentissante. Votre attitude ne les impressionne pas : au
+contraire, ils eclatent de rire. "Nous ne sommes pas des bagarreurs, vous
+disent-ils. Mais un gaillard comme vous, toujours pret a brandir son epee,
+devrait aller faire un tour dans le Marais. Pour les gens de votre espece,
+c'est l'endroit ida." Vous vous sentez gene et perdez 1 point de CHANCE pour
+vous etre montre trop agressif. Vous decrochez quelques regards moqueurs avant
+de sortir. Le vent humide porte deja une odeur lourde de vase. Le Marais vous
+attend, et le souvenir de votre colere vous pese. Rien ne changera votre
+decision : l'aventure est devant vous.
 
 C 095 Poursuivre votre route vers le Marais aux Scorpions

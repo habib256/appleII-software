@@ -1,13 +1,13 @@
 T 040 Tour de Stratagus
-Dominant votre peur, vous vous approchez de la sinistre tour noire.
-Des chauves-souris tournent en nuage au sommet; la lourde porte de fer
-porte une tete hideuse, ensuite elle s'ouvre d'un bruit de gonds.
-Stratagus apparait: grand, maigre, toge noire brode de motifs ecarlates.
-Son regard est dur; l'Anneau de Cuivre sur votre doigt se rechauffe vivement.
-Il vous accueille avec un sourire froid et declame qu'il veut un heros sans peur.
-"Je sais tout de vous", dit-il; sa voix met a l'epreuve votre assurance.
-La tension est palpable; il vous defie de prouver votre valeur.
-Que faites-vous?
+
+Dominant votre peur, vous vous approchez de la sinistre tour noire. Des
+chauves-souris tournent en nuage au sommet; la lourde porte de fer porte une
+tete hideuse, ensuite elle s'ouvre d'un bruit de gonds. Stratagus apparait:
+grand, maigre, toge noire brode de motifs ecarlates. Son regard est dur;
+l'Anneau de Cuivre sur votre doigt se rechauffe vivement. Il vous accueille
+avec un sourire froid et declame qu'il veut un heros sans peur. "Je sais tout
+de vous", dit-il; sa voix met a l'epreuve votre assurance. La tension est
+palpable; il vous defie de prouver votre valeur. Que faites-vous?
 
 C 004 Lui lancer un defi
 C 050 Affirmer que vous etes un guerrier intrepide et vanter l'Anneau

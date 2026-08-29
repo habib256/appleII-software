@@ -1,12 +1,9 @@
 T 249 Jump into Darkness
-Test your LUCK. Test: roll 2 dice (2d6). If total <= LUCK,
-you reach the clearing without harm. Otherwise, you fall and
-injure your arm; lose 1 SKILL point, then reach
-the clearing anyway. Apply the immediate effect before continuing.
-Where will you go next?
+
+Test your LUCK. Test: roll 2 dice (2d6). If total <= LUCK, you reach the
+clearing without harm. Otherwise, you fall and injure your arm; lose 1 SKILL
+point, then reach the clearing anyway. Apply the immediate effect before
+continuing. Where will you go next?
 
 C 336 Take the southern direction
 C 121 Take the eastern direction
-
-
-

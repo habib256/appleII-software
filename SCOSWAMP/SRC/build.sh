@@ -29,8 +29,8 @@ case "${1:-build}" in
     info)
         echo "Configuration du projet :"
         echo "  Cible         : apple2enh (Apple IIe Enhanced)"
-        echo "  Programme     : SCOSWAMP.BIN"
-        echo "  Sources       : scoswamp.c paths.c"
+        echo "  Programme     : SCOSWAMP.BIN + SCOSWAMP.SYSTEM (lanceur ProDOS)"
+        echo "  Sources       : scoswamp.c paths.c memory_swap.c rules.c dice.c"
         echo "  Sortie        : ../"
         echo "  Adresse start : \$4000 (HGR Page 1 à \$2000-\$3FFF préservé)"
         ;;
@@ -45,17 +45,15 @@ case "${1:-build}" in
             exit 1
         fi
         
-        # Compiler avec cl65 (méthode simple)
-        echo "    Compilation de scoswamp.c et paths.c..."
-        cl65 -t apple2enh -O -Oirs \
-             -Wl -D,__EXEHDR__=0 -Wl -S,0x4000 \
-             -o ../SCOSWAMP.BIN scoswamp.c paths.c
-        
-        echo "==> Compilation réussie : ../SCOSWAMP.BIN"
-        echo "    Adresse de démarrage : \$4000 (HGR Page 1 à \$2000-\$3FFF préservé)"
+        # On delegue au Makefile. Cette ligne de lien etait autrefois recopiee
+        # ici : elle avait deja divergé (ni rules.c, ni dice.c, ni
+        # __HIMEM__=$BF00, ni le lanceur ProDOS), et un binaire lie sans
+        # __HIMEM__ deborde son BSS SANS que ld65 le signale. Une seule
+        # definition du lien, dans le Makefile.
+        make
+
         echo ""
-        echo "Pour tester :"
-        echo "  - Copier SCOSWAMP.BIN sur une image ProDOS"
-        echo "  - Lancer depuis le répertoire contenant IMG/, TEXTFR/, TEXTEN/"
+        echo "Pour tester :  make hdv    puis"
+        echo "  ../../../pom2/build/POM2 --preset iie ../../dist/SCOSWAMP.HDV"
         ;;
 esac

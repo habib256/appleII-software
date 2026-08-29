@@ -1,6 +1,7 @@
 T 015 Que lui proposer ?
-Un personnage vous demande une offrande; il attend votre reponse.
-Que proposez-vous de lui remettre pour obtenir ce qu'il veut?
+
+Un personnage vous demande une offrande; il attend votre reponse. Que
+proposez-vous de lui remettre pour obtenir ce qu'il veut?
 
 C 063 Un Aimant d'Or
 C 198 Une Amulette appartenant a l'un des autres Maitres

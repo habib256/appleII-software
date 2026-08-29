@@ -2,9 +2,9 @@
 
 ## 📊 Vue d'ensemble
 
-- **Total de scènes** : 401 scènes de jeu
-- **Fichiers français** : 401 fichiers .TXT (TEXTFR/) ✓ 100% complet
-- **Fichiers anglais** : 401 fichiers .TXT (TEXTEN/) ✓ 100% complet
+- **Total de scènes** : 402 scènes de jeu (`N000` à `N401`)
+- **Fichiers français** : 402 fichiers .TXT (TEXTFR/) ✓ 100% complet
+- **Fichiers anglais** : 402 fichiers .TXT (TEXTEN/) ✓ 100% complet
 - **Support bilingue** : Français et Anglais intégralement traduits
 - **Organisation** : Par tranches de 50 (N000/, N050/, N100/, etc.)
 - **Conformité** : 100% des fichiers ≤18 lignes ✓
@@ -97,7 +97,7 @@ C 095 Choix numéro 2 (texte du choix)
 ### Structure complète bilingue
 
 ```
-TEXTFR/ (Version française - 401 fichiers)
+TEXTFR/ (Version française - 402 fichiers)
 ├── N000/  (scènes 0-49)    → 50 fichiers
 │   ├── N000.TXT (titre du jeu)
 │   ├── N001.TXT
@@ -111,7 +111,7 @@ TEXTFR/ (Version française - 401 fichiers)
 ├── N350/  (scènes 350-399) → 50 fichiers
 └── N400/  (scène 400)      → 1 fichier
 
-TEXTEN/ (Version anglaise - 401 fichiers)
+TEXTEN/ (Version anglaise - 402 fichiers)
 ├── N000/  (scenes 0-49)    → 50 fichiers
 │   ├── N000.TXT (game title)
 │   ├── N001.TXT
@@ -139,7 +139,7 @@ Chaque fichier français a son équivalent anglais :
 ### Statut : 100% complète ✓
 
 - **Date de traduction** : Octobre 2024
-- **Fichiers traduits** : 401 fichiers (100%)
+- **Fichiers traduits** : 402 fichiers (100%)
 - **Méthode** : Traduction manuelle préservant :
   - Les numéros de scène
   - La structure des choix (C xxx)
@@ -197,7 +197,7 @@ echo "Fichiers FR: $(find TEXTFR -name "*.TXT" -o -name "N168TXT" | wc -l)"
 echo "Fichiers EN: $(find TEXTEN -name "*.TXT" -o -name "N168TXT" | wc -l)"
 ```
 
-**Résultat attendu** : 401 fichiers dans chaque langue
+**Résultat attendu** : 402 fichiers dans chaque langue
 
 ## 🎯 Recommandations
 
@@ -217,4 +217,3 @@ VERHILLE Arnaud - gist974@gmail.com
 - Optimisation française : 5 octobre 2024
 - Traduction anglaise complète : 24 octobre 2024
 - Statut : Version bilingue 100% opérationnelle ✓
-

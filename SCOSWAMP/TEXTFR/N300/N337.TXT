@@ -1,10 +1,8 @@
 T 337 Feu sur la Licorne
 
-Vous lancez sur la Licorne une Pierre Magique de Feu. Sa
-criniere s'enflamme alors, mais pour un bref instant seulement,
-car l'animal a fait usage de ses propres pouvoirs magiques pour
-neutraliser votre sortilege. Il ne vous reste plus a present qu'a la
-combattre.
+Vous lancez sur la Licorne une Pierre Magique de Feu. Sa criniere s'enflamme
+alors, mais pour un bref instant seulement, car l'animal a fait usage de ses
+propres pouvoirs magiques pour neutraliser votre sortilege. Il ne vous reste
+plus a present qu'a la combattre.
 
 C 221 Combattre la Licorne
-

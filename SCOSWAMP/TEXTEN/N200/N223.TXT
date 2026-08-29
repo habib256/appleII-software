@@ -1,9 +1,7 @@
 T 223 Retracing Your Steps
+
 You retrace your path and take in the opposite direction the trail by which
-you had arrived. The woods seem more hostile now but
-you advance without hesitation, vigilant at every crack.
+you had arrived. The woods seem more hostile now but you advance without
+hesitation, vigilant at every crack.
 
 C 270 Take the path in the opposite direction
-
-
-

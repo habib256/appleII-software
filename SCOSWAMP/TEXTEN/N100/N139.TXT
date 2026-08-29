@@ -1,12 +1,9 @@
 T 139 Prudent Withdrawal
 
-No, decidedly, this place doesn't inspire confidence.
-You return to the village.
+No, decidedly, this place doesn't inspire confidence. You return to the
+village.
 
 Your Ring cools and returns to its normal temperature.
 
 C 335 Go see the sorcerer Gayolard
 C 027 Visit Pompatarte
-
-
-

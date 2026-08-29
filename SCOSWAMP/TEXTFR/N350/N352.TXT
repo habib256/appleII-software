@@ -1,11 +1,9 @@
 T 352 Retour vers le nord
 
-Le seul chemin qui permette de quitter la clairiere est celui par
-lequel vous etes arrive. Vous l'empruntez donc a nouveau, en
-direction du nord, cette fois, et vous arrivez bienteot a l'endroit oeu
-vous avez recemment combattu les Orques des Marais. Vous
-empoignez votre epee au cas oeu il vous faudrait livrer une
-nouvelle bataille.
+Le seul chemin qui permette de quitter la clairiere est celui par lequel vous
+etes arrive. Vous l'empruntez donc a nouveau, en direction du nord, cette
+fois, et vous arrivez bienteot a l'endroit oeu vous avez recemment combattu
+les Orques des Marais. Vous empoignez votre epee au cas oeu il vous faudrait
+livrer une nouvelle bataille.
 
 C 323 Continuer
-
