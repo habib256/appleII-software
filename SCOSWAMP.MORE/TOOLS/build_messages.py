@@ -60,6 +60,12 @@ MESSAGES = [
     ('M_PRENDRE_UNE_PIERRE',
      'Vous pouvez prendre plusieurs fois la meme.  [A-Z] prendre',
      'You may take the same one several times.  [A-Z] take'),
+    ('M_TENTEZ_VOTRE_CHANCE',
+     'Le sort en decide. [ESPACE] Tentez votre Chance (CHANCE %u)',
+     'Fate decides. [SPACE] Test your Luck (LUCK %u)'),
+    ('M_JET_DE_CHANCE',
+     'Vous jetez les deux des : %u, contre une CHANCE de %u.',
+     'You roll two dice: %u, against a LUCK of %u.'),
 ]
 
 

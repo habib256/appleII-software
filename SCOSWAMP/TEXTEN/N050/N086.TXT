@@ -5,5 +5,4 @@ clearing. If you are UNLUCKY, you discover nothing and must resume the
 journey, perhaps less rich than before. Fate decides: roll the dice and check
 the result.
 
-C 189 You are LUCKY - you find something useful
-C 348 You are UNLUCKY - you find nothing and leave
+CL 189 348

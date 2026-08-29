@@ -10,5 +10,5 @@ j'ai entendu parler des Maitres qui y ont elu domicile et je me suis promis
 d'en apprendre davantage a leur sujet. Qui etes-vous donc et pourquoi
 etes-vous venu vous installer ici ? " Tentez votre Chance.
 
-C 162 Si vous etes Chanceux
-C 016 Si vous etes Malchanceux
+CL 162 016
+

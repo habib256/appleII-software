@@ -9,5 +9,4 @@ seems to wait for you to make the first move. Test your LUCK: if fate favors
 you, you will avoid the trap; otherwise, you will fall into the net and will
 have to free yourself by force.
 
-C 213 You are LUCKY - you avoid the trap and discover a clue
-C 267 You are UNLUCKY - you fall into his net and must react
+CL 213 267

@@ -16,5 +16,5 @@ Rayez de votre Feuille d'Aventure deux objets au choix, Pierre de Magie ou
 autre, a l'exception de l'Anneau de Cuivre qui est reste a votre doigt. Vous
 quittez a present l'auberge pour reprendre votre chemin. Tentez votre Chance.
 
-C 150 Si vous etes Chanceux
-C 343 Si vous etes Malchanceux
+CL 150 343
+

@@ -6,5 +6,4 @@ Swamp; I'm looking for one of the Masters." Test your Luck: fate decides if
 your lie goes unnoticed. If fortune smiles upon you, the ruse works and he
 believes you. If misfortune strikes you, your lie betrays you. What do you do?
 
-C 185 You are Lucky
-C 378 You are Unlucky
+CL 185 378

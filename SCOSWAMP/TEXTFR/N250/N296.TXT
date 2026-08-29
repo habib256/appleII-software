@@ -11,5 +11,5 @@ sortes de creatures, a la fois familieres et etranges. Vous estimez bientot
 preferable de retourner au village et vous faites donc demi-tour. Tentez votre
 Chance.
 
-C 272 Si vous etes Chanceux
-C 003 Si vous etes Malchanceux
+CL 272 003
+

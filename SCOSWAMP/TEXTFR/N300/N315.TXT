@@ -2,5 +2,5 @@ T 315 Tentez votre Chance
 
 Tentez votre Chance.
 
-C 051 Si vous etes Chanceux
-C 401 Si vous etes Malchanceux
+CL 051 401
+

@@ -5,5 +5,5 @@ inferieur ou egal a votre valeur CHANCE, vous etes Chanceux; sinon vous etes
 Malchanceux. Appliquez immediatement les effets du resultat (degats, gains,
 flags). Que faites-vous?
 
-C 339 Vous etes Chanceux
-C 313 Vous etes Malchanceux
+CL 339 313
+

@@ -10,6 +10,5 @@ scorpions rushing toward you.
 
 Test your Luck.
 
-C 070 If you are Lucky
-C 182 If you are Unlucky
+CL 070 182
 C 303 If you have already been here

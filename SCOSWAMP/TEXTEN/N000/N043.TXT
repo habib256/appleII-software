@@ -5,5 +5,4 @@ or equal to your LUCK value, you are Lucky; otherwise you are Unlucky.
 Immediately apply the effects of the result (damage, gains, flags). What do
 you do?
 
-C 339 You are Lucky
-C 313 You are Unlucky
+CL 339 313

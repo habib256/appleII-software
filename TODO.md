@@ -308,14 +308,32 @@ une Pierre bénéfique au choix.
 
 **Ce qui reste.**
 
-- 🟠 **Deux directives manquent encore**, et ce sont elles qui débloquent les
-  68 choix aujourd'hui écrits comme des conditions en prose :
-  - `CL <id_chanceux> <id_malchanceux> <titre>` — Tentez votre Chance. Le
-    moteur a `luck_test()`, il ne manque que la ligne de page. Couvre les
-    `C 185 Vous etes Chanceux` / `C 378 Vous etes Malchanceux`.
-  - `CS <CARAC> <op> <n> <id> <titre>` — choix conditionné à une
-    caractéristique, pour les seuils du genre `Si vous reduisez l'ENDURANCE du
-    GEANT a 6`.
+- ✅ **`CL` : Tentez votre Chance.** 15 scènes dérivées, dans les deux langues.
+  Le livre ne *propose* pas ces deux issues, il ordonne le jet et annonce ce
+  qui arrive dans chaque cas ; les laisser en choix libres revenait à demander
+  au joueur de tirer les dés lui-même, et de tricher. Le moteur joue le jet une
+  fois la page lue, montre le résultat (« Vous jetez les deux dés : 7, contre
+  une CHANCE de 8 »), consomme le point de CHANCE et saute.
+  La ligne porte un effet d'ENDURANCE optionnel **par branche**, parce que le
+  livre en pose deux : « si vous êtes Chanceux, vous perdez 2 points
+  d'ENDURANCE et vous vous rendez au 270 ». Ce coût appartient à la
+  transition, pas à la page d'arrivée — le 270 est atteint depuis cinq pages,
+  une seule fait perdre ces points.
+
+- 🟠 **Les conditions qui restent : 39 choix**, et ce ne sont plus des jets de
+  dés mais de la mémoire de partie :
+
+| Ce que la condition demande | Choix |
+|---|---|
+| Un fait acquis (« Si vous avez déjà trouvé le buisson », « Si vous touchez le Chef ») | 33 |
+| La possession d'un objet (« Si vous possédez l'Amulette en forme de Loup ») | 4 |
+| Une clairière déjà visitée | 1 |
+| Un seuil de caractéristique | 1 |
+
+  Il faut donc un jeu de **drapeaux** — quelques dizaines de bits de partie,
+  posés par une directive et lus par une autre — plus un `CI <objet> <id>` pour
+  l'inventaire. Le bitmap des clairières visitées existait pour la carte ; il
+  est parti avec elle et reviendra ici.
 
 - ✅ **Les combats sont dérivés de la prose.** `reflow_txt.py --derive` lit le
   bloc de stats que les pages écrivent déjà en toutes lettres — `BETE DU

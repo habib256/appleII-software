@@ -7,5 +7,5 @@ le sort decide si votre mensonge passe inapercu. Si la fortune vous sourit, la
 ruse fonctionne et il vous croit. Si la malchance vous atteint, votre mensonge
 vous trahit. Que faites-vous?
 
-C 185 Vous etes Chanceux
-C 378 Vous etes Malchanceux
+CL 185 378
+

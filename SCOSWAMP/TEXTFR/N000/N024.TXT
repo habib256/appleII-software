@@ -10,5 +10,5 @@ savez quel chemin prendre pour retrouver la clairiere.
 
 Que faites-vous?
 
-C 273 Vous etes chanceux
-C 297 Vous etes malchanceux
+CL 273 297 0 -2
+

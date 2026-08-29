@@ -9,5 +9,4 @@ Masters who've taken up residence there and I promised myself to learn more
 about them. Who are you therefore and why have you come to settle here?" Test
 your Luck.
 
-C 162 If you're Lucky
-C 016 If you're Unlucky
+CL 162 016

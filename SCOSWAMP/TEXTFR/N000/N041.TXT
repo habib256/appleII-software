@@ -8,5 +8,5 @@ vous etes chanceux, vous perdez 2 points d'ENDURANCE et parvenez a vous en
 sortir. Si vous etes malchanceux, la situation devient plus dangereuse. Vous
 etes dans la Clairiere n 030. Que faites-vous?
 
-C 270 Vous etes Chanceux (perdez 2 ENDURANCE)
-C 087 Vous etes Malchanceux
+CL 270 087 -2 0
+

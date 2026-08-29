@@ -2,5 +2,4 @@ T 315 Test Your Luck
 
 Test your Luck.
 
-C 051 If you're Lucky
-C 401 If you're Unlucky
+CL 051 401

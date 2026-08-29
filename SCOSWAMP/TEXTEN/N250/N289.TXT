@@ -14,5 +14,4 @@ from your Adventure Sheet two objects of your choice, Magic Stone or other,
 except for the Copper Ring which remained on your finger. You now leave the
 inn to resume your path. Test your Luck.
 
-C 150 If you're Lucky
-C 343 If you're Unlucky
+CL 150 343

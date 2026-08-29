@@ -10,6 +10,8 @@
   P  <PIERRE> <n>     Pierres Magiques recues
   PC <n> <cats>       n Pierres a choisir parmi les categories N, B, M
   CF <id> <Titre>     la Fuite, quand la page l'autorise
+  CL <ok> <ko> [<dok> <dko>]  Tentez votre Chance : ou l'on va, et ce que
+                      chaque branche coute en ENDURANCE
   CP <PIERRE> <id> <Titre>  choix qui remet une Pierre Magique
   C  <id> <Titre>     choix, rendus dans les 4 lignes du bas
 
@@ -97,6 +99,54 @@ def derive_combat(text, choices, lang):
             break
 
     return text, directives, warnings
+
+
+# Les deux langues : le corpus anglais dit "Lucky" / "Unlucky". Sans elles,
+# TEXTEN restait en choix libres pendant que TEXTFR passait au jet -- deux
+# regles du jeu differentes selon la langue choisie.
+LUCKY   = re.compile(r"\b(?:chanceux|lucky)\b", re.I)
+UNLUCKY = re.compile(r"\b(?:malchanceux|unlucky)\b", re.I)
+# "vous perdez 2 points d'ENDURANCE" -- le livre attache parfois un cout a une
+# branche du jet, et il appartient a la TRANSITION, pas a la page d'arrivee :
+# celle du 270 est atteinte depuis cinq pages, une seule fait perdre 2 points.
+LOSS = re.compile(r"\b(?:perdez|perdrez|lose)\s+(\d+)\s*(?:points?\s*d[e']\s*ENDURANCE"
+                  r"|STAMINA\s*points?)", re.I)
+
+
+def branch_loss(text, unlucky):
+    """Cout en ENDURANCE attache a la branche Chanceux ou Malchanceux."""
+    for sentence in re.split(r"(?<=[.!?])\s+", text):
+        has_un = UNLUCKY.search(sentence) is not None
+        has_lu = LUCKY.search(sentence) is not None and not has_un
+        if unlucky and not has_un:
+            continue
+        if not unlucky and not has_lu:
+            continue
+        m = LOSS.search(sentence)
+        if m:
+            return -int(m.group(1))
+    return 0
+
+
+def derive_luck(choices, body):
+    """Une paire Chanceux / Malchanceux devient un jet que le moteur joue.
+
+    Le livre ne propose pas ces deux issues, il ORDONNE le jet et annonce ce
+    qui arrive dans chaque cas ; les laisser en choix libres revenait a
+    demander au joueur de tirer lui-meme les des, et de tricher.
+    """
+    lucky = [c for c in choices if LUCKY.search(c[1]) and not UNLUCKY.search(c[1])]
+    unlucky = [c for c in choices if UNLUCKY.search(c[1])]
+    if len(lucky) != 1 or len(unlucky) != 1:
+        return choices, None
+    text = " ".join(body)
+    dok = branch_loss(text, unlucky=False)
+    dko = branch_loss(text, unlucky=True)
+    line = "CL %03d %03d" % (lucky[0][0], unlucky[0][0])
+    if dok or dko:
+        line += " %d %d" % (dok, dko)
+    rest = [c for c in choices if c not in lucky and c not in unlucky]
+    return rest, line
 
 
 def derive_flee(choices, directives):
@@ -202,6 +252,10 @@ def main():
                     body = text.split("\n")
                     choices, cf = derive_flee(choices, found_dirs)
                     directives = found_dirs + ([cf] if cf else [])
+            if derive and not any(d.startswith("CL ") for d in directives):
+                choices, cl = derive_luck(choices, body)
+                if cl:
+                    directives = directives + [cl]
             if derive and not any(d.startswith("PC ") for d in directives) \
                      and not any(d.startswith("P ") for d in directives) \
                      and STONES_GIVEN.search(" ".join(body)):
@@ -238,12 +292,24 @@ def main():
         for sid in sorted(ids):
             fr = found.get(("TEXTFR", sid))
             en = found.get(("TEXTEN", sid))
-            fr_m = next((d for d in (fr or []) if d.startswith("M ")), None)
-            en_m = next((d for d in (en or []) if d.startswith("M ")), None)
-            def nums(d): return d.split()[1:3] if d else None
-            if nums(fr_m) != nums(en_m):
-                problems.append(f"N{sid:03d}: FR et EN ne disent pas le meme "
-                                f"combat ({fr_m!r} / {en_m!r})")
+            # Le moteur ne lit qu'une langue, mais les regles doivent etre les
+            # memes des deux cotes : on compare la MECANIQUE de chaque
+            # directive, pas les titres. C'est ainsi qu'on a vu TEXTEN rester
+            # en choix libres pendant que TEXTFR passait au jet de Chance.
+            # Combien de champs portent de la mecanique, par directive : le
+            # reste est du titre, qui se traduit.
+            KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3}
+
+            def mechanics(dirs):
+                out = []
+                for d in (dirs or []):
+                    parts = d.split()
+                    if parts[0] in KEEP:
+                        out.append(" ".join(parts[:KEEP[parts[0]]]))
+                return sorted(out)
+            if mechanics(fr) != mechanics(en):
+                problems.append(f"N{sid:03d}: FR et EN ne disent pas la meme "
+                                f"chose ({mechanics(fr)} / {mechanics(en)})")
         combats = sorted(sid for sid in ids
                          if any(d.startswith("M ") for d in found.get(("TEXTFR", sid), [])))
         print(f"combats derives : {len(combats)}")

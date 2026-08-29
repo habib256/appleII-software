@@ -76,6 +76,10 @@ typedef struct {
     int       pending_scene; /* scene a charger au prochain tour de boucle, -1 sinon */
     unsigned char choose_n;  /* Pierres a choisir en entrant, 0 si aucune */
     char      choose_cats[4];/* categories permises : N, B, M */
+    int       luck_ok;       /* scene si Chanceux, -1 si la page ne teste rien */
+    int       luck_ko;       /* scene si Malchanceux */
+    int       luck_dok;      /* ENDURANCE gagnee ou perdue sur la branche Chanceux */
+    int       luck_dko;
 } AppState;
 
 /* Variables globales optimisées */
@@ -299,6 +303,12 @@ static char* take_word(char* t, char** word)
  *   PC <n> <cats>               il vous en laisse choisir n parmi les
  *                               categories citees (N neutre, B benefique,
  *                               M malefique)
+ *   CL <ok> <ko> [<dok> <dko>]  "Tentez votre Chance" : la page envoie en
+ *                               <ok> si Chanceux, en <ko> sinon, avec un
+ *                               effet d'ENDURANCE optionnel sur chaque
+ *                               branche -- le livre en pose deux ("si vous
+ *                               etes Chanceux, vous perdez 2 points
+ *                               d'ENDURANCE et vous vous rendez au 270")
  *   CP <PIERRE> <id> <titre>    choix qui remet une Pierre Magique
  *   C  <id> <titre>             choix
  *   CF <id> <titre>             Fuite -- "n'est possible que si elle est
@@ -356,6 +366,21 @@ static void classify_line(char* l)
             unsigned int n = 1;
             if (*t) take_uint(t, &n);
             character_give_stone(&app.hero, s, (unsigned char)n);
+        }
+        return;
+    }
+    if (l[0] == 'C' && l[1] == 'L' && l[2] == ' ') {
+        t = take_uint(l + 3, &a);
+        app.luck_ok = (int)a;
+        t = take_uint(t, &a);
+        app.luck_ko = (int)a;
+        /* Les deux deltas sont optionnels et peuvent etre negatifs : atoi
+         * plutot que take_uint, qui ne lit pas le signe. */
+        if (*t) {
+            app.luck_dok = atoi(t);
+            while (*t && *t != ' ') t++;
+            while (*t == ' ') t++;
+            app.luck_dko = atoi(t);
         }
         return;
     }
@@ -636,6 +661,36 @@ static void show_inventory(int in_combat)
     }
 }
 
+/* "A plusieurs reprises au cours de votre aventure [...] vous aurez la
+ * possibilite de faire appel a votre chance" -- mais sur ces pages-la le livre
+ * ne laisse pas le choix : il ORDONNE le jet et annonce les deux issues. Le
+ * moteur le joue donc lui-meme, une fois la page lue. Rend la scene ou aller. */
+static int run_luck_test(void)
+{
+    unsigned char roll;
+    int lucky;
+
+    gotoxy(0, CHOICE_ROW0);
+    cprintf(msg(M_TENTEZ_VOTRE_CHANCE), app.hero.cha);
+    cgetc();
+
+    /* Le jet est releve avant d'etre applique, pour pouvoir le montrer : la
+     * regle veut qu'un point de CHANCE parte a chaque tentative, gagnee ou
+     * perdue. */
+    roll = roll_2d6();
+    lucky = (roll <= app.hero.cha);
+    clear_bottom();
+    gotoxy(0, CHOICE_ROW0);
+    cprintf(msg(M_JET_DE_CHANCE), (unsigned)roll, (unsigned)app.hero.cha);
+    if (app.hero.cha > 0) app.hero.cha--;
+
+    print_at(CHOICE_ROW0 + 1, lucky ? msg(M_CHANCEUX) : msg(M_MALCHANCEUX));
+    character_adjust_end(&app.hero, lucky ? app.luck_dok : app.luck_dko);
+    render_title_bar();
+    wait_key_at(CHOICE_ROWN, msg_continue());
+    return lucky ? app.luck_ok : app.luck_ko;
+}
+
 /* "Vous choisirez ces six Pierres dans la liste qui figure au debut de ce
  * livre, mais vous ne pourrez les prendre que..." -- un bon sorcier ne donne
  * pas de Pierre malefique, un mauvais pas de Pierre benefique, et l'on a le
@@ -863,6 +918,9 @@ void load_scene(int scene_id) {
     app.has_monster = 0;
     app.flee_target = -1;
     app.choose_n = 0;
+    app.luck_ok = -1;
+    app.luck_dok = 0;
+    app.luck_dko = 0;
     monster_init(&app.monster);
 
     /* Charger d'abord le texte et les choix. Le chargeur HGR assembleur est
@@ -877,6 +935,13 @@ void load_scene(int scene_id) {
      * texte, c'est au joueur de basculer. Le decodage se fait donc sous un
      * ecran texte deja lisible, et non derriere une image qui s'affiche
      * toute seule. */
+    /* La page ordonne un jet de Chance : il decide de la suite, il n'y a donc
+     * pas de choix a offrir au joueur. */
+    if (app.luck_ok >= 0) {
+        app.pending_scene = run_luck_test();
+        return;
+    }
+
     /* Le sorcier tend ses Pierres avant tout le reste : le joueur vient de
      * lire la page qui les lui offre. */
     if (app.choose_n > 0) {

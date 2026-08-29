@@ -10,5 +10,4 @@ to take to find the clearing.
 
 What do you do?
 
-C 273 You are lucky
-C 297 You are unlucky
+CL 273 297 0 -2

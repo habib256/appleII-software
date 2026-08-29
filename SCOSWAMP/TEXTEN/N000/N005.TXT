@@ -4,5 +4,4 @@ Test your luck: fate will decide the course of your journey. If fortune smiles
 upon you, events will be favorable. If misfortune strikes you, the
 consequences will be unfortunate. What do you do?
 
-C 273 You are lucky
-C 297 You are unlucky
+CL 273 297

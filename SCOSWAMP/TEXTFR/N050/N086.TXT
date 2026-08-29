@@ -5,5 +5,5 @@ d'utile dans la clairiere. Si vous etes MALCHANCEUX, vous ne decouvrez rien et
 devez reprendre la route, peut-etre moins riche qu'avant. Le sort en decide :
 lancez les des et consultez le resultat.
 
-C 189 Vous etes CHANCEUX - vous trouvez quelque chose d'utile
-C 348 Vous etes MALCHANCEUX - vous ne trouvez rien et repartez
+CL 189 348
+

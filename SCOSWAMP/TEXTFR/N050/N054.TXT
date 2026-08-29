@@ -6,5 +6,5 @@ Tentez votre CHANCE. Test: lancez 2 des (2d6). Si total <= CHANCE alors vous
 etes Chanceux; sinon vous etes Malchanceux. Appliquez immediatement les effets
 du resultat avant de poursuivre. Que faites-vous?
 
-C 109 Vous etes Chanceux
-C 285 Vous etes Malchanceux
+CL 109 285
+
