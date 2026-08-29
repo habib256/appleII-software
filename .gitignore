@@ -40,14 +40,14 @@ SCOSWAMP.MORE/HGR-PREVIEW/
 *.hdv
 *.HDV
 
-# ── Matériel tiers, volontairement hors dépôt ─────────────────────────────
-# Scan du livre-jeu de Steve Jackson & Ian Livingstone : c'est l'œuvre source
-# dont ce portage est un hommage, pas un asset du projet. Le pousser sur un
-# dépôt public le republierait.
-# Sans ancre, la regle vaut partout : le PDF a deja ete depose a la racine, ou
-# `SCOSWAMP.MORE/*.pdf` ne l'attrapait pas, et un `git add -A` l'aurait publie
-# sur un depot public.
-*.pdf
+# ── Matériel tiers ────────────────────────────────────────────────────────
+# Le scan du livre-jeu est suivi à la racine, sur décision du propriétaire du
+# dépôt (2026-08-29). L'œuvre reste sous droits : © Steve Jackson 1984 pour le
+# texte, © Duncan Smith 1984 pour les illustrations, © Gallimard 1985 pour la
+# traduction. Le dépôt est public.
+# La copie de SCOSWAMP.MORE/ est le même fichier octet pour octet : elle reste
+# exclue, un seul exemplaire suffit (3,1 Mo).
+SCOSWAMP.MORE/*.pdf
 SCOSWAMP.MORE/Le.Marais.aux.scorpions.png
 
 # ── Art de travail (16 Mo de PNG sources) ─────────────────────────────────
