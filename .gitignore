@@ -30,6 +30,10 @@ dist/
 # 564 Mo : le rendu HGR intermédiaire de chaque scène. build_prodos_volume +
 # scoswamp_hgr les reconstruisent.
 SCOSWAMP.MORE/GENERATED/
+# Les 433 images d'avant la regeneration au fourreau, mises de cote le
+# 2026-08-30 : un filet, pas une donnee. A supprimer quand la nouvelle
+# generation sera validee.
+SCOSWAMP.MORE/GENERATED.prev/
 SCOSWAMP.MORE/HGR-PREVIEW/
 
 # En revanche SCOSWAMP.MORE/REF/ est SUIVI : ces 45 planches sont le canon
