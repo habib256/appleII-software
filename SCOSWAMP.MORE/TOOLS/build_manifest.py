@@ -288,11 +288,46 @@ def scene_rows(root, characters, all_pages):
     return rows
 
 
+# Ce que le CORPUS dit de l'apparence d'un sujet. Le corpus est la verite du
+# jeu : une fiche qui le contredit fait dessiner autre chose que ce que le
+# joueur lit. C'est arrive deux fois -- la fiche du Maitre des Loups lui otait
+# l'epee et les habits de Garde Forestier que la page 398 lui donne, et celle
+# de Gayolard en faisait un vieillard barbu en robe bleue la ou la page 371
+# decrit un petit homme replet en tunique blanche, au tour de potier.
+DESCRIBES = re.compile(r"\b(porte|portant|vetu|vetue|couvert\w*|habill\w+"
+                       r"|pend|arbore|tient|ressemble)\b", re.I)
+
+
+def describe(root, characters):
+    """Les phrases du corpus qui decrivent chaque sujet, pour relire sa fiche."""
+    pages = sorted((root / "SCOSWAMP" / "TEXTFR").rglob("N*.TXT"))
+    texts = [p.read_text(encoding="utf-8") for p in pages]
+    for c in characters:
+        if c.get("always"):
+            continue
+        seen = []
+        for t in texts:
+            for alias in c.get("aliases", []):
+                for m in re.finditer(r"[^.]*\b" + re.escape(alias) + r"\b[^.]*\.",
+                                     t, re.I):
+                    line = " ".join(m.group(0).split())
+                    if DESCRIBES.search(line) and line not in seen:
+                        seen.append(line)
+        if seen:
+            print(f"--- {c['id']}")
+            print(f"    FICHE : {c['look']}")
+            for line in seen[:3]:
+                print(f"    TEXTE : {line[:150]}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, required=True,
                         help="apple2adventure directory")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--describe", action="store_true",
+                        help="ce que le corpus dit de chaque sujet, en regard "
+                             "de sa fiche : a relire avant de modifier une bible")
     parser.add_argument("--stale", action="store_true",
                         help="liste les images qu'un changement de fiche a "
                              "rendues perimees")
@@ -318,6 +353,10 @@ def main() -> int:
     # A cote des manifestes, pas dans GENERATED/ : ce dossier est ignore par
     # git, et un registre que le depot ne garde pas ne sert a rien.
     stamp = args.root / "SCOSWAMP.MORE" / "bible.stamp.json"
+
+    if args.describe:
+        describe(args.root, characters)
+        return 0
 
     if args.stale or args.record:
         current = {}

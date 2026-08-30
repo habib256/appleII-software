@@ -45,8 +45,8 @@
       "aliases": [
         "Gayolard"
       ],
-      "source": "portage",
-      "look": "GAYOLARD, the good wizard: a stooped old man, long WHITE beard, plain BLUE robe, knotted wooden staff, kindly and unarmed.",
+      "source": "paragraphe 371",
+      "look": "GAYOLARD, the good wizard: a short plump man, WHITE tunic and plain linen trousers, bare-headed, clay on his hands -- he is found at his potter's wheel in his garden, and carries no staff and no weapon.",
       "scale": "shorter than the hero, stooped",
       "ref": "SCOSWAMP.MORE/REF/GAYOLARD.png"
     },
@@ -67,7 +67,7 @@
         "Garden Master"
       ],
       "source": "livre, Amulette a Fleur",
-      "look": "THE GARDEN MASTER: a lean man in long GREEN robes, bare-headed, a flower-shaped amulet on a chain at his neck, earth on his hands.",
+      "look": "THE GARDEN MASTER: a lean man in long GREEN robes, bare-headed, a WHITE silver flower-shaped amulet on a chain at his neck, earth on his hands.",
       "scale": "the hero's height",
       "ref": "SCOSWAMP.MORE/REF/M_JARDINS.png"
     },
@@ -77,8 +77,8 @@
         "Maitre des Loups",
         "Wolf Master"
       ],
-      "source": "portage",
-      "look": "THE WOLF MASTER: a burly man wrapped in shaggy WHITE-and-BLACK wolf pelts, iron-hard face, short beard, a wolf-head amulet at his neck, heavy bare fists, no sword.",
+      "source": "paragraphe 398",
+      "look": "THE WOLF MASTER: a burly man dressed like a forest ranger -- GREEN tunic and leggings under a shaggy WHITE-and-BLACK wolf pelt slung over one shoulder -- iron-hard face, short BLACK beard, a WHITE silver wolf-head amulet hanging on his chest, a plain WHITE sword at his side.",
       "scale": "a head taller and much broader than the hero",
       "ref": "SCOSWAMP.MORE/REF/M_LOUPS.png"
     },
