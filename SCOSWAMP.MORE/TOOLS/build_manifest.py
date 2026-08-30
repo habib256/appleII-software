@@ -115,6 +115,11 @@ Avoid: glossy modern concept art, modern objects, smooth airbrush shading, comic
 
 
 def load_characters(root):
+    """Les quatre bibles reunies. Les identifiants sont uniques par
+    construction : le decor « bassin » et la Bete du Bassin ont porte le meme
+    pendant un temps, donc la meme planche de reference -- chacun effacait
+    celle de l'autre, et les illustrations de l'etang recevaient la fiche du
+    monstre."""
     out = []
     for name in BIBLES:
         data = json.loads((root / "SCOSWAMP.MORE" / name)
@@ -123,6 +128,11 @@ def load_characters(root):
         for c in data["characters"]:
             c["kind"] = kind
             out.append(c)
+    seen = {}
+    for c in out:
+        if c["id"] in seen:
+            raise SystemExit(f"identifiant en double dans les bibles : {c['id']}")
+        seen[c["id"]] = True
     return out
 
 
@@ -219,8 +229,9 @@ def refs_for(text, characters, root):
 
 REF_FIGURE = """Use case: reference sheet
 Asset type: a single character reference for an Apple II HGR gamebook
-Primary request: ONE subject alone, full figure head to foot, standing still and facing the viewer three-quarters, on a plain solid black background. No scene, no ground, no props beyond what the description names.
+Primary request: ONE subject alone, full figure head to foot, standing still and facing the viewer three-quarters, on a plain solid black background. No scene, no ground.
 Composition/framing: the subject centered and complete, filling most of the frame, nothing cropped.
+Checklist: EVERY garment, weapon and ornament named in the description below must be clearly visible and identifiable in the drawing -- clothing worn rather than implied, a named weapon actually drawn and carried. Add nothing the description does not name.
 """
 
 REF_DECOR = """Use case: reference sheet

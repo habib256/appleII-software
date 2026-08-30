@@ -7,7 +7,7 @@
   ],
   "characters": [
     {
-      "id": "BASSIN",
+      "id": "BETE_BASSIN",
       "aliases": [
         "BETE DU BASSIN",
         "POOL BEAST"
@@ -15,7 +15,7 @@
       "source": "couverture du livre",
       "look": "THE POOL BEAST: a bulbous ORANGE-brown swamp creature rising from the water, its body ringed by eight thick tapering tentacles that curl upward; a wide maw of long WHITE fangs dripping slime, two small eyes above it, two short horns, and a single pale WHITE gemstone set in the middle of its forehead.",
       "scale": "three times the hero's height, filling half the frame",
-      "ref": "SCOSWAMP.MORE/REF/BASSIN.png"
+      "ref": "SCOSWAMP.MORE/REF/BETE_BASSIN.png"
     },
     {
       "id": "LOUP",
