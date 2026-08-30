@@ -1,13 +1,13 @@
 T 076 Le Patrouilleur
 
-Vous savez qu un Patrouilleur est un combattant au service du Bien. Celui-ci
+Vous savez qu'un Patrouilleur est un combattant au service du Bien. Celui-ci
 connait sans doute le Marais aux Scorpions et vous pouvez lui faire confiance.
 
 Vous lui racontez donc votre histoire. Il a entendu parler de Gayolard et se
 dit pret a vous aider.
 
-Il vous offre des Herbes de Guerison qui vous rendent 1 point d HABILETE si
+Il vous offre des Herbes de Guerison qui vous rendent 1 point d'HABILETE si
 vous en avez perdu.
 
-C 166 Si vous avez deja trouve le buisson d Antherique
+C 166 Si vous avez deja trouve le buisson d'Antherique
 C 333 Sinon

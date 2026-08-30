@@ -482,6 +482,11 @@ def main():
                                 f"({len(choices)} choix)")
             if len(new_bytes := render(sid, title, w, choices, directives).encode("utf-8")) > 1343:
                 problems.append(f"{f}: {len(new_bytes)} octets > 1343 (file_buffer)")
+            # L'Apple II n'a ni accents ni guillemets francais : un octet
+            # hors ASCII sortirait en glyphe faux, et le corpus est
+            # volontairement sans accents depuis le depart.
+            for ch in set(re.findall(r"[^\x00-\x7f]", "\n".join(body + [title]))):
+                problems.append(f"{f}: caractere non ASCII {ch!r}")
             if len(title) > 60:
                 problems.append(f"{f}: titre {len(title)} car. > 60")
             if words(w) != words(body):

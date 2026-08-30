@@ -10,7 +10,7 @@ puissiez vous asseoir.
 
 Vous devez lui donner une Pierre de Magie, un bijou ou tout autre objet.
 
-Si vous ne possedez que l Anneau de Cuivre :
+Si vous ne possedez que l'Anneau de Cuivre :
 
-C 180 Lui donner l Anneau de Cuivre
+C 180 Lui donner l'Anneau de Cuivre
 C 019 Si vous lui donnez un autre objet de votre choix

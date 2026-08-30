@@ -2,7 +2,7 @@ T 373 Attaque surprise
 
 Tentez votre Chance. Si vous etes Chanceux, votre attaque est si fulgurante
 que vous parvenez a blesser le sorcier. Rendez-vous alors au 225, mais vous
-eoterez 2 points au total d'ENDURANCE de votre adversaire avant que le combat
+oterez 2 points au total d'ENDURANCE de votre adversaire avant que le combat
 ne s'engage. Si vous etes Malchanceux, vous ne parvenez pas a le toucher ;
 dans ce cas, vous vous rendrez egalement au 225 pour le combattre, mais sans
 rien changer cette fois au total d'ENDURANCE dont il dispose.

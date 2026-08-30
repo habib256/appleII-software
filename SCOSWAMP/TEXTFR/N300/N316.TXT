@@ -1,8 +1,8 @@
 T 316 Plus de Pierre de Magie
 
 Malheureusement, il ne vous reste plus aucune Pierre de Magie. "Dommage,
-dit-il, j'aurais bien voulu vous aider, mais les Potions de Guerison coeutent
-cher et j'ai deja suffisamment perdu d'argent dans cette entreprise. "
+dit-il, j'aurais bien voulu vous aider, mais les Potions de Guerison coutent
+cher et j'ai deja suffisamment perdu d'argent dans cette entreprise."
 
 C 100 Repartir des maintenant
 C 341 Attaquer Pompatarte

@@ -11,4 +11,4 @@ E ENDURANCE -1
 C 116 Bury your head under the pillow
 C 236 Go down brandishing your sword
 C 078 Go to the "Crooked Lance"
-C 289 Go to the "Tancrède's Flying Horse"
+C 289 Go to the "Tancrede's Flying Horse"

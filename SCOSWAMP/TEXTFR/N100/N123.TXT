@@ -3,10 +3,10 @@ T 123 Interruption magique
 Le sorcier ouvre de grands yeux et fait un bond en arriere. Dans son elan, il
 perd son chapeau et renverse un vase qui se brise au sol.
 
-Une vapeur pestilentielle s en echappe et la statue anime s immobilise
+Une vapeur pestilentielle s'en echappe et la statue anime s'immobilise
 aussitot.
 
 Vous avez brise sa concentration et neutralise son sort.
 
 C 225 Poursuivre votre attaque
-C 315 Profiter de l hesitation pour fuir
+C 315 Profiter de l'hesitation pour fuir

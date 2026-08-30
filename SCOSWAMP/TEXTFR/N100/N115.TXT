@@ -2,9 +2,9 @@ T 115 Le conseil du Patrouilleur
 
 Le Patrouilleur eclate de rire et apprecie votre franchise.
 
-"Vous cherchez Courbensaule, dit-il. Alors allez vers le sud, puis vers l
-ouest jusqu a la croise des chemins. De la, suivez le sentier sans jamais vous
-en ecarter et vous atteindrez la ville."
+"Vous cherchez Courbensaule, dit-il. Alors allez vers le sud, puis vers
+l'ouest jusqu'a la croise des chemins. De la, suivez le sentier sans jamais
+vous en ecarter et vous atteindrez la ville."
 
 Vous le remerciez et reprenez la route.
 

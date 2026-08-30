@@ -1,6 +1,6 @@
 T 133 Disparition du Patrouilleur
 
-Il n y a plus trace du Patrouilleur. Il s est fondu parmi les arbres, sans un
+Il n'y a plus trace du Patrouilleur. Il s'est fondu parmi les arbres, sans un
 bruit.
 
 C 234 Continuer votre route

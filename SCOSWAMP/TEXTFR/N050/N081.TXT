@@ -1,10 +1,10 @@
-T 081 L Herbe a Pinces
+T 081 L'Herbe a Pinces
 
-Vous avez vaincu l Herbe a Pinces et vous etes certain qu elle est morte.
+Vous avez vaincu l'Herbe a Pinces et vous etes certain qu'elle est morte.
 
-En inspectant la clairiere, vous trouvez fixe a un arbre un vieil ecritau
+En inspectant la clairiere, vous trouvez fixe a un arbre un vieil ecriteau
 portant ces mots : ATTENTION AUX ORQUES.
 
-Il n y a rien d autre a decouvrir, et vous quittez les lieux.
+Il n'y a rien d'autre a decouvrir, et vous quittez les lieux.
 
 C 187 Poursuivre votre chemin

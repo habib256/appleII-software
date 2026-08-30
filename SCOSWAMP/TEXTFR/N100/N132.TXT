@@ -1,6 +1,6 @@
-T 132 L aigle terrasse
+T 132 L'aigle terrasse
 
-Vous avez tue l Aigle.
+Vous avez tue l'Aigle.
 
 C 073 Aller examiner son nid
 C 202 Repartir

@@ -1,9 +1,9 @@
 T 141 Le repos du guerrier
 
-L offre vous semble raisonnable. Vous remettez vos Pierres Magiques inutilises
+L'offre vous semble raisonnable. Vous remettez vos Pierres Magiques inutilises
 a Pompatarte.
 
-Sa servante apporte une potion. Vous l avalez, et vos blessures guerissent
+Sa servante apporte une potion. Vous l'avalez, et vos blessures guerissent
 aussitot.
 
 Votre aventure est termine. Mais si vous avez echoue, vous avez aussi appris,

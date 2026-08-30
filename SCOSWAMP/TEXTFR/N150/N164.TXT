@@ -3,7 +3,7 @@ T 164 La Maitresse des Oiseaux
 L'Anneau de Cuivre reste froid : la Maitresse des Oiseaux est donc
 bienveillante. Vous lui expliquez le but de votre mission et elle se met
 aussitot a sautiller de joie : "Il y a donc encore un buisson d'Antherique ?
-Quelle merveille ! u Son enthousiasme est si sincere qu'elle ressemble un
+Quelle merveille !" Son enthousiasme est si sincere qu'elle ressemble un
 instant a une petite fille ravie.
 
 Consciente de l'importance de votre quete pour la cause du Bien, elle vous
@@ -13,7 +13,7 @@ initiale vos points d'HABILETE, d'ENDURANCE ou de CHANCE - a vous de choisir.
 Puis, d'un geste, elle appelle plusieurs oiseaux qui viennent tournoyer autour
 d'elle. Elle leur murmure quelques mots, les ecoute, puis se tourne vers vous
 : "Gayolard avait raison, dit-elle doucement, il existe bien un buisson
-d'Antherique, au nord-est du Marais. Je peux t'aider a t'y rendre. "
+d'Antherique, au nord-est du Marais. Je peux t'aider a t'y rendre."
 
 Vous acceptez avec reconnaissance.
 

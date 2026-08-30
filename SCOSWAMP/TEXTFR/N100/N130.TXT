@@ -4,5 +4,5 @@ Quelle Pierre de Magie allez-vous essayer ?
 
 CU MALEDICTION 260 Utiliser une Pierre de Malediction
 CU TERREUR 201 Utiliser une Pierre de Terreur
-CU AMITIE 111 Utiliser une Pierre d Amitie
+CU AMITIE 111 Utiliser une Pierre d'Amitie
 C 288 Ne pas utiliser ces Pierres et faire un autre choix

@@ -1,8 +1,8 @@
 T 137 Retour face a la Vase
 
-Vous revenez a l endroit ou vous aviez rencontre la Vase.
+Vous revenez a l'endroit ou vous aviez rencontre la Vase.
 
-Si vous l avez deja tue :
+Si vous l'avez deja tue :
 
 Sinon, elle vous barre a nouveau le passage. Ses blessures ont completement
 gueries.

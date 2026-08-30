@@ -1,11 +1,11 @@
 T 326 La fureur de Stratagus
 
-Il contemple la table brise, les livres eparpilles alentour, les faeiences
+Il contemple la table brise, les livres eparpilles alentour, les faiences
 casses... les debris de la statue repandus sur le sol, puis il leve son regard
 sur vous. Son visage alors se convulse sous l'effet de la fureur et du mepris.
-" Pourquoi donc devrais-je vous preter la moindre attention ? u s'ecrie-t-il,
-e vous etes juste assez bon pour vaincre une petite Statue de rien du tout et,
-en plus, vous avez l'audace de saccager mon salon ! u Qu'allez-vous faire ?
+" Pourquoi donc devrais-je vous preter la moindre attention ?" s'ecrie-t-il,
+"vous etes juste assez bon pour vaincre une petite Statue de rien du tout et,
+en plus, vous avez l'audace de saccager mon salon !" Qu'allez-vous faire ?
 
 C 098 Ramper devant lui pour implorer son pardon
 C 315 Faire volte-face et vous enfuir

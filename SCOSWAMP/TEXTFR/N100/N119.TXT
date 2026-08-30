@@ -1,7 +1,7 @@
 T 119 La licorne menacante
 
 La licorne gratte le sol et baisse la tete, prete a charger. Sa criniere se
-dresse comme une flamme blanche. Vous sentez la magie vibrer autour d elle :
+dresse comme une flamme blanche. Vous sentez la magie vibrer autour d'elle :
 il faudra agir vite.
 
 Quelle Pierre allez-vous tenter pour la neutraliser ?
@@ -9,5 +9,5 @@ Quelle Pierre allez-vous tenter pour la neutraliser ?
 CU TERREUR 293 Utiliser une Pierre de Terreur
 CU BENEDICTION 381 Utiliser une Pierre de Benediction
 CU FEU 337 Utiliser une Pierre de Feu
-CU AMITIE 039 Utiliser une Pierre d Amitie
+CU AMITIE 039 Utiliser une Pierre d'Amitie
 C 320 Ne pas utiliser ces Pierres et faire un autre choix

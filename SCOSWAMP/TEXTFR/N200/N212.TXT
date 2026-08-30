@@ -2,12 +2,12 @@ T 212 Le maitre des grenouilles
 
 Le Sorcier vous regarde d'un air mefiant. "Ah, l'Antherique... je connais,
 dit-il. Mais je ne suis qu'un sorcier neutre, et ces buissons n'ont aucun
-pouvoir pour moi. Pourquoi donc vous aiderais-je ? u
+pouvoir pour moi. Pourquoi donc vous aiderais-je ?"
 
 Sa voix est douce, mais son regard, froid comme la vase du marais. Autour de
-lui, ses grenouilles gantes coassent, pretes a bondir. Il attend votre
+lui, ses grenouilles geantes coassent, pretes a bondir. Il attend votre
 reponse, les doigts poses sur son amulette d'argent.
 
 C 062 Le menacer de votre epee
 C 258 Lui lancer une Pierre Magique
-C 015 Tenter de l'amadouer par un cadau
+C 015 Tenter de l'amadouer par un cadeau

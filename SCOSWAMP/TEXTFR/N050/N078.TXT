@@ -1,13 +1,13 @@
 T 078 La Lance Tordue
 
-La "Lance Tordue" est une auberge agrable et spacieuse. Vous donnez 1 Piece d
-Or a l aubergiste puis montez dans votre chambre. Des que vous posez la tete
-sur l oreiller, vous vous endormez.
+La "Lance Tordue" est une auberge agreable et spacieuse. Vous donnez 1 Piece
+d'Or a l'aubergiste puis montez dans votre chambre. Des que vous posez la tete
+sur l'oreiller, vous vous endormez.
 
-Au matin, vous vous sentez parfaitement repose et regagnez 2 points d
-ENDURANCE.
+Au matin, vous vous sentez parfaitement repose et regagnez 2 points
+d'ENDURANCE.
 
-Avant votre depart, l aubergiste vous parle : il sait que vous avez traverse
+Avant votre depart, l'aubergiste vous parle : il sait que vous avez traverse
 le Marais aux Scorpions et suggere de visiter un sorcier voisin qui vend des
 Pierres de Magie.
 

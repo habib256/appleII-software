@@ -1,7 +1,7 @@
 T 102 La Bete Immonde
 
-Bien que vous ayez une longueur d avance, la Bete Immonde gagne rapidement du
-terrain. Vous vous epuisez a courir et perdez 1 point d ENDURANCE.
+Bien que vous ayez une longueur d'avance, la Bete Immonde gagne rapidement du
+terrain. Vous vous epuisez a courir et perdez 1 point d'ENDURANCE.
 
 E ENDURANCE -1
 C 011 Revenir dans la clairiere et choisir une autre tactique

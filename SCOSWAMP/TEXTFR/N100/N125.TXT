@@ -3,7 +3,7 @@ T 125 Les griffes de la Bete
 Vous avez tue la Bete Immonde et coupez quelques-unes de ses griffes, dures
 comme la pierre, en souvenir de ce rude combat.
 
-Vous cherchez un autre chemin pour quitter la clairiere, mais il n y en a
+Vous cherchez un autre chemin pour quitter la clairiere, mais il n'y en a
 aucun. Vous devez repartir par le sentier par lequel vous etes venu.
 
-C 279 Repartir vers l est
+C 279 Repartir vers l'est

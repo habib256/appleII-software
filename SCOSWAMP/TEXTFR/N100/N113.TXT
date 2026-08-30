@@ -1,15 +1,15 @@
 T 113 Le brasier des araignees
 
-L idee vous vient que les toiles d araignees flambent a merveille. Vous jetez
-une Pierre de Feu sur le Maitre des Araignees : ses vetements s enflamment
+L'idee vous vient que les toiles d'araignees flambent a merveille. Vous jetez
+une Pierre de Feu sur le Maitre des Araignees : ses vetements s'enflamment
 aussitot.
 
-Il s ecroule en hurlant, et le feu court sur toute la clairiere. Des ridaux de
-flammes s elevent et reduisent en cendres la creature repugnante tapie en ces
-lieux.
+Il s'ecroule en hurlant, et le feu court sur toute la clairiere. Des rideaux
+de flammes s'elevent et reduisent en cendres la creature repugnante tapie en
+ces lieux.
 
 La chaleur est si intense que vous renoncez a fouiller. Vous fuyez ce brasier,
-non sans subir des brulures qui vous coutent 3 points d ENDURANCE.
+non sans subir des brulures qui vous coutent 3 points d'ENDURANCE.
 
 E ENDURANCE -3
 C 165 Quitter la clairiere en hate

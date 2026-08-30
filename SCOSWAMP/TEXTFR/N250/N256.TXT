@@ -9,5 +9,5 @@ cout et le risque; chaque sort a ses consequences.
 C 274 Lancer la Malediction
 C 365 Prononcer la Terreur
 C 385 Enflammer - sort de Feu
-C 351 Crer une Illusion trompeuse
+C 351 Creer une Illusion trompeuse
 C 057 Ne lancer aucun sort - chercher une autre voie

@@ -230,7 +230,7 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   une retouche de celle-ci.
   → `SCOSWAMP/SRC/sfx.s`
 
-- **263 coquilles corrigees dans le corpus francais.** Le corpus est
+- **525 coquilles corrigees dans le corpus francais, en deux passes.** Le corpus est
   volontairement sans accents -- l'Apple II n'en affiche pas -- mais la
   conversion qui les a retires s'est mal passee. Deux familles de degats :
   un circonflexe rendu par deux lettres (`maitre` -> `maeitre`, `aussitot` ->
@@ -248,6 +248,32 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   Cote anglais, le dictionnaire systeme ne laisse que 50 suspects, tous des
   noms propres ou des mots qu'il ne connait pas (`backpack`, `trapdoor`). Rien
   a corriger -- `Croupie` est le nom de la riviere.
+
+  **Seconde passe (262 corrections de plus).** La methode du vocabulaire etait
+  arrivee au bout de ce qu'elle pouvait voir : le portage ecrit sa propre
+  prose, 1080 de ses mots sont absents du livre, et un suspect ne prouve plus
+  rien. On cherche donc les FORMES du degat, qui elles sont des signatures :
+
+  - **128 apostrophes elidees perdues** -- `d ENDURANCE`, `l ouest`,
+    `s ecroule`, `jusqu au nid`. Aucune de ces lettres n'est un mot francais
+    isole et l'elision ne se fait que devant une voyelle : la regle ne peut
+    pas se tromper sur `a` ni sur `y`, les deux vrais mots d'une lettre. Les
+    `n` de « Clairiere n 5 » sont des `n°` et restent.
+  - **29 guillemets** -- le scan a rendu `«` par `e` et `»` par `u` :
+    « e Venez donc, venez u, dit-il ». Ils deviennent des guillemets droits,
+    seuls affichables sur Apple II.
+  - **les formes `aei`, `eo`, `eu`, `-au`** -- `traeitre`, `veotre`,
+    `breulure`, `coeutent`, `ridaux`, `tablau`.
+
+  Deux effets de bord immediats : la page 311 derivait sa perte d'HABILETE en
+  anglais et pas en francais, parce que le francais disait `coeutent` ; et la
+  395 la manquait des deux cotes en francais parce qu'elle la disait a la voix
+  causative (« vous font perdre »), reecrite en « vous perdez ». Le recoupement
+  FR/EN ne signale plus aucune divergence.
+
+  Et un invariant de plus dans `reflow_txt.py` : **aucun octet hors ASCII**.
+  Deux accents avaient survecu (`à` page 401, `è` dans « Tancrède » page 395) ;
+  sur Apple II ils sortent en glyphe faux.
 
 - **Les personnages changeaient de tete d'une image a l'autre.** Chaque image
   etait generee seule, a partir de sa seule page : rien ne reliait le Maitre

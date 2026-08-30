@@ -1,19 +1,19 @@
 T 289 Le Cheval Volant de Tancrede
 
-Les Gardes Forestiers vous ont dit que e le Cheval Volant de Tancrede u etait
-la moins chere des trois auberges et c'est donc la que vous avez decide de
-passer la nuit. Le prix de la chambre est tres raisonnable en effet puisqu'on
-ne vous demande qu'une demi-Piece d'Or. Vous montez vous coucher et vous
-tombez endormi des que vous avez pose la tete sur l'oreiller. Au milieu de la
-nuit, cependant, une sensation de breulure a votre doigt vous reveille
-brusquement. L'Anneau de Cuivre est en train de vous avertir qu'un danger vous
-menace. Vous sautez alors de votre lit et vous saisissez votre epee ; a cet
-instant, une ombre s'enfuit de la chambre. Vous fermez ensuite la porte a
-double tour et vous allez vous recoucher. Lorsque vous vous eveillez au matin,
-vous vous sentez bien repose et vous reprenez 2 points d'ENDURANCE. Helas !
-vous vous apercevez que votre voleur de la nuit vous a derobe quelque chose.
-Rayez de votre Feuille d'Aventure deux objets au choix, Pierre de Magie ou
-autre, a l'exception de l'Anneau de Cuivre qui est reste a votre doigt. Vous
-quittez a present l'auberge pour reprendre votre chemin. Tentez votre Chance.
+Les Gardes Forestiers vous ont dit que "le Cheval Volant de Tancrede" etait la
+moins chere des trois auberges et c'est donc la que vous avez decide de passer
+la nuit. Le prix de la chambre est tres raisonnable en effet puisqu'on ne vous
+demande qu'une demi-Piece d'Or. Vous montez vous coucher et vous tombez
+endormi des que vous avez pose la tete sur l'oreiller. Au milieu de la nuit,
+cependant, une sensation de brulure a votre doigt vous reveille brusquement.
+L'Anneau de Cuivre est en train de vous avertir qu'un danger vous menace. Vous
+sautez alors de votre lit et vous saisissez votre epee ; a cet instant, une
+ombre s'enfuit de la chambre. Vous fermez ensuite la porte a double tour et
+vous allez vous recoucher. Lorsque vous vous eveillez au matin, vous vous
+sentez bien repose et vous reprenez 2 points d'ENDURANCE. Helas ! vous vous
+apercevez que votre voleur de la nuit vous a derobe quelque chose. Rayez de
+votre Feuille d'Aventure deux objets au choix, Pierre de Magie ou autre, a
+l'exception de l'Anneau de Cuivre qui est reste a votre doigt. Vous quittez a
+present l'auberge pour reprendre votre chemin. Tentez votre Chance.
 
 CL 150 343
