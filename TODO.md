@@ -516,6 +516,51 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
 
 ---
 
+
+## La suite du moteur — feuille de route (2026-08-30)
+
+Le //c est conquis (POM2 `6d65741` : le BIT $CFFF manquant du stub — voir le
+TODO de pom2). SCOSWAMP boote et se joue sur //e ET //c. La marge est de
+2 099 octets grace a la Language Card (1,3 Ko de code froid en $D400, ~1,7 Ko
+encore libres dans le banc). Dans l'ordre de valeur :
+
+1. **Objets et drapeaux** — le chantier n° 1 de jouabilite : plus de
+   comptabilite au crayon, plus de triche possible. Le catalogue est DEJA sur
+   le disque (`build_objects.py` -> OBJFR/OBJEN : 9 objets visibles, 5
+   drapeaux caches, l'ordre fait foi). Reste : le moteur (`G`/`GX` posent et
+   effacent un bit ; `CI`/`CN`/`GU` gardent un choix — possede / ne possede
+   pas / consomme ; grisage comme les Pierres ; le sac liste les bits
+   visibles) puis la pose corpus, releve deja fait : AMULOUP (gain N154,
+   portes N344/N092), AMUFLEUR (N251), CAPE (gain N386, usage N286), CHAINE
+   (N073), FIOLE (N042), BAIE + .ANTHERIQUE (N389, porte N166), AIMANT
+   (maudit N357), patrons .GAYOLARD/.POMPATARTE/.STRATAGUS (portes
+   N006/N056/N226, poses sur les pages d'engagement), N128 en `CN`.
+   ~600-800 octets, finances.
+
+2. **Sauvegarde + « Reprendre »** — l'etat complet tient sous 200 octets
+   (heros, Pierres, objets, or, scene courante, clairieres visitees 51 o,
+   memoire des monstres 120 o). Ecriture ProDOS a chaque `load_scene`,
+   « Reprendre la partie » sur N000, et la mort offre reprendre / recommencer
+   / quitter. ATTENTION : fopen("w")/fwrite cc65 tirent du code de
+   bibliotheque encore jamais lie — mesurer avant de promettre.
+
+3. **Pages hors-aventure** (N900+) — la carte du livre en HGR, les regles de
+   combat, les credits : du pur contenu, le mecanisme [H] existe deja.
+
+4. **Game feel** — le de qui roule (3-4 valeurs rapides avec clic avant de
+   s'arreter, ~40 o), le flash de blessure (inverser le bandeau un instant),
+   la directive `S <n>` (jingle d'entree de scene : danger, victoire,
+   decouverte) — motifs speaker d'abord, patterns Mockingboard sur disque le
+   jour venu.
+
+5. **Images** — ~370 scenes a regenerer avec le heros au fourreau (les ~34
+   du run interrompu sont flaggees par `--stale`, la fiche du heros ayant
+   change), puis `--record`, `convert_images.sh`, `make hdv`.
+
+6. **Verifications de parc** — //c+ (IWM, 4 MHz) et les profils PAL n'ont
+   pas encore vu le jeu ; DV n'est verifie en jeu que sur la branche
+   « aucune blessure » (241) — provoquer les branches 193/326.
+
 ## Backlog
 
 ### Portage / gameplay
