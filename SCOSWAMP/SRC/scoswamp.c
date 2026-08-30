@@ -693,17 +693,39 @@ static void prompt_luck(void)
 /* Le bandeau de bataille : les deux adversaires face a face, chacun dans sa
  * moitie d'ecran, sous l'illustration. C'est la ligne qu'on lit entre deux
  * assauts, elle doit tenir en un coup d'oeil. */
+/* Comble d'espaces jusqu'a la colonne demandee.
+ *
+ * C'est la moitie de la recette contre le clignotement : au lieu d'effacer une
+ * ligne puis d'y ecrire -- deux passages, donc chaque cellule vue blanche
+ * avant d'etre remplie -- on ecrit le texte puis on pousse des espaces jusqu'au
+ * bord. Un seul passage, aucune cellule ne passe par le blanc. En 80 colonnes,
+ * ou chaque caractere traverse la firmware, la difference se voit a l'oeil :
+ * les 4 lignes du bas clignotaient a chaque coup porte. */
+static void pad_to(unsigned char col)
+{
+    unsigned char x = wherex();
+    while (x < col) { cputc(' '); x++; }
+}
+
+/* Efface une ligne du bandeau sans la faire clignoter. */
+static void row_blank(unsigned char row)
+{
+    gotoxy(0, row);
+    pad_to(79);
+}
+
 static void show_fighters(void)
 {
     gotoxy(0, CHOICE_ROW0);
     cprintf(msg(M_VOUS_HAB_END),
             app.hero.hab, app.hero.end, app.hero.end0);
-    gotoxy(CHOICE_COL2, CHOICE_ROW0);
+    pad_to(CHOICE_COL2);
     cprintf("%-12s HAB %u  END %2u/%u",
             app.foes[app.foe_cur].name, app.foes[app.foe_cur].hab,
             app.foes[app.foe_cur].end, app.foes[app.foe_cur].end0);
     /* Quand ils sont plusieurs, dire lequel : des chiffres, pas de traduction. */
     if (app.foe_count > 1) cprintf("  %d/%d", app.foe_cur + 1, app.foe_count);
+    pad_to(79);
 }
 
 static void clear_bottom(void)
@@ -713,15 +735,17 @@ static void clear_bottom(void)
     for (r = CHOICE_ROW0; r <= CHOICE_ROWN; r++) cclearxy(0, r, 79);
 }
 
+
 static void print_at(unsigned char row, const char* text)
 {
-    /* Effacer la ligne d'abord : une invite courte ecrite par-dessus une
-     * longue laissait sa fin depasser -- "[ESPACE] continuer" suivi du reste
-     * de "[C] Tentez votre Chance". 79 et pas 80, la derniere cellule de
-     * l'ecran ferait scroller. */
-    cclearxy(0, row, 79);
+    /* Le texte PUIS des espaces jusqu'au bord, en un seul passage : une
+     * invite courte ecrite par-dessus une longue ne laisse pas depasser sa
+     * fin -- "[ESPACE] continuer" suivi du reste de "[C] Tentez votre
+     * Chance" -- et la ligne ne clignote pas. 79 et pas 80, la derniere
+     * cellule de l'ecran ferait scroller. */
     gotoxy(0, row);
     cprintf("%s", text);
+    pad_to(79);
 }
 
 static void wait_key_at(unsigned char row, const char* prompt)
@@ -801,6 +825,7 @@ static int run_luck_test(void)
 
     gotoxy(0, CHOICE_ROW0);
     cprintf(msg(M_TENTEZ_VOTRE_CHANCE), app.hero.cha);
+    pad_to(79);
     cgetc();
 
     /* Le jet est releve avant d'etre applique, pour pouvoir le montrer : la
@@ -808,9 +833,10 @@ static int run_luck_test(void)
      * perdue. */
     roll = roll_2d6();
     lucky = (roll <= app.hero.cha);
-    clear_bottom();
     gotoxy(0, CHOICE_ROW0);
     cprintf(msg(M_JET_DE_CHANCE), (unsigned)roll, (unsigned)app.hero.cha);
+    pad_to(79);
+    row_blank(CHOICE_ROW0 + 2);
     if (app.hero.cha > 0) app.hero.cha--;
 
     print_at(CHOICE_ROW0 + 1, lucky ? msg(M_CHANCEUX) : msg(M_MALCHANCEUX));
@@ -878,9 +904,12 @@ static int run_combat(void)
     if (app.has_image) set_video_mode(2);
 
     for (;;) {
-        clear_bottom();
+        /* Chaque ligne est reecrite en un passage, aucune n'est effacee
+         * d'abord : c'est ce qui faisait clignoter le bandeau a chaque coup. */
         render_title_bar();
         show_fighters();
+        row_blank(CHOICE_ROW0 + 1);
+        row_blank(CHOICE_ROW0 + 2);
 
         gotoxy(0, CHOICE_ROWN);
         if (assaut == 0) {
@@ -900,17 +929,18 @@ static int run_combat(void)
         if (key == 27) { cycle_video_mode(); continue; }
         if ((key == 'I' || key == 'i') && assaut == 0) { show_inventory(0); continue; }
         if ((key == 'F' || key == 'f') && app.flee_target >= 0) {
-            clear_bottom();
             gotoxy(0, CHOICE_ROW0);
             cprintf(msg(M_VOUS_FUYEZ_ELLE));
+            pad_to(79);
+            row_blank(CHOICE_ROW0 + 1);
+            row_blank(CHOICE_ROW0 + 2);
             prompt_luck();
             key = cgetc();
             use_luck = (key == 'C' || key == 'c');
             lucky = combat_flee(&app.hero, &app.foes[app.foe_cur], use_luck);
             render_title_bar();
-            gotoxy(0, CHOICE_ROW0 + 2);
-            if (use_luck) cprintf(lucky ? (msg(M_CHANCEUX))
-                                        : (msg(M_MALCHANCEUX)));
+            if (use_luck) print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX))
+                                                          : (msg(M_MALCHANCEUX)));
             /* La creature blessee garde son ENDURANCE entamee : on peut
              * revenir dans la clairiere et reprendre le combat. */
             monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
@@ -922,16 +952,15 @@ static int run_combat(void)
 
         assaut++;
         combat_round(&app.hero, &app.foes[app.foe_cur], &r);
-        clear_bottom();
         show_fighters();
         gotoxy(0, CHOICE_ROW0 + 1);
         cprintf(msg(M_ASSAUT_FORCE_D),
                 assaut, r.hero_force, r.monster_force);
+        pad_to(79);
 
         if (r.outcome == ROUND_DODGE) {
             sfx_dodge();
-            gotoxy(0, CHOICE_ROW0 + 2);
-            cprintf(msg(M_VOUS_AVEZ_CHACUN));
+            print_at(CHOICE_ROW0 + 2, msg(M_VOUS_AVEZ_CHACUN));
             wait_key_at(CHOICE_ROWN, msg_continue());
             continue;
         }
@@ -942,28 +971,26 @@ static int run_combat(void)
         /* Le bruitage suit QUI a touche : lame seche contre coup sourd. Il
          * part avant le texte, pour tomber en meme temps que l'annonce. */
         if (r.outcome == ROUND_HERO_HITS) sfx_hit(); else sfx_hurt();
-        gotoxy(0, CHOICE_ROW0 + 2);
-        cprintf(r.outcome == ROUND_HERO_HITS
-                ? (msg(M_VOUS_L_AVEZ))
-                : (msg(M_ELLE_VOUS_A)));
+        print_at(CHOICE_ROW0 + 2, r.outcome == ROUND_HERO_HITS
+                                  ? (msg(M_VOUS_L_AVEZ))
+                                  : (msg(M_ELLE_VOUS_A)));
         prompt_luck();
         key = cgetc();
         use_luck = (key == 'C' || key == 'c');
         lucky = combat_apply(&app.hero, &app.foes[app.foe_cur], &r, use_luck);
         render_title_bar();
 
-        clear_bottom();
         show_fighters();
-        gotoxy(0, CHOICE_ROW0 + 1);
-        if (use_luck) {
-            cprintf(lucky ? (msg(M_CHANCEUX2))
-                          : (msg(M_MALCHANCEUX2)));
-        }
+        if (use_luck) print_at(CHOICE_ROW0 + 1, lucky ? (msg(M_CHANCEUX2))
+                                                      : (msg(M_MALCHANCEUX2)));
+        else          row_blank(CHOICE_ROW0 + 1);
+        row_blank(CHOICE_ROW0 + 2);
 
         if (monster_is_beaten(&app.foes[app.foe_cur])) {
             sfx_fall();
             gotoxy(0, CHOICE_ROW0 + 2);
             cprintf(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
+            pad_to(79);
             /* "vous devrez les combattre tous deux a tour de role" : le
              * suivant se presente, et le heros garde l'ENDURANCE qui lui
              * reste -- aucun repit entre deux adversaires. */

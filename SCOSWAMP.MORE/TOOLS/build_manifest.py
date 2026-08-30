@@ -16,6 +16,8 @@ Style/medium: late-1970s sword-and-sorcery pulp illustration translated into har
 Composition/framing: landscape 35:24; select one decisive visual moment, never a collage of choices or backstory; one strong focal action; essential shapes remain readable at 280x192 and are at least 3-4 HGR pixels thick; keep critical content away from the extreme edges.
 Color palette: use only black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
 Lighting/mood: theatrical menace, adventure, immediate action.
+The hero's bearing: he is seen from behind, but he is never turned AWAY from the people or creatures of the scene. His body, his shoulders and his head are angled toward whoever he is facing -- we look over his shoulder AT them. A hero showing his back to the character he is talking to, bargaining with or confronting is wrong.
+The hero's weapon: his sword stays SHEATHED at his hip and his hands stay empty unless the scene text below actually has him fighting, drawing, threatening or striking. Most pages are a walk, a conversation, a discovery or a bargain, and a hero standing sword in hand through all of them looks like a man who means to kill everyone he meets. Draw the posture the page describes.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
 Text (verbatim): ""
 Constraints: no visible words, letters, numbers, captions, border, UI, logo, signature, or watermark; no gradients; no anti-aliasing; no photorealistic texture; no tiny decorative detail; one coherent scene, not a collage.
@@ -30,11 +32,12 @@ French scene source:
 # 20 lignes du haut, l'echange d'assauts les 4 du bas. Les 32 dernieres lignes
 # de pixels sont donc RECOUVERTES par la fenetre de texte -- c'est la contrainte
 # de cadrage qui distingue une image de bataille d'une illustration de scene.
-BATTLE_HERO = """The hero, drawn identically in every battle image: a lean human adventurer in a hooded green cloak over chainmail, a round shield on the left arm, a straight sword raised in the right hand, a backpack on the shoulders, seen three-quarters from behind-left so the face stays hidden."""
+BATTLE_HERO = """The hero, drawn identically in every battle image: a lean human adventurer in a hooded green cloak over chainmail, a round shield on the left arm, and here -- and only here, because this is a fight -- his sword DRAWN and raised in the right hand, a backpack on the shoulders, seen three-quarters from behind-left so the face stays hidden."""
 
 BATTLE_STYLE = """Use case: illustration-story
 Asset type: native Apple II HGR battle tableau for SCOSWAMP
 Primary request: One duel, two figures. The hero faces the adversary named below; both are fully visible, mid-action, caught at the moment blades or claws are about to meet.
+Setting: the duel happens somewhere, so draw the place behind them -- the swamp clearing, hut, water, tower or garden the scene text names, or plain swamp if it names none: BLACK tree trunks, GREEN reeds, VIOLET mud, standing BLUE water. Keep it BEHIND the fighters and quieter than they are: flat shapes, no detail that competes with the two silhouettes, and nothing between the fighters or overlapping them.
 Composition/framing: landscape 35:24 for a 280x192 screen. CRITICAL: during play a text window covers the bottom sixth of the image, and the first attempt had the hero's feet cut off by it. Both figures must be COMPLETE — head to feet — within the upper three quarters of the frame, and the lowest quarter must be plain dark empty ground with nothing in it. Hero in the left third, adversary in the right two thirds, a clear gap of dark ground between them; readable silhouettes at 280x192, every essential shape at least 3-4 HGR pixels thick.
 Facing -- NON-NEGOTIABLE: the two are fighting EACH OTHER, so each one looks at the other. The hero stands on the left and faces, leans and strikes RIGHTWARD, toward the adversary. The adversary stands on the right and faces, leans and strikes LEFTWARD, toward the hero. Their heads are turned toward one another, their eyes meet, their weapons are aimed at one another. A figure whose head or gaze points away from the other -- outward, toward the edge of the frame, or at the viewer -- is WRONG: two fighters looking in opposite directions are not in a duel.
 """ + BATTLE_HERO + """
@@ -48,6 +51,23 @@ Avoid: glossy modern concept art, modern objects, smooth airbrush shading, comic
 
 The adversary, and the French scene it comes from:
 """
+
+
+def battle_refs(text, characters, root):
+    """Les planches d'une bataille, decor compris.
+
+    `refs_for` classe les decors en dernier et coupe a quatre : une bataille
+    citant deux adversaires perdait donc son fond, et chaque combat inventait
+    le sien. Le marais sert de decor par defaut -- c'est ou tout se passe.
+    """
+    out = refs_for(text, characters, root)
+    if not any("/REF/" in r and r.split("/")[-1][:-4] in DECOR_IDS for r in out):
+        for fallback in ("CLAIRIERE", "MARAIS"):
+            path = root / "SCOSWAMP.MORE" / "REF" / f"{fallback}.png"
+            if path.exists():
+                out = out[:3] + [str(path.relative_to(root))]
+                break
+    return out
 
 
 def battle_rows(root, characters):
@@ -83,7 +103,7 @@ def battle_rows(root, characters):
             "prompt": (BATTLE_STYLE + "Adversary: " + ", ".join(names)
                        + "\n\n" + text.strip()
                        + character_block(text + " " + " ".join(names), characters)),
-            "refs": refs_for(text + " " + " ".join(names), characters, root),
+            "refs": battle_refs(text + " " + " ".join(names), characters, root),
             "bible": bible_hash(text + " " + " ".join(names), characters),
             "status": "pending",
         })
@@ -101,6 +121,7 @@ def battle_rows(root, characters):
 
 # Trois bibles, un seul mecanisme. L'ordre compte a l'affichage du prompt :
 # le decor pose le monde, les personnages et les creatures s'y tiennent.
+DECOR_IDS = set()
 BIBLES = ("decors.json", "characters.json", "monsters.json", "objects.json")
 
 
@@ -126,6 +147,8 @@ def load_characters(root):
         data = json.loads((root / "SCOSWAMP.MORE" / name)
                           .read_text(encoding="utf-8"))
         kind = "decor" if name == "decors.json" else "figure"
+        if kind == "decor":
+            DECOR_IDS.update(c["id"] for c in data["characters"])
         for c in data["characters"]:
             c["kind"] = kind
             out.append(c)
@@ -232,7 +255,7 @@ REF_FIGURE = """Use case: reference sheet
 Asset type: a single character reference for an Apple II HGR gamebook
 Primary request: ONE subject alone, full figure head to foot, standing still and facing the viewer three-quarters, on a plain solid black background. No scene, no ground.
 Composition/framing: the subject centered and complete, filling most of the frame, nothing cropped.
-Checklist: EVERY garment, weapon and ornament named in the description below must be clearly visible and identifiable in the drawing -- clothing worn rather than implied, a named weapon actually drawn and carried. Add nothing the description does not name.
+Checklist: EVERY garment, weapon and ornament named in the description below must be clearly visible and identifiable in the drawing, and carried EXACTLY as the description words it -- clothing worn rather than implied; a sword described as SHEATHED shown hanging in its scabbard at the hip with the hand empty, never held; a weapon described as raised or drawn shown in the hand. Add nothing the description does not name, and change nothing it does.
 """
 
 REF_DECOR = """Use case: reference sheet
