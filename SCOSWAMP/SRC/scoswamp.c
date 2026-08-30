@@ -1028,6 +1028,7 @@ static void show_inventory(int in_combat)
  * possibilite de faire appel a votre chance" -- mais sur ces pages-la le livre
  * ne laisse pas le choix : il ORDONNE le jet et annonce les deux issues. Le
  * moteur le joue donc lui-meme, une fois la page lue. Rend la scene ou aller. */
+#pragma code-name (push, "LC")
 static int run_luck_test(void)
 {
     unsigned char roll;
@@ -1055,6 +1056,7 @@ static int run_luck_test(void)
     wait_key_at(CHOICE_ROWN, msg_continue());
     return lucky ? app.luck_ok : app.luck_ko;
 }
+#pragma code-name (pop)
 
 /* "Lancez un de et retranchez le chiffre obtenu de votre total d'ENDURANCE."
  * Le livre ordonne le jet, il ne le propose pas : le moteur le joue, mais il
@@ -1064,6 +1066,7 @@ static int run_luck_test(void)
  * Meme cadre que run_luck_test, et deux messages seulement : la prose de la
  * page est encore a l'ecran au-dessus, elle dit deja ce que le de coute et
  * sur quoi ; la Feuille d'Aventure de la ligne 1 dit ce qu'il a coute. */
+#pragma code-name (push, "LC")
 static void run_dice_roll(void)
 {
     signed char   n = app.dice_n;
@@ -1089,6 +1092,7 @@ static void run_dice_roll(void)
     render_title_bar();
     wait_key_at(CHOICE_ROWN, msg_continue());
 }
+#pragma code-name (pop)
 
 /* La valeur courante d'une caracteristique, pour le test CS. L'or n'est pas
  * testable : le livre ne compare jamais 2d6 a une bourse. */
@@ -1103,6 +1107,7 @@ static unsigned char carac_value(unsigned char c)
  * d'ENDURANCE..." -- le meme geste que le jet de Chance, mais contre la
  * caracteristique nommee et sans depenser de point de CHANCE. Rend la scene
  * ou aller. */
+#pragma code-name (push, "LC")
 static int run_stat_test(void)
 {
     unsigned char roll, against;
@@ -1120,11 +1125,13 @@ static int run_stat_test(void)
     wait_key_at(CHOICE_ROWN, msg_continue());
     return (roll <= against) ? app.cs_ok : app.cs_ko;
 }
+#pragma code-name (pop)
 
 /* "Vous choisirez ces six Pierres dans la liste qui figure au debut de ce
  * livre, mais vous ne pourrez les prendre que..." -- un bon sorcier ne donne
  * pas de Pierre malefique, un mauvais pas de Pierre benefique, et l'on a le
  * droit de prendre plusieurs fois la meme ("par exemple 4 Pierres de Feu"). */
+#pragma code-name (push, "LC")
 static void choose_stones(void)
 {
     static const char kKindLetter[3] = { 'N', 'B', 'M' };
@@ -1163,6 +1170,7 @@ static void choose_stones(void)
         }
     }
 }
+#pragma code-name (pop)
 
 /* Un combat. Rend 0 si le heros meurt, 1 si la creature tombe, 2 s'il fuit. */
 static int run_combat(void)
@@ -1368,6 +1376,7 @@ static void show_help(void)
  * redemarrer la machine. Le stub de sortie cc65 fait le QUIT du MLI ; c'est
  * la seule sortie possible depuis que le jeu occupe la place de
  * BASIC.SYSTEM. */
+#pragma code-name (push, "LC")
 static void game_over(void)
 {
     char key;
@@ -1387,8 +1396,10 @@ static void game_over(void)
         }
     }
 }
+#pragma code-name (pop)
 
 /* La creation du personnage, telle que le livre l'ouvre. */
+#pragma code-name (push, "LC")
 static void roll_character(void)
 {
     character_roll(&app.hero);
@@ -1413,6 +1424,7 @@ static void roll_character(void)
     cprintf(msg(M_AUCUN_DE_CES));
     wait_key_at(13, msg(M_ESPACE_ENTRER_DANS));
 }
+#pragma code-name (pop)
 
 /* La mort et ce qui la suit, en un seul endroit. Le combat n'en a plus le
  * monopole : "si vous survivez" (pages 252, 261, 274) dit que le de de la
@@ -1553,32 +1565,25 @@ void load_scene(int scene_id) {
 }
 
 /* Fonction pour afficher l'écran de sélection de langue */
+/* L'ecran-titre vit sur le disque (TITLE.TXT), comme tout le contenu : 26
+ * cprintf et ~850 octets de chaines pour un ecran montre une fois etaient le
+ * plus gros gisement d'octets du binaire. S'il manque, la ligne de secours
+ * suffit a choisir la langue. */
 void display_language_selection(void) {
+    static char line[81];
+    FILE* f;
+
     videomode(VIDEOMODE_80COL);
     clrscr();
-    
-    cprintf("\r\n");
-    cprintf("          ====================================================\r\n");
-    cprintf("                     SCORPIONS SWAMP\r\n");
-    cprintf("                          LE MARAIS AUX SCORPIONS\r\n");
-    cprintf("          ====================================================\r\n");
-    cprintf("\r\n");
-    cprintf("           Un livre dont vous etes le heros\r\n");
-    cprintf("                               A Fighting Fantasy Gamebook\r\n");
-    cprintf("\r\n");
-    cprintf("               (1985) by Steve JACKSON & Ian LIVINGSTONE \r\n");
-    cprintf("\r\n");
-    cprintf("                    SELECT YOUR LANGUAGE / LANGUE\r\n");
-    cprintf("\r\n");
-    cprintf("                         [F] - Francais\r\n");
-    cprintf("\r\n");
-    cprintf("                         [E] - English\r\n");
-    cprintf("\r\n");
-    cprintf("\r\n");
-    cprintf("               2025 Apple II Port by : Arnaud VERHILLE\r\n");
-    cprintf("                                  (gist974@gmail.com)\r\n");
-    cprintf("\r\n\r\n");
-    cprintf("          ====================================================\r\n");
+    /* Sur le volume, l'empaqueteur retire l'extension .TXT -- meme
+     * convention que MSGFR/MSGEN. */
+    f = fopen("TITLE", "r");
+    if (f) {
+        while (fgets(line, sizeof(line), f)) cprintf("%s\r", line);
+        fclose(f);
+    } else {
+        cprintf("[F] Francais   [E] English\r\n");
+    }
 }
 
 /* Fonction pour sélectionner la langue */

@@ -1,0 +1,14 @@
+ANNEAU Anneau de Cuivre
+CAPE Cape Rouge
+CHAINE Chaine d'Or
+AIMANT Aimant d'Or
+AMULOUP Amulette de Loup
+AMUFLEUR Amulette de Fleur
+FIOLE Fiole scellee
+BAIE Baie d'Antherique
+EPEMAGIQUE Epee Magique
+.GAYOLARD
+.POMPATARTE
+.STRATAGUS
+.ANTHERIQUE
+.AMIS
