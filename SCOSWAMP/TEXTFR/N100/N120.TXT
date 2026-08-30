@@ -10,4 +10,4 @@ M 7 5 PREMIER LOUP
 M 6 6 DEUXIEME LOUP
 M 11 10 MAITRE DES LOUPS
 CF 314 Prendre la fuite
-C 154 Si vous tuez vos trois adversaires
+MV 154

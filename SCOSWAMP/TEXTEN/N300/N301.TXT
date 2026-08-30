@@ -8,4 +8,4 @@ once...
 M 8 10 FIRST BRIGAND
 M 8 11 SECOND BRIGAND
 CF 019 Flee
-C 246 If you kill the two Brigands
+MV 246

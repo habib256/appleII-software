@@ -7,4 +7,4 @@ You can choose to flee at any time, but you will have to retrace your steps.
 
 M 5 17 SLIME
 CF 153 Flee
-C 038 Kill the Slime and continue your journey
+MV 038

@@ -9,4 +9,5 @@ cold runs through you however: the spell also affects you. Roll a die; you
 lose as many STAMINA points as the number obtained. If you survive, continue
 your journey and keep your strength.
 
+ED ENDURANCE -1
 C 161 Continue if you're still alive

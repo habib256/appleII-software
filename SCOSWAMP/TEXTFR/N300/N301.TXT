@@ -9,4 +9,4 @@ combattre tous les deux a la fois...
 M 8 10 PREMIER BRIGAND
 M 8 11 DEUXIEME BRIGAND
 CF 019 Prendre la Fuite
-C 246 Si vous tuez les deux Brigands
+MV 246

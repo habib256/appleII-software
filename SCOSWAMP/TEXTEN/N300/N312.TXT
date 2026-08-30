@@ -5,4 +5,4 @@ obviously, the Dwarf wasn't a very skilled fighter.
 
 M 9 10 GIANT SCORPION
 CF 088 Flee
-C 324 If you kill the Giant Scorpion
+MV 324

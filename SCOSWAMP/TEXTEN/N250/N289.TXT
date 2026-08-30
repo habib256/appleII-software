@@ -14,4 +14,5 @@ from your Adventure Sheet two objects of your choice, Magic Stone or other,
 except for the Copper Ring which remained on your finger. You now leave the
 inn to resume your path. Test your Luck.
 
+E ENDURANCE +2
 CL 150 343

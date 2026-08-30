@@ -14,4 +14,4 @@ M 11 10 WOLF MASTER
 CF 314 Flee if you are in a bad position
 E HABILETE -3
 E ENDURANCE -1
-C 154 Kill the Wolf Master
+MV 154

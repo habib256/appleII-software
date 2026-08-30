@@ -6,4 +6,4 @@ prendre la fuite; le combat est ineluctable. Si vous parvenez a le tuer,
 poursuivez l'aventure.
 
 M 10 9 VOLEUR
-C 386 Si vous tuez le Voleur, continuer
+MV 386

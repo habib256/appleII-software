@@ -74,6 +74,18 @@ MESSAGES = [
     ('M_MORT_RECOMMENCER',
      '[R] recommencer une aventure   [Q] quitter vers ProDOS',
      '[R] start a new adventure   [Q] quit to ProDOS'),
+    # Le jet de des VISIBLE de la ligne ED. Deux messages, et deux seulement :
+    # la prose de la page est encore a l'ecran au-dessus et dit deja ce que le
+    # de coute ("lancez un de et perdez autant de points d'ENDURANCE"), donc
+    # l'invite n'a pas a le repeter et le resultat n'a pas a nommer la
+    # caracteristique. C'est ce qui evite huit messages (quatre caracs fois
+    # gain ou perte) ; la Feuille d'Aventure de la ligne 1 dit le reste.
+    ('M_LANCEZ_LES_DES',
+     'Le sort en decide. [ESPACE] lancer les des',
+     'Fate decides. [SPACE] roll the dice'),
+    ('M_VOUS_JETEZ',
+     'Vous jetez : %u.',
+     'You roll: %u.'),
 ]
 
 

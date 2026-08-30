@@ -230,6 +230,49 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   une retouche de celle-ci.
   → `SCOSWAMP/SRC/sfx.s`
 
+- **Le de se lance tout seul, et la victoire enchaine.** Deux mecaniques que
+  le livre confiait au joueur, rendues au moteur par deux directives concues
+  et implantees par un chantier d'agents (arpentage corpus + moteur,
+  conception, implantation) :
+
+  - **`ED <CARAC> <+-ndes>`** -- le jet de des visible. `ED ENDURANCE -1` :
+    « lancez un de et perdez autant de points d'ENDURANCE ». Meme cadre que le
+    jet de Chance : invite, une frappe, le resultat affiche, la Feuille
+    d'Aventure mise a jour. `ED OR +1` couvre le seul jet de gain du corpus
+    (les Pieces d'Or du brigand, page 135). Le de d'une ligne ED tombe AVANT
+    le combat de la meme page : la Malediction de la 261 peut tuer d'abord.
+  - **`MV <id>`** -- l'enchainement de victoire, jumeau de `V` : le dernier
+    adversaire tombe, la page cible se charge, plus d'ecran de choix ou le
+    joueur declarait lui-meme « si vous avez vaincu ». 28 pages converties,
+    leurs choix de victoire retires.
+
+  L'arpentage a aussi trouve des BUGS du corpus : quatre pages appliquaient
+  une perte inconditionnelle la ou la prose la reservait au Malchanceux (058,
+  190 -> `CE` posees) ; six pages annoncaient un gain qu'aucune ligne E ne
+  donnait (020, 021, 067, 076, 077, 289 -> posees) ; la 028 offrait un choix
+  « en cas de mort » que le moteur tient lui-meme ; et la 044 (sangsues)
+  jetait une forme unique -- le plus petit de deux des, double = la somme --
+  ramenee a un de simple, texte reecrit dans les deux langues.
+
+  **Reste documente, six pages** : 079 et 341 (le combat a DEUX issues --
+  duel au premier sang, seuil d'ENDURANCE -- que MV ne doit pas ecraser),
+  091, 257 et 377 (jet COMPARE a une caracteristique : la directive `CS`,
+  concue mais reportee), 373 (la Chance handicape l'adversaire de la page
+  suivante -- inexprimable sans page jumelle ou report de handicap). La 156
+  demande au joueur d'evaluer ses blessures que le moteur connait : candidate
+  a une directive de branchement sur degats.
+
+  Et une trouvaille de l'arpenteur moteur : la variable PAYLOAD de `make hdv`
+  nommait `MSGFR`/`MSGEN` au lieu de `MSGFR.TXT`/`MSGEN.TXT` -- le
+  `2>/dev/null` avalait la faute, la dependance aux catalogues ne mordait
+  pas. Corrigee, HELPFR/HELPEN ajoutes.
+
+  Marge apres le lot : **107 octets**. Les chantiers suivants (objets/
+  drapeaux, sauvegarde, `CS`) exigent d'abord la recuperation d'octets --
+  l'overlay des ecrans de lancement est la piste chiffree (~1 Ko).
+  → `SCOSWAMP/SRC/scoswamp.c`, `SCOSWAMP/SRC/rules.c`,
+    `SCOSWAMP.MORE/TOOLS/reflow_txt.py`
+
 - **Les sept dernieres pages que le derivateur n'osait pas trancher.** Elles
   restaient signalees depuis que le corpus est derive du texte ; elles sont
   toutes reglees, et le rapport de `reflow_txt.py --derive` est vide.

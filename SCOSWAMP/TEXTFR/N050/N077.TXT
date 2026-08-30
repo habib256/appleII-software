@@ -5,4 +5,5 @@ benefiques et vous recuperez 3 points d'ENDURANCE.
 
 Vous repartez ensuite vers l'ouest, vigilant dans le silence du marais.
 
+E ENDURANCE +3
 C 047 Repartir vers l'ouest

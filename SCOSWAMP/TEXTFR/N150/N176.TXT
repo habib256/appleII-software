@@ -7,4 +7,4 @@ Elle bondit avec une souplesse inattendue et vous comprenez qu'aucune fuite
 n'est possible. Le combat sera total, jusqu'a la mort.
 
 M 9 10 BETE IMMONDE
-C 125 Si vous parvenez a la tuer
+MV 125

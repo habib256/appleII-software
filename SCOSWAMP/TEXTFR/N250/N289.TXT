@@ -16,4 +16,5 @@ votre Feuille d'Aventure deux objets au choix, Pierre de Magie ou autre, a
 l'exception de l'Anneau de Cuivre qui est reste a votre doigt. Vous quittez a
 present l'auberge pour reprendre votre chemin. Tentez votre Chance.
 
+E ENDURANCE +2
 CL 150 343

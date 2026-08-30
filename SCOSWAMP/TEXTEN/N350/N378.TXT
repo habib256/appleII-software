@@ -7,4 +7,4 @@ You can, at any time, Flee.
 
 M 10 10 PATROLLER
 CF 234 Flee
-C 219 If you kill the Patroller
+MV 219

@@ -85,6 +85,43 @@ static void test_plafond(void)
     character_adjust_cha(&c, +5);   CHECK(c.cha == 8,  "CHA plafonnee, vu %u", c.cha);
 }
 
+/* La bourse. Elle n'a pas de plafond dans le livre -- "quelques Pieces d'Or
+ * qui vous permettront de subvenir a de menues depenses", jamais de maximum --
+ * mais elle a un plancher, et c'est lui qui compte : le champ est non signe,
+ * et un heros sans le sou qui paie une piece a l'aubergiste (page 078)
+ * repassait a 65535 Pieces d'Or. */
+static void test_or(void)
+{
+    Character c = hero(9, 20, 8);
+
+    c.gold = 0;
+    character_adjust_gold(&c, -1);
+    CHECK(c.gold == 0, "une bourse vide reste vide, vu %u", c.gold);
+
+    c.gold = 3;
+    character_adjust_gold(&c, -5);
+    CHECK(c.gold == 0, "on ne paie pas ce qu'on n'a pas, vu %u", c.gold);
+
+    c.gold = 3;
+    character_adjust_gold(&c, +100);
+    CHECK(c.gold == 103, "aucun plafond sur l'or, vu %u", c.gold);
+
+    /* Le contrat va jusqu'a 32 767, la borne de l'int 16 bits de cc65 par
+     * lequel le calcul passe. Le corpus distribue 370 Pieces d'Or en tout :
+     * la borne est hors d'atteinte de deux ordres de grandeur, mais elle est
+     * le contrat, et un test la tient. */
+    c.gold = 20000u;
+    character_adjust_gold(&c, +12000);
+    CHECK(c.gold == 32000u, "la bourse porte quatre chiffres et plus, vu %u", c.gold);
+
+    /* Le jet `ED OR +1` de la page 135 passe par la meme porte : un gain
+     * ordinaire s'ajoute, sans plafond de depart contrairement aux trois
+     * caracteristiques. */
+    c.gold = 20;
+    character_adjust_gold(&c, +6);
+    CHECK(c.gold == 26, "un de d'or s'ajoute, vu %u", c.gold);
+}
+
 static void test_chance(void)
 {
     Character c;
@@ -398,6 +435,7 @@ int main(void)
     test_dice();
     test_creation();
     test_plafond();
+    test_or();
     test_chance();
     test_assaut();
     test_blessures();

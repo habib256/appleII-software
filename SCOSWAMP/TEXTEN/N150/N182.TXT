@@ -5,4 +5,5 @@ stingers sting you several times: roll 1 die and lose as many STAMINA points.
 
 Furious, you jump over the rest of the group and flee out of the clearing.
 
+ED ENDURANCE -1
 C 319 Leave the clearing in great haste

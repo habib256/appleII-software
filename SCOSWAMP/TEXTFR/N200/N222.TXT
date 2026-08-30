@@ -9,4 +9,4 @@ Impossible de fuir: il vous rattraperait. Il n'a pas d'arme, seulement ses
 poings monstrueux: une chance subsiste de le vaincre.
 
 M 12 16 DEMON
-C 174 Si vous parvenez a le tuer
+MV 174

@@ -7,4 +7,4 @@ rubbery blows can unbalance you; the duel begins.
 
 M 8 10 POOL BEAST
 CF 330 Flee westward
-C 308 Kill the Beast
+MV 308

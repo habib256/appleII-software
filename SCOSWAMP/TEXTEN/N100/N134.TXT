@@ -8,4 +8,4 @@ and infinite. The shock is brutal; keep your breath and your composure.
 
 M 6 16 PINCER GRASS
 CF 187 Flee
-C 081 Continue the fight to defeat the Grass
+MV 081

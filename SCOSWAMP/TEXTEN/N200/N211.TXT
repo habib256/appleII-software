@@ -10,4 +10,4 @@ but his fury is terrible and he blocks all retreat. Confrontation is
 inevitable.
 
 M 6 12 GIANT
-C 366 If you manage to strike down the Giant
+MV 366

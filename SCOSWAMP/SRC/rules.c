@@ -84,6 +84,26 @@ void character_adjust_hab(Character* c, int d) { adjust(&c->hab, c->hab0, d); }
 void character_adjust_end(Character* c, int d) { adjust(&c->end, c->end0, d); }
 void character_adjust_cha(Character* c, int d) { adjust(&c->cha, c->cha0, d); }
 
+/* Plancher a zero, et pas de plafond : "quelques Pieces d'Or qui vous
+ * permettront de subvenir a de menues depenses", le livre n'en pose aucun.
+ *
+ * Le calcul passe par un `int` SIGNE -- c'est le seul moyen de voir la
+ * soustraction descendre sous zero au lieu de repasser par le haut. Un
+ * `gold += delta` ecrit a la main sur le champ non signe donnait 65 535
+ * Pieces d'Or au heros sans le sou qui en depense une (page 078).
+ *
+ * Ce que ce choix borne implicitement : sur cc65 l'int fait 16 bits, donc la
+ * bourse ne va pas au-dela de 32 767. Le corpus en distribue 370 en tout --
+ * 20 au depart, 100 au 049, 250 au 266 -- et la borne est hors d'atteinte de
+ * deux ordres de grandeur. La verifier couterait une comparaison 16 bits
+ * signee, soit 20 octets sur un binaire qui n'en a plus 110 : on la
+ * documente au lieu de la payer. */
+void character_adjust_gold(Character* c, int d)
+{
+    int v = (int)c->gold + d;
+    c->gold = (unsigned int)(v < 0 ? 0 : v);
+}
+
 /* Abaisse le plafond ET la valeur courante : le livre retire les deux d'un
  * coup, et laisser la valeur courante au-dessus de son propre maximum ferait
  * mentir la jauge. `delta` est negatif. */

@@ -7,4 +7,4 @@ Il se met en garde. L'arme etincelle: elle est clairement magique. Ce combat
 sera le dernier de votre aventure.
 
 M 13 18 STRATAGUS
-C 340 Si vous parvenez a tuer Stratagus
+MV 340

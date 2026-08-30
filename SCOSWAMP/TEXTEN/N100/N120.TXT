@@ -10,4 +10,4 @@ M 7 5 FIRST WOLF
 M 6 6 SECOND WOLF
 M 11 10 WOLF MASTER
 CF 314 Flee
-C 154 If you kill your three opponents
+MV 154

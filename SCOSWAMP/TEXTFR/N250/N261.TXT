@@ -10,5 +10,6 @@ perdez autant de points d'ENDURANCE que le chiffre obtenu. Si vous survivez,
 l'Araignee Geante vous attaque. Vous ne pouvez pas fuir; il vous faut
 combattre jusqu'a la mort.
 
+ED ENDURANCE -1
 M 8 9 ARAIGNEE GEANTE
-C 354 Combattre l'Araignee jusqu'a ce que l'un de vous meure
+MV 354

@@ -14,4 +14,4 @@ stops laughing and carefully observes the combat.
 
 M 7 6 GOBLIN STATUE
 CF 315 Flee
-C 156 If you manage to destroy the statue
+MV 156

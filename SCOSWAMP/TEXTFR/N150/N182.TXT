@@ -7,4 +7,5 @@ perdez autant de points d'ENDURANCE.
 Furieux, vous sautez par-dessus le reste du groupe et fuyez hors de la
 clairiere.
 
+ED ENDURANCE -1
 C 319 Quitter la clairiere en toute hate

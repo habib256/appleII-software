@@ -7,4 +7,4 @@ withstand the shock.
 M 9 10 BRIGAND CHIEF
 M 8 8 SECOND BRIGAND
 M 8 11 THIRD BRIGAND
-C 019 If you kill these three opponents, resume the journey
+MV 019

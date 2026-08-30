@@ -9,4 +9,4 @@ all at once....
 M 6 7 FIRST SWAMP ORC
 M 7 7 SECOND SWAMP ORC
 M 6 5 THIRD SWAMP ORC
-C 135 In case of victory
+MV 135

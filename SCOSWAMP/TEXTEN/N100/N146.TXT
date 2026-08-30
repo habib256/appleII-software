@@ -12,4 +12,4 @@ two frogs, the combat continues against the other according to normal rules.
 
 M 5 6 FIRST GIANT FROG
 M 6 5 SECOND GIANT FROG
-C 230 If you are victorious, continue your adventure.
+MV 230

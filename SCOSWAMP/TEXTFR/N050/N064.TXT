@@ -15,4 +15,4 @@ M 11 10 MAITRE DES LOUPS
 CF 314 Prendre la fuite si vous etes en mauvaise posture
 E HABILETE -3
 E ENDURANCE -1
-C 154 Tuer le Maitre des Loups
+MV 154

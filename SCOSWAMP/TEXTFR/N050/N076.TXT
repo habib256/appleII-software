@@ -9,5 +9,6 @@ dit pret a vous aider.
 Il vous offre des Herbes de Guerison qui vous rendent 1 point d'HABILETE si
 vous en avez perdu.
 
+E HABILETE +1
 C 166 Si vous avez deja trouve le buisson d'Antherique
 C 333 Sinon

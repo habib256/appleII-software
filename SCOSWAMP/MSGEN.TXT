@@ -43,3 +43,5 @@ You may take the same one several times.  [A-Z] take
 Fate decides. [SPACE] Test your Luck (LUCK %u)
 You roll two dice: %u, against a LUCK of %u.
 [R] start a new adventure   [Q] quit to ProDOS
+Fate decides. [SPACE] roll the dice
+You roll: %u.

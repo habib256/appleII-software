@@ -5,4 +5,5 @@ You use all the Healing Powder; you feel your strength returning. You recover
 
 You catch your breath and prepare to continue the journey.
 
+E ENDURANCE +2
 C 019 Resume the journey

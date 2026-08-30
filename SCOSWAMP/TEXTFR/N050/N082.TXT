@@ -7,4 +7,4 @@ caoutchouteux peuvent vous desarconner; le duel commence.
 
 M 8 10 BETE DU BASSIN
 CF 330 Prendre la fuite vers l'ouest
-C 308 Tuer la Bete
+MV 308

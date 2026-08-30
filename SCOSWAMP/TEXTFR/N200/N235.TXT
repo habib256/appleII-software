@@ -7,4 +7,4 @@ il faut tenir le choc.
 M 9 10 CHEF DES BRIGANDS
 M 8 8 DEUXIEME BRIGAND
 M 8 11 TROISIEME BRIGAND
-C 019 Si vous tuez ces trois adversaires, reprendre la route
+MV 019

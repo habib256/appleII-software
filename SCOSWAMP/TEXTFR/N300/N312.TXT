@@ -5,4 +5,4 @@ l'evidence, le Nain n'etait pas un combattant tres habile.
 
 M 9 10 SCORPION GEANT
 CF 088 Prendre la Fuite
-C 324 Si vous tuez le Scorpion Geant
+MV 324

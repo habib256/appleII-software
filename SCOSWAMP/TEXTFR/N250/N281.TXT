@@ -9,4 +9,4 @@ les affronter tous en meme temps....
 M 6 7 PREMIER ORQUE
 M 7 7 DEUXIEME ORQUE
 M 6 5 TROISIEME ORQUE
-C 135 En cas de victoire
+MV 135

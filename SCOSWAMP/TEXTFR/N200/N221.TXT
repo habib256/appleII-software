@@ -15,4 +15,4 @@ dangereuse et chaque erreur peut vous etre fatale.
 
 M 11 4 LICORNE
 CF 348 Prendre la fuite apres avoir porte au moins deux Assauts
-C 277 Si vous tuez la Licorne, poursuivre
+MV 277

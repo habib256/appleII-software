@@ -15,5 +15,6 @@ il reste chaud vous avertissant qu'un danger plane toujours sur vous, un
 danger peut-etre meme plus grand qu'auparavant. Soudain, vous sentez une odeur
 de soufre.
 
+ED ENDURANCE -1
 C 375 Rester quelques minutes dans la tour
 C 298 Partir immediatement

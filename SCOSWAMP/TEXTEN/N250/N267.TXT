@@ -5,4 +5,4 @@ dagger, but he's a cunning opponent. It's impossible for you to flee; combat
 is inevitable. If you manage to kill him, continue the adventure.
 
 M 10 9 THIEF
-C 386 If you kill the Thief, continue
+MV 386

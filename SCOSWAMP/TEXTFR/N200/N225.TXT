@@ -7,4 +7,4 @@ rougeoyante. Sa voix claquante vous menace: "Je vais te tuer!"
 L'assaut est inevitable; il vous faut engager le combat sans tarder.
 
 M 9 10 STRATAGUS
-C 140 Si vous parvenez a le tuer
+MV 140

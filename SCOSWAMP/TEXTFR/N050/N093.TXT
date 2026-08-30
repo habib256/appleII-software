@@ -9,4 +9,5 @@ jetez un de et perdez autant de points d'ENDURANCE que le chiffre obtenu.
 Si vous survivez, vous devez combattre le Maitre des Loups, mais deduisez 2
 points de son total d'HABILETE et de son total d'ENDURANCE.
 
+ED ENDURANCE -1
 C 120 Combattre le Maitre des Loups

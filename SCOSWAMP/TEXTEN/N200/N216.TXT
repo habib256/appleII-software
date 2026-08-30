@@ -6,4 +6,5 @@ boots and along your legs.
 Their stingers sting you: roll 1 die and lose as much STAMINA. Furious, you
 leap over the melee and rush out of the zone.
 
+ED ENDURANCE -1
 C 319 Leave the clearing by leaping over the scorpions

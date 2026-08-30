@@ -10,4 +10,4 @@ mais sa fureur est terrible et il vous barre toute retraite. L'affrontement
 est inevitable.
 
 M 6 12 GEANT
-C 366 Si vous parvenez a terrasser le Geant
+MV 366

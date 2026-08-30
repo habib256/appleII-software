@@ -8,5 +8,6 @@ A cold runs through you - the Curse also affects you. Roll a die; you lose as
 many STAMINA points as the number obtained. If you survive, the Giant Spider
 attacks you. You cannot flee; you must fight to the death.
 
+ED ENDURANCE -1
 M 8 9 GIANT SPIDER
-C 354 Fight the Spider until one of you dies
+MV 354

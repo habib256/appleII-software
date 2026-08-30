@@ -6,7 +6,11 @@
   M  <hab> <end> <nom>  la creature de la clairiere
   MD <n>              ses coups coutent n ENDURANCE (defaut 2)
   MS <n>              le combat cesse a n ENDURANCE (defaut 0)
+  MV <id>             le dernier adversaire tombe : la page envoie en <id>
+                      sans repasser par les choix
   E  <CARAC> <delta>  effet applique en entrant dans la clairiere
+  ED <CARAC> <+-ndes> jet de des visible : le signe dit gain ou perte, la
+                      valeur absolue le nombre de des (1 ou 2)
   P  <PIERRE> <n>     Pierres Magiques recues
   PC <n> <cats>       n Pierres a choisir parmi les categories N, B, M
   CF <id> <Titre>     la Fuite, quand la page l'autorise
@@ -25,13 +29,22 @@ from pathlib import Path
 BODY_ROWS   = 19   # lignes 2..20
 CHOICE_ROWS = 4    # lignes 21..24
 MAX_FOES    = 3    # doit suivre MAX_FOES dans scoswamp.c
+# Les trois bornes du moteur. Elles ne sont pas decoratives : ce qui les
+# depasse est tronque A L'ECRAN, en silence, et c'est ici -- et nulle part
+# ailleurs -- qu'on peut se payer la verification.
+MAX_CHOICES  = 5     # doit suivre MAX_CHOICES dans scoswamp.c
+CHOICE_TITLE = 76    # doit suivre CHOICE_TITLE dans scoswamp.c ('\0' compris)
+FILE_BUFFER  = 1344  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
 COL         = 39   # largeur d'une colonne de choix (2 par ligne)
 WRAP        = 78
 
 RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # Les directives de jeu : ni titre, ni corps, ni choix. Elles ne se replient
 # pas -- une ligne M coupee en deux ne veut plus rien dire.
-DIRECTIVE = re.compile(r"^(M|MD|MS|E0|E|P|PC|CF|CP|CU|CL|CE|V) ")
+# L'ordre de l'alternance FAIT FOI : `M` avant `MV` avalerait la ligne MV et
+# wrap() la replierait dans le corps. Les deux lettres passent donc devant la
+# lettre seule du meme prefixe, ici comme dans classify_line.
+DIRECTIVE = re.compile(r"^(MD|MS|MV|M|E0|ED|E|PC|P|CF|CP|CU|CL|CE|V) ")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -263,6 +276,10 @@ EFFECT_GUARD = re.compile(
 CARAC = {"ENDURANCE": "ENDURANCE", "STAMINA": "ENDURANCE",
          "HABILETE": "HABILETE", "SKILL": "HABILETE",
          "CHANCE": "CHANCE", "LUCK": "CHANCE"}
+# Les quatre mots que le moteur admet sur une ligne E, E0, CE ou ED. Ils
+# restent en francais dans les deux corpus : c'est de la mecanique, pas du
+# texte affiche -- et E0 n'en accepte que les deux premiers.
+CARAC_WORDS = {"ENDURANCE", "HABILETE", "CHANCE", "OR"}
 GAIN = ("regagnez", "gagnez", "ajoutez", "regain", "gain")
 
 
@@ -274,7 +291,11 @@ def derive_effects(body, directives):
     phrase qui porte "si", "sinon" ou "supplementaire" n'est pas une perte
     seche -- on la signale plutot que de la deviner.
     """
-    if any(d.startswith(("E ", "E0 ", "CE ", "CL ", "MD ")) for d in directives):
+    # "ED " est dans la liste depuis que le jet de des existe : le de de la
+    # page 093 est deja une perte d'ENDURANCE, et la deriver une seconde fois
+    # en ligne E la ferait payer deux fois -- une fois seche, une fois au de.
+    if any(d.startswith(("E ", "E0 ", "CE ", "CL ", "MD ", "ED "))
+           for d in directives):
         return [], []
     lines, warns = [], []
     for sentence in re.split(r"(?<=[.!?])\s+", " ".join(body)):
@@ -292,6 +313,210 @@ def derive_effects(body, directives):
         for n, carac in hits:
             lines.append(f"E {CARAC[carac.upper()]} {sign}{int(n)}")
     return lines, warns
+
+
+# ── Le jet de des visible (ligne ED) ────────────────────────────────────────
+#
+# "jetez un de et perdez autant de points d'ENDURANCE que le chiffre obtenu."
+# Sept pages le disent, a un mot pres, et une huitieme le dit pour de l'or.
+# Sans ligne ED la phrase n'etait que du decor : le joueur lisait qu'il devait
+# lancer un de, et rien ne se passait.
+#
+# Le corpus ecrit le jet de cinq facons -- "jetez un de", "lancez 1 de",
+# "Lancez un de;", "roll a die", "Roll one die" -- d'ou l'alternance sur le
+# determinant, chiffre compris.
+DICE_CAST = re.compile(
+    r"\b(?:lancez|lancer|jetez|jeter|roll)\s+"
+    r"(?P<n>un|une|1|a|one|deux|2|two)\s+d(?:es?|ice|ie)\b", re.I)
+DICE_N = {"un": 1, "une": 1, "1": 1, "a": 1, "one": 1,
+          "deux": 2, "2": 2, "two": 2}
+# Un jet COMPARE a une caracteristique n'est pas un ED : c'est le test 2d6 des
+# pages 091, 257 et 377, que le format ne sait pas encore ecrire. Le deriver en
+# ED ferait perdre les points au lieu de les mettre en jeu -- l'inverse de ce
+# que dit le livre.
+DICE_COMPARE = re.compile(
+    r"\b(?:inferieur\w*|superieur\w*|egal|egale|contre"
+    r"|less|equal|greater|higher|lower|against)\b", re.I)
+# "Tentez votre CHANCE. Test: lancez 2 des (2d6). Si total <= CHANCE..." :
+# quatre pages ecrivent le jet de Chance en toutes lettres. C'est un CL ou un
+# CE, jamais un ED -- le deriver en ED ferait perdre des points de CHANCE au
+# lieu de les mettre en jeu. La comparaison y est parfois ecrite "<=", que
+# DICE_COMPARE ne peut pas voir : c'est le vocabulaire du jet qui la trahit.
+LUCK_MARK = re.compile(
+    r"\b(?:tentez\s+votre\s+chance|chanceux|malchanceux"
+    r"|test\s+your\s+luck|lucky|unlucky)\b", re.I)
+# La forme du 044 : "le plus petit des deux chiffres obtenus ; en cas de
+# double, la somme". Ni 1d6 ni 2d6, et une seule page la porte : on la signale
+# et on la laisse en prose plutot que d'ajouter un champ au format pour elle.
+# "smaller" et pas seulement "smallest" : l'anglais du 044 dit "the smaller of
+# the two numbers" la ou le francais dit "le plus petit des deux chiffres", et
+# c'est le recoupement FR/EN qui a montre le trou -- l'anglais derivait un
+# `ED ENDURANCE -2` que le francais refusait, deux regles pour une page.
+DICE_ODD = re.compile(
+    r"\b(?:plus\s+petit|plus\s+grand|double|smaller|larger"
+    r"|smallest|largest|lowest|highest)\b", re.I)
+DICE_GOLD = re.compile(r"\b(?:pieces?\s+d[e']?\s*or|gold\s+pieces?)\b", re.I)
+DICE_LOSS = re.compile(
+    r"\b(?:perd\w*|retranch\w*|otez|oter|deduis\w*|reduis\w*"
+    r"|lose|loses|lost|losing|deduct|subtract|reduce)\b", re.I)
+DICE_GAIN = re.compile(
+    r"\b(?:gagnez|regagnez|ajoutez|recuperez|recevez"
+    r"|gain|gains|regain|add|receive|recover)\b", re.I)
+DICE_CARAC = re.compile(r"\b(ENDURANCE|HABILETE|CHANCE|STAMINA|SKILL|LUCK)\b")
+
+
+def derive_dice(body, directives):
+    """Rend (ligne ED, avertissements) pour le jet de des annonce par la page.
+
+    Le livre ORDONNE le jet ; le laisser en prose revenait a demander au joueur
+    de le lancer lui-meme, et de se croire sur parole. La cible se cherche
+    d'abord dans la phrase du jet, et seulement ensuite chez ses voisines :
+    la page 093 nomme l'ENDURANCE dans la meme phrase, la 135 parle des Pieces
+    d'Or dans la precedente, et elargir d'emblee ferait attraper au 093 le
+    "deduisez 2 points d'HABILETE" qui vise le MONSTRE, pas le heros.
+    """
+    if any(d.startswith("ED ") for d in directives):
+        return None, []
+    # Le jet de Chance a deja sa directive : la page ne parle pas d'un de de
+    # plus, elle parle de celui-la.
+    if any(d.startswith(("CL ", "CE ")) for d in directives):
+        return None, []
+    sentences = re.split(r"(?<=[.!?])\s+", " ".join(body))
+    for i, sentence in enumerate(sentences):
+        m = DICE_CAST.search(sentence)
+        if not m:
+            continue
+        short = " ".join(sentence.split())[:70]
+        # Les gardes se lisent sur la FENETRE et non sur la seule phrase du
+        # jet : "Lancez deux des." tient en une phrase, et c'est la suivante
+        # qui dit contre quoi (pages 091, 257, 377).
+        window = " ".join(sentences[max(0, i - 1):i + 2])
+        if DICE_ODD.search(window):
+            return None, ["jet de des d'une forme que ED ne sait pas ecrire "
+                          "(minimum, double) : " + short]
+        if LUCK_MARK.search(window):
+            return None, ["jet de Chance ecrit en prose : c'est un CL ou un "
+                          "CE, pas un ED, et la page n'en a aucun : " + short]
+        if DICE_COMPARE.search(window):
+            return None, ["jet de des COMPARE a une caracteristique : ce n'est "
+                          "pas un ED, il manque la directive de test : " + short]
+        n = DICE_N[m.group("n").lower()]
+        # La phrase du jet d'abord, ses voisines ensuite, et jamais l'inverse.
+        for scope in (sentence, window):
+            if DICE_GOLD.search(scope):
+                # Un de d'or est toujours un gain : on ne paie pas au hasard.
+                return f"ED OR +{n}", []
+            c = DICE_CARAC.search(scope)
+            if c:
+                carac = CARAC[c.group(1).upper()]
+                if DICE_LOSS.search(scope):
+                    return f"ED {carac} -{n}", []
+                if DICE_GAIN.search(scope):
+                    return f"ED {carac} +{n}", []
+                return None, ["jet de des sur %s sans verbe de gain ni de "
+                              "perte, a trancher a la main : %s" % (carac, short)]
+        return None, ["jet de des dont on ne voit pas la cible : " + short]
+    return None, []
+
+
+# ── L'enchainement de victoire (ligne MV) ───────────────────────────────────
+#
+# Trente pages a ligne M offraient, apres le dernier adversaire tombe, un
+# unique choix -- "Vous avez tue le Maitre", "Le Geant flechit" -- que le
+# joueur devait prendre lui-meme alors qu'il n'avait pas d'autre issue. La
+# ligne MV le supprime et rend au budget des choix la ligne d'ecran qu'il
+# mangeait, sur quatre disponibles.
+#
+# La regle est le COMPTE, pas le vocabulaire : sur une page a combat, une fois
+# la Fuite sortie en ligne CF, un choix unique restant EST la suite de la
+# victoire -- il n'y a pas d'autre facon de quitter la clairiere. Le
+# vocabulaire ne sert qu'a signaler ce qui n'est pas net.
+VICTORY = re.compile(
+    r"\b(tue\w*|vaincre|vainqu\w*|abattu\w*|abattez|victoire|terrass\w*"
+    r"|detrui\w*|reduis\w*|flechit|survivez"
+    r"|kill\w*|defeat\w*|slay|slain|beat|reduce\w*|falters|survive"
+    r"|victorious|victory|destroy\w*|strike)\b", re.I)
+# "En cas de mort : votre cadavre sert d'engrais." Un choix que le joueur ne
+# peut jamais prendre : le moteur tient la mort lui-meme (run_combat rend 0,
+# load_scene appelle game_over). Il occupe une ligne d'ecran pour rien.
+DEATH_CHOICE = re.compile(
+    r"\b(?:en\s+cas\s+de\s+mort|si\s+vous\s+mourez|si\s+vous\s+etes\s+tue"
+    r"|in\s+case\s+of\s+death|if\s+you\s+die|if\s+you\s+are\s+killed)\b", re.I)
+
+
+def derive_win(choices, directives):
+    """Rend (choix_restants, ligne MV, avertissements) pour une page a combat."""
+    if not any(d.startswith("M ") for d in directives):
+        return choices, None, []
+    if any(d.startswith("MV ") for d in directives):
+        return choices, None, []
+    warns = []
+    rest = []
+    for cid, ctitle in choices:
+        if DEATH_CHOICE.search(ctitle):
+            # On le retire, mais on le DIT : c'est du texte en moins, et le
+            # corpus appartient a quelqu'un d'autre.
+            warns.append("choix de mort retire, le moteur tient la mort "
+                         "lui-meme : C %03d %s" % (cid, ctitle))
+            continue
+        rest.append((cid, ctitle))
+    if len(rest) == 1:
+        cid, ctitle = rest[0]
+        if not VICTORY.search(ctitle):
+            warns.append("choix unique apres le combat, pris pour la suite de "
+                         "la victoire sans que son titre le dise : %s" % ctitle)
+        return [], "MV %03d" % cid, warns
+    if len(rest) > 1:
+        warns.append("%d issues apres le combat : la victoire n'en ouvre pas "
+                     "qu'une, page laissee en choix (%s)"
+                     % (len(rest), " / ".join(t for _, t in rest)))
+    return rest, None, warns
+
+
+# Le filet, et RIEN DE PLUS qu'un filet. derive_effects ne derive que des
+# pertes seches, et abandonne toute page qui porte deja un E : les gains du
+# livre ("recuperez 2 points d'ENDURANCE", "vous reprenez des forces") lui
+# echappent presque tous, et une douzaine de pages annoncaient un gain que le
+# moteur ne donnait pas. Les POSER automatiquement serait pire que le mal --
+# le meme verbe sert a une promesse ("il vous rendra vos forces si vous
+# revenez"), a un rappel et a un gain reel -- donc on se contente de le DIRE,
+# et c'est une main humaine qui tranche.
+GAIN_PROSE = re.compile(
+    r"\b(?:recuperez|reprenez|regagnez|rendent|rend|redonne\w*|ajoutez"
+    r"|recover|recovers|restore\w*|regain|regains|add)\b", re.I)
+
+
+def warn_mute_luck(body, directives):
+    """Signale une page qui ORDONNE un jet de Chance sans directive pour le jouer.
+
+    "Tentez votre CHANCE. Si vous etes malchanceux, cette contusion vous coute
+    1 point d'ENDURANCE." Sans CL ni CE, le jet n'est jamais joue et la perte
+    tombe de toute facon, sur le chanceux comme sur l'autre : le contraire de
+    ce que la page dit. Deux pages sont dans ce cas (058, 190), et c'est le
+    meme oubli que celui des lignes ED -- une mecanique restee en prose.
+    """
+    if any(d.startswith(("CL ", "CE ")) for d in directives):
+        return []
+    text = " ".join(body)
+    if not (LUCKY.search(text) and UNLUCKY.search(text)):
+        return []
+    return ["jet de Chance annonce par la prose et aucune ligne CL ou CE "
+            "pour le jouer : l'effet tombe sur les deux branches"]
+
+
+def warn_missing_gain(body, directives):
+    """Signale une page qui promet un gain sans ligne E pour le donner."""
+    # Le garde ne compte PAS "CL " : le jet de Chance porte ses propres deltas
+    # d'ENDURANCE, mais rien n'empeche la page d'annoncer en plus un gain a
+    # l'entree -- c'est le cas du 289, que derive_effects abandonnait pour
+    # cette exacte raison et qui n'apparaissait donc nulle part.
+    if any(d.startswith(("E ", "ED ", "CE ", "P ", "PC ")) for d in directives):
+        return []
+    for sentence in re.split(r"(?<=[.!?])\s+", " ".join(body)):
+        if GAIN_PROSE.search(sentence) and EFFECT_VALUE.search(sentence):
+            return ["gain annonce par la prose et aucune ligne E pour le "
+                    "donner : " + " ".join(sentence.split())[:70]]
+    return []
 
 
 # "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui suit."
@@ -426,7 +651,14 @@ def render(scene_id, title, body, choices, directives):
     out += [""]
     out += body
     out.append("")
-    out += directives
+    # ED passe devant les autres directives -- devant les lignes M, surtout.
+    # L'ORDRE D'EXECUTION n'en depend pas : load_scene joue le de avant le
+    # combat quelle que soit la position de la ligne, parce que c'est lui qui
+    # ordonne, pas le fichier. C'est pour l'oeil : sur la page 261 le livre
+    # fait tomber le de avant que l'Araignee attaque, et le fichier doit se
+    # lire dans cet ordre-la.
+    out += [d for d in directives if d.startswith("ED ")]
+    out += [d for d in directives if not d.startswith("ED ")]
     out += [f"C {cid:03d} {ctitle}" for cid, ctitle in choices]
     return "\n".join(out) + "\n"
 
@@ -463,14 +695,37 @@ def main():
                 if cl:
                     directives = directives + [cl]
             if derive:
+                # AVANT derive_effects : le de est deja une perte, et la
+                # deriver une seconde fois en ligne E la ferait payer deux
+                # fois. derive_effects abandonne toute page portant un ED.
+                ed, dwarn = derive_dice(body, directives)
+                if ed:
+                    directives = directives + [ed]
+                for w in dwarn:
+                    problems.append(f"{f}: {w}")
+            if derive:
                 eff, ewarn = derive_effects(body, directives)
                 directives = directives + eff
                 for w in ewarn:
                     problems.append(f"{f}: {w}")
             if derive:
+                for w in warn_missing_gain(body, directives):
+                    problems.append(f"{f}: {w}")
+                for w in warn_mute_luck(body, directives):
+                    problems.append(f"{f}: {w}")
+            if derive:
                 has_cu = any(d.startswith("CU ") for d in directives)
                 choices, cus = derive_stone_use(choices, has_cu)
                 directives = directives + cus
+            if derive:
+                # EN DERNIER : la ligne MV se decide au COMPTE des choix qui
+                # restent, donc une fois que la Fuite et les Pierres ont pris
+                # les leurs.
+                choices, mv, wwarn = derive_win(choices, directives)
+                if mv:
+                    directives = directives + [mv]
+                for w in wwarn:
+                    problems.append(f"{f}: {w}")
             if derive and not any(d.startswith("PC ") for d in directives) \
                      and not any(d.startswith("P ") for d in directives) \
                      and STONES_GIVEN.search(" ".join(body)) \
@@ -487,14 +742,38 @@ def main():
             w = wrap(body)
             if len(w) > BODY_ROWS:
                 problems.append(f"{f}: corps {len(w)} lignes > {BODY_ROWS}")
-            if len(choices) > 6:
-                problems.append(f"{f}: {len(choices)} choix > 6 (MAX_CHOICES)")
+            # Le moteur ne lit plus que l'INITIALE du mot de caracteristique
+            # (carac_of, scoswamp.c) : quatre strcmp coutaient trop cher pour
+            # distinguer ce qu'un octet distingue. La contrepartie est qu'une
+            # faute de frappe y passe en silence -- "EDURANCE" serait lue
+            # comme ENDURANCE, "OBJET" comme OR -- et c'est ici, du cote ou
+            # l'on peut se payer une comparaison de chaines, qu'on la refuse.
+            for d in directives:
+                parts = d.split()
+                if parts[0] in ("E", "E0", "CE", "ED") and len(parts) > 1 \
+                        and parts[1] not in CARAC_WORDS:
+                    problems.append(f"{f}: {parts[0]} sur un mot inconnu "
+                                    f"{parts[1]!r} (attendu : "
+                                    f"{', '.join(sorted(CARAC_WORDS))})")
+            if len(choices) > MAX_CHOICES:
+                problems.append(f"{f}: {len(choices)} choix > {MAX_CHOICES} "
+                                f"(MAX_CHOICES)")
+            # Un titre plus long est TRONQUE a l'ecran, sans un mot. C'est
+            # aussi ce garde qui rend prenable le levier CHOICE_TITLE 76 -> 73.
+            for cid, ctitle in choices:
+                if len(ctitle) > CHOICE_TITLE - 1:
+                    problems.append(f"{f}: titre du choix {cid:03d} "
+                                    f"{len(ctitle)} car. > {CHOICE_TITLE - 1} "
+                                    f"(CHOICE_TITLE)")
             r = choice_rows(choices)
             if r > CHOICE_ROWS:
                 problems.append(f"{f}: choix sur {r} lignes > {CHOICE_ROWS} "
                                 f"({len(choices)} choix)")
-            if len(new_bytes := render(sid, title, w, choices, directives).encode("utf-8")) > 1343:
-                problems.append(f"{f}: {len(new_bytes)} octets > 1343 (file_buffer)")
+            # fread lit FILE_BUFFER_SIZE-1 octets : le dernier est le '\0'.
+            if len(new_bytes := render(sid, title, w, choices,
+                                       directives).encode("utf-8")) > FILE_BUFFER - 1:
+                problems.append(f"{f}: {len(new_bytes)} octets > "
+                                f"{FILE_BUFFER - 1} (file_buffer)")
             # L'Apple II n'a ni accents ni guillemets francais : un octet
             # hors ASCII sortirait en glyphe faux, et le corpus est
             # volontairement sans accents depuis le depart.
@@ -523,9 +802,15 @@ def main():
             # en choix libres pendant que TEXTFR passait au jet de Chance.
             # Combien de champs portent de la mecanique, par directive : le
             # reste est du titre, qui se traduit.
-            KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3,
-                    "CU": 3, "CP": 3, "E": None, "V": None,
-                    "E0": None, "CE": None}
+            # None = la ligne entiere est de la mecanique, aucun titre a
+            # traduire. MV et ED sont dans ce cas. Une directive ABSENTE de
+            # cette table est silencieusement ignoree par mechanics(), et le
+            # recoupement devient aveugle a son sujet : c'est exactement le
+            # bug corrige le 2026-08-29 pour CU/CL/PC, et le lot pose des MV
+            # et des ED dans les deux langues.
+            KEEP = {"M": 3, "MD": 2, "MS": 2, "MV": None, "CL": None,
+                    "CF": 2, "PC": 3, "CU": 3, "CP": 3, "E": None,
+                    "ED": None, "V": None, "E0": None, "CE": None}
 
             def mechanics(dirs):
                 out = []
@@ -537,6 +822,15 @@ def main():
             if mechanics(fr) != mechanics(en):
                 problems.append(f"N{sid:03d}: FR et EN ne disent pas la meme "
                                 f"chose ({mechanics(fr)} / {mechanics(en)})")
+        for tag, label in (("ED ", "jets de des derives"),
+                           ("MV ", "victoires enchainees")):
+            hits = sorted(sid for sid in ids
+                          if any(d.startswith(tag)
+                                 for d in found.get(("TEXTFR", sid), [])))
+            print(f"{label} : {len(hits)}")
+            for sid in hits:
+                line = next(d for d in found[("TEXTFR", sid)] if d.startswith(tag))
+                print("   N%03d  %s" % (sid, line))
         combats = sorted(sid for sid in ids
                          if any(d.startswith("M ") for d in found.get(("TEXTFR", sid), [])))
         print(f"combats derives : {len(combats)}")

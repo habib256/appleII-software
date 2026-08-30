@@ -10,4 +10,5 @@ L'autre porte une carte grossiere. Vous y retrouvez votre position, mais rien
 de nouveau... sauf un dessin : une grenouille couronne, tout au sud de la
 carte.
 
+ED OR +1
 C 309 Aller vers la grenouille couronne

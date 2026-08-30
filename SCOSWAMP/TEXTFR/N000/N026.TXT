@@ -10,4 +10,4 @@ votre endurance.
 
 M 9 6 MAITRE DES ARAIGNEES
 MD 3
-C 354 Vous avez tue le Maitre
+MV 354

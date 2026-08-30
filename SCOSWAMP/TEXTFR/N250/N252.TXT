@@ -10,4 +10,5 @@ etrange vous parcourt cependant : le sort vous atteint aussi. Lancez un de;
 vous perdez autant de points d'ENDURANCE que le chiffre obtenu. Si vous
 survivez, poursuivez votre route et gardez vos forces.
 
+ED ENDURANCE -1
 C 161 Poursuivre si vous etes encore en vie

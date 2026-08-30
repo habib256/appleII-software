@@ -6,4 +6,4 @@ Vous n'avez aucune possibilite de prendre la fuite, car il est plus grand et
 plus rapide que vous. Il ne vous reste plus qu'a vous fier a votre epee.
 
 M 7 6 AIGLE
-C 132 Si vous tuez l'Aigle
+MV 132

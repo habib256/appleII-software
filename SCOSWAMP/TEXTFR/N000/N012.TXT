@@ -11,4 +11,4 @@ M 9 12 GEANT
 MD 4
 MS 6
 CF 161 Prendre la Fuite au cours du combat
-C 061 Le Geant flechit
+MV 061

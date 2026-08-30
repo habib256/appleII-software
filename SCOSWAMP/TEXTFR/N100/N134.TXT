@@ -9,4 +9,4 @@ sang-froid.
 
 M 6 16 HERBE A PINCES
 CF 187 Prendre la fuite
-C 081 Continuer le combat pour vaincre l'Herbe
+MV 081

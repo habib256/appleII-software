@@ -11,4 +11,5 @@ points as the number rolled.
 
 If you survive, you can continue your journey.
 
+ED ENDURANCE -1
 C 019 Continue your path

@@ -18,12 +18,17 @@
 /* Adresse de la page HGR 1 */
 #define HGR_PAGE1 ((unsigned char*)0x2000)
 #define HGR_SIZE  8192
-/* Le corpus ne depasse jamais 5 choix sur une page (6 scenes en ont 5) ; 6
- * laisse une marge. Chaque emplacement coute 78 octets, et sur cette machine
- * dix emplacements dont quatre vides, c'est un ecran de texte gaspille.
- * reflow_txt.py refuse une page qui en aurait plus. */
-#define MAX_CHOICES 6
-#define MAX_PATH  64  /* FILENAME_MAX pour ProDOS sur Apple II */
+/* Le corpus ne depasse jamais 5 choix sur une page, et la ligne MV en retire
+ * un a trente pages de plus : le sixieme emplacement etait une marge qu'on ne
+ * pouvait plus se payer. Chaque emplacement coute 77 octets -- deux vides,
+ * c'est un ecran de texte gaspille. reflow_txt.py refuse une page qui en
+ * aurait plus, et c'est lui qui garde l'invariant. */
+#define MAX_CHOICES 5
+/* Pas FILENAME_MAX : build_paths n'ecrit jamais que "N999.RLE" (9 octets) et
+ * "N999" (5). Deux champs de 64 octets pour ca, c'etaient 96 octets de BSS
+ * dormants -- et c'est le seul levier memoire du programme qui ne depende
+ * d'aucune mesure du corpus. */
+#define MAX_PATH  16
 
 /* Mise en page d'une scene, en dur sur les 24 lignes de l'ecran 80 colonnes :
  *
@@ -48,8 +53,13 @@
  * LOUPS du 224, les trois BRIGANDS du 235. */
 #define MAX_FOES 3
 
-/* Le titre de choix le plus long du corpus fait 72 caracteres ; 76 laisse de
- * quoi respirer sans gaspiller dix fois la difference. */
+/* Le titre de choix le plus long du corpus fait 72 caracteres, remesure le
+ * 2026-08-30 sur les deux langues. 76 laisse trois caracteres de battement --
+ * a cinq emplacements, chaque caractere de rab se paie cinq fois, donc
+ * descendre a 73 rend 15 octets. Levier tenu en reserve, PAS pris : le corpus
+ * est en cours d'edition ailleurs, et un titre de 73 caracteres serait
+ * tronque a l'ecran sans que rien ne le dise. reflow_txt.py le refuse
+ * desormais, ce qui rendra le levier prenable. */
 #define CHOICE_TITLE 76
 
 typedef struct {
@@ -97,14 +107,25 @@ typedef struct {
     int       luck_ko;       /* scene si Malchanceux */
     int       luck_dok;      /* ENDURANCE gagnee ou perdue sur la branche Chanceux */
     int       luck_dko;
+    /* Ligne MV : ou aller quand le dernier adversaire de la file est tombe,
+     * -1 si la page rend la main aux choix comme avant. */
+    int       win_scene;
+    /* Ligne ED : le jet de des visible. `dice_n` porte le SIGNE (gain ou
+     * perte) et le NOMBRE de des dans sa valeur absolue ; 0 = pas de jet. */
+    signed char   dice_n;
+    unsigned char dice_carac;  /* 0 END, 1 HAB, 2 CHA, 3 OR */
 } AppState;
 
 /* Variables globales optimisées */
 AppState app;
-/* La page la plus longue du corpus fait 1252 octets (TEXTFR/N350/N361.TXT).
- * 1344 laisse 7 % de marge : sur cette machine le tampon est la plus grosse
- * variable du programme, et l'espace qu'il prend manque ailleurs.
- * reflow_txt.py refuse une page qui depasserait. */
+/* La page la plus longue du corpus fait 1252 octets (TEXTFR/N350/N361.TXT),
+ * remesure le 2026-08-30. Le tampon est la plus grosse variable du programme,
+ * et 1344 lui laisse 7 % de marge. Descendre a 1280 rendrait 64 octets et
+ * laisserait encore 27 octets au-dessus de la plus grosse page (fread en lit
+ * SIZE-1) : levier tenu en reserve, PAS pris, parce qu'une page qui deborde
+ * est tronquee en silence et que le corpus est en cours d'edition ailleurs.
+ * Le prendre veut dire descendre le garde de reflow_txt.py a 1279 du meme
+ * geste. reflow_txt.py refuse une page qui depasserait. */
 #define FILE_BUFFER_SIZE 1344
 char file_buffer[FILE_BUFFER_SIZE];
 
@@ -348,6 +369,43 @@ static char* take_word(char* t, char** word)
     return t;
 }
 
+/* Les quatre mots que E, E0, CE et ED acceptent, lus une seule fois.
+ * Quatre branches repetaient la meme table de strcmp ; ED en aurait fait une
+ * cinquieme, et sur cette machine neuf comparaisons de chaines valent un
+ * ecran de texte. Rend 4 si le mot n'est pas reconnu.
+ * Les mots restent en francais dans les deux corpus, comme les lignes E/E0/CE
+ * existantes : c'est de la mecanique, pas du texte affiche. */
+static unsigned char carac_of(const char* w)
+{
+    /* L'INITIALE suffit : ENDURANCE, HABILETE, CHANCE et OR sont les quatre
+     * seuls mots que le format admet, et leurs premieres lettres different
+     * deux a deux. Quatre strcmp coutaient les quatre chaines en RODATA plus
+     * leur boucle, pour distinguer ce qu'un octet distingue. La contrepartie
+     * est qu'une faute de frappe passe -- "EDURANCE" serait lue comme
+     * ENDURANCE -- et c'est reflow_txt.py qui la refuse, du cote ou l'on peut
+     * se payer une verification. */
+    switch (*w) {
+    case 'E': return 0;
+    case 'H': return 1;
+    case 'C': return 2;
+    case 'O': return 3;
+    }
+    return 4;
+}
+
+/* L'effet, applique par la seule porte qui connaisse les regles de bornes :
+ * plafond au total de depart pour les trois caracteristiques, plancher zero
+ * pour les quatre. */
+static void carac_apply(unsigned char c, int d)
+{
+    switch (c) {
+    case 0: character_adjust_end(&app.hero, d);  break;
+    case 1: character_adjust_hab(&app.hero, d);  break;
+    case 2: character_adjust_cha(&app.hero, d);  break;
+    case 3: character_adjust_gold(&app.hero, d); break;
+    }
+}
+
 /* Classe une ligne du fichier. Le format d'une page :
  *
  *   T  <id> <titre>             titre, en video inverse ligne 1
@@ -357,9 +415,26 @@ static char* take_word(char* t, char** word)
  *   M  <hab> <end> <nom>        la creature de la clairiere (Batailles)
  *   MD <n>                      ses coups coutent n ENDURANCE (defaut 2)
  *   MS <n>                      le combat cesse a n ENDURANCE (defaut 0)
+ *   MV <id>                     apres le dernier adversaire tombe, la page
+ *                               envoie en <id> sans repasser par les choix.
+ *                               Le jumeau de CF cote victoire : elle remplace
+ *                               le choix de garde que le joueur devait
+ *                               prendre lui-meme, et rend la ligne d'ecran
+ *                               qu'il mangeait sur les 4 disponibles
  *   E  <CARAC> <delta>          effet a l'entree : E ENDURANCE -2
  *   E0 <CARAC> <delta>          perte qui entame le TOTAL DE DEPART, donc
  *                               definitive : E0 HABILETE -2
+ *   ED <CARAC> <+-ndes>         jet de des VISIBLE : `ED ENDURANCE -1` =
+ *                               "lancez un de et perdez autant de points
+ *                               d'ENDURANCE" ; `ED OR +1` = un de de Pieces
+ *                               d'Or. Le signe dit gain ou perte, la valeur
+ *                               absolue le nombre de des (1 ou 2). Le jet est
+ *                               DIFFERE, contrairement a CE : la ligne remplit
+ *                               seulement dice_n / dice_carac, et load_scene
+ *                               le joue une fois la page AFFICHEE -- sinon le
+ *                               joueur ne verrait rien. Donc la position de la
+ *                               ligne dans le fichier n'ordonne rien : le jet
+ *                               tombe toujours avant le combat de la page
  *   CE <CARAC> <dok> <dko>      "Tentez votre Chance" sans branchement : il
  *                               decide d'un effet, la page continue
  *   P  <PIERRE> <n>             le sorcier vous donne n Pierres Magiques
@@ -398,6 +473,14 @@ static void classify_line(char* l)
         app.foes[app.foe_count - 1].stop_at = (unsigned char)a;
         return;
     }
+    /* MV se lit avec MD et MS -- donc avant le test `M ` d'une seule lettre,
+     * qui l'avalerait -- mais sans leur garde `foe_count > 0` : MV ne qualifie
+     * pas le dernier adversaire declare, et peut preceder les lignes M. */
+    if (l[0] == 'M' && l[1] == 'V' && l[2] == ' ') {
+        take_uint(l + 3, &a);
+        app.win_scene = (int)a;
+        return;
+    }
     if (l[0] == 'M' && l[1] == ' ') {
         /* Chaque ligne M ajoute un adversaire a la file, dans l'ordre de la
          * page -- c'est l'ordre dans lequel le livre les fait venir. */
@@ -417,10 +500,14 @@ static void classify_line(char* l)
     if (l[0] == 'E' && l[1] == '0' && l[2] == ' ') {
         /* Perte qui entame le total de depart : elle ne se rattrape jamais. */
         int delta;
+        unsigned char k;
         t = take_word(l + 3, &word);
         delta = atoi(t);
-        if      (strcmp(word, "ENDURANCE") == 0) character_lower_end0(&app.hero, delta);
-        else if (strcmp(word, "HABILETE")  == 0) character_lower_hab0(&app.hero, delta);
+        /* Deux appels propres -- ce n'est pas la primitive de carac_apply,
+         * celle-ci abaisse le PLAFOND -- mais le meme aiguillage. */
+        k = carac_of(word);
+        if      (k == 0) character_lower_end0(&app.hero, delta);
+        else if (k == 1) character_lower_hab0(&app.hero, delta);
         return;
     }
     if (l[0] == 'C' && l[1] == 'E' && l[2] == ' ') {
@@ -432,22 +519,27 @@ static void classify_line(char* l)
         t = take_word(l + 3, &word);
         t = take_int(t, &dok);
         take_int(t, &dko);
-        {
-            int d = luck_test(&app.hero) ? dok : dko;
-            if      (strcmp(word, "ENDURANCE") == 0) character_adjust_end(&app.hero, d);
-            else if (strcmp(word, "HABILETE")  == 0) character_adjust_hab(&app.hero, d);
-            else if (strcmp(word, "CHANCE")    == 0) character_adjust_cha(&app.hero, d);
-        }
+        carac_apply(carac_of(word), luck_test(&app.hero) ? dok : dko);
+        return;
+    }
+    /* ED avant E, meme raison que MV avant M. */
+    if (l[0] == 'E' && l[1] == 'D' && l[2] == ' ') {
+        t = take_word(l + 3, &word);
+        app.dice_carac = carac_of(word);
+        /* atoi et pas take_uint : ici le signe porte le sens de la ligne.
+         * Aucun bornage ici -- deux comparaisons 16 bits signees coutaient 55
+         * octets pour un cas qui ne se presente pas. C'est run_dice_roll qui
+         * tient la regle "deux des au plus", et il la tient quoi qu'ecrive la
+         * page. */
+        if (app.dice_carac < 4) app.dice_n = (signed char)atoi(t);
         return;
     }
     if (l[0] == 'E' && l[1] == ' ') {
-        int delta;
         t = take_word(l + 2, &word);
-        delta = atoi(t);
-        if      (strcmp(word, "ENDURANCE") == 0) character_adjust_end(&app.hero, delta);
-        else if (strcmp(word, "HABILETE")  == 0) character_adjust_hab(&app.hero, delta);
-        else if (strcmp(word, "CHANCE")    == 0) character_adjust_cha(&app.hero, delta);
-        else if (strcmp(word, "OR")        == 0) app.hero.gold += (unsigned int)delta;
+        /* L'or passe par character_adjust_gold comme le reste : un
+         * `gold += delta` sur un champ non signe donnait 65535 Pieces d'Or au
+         * heros sans le sou qui en depense une. */
+        carac_apply(carac_of(word), atoi(t));
         return;
     }
     if (l[0] == 'P' && l[1] == 'C' && l[2] == ' ') {
@@ -915,6 +1007,40 @@ static int run_luck_test(void)
     return lucky ? app.luck_ok : app.luck_ko;
 }
 
+/* "Lancez un de et retranchez le chiffre obtenu de votre total d'ENDURANCE."
+ * Le livre ordonne le jet, il ne le propose pas : le moteur le joue, mais il
+ * le MONTRE -- un de qui tombe en coulisse ne se distingue pas d'une perte
+ * seche, et le joueur ne saurait pas ce qu'il vient de payer.
+ *
+ * Meme cadre que run_luck_test, et deux messages seulement : la prose de la
+ * page est encore a l'ecran au-dessus, elle dit deja ce que le de coute et
+ * sur quoi ; la Feuille d'Aventure de la ligne 1 dit ce qu'il a coute. */
+static void run_dice_roll(void)
+{
+    signed char   n = app.dice_n;
+    unsigned char roll;
+
+    print_at(CHOICE_ROW0, msg(M_LANCEZ_LES_DES));
+    /* Les choix de la page sont peints en dessous : les effacer, sinon on
+     * lirait "lancer les des" au-dessus de lettres qu'on ne peut pas taper. */
+    row_blank(CHOICE_ROW0 + 1);
+    row_blank(CHOICE_ROW0 + 2);
+    cgetc();
+
+    /* Un de, deux au plus : le livre n'en jette jamais davantage sur ces
+     * pages, et un compteur en bonne et due forme demandait une valeur
+     * absolue de char signe -- 40 octets pour choisir entre un et deux. */
+    roll = roll_d6();
+    if (n > 1 || n < -1) roll = (unsigned char)(roll + roll_d6());
+
+    gotoxy(0, CHOICE_ROW0);
+    cprintf(msg(M_VOUS_JETEZ), (unsigned)roll);
+    pad_to(79);
+    carac_apply(app.dice_carac, (n < 0) ? -(int)roll : (int)roll);
+    render_title_bar();
+    wait_key_at(CHOICE_ROWN, msg_continue());
+}
+
 /* "Vous choisirez ces six Pierres dans la liste qui figure au debut de ce
  * livre, mais vous ne pourrez les prendre que..." -- un bon sorcier ne donne
  * pas de Pierre malefique, un mauvais pas de Pierre benefique, et l'on a le
@@ -1193,6 +1319,19 @@ static void roll_character(void)
     wait_key_at(13, msg(M_ESPACE_ENTRER_DANS));
 }
 
+/* La mort et ce qui la suit, en un seul endroit. Le combat n'en a plus le
+ * monopole : "si vous survivez" (pages 252, 261, 274) dit que le de de la
+ * ligne ED peut tuer lui aussi, et dupliquer les cinq lignes couterait plus
+ * cher que la fonction. */
+static void die_and_restart(void)
+{
+    game_over();
+    monster_memory_reset();
+    scene_memory_reset();
+    roll_character();
+    app.pending_scene = 0;
+}
+
 /* Charger une nouvelle scene - version optimisée */
 void load_scene(int scene_id) {
     int issue;
@@ -1208,6 +1347,13 @@ void load_scene(int scene_id) {
     app.luck_ok = -1;
     app.luck_dok = 0;
     app.luck_dko = 0;
+    /* Les deux premiers sont obligatoires : sans remise a zero ils fuiraient
+     * d'une clairiere a la suivante -- une victoire d'hier renverrait ailleurs
+     * la page d'aujourd'hui. Le troisieme est du zele, dice_carac n'etant lu
+     * que si dice_n vaut autre chose que zero. */
+    app.win_scene  = -1;
+    app.dice_n     = 0;
+    app.dice_carac = 0;
 
     /* Charger d'abord le texte et les choix. Le chargeur HGR assembleur est
      * ensuite le dernier client ProDOS de la scène : son décodage direct en
@@ -1230,6 +1376,21 @@ void load_scene(int scene_id) {
      * texte, c'est au joueur de basculer. Le decodage se fait donc sous un
      * ecran texte deja lisible, et non derriere une image qui s'affiche
      * toute seule. */
+    /* Le de de la ligne ED tombe avant tout le reste : avant le jet de
+     * Chance, avant le choix des Pierres, avant l'image, avant le combat.
+     * C'est ce qui garantit l'ordre du 261 -- le de precede le combat de la
+     * meme page quelle que soit la position de la ligne dans le fichier. */
+    if (app.dice_n != 0) {
+        run_dice_roll();
+        /* "si vous survivez" : un ENDURANCE tombe a zero apres le jet part sur
+         * game_over, exactement comme une mort au combat. */
+        if (character_is_dead(&app.hero)) { die_and_restart(); return; }
+        /* Le jet a ecrase les 4 lignes du bas : les repeindre. run_luck_test
+         * n'en a jamais besoin, il rend toujours une scene ; ED laisse la
+         * page en place et lui rend la main. */
+        render_scene();
+    }
+
     /* La page ordonne un jet de Chance : il decide de la suite, il n'y a donc
      * pas de choix a offrir au joueur. */
     if (app.luck_ok >= 0) {
@@ -1258,19 +1419,29 @@ void load_scene(int scene_id) {
      * ce ou ces monstres s'y trouvent encore" : monster_enter rend l'ENDURANCE
      * laissee au dernier passage, et 0 si la creature est deja morte. */
     app.foe_cur = monster_enter((unsigned int)scene_id, app.foes, app.foe_count);
-    if (app.foe_cur >= app.foe_count) return;   /* file deja abattue */
+    /* La file peut avoir ete videe lors d'une visite precedente : c'est une
+     * victoire acquise, pas un combat a rejouer. Elle sort donc par la meme
+     * porte, et non plus par un `return` sec -- sans quoi une page passee a
+     * MV, qui n'a plus AUCUNE ligne C, laisserait le joueur devant un ecran
+     * sans issue. 3 = "gagne avant d'arriver" ; run_combat ne rend que 0
+     * (mort), 1 (victoire) ou 2 (fuite). */
+    issue = (app.foe_cur < app.foe_count) ? run_combat() : 3;
 
-    issue = run_combat();
     if (issue == 0) {
-        game_over();
-        monster_memory_reset();
-        scene_memory_reset();
-        roll_character();
-        app.pending_scene = 0;
+        die_and_restart();
     } else if (issue == 2) {
         app.pending_scene = app.flee_target;
-    } else {
-        render_scene();   /* la creature est tombee : rendre la main aux choix */
+    } else if (app.win_scene >= 0) {
+        /* La page dit ou mene la victoire : y aller, au lieu de repeindre une
+         * page dont le seul choix etait "vous avez tue le Maitre". run_combat
+         * a deja annonce l'effondrement et attendu ESPACE. */
+        app.pending_scene = app.win_scene;
+    } else if (issue == 1) {
+        /* La creature vient de tomber : le combat a mange les 4 lignes du bas,
+         * il faut y remettre les choix. Une file deja abattue (3) n'a rien
+         * peint par-dessus : la page est restee telle que display_scene_text
+         * l'a rendue. */
+        render_scene();
     }
 }
 

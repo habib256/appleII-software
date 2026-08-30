@@ -9,4 +9,4 @@ will be the last of your adventure.
 It's a duel to the death. You cannot flee.
 
 M 13 18 STRATAGUS
-C 340 If you manage to kill Stratagus
+MV 340

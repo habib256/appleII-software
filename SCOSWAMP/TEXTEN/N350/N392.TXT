@@ -6,4 +6,4 @@ You have no possibility of fleeing, for it's larger and faster than you. All
 you can do is trust your sword.
 
 M 7 6 EAGLE
-C 132 If you kill the Eagle
+MV 132

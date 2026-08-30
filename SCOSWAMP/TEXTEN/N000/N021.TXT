@@ -8,5 +8,6 @@ journey. You are in Clearing No. 012.
 
 What do you do?
 
+E ENDURANCE +1
 C 055 Explore the hollow log
 C 390 Don't worry about it and resume the journey

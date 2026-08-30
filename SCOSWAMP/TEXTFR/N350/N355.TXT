@@ -18,4 +18,4 @@ recours a la magie. Il ne vous reste donc plus qu'a les combattre...
 
 M 7 5 PREMIER COUPEUR DE BOUR
 M 8 5 DEUXIEME COUPEUR DE BOU
-C 186 Si vous les tuez tous les deux
+MV 186

@@ -9,5 +9,4 @@ defeat them, continue reading at the indicated number. Otherwise, your corpse
 will serve as fertilizer for the swamp.
 
 M 9 12 SWORD TREES
-C 362 Defeat the Sword Trees and continue
-C 000 In case of death: your corpse serves as fertilizer
+MV 362

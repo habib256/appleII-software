@@ -8,5 +8,5 @@ difficulte. Sinon, vous etes Malchanceux: votre bond est trop court et vous
 devez patauger dans les sables mouvants. Perdez 2 ENDURANCE. Puis reprenez la
 marche.
 
-E ENDURANCE -2
+CE ENDURANCE 0 -2
 C 270 Continuer apres le saut

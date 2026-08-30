@@ -7,4 +7,4 @@ Le second tourne autour de vous, cherchant l'angle d'attaque. Il faut tenir
 bon et combattre jusqu'au bout.
 
 M 7 6 LOUP
-C 247 Si vous parvenez a le tuer
+MV 247

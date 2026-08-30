@@ -8,4 +8,4 @@ Si vous sentez que vous avez le dessous, prenez la Fuite.
 
 M 7 8 OURS
 CF 390 Prendre la fuite
-C 069 Tuer l'Ours
+MV 069

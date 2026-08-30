@@ -16,4 +16,4 @@ left is to fight them...
 
 M 7 5 FIRST CUTPURSE
 M 8 5 SECOND CUTPURSE
-C 186 If you kill them both
+MV 186

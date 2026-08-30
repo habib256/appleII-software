@@ -7,4 +7,4 @@ The second circles around you, seeking the attack angle. You must hold firm
 and fight to the end.
 
 M 7 6 WOLF
-C 247 If you manage to kill it
+MV 247

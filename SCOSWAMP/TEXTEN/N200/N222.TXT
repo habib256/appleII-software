@@ -9,4 +9,4 @@ Impossible to flee: it would catch you. It has no weapon, only its monstrous
 fists: a chance remains to defeat it.
 
 M 12 16 DEMON
-C 174 If you manage to kill it
+MV 174

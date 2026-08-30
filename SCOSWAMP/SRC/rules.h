@@ -78,6 +78,13 @@ void character_adjust_hab(Character* c, int delta);
 void character_adjust_end(Character* c, int delta);
 void character_adjust_cha(Character* c, int delta);
 
+/* L'or n'a pas de plafond -- le livre n'en pose aucun -- mais il a le meme
+ * plancher que le reste : "vous ne pouvez pas payer ce que vous n'avez pas".
+ * Passer par ici pour TOUTE variation de bourse. Un `gold += delta` ecrit a
+ * la main sur un champ non signe donne 65535 Pieces d'Or au heros sans le
+ * sou qui paie une piece a l'aubergiste (page 078). */
+void character_adjust_gold(Character* c, int delta);
+
 /* "vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points votre
  * total initial d'HABILETE. Vous ne pourrez plus jamais retrouver tous vos
  * points de depart" (paragraphe 87). La perte ordinaire se rattrape ; celle-ci

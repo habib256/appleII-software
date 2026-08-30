@@ -8,5 +8,6 @@ route. Vous etes dans la Clairiere n 012.
 
 Que faites-vous?
 
+E ENDURANCE +1
 C 055 Explorer le tronc creux
 C 390 Ne pas me preoccuper et reprendre la route

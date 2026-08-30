@@ -9,4 +9,4 @@ instead of 2). The combat will be tough: measure your strength and endurance.
 
 M 9 6 SPIDER MASTER
 MD 3
-C 354 You have killed the Master
+MV 354

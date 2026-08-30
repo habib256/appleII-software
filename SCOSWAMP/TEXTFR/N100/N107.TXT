@@ -12,4 +12,5 @@ autant de points d'ENDURANCE que le chiffre obtenu.
 
 Si vous survivez, vous pouvez poursuivre votre route.
 
+ED ENDURANCE -1
 C 019 Continuer votre chemin

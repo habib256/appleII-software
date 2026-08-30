@@ -11,4 +11,4 @@ M 9 12 GIANT
 MD 4
 MS 6
 CF 161 Flee in the middle of the battle
-C 061 The Giant falters
+MV 061

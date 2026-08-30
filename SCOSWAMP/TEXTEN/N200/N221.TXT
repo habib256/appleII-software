@@ -14,4 +14,4 @@ dangerous and every mistake can be fatal.
 
 M 11 4 UNICORN
 CF 348 Flee after striking at least two Assaults
-C 277 If you kill the Unicorn, continue
+MV 277
