@@ -13,7 +13,6 @@
 /* La langue la plus longue tient en 1248 octets ; 1408 laisse de la marge pour
  * une traduction plus bavarde. Le catalogue est decoupe en place : les
  * pointeurs visent dedans, rien n'est recopie. */
-#define MSG_BYTES 1408
 
 /* Le dernier octet reste a zero : c'est la chaine vide que rend msg() quand
  * le catalogue n'a pas pu etre charge. */

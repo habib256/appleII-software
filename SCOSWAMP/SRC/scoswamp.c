@@ -684,11 +684,11 @@ static int is_fr(void) { return app.language[0] == 'F'; }
 static const char* msg_continue(void)
 { return msg(M_ESPACE_CONTINUER); }
 
-static void prompt_luck(void)
-{
-    gotoxy(0, CHOICE_ROWN);
-    cprintf(msg(M_ESPACE_ENCAISSER_C), app.hero.cha);
-}
+/* Le nom de la barre d'espace, seul mot de l'invite qui ne vient pas du
+ * catalogue : il est le meme dans les deux langues a une lettre pres. */
+static const char* msg_space(void)
+{ return is_fr() ? "ESPACE" : "SPACE"; }
+
 
 /* Le bandeau de bataille : les deux adversaires face a face, chacun dans sa
  * moitie d'ecran, sous l'illustration. C'est la ligne qu'on lit entre deux
@@ -714,17 +714,76 @@ static void row_blank(unsigned char row)
     pad_to(79);
 }
 
+/* Une jauge de dix cases : "[####------]".
+ *
+ * Les chiffres restent -- le livre compte en points -- mais c'est la barre qui
+ * dit d'un coup d'oeil qui est en train de mourir. Arrondi vers le HAUT : tant
+ * qu'il reste un point d'ENDURANCE, il reste une case, sinon la creature
+ * paraitrait morte un assaut trop tot. */
+static char* put_gauge(char* p, unsigned char v, unsigned char v0)
+{
+    unsigned char i, n;
+    n = (v0 == 0 || v == 0)
+        ? 0
+        : (unsigned char)(((unsigned int)v * 10u + v0 - 1u) / v0);
+    if (n > 10) n = 10;
+    *p++ = '[';
+    for (i = 0; i < 10; i++) *p++ = (i < n) ? '#' : '-';
+    *p++ = ']';
+    return p;
+}
+
+/* Une touche et son verbe : la touche en video inverse, comme la barre de
+ * titre. Entre crochets, l'oeil devait chercher ; en inverse il accroche. */
+static void put_key(const char* key, const char* label)
+{
+    revers(1); cprintf(" %s ", key); revers(0);
+    cprintf(" %s   ", label);
+}
+
+/* Un demi-bandeau de combattant : nom en inverse, HABILETE, jauge, points. */
+static void put_fighter(const char* name, unsigned char nmax,
+                        unsigned char hab,
+                        unsigned char end, unsigned char end0)
+{
+    char buf[40];
+    char* q = buf;
+    unsigned char n = 0;
+
+    revers(1);
+    while (name[n] && n < nmax) { cputc(name[n]); n++; }
+    revers(0);
+
+    q = put_str(q, is_fr() ? " HAB " : " SKL ");
+    q = put_u8(q, hab);
+    *q++ = ' ';
+    q = put_gauge(q, end, end0);
+    *q++ = ' ';
+    q = put_u8(q, end); *q++ = '/'; q = put_u8(q, end0);
+    *q = '\0';
+    cprintf("%s", buf);
+}
+
+static void prompt_luck(void)
+{
+    gotoxy(0, CHOICE_ROWN);
+    put_key(msg_space(), msg(M_K_ENCAISSER));
+    put_key("C", msg(M_K_CHANCE));
+    pad_to(79);
+}
+
 static void show_fighters(void)
 {
+    const Monster* m = &app.foes[app.foe_cur];
+
     gotoxy(0, CHOICE_ROW0);
-    cprintf(msg(M_VOUS_HAB_END),
-            app.hero.hab, app.hero.end, app.hero.end0);
-    pad_to(CHOICE_COL2);
-    cprintf("%-12s HAB %u  END %2u/%u",
-            app.foes[app.foe_cur].name, app.foes[app.foe_cur].hab,
-            app.foes[app.foe_cur].end, app.foes[app.foe_cur].end0);
-    /* Quand ils sont plusieurs, dire lequel : des chiffres, pas de traduction. */
-    if (app.foe_count > 1) cprintf("  %d/%d", app.foe_cur + 1, app.foe_count);
+    /* "VOUS" tient en quatre lettres, l'adversaire pas : la colonne de droite
+     * commence a 33 plutot qu'a la moitie de l'ecran, ce qui laisse 19
+     * caracteres a "MAITRE DES ARAIGNEES" au lieu de 12. Le demi-bandeau de
+     * droite doit finir avant la colonne 79, ou l'ecran scrollerait. */
+    put_fighter(msg(M_VOUS), 12, app.hero.hab, app.hero.end, app.hero.end0);
+    pad_to(33);
+    put_fighter(m->name, 19, m->hab, m->end, m->end0);
     pad_to(79);
 }
 
@@ -751,6 +810,16 @@ static void print_at(unsigned char row, const char* text)
 static void wait_key_at(unsigned char row, const char* prompt)
 {
     print_at(row, prompt);
+    cgetc();
+}
+
+/* La meme attente, mais avec la touche en video inverse comme le reste du
+ * combat : "[ESPACE] continuer" jurait a cote de " ESPACE  encaisser ". */
+static void wait_space_at(unsigned char row, const char* label)
+{
+    gotoxy(0, row);
+    put_key(msg_space(), label);
+    pad_to(79);
     cgetc();
 }
 
@@ -894,6 +963,8 @@ static int run_combat(void)
 {
     unsigned int assaut = 0;
     int use_luck, lucky;
+    int pending = 0;            /* une blessure annoncee attend d'etre encaissee */
+    unsigned char hurt;
     Round r;
     char key;
 
@@ -908,19 +979,27 @@ static int run_combat(void)
          * d'abord : c'est ce qui faisait clignoter le bandeau a chaque coup. */
         render_title_bar();
         show_fighters();
-        row_blank(CHOICE_ROW0 + 1);
-        row_blank(CHOICE_ROW0 + 2);
-
-        gotoxy(0, CHOICE_ROWN);
         if (assaut == 0) {
-            /* Avant le premier coup, les pierres de caracteristique sont
-             * encore permises : le sac reste ouvrable. */
-            cprintf(msg(M_ESPACE_ENGAGER_I),
-                    app.flee_target >= 0 ? (msg(M_F_FUITE)) : "");
-        } else {
-            cprintf(msg(M_ESPACE_ASSAUT_SUIVANT),
-                    app.flee_target >= 0 ? (msg(M_F_FUITE2)) : "");
+            row_blank(CHOICE_ROW0 + 1);
+            row_blank(CHOICE_ROW0 + 2);
         }
+
+        /* L'invite : une touche par assaut. Avant le premier coup, les Pierres
+         * de caracteristique sont encore permises, donc le sac reste ouvrable ;
+         * ensuite la meme frappe encaisse la blessure annoncee et enchaine sur
+         * l'assaut suivant. Seule la Chance demande une frappe de plus, et
+         * c'est voulu : le livre la fait choisir APRES avoir vu qui a touche. */
+        gotoxy(0, CHOICE_ROWN);
+        put_key(msg_space(),
+                msg(assaut == 0 ? M_K_ENGAGER
+                    : (!pending ? M_K_SUIVANT
+                       : (r.outcome == ROUND_HERO_HITS ? M_K_FRAPPER
+                                                       : M_K_ENCAISSER))));
+        if (pending) put_key("C", msg(M_K_CHANCE));
+        if (assaut == 0) put_key("I", msg(M_K_SAC));
+        if (app.flee_target >= 0) put_key("F", msg(M_K_FUIR));
+        put_key("ESC", msg(M_K_IMAGE));
+        pad_to(79);
 
         key = cgetc();
         /* ESC fait tourner les modes video sans quitter le combat : le mode
@@ -944,74 +1023,86 @@ static int run_combat(void)
             /* La creature blessee garde son ENDURANCE entamee : on peut
              * revenir dans la clairiere et reprendre le combat. */
             monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
-            wait_key_at(CHOICE_ROWN, msg_continue());
+            wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
             set_video_mode(0);
             return character_is_dead(&app.hero) ? 0 : 2;
         }
-        if (key != ' ' && key != '\r') continue;
+        use_luck = (pending && (key == 'C' || key == 'c'));
+        if (!use_luck && key != ' ' && key != '\r') continue;
 
+        /* Encaisser la blessure en attente, puis enchainer : c'est ce qui fait
+         * tenir un assaut en une seule frappe. */
+        if (pending) {
+            pending = 0;
+            lucky = combat_apply(&app.hero, &app.foes[app.foe_cur], &r, use_luck);
+            render_title_bar();
+            show_fighters();
+            if (use_luck) {
+                /* La Chance a change la blessure : le dire, et rendre la main
+                 * plutot que d'enchainer -- on vient de payer un point. */
+                print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX2))
+                                                : (msg(M_MALCHANCEUX2)));
+                wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
+            }
+            if (monster_is_beaten(&app.foes[app.foe_cur])) {
+                sfx_fall();
+                gotoxy(0, CHOICE_ROW0 + 2);
+                cprintf(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
+                pad_to(79);
+                /* "vous devrez les combattre tous deux a tour de role" : le
+                 * suivant se presente, et le heros garde l'ENDURANCE qui lui
+                 * reste -- aucun repit entre deux adversaires. */
+                app.foe_cur++;
+                monster_remember((unsigned int)app.current_scene, app.foe_cur,
+                                 &app.foes[app.foe_cur < app.foe_count
+                                           ? app.foe_cur : app.foe_count - 1]);
+                wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
+                if (app.foe_cur >= app.foe_count) {
+                    set_video_mode(0);
+                    return 1;
+                }
+                assaut = 0;      /* le sac redevient ouvrable avant l'assaut */
+                continue;
+            }
+            if (character_is_dead(&app.hero)) {
+                sfx_death();
+                monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
+                set_video_mode(0);
+                return 0;
+            }
+        }
+
+        /* L'assaut suivant, jete et annonce dans la foulee. */
         assaut++;
         combat_round(&app.hero, &app.foes[app.foe_cur], &r);
-        show_fighters();
         gotoxy(0, CHOICE_ROW0 + 1);
-        cprintf(msg(M_ASSAUT_FORCE_D),
-                assaut, r.hero_force, r.monster_force);
+        cprintf(msg(M_ASSAUT_FORCE_D), assaut, r.hero_force,
+                r.hero_force > r.monster_force ? ">"
+                : (r.hero_force < r.monster_force ? "<" : "="),
+                r.monster_force);
+        if (app.foe_count > 1) cprintf("   %u/%u",
+                                       (unsigned)(app.foe_cur + 1),
+                                       (unsigned)app.foe_count);
         pad_to(79);
 
+        /* Le bruitage suit QUI a touche : lame seche contre coup sourd. Il
+         * part avant le texte, pour tomber en meme temps que l'annonce. */
         if (r.outcome == ROUND_DODGE) {
             sfx_dodge();
             print_at(CHOICE_ROW0 + 2, msg(M_VOUS_AVEZ_CHACUN));
-            wait_key_at(CHOICE_ROWN, msg_continue());
-            continue;
+            continue;   /* personne n'est blesse : rien a encaisser */
         }
-
-        /* Le livre place le choix de la Chance APRES la blessure, une fois
-         * qu'on sait qui a touche : c'est pour ca que l'assaut est jete
-         * d'abord et applique ensuite. */
-        /* Le bruitage suit QUI a touche : lame seche contre coup sourd. Il
-         * part avant le texte, pour tomber en meme temps que l'annonce. */
         if (r.outcome == ROUND_HERO_HITS) sfx_hit(); else sfx_hurt();
-        print_at(CHOICE_ROW0 + 2, r.outcome == ROUND_HERO_HITS
-                                  ? (msg(M_VOUS_L_AVEZ))
-                                  : (msg(M_ELLE_VOUS_A)));
-        prompt_luck();
-        key = cgetc();
-        use_luck = (key == 'C' || key == 'c');
-        lucky = combat_apply(&app.hero, &app.foes[app.foe_cur], &r, use_luck);
-        render_title_bar();
-
-        show_fighters();
-        if (use_luck) print_at(CHOICE_ROW0 + 1, lucky ? (msg(M_CHANCEUX2))
-                                                      : (msg(M_MALCHANCEUX2)));
-        else          row_blank(CHOICE_ROW0 + 1);
-        row_blank(CHOICE_ROW0 + 2);
-
-        if (monster_is_beaten(&app.foes[app.foe_cur])) {
-            sfx_fall();
-            gotoxy(0, CHOICE_ROW0 + 2);
-            cprintf(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
-            pad_to(79);
-            /* "vous devrez les combattre tous deux a tour de role" : le
-             * suivant se presente, et le heros garde l'ENDURANCE qui lui
-             * reste -- aucun repit entre deux adversaires. */
-            app.foe_cur++;
-            monster_remember((unsigned int)app.current_scene, app.foe_cur,
-                             &app.foes[app.foe_cur < app.foe_count
-                                       ? app.foe_cur : app.foe_count - 1]);
-            wait_key_at(CHOICE_ROWN, msg_continue());
-            if (app.foe_cur >= app.foe_count) {
-                set_video_mode(0);
-                return 1;
-            }
-            assaut = 0;          /* le sac redevient ouvrable avant l'assaut */
-            continue;
-        }
-        if (character_is_dead(&app.hero)) {
-            sfx_death();
-            monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
-            set_video_mode(0);
-            return 0;
-        }
+        /* "chaque blessure coute 2 points d'ENDURANCE" -- sauf aux creatures
+         * dont la page dit autrement (ligne MD). On annonce la perte seche ;
+         * la Chance peut encore la changer, et la jauge dira le vrai. */
+        hurt = (r.outcome == ROUND_HERO_HITS) ? 2 : app.foes[app.foe_cur].damage;
+        gotoxy(0, CHOICE_ROW0 + 2);
+        cprintf("%s", r.outcome == ROUND_HERO_HITS ? (msg(M_VOUS_L_AVEZ))
+                                                   : (msg(M_ELLE_VOUS_A)));
+        cprintf(msg(M_DEGATS), (unsigned)hurt);
+        pad_to(79);
+        pending = 1;
     }
 }
 

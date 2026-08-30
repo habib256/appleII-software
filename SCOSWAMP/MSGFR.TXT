@@ -1,6 +1,5 @@
 [ESPACE] continuer
-[ESPACE] encaisser   [C] Tentez votre Chance (CHANCE %u)
-VOUS         HAB %u  END %2u/%u
+VOUS
 SAC A DOS -- %u Pieces d'Or, une epee, une cotte de mailles
    interdite en plein combat
 Aucune Pierre Magique.
@@ -8,19 +7,25 @@ Une Pierre se desintegre a l'usage.  [A-Z] utiliser  [ESC] fermer
 Le premier coup a ete donne.
 Pierre absente.
 La Pierre de %s se desintegre.
-[ESPACE] engager   [I] sac a dos   [ESC] image%s
-   [F] Fuite
-[ESPACE] assaut suivant   [ESC] image%s
-   [F] Fuite
 Vous fuyez : elle vous blesse au passage.
 Chanceux !
 Malchanceux !
-Assaut %u -- Force d'Attaque : vous %u, elle %u
+ASSAUT %u     votre force %u   %s   la sienne %u
 Vous avez chacun esquive.
-Vous l'avez blesse.
-Elle vous a blesse.
+Vous l'avez blesse
+Elle vous a blesse
 Chanceux !
 Malchanceux !
+engager
+encaisser le coup
+porter le coup
+tenter la Chance
+assaut suivant
+fuir
+sac a dos
+image
+continuer
+  -%u END
 %s s'effondre.
 HELPFR
 Fichier d'aide introuvable.
