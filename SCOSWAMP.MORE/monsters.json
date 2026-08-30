@@ -1,247 +1,247 @@
 {
-  "_comment": [
-    "Bible des creatures. Meme regle que characters.json : le texte est fixe,",
-    "et c'est lui qui rend une creature identique entre l'illustration de sa",
-    "clairiere et son image de bataille. Palette HGR uniquement.",
-    "La BETE DU BASSIN est decrite d'apres l'illustration de couverture."
-  ],
-  "characters": [
-    {
-      "id": "BETE_BASSIN",
-      "aliases": [
-        "BETE DU BASSIN",
-        "POOL BEAST"
-      ],
-      "source": "couverture du livre",
-      "look": "THE POOL BEAST: a bulbous ORANGE-brown swamp creature rising from the water, its body ringed by eight thick tapering tentacles that curl upward; a wide maw of long WHITE fangs dripping slime, two small eyes above it, two short horns, and a single pale WHITE gemstone set in the middle of its forehead.",
-      "scale": "three times the hero's height, filling half the frame",
-      "ref": "SCOSWAMP.MORE/REF/BETE_BASSIN.png"
-    },
-    {
-      "id": "LOUP",
-      "aliases": [
-        "LOUP",
-        "LOUPS",
-        "WOLF",
-        "WOLVES"
-      ],
-      "source": "portage",
-      "look": "THE WOLVES: lean WHITE-and-BLACK timber wolves, low shoulders, ORANGE eyes, bared fangs.",
-      "scale": "waist-high to the hero",
-      "ref": "SCOSWAMP.MORE/REF/LOUP.png"
-    },
-    {
-      "id": "BRIGAND",
-      "aliases": [
-        "BRIGAND",
-        "BRIGANDS",
-        "CHEF DES BRIGANDS",
-        "BRIGAND CHIEF"
-      ],
-      "source": "portage",
-      "look": "THE BRIGANDS: ragged men in patched ORANGE-brown leather, hoods and scarves over the face, short curved WHITE blades. Their chief wears a BLUE sash.",
-      "scale": "the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/BRIGAND.png"
-    },
-    {
-      "id": "ARAIGNEE",
-      "aliases": [
-        "ARAIGNEE",
-        "ARAIGNEES",
-        "ARAIGNEE GEANTE",
-        "SPIDER",
-        "SPIDERS",
-        "GIANT SPIDER"
-      ],
-      "source": "portage",
-      "look": "THE SPIDERS: BLACK long-legged spiders the size of dogs, glossy abdomens marked with a VIOLET hourglass, clustered ORANGE eyes.",
-      "scale": "the size of a large dog",
-      "ref": "SCOSWAMP.MORE/REF/ARAIGNEE.png"
-    },
-    {
-      "id": "SCORPION",
-      "aliases": [
-        "SCORPION",
-        "SCORPION GEANT",
-        "GIANT SCORPION"
-      ],
-      "source": "titre du livre",
-      "look": "THE GIANT SCORPION: a VIOLET-black scorpion the size of a man's torso, segmented tail raised and curved forward, heavy pincers held wide, low flat body.",
-      "scale": "as long as the hero is tall",
-      "ref": "SCOSWAMP.MORE/REF/SCORPION.png"
-    },
-    {
-      "id": "GEANT",
-      "aliases": [
-        "GEANT",
-        "GIANT"
-      ],
-      "source": "livre, paragraphe 12",
-      "look": "THE GIANT: a huge ORANGE-skinned brute, white hair and beard, BLUE loincloth, swinging a spiked WHITE club; clumsy stance, enormous shoulders.",
-      "scale": "twice the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/GEANT.png"
-    },
-    {
-      "id": "GRENOUILLE",
-      "aliases": [
-        "GRENOUILLE",
-        "GRENOUILLES",
-        "FROG",
-        "FROGS",
-        "GIANT FROG"
-      ],
-      "source": "livre, paragraphe 146",
-      "look": "THE GIANT FROGS: squat GREEN frogs the size of dogs, jaws lined with unexpected WHITE teeth, throats swollen, crouched to leap.",
-      "scale": "the size of a large dog",
-      "ref": "SCOSWAMP.MORE/REF/GRENOUILLE.png"
-    },
-    {
-      "id": "ORQUE",
-      "aliases": [
-        "ORQUE",
-        "ORQUES",
-        "SWAMP ORC",
-        "ORC"
-      ],
-      "source": "portage",
-      "look": "THE SWAMP ORCS: hunched GREEN-skinned brutes, tusked lower jaws, mismatched ORANGE armour scraps, notched blades.",
-      "scale": "a head shorter than the hero, broader",
-      "ref": "SCOSWAMP.MORE/REF/ORQUE.png"
-    },
-    {
-      "id": "COUPEUR",
-      "aliases": [
-        "COUPEUR DE BOURSES",
-        "CUTPURSE"
-      ],
-      "source": "portage",
-      "look": "THE CUTPURSES: wiry men in dark hoods, a short WHITE knife in each hand, cut purses hanging at the belt.",
-      "scale": "the hero's height, slighter",
-      "ref": "SCOSWAMP.MORE/REF/COUPEUR.png"
-    },
-    {
-      "id": "LICORNE",
-      "aliases": [
-        "LICORNE",
-        "UNICORN"
-      ],
-      "source": "portage",
-      "look": "THE UNICORN: a WHITE horse with an ORANGE mane and a single straight spiral horn, wounded flank, lowering its horn to charge.",
-      "scale": "a tall horse, taller than the hero at the shoulder",
-      "ref": "SCOSWAMP.MORE/REF/LICORNE.png"
-    },
-    {
-      "id": "DEMON",
-      "aliases": [
-        "DEMON"
-      ],
-      "source": "portage",
-      "look": "THE DEMON: a towering VIOLET figure with BLACK bat wings, curved horns, ORANGE burning eyes, clawed hands.",
-      "scale": "twice the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/DEMON.png"
-    },
-    {
-      "id": "OURS",
-      "aliases": [
-        "OURS",
-        "BEAR"
-      ],
-      "source": "portage",
-      "look": "THE BEAR: a heavy ORANGE-brown bear reared on its hind legs, WHITE claws spread, jaws open.",
-      "scale": "twice the hero's height when reared",
-      "ref": "SCOSWAMP.MORE/REF/OURS.png"
-    },
-    {
-      "id": "AIGLE",
-      "aliases": [
-        "AIGLE",
-        "EAGLE"
-      ],
-      "source": "portage",
-      "look": "THE EAGLE: a large bird of prey, WHITE head and ORANGE body, wings spread wide, talons forward.",
-      "scale": "wingspan twice the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/AIGLE.png"
-    },
-    {
-      "id": "VASE",
-      "aliases": [
-        "VASE",
-        "OOZE",
-        "SLIME"
-      ],
-      "source": "portage",
-      "look": "THE OOZE: a formless GREEN mass of dripping slime, no limbs and no face, spreading across the ground.",
-      "scale": "knee-high, spreading wide",
-      "ref": "SCOSWAMP.MORE/REF/VASE.png"
-    },
-    {
-      "id": "ARBRES",
-      "aliases": [
-        "ARBRES-EPEES",
-        "SWORD TREES",
-        "SWORD-TREES"
-      ],
-      "source": "portage",
-      "look": "THE SWORD-TREES: bare BLACK trunks whose branches end in long WHITE blade-shaped leaves that slash the air.",
-      "scale": "three times the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/ARBRES.png"
-    },
-    {
-      "id": "HERBE",
-      "aliases": [
-        "HERBE A PINCES",
-        "PINCER GRASS"
-      ],
-      "source": "portage",
-      "look": "THE PINCER GRASS: tall GREEN blades of grass ending in snapping jaws, growing thick across the clearing floor.",
-      "scale": "waist-high to the hero",
-      "ref": "SCOSWAMP.MORE/REF/HERBE.png"
-    },
-    {
-      "id": "IMMONDE",
-      "aliases": [
-        "BETE IMMONDE",
-        "FOUL BEAST"
-      ],
-      "source": "portage",
-      "look": "THE FOUL BEAST: a shapeless ORANGE-brown carcass of a creature, matted hide, too many limbs, a single wide BLACK eye.",
-      "scale": "the hero's height, sprawling",
-      "ref": "SCOSWAMP.MORE/REF/IMMONDE.png"
-    },
-    {
-      "id": "STATUE",
-      "aliases": [
-        "STATUE DEGOBELIN",
-        "STATUE DE GOBELIN",
-        "GOBLIN STATUE"
-      ],
-      "source": "portage",
-      "look": "THE GOBLIN STATUE: a squat stone goblin come to life, WHITE stone skin cracked at the joints, mouth open in a silent shout.",
-      "scale": "waist-high to the hero",
-      "ref": "SCOSWAMP.MORE/REF/STATUE.png"
-    },
-    {
-      "id": "PATROUILLEUR",
-      "aliases": [
-        "PATROUILLEUR",
-        "PATROLMAN",
-        "PATROLLER"
-      ],
-      "source": "portage",
-      "look": "THE PATROLMAN: a swamp warden in BLUE leathers and a wide hat, spear in hand, suspicious eyes.",
-      "scale": "the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/PATROUILLEUR.png"
-    },
-    {
-      "id": "VOLEUR",
-      "aliases": [
-        "VOLEUR",
-        "THIEF"
-      ],
-      "source": "portage",
-      "look": "THE THIEF: a slight figure in BLACK, face masked to the eyes, a stolen pouch in one hand and a knife in the other.",
-      "scale": "the hero's height, slighter",
-      "ref": "SCOSWAMP.MORE/REF/VOLEUR.png"
-    }
-  ]
+ "_comment": [
+  "Bible des creatures. Meme regle que characters.json : le texte est fixe,",
+  "et c'est lui qui rend une creature identique entre l'illustration de sa",
+  "clairiere et son image de bataille. Palette HGR uniquement.",
+  "La BETE DU BASSIN est decrite d'apres l'illustration de couverture."
+ ],
+ "characters": [
+  {
+   "id": "BETE_BASSIN",
+   "aliases": [
+    "BETE DU BASSIN",
+    "POOL BEAST"
+   ],
+   "source": "couverture du livre",
+   "look": "THE POOL BEAST: a bulbous ORANGE-brown swamp creature rising from the water, its body ringed by eight thick tapering tentacles that curl upward; a wide maw of long WHITE fangs dripping slime, two small eyes above it, two short horns, and a single pale WHITE gemstone set in the middle of its forehead.",
+   "scale": "three times the hero's height, filling half the frame",
+   "ref": "SCOSWAMP.MORE/REF/BETE_BASSIN.png"
+  },
+  {
+   "id": "LOUP",
+   "aliases": [
+    "LOUP",
+    "LOUPS",
+    "WOLF",
+    "WOLVES"
+   ],
+   "source": "portage",
+   "look": "THE WOLVES: lean WHITE-and-BLACK timber wolves, low shoulders, ORANGE eyes, bared fangs.",
+   "scale": "waist-high to the hero",
+   "ref": "SCOSWAMP.MORE/REF/LOUP.png"
+  },
+  {
+   "id": "BRIGAND",
+   "aliases": [
+    "BRIGAND",
+    "BRIGANDS",
+    "CHEF DES BRIGANDS",
+    "BRIGAND CHIEF"
+   ],
+   "source": "portage",
+   "look": "THE BRIGANDS: ragged men in patched ORANGE-brown leather, hoods and scarves over the face, short curved WHITE blades. Their chief wears a BLUE sash.",
+   "scale": "the hero's height",
+   "ref": "SCOSWAMP.MORE/REF/BRIGAND.png"
+  },
+  {
+   "id": "ARAIGNEE",
+   "aliases": [
+    "ARAIGNEE",
+    "ARAIGNEES",
+    "ARAIGNEE GEANTE",
+    "SPIDER",
+    "SPIDERS",
+    "GIANT SPIDER"
+   ],
+   "source": "portage",
+   "look": "THE SPIDERS: BLACK long-legged spiders the size of dogs, glossy abdomens marked with a VIOLET hourglass, clustered ORANGE eyes. Drawn with THICK heavy strokes and bold WHITE rim highlights so the BLACK body stands out against any background; no fine linework.",
+   "scale": "the size of a large dog",
+   "ref": "SCOSWAMP.MORE/REF/ARAIGNEE.png"
+  },
+  {
+   "id": "SCORPION",
+   "aliases": [
+    "SCORPION",
+    "SCORPION GEANT",
+    "GIANT SCORPION"
+   ],
+   "source": "titre du livre",
+   "look": "THE GIANT SCORPION: a VIOLET-black scorpion the size of a man's torso, segmented tail raised and curved forward, heavy pincers held wide, low flat body.",
+   "scale": "as long as the hero is tall",
+   "ref": "SCOSWAMP.MORE/REF/SCORPION.png"
+  },
+  {
+   "id": "GEANT",
+   "aliases": [
+    "GEANT",
+    "GIANT"
+   ],
+   "source": "livre, paragraphe 12",
+   "look": "THE GIANT: a huge ORANGE-skinned brute, white hair and beard, BLUE loincloth, swinging a spiked WHITE club; clumsy stance, enormous shoulders.",
+   "scale": "twice the hero's height",
+   "ref": "SCOSWAMP.MORE/REF/GEANT.png"
+  },
+  {
+   "id": "GRENOUILLE",
+   "aliases": [
+    "GRENOUILLE",
+    "GRENOUILLES",
+    "FROG",
+    "FROGS",
+    "GIANT FROG"
+   ],
+   "source": "livre, paragraphe 146",
+   "look": "THE GIANT FROGS: squat GREEN frogs the size of dogs, jaws lined with unexpected WHITE teeth, throats swollen, crouched to leap.",
+   "scale": "the size of a large dog",
+   "ref": "SCOSWAMP.MORE/REF/GRENOUILLE.png"
+  },
+  {
+   "id": "ORQUE",
+   "aliases": [
+    "ORQUE",
+    "ORQUES",
+    "SWAMP ORC",
+    "ORC"
+   ],
+   "source": "portage",
+   "look": "THE SWAMP ORCS: hunched GREEN-skinned brutes, tusked lower jaws, mismatched ORANGE armour scraps, notched blades.",
+   "scale": "a head shorter than the hero, broader",
+   "ref": "SCOSWAMP.MORE/REF/ORQUE.png"
+  },
+  {
+   "id": "COUPEUR",
+   "aliases": [
+    "COUPEUR DE BOURSES",
+    "CUTPURSE"
+   ],
+   "source": "portage",
+   "look": "THE CUTPURSES: wiry men in dark hoods, a short WHITE knife in each hand, cut purses hanging at the belt.",
+   "scale": "the hero's height, slighter",
+   "ref": "SCOSWAMP.MORE/REF/COUPEUR.png"
+  },
+  {
+   "id": "LICORNE",
+   "aliases": [
+    "LICORNE",
+    "UNICORN"
+   ],
+   "source": "portage",
+   "look": "THE UNICORN: a WHITE horse with an ORANGE mane and a single straight spiral horn, wounded flank, lowering its horn to charge.",
+   "scale": "a tall horse, taller than the hero at the shoulder",
+   "ref": "SCOSWAMP.MORE/REF/LICORNE.png"
+  },
+  {
+   "id": "DEMON",
+   "aliases": [
+    "DEMON"
+   ],
+   "source": "portage",
+   "look": "THE DEMON: a towering VIOLET figure with BLACK bat wings, curved horns, ORANGE burning eyes, clawed hands.",
+   "scale": "twice the hero's height",
+   "ref": "SCOSWAMP.MORE/REF/DEMON.png"
+  },
+  {
+   "id": "OURS",
+   "aliases": [
+    "OURS",
+    "BEAR"
+   ],
+   "source": "portage",
+   "look": "THE BEAR: a heavy ORANGE-brown bear reared on its hind legs, WHITE claws spread, jaws open.",
+   "scale": "twice the hero's height when reared",
+   "ref": "SCOSWAMP.MORE/REF/OURS.png"
+  },
+  {
+   "id": "AIGLE",
+   "aliases": [
+    "AIGLE",
+    "EAGLE"
+   ],
+   "source": "portage",
+   "look": "THE EAGLE: a large bird of prey, WHITE head and ORANGE body, wings spread wide, talons forward.",
+   "scale": "wingspan twice the hero's height",
+   "ref": "SCOSWAMP.MORE/REF/AIGLE.png"
+  },
+  {
+   "id": "VASE",
+   "aliases": [
+    "VASE",
+    "OOZE",
+    "SLIME"
+   ],
+   "source": "portage",
+   "look": "THE OOZE: a formless GREEN mass of dripping slime, no limbs and no face, spreading across the ground.",
+   "scale": "knee-high, spreading wide",
+   "ref": "SCOSWAMP.MORE/REF/VASE.png"
+  },
+  {
+   "id": "ARBRES",
+   "aliases": [
+    "ARBRES-EPEES",
+    "SWORD TREES",
+    "SWORD-TREES"
+   ],
+   "source": "portage",
+   "look": "THE SWORD-TREES (transformed, mid-attack): a squat tree of bright GREEN maple-like foliage over a muscular ORANGE-brown trunk and clawing roots; its branches are wooden ARMS ending in gripping hands, each hand HOLDING a long WHITE sword by a coloured hilt, six blades pointing outward in every direction.",
+   "scale": "slightly taller than the hero",
+   "ref": "SCOSWAMP.MORE/REF/ARBRES.png"
+  },
+  {
+   "id": "HERBE",
+   "aliases": [
+    "HERBE A PINCES",
+    "PINCER GRASS"
+   ],
+   "source": "portage",
+   "look": "THE PINCER GRASS: tall GREEN blades of grass ending in snapping jaws, growing thick across the clearing floor.",
+   "scale": "waist-high to the hero",
+   "ref": "SCOSWAMP.MORE/REF/HERBE.png"
+  },
+  {
+   "id": "IMMONDE",
+   "aliases": [
+    "BETE IMMONDE",
+    "FOUL BEAST"
+   ],
+   "source": "portage",
+   "look": "THE FOUL BEAST: a shapeless ORANGE-brown carcass of a creature, matted hide, too many limbs, a single wide BLACK eye.",
+   "scale": "the hero's height, sprawling",
+   "ref": "SCOSWAMP.MORE/REF/IMMONDE.png"
+  },
+  {
+   "id": "STATUE",
+   "aliases": [
+    "STATUE DEGOBELIN",
+    "STATUE DE GOBELIN",
+    "GOBLIN STATUE"
+   ],
+   "source": "portage",
+   "look": "THE GOBLIN STATUE: a squat stone goblin come to life, WHITE stone skin cracked at the joints, mouth open in a silent shout.",
+   "scale": "waist-high to the hero",
+   "ref": "SCOSWAMP.MORE/REF/STATUE.png"
+  },
+  {
+   "id": "PATROUILLEUR",
+   "aliases": [
+    "PATROUILLEUR",
+    "PATROLMAN",
+    "PATROLLER"
+   ],
+   "source": "portage",
+   "look": "THE PATROLMAN: a ranger -- a tall, tanned man dressed entirely in GREEN: tunic, cloak and hood, a spear in hand, watchful eyes.",
+   "scale": "the hero's height",
+   "ref": "SCOSWAMP.MORE/REF/PATROUILLEUR.png"
+  },
+  {
+   "id": "VOLEUR",
+   "aliases": [
+    "VOLEUR",
+    "THIEF"
+   ],
+   "source": "portage",
+   "look": "THE THIEF: a slight figure in BLACK, face masked to the eyes, a stolen pouch in one hand and a knife in the other.",
+   "scale": "the hero's height, slighter",
+   "ref": "SCOSWAMP.MORE/REF/VOLEUR.png"
+  }
+ ]
 }

@@ -778,3 +778,43 @@ une Pierre bénéfique au choix.
   n'est **pas** numéroté comme en POSIX, et `_oserror == 0` est le signal que
   l'échec est côté runtime C, pas côté ProDOS. C'est ce qui a fait chercher un
   fichier manquant pendant longtemps alors que le problème était le tas.
+
+## Note d'atelier — import d'images vers HGR
+
+- Avec **ii-pix**, `dither off` + `gamma 0.75` donnent en général de
+  meilleurs résultats d'importation (constaté sur les planches SCOSWAMP,
+  2026-08-30). Les refs sont désormais générées en traits épais non
+  pixellisés précisément pour que cette conversion tienne.
+  **Câblé dans `scoswamp_hgr convert`** : gamma 0.75 par défaut
+  (`--gamma X` pour ajuster, `1.0` = off) ; le convertisseur ne trame
+  jamais. Depuis le 2026-08-30 il fait aussi : réduction consciente de la
+  palette (vote majoritaire par paire, fini les halos de bord), choix de
+  banque par **DP 2D itéré** (pénalités bascule 150 / paire à cheval 300 /
+  cohérence verticale 50, balayages alternés jusqu'à convergence), cible
+  d'affichage **OpenEmulator** (couleurs du démod FIR de POM2 en régime
+  établi ; `--palette feline` pour l'ancien rendu RGB Chat Mauve),
+  `--report` (subDE / dissent / score) et `--preview-oe` (aperçu 560px à
+  travers le vrai démod FIR). `convert_images.sh` imprime les **10 pires
+  conversions** d'un lot pour relecture humaine.
+- 🟢 Améliorations restantes du convertisseur, si besoin un jour : votes
+  pondérés par recouvrement exact de surface (gain marginal) ; optimisation
+  au niveau signal à travers le démodulateur (plafond théorique — gros
+  effort, gain quasi nul sur des aplats, n'aurait de sens que pour des
+  photos). Le tramage reste exclu par choix de style.
+
+## 🟠 Prochaine étape (après redémarrage) — régénération des images
+
+Les **74 planches de référence sont validées** (2026-08-30, style traits
+épais non pixellisés, palette stricte, ≥1000 px de petit côté). La suite,
+via un **workflow d'agents Opus** :
+
+1. Régénérer les **~400 illustrations de scènes** et les **images de
+   bataille** à partir des planches REF (`build_manifest.py --all`, puis
+   `--battle` ; manifestes joignant les planches par sujet + clairière).
+2. Convertir avec le nouveau `scoswamp_hgr` (gamma 0.75, DP 2D, cible OE)
+   via `convert_images.sh` et relire les 10 pires conversions du rapport.
+3. Reconstruire l'image **HDV** et aussi une **2MG** de la dernière
+   version de SCOSWAMP.
+4. `build_manifest.py --record` pour poser l'empreinte des fiches.
+
+Rappel : les anciens rendus sont archivés dans `GENERATED.prev`.

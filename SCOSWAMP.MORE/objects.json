@@ -1,56 +1,56 @@
 {
-  "_comment": [
-    "Bible des objets. Un objet que le recit fait traverser tout le jeu doit",
-    "avoir la meme forme d'une image a l'autre : l'Anneau de Cuivre revient",
-    "dans 23 pages, les Amulettes sont le but de la quete. Meme regle et meme",
-    "palette que les trois autres bibles."
-  ],
-  "characters": [
-    {
-      "id": "ANNEAU",
-      "aliases": [
-        "Anneau de Cuivre",
-        "Copper Ring"
-      ],
-      "source": "livre",
-      "look": "THE COPPER RING: a plain ORANGE-copper band worn on the hand, its flat face marked with a single engraved arrow that always points north.",
-      "ref": "SCOSWAMP.MORE/REF/ANNEAU.png"
-    },
-    {
-      "id": "AMULETTE",
-      "aliases": [
-        "Amulette",
-        "Amulettes",
-        "Amulet",
-        "Amulets"
-      ],
-      "source": "livre",
-      "look": "THE MASTERS' AMULETS: flat SILVER-WHITE discs on a fine chain, each cut into the shape of its owner's creature -- wolf, flower, bird, spider, frog. The Masters' fates hang on them.",
-      "ref": "SCOSWAMP.MORE/REF/AMULETTE.png"
-    },
-    {
-      "id": "ANTHERIQUE",
-      "aliases": [
-        "Antherique",
-        "Antherica"
-      ],
-      "source": "livre, paragraphe 371",
-      "look": "THE ANTHERICA: a lush bush of dark GREEN leaves hung with clusters of small VIOLET berries; a single berry is the size of a thumbnail.",
-      "ref": "SCOSWAMP.MORE/REF/ANTHERIQUE.png"
-    },
-    {
-      "id": "PIERRE_MAGIE",
-      "aliases": [
-        "Pierre de Magie",
-        "Pierres de Magie",
-        "Pierre Magique",
-        "Pierres Magiques",
-        "Magic Stone",
-        "Magic Stones"
-      ],
-      "source": "livre, La Magie",
-      "look": "THE MAGIC STONES: smooth pebbles that fit in a closed fist, each one a single flat colour -- ORANGE, GREEN, BLUE, VIOLET or WHITE -- with a faint glow at the core. They crumble to dust once used.",
-      "ref": "SCOSWAMP.MORE/REF/PIERRE_MAGIE.png"
-    }
-  ]
+ "_comment": [
+  "Bible des objets. Un objet que le recit fait traverser tout le jeu doit",
+  "avoir la meme forme d'une image a l'autre : l'Anneau de Cuivre revient",
+  "dans 23 pages, les Amulettes sont le but de la quete. Meme regle et meme",
+  "palette que les trois autres bibles."
+ ],
+ "characters": [
+  {
+   "id": "ANNEAU",
+   "aliases": [
+    "Anneau de Cuivre",
+    "Copper Ring"
+   ],
+   "source": "livre",
+   "look": "THE COPPER RING: the ring ALONE as an object on the plain black background -- no hand, no finger, no wearer: a plain ORANGE-copper band, its flat face marked with a single engraved arrow that always points north.",
+   "ref": "SCOSWAMP.MORE/REF/ANNEAU.png"
+  },
+  {
+   "id": "AMULETTE",
+   "aliases": [
+    "Amulette",
+    "Amulettes",
+    "Amulet",
+    "Amulets"
+   ],
+   "source": "livre",
+   "look": "THE MASTERS' AMULETS: flat SILVER-WHITE discs on a fine chain, each cut into the shape of its owner's creature -- wolf, flower, bird, spider, frog. The Masters' fates hang on them.",
+   "ref": "SCOSWAMP.MORE/REF/AMULETTE.png"
+  },
+  {
+   "id": "ANTHERIQUE",
+   "aliases": [
+    "Antherique",
+    "Antherica"
+   ],
+   "source": "livre, paragraphe 371",
+   "look": "THE ANTHERICA: a lush bush of dark GREEN leaves hung with clusters of small VIOLET berries; a single berry is the size of a thumbnail.",
+   "ref": "SCOSWAMP.MORE/REF/ANTHERIQUE.png"
+  },
+  {
+   "id": "PIERRE_MAGIE",
+   "aliases": [
+    "Pierre de Magie",
+    "Pierres de Magie",
+    "Pierre Magique",
+    "Pierres Magiques",
+    "Magic Stone",
+    "Magic Stones"
+   ],
+   "source": "livre, La Magie",
+   "look": "THE MAGIC STONES: precious CUT GEMSTONES that fit in a closed fist -- faceted like jewels, sharp polished facets catching the light, never smooth river pebbles. Each gem is a single flat colour -- ORANGE, GREEN, BLUE, VIOLET or WHITE -- with a bright glow at its core and WHITE facet highlights. They crumble to dust once used.",
+   "ref": "SCOSWAMP.MORE/REF/PIERRE_MAGIE.png"
+  }
+ ]
 }

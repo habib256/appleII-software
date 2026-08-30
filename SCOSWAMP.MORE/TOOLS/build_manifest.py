@@ -12,10 +12,11 @@ from pathlib import Path
 STYLE = """Use case: illustration-story
 Asset type: native Apple II HGR scene illustration for SCOSWAMP
 Primary request: Illustrate the numbered French gamebook scene below faithfully.
-Style/medium: late-1970s sword-and-sorcery pulp illustration translated into hard-edged Apple II HGR shapes; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents.
+Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines and flat solid fills; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents. NOT pixel art: no visible pixels, no jagged staircase edges, no mosaic or dithered texture -- draw clean smooth lines, but keep every stroke and shape bold enough (each stroke at least 1/70 of the image width) that conversion to a 280x192 Apple II HGR screen keeps it readable.
 Composition/framing: landscape 35:24; select one decisive visual moment, never a collage of choices or backstory; one strong focal action; essential shapes remain readable at 280x192 and are at least 3-4 HGR pixels thick; keep critical content away from the extreme edges.
 Color palette: use only black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
 Lighting/mood: theatrical menace, adventure, immediate action.
+The hero's presence: include the hero ONLY when the moment involves him bodily -- meeting, fighting, bargaining, being seized. When the page is a landscape, an arrival, a found object or a quiet observation, leave him OUT of the frame and show the scene itself.
 The hero's bearing: he is seen from behind, but he is never turned AWAY from the people or creatures of the scene. His body, his shoulders and his head are angled toward whoever he is facing -- we look over his shoulder AT them. A hero showing his back to the character he is talking to, bargaining with or confronting is wrong.
 The hero's weapon: his sword stays SHEATHED at his hip and his hands stay empty unless the scene text below actually has him fighting, drawing, threatening or striking. Most pages are a walk, a conversation, a discovery or a bargain, and a hero standing sword in hand through all of them looks like a man who means to kill everyone he meets. Draw the posture the page describes.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
@@ -32,7 +33,7 @@ French scene source:
 # 20 lignes du haut, l'echange d'assauts les 4 du bas. Les 32 dernieres lignes
 # de pixels sont donc RECOUVERTES par la fenetre de texte -- c'est la contrainte
 # de cadrage qui distingue une image de bataille d'une illustration de scene.
-BATTLE_HERO = """The hero, drawn identically in every battle image: a lean human adventurer in a hooded green cloak over chainmail, a round shield on the left arm, and here -- and only here, because this is a fight -- his sword DRAWN and raised in the right hand, a backpack on the shoulders, seen three-quarters from behind-left so the face stays hidden."""
+BATTLE_HERO = """The hero, drawn identically in every battle image: a lean, muscular human adventurer in a hooded green cloak over a sleeveless orange leather jerkin, his muscular arms bare, and here -- and only here, because this is a fight -- his sword DRAWN and raised in the right hand, a backpack on the shoulders, seen three-quarters from behind-left so the face stays hidden."""
 
 BATTLE_STYLE = """Use case: illustration-story
 Asset type: native Apple II HGR battle tableau for SCOSWAMP
@@ -41,7 +42,7 @@ Setting: the duel happens somewhere, so draw the place behind them -- the swamp 
 Composition/framing: landscape 35:24 for a 280x192 screen. CRITICAL: during play a text window covers the bottom sixth of the image, and the first attempt had the hero's feet cut off by it. Both figures must be COMPLETE — head to feet — within the upper three quarters of the frame, and the lowest quarter must be plain dark empty ground with nothing in it. Hero in the left third, adversary in the right two thirds, a clear gap of dark ground between them; readable silhouettes at 280x192, every essential shape at least 3-4 HGR pixels thick.
 Facing -- NON-NEGOTIABLE: the two are fighting EACH OTHER, so each one looks at the other. The hero stands on the left and faces, leans and strikes RIGHTWARD, toward the adversary. The adversary stands on the right and faces, leans and strikes LEFTWARD, toward the hero. Their heads are turned toward one another, their eyes meet, their weapons are aimed at one another. A figure whose head or gaze points away from the other -- outward, toward the edge of the frame, or at the viewer -- is WRONG: two fighters looking in opposite directions are not in a duel.
 """ + BATTLE_HERO + """
-Style/medium: late-1970s sword-and-sorcery pulp illustration translated into hard-edged Apple II HGR shapes; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents.
+Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines and flat solid fills; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents. NOT pixel art: no visible pixels, no jagged staircase edges, no mosaic or dithered texture -- draw clean smooth lines, but keep every stroke and shape bold enough (each stroke at least 1/70 of the image width) that conversion to a 280x192 Apple II HGR screen keeps it readable.
 Color palette: use only black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
 Lighting/mood: theatrical menace, imminent violence.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
@@ -128,7 +129,7 @@ BIBLES = ("decors.json", "characters.json", "monsters.json", "objects.json")
 # Le medium et la palette etaient decrits deux fois, une fois pour les scenes
 # et une fois pour les batailles : deux textes qui pouvaient deriver l'un de
 # l'autre. Ils n'existent plus qu'ici.
-COMMON_STYLE = """Style/medium: late-1970s sword-and-sorcery pulp illustration translated into hard-edged Apple II HGR shapes; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents.
+COMMON_STYLE = """Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines and flat solid fills; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents. NOT pixel art: no visible pixels, no jagged staircase edges, no mosaic or dithered texture -- draw clean smooth lines, but keep every stroke and shape bold enough (each stroke at least 1/70 of the image width) that conversion to a 280x192 Apple II HGR screen keeps it readable.
 Color palette: use ONLY black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247 -- no other hue, no grey, no gradient; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
 Text (verbatim): ""
@@ -262,6 +263,7 @@ REF_DECOR = """Use case: reference sheet
 Asset type: a location reference for an Apple II HGR gamebook
 Primary request: the place itself, empty of people and creatures, seen wide at eye level. It is the stage other illustrations will be set on, so its shapes and colours must read at a glance.
 Composition/framing: a wide establishing view, horizon roughly a third from the top.
+The sky: follow the subject's description; when it says nothing, keep the sky simple and moody -- dark tones or a few flat clouds, never a large empty WHITE sky.
 """
 
 REF_TAIL = COMMON_STYLE + """

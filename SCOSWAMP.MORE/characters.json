@@ -1,134 +1,134 @@
 {
-  "_comment": [
-    "Bible des personnages. Une description visuelle ecrite UNE fois, que",
-    "chaque prompt d'image reprend mot pour mot des qu'un alias apparait dans",
-    "la page. C'est la constance du TEXTE qui fait la constance de l'image :",
-    "ne pas reformuler une fiche sans regenerer les images concernees.",
-    "",
-    "Les couleurs ne nomment que la palette HGR de l'Apple II -- noir, blanc,",
-    "violet, vert, bleu, orange. Dire 'gris' produisait du bleu a la",
-    "conversion, de facon coherente mais pas voulue.",
-    "",
-    "`source` : `livre` = tire du texte original, `portage` = choix assume."
-  ],
-  "characters": [
-    {
-      "id": "HERO",
-      "always": true,
-      "source": "livre, paragraphe 155",
-      "look": "THE HERO, the young paladin (in every image, always identical): a lean human adventurer in a hooded GREEN cloak over WHITE chainmail, a round wooden shield slung on the left arm, an ORANGE leather backpack, and a straight WHITE sword SHEATHED in its scabbard at his left hip -- both hands empty and at rest. He is a traveller, not a man on the attack: he draws the sword only when the scene itself is a fight. Seen three-quarters from behind so the face stays hidden.",
-      "scale": "the size reference: an adult man, about six feet tall",
-      "ref": "SCOSWAMP.MORE/REF/HERO.png"
-    },
-    {
-      "id": "GROGNARD",
-      "aliases": [
-        "Grognard"
-      ],
-      "source": "livre, paragraphe 155",
-      "look": "GROGNARD, a paladin in disguise: at first glance a rough, plain, heavy-set traveller in worn ORANGE-brown clothes; look closely and a WHITE cross is embroidered on his tunic and a plain WHITE sword hangs at his side. He stands taller than his clothes suggest.",
-      "scale": "as tall as the hero",
-      "ref": "SCOSWAMP.MORE/REF/GROGNARD.png"
-    },
-    {
-      "id": "STRATAGUS",
-      "aliases": [
-        "Stratagus"
-      ],
-      "source": "livre, paragraphe 40",
-      "look": "STRATAGUS, the evil sorcerer: tall and skeletally gaunt, wrapped in a BLACK toga embroidered with VIOLET motifs that seem to writhe; hollow face, long thin hands, no weapon.",
-      "scale": "a head taller than the hero, but half his width",
-      "ref": "SCOSWAMP.MORE/REF/STRATAGUS.png"
-    },
-    {
-      "id": "GAYOLARD",
-      "aliases": [
-        "Gayolard"
-      ],
-      "source": "paragraphe 371",
-      "look": "GAYOLARD, the good wizard: a short plump man, WHITE tunic and plain linen trousers, bare-headed, clay on his hands -- he is found at his potter's wheel in his garden, and carries no staff and no weapon.",
-      "scale": "shorter than the hero, stooped",
-      "ref": "SCOSWAMP.MORE/REF/GAYOLARD.png"
-    },
-    {
-      "id": "POMPATARTE",
-      "aliases": [
-        "Pompatarte"
-      ],
-      "source": "portage",
-      "look": "POMPATARTE, the merchant: heavy-set and prosperous, ORANGE tunic over a round belly, rings on his fingers, a sly smile.",
-      "scale": "the hero's height but twice his width",
-      "ref": "SCOSWAMP.MORE/REF/POMPATARTE.png"
-    },
-    {
-      "id": "M_JARDINS",
-      "aliases": [
-        "Maitre des Jardins",
-        "Garden Master"
-      ],
-      "source": "livre, Amulette a Fleur",
-      "look": "THE GARDEN MASTER: a lean man in long GREEN robes, bare-headed, a WHITE silver flower-shaped amulet on a chain at his neck, earth on his hands.",
-      "scale": "the hero's height",
-      "ref": "SCOSWAMP.MORE/REF/M_JARDINS.png"
-    },
-    {
-      "id": "M_LOUPS",
-      "aliases": [
-        "Maitre des Loups",
-        "Wolf Master"
-      ],
-      "source": "paragraphe 398",
-      "look": "THE WOLF MASTER: a burly man dressed like a forest ranger -- GREEN tunic and leggings under a shaggy WHITE-and-BLACK wolf pelt slung over one shoulder -- iron-hard face, short BLACK beard, a WHITE silver wolf-head amulet hanging on his chest, a plain WHITE sword at his side.",
-      "scale": "a head taller and much broader than the hero",
-      "ref": "SCOSWAMP.MORE/REF/M_LOUPS.png"
-    },
-    {
-      "id": "M_OISEAUX",
-      "aliases": [
-        "Maitresse des Oisaux",
-        "Maitresse des Oiseaux",
-        "Bird Mistress",
-        "Mistress of Birds"
-      ],
-      "source": "livre, paragraphe 131",
-      "look": "THE MISTRESS OF BIRDS: a beautiful woman seated on a stone pedestal in a WHITE gown, long dark hair, a SILVER bird-shaped amulet at her throat; eagles and herons walk freely around her.",
-      "scale": "the hero's height, seated",
-      "ref": "SCOSWAMP.MORE/REF/M_OISEAUX.png"
-    },
-    {
-      "id": "M_ARAIGNEES",
-      "aliases": [
-        "Maitre des Araignes",
-        "Maitre des Araignees",
-        "Spider Master"
-      ],
-      "source": "livre, paragraphe 26",
-      "look": "THE SPIDER MASTER: a gaunt figure in tattered BLACK robes, a spider-shaped amulet at his neck, holding a slim glinting wand whose tip is smeared GREEN with poison.",
-      "scale": "the hero's height, very thin",
-      "ref": "SCOSWAMP.MORE/REF/M_ARAIGNEES.png"
-    },
-    {
-      "id": "M_GRENOUILLES",
-      "aliases": [
-        "Maitre des Grenouilles",
-        "Frog Master",
-        "Toad Master"
-      ],
-      "source": "portage",
-      "look": "THE FROG MASTER, a toad of a man: squat and wide-mouthed, damp GREEN-mottled skin, bulging eyes set high on the head, webbed fingers, a frog-shaped amulet at his neck, robes the colour of pond water.",
-      "scale": "shorter than the hero, twice as wide",
-      "ref": "SCOSWAMP.MORE/REF/M_GRENOUILLES.png"
-    },
-    {
-      "id": "PERROQUET",
-      "aliases": [
-        "Perroquet",
-        "Parrot"
-      ],
-      "source": "livre, paragraphe 131",
-      "look": "THE PARROT: a large talking parrot with ORANGE, GREEN and BLUE plumage, perched and watching with one round eye.",
-      "scale": "the size of a cat",
-      "ref": "SCOSWAMP.MORE/REF/PERROQUET.png"
-    }
-  ]
+ "_comment": [
+  "Bible des personnages. Une description visuelle ecrite UNE fois, que",
+  "chaque prompt d'image reprend mot pour mot des qu'un alias apparait dans",
+  "la page. C'est la constance du TEXTE qui fait la constance de l'image :",
+  "ne pas reformuler une fiche sans regenerer les images concernees.",
+  "",
+  "Les couleurs ne nomment que la palette HGR de l'Apple II -- noir, blanc,",
+  "violet, vert, bleu, orange. Dire 'gris' produisait du bleu a la",
+  "conversion, de facon coherente mais pas voulue.",
+  "",
+  "`source` : `livre` = tire du texte original, `portage` = choix assume."
+ ],
+ "characters": [
+  {
+   "id": "HERO",
+   "always": true,
+   "source": "livre, paragraphe 155",
+   "look": "THE HERO, the young paladin (whenever he appears, always identical): a lean, muscular human adventurer in a hooded GREEN cloak over a sleeveless ORANGE leather jerkin with a wide belt, his muscular arms BARE, an ORANGE leather backpack, and a straight WHITE sword SHEATHED in its scabbard at his left hip -- both hands empty and at rest. He is a traveller, not a man on the attack: he draws the sword only when the scene itself is a fight. Seen three-quarters from behind so the face stays hidden.",
+   "scale": "the size reference: an adult man, about six feet tall",
+   "ref": "SCOSWAMP.MORE/REF/HERO.png"
+  },
+  {
+   "id": "GROGNARD",
+   "aliases": [
+    "Grognard"
+   ],
+   "source": "livre, paragraphe 155",
+   "look": "GROGNARD, a rough, plain, heavy-set traveller in worn ORANGE-brown clothes, unarmed and unremarkable. He is secretly a paladin, but it must NOT show: draw him with NO cross and NO sword in every image -- EXCEPT the single revelation scene whose text asks whether a cross is embroidered on his clothes and where a sword appears at his side; only there, show the WHITE embroidered cross and the plain WHITE sword.",
+   "scale": "as tall as the hero",
+   "ref": "SCOSWAMP.MORE/REF/GROGNARD.png"
+  },
+  {
+   "id": "STRATAGUS",
+   "aliases": [
+    "Stratagus"
+   ],
+   "source": "livre, paragraphe 40",
+   "look": "STRATAGUS, the evil sorcerer: tall and skeletally gaunt, wrapped in a BLACK toga embroidered with VIOLET motifs that seem to writhe; hollow face, long thin hands, no weapon. Drawn with THICK heavy strokes throughout -- no fine lines, no thin hatching; every stroke must stay readable at 280x192.",
+   "scale": "a head taller than the hero, but half his width",
+   "ref": "SCOSWAMP.MORE/REF/STRATAGUS.png"
+  },
+  {
+   "id": "GAYOLARD",
+   "aliases": [
+    "Gayolard"
+   ],
+   "source": "paragraphe 371",
+   "look": "GAYOLARD, the good wizard: a short plump man, WHITE tunic and plain linen trousers, bare-headed, clay on his hands -- he is found at his potter's wheel in his garden, and carries no staff and no weapon.",
+   "scale": "shorter than the hero, stooped",
+   "ref": "SCOSWAMP.MORE/REF/GAYOLARD.png"
+  },
+  {
+   "id": "POMPATARTE",
+   "aliases": [
+    "Pompatarte"
+   ],
+   "source": "portage",
+   "look": "POMPATARTE, the merchant: heavy-set and prosperous, ORANGE tunic over a round belly, rings on his fingers, a sly smile; his dark hair worn in thick braids, and his beard plaited into braids as well.",
+   "scale": "the hero's height but twice his width",
+   "ref": "SCOSWAMP.MORE/REF/POMPATARTE.png"
+  },
+  {
+   "id": "M_JARDINS",
+   "aliases": [
+    "Maitre des Jardins",
+    "Garden Master"
+   ],
+   "source": "livre, Amulette a Fleur",
+   "look": "THE GARDEN MASTER: a lean man in long GREEN robes, bare-headed, a WHITE silver flower-shaped amulet on a chain at his neck, earth on his hands.",
+   "scale": "the hero's height",
+   "ref": "SCOSWAMP.MORE/REF/M_JARDINS.png"
+  },
+  {
+   "id": "M_LOUPS",
+   "aliases": [
+    "Maitre des Loups",
+    "Wolf Master"
+   ],
+   "source": "paragraphe 398",
+   "look": "THE WOLF MASTER: a burly man dressed like a forest ranger -- GREEN tunic and leggings under a shaggy WHITE-and-BLACK wolf pelt slung over one shoulder -- iron-hard face, short BLACK beard, a WHITE silver wolf-head amulet hanging on his chest, a plain WHITE sword at his side.",
+   "scale": "a head taller and much broader than the hero",
+   "ref": "SCOSWAMP.MORE/REF/M_LOUPS.png"
+  },
+  {
+   "id": "M_OISEAUX",
+   "aliases": [
+    "Maitresse des Oisaux",
+    "Maitresse des Oiseaux",
+    "Bird Mistress",
+    "Mistress of Birds"
+   ],
+   "source": "livre, paragraphe 131",
+   "look": "THE MISTRESS OF BIRDS: a beautiful woman seated on a stone pedestal in a WHITE gown, long dark hair, a SILVER bird-shaped amulet at her throat; eagles and herons walk freely around her. Drawn simply with THICK bold strokes and large flat shapes -- no fine detail, no delicate linework.",
+   "scale": "the hero's height, seated",
+   "ref": "SCOSWAMP.MORE/REF/M_OISEAUX.png"
+  },
+  {
+   "id": "M_ARAIGNEES",
+   "aliases": [
+    "Maitre des Araignes",
+    "Maitre des Araignees",
+    "Spider Master"
+   ],
+   "source": "livre, paragraphe 26",
+   "look": "THE SPIDER MASTER: a gaunt figure in tattered BLACK robes, a spider-shaped amulet at his neck, holding a slim glinting wand whose tip is smeared GREEN with poison.",
+   "scale": "the hero's height, very thin",
+   "ref": "SCOSWAMP.MORE/REF/M_ARAIGNEES.png"
+  },
+  {
+   "id": "M_GRENOUILLES",
+   "aliases": [
+    "Maitre des Grenouilles",
+    "Frog Master",
+    "Toad Master"
+   ],
+   "source": "portage",
+   "look": "THE FROG MASTER, a toad of a man: squat and wide-mouthed, damp GREEN-mottled skin, bulging eyes set high on the head, webbed fingers, a frog-shaped amulet at his neck, robes the colour of pond water.",
+   "scale": "shorter than the hero, twice as wide",
+   "ref": "SCOSWAMP.MORE/REF/M_GRENOUILLES.png"
+  },
+  {
+   "id": "PERROQUET",
+   "aliases": [
+    "Perroquet",
+    "Parrot"
+   ],
+   "source": "livre, paragraphe 131",
+   "look": "THE PARROT: a large talking parrot with ORANGE, GREEN and BLUE plumage, perched and watching with one round eye.",
+   "scale": "the size of a cat",
+   "ref": "SCOSWAMP.MORE/REF/PERROQUET.png"
+  }
+ ]
 }

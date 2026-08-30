@@ -20,6 +20,10 @@ HGR="$(dirname "$0")/build/scoswamp_hgr"
 
 converted=0
 skipped=0
+# Chaque conversion rapporte un score (subDE + 0.3*dissent) ; on ne relit pas
+# 400 previews, on relit les dix que le convertisseur denonce.
+scores=$(mktemp)
+trap 'rm -f "$scores"' EXIT
 for png in "$ROOT"/SCOSWAMP.MORE/GENERATED/[NB][0-9][0-9][0-9].png; do
     [ -e "$png" ] || continue
     name=$(basename "$png" .png)
@@ -33,8 +37,14 @@ for png in "$ROOT"/SCOSWAMP.MORE/GENERATED/[NB][0-9][0-9][0-9].png; do
         continue
     fi
     mkdir -p "$(dirname "$out")" "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW"
-    "$HGR" convert "$png" "$out" "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW/$name.png" >/dev/null
+    line=$("$HGR" convert "$png" "$out" "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW/$name.png" --report | grep '^report:' || true)
+    score=${line##*score=}
+    [ -n "$score" ] && printf '%s %s\n' "$score" "$name" >> "$scores"
     echo "  $name -> $bucket/$name.RLE.BIN"
     converted=$((converted + 1))
 done
 echo "==> $converted converti(s), $skipped a jour"
+if [ -s "$scores" ]; then
+    echo "== conversions les plus douteuses (score = subDE + 0.3*dissent%) =="
+    sort -rn "$scores" | head -10
+fi

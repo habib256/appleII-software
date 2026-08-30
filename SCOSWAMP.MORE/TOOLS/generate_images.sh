@@ -46,7 +46,7 @@ while IFS=$'\t' read -r dest refs prompt; do
 
     # Le prompt arrive par stdin : il contient des retours a la ligne et des
     # guillemets, et passer par argv les ferait manger par le shell.
-    printf '%b\n\nGenerate this image and save it to %s (280x192 or larger, PNG).\n' \
+    printf '%b\n\nGenerate this image and save it to %s as a PNG. Resolution: HIGH -- the short side must be at least 1000 pixels (e.g. 1400x960 landscape, 1024x1536 portrait). Never output the bare 280x192 display size: this file is a master reference and needs the detail.\n' \
         "$prompt" "$root/$dest" \
         | codex exec "${args[@]}" - >/dev/null 2>&1
     done_count=$(( done_count + 1 ))
