@@ -2,9 +2,11 @@ T 056 Pompatarte's House
 
 After a path through fields and winding streets, you arrive at the threshold
 of Pompatarte's house. You knock; the Goblin opens the door. She leads you to
-the library where Pompatarte is seated, in robes. "So, how are our affairs
-going?" he launches immediately. "Have you brought me a map to reach
-Courbensaule?" The question is direct; he awaits a precise answer.
+the library where Pompatarte is seated, in robes.
+
+"So, how are our affairs going?" he launches immediately. "Have you brought me
+a map to reach Courbensaule?" The question is direct; he awaits a precise
+answer.
 
 C 158 Yes, I went all the way to Courbensaule
 C 008 No, I did not find it

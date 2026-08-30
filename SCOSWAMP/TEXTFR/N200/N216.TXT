@@ -1,8 +1,9 @@
 T 216 Scorpions trop nombreux
 
 Ils sont bien trop nombreux pour etre combattus un par un. Deja ils grimpent
-sur vos bottes et le long de vos jambes. Leurs dards vous piquent: lancez 1 de
-et perdez autant d'ENDURANCE. Furieux, vous bondissez par-dessus la mele et
-filez hors de la zone.
+sur vos bottes et le long de vos jambes.
+
+Leurs dards vous piquent: lancez 1 de et perdez autant d'ENDURANCE. Furieux,
+vous bondissez par-dessus la mele et filez hors de la zone.
 
 C 319 Quitter la clairiere en bondissant par-dessus les scorpions

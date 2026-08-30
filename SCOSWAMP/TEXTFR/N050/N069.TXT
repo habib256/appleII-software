@@ -1,8 +1,9 @@
 T 069 Fouille du tronc
 
 Vous avez tue l'Ours et fouillez le tronc creux qui lui servait de taniere.
-Vous ne trouvez rien d'interessant ni de valeur. Le silence retombe sur la
-clairiere; seul le bruissement des feuilles accompagne vos gestes. Il est
-temps de reprendre la route.
+Vous ne trouvez rien d'interessant ni de valeur.
+
+Le silence retombe sur la clairiere; seul le bruissement des feuilles
+accompagne vos gestes. Il est temps de reprendre la route.
 
 C 390 Quitter la clairiere et poursuivre la route

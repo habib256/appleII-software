@@ -1,7 +1,8 @@
 T 077 The Beneficial Pool
 
 You feel completely invigorated. The water of this pool has beneficial
-properties and you recover 3 STAMINA points. You then leave westward, vigilant
-in the silence of the swamp.
+properties and you recover 3 STAMINA points.
+
+You then leave westward, vigilant in the silence of the swamp.
 
 C 047 Leave westward

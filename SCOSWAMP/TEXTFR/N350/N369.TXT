@@ -3,10 +3,12 @@ T 369 Autre Pierre de Glace
 Vous vous rendez bien compte que, meme avec une autre Pierre de Glace, vous ne
 parviendrez pas a renforcer suffisamment le pont ; vous lancez donc la Pierre
 a vos pieds pour former un gros morceau de glace sur lequel vous pourrez
-deriver le long de la riviere, en direction de l'est. Des deux cotes, les
-berges sont recouvertes d'une epaisse vegetation. Soudain, vous apercevez a
-quelque distance devant vous un vieux pont de pierre d'une taille
-impressionnante.
+deriver le long de la riviere, en direction de l'est.
+
+Des deux cotes, les berges sont recouvertes d'une epaisse vegetation.
+
+Soudain, vous apercevez a quelque distance devant vous un vieux pont de pierre
+d'une taille impressionnante.
 
 C 384 Essayer de vous y agripper
 C 313 Continuer a vous laisser porter

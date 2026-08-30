@@ -3,7 +3,9 @@ T 313 Drowning in the River
 The river water is warm and the ice piece is melting under your feet. A few
 moments later, it breaks into several other pieces and you swim desperately
 toward the bank, your sword in hand to defend yourself against any attack.
+
 Alas! your Backpack is too heavy and you sink to the bottom getting mired in
-the slime the waterway carries. We regret to inform you that your adventure
-ends here.
+the slime the waterway carries.
+
+We regret to inform you that your adventure ends here.
 

@@ -2,11 +2,14 @@ T 191 Magic Stone Choice
 
 Facing the Wolf Master, a sword fight would be risky. Your fingers search for
 the Magic Stones Gayolard entrusted to you. Time is pressing: the beasts growl
-and the Master gauges you with a piercing gaze. Choosing the right Stone can
-reverse the encounter, but beware: a spent Stone is lost forever. Each Stone
-has its own effect; some effects can turn against you if the situation isn't
-adapted. You feel the power vibrating in your hand; the slightest error could
-be fatal. Think quickly and well. Here are your options:
+and the Master gauges you with a piercing gaze.
+
+Choosing the right Stone can reverse the encounter, but beware: a spent Stone
+is lost forever. Each Stone has its own effect; some effects can turn against
+you if the situation isn't adapted.
+
+You feel the power vibrating in your hand; the slightest error could be fatal.
+Think quickly and well. Here are your options:
 
 CU AMITIE 294 Use a Friendship Stone
 CU MALEDICTION 093 Use a Curse Stone

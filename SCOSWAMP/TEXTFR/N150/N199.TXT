@@ -1,8 +1,9 @@
 T 199 Rencontre amicale
 
-Deux Brigands se reposent dans la clairiere, leur campement habituel. En vous
-voyant approcher, ils vous reconnaissent, vous saluent et vous adressent un
-large sourire. Vous leur rendez leur salut sans crainte, puis reprenez votre
-route.
+Deux Brigands se reposent dans la clairiere, leur campement habituel.
+
+En vous voyant approcher, ils vous reconnaissent, vous saluent et vous
+adressent un large sourire. Vous leur rendez leur salut sans crainte, puis
+reprenez votre route.
 
 C 019 Quitter la clairiere

@@ -1,7 +1,5 @@
 T 000 THE SCORPION SWAMP
 
-A Gamebook Adventure
-
 You are a seasoned adventurer seeking glory!
 
 The Scorpion Swamp is a cursed place that no one dares explore. Monsters,
@@ -10,6 +8,10 @@ treasure hidden in its depths...
 
 Can you survive the perils of the Swamp and discover its secrets? Your choices
 will determine your fate!
+
+This game is a homage to the gamebook by Steve Jackson, illustrated by Duncan
+Smith (1984), French edition by Gallimard (1985). Seek out the book: it
+deserves it.
 
 Commands:
  [SPACE/RETURN/ESC]  - Text, then HGR picture, then HGR + 4 text lines

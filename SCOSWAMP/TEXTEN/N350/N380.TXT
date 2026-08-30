@@ -1,8 +1,9 @@
 T 380 Ineffective Withering Stone
 
-You throw your Withering Magic Stone. The Slime immediately changes color,
-passing from green to brown, but that's the only effect the spell produces on
-it.
+You throw your Withering Magic Stone.
+
+The Slime immediately changes color, passing from green to brown, but that's
+the only effect the spell produces on it.
 
 C 400 Try another Magic Stone
 C 336 Entirely change tactics

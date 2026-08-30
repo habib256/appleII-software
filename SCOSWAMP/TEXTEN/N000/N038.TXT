@@ -1,7 +1,8 @@
 T 038 Putrefaction of the Mud
 
 The mud is dead; its remains rot before your eyes. An unbearable odor emanates
-from it and invades the clearing. The spectacle is sinister; it's better to
-leave without delay.
+from it and invades the clearing.
+
+The spectacle is sinister; it's better to leave without delay.
 
 C 153 Leave immediately for the next part of the adventure

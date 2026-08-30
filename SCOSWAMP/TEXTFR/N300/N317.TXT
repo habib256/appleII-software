@@ -3,9 +3,12 @@ T 317 Le Geant et Stratagus
 Vous expliquez votre mission au Geant qui se gratte la tete d'un air pensif.
 Il a entendu parler de ces sorciers qu'on appelle les Maitres, mais il n'a
 jamais eu affaire a eux. Vous lui donnez alors plus amples details a leur
-sujet et un souvenir lui revient bientot en memoire. " J'ai vu un jour un
-magnifique jardin au milieu du Marais... Il se trouvait au nord d'ici, un peu
-a l'ouest, mais il n'y a aucun chemin qui y mene directement. Peut-etre est-ce
-la que vit le Maitre des Jardins ?" Vous le remerciez et vous repartez.
+sujet et un souvenir lui revient bientot en memoire.
+
+" J'ai vu un jour un magnifique jardin au milieu du Marais... Il se trouvait
+au nord d'ici, un peu a l'ouest, mais il n'y a aucun chemin qui y mene
+directement. Peut-etre est-ce la que vit le Maitre des Jardins ?"
+
+Vous le remerciez et vous repartez.
 
 C 161 Continuer

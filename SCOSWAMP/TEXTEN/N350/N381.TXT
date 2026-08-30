@@ -2,13 +2,18 @@ T 381 Unicorn's Blessing
 
 You don't want to attack the wounded Unicorn for you've always heard they're
 benevolent creatures. You therefore throw a Blessing Magic Stone at it and see
-it shudder when the spell reaches it. It immediately starts neighing joyfully.
-The wounds on its flank are almost healed now and it seems much more vigorous.
-It remains however wary, not daring to approach a human being, but it digs the
-ground with its horn at the clearing's other end then casts you a look and
-leaves. You then go see the place where it dug and discover there two Magic
-Stones similar to those Gayolard gave you. One is a Friendship Stone, the
-Other a LUCK Stone. You thank the Unicorn being sure it heard you wherever it
-is, and you continue your journey.
+it shudder when the spell reaches it.
+
+It immediately starts neighing joyfully. The wounds on its flank are almost
+healed now and it seems much more vigorous. It remains however wary, not
+daring to approach a human being, but it digs the ground with its horn at the
+clearing's other end then casts you a look and leaves.
+
+You then go see the place where it dug and discover there two Magic Stones
+similar to those Gayolard gave you. One is a Friendship Stone, the Other a
+LUCK Stone.
+
+You thank the Unicorn being sure it heard you wherever it is, and you continue
+your journey.
 
 C 348 Continue

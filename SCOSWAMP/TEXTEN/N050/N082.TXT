@@ -1,8 +1,9 @@
 T 082 Combat at the Pool
 
-The Precious Stone shines on the surface; you draw your sword. The POOL BEAST
-surges from the water and strikes you with its tentacles. Its rubbery blows
-can unbalance you; the duel begins.
+The Precious Stone shines on the surface; you draw your sword.
+
+The POOL BEAST surges from the water and strikes you with its tentacles. Its
+rubbery blows can unbalance you; the duel begins.
 
 M 8 10 POOL BEAST
 CF 330 Flee westward

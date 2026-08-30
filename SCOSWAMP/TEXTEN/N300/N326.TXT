@@ -2,10 +2,13 @@ T 326 Stratagus's Fury
 
 He contemplates the broken table, the books scattered around, the broken
 porcelain... the statue debris spread on the floor, then raises his gaze to
-you. His face then convulses under the effect of fury and contempt. "Why
-therefore should I pay you the slightest attention?" he exclaims, "you're just
-good enough to defeat a little Statue of nothing at all and, moreover, you
-have the audacity to wreck my salon!" What will you do?
+you. His face then convulses under the effect of fury and contempt.
+
+"Why therefore should I pay you the slightest attention?" he exclaims, "you're
+just good enough to defeat a little Statue of nothing at all and, moreover,
+you have the audacity to wreck my salon!"
+
+What will you do?
 
 C 098 Grovel before him to beg his forgiveness
 C 315 Turn around and flee

@@ -2,9 +2,10 @@ T 143 The Beast Returns
 
 Barely entered the clearing, an atrocious growl resounds. The FOUL BEAST
 didn't succeed in devouring you the first time; it wants to try again and
-throws itself at you, drooling pincers. You weigh your options: resort to
-Magic Stones as before, or hold firm and face it with your sword, without
-artifice.
+throws itself at you, drooling pincers.
+
+You weigh your options: resort to Magic Stones as before, or hold firm and
+face it with your sword, without artifice.
 
 C 374 Use Magic Stones against the beast
 C 176 Fight the beast hand-to-hand

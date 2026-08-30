@@ -2,6 +2,7 @@ T 149 La clairiere aux oiseaux
 
 Vous entrez dans une clairiere envahie d'oiseaux aux couleurs vives. Il n'y a
 aucune trace d'une presence humaine; la Maitresse des Oiseaux a du s'absenter.
+
 Vous parcourez la clairiere a la recherche d'indices. Tout ce que vous
 trouvez, ce sont des plumes eparses, jonchant le sol. Un silence leger flotte,
 comme si les branches retenaient leur souffle.

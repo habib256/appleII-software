@@ -6,12 +6,15 @@ been carefully trimmed and their foliage doesn't invade the trail. Soon, you
 arrive before a pleasant clearing. This is Clearing No. 27. All sorts of
 plants and flowers grow here and there: clearly, they're taken great care of
 and the place seems quite welcoming. This clearing indeed seems too beautiful
-to be entirely natural, but too natural as well to be truly a garden. As you
-cast a glance around you, a man approaches: he's tall, broad-shouldered and
-wears earth-stained clothes. You guess however that you're not dealing with a
-simple gardener, for he wears around his neck a Silver flower-shaped Amulet:
-this is the GARDEN MASTER. Your Copper Ring remains cold: this man is driven
-by friendly intentions. Which sorcerer do you serve?
+to be entirely natural, but too natural as well to be truly a garden.
+
+As you cast a glance around you, a man approaches: he's tall, broad-shouldered
+and wears earth-stained clothes. You guess however that you're not dealing
+with a simple gardener, for he wears around his neck a Silver flower-shaped
+Amulet: this is the GARDEN MASTER. Your Copper Ring remains cold: this man is
+driven by friendly intentions.
+
+Which sorcerer do you serve?
 
 C 036 Gayolard
 C 084 Pompatarte

@@ -2,10 +2,11 @@ T 251 Maitre des Jardins
 
 Vous avez tue le Maitre des Jardins. C'etait un bon sorcier qui ne voulait de
 mal a personne, et vous commencez a regretter votre geste. Vous perdez 3
-points de CHANCE. Vous vous emparez de l'Amulette en forme de fleur qu'il
-portait autour du cou, puis reprenez le seul chemin qui permet de quitter la
-clairiere. Le sentier est oriente vers l'ouest et s'enfonce entre de vieux
-chenes tordus.
+points de CHANCE.
+
+Vous vous emparez de l'Amulette en forme de fleur qu'il portait autour du cou,
+puis reprenez le seul chemin qui permet de quitter la clairiere. Le sentier
+est oriente vers l'ouest et s'enfonce entre de vieux chenes tordus.
 
 E CHANCE -3
 C 363 Suivre le chemin vers l'ouest, portant l'Amulette

@@ -2,8 +2,9 @@ T 151 Les fleches perdues
 
 Vous faites un bond de cote. L'une des fleches vous manque, mais l'autre vous
 entaille le bras: vous perdez 1 point d'HABILETE. Le sang coule legerement; la
-douleur vous rappelle le danger. Les tireurs ne relachent pas la tension de
-leur arc. Il faut agir vite.
+douleur vous rappelle le danger.
+
+Les tireurs ne relachent pas la tension de leur arc. Il faut agir vite.
 
 E HABILETE -1
 C 281 Attaquer a l'epee

@@ -4,13 +4,16 @@ You leave the tavern. Outside, there's exceptional sunshine and you blink for
 a few moments to get accustomed to this brilliant brightness. You then set
 off. You ask an old man leaning against his shop window where the good
 sorcerer Gayolard lives. He's friendly and indicates which direction to take.
+
 A little further, you get lost, but a large woman with a rubicund face takes
 pleasure in informing you. It seems everyone here knows Gayolard's dwelling.
+
 You finally arrive before a small house on the village edge. Gayolard, a small
 plump man, dressed in a white tunic and linen pants, is engaged in pottery in
-his garden. You approach him and tell him your story. He then smiles and asks
-how you plan to go about crossing this Swamp no one has ever succeeded in
-mapping.
+his garden.
+
+You approach him and tell him your story. He then smiles and asks how you plan
+to go about crossing this Swamp no one has ever succeeded in mapping.
 
 C 371 Reveal your Ring's existence to him
 C 096 Keep the secret

@@ -1,10 +1,13 @@
 T 055 Bear's Den
 
 You approach the hollow log cautiously; a strong odor emanates: a wild animal
-has undoubtedly made its den there. Suddenly, the shaggy head of a gigantic
-BEAR appears in the opening. Its heavy breathing makes the wood vibrate; its
-dark eyes stare at you. It crawls slightly, ready to pounce on any intruder
-who approaches. What do you do?
+has undoubtedly made its den there.
+
+Suddenly, the shaggy head of a gigantic BEAR appears in the opening. Its heavy
+breathing makes the wood vibrate; its dark eyes stare at you. It crawls
+slightly, ready to pounce on any intruder who approaches.
+
+What do you do?
 
 C 390 Flee immediately
 C 200 Fight the Bear with your sword

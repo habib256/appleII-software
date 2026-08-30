@@ -1,8 +1,10 @@
 T 072 Will-o'-the-Wisp
 
 The ground on which you walk is swampy, but you manage nevertheless to keep
-your balance. The Will-o'-the-Wisp continues to dance before you, elusive and
-fascinating. Its light trembles like a mirage.
+your balance.
+
+The Will-o'-the-Wisp continues to dance before you, elusive and fascinating.
+Its light trembles like a mirage.
 
 C 249 Retrace your steps
 C 024 Follow the Will-o'-the-Wisp westward

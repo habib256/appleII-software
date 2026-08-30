@@ -3,8 +3,11 @@ T 395 The Black Bear
 You decide to spend the night at the nearest inn: "The Black Bear". On the
 ground floor, the room is packed with customers apparently determined to
 party, but you pay them no attention and go up to your room after paying 1
-Gold Piece to the innkeeper. Unfortunately, there's so much noise downstairs
-you can't close your eyes. The revelers thus make you lose 1 STAMINA point.
+Gold Piece to the innkeeper.
+
+Unfortunately, there's so much noise downstairs you can't close your eyes. The
+revelers thus make you lose 1 STAMINA point.
+
 What will you do now?
 
 E ENDURANCE -1

@@ -1,9 +1,10 @@
 T 394 Le bassin paisible
 
 Vous avez desormais appris a etre prudent et vous observez attentivement le
-bassin ainsi que le reste de la clairiere. Un gros Lezard vient boire a l'eau
-du bassin, puis s'en retourne d'une demarche chaloupe. Vous ne voyez rien
-d'autre qui merite d'etre note.
+bassin ainsi que le reste de la clairiere.
+
+Un gros Lezard vient boire a l'eau du bassin, puis s'en retourne d'une
+demarche chaloupe. Vous ne voyez rien d'autre qui merite d'etre note.
 
 C 047 Quitter la clairiere
 C 077 Boire a votre tour

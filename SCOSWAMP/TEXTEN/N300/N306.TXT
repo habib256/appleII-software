@@ -1,7 +1,8 @@
 T 306 The Furious Patroller
 
-The Patroller is still there and awaits you, furious. If you had made him lose
-STAMINA points, he's recovered them all since, thanks to a STAMINA Magic Stone
-he used on himself. You must fight him again.
+The Patroller is still there and awaits you, furious.
+
+If you had made him lose STAMINA points, he's recovered them all since, thanks
+to a STAMINA Magic Stone he used on himself. You must fight him again.
 
 C 378 Fight the Patroller

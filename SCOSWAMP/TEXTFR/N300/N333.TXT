@@ -4,7 +4,8 @@ T 333 Conseil du Patrouilleur
 ce buisson, mais je ne savais pas qu'il y en avait dans le Marais aux
 Scorpions. En allant vers l'est, vous trouverez la clairiere ou habite un bon
 sorcier qu'on appelle le Maitre des Jardins. Si quelqu'un sait ou pousse ce
-buisson, c'est seurement lui. " Vous le remerciez et vous poursuivez votre
-chemin.
+buisson, c'est seurement lui. "
+
+Vous le remerciez et vous poursuivez votre chemin.
 
 C 234 Continuer

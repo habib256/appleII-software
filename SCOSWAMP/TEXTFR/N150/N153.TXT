@@ -2,8 +2,10 @@ T 153 Fuite de la clairiere
 
 Vous quittez la clairiere aussi vite que possible, le souffle court. L'air est
 lourd, et vous jetez un dernier regard derriere vous avant de reprendre le
-sentier. Deux directions s'offrent a vous: le nord ou l'ouest. Le sol y semble
-plus sec, mais le danger demeure.
+sentier.
+
+Deux directions s'offrent a vous: le nord ou l'ouest. Le sol y semble plus
+sec, mais le danger demeure.
 
 C 218 Aller vers le nord
 C 065 Prendre le chemin de l'ouest

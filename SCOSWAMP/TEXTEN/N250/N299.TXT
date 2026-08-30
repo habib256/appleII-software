@@ -2,9 +2,11 @@ T 299 Terror Stone
 
 You throw your Terror Magic Stone which produces a stunning result! The Foul
 Beast, indeed, stops dead then goes to take refuge on the other side of the
-clearing hiding behind rocks and letting out little plaintive moans. If you
-want to pursue and fight it, go to 176, but, beware: your spell's effect will
-soon dissipate, and the Beast will then become as formidable as before.
+clearing hiding behind rocks and letting out little plaintive moans.
+
+If you want to pursue and fight it, go to 176, but, beware: your spell's
+effect will soon dissipate, and the Beast will then become as formidable as
+before.
 
 C 176 Pursue and fight it
 C 279 Turn back and leave the clearing

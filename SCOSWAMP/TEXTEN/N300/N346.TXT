@@ -1,7 +1,8 @@
 T 346 Terror Stone on the Orcs
 
-You throw your Terror Magic Stone at the Swamp Orcs. One of them starts
-screaming, drops his weapons and flees into the marshes. But the other two
-advance toward you and you'll have to fight them.
+You throw your Terror Magic Stone at the Swamp Orcs.
+
+One of them starts screaming, drops his weapons and flees into the marshes.
+But the other two advance toward you and you'll have to fight them.
 
 C 281 Fight the two Orcs

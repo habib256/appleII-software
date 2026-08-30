@@ -2,7 +2,8 @@ T 043 Test Your Luck
 
 Test your LUCK. Test: roll two six-sided dice (2d6). If the total is less than
 or equal to your LUCK value, you are Lucky; otherwise you are Unlucky.
-Immediately apply the effects of the result (damage, gains, flags). What do
-you do?
+Immediately apply the effects of the result (damage, gains, flags).
+
+What do you do?
 
 CL 339 313

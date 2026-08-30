@@ -1,8 +1,9 @@
 T 177 The Peaceful Giant
 
 The Giant lets out a long sigh and lowers his arms. His anger has died out,
-and you understand he no longer wants to fight. You can do nothing for him,
-except respect his weariness. Without a word, you resume the journey and pass
-by him.
+and you understand he no longer wants to fight.
+
+You can do nothing for him, except respect his weariness. Without a word, you
+resume the journey and pass by him.
 
 C 161 Continue your path

@@ -2,16 +2,20 @@ T 195 Clearing Number 1
 
 You arrive in Clearing No. 1. In truth, it's only a wide roundabout from which
 three paths depart. The ground is unstable and waterlogged, and large clouds
-of insects flutter above the stagnant ponds covering the place. The humid fog
-rises in swirls, and each step makes dirty water splash under your boots. The
-stunted trees bordering the clearing seem twisted, as if marked by the
-corruption of the swamp. You hesitate: advance slowly or attempt a risky jump
-over the softest zones. Silence weighs around you, only troubled by the
-buzzing of insects and the sound of water. The path opening to the north seems
-solid, but nothing assures you it doesn't hide new traps. Here, each decision
-can be the frontier between survival and disaster. You grip your sword, ready
-to choose the path that will allow you to leave this clearing without losing
-your strength. Danger is tangible.
+of insects flutter above the stagnant ponds covering the place.
+
+The humid fog rises in swirls, and each step makes dirty water splash under
+your boots. The stunted trees bordering the clearing seem twisted, as if
+marked by the corruption of the swamp.
+
+You hesitate: advance slowly or attempt a risky jump over the softest zones.
+Silence weighs around you, only troubled by the buzzing of insects and the
+sound of water. The path opening to the north seems solid, but nothing assures
+you it doesn't hide new traps.
+
+Here, each decision can be the frontier between survival and disaster. You
+grip your sword, ready to choose the path that will allow you to leave this
+clearing without losing your strength. Danger is tangible.
 
 C 058 Carefully cross the clearing to another path
 C 091 Try to jump across the marshy zone

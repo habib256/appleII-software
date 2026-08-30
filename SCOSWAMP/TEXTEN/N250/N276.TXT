@@ -2,7 +2,9 @@ T 276 The Purple Jewel
 
 You search in your Backpack and offer him the Purple Jewel you took from the
 basin creature's head. He immediately displays a wide smile that makes him
-look more than ever like a frog. "Heh, heh! indeed, here's indeed an excellent
-reason to help you," he croaks, taking the jewel.
+look more than ever like a frog.
+
+"Heh, heh! indeed, here's indeed an excellent reason to help you," he croaks,
+taking the jewel.
 
 C 104 Go to 104

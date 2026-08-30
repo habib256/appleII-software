@@ -4,12 +4,17 @@ V 355
 Vous suivez le sentier en direction du nord. Il s'elargit peu a peu et le
 Marais lui-meme devient moins sinistre. Puis, bientot, les marecages font
 place a la foret et vous finissez par arriver devant un poteau indicateur qui
-signale : ROUTE DE COURBENSAULE. Quelques minutes plus tard, vous entendez des
-voix et vous rencontrez des gardes forestiers en compagnie desquels vous
-marchez jusqu'a la ville de Courbensaule. Apres tant d'aventures, la seule
-chose dont vous ayez besoin, c'est de trouver une auberge pour y passer une
-bonne nuit de sommeil. Les gardes forestiers vous indiquent qu'il existe trois
-auberges a Courbensaule. Laquelle choisirez-vous ?
+signale : ROUTE DE COURBENSAULE.
+
+Quelques minutes plus tard, vous entendez des voix et vous rencontrez des
+gardes forestiers en compagnie desquels vous marchez jusqu'a la ville de
+Courbensaule. Apres tant d'aventures, la seule chose dont vous ayez besoin,
+c'est de trouver une auberge pour y passer une bonne nuit de sommeil.
+
+Les gardes forestiers vous indiquent qu'il existe trois auberges a
+Courbensaule.
+
+Laquelle choisirez-vous ?
 
 C 395 L'Ours Noir
 C 078 La Lance Tordue

@@ -2,6 +2,8 @@ T 230 Clairiere silencieuse
 
 Vous avez tue les Grenouilles Geantes; leur Maitre a disparu. Vous nettoyez la
 lame, fouillez la clairiere sans decouvrir rien. Le lieu reste menace; vous
-repartez vite, sur vos gardes. Que faites-vous?
+repartez vite, sur vos gardes.
+
+Que faites-vous?
 
 C 352 Reprendre la route vers l'est

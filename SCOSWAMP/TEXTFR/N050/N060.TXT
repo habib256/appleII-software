@@ -1,10 +1,13 @@
 T 060 Pierre d'Illusion
 
 Vous utilisez une Pierre d'Illusion: vous faites apparaitre l'image d'un
-villageois sans defense qui fuit se mettre a l'abri des arbres. La BETE
-IMMONDE se tourne vers cette proie plus facile; vous en profitez pour
+villageois sans defense qui fuit se mettre a l'abri des arbres.
+
+La BETE IMMONDE se tourne vers cette proie plus facile; vous en profitez pour
 disparaitre en revenant sur vos pas, le long du chemin par lequel vous etes
 arrive. Quand l'illusion s'evapore, la bete reste perplexe. Vous avez echappe
-a un grave danger; un autre vous attend cependant. Que faites-vous?
+a un grave danger; un autre vous attend cependant.
+
+Que faites-vous?
 
 C 279 Reprendre la route et affronter a nouveau la menace

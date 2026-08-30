@@ -1,11 +1,13 @@
 T 044 The Leeches
 
 No one attacks you as you cross the river, but, on the other bank, large
-leeches have attached themselves to your legs and are sucking your blood. Roll
-two dice. Reduce your total STAMINA by the smaller of the two numbers rolled.
-In case of a double, you lose the sum of both dice (i.e. 2 times the indicated
-value). If you survive, you can then resume the journey. Do you want to go
-north or south?
+leeches have attached themselves to your legs and are sucking your blood.
+
+Roll two dice. Reduce your total STAMINA by the smaller of the two numbers
+rolled. In case of a double, you lose the sum of both dice (i.e. 2 times the
+indicated value). If you survive, you can then resume the journey.
+
+Do you want to go north or south?
 
 C 157 Take the path to the north
 C 398 Take the path to the south

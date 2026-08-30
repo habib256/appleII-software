@@ -1,10 +1,11 @@
 T 197 Giant's Mourning
 
 The Giant's corpse rests in the center of the clearing. Kneeling near him, an
-immense woman weeps hot tears. She's doubtless his wife. She looks at you,
-desperate, without threatening you. You don't think of attacking her. Remorse
-overcomes you: lose 2 LUCK points. You swear never to return here, except in
-absolute necessity.
+immense woman weeps hot tears. She's doubtless his wife.
+
+She looks at you, desperate, without threatening you. You don't think of
+attacking her. Remorse overcomes you: lose 2 LUCK points. You swear never to
+return here, except in absolute necessity.
 
 E CHANCE -2
 C 161 Leave the clearing

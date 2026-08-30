@@ -2,6 +2,8 @@ T 005 Test Your Luck
 
 Test your luck: fate will decide the course of your journey. If fortune smiles
 upon you, events will be favorable. If misfortune strikes you, the
-consequences will be unfortunate. What do you do?
+consequences will be unfortunate.
+
+What do you do?
 
 CL 273 297

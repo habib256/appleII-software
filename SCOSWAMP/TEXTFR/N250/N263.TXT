@@ -2,10 +2,11 @@ T 263 Herbe a Pinces
 
 Vous reconnaissez l'endroit ou vous avez ete attaque par l'Herbe a Pinces.
 L'air sent encore l'humidite et des taches brunes marquent le sol la ou les
-lianes mortelles se sont refermes. Si vous les avez toutes tues, rien ne
-viendra troubler votre passage et vous pouvez reprendre votre route sans
-risque. Sinon, la zone reste dangereuse et il vaudra mieux l'eviter ou courir
-pour la traverser sans tarder.
+lianes mortelles se sont refermes.
+
+Si vous les avez toutes tues, rien ne viendra troubler votre passage et vous
+pouvez reprendre votre route sans risque. Sinon, la zone reste dangereuse et
+il vaudra mieux l'eviter ou courir pour la traverser sans tarder.
 
 C 187 Je suis alle jusqu'au bout: les Herbes sont mortes, je passe
 C 033 Les Herbes sont encore vivantes, je change de route ou je fuis

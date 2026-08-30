@@ -2,7 +2,9 @@ T 068 Secret Formula
 
 Perhaps you know a secret formula learned from the Wolf Master. If so, it
 could change the outcome of this trial. If not, you will have to find another
-way or retrace your steps. What do you do?
+way or retrace your steps.
+
+What do you do?
 
 C 302 Yes, I know the secret formula
 C 215 No, I don't know it

@@ -1,8 +1,9 @@
 T 013 The Sorcerer's Choice
 
 "I am a warrior on a mission," you reply calmly. Your Ring warns you of no
-danger; you address the Frog Master without the slightest concern. Which
-sorcerer do you choose to serve?
+danger; you address the Frog Master without the slightest concern.
+
+Which sorcerer do you choose to serve?
 
 C 212 Gayolard
 C 287 Stratagus

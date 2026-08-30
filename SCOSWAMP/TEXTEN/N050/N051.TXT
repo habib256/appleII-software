@@ -1,10 +1,13 @@
 T 051 Flight from the Tower
 
 A trapdoor opens before you, revealing a deep pit. With a leap you jump over
-it and cross the hall running at full speed. A Statue tries to block your way,
-but you push it aside with a blow and kick the door open nervously. The
-hideous head on the iron panel tries to bite you, in vain. You dash away from
-the tower, short of breath, heart pounding. What do you do?
+it and cross the hall running at full speed.
+
+A Statue tries to block your way, but you push it aside with a blow and kick
+the door open nervously. The hideous head on the iron panel tries to bite you,
+in vain. You dash away from the tower, short of breath, heart pounding.
+
+What do you do?
 
 C 296 Head toward the Swamp
 C 005 Run toward the village

@@ -1,9 +1,12 @@
 T 008 Proposed Exchange
 
 Pompatarte sighs and shakes his head: 'It's a shame...' If you still have some
-Magic Stones, I'll trade them for a Healing Potion.' His offer is simple and
-immediate: exchange of resources for guaranteed healing. Weigh the advantage:
-the potion heals, the stones serve magic. What do you do?
+Magic Stones, I'll trade them for a Healing Potion.'
+
+His offer is simple and immediate: exchange of resources for guaranteed
+healing. Weigh the advantage: the potion heals, the stones serve magic.
+
+What do you do?
 
 C 141 Trade the remaining Stones for the Potion
 C 316 Say that you've used them all

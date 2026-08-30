@@ -1,11 +1,13 @@
 T 031 Crystal Pool
 
-You advance eastward and feel you've gone too far into the swamp. Suddenly,
-you enter a clearing overgrown with grass. In the center, a pool gleams with
-water pure as crystal. A small beach of fine sand borders one side of the
-pool. No other path allows an exit: only the trail by which you arrived
-connects you to the outside world. You are in Clearing No. 021. What do you
-do?
+You advance eastward and feel you've gone too far into the swamp.
+
+Suddenly, you enter a clearing overgrown with grass. In the center, a pool
+gleams with water pure as crystal. A small beach of fine sand borders one side
+of the pool. No other path allows an exit: only the trail by which you arrived
+connects you to the outside world. You are in Clearing No. 021.
+
+What do you do?
 
 C 047 Leave the place by returning west
 C 394 Wait a few minutes to observe

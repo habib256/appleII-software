@@ -4,11 +4,14 @@ Les villageois hochent la tete d'un air navre. Alors que vous approchez de la
 porte, un homme vous barre soudain le passage. De petite taille, d'age mur, il
 porte une barbe noire taille a angle droit. Sans un mot, il vous saisit par le
 bras et vous conduit vers une table isole. Les autres clients, indifferents,
-reprennent leurs conversations. Intrigue, vous vous asseyez. L'homme se
-presente : "Je me nomme Grognard", dit-il d'une voix grave. Il vous observe
-longuement puis ajoute : "Si vous voulez vraiment affronter les perils du
-Marais, il vous faut un but plus digne que tracer une simple carte ou
-massacrer des creatures." Ses paroles vibrent d'une etrange conviction.
+reprennent leurs conversations.
+
+Intrigue, vous vous asseyez. L'homme se presente : "Je me nomme Grognard",
+dit-il d'une voix grave. Il vous observe longuement puis ajoute : "Si vous
+voulez vraiment affronter les perils du Marais, il vous faut un but plus digne
+que tracer une simple carte ou massacrer des creatures." Ses paroles vibrent
+d'une etrange conviction.
+
 Grognard attend votre reponse en silence. Acceptez-vous son conseil, ou
 suivez-vous votre propre voie ?
 

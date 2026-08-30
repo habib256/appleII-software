@@ -2,10 +2,14 @@ T 379 Attaque du Maitre des Jardins
 
 Vous tirez votre epee et vous essayez de lui en porter un coup, mais il recule
 d'un pas et vous le manquez. " Pourquoi m'attaquez-vous?" s'ecrie-t-il,
-stupefait. Il s'enfuit aussitot et, n'ayant pas d'armure, parvient a courir
-plus vite que vous. Ramassant alors une faucille, il se met en garde, a
-l'autre bout de la clairiere. Lorsque vous arrivez pres de lui, il fait un
-geste de la main pour vous jeter un sort et vous perdez 3 points d'HABILETE.
+stupefait.
+
+Il s'enfuit aussitot et, n'ayant pas d'armure, parvient a courir plus vite que
+vous. Ramassant alors une faucille, il se met en garde, a l'autre bout de la
+clairiere.
+
+Lorsque vous arrivez pres de lui, il fait un geste de la main pour vous jeter
+un sort et vous perdez 3 points d'HABILETE.
 
 M 7 10 MAITRE DES JARDINS
 CF 363 Prendre la Fuite

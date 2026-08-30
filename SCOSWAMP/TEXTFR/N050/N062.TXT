@@ -1,10 +1,12 @@
 T 062 Charge contre le Maitre
 
 Vous vous ruez sur le Maitre, epee leve. Il recule d'un bond du sommet de son
-champignon et fait un geste rapide vers vous. Aussitot, ses deux enormes
-grenouilles bondissent et chargent. La situation devient dangereuse: vous etes
-encercle et devez agir. Voulez-vous fuir en rebroussant chemin ou tenir votre
-position?
+champignon et fait un geste rapide vers vous.
+
+Aussitot, ses deux enormes grenouilles bondissent et chargent. La situation
+devient dangereuse: vous etes encercle et devez agir.
+
+Voulez-vous fuir en rebroussant chemin ou tenir votre position?
 
 C 323 Revenir en arriere et prendre la fuite
 C 146 Combattre les Grenouilles a l'epee

@@ -2,11 +2,14 @@ T 004 Goblin Statue
 
 The sorcerer bursts into evil laughter and taunts you mercilessly. "I'm not
 going to waste my energy fighting such a pitiful opponent." With a gesture he
-points to a niche in the wall: a GOBLIN STATUE stands there. The statue
-immediately begins to move and advances toward you, sword brandished. Its
-march grinds on the floor; the stone seems animated by a cold will. The
-sorcerer challenges you: prove your bravery against the statue or retaliate
-directly against Stratagus, if he seems more worthy. What do you do?
+points to a niche in the wall: a GOBLIN STATUE stands there.
+
+The statue immediately begins to move and advances toward you, sword
+brandished. Its march grinds on the floor; the stone seems animated by a cold
+will. The sorcerer challenges you: prove your bravery against the statue or
+retaliate directly against Stratagus, if he seems more worthy.
+
+What do you do?
 
 C 284 Fight the goblin statue
 C 123 Attack Stratagus the sorcerer

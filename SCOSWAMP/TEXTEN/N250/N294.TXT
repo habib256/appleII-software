@@ -1,9 +1,10 @@
 T 294 Friendship Stone
 
 You throw your Friendship Magic Stone at the Wolf Master and you wait
-anxiously for it to take effect. Will it prove effective? Suddenly, the man
-starts laughing. "Come now, come," he says. He leads you into his house and
-the wolves stay wisely aside.
+anxiously for it to take effect. Will it prove effective?
+
+Suddenly, the man starts laughing. "Come now, come," he says. He leads you
+into his house and the wolves stay wisely aside.
 
 C 271 Attack him by surprise
 C 172 Follow him and chat with him

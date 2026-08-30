@@ -2,9 +2,12 @@ T 174 Menace chez Stratagus
 
 Vous posez un regard froid sur Stratagus; le cadavre de son serviteur git. Le
 sorcier marmonne, furieux et indecis; on devine un sort en preparation.
+
 L'atmosphere est tendue: il peut riposter magiquement ou tenter de discuter.
 Agissez vite: attaquez ou negociez, chaque choix aura des consequences
-lourdes. Que faites-vous?
+lourdes.
+
+Que faites-vous?
 
 C 225 L'attaquer immediatement
 C 193 L'inviter a parler affaires

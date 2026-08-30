@@ -2,13 +2,16 @@ T 048 Challenge to the Villagers
 
 You grip the pommel of your sword, ready to draw, and issue a challenge in a
 resounding voice. Your attitude doesn't impress them: on the contrary, they
-burst out laughing. "We're not brawlers," they tell you. "But a lad like you,
-always ready to brandish his sword, should go take a tour in the Swamp. For
-people of your kind, it's the perfect place." You feel embarrassed and lose 1
-LUCK point for being too aggressive. You catch a few mocking looks before
-leaving. The humid wind already carries a heavy smell of mud. The Swamp awaits
-you, and the memory of your anger weighs on you. Nothing will change your
-decision: adventure lies ahead.
+burst out laughing.
+
+"We're not brawlers," they tell you. "But a lad like you, always ready to
+brandish his sword, should go take a tour in the Swamp. For people of your
+kind, it's the perfect place." You feel embarrassed and lose 1 LUCK point for
+being too aggressive. You catch a few mocking looks before leaving.
+
+The humid wind already carries a heavy smell of mud. The Swamp awaits you, and
+the memory of your anger weighs on you. Nothing will change your decision:
+adventure lies ahead.
 
 E CHANCE -1
 C 095 Continue your journey to the Scorpion Swamp

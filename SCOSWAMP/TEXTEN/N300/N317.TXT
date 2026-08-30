@@ -3,8 +3,12 @@ T 317 The Giant and Stratagus
 You explain your mission to the Giant who scratches his head thoughtfully.
 He's heard of these sorcerers called the Masters, but he's never dealt with
 them. You then give him fuller details about them and a memory soon comes back
-to him. "I saw one day a magnificent garden in the middle of the Swamp... It
-was north of here, a bit west, but there's no path leading directly there.
-Perhaps that's where the Garden Master lives?" You thank him and leave.
+to him.
+
+"I saw one day a magnificent garden in the middle of the Swamp... It was north
+of here, a bit west, but there's no path leading directly there. Perhaps
+that's where the Garden Master lives?"
+
+You thank him and leave.
 
 C 161 Continue

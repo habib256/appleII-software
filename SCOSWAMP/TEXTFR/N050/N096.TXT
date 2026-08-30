@@ -1,7 +1,8 @@
 T 096 Confidence
 
-Il vous est impossible de dissimuler quoi que ce soit a cet homme si bon. Vous
-lui racontez bientot tout au sujet de votre Anneau de Cuivre et de ses
+Il vous est impossible de dissimuler quoi que ce soit a cet homme si bon.
+
+Vous lui racontez bientot tout au sujet de votre Anneau de Cuivre et de ses
 pouvoirs.
 
 C 371 Poursuivre apres cette confidence

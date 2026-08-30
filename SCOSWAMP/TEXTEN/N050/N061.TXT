@@ -2,9 +2,13 @@ T 061 The Angry Giant
 
 The Giant cries out, anger twists his features and his voice resounds. "How
 dare you? You, the small ones, you steal my belongings and then you come
-attack me! Me, I don't want to harm anyone!" His words sound sincere, but the
-situation may hide a trick. Believing his protest allows avoiding bloodshed;
-continuing the combat means risking life to try to kill him. What do you do?
+attack me! Me, I don't want to harm anyone!"
+
+His words sound sincere, but the situation may hide a trick. Believing his
+protest allows avoiding bloodshed; continuing the combat means risking life to
+try to kill him.
+
+What do you do?
 
 C 229 Believe the Giant and leave in peace
 C 366 Continue the fight to try to kill the Giant

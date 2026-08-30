@@ -2,9 +2,10 @@ T 229 Le mouchoir rouge
 
 Le cadavre du Geant git; sa compagne, une Geante, pleure a genoux. Elle vous
 regarde, desespere, sans menace. Elle explique qu'on lui a vole un mouchoir
-rouge fait par sa femme et qu'elle ne peut rentrer sans le retrouver. Vous
-souhaitez l'aider, mais avant, verifiez vos affaires: possedez-vous une Cape
-Rouge dans votre Sac a Dos?
+rouge fait par sa femme et qu'elle ne peut rentrer sans le retrouver.
+
+Vous souhaitez l'aider, mais avant, verifiez vos affaires: possedez-vous une
+Cape Rouge dans votre Sac a Dos?
 
 C 286 J'ai une Cape Rouge
 C 177 Je n'ai pas de Cape Rouge

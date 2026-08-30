@@ -1,7 +1,8 @@
 T 038 Putrefaction de la vase
 
 La vase est morte; ses restes se putrefient a vue d'oeil. Il s'en degage une
-odeur insupportable qui envahit la clairiere. Le spectacle est sinistre; il
-vaut mieux s'eloigner sans tarder.
+odeur insupportable qui envahit la clairiere.
+
+Le spectacle est sinistre; il vaut mieux s'eloigner sans tarder.
 
 C 153 Partir immediatement vers la suite de l'aventure

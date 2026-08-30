@@ -1,8 +1,10 @@
 T 360 Won Duel
 
 "Bravo, nice feint!" exclaims the Brigand Chief holding his arm where your
-blade reached him, "it was a beautiful combat!" One of his companions dresses
-his wound while another offers him water from his gourd. A moment later,
-you're all laughing and joking as if you were old friends.
+blade reached him, "it was a beautiful combat!"
+
+One of his companions dresses his wound while another offers him water from
+his gourd. A moment later, you're all laughing and joking as if you were old
+friends.
 
 C 214 Continue

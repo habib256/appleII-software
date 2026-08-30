@@ -1,7 +1,9 @@
 T 363 Retour au Patrouilleur
 
 Vous retournez dans la clairiere ou vous avez fait la rencontre du
-Patrouilleur. Que s'est-il passe avec lui ?
+Patrouilleur.
+
+Que s'est-il passe avec lui ?
 
 C 133 L'avez-vous quitte en bons termes
 C 234 L'avez-vous tue

@@ -1,9 +1,13 @@
 T 060 Illusion Stone
 
 You use an Illusion Stone: you make appear the image of a defenseless villager
-fleeing to shelter in the trees. The FOUL BEAST turns toward this easier prey;
-you take advantage to disappear by retracing your steps, along the path by
-which you arrived. When the illusion evaporates, the beast remains perplexed.
-You have escaped a grave danger; another awaits you however. What do you do?
+fleeing to shelter in the trees.
+
+The FOUL BEAST turns toward this easier prey; you take advantage to disappear
+by retracing your steps, along the path by which you arrived. When the
+illusion evaporates, the beast remains perplexed. You have escaped a grave
+danger; another awaits you however.
+
+What do you do?
 
 C 279 Resume the journey and face the threat again

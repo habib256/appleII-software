@@ -3,10 +3,13 @@ T 254 Tree Bridge
 You throw the Withering Magic Stone at a large tree planted on the bank. The
 tree immediately falls and forms a bridge to the opposite shore. You cross at
 a rapid pace while the wood creaks under your boots and the earth trembles
-slightly. When you finally reach the other side, the tree literally decomposes
-and collapses into the current, carrying its roots and branches. Before you,
-two distinct paths take shape: one climbs toward the north, the other runs
-toward the south. The choice is yours.
+slightly.
+
+When you finally reach the other side, the tree literally decomposes and
+collapses into the current, carrying its roots and branches.
+
+Before you, two distinct paths take shape: one climbs toward the north, the
+other runs toward the south. The choice is yours.
 
 C 157 Take the path northward
 C 398 Take the path southward

@@ -2,12 +2,15 @@ T 040 Stratagus's Tower
 
 Overcoming your fear, you approach the sinister black tower. Bats swirl in a
 cloud at the top; the heavy iron door bears a hideous head, then it opens with
-a creak of hinges. Stratagus appears: tall, thin, black robe embroidered with
-scarlet patterns. His gaze is hard; the Copper Ring on your finger warms
-intensely. He welcomes you with a cold smile and declares he wants a fearless
-hero. "I know everything about you," he says; his voice tests your assurance.
-The tension is palpable; he challenges you to prove your worth. What do you
-do?
+a creak of hinges.
+
+Stratagus appears: tall, thin, black robe embroidered with scarlet patterns.
+His gaze is hard; the Copper Ring on your finger warms intensely. He welcomes
+you with a cold smile and declares he wants a fearless hero. "I know
+everything about you," he says; his voice tests your assurance. The tension is
+palpable; he challenges you to prove your worth.
+
+What do you do?
 
 C 004 Challenge him
 C 050 Affirm that you are a fearless warrior and boast about the Ring

@@ -1,7 +1,8 @@
 T 323 Return to the Orcs
 
-You're in the clearing where you encountered the Swamp Orcs. If you've already
-killed them, go to 309. Otherwise, you'll have to fight them with the STAMINA
-total they had when you left them.
+You're in the clearing where you encountered the Swamp Orcs.
+
+If you've already killed them, go to 309. Otherwise, you'll have to fight them
+with the STAMINA total they had when you left them.
 
 C 281 Fight the Orcs

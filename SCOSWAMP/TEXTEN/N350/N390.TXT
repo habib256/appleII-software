@@ -1,7 +1,9 @@
 T 390 Three Swampy Paths
 
 You have a choice between three paths. All three seem rather swampy and
-unsafe. In which direction do you wish to go?
+unsafe.
+
+In which direction do you wish to go?
 
 C 144 North
 C 209 East

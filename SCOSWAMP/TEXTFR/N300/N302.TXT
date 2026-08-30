@@ -1,7 +1,8 @@
 T 302 Formule magique des Loups
 
-Vous prononcez la formule magique que le Maitre des Loups vous a enseigne. Les
-deux enormes Loups vous font alors la fete en vous lechant les mains. Vous les
-caressez derriere l'oreille et vous leur ordonnez de se coucher.
+Vous prononcez la formule magique que le Maitre des Loups vous a enseigne.
+
+Les deux enormes Loups vous font alors la fete en vous lechant les mains. Vous
+les caressez derriere l'oreille et vous leur ordonnez de se coucher.
 
 C 247 Continuer

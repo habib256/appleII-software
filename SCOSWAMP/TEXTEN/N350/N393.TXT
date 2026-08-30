@@ -1,10 +1,13 @@
 T 393 Withering Stone
 
 You're convinced the Withering Magic Stone suits perfectly in this kind of
-situation and you immediately throw it at the Sword Trees. To your great
-relief, you then see them take on a yellowish tint then wither before your
-eyes. You then cast a look around you, but you find nothing interesting apart
-from a few seeds doubtless from these Sword Trees. You decide to pick them up
+situation and you immediately throw it at the Sword Trees.
+
+To your great relief, you then see them take on a yellowish tint then wither
+before your eyes.
+
+You then cast a look around you, but you find nothing interesting apart from a
+few seeds doubtless from these Sword Trees. You decide to pick them up
 thinking they might be useful later and you set off again.
 
 C 022 Continue

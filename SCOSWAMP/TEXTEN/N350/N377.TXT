@@ -1,9 +1,10 @@
 T 377 Jump over the Scorpions
 
 Roll two dice. If the total obtained is less than or equal to your STAMINA
-points, you manage to jump over the Scorpions. If this total is greater than
-your STAMINA points, your leap is too short and you get stung. You'll then
-lose 3 STAMINA points. If you're still alive.
+points, you manage to jump over the Scorpions.
+
+If this total is greater than your STAMINA points, your leap is too short and
+you get stung. You'll then lose 3 STAMINA points. If you're still alive.
 
 E ENDURANCE -3
 C 319 Continue

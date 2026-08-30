@@ -1,8 +1,10 @@
 T 308 The Purple Jewel
 
-The Basin Beast is finally dead. Using your sword, you cut the flesh of its
-forehead to detach the large Purple Jewel and you leave immediately without
-forgetting to record your new acquisition on your Adventure Sheet. The only
-path that allows leaving the clearing takes you back westward.
+The Basin Beast is finally dead.
+
+Using your sword, you cut the flesh of its forehead to detach the large Purple
+Jewel and you leave immediately without forgetting to record your new
+acquisition on your Adventure Sheet. The only path that allows leaving the
+clearing takes you back westward.
 
 C 330 Continue westward

@@ -2,9 +2,12 @@ T 035 L'aimant maudit
 
 Les orques tirent deux fleches: elles vous manquent, puis courbent et se
 plantent dans votre Sac a Dos. Une seule vous egratigne l'epaule. Vous perdez
-1 point d'ENDURANCE. Vous comprenez alors que l'Aimant d'Or est maudit: il
-attire les fleches. Par chance, il etait range dans votre sac et non porte sur
-vous. Que faites-vous?
+1 point d'ENDURANCE.
+
+Vous comprenez alors que l'Aimant d'Or est maudit: il attire les fleches. Par
+chance, il etait range dans votre sac et non porte sur vous.
+
+Que faites-vous?
 
 E ENDURANCE -1
 C 281 Attaquer avec votre epee

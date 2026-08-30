@@ -3,6 +3,8 @@ T 043 Epreuve de chance
 Tentez votre CHANCE. Test: lancez deux des a six faces (2d6). Si le total est
 inferieur ou egal a votre valeur CHANCE, vous etes Chanceux; sinon vous etes
 Malchanceux. Appliquez immediatement les effets du resultat (degats, gains,
-flags). Que faites-vous?
+flags).
+
+Que faites-vous?
 
 CL 339 313

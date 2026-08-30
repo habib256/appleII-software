@@ -2,6 +2,7 @@ T 247 Purple Bush
 
 You examine the clearing and discover a bush with dark green leaves and white
 flowers. At the top shines a large purple berry. It seems perfect and juicy.
+
 What do you do?
 
 C 020 Eat the berry on the spot

@@ -2,6 +2,8 @@ T 307 Fire on the Flowers
 
 You throw your Fire Magic Stone at the Anguish Flowers. Several of them burn
 immediately, but an even greater number have remained out of the flames'
-reach. You must attempt to flee.
+reach.
+
+You must attempt to flee.
 
 C 269 Flee

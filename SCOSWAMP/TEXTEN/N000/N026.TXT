@@ -2,9 +2,10 @@ T 026 Master's Attack
 
 You sense that the SPIDER MASTER is deeply evil and you attack him with your
 sword. He defends himself with a shiny wand whose tip is very sharp and coated
-with a greenish substance. Each blow dealt by his wand will make you lose 1
-additional STAMINA point (3 instead of 2). The combat will be tough: measure
-your strength and endurance.
+with a greenish substance.
+
+Each blow dealt by his wand will make you lose 1 additional STAMINA point (3
+instead of 2). The combat will be tough: measure your strength and endurance.
 
 M 9 6 SPIDER MASTER
 MD 3

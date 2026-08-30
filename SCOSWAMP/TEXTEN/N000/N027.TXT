@@ -3,10 +3,13 @@ T 027 At Pompatarte's
 Grognard advises you to go fetch Pompatarte at the market. In the maze of
 streets you get lost; after asking everywhere, a group of children leads you
 to a large house at the edge of the market. You knock: a Goblin servant opens
-the door. She leads you to the library where Pompatarte is seated. An enormous
-and strange man: very tall, obese, braided beard, skin of a bright red. You
-tell him your story and offer your services. He replies: "I need them, but how
-do you plan to survive the Scorpion Swamp?" What do you say?
+the door. She leads you to the library where Pompatarte is seated.
+
+An enormous and strange man: very tall, obese, braided beard, skin of a bright
+red. You tell him your story and offer your services. He replies: "I need
+them, but how do you plan to survive the Scorpion Swamp?"
+
+What do you say?
 
 C 002 Tell him about the Old Woman and the Copper Ring
 C 173 Assure him that you are an exceptional warrior

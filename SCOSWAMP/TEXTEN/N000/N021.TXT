@@ -1,9 +1,12 @@
 T 021 Rest Near the Log
 
-You rest for a few minutes and recover 1 STAMINA point. A noise suddenly comes
-from inside the hollow log. If you want to know what's hiding there, examine
-the log. Otherwise, you can ignore it and resume the journey. You are in
-Clearing No. 012. What do you do?
+You rest for a few minutes and recover 1 STAMINA point.
+
+A noise suddenly comes from inside the hollow log. If you want to know what's
+hiding there, examine the log. Otherwise, you can ignore it and resume the
+journey. You are in Clearing No. 012.
+
+What do you do?
 
 C 055 Explore the hollow log
 C 390 Don't worry about it and resume the journey

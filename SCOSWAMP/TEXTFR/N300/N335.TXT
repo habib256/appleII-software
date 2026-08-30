@@ -4,15 +4,19 @@ Vous quittez la taverne. Au dehors, il fait un soleil exceptionnel et vous
 clignez des yeux pendant quelques instants pour vous accoutumer a cette
 brillante clarte. Vous vous mettez ensuite en chemin. Vous demandez alors a un
 vieil homme appuye contre la vitrine de sa boutique ou habite le bon sorcier
-Gayolard. Il est amical et vous indique quelle direction prendre. Un peu plus
-loin, vous vous perdez, mais une grosse femme au visage rubicond se fait un
-plaisir de vous renseigner. Il semble que tout le monde ici connait la demeure
-de Gayolard. Vous arrivez enfin devant une petite maison en bordure du
-village. Gayolard, un petit homme replet, vetu d'une tunique blanche et d'un
-pantalon de lin, est en train de s'adonner a la poterie dans son jardin. Vous
-vous approchez de lui et vous lui racontez votre histoire. Il sourit alors et
-vous demande comment vous comptez vous y prendre pour traverser ce Marais dont
-personne n'a jamais reussi a etablir la carte.
+Gayolard. Il est amical et vous indique quelle direction prendre.
+
+Un peu plus loin, vous vous perdez, mais une grosse femme au visage rubicond
+se fait un plaisir de vous renseigner. Il semble que tout le monde ici connait
+la demeure de Gayolard.
+
+Vous arrivez enfin devant une petite maison en bordure du village. Gayolard,
+un petit homme replet, vetu d'une tunique blanche et d'un pantalon de lin, est
+en train de s'adonner a la poterie dans son jardin.
+
+Vous vous approchez de lui et vous lui racontez votre histoire. Il sourit
+alors et vous demande comment vous comptez vous y prendre pour traverser ce
+Marais dont personne n'a jamais reussi a etablir la carte.
 
 C 371 Lui reveler l'existence de votre Anneau
 C 096 Garder le secret

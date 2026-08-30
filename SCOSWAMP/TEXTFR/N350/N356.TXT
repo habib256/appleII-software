@@ -2,6 +2,8 @@ T 356 Pierre de Terreur inefficace
 
 Vous lancez la Pierre Magique de Terreur a la Bete du Bassin, mais votre
 sortilege reste sans effet. La creature est trop stupide pour savoir ce qu'est
-la peur. Elle vous attaque.
+la peur.
+
+Elle vous attaque.
 
 C 082 Combattre la Bete du Bassin

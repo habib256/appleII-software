@@ -1,9 +1,10 @@
 T 389 Buisson d'Antherique trouve
 
 D'apres la description que vous en a donneGayolard, il ne fait aucun doute que
-vous avez trouve la le buisson d'Antherique. La moitie de votre mission est
-ainsi accomplie mais, a present, il vous faut revenir aupres du sorcier en
-emportant avec vous la precieuse baie. Le seul chemin que vous puissiez
-prendre, pour l'instant, est oriente au sud.
+vous avez trouve la le buisson d'Antherique.
+
+La moitie de votre mission est ainsi accomplie mais, a present, il vous faut
+revenir aupres du sorcier en emportant avec vous la precieuse baie. Le seul
+chemin que vous puissiez prendre, pour l'instant, est oriente au sud.
 
 C 342 Continuer vers le sud

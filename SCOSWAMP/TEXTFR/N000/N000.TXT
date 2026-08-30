@@ -9,6 +9,10 @@ tresor fabuleux cache en ses profondeurs...
 Saurez-vous survivre aux perils du Marais et decouvrir ses secrets ? Vos choix
 determineront votre destin !
 
+Ce jeu est un hommage au livre-jeu de Steve Jackson, illustre par Duncan Smith
+(1984), publie en francais par Gallimard (1985). Trouvez le livre : il le
+merite.
+
 Commandes :
  [ESPACE/RETURN/ESC] - Texte, puis image HGR, puis HGR + 4 lignes de texte
  [A-Z]               - Faire un choix

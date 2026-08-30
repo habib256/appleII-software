@@ -8,8 +8,9 @@ populated by thousands of birds with shimmering feathers. Eagles and Herons
 walk freely.
 
 In the center, a magnificent woman sits on a pedestal. It's the Bird Mistress.
-She greets you and calls you by your name. "Which sorcerer do you serve?" she
-asks.
+She greets you and calls you by your name.
+
+"Which sorcerer do you serve?" she asks.
 
 C 023 Pompatarte
 C 164 Gayolard

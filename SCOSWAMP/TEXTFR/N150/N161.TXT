@@ -1,8 +1,9 @@
 T 161 Carrefour apres le Geant
 
 Vous quittez la clairiere du Geant et reprenez votre route. Devant vous, trois
-directions possibles s'ouvrent sous les arbres. Choisissez vite, le vent
-tourne et charrie des odeurs de marais.
+directions possibles s'ouvrent sous les arbres.
+
+Choisissez vite, le vent tourne et charrie des odeurs de marais.
 
 C 092 Aller vers le nord
 C 041 Aller vers le sud

@@ -3,11 +3,12 @@ T 278 Pierre de Terreur
 Vous voulez effrayer les Brigands pour les inciter a fuir, mais sans leur
 faire de mal et vous utilisez donc contre eux une Pierre de Terreur. Un
 instant plus tard, vous bondissez de derriere les arbres en hurlant et en
-brandissant votre epee. Les Brigands sont terrifies, ils pensent que vous
-faites partie d'une veritable arme venue envahir leur territoire et ils
-s'enfuient a toutes jambes, disparaissant parmi les arbres qui entourent la
-clairiere. Vous passez alors devant eux en courant tandis qu'ils s'enfouissent
-dans la boue pour mieux se cacher. La voie est libre pour vous et vous vous
-rendez au 19.
+brandissant votre epee.
+
+Les Brigands sont terrifies, ils pensent que vous faites partie d'une
+veritable arme venue envahir leur territoire et ils s'enfuient a toutes
+jambes, disparaissant parmi les arbres qui entourent la clairiere. Vous passez
+alors devant eux en courant tandis qu'ils s'enfouissent dans la boue pour
+mieux se cacher. La voie est libre pour vous et vous vous rendez au 19.
 
 C 019 Continuer

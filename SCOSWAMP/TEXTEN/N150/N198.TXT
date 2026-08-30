@@ -1,7 +1,9 @@
 T 198 Cries and Croaks
 
 "Help! A sorcerer killer!" he suddenly croaks. His face convulses with terror;
-he leaps ten feet backward. "Kill him!" he orders, pointing at you. His two
-Frogs advance, wide mouths and sprouting legs. Combat is inevitable.
+he leaps ten feet backward.
+
+"Kill him!" he orders, pointing at you. His two Frogs advance, wide mouths and
+sprouting legs. Combat is inevitable.
 
 C 146 Fight the Frogs

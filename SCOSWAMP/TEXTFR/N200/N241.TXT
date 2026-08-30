@@ -2,10 +2,13 @@ T 241 Epe magique de Stratagus
 
 Stratagus vous felicite pour votre courage et vous tend un present. Il sort
 une epee miniature qui grandit devant vous et devient une Epe Magique.
+
 Lorsqu'elle est employe, elle vous ajoute +1 point a votre total d'HABILETE
 pour l'action de combat correspondante. Puis Stratagus vous effleure l'epaule
 avec sa Baguette: votre CHANCE retourne immediatement a son niveau initial si
 vous en aviez perdu. Vous sentez la puissance de l'arme et la magie qui vous
-protege un peu. Acceptez-vous le cadeau et poursuivez-vous avec lui?
+protege un peu.
+
+Acceptez-vous le cadeau et poursuivez-vous avec lui?
 
 C 206 Accepter l'epee et poursuivre avec Stratagus

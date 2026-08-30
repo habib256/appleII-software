@@ -1,7 +1,9 @@
 T 167 Choix de la Pierre Magique
 
 Il n'y a que deux Pierres de Magie qui puissent vous etre utiles dans cette
-situation. Laquelle allez-vous utiliser ?
+situation.
+
+Laquelle allez-vous utiliser ?
 
 CU FLETRISSURE 322 Utiliser la Pierre de Fletrissure
 CU FEU 310 Utiliser la Pierre de Feu

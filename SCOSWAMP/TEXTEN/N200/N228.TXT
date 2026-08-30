@@ -1,9 +1,10 @@
 T 228 Armed Seeds
 
 You scatter Sword Tree seeds before you then throw a Growth Stone. Shoots
-immediately spring up and brandish their swords. The Foul Beast throws itself
-at them, strikes one down, then rushes in fury. You take advantage of the
-confusion to retrace your steps and regain the trail by which you arrived,
-heading east.
+immediately spring up and brandish their swords.
+
+The Foul Beast throws itself at them, strikes one down, then rushes in fury.
+You take advantage of the confusion to retrace your steps and regain the trail
+by which you arrived, heading east.
 
 C 279 Retrace your steps eastward

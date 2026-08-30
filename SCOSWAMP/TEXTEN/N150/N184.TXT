@@ -3,10 +3,13 @@ T 184 False Amulet
 You give up attacking the Bird Mistress and tell her your mission, entrusted
 by an evil sorcerer. She nods, saddened: "I shouldn't help you, you serve
 Evil. But you're not evil, otherwise you wouldn't have spoken so frankly."
+
 After a moment, she smiles: "I will forge a false Amulet in the shape of a
 bird. Whoever sees it will believe it authentic; thus Stratagus will be
 deceived and you won't bother my brothers." "If you meet the Spider Master,
-kill him: he's a harmful being." With a gesture, an amulet identical to hers
-appears in your palm. You thank her and prepare to leave.
+kill him: he's a harmful being."
+
+With a gesture, an amulet identical to hers appears in your palm. You thank
+her and prepare to leave.
 
 C 217 Resume the journey with the false amulet

@@ -1,7 +1,8 @@
 T 082 Combat au bassin
 
-La Pierre Precieuse brille a la surface; vous tirez votre epee. La BETE DU
-BASSIN surgit des eaux et vous frappe de ses tentacules. Ses coups
+La Pierre Precieuse brille a la surface; vous tirez votre epee.
+
+La BETE DU BASSIN surgit des eaux et vous frappe de ses tentacules. Ses coups
 caoutchouteux peuvent vous desarconner; le duel commence.
 
 M 8 10 BETE DU BASSIN

@@ -1,9 +1,10 @@
 T 046 Hutte verrouille
 
 Il n'y a pas grand-chose a faire ici: la porte de la hutte est verrouille par
-un tour de magie; il est rigoureusement impossible de l'ouvrir. Vous decidez
-donc de repartir et de reprendre la route par le chemin par lequel vous etes
-venu.
+un tour de magie; il est rigoureusement impossible de l'ouvrir.
+
+Vous decidez donc de repartir et de reprendre la route par le chemin par
+lequel vous etes venu.
 
 Que faites-vous?
 

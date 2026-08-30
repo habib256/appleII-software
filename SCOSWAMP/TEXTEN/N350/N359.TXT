@@ -1,12 +1,14 @@
 T 359 Lie to the Frog Master
 
 You're convinced the Frog Master would show much less friendliness if he knew
-the exact nature of your mission and you therefore invent a lie. "I'm in
-Sukumvit's service, Baron of Fang," you claim. "He sent me to explore the
-Scorpion Swamp to find new monsters he could populate his famous Deathtrap
+the exact nature of your mission and you therefore invent a lie.
+
+"I'm in Sukumvit's service, Baron of Fang," you claim. "He sent me to explore
+the Scorpion Swamp to find new monsters he could populate his famous Deathtrap
 Dungeon with. When I arrived at the village near the Swamp, I heard of the
 Masters who've taken up residence there and I promised myself to learn more
-about them. Who are you therefore and why have you come to settle here?" Test
-your Luck.
+about them. Who are you therefore and why have you come to settle here?"
+
+Test your Luck.
 
 CL 162 016

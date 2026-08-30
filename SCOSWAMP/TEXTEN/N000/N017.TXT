@@ -3,9 +3,13 @@ T 017 The Thief's Strangling
 You cross the clearing without paying attention to the man. The moment you
 reach the path, a cord wraps around your neck. You struggle, but the thief
 strangles you. You collapse, unconscious, and immediately lose 3 STAMINA
-points. Upon waking, you feel weak and have dizziness. All your Stones and
-other magical items have disappeared. There is no trace of the thief; you are
-stripped and abandoned. What do you do?
+points.
+
+Upon waking, you feel weak and have dizziness. All your Stones and other
+magical items have disappeared. There is no trace of the thief; you are
+stripped and abandoned.
+
+What do you do?
 
 E ENDURANCE -3
 C 179 Regain consciousness and continue the journey

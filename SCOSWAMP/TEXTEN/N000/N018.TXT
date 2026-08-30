@@ -1,8 +1,10 @@
 T 018 Frightened Brigands
 
 You charge while brandishing your sword; the brigands are afraid. All five
-flee among the trees bordering the clearing. You don't stop; you cross the
-clearing running and shouting. The unarmed brigands don't even think to pursue
-you. You leave behind their cries and their flight.
+flee among the trees bordering the clearing.
+
+You don't stop; you cross the clearing running and shouting. The unarmed
+brigands don't even think to pursue you. You leave behind their cries and
+their flight.
 
 C 019 Reach the road running

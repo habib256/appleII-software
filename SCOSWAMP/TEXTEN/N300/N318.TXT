@@ -1,8 +1,10 @@
 T 318 Friendship Stone on the Brigands
 
 You think they might perhaps help you and you throw your Friendship magic
-Stone at their chief. Then you advance toward them and you greet them. Two of
-the Brigands want immediately to rob you, but their chief prevents them. He
-finds you have an honest face and asks if he can do something for you.
+Stone at their chief. Then you advance toward them and you greet them.
+
+Two of the Brigands want immediately to rob you, but their chief prevents
+them. He finds you have an honest face and asks if he can do something for
+you.
 
 C 214 Answer

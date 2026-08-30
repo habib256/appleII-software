@@ -1,8 +1,9 @@
 T 152 Magic Stone Choice
 
-Facing the Garden Master, you prepare a Magic Stone. Which one will you use?
-Each stone can trigger a different effect, but the choice is crucial and
-irreversible.
+Facing the Garden Master, you prepare a Magic Stone.
+
+Which one will you use? Each stone can trigger a different effect, but the
+choice is crucial and irreversible.
 
 CU FEU 136 Use a Fire Stone
 CU FLETRISSURE 264 Use a Withering Stone

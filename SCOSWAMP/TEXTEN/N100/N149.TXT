@@ -1,8 +1,10 @@
 T 149 The Bird Clearing
 
 You enter a clearing invaded by brightly colored birds. There is no trace of a
-human presence; the Bird Mistress must have been absent. You search the
-clearing for clues. All you find are scattered feathers, littering the ground.
-A light silence floats, as if the branches were holding their breath.
+human presence; the Bird Mistress must have been absent.
+
+You search the clearing for clues. All you find are scattered feathers,
+littering the ground. A light silence floats, as if the branches were holding
+their breath.
 
 C 217 You decide to continue your journey.

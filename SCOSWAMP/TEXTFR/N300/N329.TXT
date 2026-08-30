@@ -2,11 +2,12 @@ T 329 Le champignon lumineux
 
 La clairiere ou vous aviez rencontre le Maitre des Grenouilles est vide a
 present. Dans la demi-clarte qui regne alentour, vous apercevez une faible
-lueur qui provient du champignon sur lequel il etait assis. Vous vous en
-approchez et vous examinez attentivement le champignon. Vous remarquez alors
-des traces de dents humaines sur l'un des bords du chapeau. Le champignon
-degage une odeur agreable et vous pouvez en manger un morceau si vous le
-desirez.
+lueur qui provient du champignon sur lequel il etait assis.
+
+Vous vous en approchez et vous examinez attentivement le champignon. Vous
+remarquez alors des traces de dents humaines sur l'un des bords du chapeau. Le
+champignon degage une odeur agreable et vous pouvez en manger un morceau si
+vous le desirez.
 
 C 178 Manger un morceau
 C 352 Repartir vers le nord

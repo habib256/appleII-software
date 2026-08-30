@@ -1,6 +1,8 @@
 T 319 Choose a Direction
 
-You hasten to choose a direction. Where do you wish to go?
+You hasten to choose a direction.
+
+Where do you wish to go?
 
 C 138 North
 C 047 East

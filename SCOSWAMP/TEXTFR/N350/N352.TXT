@@ -3,7 +3,9 @@ T 352 Retour vers le nord
 Le seul chemin qui permette de quitter la clairiere est celui par lequel vous
 etes arrive. Vous l'empruntez donc a nouveau, en direction du nord, cette
 fois, et vous arrivez bientot a l'endroit ou vous avez recemment combattu les
-Orques des Marais. Vous empoignez votre epee au cas ou il vous faudrait livrer
-une nouvelle bataille.
+Orques des Marais.
+
+Vous empoignez votre epee au cas ou il vous faudrait livrer une nouvelle
+bataille.
 
 C 323 Continuer

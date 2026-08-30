@@ -3,9 +3,12 @@ T 106 Le piege du voleur
 Une cordelette s'enroule autour de votre cou : le Voleur vous a trompe ! Fort
 heureusement, vous etes bien plus fort que lui et le contraignez a lacher
 prise avant de le basculer par- dessus votre epaule. Vous etes libre a
-present, le souffle court. La lutte vous a coute 2 points d'ENDURANCE. Le
-Voleur a degaine un poignard et vous menace d'un geste rapide. Il est pret a
-se battre jusqu'au bout. Que faites-vous ?
+present, le souffle court. La lutte vous a coute 2 points d'ENDURANCE.
+
+Le Voleur a degaine un poignard et vous menace d'un geste rapide. Il est pret
+a se battre jusqu'au bout.
+
+Que faites-vous ?
 
 E ENDURANCE -2
 C 267 Attaquer le Voleur et en finir

@@ -1,6 +1,7 @@
 T 121 The Crossroads
 
 You find yourself at a crossroads. Four directions offer themselves to you.
+
 Which will you choose?
 
 C 170 Go north

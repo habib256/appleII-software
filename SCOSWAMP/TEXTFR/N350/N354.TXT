@@ -2,12 +2,15 @@ T 354 Amulette incendiaire
 
 Vous retirez votre epee du cadavre de votre repugnant adversaire en poussant
 un soupir de soulagement. Mais, tout autour de vous, les Araignees vous
-guettent et s'approchent de plus en plus pres. Vous vous penchez alors sur le
-corps de leur Maitre defunt pour vous emparer de son Amulette en forme
-d'araignee. Mais lorsque vous l'otez de son cou, une etincelle jaillit soudain
-et le cadavre prend feu instantanement. Vous vous hatez de quitter la
-clairiere en emportant l'Amulette tandis que les flammes se propagent derriere
-vous. L'incendie aura tot fait de bruler les araignees, mais il faut vous
-depecher si vous ne voulez pas etre carbonise a votre tour !
+guettent et s'approchent de plus en plus pres.
+
+Vous vous penchez alors sur le corps de leur Maitre defunt pour vous emparer
+de son Amulette en forme d'araignee. Mais lorsque vous l'otez de son cou, une
+etincelle jaillit soudain et le cadavre prend feu instantanement.
+
+Vous vous hatez de quitter la clairiere en emportant l'Amulette tandis que les
+flammes se propagent derriere vous. L'incendie aura tot fait de bruler les
+araignees, mais il faut vous depecher si vous ne voulez pas etre carbonise a
+votre tour !
 
 C 165 Partir immediatement

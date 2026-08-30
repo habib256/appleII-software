@@ -1,8 +1,9 @@
 T 210 Return to the Cursed Clearing
 
 You find again the clearing where the Foul Beast had attacked you. The ground
-still bears traces of combat, covered with scratches and disturbed earth. A
-heavy silence weighs between the trees, as if the place holds its breath,
+still bears traces of combat, covered with scratches and disturbed earth.
+
+A heavy silence weighs between the trees, as if the place holds its breath,
 awaiting your decision.
 
 C 243 If the creature is dead and the place is safe

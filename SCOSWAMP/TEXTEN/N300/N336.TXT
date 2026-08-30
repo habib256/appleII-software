@@ -4,12 +4,16 @@ V 137
 You're in a particularly marshy zone, and each of your steps produces a
 sucking sound on the ground. Soon, the path turns slightly and runs along a
 large basin. You're in a clearing accessible only by this single trail. This
-is Clearing No. 28. The basin's water is agitated by wavelets and a greenish
-Slime covers its surface. This certainly isn't where you'd wish to quench your
-thirst! Suddenly, the basin's filth seems to contract and you're stunned to
-see it rise and spread on the trail, barring your passage. This is a large
-mass of viscous SLIME two meters wide giving off a repugnant smell while
-slowly crawling toward you. What will you do?
+is Clearing No. 28.
+
+The basin's water is agitated by wavelets and a greenish Slime covers its
+surface. This certainly isn't where you'd wish to quench your thirst!
+Suddenly, the basin's filth seems to contract and you're stunned to see it
+rise and spread on the trail, barring your passage. This is a large mass of
+viscous SLIME two meters wide giving off a repugnant smell while slowly
+crawling toward you.
+
+What will you do?
 
 C 085 Flee
 C 257 Try to jump over it

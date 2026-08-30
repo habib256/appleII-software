@@ -1,8 +1,9 @@
 T 347 Illusion Spell
 
 Thanks to your Illusion Spell, you take the appearance of a plant. Stunned,
-the Garden Master then approaches you and you try to snatch his Amulet. Your
-movement however has broken the spell and the Garden Master, seeing you
+the Garden Master then approaches you and you try to snatch his Amulet.
+
+Your movement however has broken the spell and the Garden Master, seeing you
 reappear in your usual form, leaps backward. The attempt has failed.
 
 C 379 Attack the Garden Master

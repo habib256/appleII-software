@@ -1,6 +1,7 @@
 T 324 Apres le combat
 
 Le monstre est mort. Quant au Nain, il semble qu'il ne respire plus.
+
 Qu'allez-vous faire ?
 
 C 088 Quitter la clairiere a l'instant meme

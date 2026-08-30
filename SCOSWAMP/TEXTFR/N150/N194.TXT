@@ -1,9 +1,10 @@
 T 194 Paiement ou remise ?
 
 Il rit en se frottant les mains, manifestement satisfait. "Excellent ! Je
-savais que vous reussiriez ! Donnez-moi tout cela." Allez-vous lui remettre
-votre butin immediatement, ou exiger d'abord d'etre paye ? Choisissez avec
-prudence.
+savais que vous reussiriez ! Donnez-moi tout cela."
+
+Allez-vous lui remettre votre butin immediatement, ou exiger d'abord d'etre
+paye ? Choisissez avec prudence.
 
 C 099 Remettre le butin sans conditions
 C 207 Exiger d'abord le paiement

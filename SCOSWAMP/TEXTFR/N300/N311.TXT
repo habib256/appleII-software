@@ -1,9 +1,11 @@
 T 311 Brulure acide
 
 Le contact avec la Vase vous brule comme un acide et vous reculez en
-chancelant. Ces brulures vous coutent 2 points d'HABILETE. Vous avez
-maintenant le choix entre vous enfuir par le chemin que vous avez emprunte
-pour arriver jusqu'ici ou combattre la Vase.
+chancelant.
+
+Ces brulures vous coutent 2 points d'HABILETE. Vous avez maintenant le choix
+entre vous enfuir par le chemin que vous avez emprunte pour arriver jusqu'ici
+ou combattre la Vase.
 
 E HABILETE -2
 C 085 Revenir sur vos pas

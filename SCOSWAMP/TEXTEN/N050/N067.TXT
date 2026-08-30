@@ -1,7 +1,8 @@
 T 067 Healing Powder
 
 You use all the Healing Powder; you feel your strength returning. You recover
-2 STAMINA points immediately. You catch your breath and prepare to continue
-the journey.
+2 STAMINA points immediately.
+
+You catch your breath and prepare to continue the journey.
 
 C 019 Resume the journey

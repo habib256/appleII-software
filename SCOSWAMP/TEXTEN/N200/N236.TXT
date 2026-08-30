@@ -2,10 +2,11 @@ T 236 The Innkeeper's Chair
 
 Exhausted by the long journey, you rush down the stairs. Brandishing your
 sword, you threaten the joyful revelers gathered. They respond with bursts of
-laughter that fill the room. The innkeeper seizes a chair and strikes your arm
-with a great blow. Your sword falls to the ground; your arm is bruised. You
-lose 2 SKILL points. It's vain to fight all these men: you return to your
-room.
+laughter that fill the room.
+
+The innkeeper seizes a chair and strikes your arm with a great blow. Your
+sword falls to the ground; your arm is bruised. You lose 2 SKILL points. It's
+vain to fight all these men: you return to your room.
 
 E HABILETE -2
 C 116 Return to your room

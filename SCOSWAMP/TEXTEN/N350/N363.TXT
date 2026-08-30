@@ -1,7 +1,8 @@
 T 363 Return to the Patroller
 
-You return to the clearing where you met the Patroller. What happened with
-him?
+You return to the clearing where you met the Patroller.
+
+What happened with him?
 
 C 133 Did you leave on good terms
 C 234 Did you kill him

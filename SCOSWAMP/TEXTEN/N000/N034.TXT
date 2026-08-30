@@ -1,10 +1,12 @@
 T 034 Stone Choice
 
-Which Magic Stone do you use against the POOL BEAST? WITHERING: slows and
-weakens the creature, useful for control. FIRE: inflicts immediate damage but
-may reveal your position. TERROR: risks panicking the beast; variable effect
-depending on target. Warning: using it consumes the chosen Stone; check your
-inventory.
+Which Magic Stone do you use against the POOL BEAST?
+
+WITHERING: slows and weakens the creature, useful for control. FIRE: inflicts
+immediate damage but may reveal your position. TERROR: risks panicking the
+beast; variable effect depending on target.
+
+Warning: using it consumes the chosen Stone; check your inventory.
 
 C 237 USE WITHERING
 C 291 USE FIRE

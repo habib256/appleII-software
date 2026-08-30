@@ -2,6 +2,8 @@ T 230 Silent Clearing
 
 You've killed the Giant Frogs; their Master has disappeared. You clean the
 blade, search the clearing without discovering anything. The place remains
-threatening; you leave quickly, on your guard. What do you do?
+threatening; you leave quickly, on your guard.
+
+What do you do?
 
 C 352 Resume the journey eastward

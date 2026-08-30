@@ -1,6 +1,7 @@
 T 262 Au service de Pompatarte
 
 "Je suis au service de Pompatarte le marchand A , repondez-vous calmement.
+
 Vous ajoutez que vous ne savez s'il est bon ou mal, et que vous ne faites que
 lui dessiner une carte pour l'aider a traverser le Marais. Le ton est neutre,
 la verite partielle - assez pour obtenir une reponse sans conflit. Selon votre

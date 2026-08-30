@@ -1,7 +1,8 @@
 T 167 Magic Stone Choice
 
-There are only two Magic Stones that can be useful in this situation. Which
-one will you use?
+There are only two Magic Stones that can be useful in this situation.
+
+Which one will you use?
 
 CU FLETRISSURE 322 Use the Withering Stone
 CU FEU 310 Use the Fire Stone

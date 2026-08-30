@@ -2,12 +2,17 @@ T 066 The Suspicious Picnic
 V 192
 
 You enter a pleasant clearing surrounded by gnarled oaks. You are in Clearing
-No. 9. A small man with a cheerful air is sitting on the ground, back leaning
-against the trunk of a tree. He's eating cheese, a picnic basket open beside
-him. He doesn't seem armed, except for a knife he uses to cut his portion. He
-notices you and greets you: "Hello, adventurer, would you like to share my
+No. 9.
+
+A small man with a cheerful air is sitting on the ground, back leaning against
+the trunk of a tree. He's eating cheese, a picnic basket open beside him. He
+doesn't seem armed, except for a knife he uses to cut his portion.
+
+He notices you and greets you: "Hello, adventurer, would you like to share my
 meal?" The Copper Ring diffuses a warmth around your finger that warns you:
-don't trust him. Soon, you understand that he's a THIEF. What do you do?
+don't trust him. Soon, you understand that he's a THIEF.
+
+What do you do?
 
 C 267 Attack the thief immediately
 C 017 Pay him no attention and continue

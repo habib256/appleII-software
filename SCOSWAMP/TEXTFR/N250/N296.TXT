@@ -4,11 +4,12 @@ Vous avancez bravement dans le Marais aux Scorpions, mais il y a dans votre
 attitude une grande part de temerite et, disons-le, d'inconscience car, bien
 que votre Anneau de Cuivre vous garantisse de ne jamais vous perdre, vous
 auriez besoin de recourir a bien d'autres formes de magie pour esperer sortir
-vivant de cette exploration. Sans l'aide de la magie, en effet, jamais vous ne
-pourrez percer les secrets du Marais et au bout de quelques heures de marche,
-vous etes deja epuise et meurtri apres avoir du vous defendre contre toutes
-sortes de creatures, a la fois familieres et etranges. Vous estimez bientot
-preferable de retourner au village et vous faites donc demi-tour. Tentez votre
-Chance.
+vivant de cette exploration.
+
+Sans l'aide de la magie, en effet, jamais vous ne pourrez percer les secrets
+du Marais et au bout de quelques heures de marche, vous etes deja epuise et
+meurtri apres avoir du vous defendre contre toutes sortes de creatures, a la
+fois familieres et etranges. Vous estimez bientot preferable de retourner au
+village et vous faites donc demi-tour. Tentez votre Chance.
 
 CL 272 003

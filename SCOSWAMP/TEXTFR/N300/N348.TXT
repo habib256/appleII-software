@@ -1,7 +1,8 @@
 T 348 Quatre chemins
 
-Quatre chemins vous permettent de repartir. Dans quelle direction
-souhaitez-vous aller ?
+Quatre chemins vous permettent de repartir.
+
+Dans quelle direction souhaitez-vous aller ?
 
 C 094 Au nord
 C 157 Au sud

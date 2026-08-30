@@ -1,7 +1,8 @@
 T 374 Magic against the Foul Beast
 
-It's better to fight such a monster with magic's help. What spell will you
-throw at it?
+It's better to fight such a monster with magic's help.
+
+What spell will you throw at it?
 
 C 299 Terror
 C 060 Illusion

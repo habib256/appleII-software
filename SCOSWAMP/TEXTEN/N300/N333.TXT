@@ -3,7 +3,8 @@ T 333 Patroller's Advice
 "I've studied botany," the Patroller replies, "and I've heard of this bush,
 but I didn't know there were any in the Scorpion Swamp. Going eastward, you'll
 find the clearing where a good sorcerer called the Garden Master lives. If
-anyone knows where this bush grows, it's surely him." You thank him and you
-continue your path.
+anyone knows where this bush grows, it's surely him."
+
+You thank him and you continue your path.
 
 C 234 Continue

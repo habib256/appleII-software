@@ -2,9 +2,12 @@ T 006 Gayolard's House
 
 You return to Gayolard's house. A fire crackles in the fireplace and a
 delicious smell rises: some dish is simmering. The sorcerer welcomes you
-cordially and looks at you carefully. He then asks you a simple and decisive
-question: "Do you have the berry?" If it's the purple fruit of the Asphodel,
-everything changes. What do you do?
+cordially and looks at you carefully.
+
+He then asks you a simple and decisive question: "Do you have the berry?" If
+it's the purple fruit of the Asphodel, everything changes.
+
+What do you do?
 
 C 175 Yes, I bring him the Asphodel berry
 C 052 No, I did not bring him the berry
