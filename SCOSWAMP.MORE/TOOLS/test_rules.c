@@ -340,6 +340,31 @@ static void test_pierres(void)
     }
 }
 
+static void test_perte_definitive(void)
+{
+    /* "vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points
+     * votre total initial d'HABILETE. Vous ne pourrez plus jamais retrouver
+     * tous vos points de depart" (paragraphe 87). */
+    Character c = hero(11, 20, 8);
+    character_lower_hab0(&c, -2);
+    CHECK(c.hab0 == 9, "le plafond descend a 9, vu %u", c.hab0);
+    CHECK(c.hab  == 9, "la valeur courante suit, vu %u", c.hab);
+
+    /* Et rien ne la rend : le soin plafonne au nouveau total. */
+    character_adjust_hab(&c, +5);
+    CHECK(c.hab == 9, "le soin s'arrete au nouveau plafond, vu %u", c.hab);
+
+    /* Une valeur courante deja basse ne remonte pas toute seule. */
+    c = hero(11, 20, 8); c.hab = 4;
+    character_lower_hab0(&c, -2);
+    CHECK(c.hab == 4, "une HABILETE deja entamee reste ou elle est, vu %u", c.hab);
+
+    /* Jamais zero : ce serait une mort que le livre ne prononce pas. */
+    c = hero(11, 20, 8);
+    character_lower_hab0(&c, -50);
+    CHECK(c.hab0 == 1 && c.hab == 1, "plancher a 1, vu %u/%u", c.hab, c.hab0);
+}
+
 static void test_clairieres_vues(void)
 {
     /* "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui
@@ -379,6 +404,7 @@ int main(void)
     test_fuite();
     test_memoire_clairieres();
     test_clairieres_vues();
+    test_perte_definitive();
     test_pierres();
     if (failures == 0) printf("regles : tout passe\n");
     else               printf("regles : %d echec(s)\n", failures);

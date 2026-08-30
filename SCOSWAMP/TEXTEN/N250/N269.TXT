@@ -1,7 +1,8 @@
 T 269 Flight from Anguish Flowers
 
-Terror overcomes you as you flee the Anguish Flowers. You lose 1 additional
+Terror overcomes you as you flee the Anguish Flowers. You additionally lose 1
 SKILL point while retreating at full speed. When finally you're at a distance,
 your fear diminishes.
 
+E HABILETE -1
 C 367 Continue after the flight

@@ -7,4 +7,5 @@ the nest without difficulty.
 You then discover a Gold Chain attached to a branch, which you can take if you
 wish. You climb down immediately after and resume your journey.
 
+CE ENDURANCE 0 -2
 C 202 Continue your path

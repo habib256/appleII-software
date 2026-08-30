@@ -84,6 +84,20 @@ void character_adjust_hab(Character* c, int d) { adjust(&c->hab, c->hab0, d); }
 void character_adjust_end(Character* c, int d) { adjust(&c->end, c->end0, d); }
 void character_adjust_cha(Character* c, int d) { adjust(&c->cha, c->cha0, d); }
 
+/* Abaisse le plafond ET la valeur courante : le livre retire les deux d'un
+ * coup, et laisser la valeur courante au-dessus de son propre maximum ferait
+ * mentir la jauge. `delta` est negatif. */
+static void lower(unsigned char* v, unsigned char* v0, int delta)
+{
+    int n0 = (int)*v0 + delta;
+    if (n0 < 1) n0 = 1;              /* une caracteristique nulle serait une mort */
+    *v0 = (unsigned char)n0;
+    if (*v > *v0) *v = *v0;
+}
+
+void character_lower_hab0(Character* c, int d) { lower(&c->hab, &c->hab0, d); }
+void character_lower_end0(Character* c, int d) { lower(&c->end, &c->end0, d); }
+
 int character_is_dead(const Character* c) { return c->end == 0; }
 
 /* ── Tentez votre Chance ─────────────────────────────────────────────────── */

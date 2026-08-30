@@ -78,6 +78,13 @@ void character_adjust_hab(Character* c, int delta);
 void character_adjust_end(Character* c, int delta);
 void character_adjust_cha(Character* c, int delta);
 
+/* "vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points votre
+ * total initial d'HABILETE. Vous ne pourrez plus jamais retrouver tous vos
+ * points de depart" (paragraphe 87). La perte ordinaire se rattrape ; celle-ci
+ * abaisse le plafond, donc rien ne la rend jamais. */
+void character_lower_hab0(Character* c, int delta);
+void character_lower_end0(Character* c, int delta);
+
 int  character_is_dead(const Character* c);   /* ENDURANCE tombee a zero */
 
 /* ── Tentez votre Chance ──────────────────────────────────────────────────

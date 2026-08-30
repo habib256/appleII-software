@@ -9,4 +9,5 @@ lose 2 SKILL points and must also reduce your initial SKILL total by 2 points.
 You will never be able to recover all your starting points: such is the price
 of losing your armor.
 
+E0 HABILETE -2
 C 270 Continue your path

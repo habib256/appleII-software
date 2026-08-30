@@ -8,4 +8,5 @@ Vous decouvrez alors une Chaine d'Or accroche a une branche, que vous pouvez
 emporter si vous le desirez. Vous redescendez aussitot apres et reprenez votre
 route.
 
+CE ENDURANCE 0 -2
 C 202 Poursuivre votre chemin

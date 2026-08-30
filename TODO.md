@@ -230,6 +230,50 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   une retouche de celle-ci.
   → `SCOSWAMP/SRC/sfx.s`
 
+- **Les sept dernieres pages que le derivateur n'osait pas trancher.** Elles
+  restaient signalees depuis que le corpus est derive du texte ; elles sont
+  toutes reglees, et le rapport de `reflow_txt.py --derive` est vide.
+
+  Deux etaient de FAUX positifs : la 191 rappelle les Pierres « que Gayolard
+  vous a confiees » et la 282 en LANCE une -- dans les deux cas la Pierre ne
+  vient pas au heros. Le detecteur les distingue maintenant.
+
+  Une etait une perte seche que le mot « supplementaire » faisait passer pour
+  conditionnelle (269) : il dit que la perte s'ajoute a une autre, pas qu'elle
+  depend de quoi que ce soit. Une autre l'etait aussi, derriere un « si vous
+  etes toujours vivant » (357) qui est du recit -- le moteur arrete deja la
+  partie a zero.
+
+  Les quatre dernieres demandaient au moteur deux choses qu'il ne savait pas
+  dire, et qui sont maintenant deux directives :
+
+  - **`CE <CARAC> <dok> <dko>`** -- « Tentez votre Chance » qui ne branche pas.
+    « Si vous etes Malchanceux, vous tombez et perdez 2 points d'ENDURANCE,
+    mais vous parvenez tout de meme a grimper » (73, 249) : le jet decide d'un
+    effet, les deux issues menent au meme endroit, et la page continue de se
+    lire. La ligne `CL` ne pouvait pas l'exprimer -- elle branche, donc elle
+    aurait saute le paragraphe suivant, celui de la Chaine d'Or.
+  - **`E0 <CARAC> <delta>`** -- la perte qui entame le TOTAL DE DEPART.
+    « vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points votre
+    total initial [...] Vous ne pourrez plus jamais retrouver tous vos points
+    de depart » (87). Une ligne `E` ordinaire se serait rattrapee a la
+    premiere potion. Plancher a 1 : une caracteristique nulle serait une mort
+    que le livre ne prononce pas.
+
+  Verifie dans POM2 en posant les deux lignes sur la page 1 le temps d'un
+  essai : HABILETE 11/11 -> 9/9 (le plafond bouge), ENDURANCE 17/17 -> 16/17
+  et CHANCE 9/9 -> 8/9 (le jet a coute son point et paye la branche heureuse).
+  Cout memoire : 986 octets, il reste 1047.
+  → `SCOSWAMP/SRC/rules.c` (`character_lower_hab0`), `SCOSWAMP/SRC/scoswamp.c`
+
+- **`make hdv` ignorait les donnees.** L'image disque ne dependait que du
+  binaire : une page de texte corrigee ou une image reconvertie repondait
+  « Nothing to be done », et on testait un disque perime. C'est exactement le
+  piege qui a coute une seance de debogage sur un bug deja corrige. Le
+  corpus, les images et les catalogues de messages sont maintenant des
+  prerequis de la regle.
+  → `SCOSWAMP/SRC/Makefile`
+
 - **525 coquilles corrigees dans le corpus francais, en deux passes.** Le corpus est
   volontairement sans accents -- l'Apple II n'en affiche pas -- mais la
   conversion qui les a retires s'est mal passee. Deux familles de degats :

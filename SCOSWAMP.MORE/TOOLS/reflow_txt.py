@@ -31,7 +31,7 @@ WRAP        = 78
 RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # Les directives de jeu : ni titre, ni corps, ni choix. Elles ne se replient
 # pas -- une ligne M coupee en deux ne veut plus rien dire.
-DIRECTIVE = re.compile(r"^(M|MD|MS|E|P|PC|CF|CP|CU|CL|V) ")
+DIRECTIVE = re.compile(r"^(M|MD|MS|E0|E|P|PC|CF|CP|CU|CL|CE|V) ")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -63,9 +63,16 @@ STOP  = re.compile(r"(?:r[eé]duis\w*|reduce\w*)[^.]{0,30}?\b(?:a|to)\s+(\d+)", 
 # Une page qui tend des Pierres sans ligne PC : le moteur ne les donnera pas.
 # La formulation varie trop (un chiffre, un nombre en lettres, une categorie
 # nommee ou sous-entendue) pour deviner sans risque -- on signale.
+# Une Pierre remise par le recit. Deux faux positifs a ecarter : la page qui
+# rappelle celles "que Gayolard vous a confiees" (191) et celle ou l'on en
+# LANCE une (282) -- dans les deux cas la Pierre change de main dans l'autre
+# sens, ou pas du tout.
 STONES_GIVEN = re.compile(
     r"\b(?:donne|donnerai|offre|remet|prenez|prendre|choisissez|choisir)\b"
     r"[^.]{0,80}?\bPierres?\b(?![^.]{0,20}\bdesintegre)", re.I)
+STONES_NOT_GIVEN = re.compile(
+    r"\b(?:confie[es]?|lancez|lance|depense[es]?|utilis\w+"
+    r"|entrusted|throw|thrown|spent|used)\b", re.I)
 
 
 def derive_combat(text, choices, lang):
@@ -245,9 +252,14 @@ EFFECT_VALUE = re.compile(
     r"(\d+)\s*(?:points?\s*(?:d[e']\s*|d\s+|of\s+))?"
     r"(ENDURANCE|HABILETE|CHANCE|STAMINA|SKILL|LUCK)", re.I)
 # Ce qui rend une perte conditionnelle ou deja prise en charge ailleurs.
+# Ce qui empeche de deriver une perte seche. "supplementaire" n'en fait plus
+# partie : il dit que la perte s'ajoute a une autre, pas qu'elle est
+# conditionnelle -- et il bloquait le paragraphe 269, ou elle est bien seche.
 EFFECT_GUARD = re.compile(
-    r"\b(si|sinon|supplementaire|au lieu de|chaque|initial"
-    r"|if|otherwise|instead|additional|each)\b", re.I)
+    r"\b(si|sinon|au lieu de|chaque|initial"
+    r"|if|otherwise|instead|each)\b", re.I)
+# "additional" est l'equivalent anglais de "supplementaire" : meme raison de
+# ne pas l'y mettre.
 CARAC = {"ENDURANCE": "ENDURANCE", "STAMINA": "ENDURANCE",
          "HABILETE": "HABILETE", "SKILL": "HABILETE",
          "CHANCE": "CHANCE", "LUCK": "CHANCE"}
@@ -262,7 +274,7 @@ def derive_effects(body, directives):
     phrase qui porte "si", "sinon" ou "supplementaire" n'est pas une perte
     seche -- on la signale plutot que de la deviner.
     """
-    if any(d.startswith(("E ", "CL ", "MD ")) for d in directives):
+    if any(d.startswith(("E ", "E0 ", "CE ", "CL ", "MD ")) for d in directives):
         return [], []
     lines, warns = [], []
     for sentence in re.split(r"(?<=[.!?])\s+", " ".join(body)):
@@ -461,7 +473,8 @@ def main():
                 directives = directives + cus
             if derive and not any(d.startswith("PC ") for d in directives) \
                      and not any(d.startswith("P ") for d in directives) \
-                     and STONES_GIVEN.search(" ".join(body)):
+                     and STONES_GIVEN.search(" ".join(body)) \
+                     and not STONES_NOT_GIVEN.search(" ".join(body)):
                 problems.append(f"{f}: une Pierre semble remise ici, mais la "
                                 f"page n'a ni ligne PC ni ligne P")
             if derive and directives:
@@ -511,7 +524,8 @@ def main():
             # Combien de champs portent de la mecanique, par directive : le
             # reste est du titre, qui se traduit.
             KEEP = {"M": 3, "MD": 2, "MS": 2, "CL": None, "CF": 2, "PC": 3,
-                    "CU": 3, "CP": 3, "E": None, "V": None}
+                    "CU": 3, "CP": 3, "E": None, "V": None,
+                    "E0": None, "CE": None}
 
             def mechanics(dirs):
                 out = []

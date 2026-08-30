@@ -10,4 +10,5 @@ total initial d'HABILETE.
 Vous ne pourrez plus jamais retrouver tous vos points de depart : tel est le
 prix de la perte de votre armure.
 
+E0 HABILETE -2
 C 270 Continuer votre chemin

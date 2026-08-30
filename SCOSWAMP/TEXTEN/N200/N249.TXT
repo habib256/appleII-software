@@ -5,5 +5,6 @@ clearing without harm. Otherwise, you fall and injure your arm; lose 1 SKILL
 point, then reach the clearing anyway. Apply the immediate effect before
 continuing. Where will you go next?
 
+CE HABILETE 0 -1
 C 336 Take the southern direction
 C 121 Take the eastern direction

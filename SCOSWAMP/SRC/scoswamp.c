@@ -328,6 +328,17 @@ static char* take_uint(char* t, unsigned int* out)
     return t;
 }
 
+/* La meme chose, signe compris : les effets d'une ligne CE sont negatifs. */
+static char* take_int(char* t, int* out)
+{
+    unsigned int v;
+    int neg = 0;
+    if (*t == '-') { neg = 1; t++; } else if (*t == '+') t++;
+    t = take_uint(t, &v);
+    *out = neg ? -(int)v : (int)v;
+    return t;
+}
+
 /* Avance sur un mot, le termine par '\0', et rend le debut du suivant. */
 static char* take_word(char* t, char** word)
 {
@@ -347,6 +358,10 @@ static char* take_word(char* t, char** word)
  *   MD <n>                      ses coups coutent n ENDURANCE (defaut 2)
  *   MS <n>                      le combat cesse a n ENDURANCE (defaut 0)
  *   E  <CARAC> <delta>          effet a l'entree : E ENDURANCE -2
+ *   E0 <CARAC> <delta>          perte qui entame le TOTAL DE DEPART, donc
+ *                               definitive : E0 HABILETE -2
+ *   CE <CARAC> <dok> <dko>      "Tentez votre Chance" sans branchement : il
+ *                               decide d'un effet, la page continue
  *   P  <PIERRE> <n>             le sorcier vous donne n Pierres Magiques
  *   PC <n> <cats>               il vous en laisse choisir n parmi les
  *                               categories citees (N neutre, B benefique,
@@ -396,6 +411,32 @@ static void classify_line(char* l)
             strncpy(f->name, t, sizeof(f->name) - 1);
             f->name[sizeof(f->name) - 1] = '\0';
             app.foe_count++;
+        }
+        return;
+    }
+    if (l[0] == 'E' && l[1] == '0' && l[2] == ' ') {
+        /* Perte qui entame le total de depart : elle ne se rattrape jamais. */
+        int delta;
+        t = take_word(l + 3, &word);
+        delta = atoi(t);
+        if      (strcmp(word, "ENDURANCE") == 0) character_lower_end0(&app.hero, delta);
+        else if (strcmp(word, "HABILETE")  == 0) character_lower_hab0(&app.hero, delta);
+        return;
+    }
+    if (l[0] == 'C' && l[1] == 'E' && l[2] == ' ') {
+        /* "Tentez votre Chance" qui ne branche pas : il decide seulement d'un
+         * effet, et la page continue de se lire. Le livre le fait souvent --
+         * "si vous etes Malchanceux, vous tombez et perdez 2 points
+         * d'ENDURANCE, mais vous parvenez tout de meme a grimper". */
+        int dok, dko;
+        t = take_word(l + 3, &word);
+        t = take_int(t, &dok);
+        take_int(t, &dko);
+        {
+            int d = luck_test(&app.hero) ? dok : dko;
+            if      (strcmp(word, "ENDURANCE") == 0) character_adjust_end(&app.hero, d);
+            else if (strcmp(word, "HABILETE")  == 0) character_adjust_hab(&app.hero, d);
+            else if (strcmp(word, "CHANCE")    == 0) character_adjust_cha(&app.hero, d);
         }
         return;
     }
