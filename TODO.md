@@ -370,6 +370,27 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   **Ne pas reformuler une fiche sans lancer `--stale`** : c'est la constance du
   texte et de la planche qui fait celle de l'image.
 
+  **Deux pieges appris sur les planches elles-memes**, tous deux invisibles a
+  la lecture du prompt :
+
+  - Le cadrage disait « no props beyond what the description names » -- une
+    interdiction, sans l'exigence complementaire. Le modele lisait la liste
+    des vetements et n'en dessinait aucun : la planche du Maitre des Loups le
+    montrait torse nu et desarme alors que sa fiche lui donnait tunique,
+    amulette et epee. La consigne exige maintenant que **chaque** vetement,
+    arme et ornement nomme soit visible, et rien de plus.
+  - Le decor « bassin » et la BETE DU BASSIN portaient le meme identifiant,
+    donc la meme planche : chacune effacait celle de l'autre. Deux fiches de
+    meme nom sont desormais une erreur de chargement.
+
+  Et une regle de fond, apprise en verifiant les fiches contre les pages : le
+  **corpus prime sur la fiche**. La fiche du Maitre des Loups le disait sans
+  epee la ou la page 398 lui en donne une ; celle de Gayolard en faisait un
+  vieillard barbu en robe bleue la ou la page 371 decrit un petit homme replet
+  en tunique blanche, au tour de potier. `--describe` met chaque fiche en
+  regard des phrases qui decrivent son sujet : a relire avant d'en modifier
+  une.
+
   Reste a faire : la regeneration elle-meme (433 images), et un detail de
   palette -- les fiches disent « grey wolf pelts », or le gris n'existe pas en
   HGR, il ressort bleu ; les fiches gagneraient a ne nommer que les six
