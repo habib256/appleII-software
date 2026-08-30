@@ -1,14 +1,12 @@
 T 156 Pile of Gravel
 
-Out of breath but alive, you see your opponent reduced to a pile of gravel on
-the ground.
+Out of breath but alive, you see your adversary reduced to a pile of gravel on
+the floor.
 
-You burst out laughing, cast a mocking look at Stratagus and throw over your
-shoulder the table leg, which falls on library debris. Stratagus contemplates
-the disorder now reigning in the room.
+You burst out laughing, throw Stratagus a mocking glance and toss the table
+leg over your shoulder; it lands on the debris of a bookcase. Stratagus
+contemplates the disorder that now reigns in the room.
 
-Assess your injuries and decide what's next.
-
-C 241 No injury received during combat
-C 193 Wounded (loss <= 5 STAMINA points)
-C 326 Seriously wounded (loss >= 6 STAMINA points)
+DV 0 241
+DV 5 193
+DV 99 326

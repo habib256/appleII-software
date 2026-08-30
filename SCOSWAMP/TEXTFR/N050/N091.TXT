@@ -1,24 +1,10 @@
 T 091 Le saut hasardeux
 
+Devant vous s'etend une zone marecageuse qu'il va falloir franchir d'un bond.
+Vous prenez votre elan.
+
 Lancez deux des. Si le total est inferieur ou egal a vos points d'ENDURANCE,
-vous reussissez a franchir la zone marecageuse et atteignez l'autre cote sain
-et sauf. Dans le cas contraire, votre bond est trop court : votre pied
-s'enfonce dans la vase, vous chutez lourdement et vous vous tordez le bras.
-Cette mauvaise chute vous coute 1 point d'HABILETE.
+vous reussissez a franchir la zone marecageuse. Dans le cas contraire, votre
+bond est trop court.
 
-Reprenant vos esprits, vous vous relevez avec peine. Les insectes
-tourbillonnent autour de vous tandis que la boue colle a vos vetements. Le
-souffle court, vous vous engagez vers la sortie de la clairiere, bien decide a
-continuer malgre ce revers.
-
-Trois directions s'offrent alors a vous, et chacune mene vers l'inconnu. A
-l'ouest, un sentier sombre disparait derriere les troncs humides. A l'est, un
-chemin plus clair semble serpenter a travers des herbes hautes. Au sud, le
-passage par lequel vous etes arrive parait moins engagant, mais il reste
-possible de l'emprunter de nouveau. Vous pesez vos choix, sachant que chaque
-pas peut etre lourd de consequences.
-
-E HABILETE -1
-C 398 Prendre le sentier qui s'enfonce vers l'ouest
-C 105 Suivre le chemin herbeux vers l'est
-C 208 Revenir sur vos pas par le sentier du sud
+CS ENDURANCE 404 405

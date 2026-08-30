@@ -1,0 +1,8 @@
+T 403 The Perfect Leap
+
+You clear the mud without falling and land nimbly on the other side. You gain
+2 LUCK points and continue on your way without delay, light of heart and with
+cleaner boots.
+
+E CHANCE +2
+C 153 Continue on your way

@@ -295,7 +295,9 @@ def scene_rows(root, characters, all_pages):
     game = root / "SCOSWAMP"
     more = root / "SCOSWAMP.MORE"
     rows = []
-    for scene_id in range(402):
+    # 402-406 : la page jumelle du Stratagus affaibli et les relais d'effets
+    # (chute, piqure, bond parfait) -- voir TODO, "six pages inexprimables".
+    for scene_id in range(407):
         sid = f"{scene_id:03d}"
         bucket = f"N{(scene_id // 50) * 50:03d}"
         text_path = game / "TEXTFR" / bucket / f"N{sid}.TXT"

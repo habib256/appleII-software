@@ -50,6 +50,7 @@ HIMEM_DEFAUT=0x9600
 while [ $# -gt 0 ]; do
     case "$1" in
         --himem) HIMEM="$2"; shift 2 ;;
+        --stack) STACKSIZE=$(($2)); shift 2 ;;
         -*)      echo "Option inconnue : $1" >&2; exit 2 ;;
         *)       MAP="$1"; shift ;;
     esac
@@ -66,7 +67,9 @@ fi
 # disponible. En dessous, $9600-$BEFF n'est réservé que si BASIC.SYSTEM reste
 # résident — ce que fait ]BRUN.
 # Normalisées en décimal : [ ] ne sait pas comparer des littéraux 0x.
-readonly STACKSIZE=$((0x0800))    # pile C, 2 Ko
+# Pile C : 2 Ko par defaut, mais le Makefile passe la sienne via --stack --
+# le defaut ne doit donc s'appliquer QUE si l'option n'a rien dit.
+: "${STACKSIZE:=$((0x0800))}"
 readonly LOAD_ADDR=$((0x4000))    # -Wl -S,0x4000, préserve HGR page 1
 readonly HGR1_START=$((0x2000))   # HGR page 1 : $2000-$3FFF
 readonly HGR1_END=$((0x3FFF))

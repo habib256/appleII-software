@@ -1,13 +1,9 @@
-T 257 The Swamp Jump
+T 257 The Marsh Jump
 
-You prepare to jump over a vast patch of slime. Roll two dice. If the sum of
-the numbers obtained is less than or equal to your SKILL total, you clear the
-slime without falling. You gain two LUCK points and continue your journey
-without delay, heart light and boots less soiled.
+You prepare to jump over a vast patch of mud.
 
-If the sum is greater than your SKILL total, you land right in the slime mass;
-the mud holds your steps and you must free yourself losing time and strength.
-If you survive, catch your breath and leave.
+Roll two dice. If the sum of the numbers rolled is less than or equal to your
+SKILL total, you clear the mud without falling. If the sum is greater, you
+land right in the middle of the muddy mass.
 
-C 153 Increase my LUCK by 2 points and continue
-C 311 Land in the slime and free myself from the swamp
+CS HABILETE 403 311

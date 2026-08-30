@@ -8,8 +8,6 @@ par-dessus votre epaule le pied de la table, qui retombe sur des debris de
 bibliotheque. Stratagus contemple le desordre qui regne a present dans la
 piece.
 
-Evaluez vos blessures et decidez de la suite.
-
-C 241 Aucune blessure recue pendant le combat
-C 193 Blesse (perte <= 5 points d'ENDURANCE)
-C 326 Grievement blesse (perte >= 6 points d'ENDURANCE)
+DV 0 241
+DV 5 193
+DV 99 326

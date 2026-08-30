@@ -254,13 +254,32 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
   jetait une forme unique -- le plus petit de deux des, double = la somme --
   ramenee a un de simple, texte reecrit dans les deux langues.
 
-  **Reste documente, six pages** : 079 et 341 (le combat a DEUX issues --
-  duel au premier sang, seuil d'ENDURANCE -- que MV ne doit pas ecraser),
-  091, 257 et 377 (jet COMPARE a une caracteristique : la directive `CS`,
-  concue mais reportee), 373 (la Chance handicape l'adversaire de la page
-  suivante -- inexprimable sans page jumelle ou report de handicap). La 156
-  demande au joueur d'evaluer ses blessures que le moteur connait : candidate
-  a une directive de branchement sur degats.
+  **Les six dernieres pages, exprimees a leur tour** (chantier suivant, le
+  rapport `--derive` est VIDE) :
+
+  - **`CS <STAT> <ok> <ko>`** -- « Lancez deux des » contre la caracteristique
+    nommee, gratuit (le jet de Chance, lui, coute son point). Meme cadre
+    visible que ED : « Vous jetez : 8, contre 22. » Pages 091, 257, 377.
+  - **`MB <ok> <ko>`** -- duel au premier sang : la premiere blessure arrete
+    le combat et la suite dit QUI a touche (079). Reutilise la sortie de MV.
+  - **`DV <max> <id>`** -- cascade sur l'ENDURANCE perdue au dernier combat
+    gagne : la 156 ne demande plus au joueur d'evaluer ses blessures, le
+    moteur fabrique l'unique choix « continuer » vers la bonne branche.
+  - La 341 n'avait besoin de RIEN de neuf : `MS 6` + `MV 372` + `CF 327`.
+  - La 373 non plus : la solution du livre lui-meme -- une **page jumelle**,
+    la 402, ou Stratagus entre en scene deja blesse (`M 9 8` au lieu de
+    `M 9 10`), et `CL 402 225`. Les effets qu'une branche de CS doit porter
+    vivent pareillement dans des **pages relais** : 403 (le bond parfait,
+    `E CHANCE +2`), 404/405 (la reception ou la chute du saut de la 091),
+    406 (les dards, `E ENDURANCE -3`). Cinq pages nouvelles, du pur contenu.
+
+  Paye par un regime : les quatre fabriques de choix fondues en
+  `push_choice` (~480 octets), le rappel des touches au catalogue, et la
+  pile C ramenee de 2 Ko a 1,5 Ko (chaine la plus profonde : load_scene ->
+  run_* -> cprintf -> vsnprintf ; tampons fichiers statiques ; recursion de
+  load_scene interdite par la boucle principale). `check-memory.sh` prend
+  `--stack` -- son defaut ECRASAIT l'option, lecon : un defaut se pose avant
+  la lecture des options, pas apres. Marge : **194 octets**.
 
   Et une trouvaille de l'arpenteur moteur : la variable PAYLOAD de `make hdv`
   nommait `MSGFR`/`MSGEN` au lieu de `MSGFR.TXT`/`MSGEN.TXT` -- le

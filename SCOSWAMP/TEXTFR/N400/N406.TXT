@@ -1,0 +1,10 @@
+T 406 Les dards des Scorpions
+
+Votre bond est trop court : vous retombez au milieu des Scorpions et leurs
+dards vous transpercent. Vous perdez 3 points d'ENDURANCE.
+
+Si vous etes toujours vivant, vous vous degagez en titubant et reprenez votre
+route.
+
+E ENDURANCE -3
+C 319 Continuer

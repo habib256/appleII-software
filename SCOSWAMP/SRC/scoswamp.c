@@ -114,6 +114,19 @@ typedef struct {
      * perte) et le NOMBRE de des dans sa valeur absolue ; 0 = pas de jet. */
     signed char   dice_n;
     unsigned char dice_carac;  /* 0 END, 1 HAB, 2 CHA, 3 OR */
+    /* Ligne CS : 2d6 contre une caracteristique NOMMEE, sans depenser de
+     * point de CHANCE -- le "Lancez deux des. Si le total est inferieur ou
+     * egal a vos points d'ENDURANCE..." du livre. -1 = pas de test. */
+    int       cs_ok, cs_ko;
+    unsigned char cs_carac;
+    /* Ligne MB : duel au premier sang. La premiere blessure arrete le combat
+     * et decide de la suite -- qui a touche, pas qui est mort. -1 = non. */
+    int       mb_ok, mb_ko;
+    /* Ligne DV : l'ENDURANCE perdue au dernier combat GAGNE, pour que la
+     * page d'apres n'ait pas a demander au joueur d'evaluer ses blessures.
+     * dv_done bloque la cascade a la premiere ligne DV qui correspond. */
+    unsigned char last_loss;
+    unsigned char dv_done;
 } AppState;
 
 /* Variables globales optimisées */
@@ -222,7 +235,6 @@ static char* put_u8(char* p, unsigned char v)
 
 static void render_title_bar(void)
 {
-    const char* hint;
     char sheet[40];
     int i, n;
 
@@ -230,9 +242,6 @@ static void render_title_bar(void)
      * caracteristiques sont ce qu'on consulte a chaque page, et le livre les
      * veut sous les yeux en permanence. Avant la creation du personnage, elle
      * sert encore au rappel des touches. */
-    hint = (app.language[0] == 'F') ? "ESPACE=VUE  A-Z=CHOIX  I=SAC  Q=QUITTER"
-                                    : "SPACE=VIEW  A-Z=CHOICE  I=BAG  Q=QUIT";
-
     for (i = 0; i < 80; i++) title_bar[i] = ' ';
     title_bar[80] = '\0';
 
@@ -272,6 +281,9 @@ static void render_title_bar(void)
         n = (int)(q - sheet);
         memcpy(title_bar + 79 - n, sheet, n);
     } else {
+        /* Avant la creation du personnage : le rappel des touches. Il vit au
+         * catalogue -- la barre ne se peint jamais avant messages_load. */
+        const char* hint = msg(M_TOUCHES);
         n = (int)strlen(hint);
         memcpy(title_bar + 79 - n, hint, n);
     }
@@ -406,6 +418,21 @@ static void carac_apply(unsigned char c, int d)
     }
 }
 
+/* Ajoute un choix a la page. Quatre directives fabriquaient chacune le leur
+ * a la main : le meme bloc de 120 octets, quatre fois. */
+static void push_choice(int scene, unsigned char grant, unsigned char require,
+                        const char* title)
+{
+    Choice* c;
+    if (app.num_choices >= MAX_CHOICES) return;
+    c = &app.choices[app.num_choices++];
+    c->scene_id = scene;
+    c->grant    = grant;
+    c->require  = require;
+    strncpy(c->title, title, CHOICE_TITLE - 1);
+    c->title[CHOICE_TITLE - 1] = '\0';
+}
+
 /* Classe une ligne du fichier. Le format d'une page :
  *
  *   T  <id> <titre>             titre, en video inverse ligne 1
@@ -415,6 +442,14 @@ static void carac_apply(unsigned char c, int d)
  *   M  <hab> <end> <nom>        la creature de la clairiere (Batailles)
  *   MD <n>                      ses coups coutent n ENDURANCE (defaut 2)
  *   MS <n>                      le combat cesse a n ENDURANCE (defaut 0)
+ *   MB <ok> <ko>                duel au premier sang : la premiere blessure
+ *                               arrete le combat, <ok> si vous touchez,
+ *                               <ko> si c'est vous qui etes touche
+ *   CS <STAT> <ok> <ko>         "Lancez deux des" contre la caracteristique
+ *                               nommee, gratuit (pas de point de CHANCE)
+ *   DV <max> <id>               en cascade : premiere ligne dont la perte du
+ *                               dernier combat est <= max fabrique l'unique
+ *                               choix "continuer" vers <id>
  *   MV <id>                     apres le dernier adversaire tombe, la page
  *                               envoie en <id> sans repasser par les choix.
  *                               Le jumeau de CF cote victoire : elle remplace
@@ -479,6 +514,14 @@ static void classify_line(char* l)
     if (l[0] == 'M' && l[1] == 'V' && l[2] == ' ') {
         take_uint(l + 3, &a);
         app.win_scene = (int)a;
+        return;
+    }
+    if (l[0] == 'M' && l[1] == 'B' && l[2] == ' ') {
+        /* MB <si-vous-touchez> <si-touche> : duel au premier sang. */
+        t = take_uint(l + 3, &a);
+        app.mb_ok = (int)a;
+        take_uint(t, &b);
+        app.mb_ko = (int)b;
         return;
     }
     if (l[0] == 'M' && l[1] == ' ') {
@@ -580,14 +623,8 @@ static void classify_line(char* l)
         t = take_word(l + 3, &word);
         st = stone_from_name(word);
         t = take_uint(t, &a);
-        if (st != STONE_COUNT && app.num_choices < MAX_CHOICES) {
-            app.choices[app.num_choices].scene_id = (int)a;
-            app.choices[app.num_choices].grant    = (unsigned char)STONE_COUNT;
-            app.choices[app.num_choices].require  = (unsigned char)st;
-            strncpy(app.choices[app.num_choices].title, t, CHOICE_TITLE - 1);
-            app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
-            app.num_choices++;
-        }
+        if (st != STONE_COUNT)
+            push_choice((int)a, (unsigned char)STONE_COUNT, (unsigned char)st, t);
         return;
     }
     if (l[0] == 'C' && l[1] == 'P' && l[2] == ' ') {
@@ -595,14 +632,8 @@ static void classify_line(char* l)
         t = take_word(l + 3, &word);
         st = stone_from_name(word);
         t = take_uint(t, &a);
-        if (st != STONE_COUNT && app.num_choices < MAX_CHOICES) {
-            app.choices[app.num_choices].scene_id = (int)a;
-            app.choices[app.num_choices].grant    = (unsigned char)st;
-            app.choices[app.num_choices].require  = (unsigned char)STONE_COUNT;
-            strncpy(app.choices[app.num_choices].title, t, CHOICE_TITLE - 1);
-            app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
-            app.num_choices++;
-        }
+        if (st != STONE_COUNT)
+            push_choice((int)a, st, (unsigned char)STONE_COUNT, t);
         return;
     }
     if (l[0] == 'V' && l[1] == ' ') {
@@ -614,6 +645,31 @@ static void classify_line(char* l)
          * que la ligne V precede tout le reste. */
         take_uint(l + 2, &a);
         if (scene_visited((unsigned int)app.current_scene)) app.revisit = (int)a;
+        return;
+    }
+    if (l[0] == 'C' && l[1] == 'S' && l[2] == ' ') {
+        /* CS <STAT> <ok> <ko> : le jet est joue par load_scene, comme un jet
+         * de Chance, mais contre la caracteristique nommee et gratuit. */
+        t = take_word(l + 3, &word);
+        app.cs_carac = carac_of(word);
+        t = take_uint(t, &a);
+        app.cs_ok = (int)a;
+        take_uint(t, &b);
+        app.cs_ko = (int)b;
+        return;
+    }
+    if (l[0] == 'D' && l[1] == 'V' && l[2] == ' ') {
+        /* DV <max> <id>, en cascade : la premiere ligne dont la perte du
+         * dernier combat ne depasse pas <max> fabrique l'unique choix de la
+         * page -- "continuer" -- vers sa cible. Le moteur repond ainsi a
+         * "Evaluez vos blessures" a la place du joueur. */
+        t = take_uint(l + 3, &a);
+        t = take_uint(t, &b);
+        if (!app.dv_done && app.last_loss <= (unsigned char)a) {
+            app.dv_done = 1;
+            push_choice((int)b, (unsigned char)STONE_COUNT,
+                        (unsigned char)STONE_COUNT, msg(M_K_CONTINUER));
+        }
         return;
     }
     if (l[0] == 'C' && l[1] == 'F' && l[2] == ' ') {
@@ -628,20 +684,13 @@ static void classify_line(char* l)
         while (*t == ' ') t++;
         scene_title = t;
     } else if (l[0] == 'C' && l[1] == ' ') {
-        if (app.num_choices < MAX_CHOICES) {
-            /* take_uint plutot que sscanf : sur cc65 le premier appel a scanf
-             * fait entrer plusieurs kilo-octets d'analyseur de format dans le
-             * binaire, pour lire trois chiffres. */
-            t = take_uint(l + 2, &a);
-            if (t != l + 2 && *t != '\0') {
-                app.choices[app.num_choices].scene_id = (int)a;
-                app.choices[app.num_choices].grant    = (unsigned char)STONE_COUNT;
-                app.choices[app.num_choices].require  = (unsigned char)STONE_COUNT;
-                strncpy(app.choices[app.num_choices].title, t, CHOICE_TITLE - 1);
-                app.choices[app.num_choices].title[CHOICE_TITLE - 1] = '\0';
-                app.num_choices++;
-            }
-        }
+        /* take_uint plutot que sscanf : sur cc65 le premier appel a scanf
+         * fait entrer plusieurs kilo-octets d'analyseur de format dans le
+         * binaire, pour lire trois chiffres. */
+        t = take_uint(l + 2, &a);
+        if (t != l + 2 && *t != '\0')
+            push_choice((int)a, (unsigned char)STONE_COUNT,
+                        (unsigned char)STONE_COUNT, t);
     } else if (body_count < BODY_ROWS) {
         /* Pas de ligne vide en tete : le fichier en a une sous le titre, et
          * elle couterait la ligne de marge du budget de 19. */
@@ -1041,6 +1090,37 @@ static void run_dice_roll(void)
     wait_key_at(CHOICE_ROWN, msg_continue());
 }
 
+/* La valeur courante d'une caracteristique, pour le test CS. L'or n'est pas
+ * testable : le livre ne compare jamais 2d6 a une bourse. */
+static unsigned char carac_value(unsigned char c)
+{
+    if (c == 0) return app.hero.end;
+    if (c == 1) return app.hero.hab;
+    return app.hero.cha;
+}
+
+/* Ligne CS : "Lancez deux des. Si le total est inferieur ou egal a vos points
+ * d'ENDURANCE..." -- le meme geste que le jet de Chance, mais contre la
+ * caracteristique nommee et sans depenser de point de CHANCE. Rend la scene
+ * ou aller. */
+static int run_stat_test(void)
+{
+    unsigned char roll, against;
+
+    print_at(CHOICE_ROW0, msg(M_LANCEZ_LES_DES));
+    row_blank(CHOICE_ROW0 + 1);
+    row_blank(CHOICE_ROW0 + 2);
+    cgetc();
+
+    roll = roll_2d6();
+    against = carac_value(app.cs_carac);
+    gotoxy(0, CHOICE_ROW0);
+    cprintf(msg(M_JET_CONTRE), (unsigned)roll, (unsigned)against);
+    pad_to(79);
+    wait_key_at(CHOICE_ROWN, msg_continue());
+    return (roll <= against) ? app.cs_ok : app.cs_ko;
+}
+
 /* "Vous choisirez ces six Pierres dans la liste qui figure au debut de ce
  * livre, mais vous ne pourrez les prendre que..." -- un bon sorcier ne donne
  * pas de Pierre malefique, un mauvais pas de Pierre benefique, et l'on a le
@@ -1091,6 +1171,7 @@ static int run_combat(void)
     int use_luck, lucky;
     int pending = 0;            /* une blessure annoncee attend d'etre encaissee */
     unsigned char hurt;
+    unsigned char end_in = app.hero.end;   /* pour last_loss (lignes DV) */
     Round r;
     char key;
 
@@ -1184,6 +1265,10 @@ static int run_combat(void)
                                            ? app.foe_cur : app.foe_count - 1]);
                 wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
                 if (app.foe_cur >= app.foe_count) {
+                    /* "Evaluez vos blessures" : la page d'apres peut brancher
+                     * sur ce que le combat a coute (lignes DV). */
+                    app.last_loss = (end_in > app.hero.end)
+                                  ? (unsigned char)(end_in - app.hero.end) : 0;
                     set_video_mode(0);
                     return 1;
                 }
@@ -1195,6 +1280,16 @@ static int run_combat(void)
                 monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
                 set_video_mode(0);
                 return 0;
+            }
+            /* Duel au premier sang : la blessure vient d'etre encaissee, le
+             * combat s'arrete la et la suite dit QUI a touche. Le detour par
+             * win_scene reutilise la sortie de MV telle quelle. */
+            if (app.mb_ok >= 0) {
+                app.win_scene = (r.outcome == ROUND_HERO_HITS) ? app.mb_ok
+                                                               : app.mb_ko;
+                wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
+                set_video_mode(0);
+                return 1;
             }
         }
 
@@ -1354,6 +1449,11 @@ void load_scene(int scene_id) {
     app.win_scene  = -1;
     app.dice_n     = 0;
     app.dice_carac = 0;
+    app.cs_ok = -1; app.cs_ko = -1;
+    app.mb_ok = -1; app.mb_ko = -1;
+    /* last_loss ne se remet PAS a zero ici : c'est la page SUIVANT le combat
+     * qui la lit (lignes DV). dv_done, si : la cascade repart a chaque page. */
+    app.dv_done = 0;
 
     /* Charger d'abord le texte et les choix. Le chargeur HGR assembleur est
      * ensuite le dernier client ProDOS de la scène : son décodage direct en
@@ -1389,6 +1489,13 @@ void load_scene(int scene_id) {
          * n'en a jamais besoin, il rend toujours une scene ; ED laisse la
          * page en place et lui rend la main. */
         render_scene();
+    }
+
+    /* La page teste une caracteristique : 2d6 contre elle, et la suite
+     * depend du jet -- rien a choisir. */
+    if (app.cs_ok >= 0) {
+        app.pending_scene = run_stat_test();
+        return;
     }
 
     /* La page ordonne un jet de Chance : il decide de la suite, il n'y a donc

@@ -4,8 +4,6 @@ Lancez deux des. Si le total obtenu est inferieur ou egal a vos points
 d'ENDURANCE, vous parvenez a sauter par-dessus les Scorpions.
 
 Si ce total est superieur a vos points d'ENDURANCE, votre bond est trop court
-et vous vous faites piquer. Vous perdrez alors 3 points d'ENDURANCE. Si vous
-etes toujours vivant.
+et vous vous faites piquer.
 
-E ENDURANCE -3
-C 319 Continuer
+CS ENDURANCE 319 406

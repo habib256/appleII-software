@@ -7,5 +7,4 @@ sans hostilite, attentifs au combat.
 Le combat s'arrete des qu'un des deux adversaires est blesse.
 
 M 9 10 CHEF DES BRIGANDS
-C 360 Si vous touchez le Chef des Brigands
-C 128 Si c'est lui qui vous blesse
+MB 360 128

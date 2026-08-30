@@ -88,7 +88,7 @@ QUOTE_TAIL = re.compile(r"\s+\"\s*$")
 
 # La partie machine d'une ligne de directive : numeros et mots-cles. Le titre
 # qui suit est de la prose et se corrige comme le reste.
-PREFIX = re.compile(r"^((?:T|M|MD|MS|E|P|PC|C|CF|CP|CU|CL|V)\s+"
+PREFIX = re.compile(r"^((?:T|M|MD|MS|MV|MB|E0|ED|E|P|PC|C|CF|CP|CU|CL|CE|CS|DV|V)\s+"
                     r"(?:[A-Z]+\s+)?[-+]?\d+(?:\s+\d+)*\s*)")
 
 # Corrections nommees, verifiees en contexte une par une.

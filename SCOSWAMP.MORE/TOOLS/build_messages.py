@@ -46,6 +46,8 @@ MESSAGES = [
     ('M_K_IMAGE', 'image', 'picture'),
     ('M_K_CONTINUER', 'continuer', 'continue'),
     ('M_DEGATS', '  -%u END', '  -%u STA'),
+    ('M_TOUCHES', 'ESPACE=VUE  A-Z=CHOIX  I=SAC  Q=QUITTER', 'SPACE=VIEW  A-Z=CHOICE  I=BAG  Q=QUIT'),
+    ('M_JET_CONTRE', 'Vous jetez : %u, contre %u.', 'You roll: %u, against %u.'),
     ('M_S_EFFONDRE', "%s s'effondre.", '%s collapses.'),
     ('M_HELPFR', 'HELPFR', 'HELPEN'),
     ('M_FICHIER_D_AIDE', "Fichier d'aide introuvable.", 'Help file not found.'),

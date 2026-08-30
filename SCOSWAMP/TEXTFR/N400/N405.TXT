@@ -1,0 +1,17 @@
+T 405 La chute dans la vase
+
+Votre pied s'enfonce dans la vase, vous chutez lourdement et vous vous tordez
+le bras. Cette mauvaise chute vous coute 1 point d'HABILETE.
+
+Reprenant vos esprits, vous vous relevez avec peine, la boue collant a vos
+vetements, et gagnez l'autre cote en pataugeant.
+
+Trois directions s'offrent alors a vous. A l'ouest, un sentier sombre
+disparait derriere les troncs humides. A l'est, un chemin plus clair serpente
+a travers des herbes hautes. Au sud, le passage par lequel vous etes arrive
+reste praticable.
+
+E HABILETE -1
+C 398 Prendre le sentier qui s'enfonce vers l'ouest
+C 105 Suivre le chemin herbeux vers l'est
+C 208 Revenir sur vos pas par le sentier du sud

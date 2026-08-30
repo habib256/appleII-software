@@ -14,5 +14,5 @@ through the window.
 
 M 9 14 POMPATARTE
 MS 6
-C 327 Dive through the window
-C 372 If you reduce his STAMINA to 6 or less
+MV 372
+CF 327 Dive through the window

@@ -44,7 +44,7 @@ RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # L'ordre de l'alternance FAIT FOI : `M` avant `MV` avalerait la ligne MV et
 # wrap() la replierait dans le corps. Les deux lettres passent donc devant la
 # lettre seule du meme prefixe, ici comme dans classify_line.
-DIRECTIVE = re.compile(r"^(MD|MS|MV|M|E0|ED|E|PC|P|CF|CP|CU|CL|CE|V) ")
+DIRECTIVE = re.compile(r"^(MD|MS|MV|MB|M|E0|ED|E|PC|P|CF|CP|CU|CL|CE|CS|DV|V) ")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -375,6 +375,7 @@ def derive_dice(body, directives):
     d'Or dans la precedente, et elargir d'emblee ferait attraper au 093 le
     "deduisez 2 points d'HABILETE" qui vise le MONSTRE, pas le heros.
     """
+    has_cs = any(d.startswith("CS ") for d in directives)
     if any(d.startswith("ED ") for d in directives):
         return None, []
     # Le jet de Chance a deja sa directive : la page ne parle pas d'un de de
@@ -398,8 +399,9 @@ def derive_dice(body, directives):
             return None, ["jet de Chance ecrit en prose : c'est un CL ou un "
                           "CE, pas un ED, et la page n'en a aucun : " + short]
         if DICE_COMPARE.search(window):
-            return None, ["jet de des COMPARE a une caracteristique : ce n'est "
-                          "pas un ED, il manque la directive de test : " + short]
+            return None, [] if has_cs else [
+                          "jet de des COMPARE a une caracteristique : ce n'est "
+                          "pas un ED, il manque la ligne CS : " + short]
         n = DICE_N[m.group("n").lower()]
         # La phrase du jet d'abord, ses voisines ensuite, et jamais l'inverse.
         for scope in (sentence, window):
@@ -810,7 +812,8 @@ def main():
             # et des ED dans les deux langues.
             KEEP = {"M": 3, "MD": 2, "MS": 2, "MV": None, "CL": None,
                     "CF": 2, "PC": 3, "CU": 3, "CP": 3, "E": None,
-                    "ED": None, "V": None, "E0": None, "CE": None}
+                    "ED": None, "V": None, "E0": None, "CE": None,
+                    "CS": None, "DV": None, "MB": None}
 
             def mechanics(dirs):
                 out = []

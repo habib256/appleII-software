@@ -26,6 +26,8 @@ sac a dos
 image
 continuer
   -%u END
+ESPACE=VUE  A-Z=CHOIX  I=SAC  Q=QUITTER
+Vous jetez : %u, contre %u.
 %s s'effondre.
 HELPFR
 Fichier d'aide introuvable.

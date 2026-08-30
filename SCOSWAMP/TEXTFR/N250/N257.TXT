@@ -1,15 +1,9 @@
 T 257 Le saut du marais
 
-Vous vous preparez a sauter par-dessus une vaste tache de vase. Lancez deux
-des. Si la somme des chiffres obtenus est inferieure ou egale a votre total
-d'HABILETE, vous franchissez la vase sans tomber. Vous gagnez deux points de
-CHANCE et poursuivez votre route sans tarder, le coeur leger et les bottes
-moins salies.
+Vous vous preparez a sauter par-dessus une vaste tache de vase.
 
-Si la somme est superieure a votre total d'HABILETE, vous atterris en plein
-dans l'amas de vase; la boue retient vos pas et il vous faut vous degager en
-perdant du temps et des forces. Si vous survivez, reprenez votre souffle et
-repartez.
+Lancez deux des. Si la somme des chiffres obtenus est inferieure ou egale a
+votre total d'HABILETE, vous franchissez la vase sans tomber. Si la somme est
+superieure, vous atterrissez en plein dans l'amas de vase.
 
-C 153 Augmenter de 2 points ma CHANCE et continuer
-C 311 Atterrir dans la vase et me degager du marais
+CS HABILETE 403 311

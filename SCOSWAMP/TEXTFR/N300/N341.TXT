@@ -15,5 +15,5 @@ faudra plonger par la fenetre.
 
 M 9 14 POMPATARTE
 MS 6
-C 327 Plonger par la fenetre
-C 372 Si vous reduisez a 6 ou moins son ENDURANCE
+MV 372
+CF 327 Plonger par la fenetre

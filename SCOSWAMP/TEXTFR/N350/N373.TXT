@@ -9,4 +9,4 @@ Si vous etes Malchanceux, vous ne parvenez pas a le toucher ; dans ce cas,
 vous vous rendrez egalement au 225 pour le combattre, mais sans rien changer
 cette fois au total d'ENDURANCE dont il dispose.
 
-C 225 Combattre
+CL 402 225

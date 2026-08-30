@@ -1,0 +1,16 @@
+T 405 The Fall into the Mud
+
+Your foot sinks into the mud, you fall heavily and twist your arm. This bad
+fall costs you 1 SKILL point.
+
+Gathering your wits, you rise with difficulty, mud clinging to your clothes,
+and wade your way to the other side.
+
+Three directions then open before you. To the west, a dark path disappears
+behind damp trunks. To the east, a lighter trail winds through tall grass. To
+the south, the passage you arrived by remains usable.
+
+E HABILETE -1
+C 398 Take the path sinking to the west
+C 105 Follow the grassy trail to the east
+C 208 Retrace your steps along the southern path
