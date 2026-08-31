@@ -1,6 +1,6 @@
 [ESPACE] continuer
 VOUS
-SAC A DOS -- %u Pieces d'Or, une epee, une cotte de mailles
+SAC A DOS -- %u Pieces d'Or, une epee, un justaucorps de cuir
    interdite en plein combat
 Aucune Pierre Magique.
 Une Pierre se desintegre a l'usage.  [A-Z] utiliser  [ESC] fermer
@@ -37,7 +37,7 @@ FEUILLE D'AVENTURE
 HABILETE  %2u   (1 de + 6)
 ENDURANCE %2u   (2 des + 12)
 CHANCE    %2u   (1 de + 6)
-Une epee, une cotte de mailles, un sac a dos, %u Pieces d'Or.
+Une epee, un justaucorps de cuir, un sac a dos, %u Pieces d'Or.
 Aucun de ces trois totaux ne pourra depasser sa valeur de depart.
 [ESPACE] entrer dans le Marais
 CHOISISSEZ VOS PIERRES MAGIQUES -- il en reste %u a prendre

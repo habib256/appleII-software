@@ -1,6 +1,6 @@
 [SPACE] continue
 YOU
-BACKPACK -- %u Gold Pieces, a sword, chainmail
+BACKPACK -- %u Gold Pieces, a sword, a leather jerkin
    forbidden mid-fight
 No Magic Stones.
 A Stone crumbles when used.  [A-Z] use  [ESC] close
@@ -37,7 +37,7 @@ ADVENTURE SHEET
 SKILL    %2u   (1 die + 6)
 STAMINA  %2u   (2 dice + 12)
 LUCK     %2u   (1 die + 6)
-A sword, chainmail, a backpack, %u Gold Pieces.
+A sword, a leather jerkin, a backpack, %u Gold Pieces.
 None of these three scores may ever rise above its start value.
 [SPACE] enter the Swamp
 CHOOSE YOUR MAGIC STONES -- %u left to take

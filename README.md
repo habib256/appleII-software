@@ -16,7 +16,12 @@
 >
 > Construire SCOSWAMP :
 > `cd SCOSWAMP/SRC && make hdv` — relie le jeu, le lanceur ProDOS, et
-> reconstruit `dist/SCOSWAMP.HDV`.
+> reconstruit `dist/SCOSWAMP.HDV`, l'image de travail.
+> `make release` en tire les deux fichiers que télécharge un joueur :
+> `dist/scoswamp-<version>.hdv` (blocs ProDOS bruts) et
+> `dist/scoswamp-<version>.2mg` (les mêmes blocs, précédés des 64 octets
+> d'en-tête que réclament les émulateurs qui refusent de deviner la géométrie
+> d'un `.hdv`). Le numéro est tenu par `VERSION` dans `SCOSWAMP/SRC/Makefile`.
 >
 > Les règles de jeu se testent sur la machine hôte, sans émulateur :
 > `cmake -S SCOSWAMP.MORE/TOOLS -B SCOSWAMP.MORE/TOOLS/build && cd $_ && ctest`.
@@ -57,11 +62,11 @@ Deux jeux d'aventure pour Apple IIe Enhanced démontrant une architecture modern
 
 > Les chiffres ci-dessous sont **produits par `./tools/check-project.sh`**, pas saisis à la main.
 > Relancer le script après toute modification de contenu pour les mettre à jour.
-> Dernière vérification : 4 août 2026 — 0 erreur.
+> Dernière vérification : 31 août 2026 — 0 erreur.
 
 | Module | Rôle | Moteur | Scènes | Textes | Images | État |
 |--------|------|--------|--------|--------|--------|------|
-| **SCOSWAMP** | Le Marais aux Scorpions (livre-jeu) | 13 322 o | 402 | 804 ✅ | 79 / 402 | 🚧 Images en cours |
+| **SCOSWAMP** | Le Marais aux Scorpions (livre-jeu) | 13 322 o | 407 | 814 ✅ | 407 / 407 + 32 combats ✅ | ✅ Complet |
 | **SPACETRIP** | Space Explorer Trip (aventure sci-fi) | 12 835 o | 14 | 28 ✅ | 14 / 14 ✅ | ✅ Complet |
 | **COMBAT** | Système de combat RPG | 14 490 o | — | — | 5 monstres | 🔬 Prototype autonome, **non intégré** |
 
@@ -70,14 +75,14 @@ Deux jeux d'aventure pour Apple IIe Enhanced démontrant une architecture modern
 ```
 SCOSWAMP  texte FR/EN   [####################] 100%  (804/804 fichiers)
 SCOSWAMP  moteur        [####################] 100%
-SCOSWAMP  images HGR    [####................]  20%  (79/402 scènes)
+SCOSWAMP  images HGR    [####################] 100%  (407/407 scènes + 32 combats)
 SPACETRIP tout          [####################] 100%
 COMBAT    prototype     [####################] 100%  (fonctionne isolément)
 COMBAT    intégration   [....................]   0%  (voir COMBAT/README.md)
 Distribution            [....................]   0%  (voir DOCS/RELEASE.md)
 ```
 
-**Intégrité** : 101 images HGR, toutes à 8192 octets exactement. Aucun trou de numérotation, aucune scène FR sans équivalent EN, aucun fichier texte vide.
+**Intégrité** : 439 images HGR compressées (HGRR), toutes vérifiées comme se décodant en 8192 octets exactement. Aucun trou de numérotation, aucune scène FR sans équivalent EN, aucun fichier texte vide.
 
 ### Vérifier soi-même
 
@@ -103,23 +108,40 @@ Adaptation du livre-jeu « Scorpion Swamp » (1985) par Steve JACKSON & Ian LIVI
 - **Navigation par choix** : branches narratives interactives
 - **Memory swap** : transitions optimisées
 
-### Ce qui reste
+- **Toutes les scènes sont illustrées** : 407 images de page + 32 tableaux de
+  bataille, en couleur, dans la palette HGR à six teintes.
 
-**Images HGR : 79 sur 402 scènes illustrées.** Répartition actuelle :
+### Comment les images sont faites
 
-| Bloc | Images / Scènes | | Bloc | Images / Scènes |
-|------|-----------------|-|------|-----------------|
-| N000 | 30 / 50 | | N200 | 4 / 50 |
-| N050 | 15 / 50 | | N250 | 3 / 50 |
-| N100 | 9 / 50  | | N300 | 6 / 50 |
-| N150 | 6 / 50  | | N350 | 6 / 50 |
+Ce que la note de périmètre des versions précédentes chiffrait à 165–330 h de
+travail artistique a été fait autrement : par une chaîne reproductible, dont
+les **bibles** (`characters.json`, `monsters.json`, `decors.json`,
+`objects.json`) sont la pièce maîtresse. Une description visuelle y est écrite
+**une seule fois** par sujet, et 74 **planches de référence** (`SCOSWAMP.MORE/
+REF/`) la fixent en image. Chaque prompt de scène reprend la fiche mot pour mot
+et attache les planches des sujets qu'il cite : c'est ce qui fait que le géant
+du combat 012 est le même géant à la page 126.
 
-Les images existantes sont en noir et blanc ; aucune n'est colorisée.
+```bash
+# 1. les manifestes, un prompt par page, dérivés du corpus et des bibles
+python3 SCOSWAMP.MORE/TOOLS/build_manifest.py --root . \
+        --output SCOSWAMP.MORE/scene_manifest.jsonl --all
+python3 SCOSWAMP.MORE/TOOLS/build_manifest.py --root . \
+        --output SCOSWAMP.MORE/battle_manifest.jsonl --battle
 
-> **Note de périmètre.** Illustrer les 402 scènes représente 165–330 h de travail
-> artistique. Un objectif intermédiaire réaliste est d'illustrer et coloriser
-> les ~120 scènes structurantes (embranchements majeurs, rencontres, fins),
-> ce qui donne un jeu perçu comme complet sans le coût du 100 %.
+# 2. les rendus maîtres (~1400x960), 10 de front ; relançable, il reprend
+#    où il s'est arrêté
+bash SCOSWAMP.MORE/TOOLS/generate_images.sh SCOSWAMP.MORE/scene_manifest.jsonl 0 10
+
+# 3. la conversion vers l'écran de la machine, et le rapport des dix pires
+sh SCOSWAMP.MORE/TOOLS/convert_images.sh
+
+# 4. l'empreinte des fiches, pour savoir plus tard ce qu'un changement périme
+python3 SCOSWAMP.MORE/TOOLS/build_manifest.py --root . --output /dev/null --record
+```
+
+Modifier une fiche de bible périme toutes les images qui la citent :
+`build_manifest.py --stale` les nomme.
 
 ### Compilation
 
@@ -379,7 +401,7 @@ Licence : **GNU GPL v3.0** — libre d'utiliser, modifier, distribuer
 
 **SCOSWAMP** : adaptation de « Scorpion Swamp » (1985) par Steve JACKSON & Ian LIVINGSTONE
 - ✅ Traduction anglaise complète : octobre 2024 (402 scènes, 804 fichiers)
-- 🚧 Images et colorisation : en cours (79/402 images, 0 % colorisées)
+- ✅ Images : 31 août 2026 (407 scènes + 32 combats, toutes en couleur)
 
 **Remerciements** : équipe cc65, communauté Apple II, équipe Virtual ][
 
