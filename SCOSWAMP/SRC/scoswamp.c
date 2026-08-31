@@ -975,8 +975,21 @@ static void show_inventory(int in_combat)
     static const char kKind[3] = { 'N', 'B', 'M' };
     Stone shown[STONE_COUNT];
     int n, i, row;
+    int back;
     char key;
     Stone s;
+
+    /* Le sac s'ecrit dans la page texte, et il faut donc l'ALLUMER : sans ca,
+     * ouvert depuis le mode image, il se dessinait derriere l'illustration et
+     * sa boucle avalait ESPACE, RETURN et les lettres sans que rien ne bouge a
+     * l'ecran -- seul ESC en sortait, et il en fallait un second pour que la
+     * bascule video reprenne. Vu de l'exterieur, la machine etait bloquee en
+     * HGR. Les autres ecrans modaux (l'aide, le choix des Pierres) forcaient
+     * deja le texte ; celui-ci etait le seul a ne pas le faire.
+     * On rend au joueur, en sortant, le mode qu'il avait choisi : le sac
+     * ouvert en plein combat rend son illustration au combat. */
+    back = app.video_mode;
+    set_video_mode(0);
 
     for (;;) {
         clrscr();
@@ -1002,7 +1015,7 @@ static void show_inventory(int in_combat)
 
         print_at(22, msg(M_UNE_PIERRE_SE));
         key = cgetc();
-        if (key == 27) return;
+        if (key == 27) break;
         i = (key >= 'a') ? (key - 'a') : (key - 'A');
         if (i < 0 || i >= n) continue;
 
@@ -1022,6 +1035,8 @@ static void show_inventory(int in_combat)
         }
         wait_key_at(23, msg_continue());
     }
+
+    set_video_mode(back);
 }
 
 /* "A plusieurs reprises au cours de votre aventure [...] vous aurez la

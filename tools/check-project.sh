@@ -59,7 +59,31 @@ while IFS= read -r f; do
     fi
 done < <(find SCOSWAMP SPACETRIP COMBAT -name "*.HGR" -o -name "*.HGR.BIN" 2>/dev/null | sort)
 
-say "  $hgr_total image(s) vérifiée(s), $hgr_bad invalide(s)"
+say "  $hgr_total image(s) brute(s) vérifiée(s), $hgr_bad invalide(s)"
+
+# SCOSWAMP ne porte plus de pages brutes : ses images sont compressées (HGRR),
+# donc de taille variable, et la seule question qui vaille est « est-ce que ça
+# se décompresse en exactement 8192 octets ? ». C'est ce que répond le
+# validateur du convertisseur ; un contrôle de taille de fichier ne dirait
+# plus rien ici.
+say ""
+say "-- Images HGR compressées (doivent se décoder en $HGR_SIZE octets) --"
+readonly HGRTOOL=SCOSWAMP.MORE/TOOLS/build/scoswamp_hgr
+rle_total=0
+rle_bad=0
+if [ -x "$HGRTOOL" ]; then
+    while IFS= read -r f; do
+        rle_total=$((rle_total + 1))
+        if ! "$HGRTOOL" validate "$f" >/dev/null 2>&1; then
+            err "$f : flux HGRR invalide"
+            rle_bad=$((rle_bad + 1))
+        fi
+    done < <(find SCOSWAMP SPACETRIP COMBAT -name "*.RLE.BIN" 2>/dev/null | sort)
+    say "  $rle_total image(s) compressée(s) vérifiée(s), $rle_bad invalide(s)"
+else
+    warn "$HGRTOOL absent : images compressées non vérifiées"
+    say "    cmake -S SCOSWAMP.MORE/TOOLS -B SCOSWAMP.MORE/TOOLS/build"
+fi
 
 # ---------------------------------------------------------------------------
 # 2. Cohérence des scènes SCOSWAMP
@@ -69,7 +93,10 @@ say "-- SCOSWAMP : cohérence des scènes --"
 
 fr_count=$(find SCOSWAMP/TEXTFR -name "N*.TXT" | wc -l | tr -d ' ')
 en_count=$(find SCOSWAMP/TEXTEN -name "N*.TXT" | wc -l | tr -d ' ')
-img_count=$(find SCOSWAMP/IMG -name "N*.HGR.BIN" | wc -l | tr -d ' ')
+img_count=$(find SCOSWAMP/IMG -name "N*.RLE.BIN" | wc -l | tr -d ' ')
+# Les tableaux de bataille (B<id>) illustrent un combat, pas une page : ils se
+# comptent à part, sinon le pourcentage de scènes illustrées dépasse 100 %.
+bat_count=$(find SCOSWAMP/IMG -name "B*.RLE.BIN" | wc -l | tr -d ' ')
 
 if [ "$fr_count" -ne "$en_count" ]; then
     err "déséquilibre FR/EN : $fr_count fichiers FR vs $en_count fichiers EN"
@@ -95,12 +122,13 @@ fi
 
 say "  Textes  : $fr_count FR + $en_count EN = $((fr_count + en_count)) fichiers"
 say "  Images  : $img_count / $fr_count scènes illustrées ($((img_count * 100 / fr_count))%)"
+say "  Combats : $bat_count tableaux de bataille"
 
 # Scènes sans image : normal à ce stade du projet, comptabilisé, pas bloquant.
 say ""
 say "  Répartition des images par bloc :"
 for b in $(cd SCOSWAMP/IMG && ls -d N* 2>/dev/null | sort); do
-    c=$(find "SCOSWAMP/IMG/$b" -name "*.HGR.BIN" | wc -l | tr -d ' ')
+    c=$(find "SCOSWAMP/IMG/$b" -name "N*.RLE.BIN" | wc -l | tr -d ' ')
     t=$(find "SCOSWAMP/TEXTFR/$b" -name "*.TXT" 2>/dev/null | wc -l | tr -d ' ')
     say "    $b : $c / $t"
 done
@@ -127,11 +155,19 @@ say "  Images  : $st_img / $st_fr scènes illustrées"
 say ""
 say "-- Moteurs compilés --"
 
-# Le moteur est chargé à $4000. Le plafond n'est PAS $A000 : sous ProDOS 8,
-# cc65 fixe __HIMEM__ = $9600 ("presumed RAM end"), car $9600-$BFFF appartient
-# à ProDOS (MLI, page globale $BF00, buffers fichier de 1 Ko par fichier ouvert).
-# Taille maximale de l'image chargée : $9600 - $4000 = 22016 octets.
+# Le moteur est chargé à $4000. Le plafond dépend du __HIMEM__ que son
+# Makefile impose, et il n'est plus le même pour les trois :
+#
+#   SPACETRIP, COMBAT : __HIMEM__ = $9600, le "presumed RAM end" de cc65 sous
+#     ProDOS 8, parce que $9600-$BFFF appartient à ProDOS (MLI, page globale
+#     $BF00, tampons fichier de 1 Ko). Plafond : $9600 - $4000 = 22016.
+#   SCOSWAMP : __HIMEM__ = $BF00 depuis le 2026-08-29 -- le moteur de combat
+#     n'entrait pas sous $9600. Il prend la place de BASIC.SYSTEM, ce qui lui
+#     coûte le retour au BASIC et lui vaut son propre lanceur SYS. Moins la
+#     pile C de 1536 octets, le plafond est $B900, soit 30976 octets depuis
+#     $4000. Chiffre unique, tenu par SCOSWAMP/SRC/Makefile.
 readonly ENGINE_MAX=22016
+readonly SCOSWAMP_MAX=30976
 
 # ATTENTION : ce contrôle est NÉCESSAIRE MAIS PAS SUFFISANT.
 # Le fichier .BIN ne contient pas le segment BSS (variables non initialisées),
@@ -150,8 +186,12 @@ for bin in SCOSWAMP/SCOSWAMP.BIN SPACETRIP/SPACETRIP.BIN COMBAT/COMBAT.BIN; do
     if [ -f "$bin" ]; then
         size=$(stat -c%s "$bin" 2>/dev/null || stat -f%z "$bin")
         kb=$((size / 1024))
-        if [ "$size" -gt "$ENGINE_MAX" ]; then
-            err "$bin : $size octets, dépasse la limite de $ENGINE_MAX (\$4000-\$9FFF)"
+        case "$bin" in
+            SCOSWAMP/*) max=$SCOSWAMP_MAX; top='$B900' ;;
+            *)          max=$ENGINE_MAX;   top='$9600' ;;
+        esac
+        if [ "$size" -gt "$max" ]; then
+            err "$bin : $size octets, dépasse la limite de $max (\$4000-$top)"
         else
             say "  $bin : $size octets (~$kb Ko)"
         fi

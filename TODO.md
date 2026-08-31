@@ -802,19 +802,86 @@ une Pierre bénéfique au choix.
   effort, gain quasi nul sur des aplats, n'aurait de sens que pour des
   photos). Le tramage reste exclu par choix de style.
 
-## 🟠 Prochaine étape (après redémarrage) — régénération des images
+## ✅ Fait le 2026-08-31 — le sac à dos qui bloquait la machine en HGR
 
-Les **74 planches de référence sont validées** (2026-08-30, style traits
-épais non pixellisés, palette stricte, ≥1000 px de petit côté). La suite,
-via un **workflow d'agents Opus** :
+Signalé comme « ça bloque parfois en HGR, plus rien n'est possible, on ne
+repasse pas au mixte ni au texte ». Ce n'était ni la bascule vidéo ni les
+soft-switches : **`show_inventory` était le seul écran modal à ne pas allumer
+le texte avant d'écrire dedans.**
 
-1. Régénérer les **~400 illustrations de scènes** et les **images de
-   bataille** à partir des planches REF (`build_manifest.py --all`, puis
-   `--battle` ; manifestes joignant les planches par sujet + clairière).
-2. Convertir avec le nouveau `scoswamp_hgr` (gamma 0.75, DP 2D, cible OE)
-   via `convert_images.sh` et relire les 10 pires conversions du rapport.
-3. Reconstruire l'image **HDV** et aussi une **2MG** de la dernière
-   version de SCOSWAMP.
-4. `build_manifest.py --record` pour poser l'empreinte des fiches.
+Ouvert depuis le mode image, le sac se dessinait derrière l'illustration ; sa
+boucle avalait ESPACE, RETURN et toutes les lettres sans que l'écran change,
+et seul ESC en sortait — un premier ESC pour fermer le sac, un second pour que
+la bascule vidéo reprenne enfin. Vu du joueur : image figée, clavier mort.
 
-Rappel : les anciens rendus sont archivés dans `GENERATED.prev`.
+Reproduit dans l'émulateur en trois touches (ESC pour passer en image, `I`,
+puis n'importe quoi), et vérifié corrigé de la même façon. `show_inventory`
+force désormais le texte à l'entrée, comme le faisaient déjà l'aide et le
+choix des Pierres, et **rend au joueur son mode à la sortie** — le sac ouvert
+en plein combat rend son illustration au combat.
+
+À retenir : **un écran modal doit allumer l'affichage dans lequel il écrit.**
+Trois des quatre le faisaient ; celui qui ne le faisait pas n'était pas
+détectable en lecture de code, parce que le défaut n'est pas dans sa boucle,
+il est dans ce qu'elle suppose de l'état de la machine.
+
+Reste dans la même famille, non corrigé parce que non bloquant : les attentes
+de combat (`wait_space_at`, `prompt_luck`) écrivent aussi leur invite dans le
+texte sans l'allumer. En mode image plein écran, l'invite est invisible — mais
+**n'importe quelle touche** les satisfait, donc on n'y reste pas coincé.
+
+## ✅ Fait le 2026-08-31 — la régénération complète des images
+
+Les 74 planches de référence validées la veille ont servi de canon à
+**439 images** : 407 pages et 32 tableaux de bataille, toutes régénérées,
+converties et embarquées. `check-project.sh` compte 407/407 scènes illustrées,
+et les 439 flux HGRR se décodent en 8192 octets.
+
+Ce que le chantier a appris, et qui est resté dans les outils :
+
+- **Une consigne polie ne tient pas ; une consigne géométrique tient.** Le
+  prompt de scène demandait déjà que le héros ne tourne pas le dos à son
+  interlocuteur, en une phrase, au milieu du reste : les rendus le montraient
+  malgré tout de dos, planté face au spectateur. Réécrite en placement
+  imposé — les deux figures sur des côtés opposés, épaules, hanches, tête et
+  regard du héros pointés vers l'autre, et l'énoncé explicite de la faute à
+  ne pas commettre — la règle est respectée. C'est exactement ce qui avait
+  déjà sauvé les images de bataille (`git log 869573d`). Une consigne de
+  cadrage se rédige comme une contrainte, jamais comme un souhait.
+- **La génération se parallélise, l'attente est du réseau.** Une image coûte
+  ~2 min de mur presque entièrement passées à attendre le service :
+  `generate_images.sh` prend un troisième argument, le nombre de générations
+  de front. À 10, les 439 images ont pris ~3 h 30 au lieu des ~14 h d'une
+  file simple, sans un seul échec.
+- **L'agent d'image laisse des brouillons** (`B284-0.png`, `N025.raw.png`) à
+  côté du rendu. Ils échappaient au motif du convertisseur, donc au disque,
+  mais pas à la relecture humaine : le script les balaie maintenant après
+  chaque image.
+- **Ne jamais réécrire un script shell pendant qu'il tourne.** Bash relit le
+  fichier au fil de l'exécution ; changer sa longueur sous ses pieds le fait
+  reprendre à un mauvais décalage. Les corrections d'outillage trouvées en
+  cours de lot ont attendu la fin du lot.
+- **`check-project.sh` mentait depuis le passage au RLE** : il cherchait des
+  `*.HGR.BIN` de 8192 octets et annonçait « 0 / 402 images » sur un disque
+  qui les portait toutes, et il jugeait encore `SCOSWAMP.BIN` contre le
+  plafond `$9600` abandonné le 2026-08-29. Il valide désormais chaque flux
+  compressé avec `scoswamp_hgr validate` et donne à chaque moteur son propre
+  plafond. Un contrôle qui ne suit pas le format qu'il contrôle est pire que
+  pas de contrôle : il rassure à tort, puis il crie à tort.
+
+Reste ouvert :
+
+- 🟡 **`N113` reste la conversion la plus chargée** du lot (score 5,44 après
+  un second tirage, contre 5,94 au premier ; le pire des 439). Ce n'est pas le
+  convertisseur : la page empile flammes, toiles et araignées, et 280x192 n'en
+  garde qu'une masse. Le héros et le sentier s'y lisent désormais, le côté
+  droit non. Un tirage de plus, avec une composition explicitement dépouillée,
+  la sauverait.
+- ✅ **La « cotte de mailles » de la feuille d'aventure** contredisait l'image
+  depuis que la fiche du héros lui a donné un justaucorps de cuir et les bras
+  nus. Tranché en faveur de l'image, le 2026-08-31 : `MSGFR.TXT` et
+  `MSGEN.TXT` lignes 3 et 40 disent « un justaucorps de cuir » / « a leather
+  jerkin ». Les gardes du N372 gardent leurs cottes de mailles rouges — ce
+  n'est pas l'équipement du héros. Le nombre de lignes est inchangé, ce qui
+  compte : `messages_load` rejette un fichier qui n'en a pas exactement
+  MSG_COUNT.
