@@ -1,4 +1,5 @@
 T 276 Le Bijou Violet
+GX BJ
 
 Vous fouillez dans votre Sac a Dos et vous lui offrez le Bijou Violet que vous
 avez pris sur la tete de la creature du bassin. Il arbore aussitot un large

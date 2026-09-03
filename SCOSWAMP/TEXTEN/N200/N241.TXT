@@ -1,4 +1,5 @@
 T 241 Stratagus's Magic Sword
+G EP
 
 Stratagus congratulates you for your courage and hands you a gift. He pulls
 out a miniature sword that grows before you and becomes a Magic Sword.
@@ -10,4 +11,6 @@ weapon's power and the magic protecting you somewhat.
 
 Do you accept the gift and continue with him?
 
+E CHANCE +99
+E BONUS +1
 C 206 Accept the sword and continue with Stratagus

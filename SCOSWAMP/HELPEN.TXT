@@ -1,15 +1,18 @@
 THE KEYS
+  [A-E] Scene choice (never a command)
+  [SPACE/RETURN/ESC] Text, HGR picture, then picture and text
+  [I] Bag: items, Magic Stones and amulets
+  [S]/[L] Save/load PARTIE0 to PARTIE9; [H] help; [Q] quit
 
-  [A-Z]                 Make a choice
-  [SPACE/RETURN/ESC]    Text, HGR picture, then HGR + 4 text lines
-  [I]                   The backpack and the Magic Stones
-  [H]                   This help
-  [Q]                   Quit the adventure
+SAVED GAMES
+  [0-9] Slot, only after [S] or [L]
+  Saved state: scene, hero, items, amulets, visits and monsters
+  A missing, incomplete or corrupt file is rejected
 
-IN A FIGHT
+AMULETS
+  Wolf, Flower, Bird, Spider and Frog are distinct
+  The fake Bird stays distinct; Stratagus counts 0, 1-2 or 3+
+  Handing them in removes them from the bag and adds the reward
 
-  [SPACE]               Fight one round
-  [C]                   Test your Luck on the wound just dealt
-  [F]                   Flee, when the page allows it
-  [I]                   The bag, until the first blow is struck
-  [ESC]                 See the battle picture
+BAG: [A-L] picks a Stone; [ESC] closes; commands are suspended
+FIGHT: [SPACE] attack; [C] Luck; [F] Flee; [I] bag; [ESC] picture

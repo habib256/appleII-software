@@ -1,4 +1,5 @@
 T 042 Discovered Vial
+G FI
 
 Searching the unfortunate Dwarf's pocket you find a sealed vial. The liquid
 inside glows faintly; there is no label or clue.

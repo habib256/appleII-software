@@ -19,18 +19,15 @@ from pathlib import Path
 OBJECTS = [
     ('ANNEAU',    "Anneau de Cuivre",   "Copper Ring"),
     ('CAPE',      "Cape Rouge",         "Red Cape"),
-    ('CHAINE',    "Chaine d'Or",        "Gold Chain"),
-    ('AIMANT',    "Aimant d'Or",        "Gold Magnet"),
-    ('AMULOUP',   "Amulette de Loup",   "Wolf Amulet"),
-    ('AMUFLEUR',  "Amulette de Fleur",  "Flower Amulet"),
-    ('FIOLE',     "Fiole scellee",      "Sealed Vial"),
-    ('BAIE',      "Baie d'Antherique",  "Antherique Berry"),
-    ('EPEMAGIQUE', "Epee Magique",      "Magic Sword"),
-    ('.GAYOLARD',  "", ""),   # vous servez Gayolard
-    ('.POMPATARTE', "", ""),  # vous servez Pompatarte
-    ('.STRATAGUS', "", ""),   # vous servez Stratagus
-    ('.ANTHERIQUE', "", ""),  # le buisson d'Antherique est trouve
-    ('.AMIS',      "", ""),   # vous vous etes fait des amis (brigands)
+    ('CH',         "Chaine d'Or",        "Gold Chain"),
+    ('AI',         "Aimant d'Or",        "Gold Magnet"),
+    ('FI',         "Fiole scellee",      "Sealed Vial"),
+    ('BA',         "Baie d'Antherique",  "Antherique Berry"),
+    ('EP',         "Epee Magique",       "Magic Sword"),
+    ('BJ',         "Bijou Violet",       "Purple Jewel"),
+    ('CO',         "Corne de Licorne",   "Unicorn Horn"),
+    ('PL',         "Plumes de Perroquet", "Parrot Feathers"),
+    ('.T',         "", ""),   # le buisson d'Antherique est trouve
 ]
 
 def main() -> int:

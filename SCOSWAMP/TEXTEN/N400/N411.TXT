@@ -1,0 +1,7 @@
+T 411 Potion of Luck
+
+The potion restores all your LUCK. The birds then show you the path leading
+northeast.
+
+E CHANCE +99
+C 248 Follow the birds

@@ -1,4 +1,5 @@
 T 389 Antherique Bush Found
+G .T
 
 According to Gayolard's description of it, there's no doubt you've found the
 Antherique bush there.

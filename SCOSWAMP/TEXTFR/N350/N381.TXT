@@ -18,4 +18,6 @@ Pierre d'Amitie, l'Autre une Pierre de CHANCE.
 Vous remerciez la Licorne en etant seur qu'elle vous a entendu ou qu'elle
 soit, et vous poursuivez votre route.
 
+P AMITIE
+P CHANCE
 C 348 Continuer

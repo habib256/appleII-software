@@ -1,4 +1,5 @@
 T 154 The Wolf Amulet
+G LOUP
 
 The Wolf Master lies at your feet. You search his body and find a Wolf-shaped
 Amulet, the only object of interest.

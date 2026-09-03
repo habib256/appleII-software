@@ -1,4 +1,5 @@
 T 389 Buisson d'Antherique trouve
+G .T
 
 D'apres la description que vous en a donneGayolard, il ne fait aucun doute que
 vous avez trouve la le buisson d'Antherique.

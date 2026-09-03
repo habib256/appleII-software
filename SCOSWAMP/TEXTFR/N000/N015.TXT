@@ -4,7 +4,7 @@ Un personnage vous demande une offrande; il attend votre reponse.
 
 Que proposez-vous de lui remettre pour obtenir ce qu'il veut?
 
-C 063 Un Aimant d'Or
-C 198 Une Amulette appartenant a l'un des autres Maitres
-C 276 Un enorme Joyau Violet
+CI AI 063 Un Aimant d'Or
+CA 1 6 198 Une Amulette appartenant a l'un des autres Maitres
+GU BJ 276 Un enorme Joyau Violet
 C 212 Ne rien lui donner et chercher une autre option

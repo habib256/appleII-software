@@ -1,5 +1,4 @@
 T 357 L'Aimant maudit
-
 Les deux autres fleches manquent egalement leur but mais, soudain, elles
 changent de direction en pleine course et viennent vous frapper a la poitrine.
 Vous perdez aussitot 5 points d'ENDURANCE.

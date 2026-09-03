@@ -1,4 +1,5 @@
 T 042 Fiole decouverte
+G FI
 
 En fouillant la poche du malheureux Nain vous trouvez une fiole scelle. Le
 liquide y brille faiblement; il n'y a aucune etiquette ni indice.

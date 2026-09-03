@@ -146,12 +146,12 @@ static void test_chance(void)
 static void test_assaut(void)
 {
     Character c = hero(10, 20, 12);
-    Monster m; int i;
+    Monster m; Round r; int i;
     dice_seed(31);
     monster_init(&m); m.hab = 8; m.end = 12; strcpy(m.name, "GEANT");
 
     for (i = 0; i < 500; ++i) {
-        Round r; combat_round(&c, &m, &r);
+        combat_round(&c, &m, &r);
         /* "Jetez les deux des [...] Ajoutez ses points d'HABILETE" */
         CHECK(r.hero_force    >= 12 && r.hero_force    <= 22, "FA heros %u", r.hero_force);
         CHECK(r.monster_force >= 10 && r.monster_force <= 20, "FA monstre %u", r.monster_force);
@@ -159,6 +159,14 @@ static void test_assaut(void)
         CHECK((r.outcome == ROUND_MONSTER_HITS) == (r.hero_force <  r.monster_force), "issue");
         CHECK((r.outcome == ROUND_DODGE)        == (r.hero_force == r.monster_force), "issue");
     }
+
+    /* Les deux epees magiques du livre n'ont pas la meme puissance : celle
+     * offerte par Stratagus vaut +1, celle prise sur lui vaut +2. */
+    c = hero(10, 20, 12); c.objects = (1u << OBJ_EPEMAGIQUE); c.weapon_bonus=2;
+    dice_seed(77); combat_round(&c, &m, &r); i = r.hero_force;
+    c.weapon_bonus=1;
+    dice_seed(77); combat_round(&c, &m, &r);
+    CHECK(i == r.hero_force + 1, "epee prise +2 contre epee offerte +1");
 }
 
 static void test_blessures(void)
@@ -243,6 +251,7 @@ static void test_memoire_clairieres(void)
      * tard dans cette clairiere [...] reprendre le combat la ou vous l'aviez
      * laisse." */
     Monster m[3];
+    unsigned char snapshot[MONSTER_MEMORY_SIZE];
     monster_memory_reset();
 
     monster_init(&m[0]); m[0].hab = 9; m[0].end = 12; strcpy(m[0].name, "GEANT");
@@ -293,6 +302,19 @@ static void test_memoire_clairieres(void)
     CHECK(monster_enter(224, m, 2) == 1, "retour : on reprend au second LOUP");
     CHECK(m[1].end == 3, "et il est toujours entame, vu %u", m[1].end);
     CHECK(m[0].end == 5, "le premier n'est pas ressuscite pour autant, vu %u", m[0].end);
+
+    /* C'est ce bloc exact que PARTIE0..PARTIE9 ecrivent sur disque. Une
+     * extinction/reprise doit donc conserver l'adversaire courant et sa
+     * blessure, pas seulement un retour dans la meme session. */
+    monster_memory_export(snapshot);
+    monster_memory_reset();
+    monster_memory_import(snapshot);
+    monster_init(&m[0]); m[0].hab = 7; m[0].end = 5;
+    monster_init(&m[1]); m[1].hab = 6; m[1].end = 6;
+    CHECK(monster_enter(224, m, 2) == 1,
+          "sauvegarde combat : reprise au second LOUP");
+    CHECK(m[1].end == 3,
+          "sauvegarde combat : blessure conservee, vu %u", m[1].end);
 
     m[1].end = 0; monster_remember(224, 1, &m[1]);
     monster_init(&m[1]); m[1].hab = 6; m[1].end = 6;
@@ -377,13 +399,53 @@ static void test_pierres(void)
     }
 }
 
+static void test_objets(void)
+{
+    Character c = hero(9, 20, 8);
+    c.objects = 0;
+    CHECK(object_from_name("inconnu") == OBJ_COUNT, "objet inconnu");
+    CHECK(object_from_name("BJ") == OBJ_BIJOU, "bijou violet reconnu");
+    CHECK(object_from_name("CO") == OBJ_CORNE, "corne de licorne reconnue");
+    CHECK(object_from_name("PL") == OBJ_PLUMES, "plumes reconnues");
+    character_give_object(&c, OBJ_BIJOU);
+    character_give_object(&c, OBJ_CORNE);
+    character_give_object(&c, OBJ_PLUMES);
+    CHECK(character_has_object(&c, OBJ_BIJOU), "bijou entre dans le sac");
+    CHECK(character_has_object(&c, OBJ_CORNE), "corne entre dans le sac");
+    CHECK(character_has_object(&c, OBJ_PLUMES), "plumes entrent dans le sac");
+    character_take_object(&c, OBJ_BIJOU);
+    CHECK(!character_has_object(&c, OBJ_BIJOU), "bijou remis quitte le sac");
+    c.amulets = 0;
+    CHECK(amulet_from_name("ARAIGNEE") == AMULET_ARAIGNEE, "amulette araignee");
+    CHECK(amulet_from_name("FAUX") == AMULET_FAUSSE_OISEAU,
+          "fausse amulette distincte");
+    CHECK(character_amulet_count(&c) == 0, "aucune amulette au depart");
+    character_give_amulet(&c, AMULET_LOUP);
+    CHECK(character_amulet_count(&c) == 1, "palier Stratagus : une amulette");
+    character_give_amulet(&c, AMULET_FLEUR);
+    CHECK(character_amulet_count(&c) == 2, "palier Stratagus : deux amulettes");
+    character_give_amulet(&c, AMULET_OISEAU);
+    character_give_amulet(&c, AMULET_ARAIGNEE);
+    character_give_amulet(&c, AMULET_GRENOUILLE);
+    CHECK(character_amulet_count(&c) == 5, "les cinq vraies amulettes sont distinctes");
+    character_give_amulet(&c, AMULET_FAUSSE_OISEAU);
+    CHECK(character_has_amulet(&c, AMULET_OISEAU), "l'amulette Oiseau authentique reste presente");
+    CHECK(character_has_amulet(&c, AMULET_FAUSSE_OISEAU), "la fausse Oiseau a son propre bit");
+    CHECK(character_amulet_count(&c) == 6,
+          "la fausse trompe Stratagus sans remplacer l'authentique");
+    c.gold=20;
+    CHECK(character_trade_amulets(&c,500)==6, "six amulettes remises");
+    CHECK(c.gold==3020, "500 pieces par amulette, vu %u",c.gold);
+    CHECK(character_amulet_count(&c)==0, "les amulettes remises quittent le sac");
+}
+
 static void test_perte_definitive(void)
 {
     /* "vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points
      * votre total initial d'HABILETE. Vous ne pourrez plus jamais retrouver
      * tous vos points de depart" (paragraphe 87). */
     Character c = hero(11, 20, 8);
-    character_lower_hab0(&c, -2);
+    character_shift0(&c, 1, -2);
     CHECK(c.hab0 == 9, "le plafond descend a 9, vu %u", c.hab0);
     CHECK(c.hab  == 9, "la valeur courante suit, vu %u", c.hab);
 
@@ -391,15 +453,36 @@ static void test_perte_definitive(void)
     character_adjust_hab(&c, +5);
     CHECK(c.hab == 9, "le soin s'arrete au nouveau plafond, vu %u", c.hab);
 
-    /* Une valeur courante deja basse ne remonte pas toute seule. */
+    /* "vous perdez 2 points [...] et devez reduire aussi de 2 points votre
+     * total initial" : une HABILETE deja entamee perd ses 2 points elle aussi. */
     c = hero(11, 20, 8); c.hab = 4;
-    character_lower_hab0(&c, -2);
-    CHECK(c.hab == 4, "une HABILETE deja entamee reste ou elle est, vu %u", c.hab);
+    character_shift0(&c, 1, -2);
+    CHECK(c.hab == 2 && c.hab0 == 9, "4-2 sous un plafond de 9, vu %u/%u", c.hab, c.hab0);
 
-    /* Jamais zero : ce serait une mort que le livre ne prononce pas. */
+    /* Le plafond ne tombe jamais a zero : ce serait une mort que le livre ne
+     * prononce pas. La valeur courante, elle, a le plancher ordinaire. */
     c = hero(11, 20, 8);
-    character_lower_hab0(&c, -50);
-    CHECK(c.hab0 == 1 && c.hab == 1, "plancher a 1, vu %u/%u", c.hab, c.hab0);
+    character_shift0(&c, 1, -50);
+    CHECK(c.hab0 == 1 && c.hab == 0, "plafond a 1, valeur a 0, vu %u/%u", c.hab, c.hab0);
+}
+
+static void test_benediction(void)
+{
+    /* Grognard benit le paladin au village, avant le Marais, ou la CHANCE est
+     * encore a son total de depart : les 2 points relevent le plafond, sinon
+     * ils ne donneraient rien (paragraphe 155). */
+    Character c = hero(11, 20, 8);
+    character_shift0(&c, 2, +2);
+    CHECK(c.cha0 == 10, "le plafond monte a 10, vu %u", c.cha0);
+    CHECK(c.cha  == 10, "les points sont donnes tout de suite, vu %u", c.cha);
+
+    /* Une CHANCE deja entamee (page 272, -2, puis retour vers Grognard)
+     * recoit ses 2 points ET garde le nouveau plafond pour plus tard. */
+    c = hero(11, 20, 8); c.cha = 6;
+    character_shift0(&c, 2, +2);
+    CHECK(c.cha == 8 && c.cha0 == 10, "6+2 sous un plafond de 10, vu %u/%u", c.cha, c.cha0);
+    character_adjust_cha(&c, +5);
+    CHECK(c.cha == 10, "le rattrapage s'arrete au plafond releve, vu %u", c.cha);
 }
 
 static void test_clairieres_vues(void)
@@ -408,6 +491,7 @@ static void test_clairieres_vues(void)
      * suit." Quatorze pages ouvrent la-dessus ; c'est ce drapeau qui les
      * departage, la ou le livre s'en remettait a la memoire du joueur. */
     unsigned int i;
+    unsigned char snapshot[SCENE_MEMORY_SIZE];
     scene_memory_reset();
 
     CHECK(scene_visited(10) == 0, "au depart, aucune clairiere n'est vue");
@@ -416,17 +500,25 @@ static void test_clairieres_vues(void)
     CHECK(scene_visited(11) == 0, "sa voisine ne l'est pas");
     CHECK(scene_visited(2)  == 0, "ni celle qui partage son octet");
 
-    /* Le dernier paragraphe du livre est le 402 : il doit tenir, et ce qui le
+    /* Export/import est le chemin utilise par les dix sauvegardes. */
+    scene_memory_export(snapshot);
+    scene_memory_reset();
+    CHECK(scene_visited(10) == 0, "la RAM remise a zero oublie la clairiere");
+    scene_memory_import(snapshot);
+    CHECK(scene_visited(10) == 1,
+          "sauvegarde : la scene deja visitee est restauree");
+
+    /* La derniere scene mecanique est la 411 : elle doit tenir, et ce qui la
      * depasse doit repondre non plutot que d'ecrire hors du tableau. */
-    scene_mark_visited(401);
-    CHECK(scene_visited(401) == 1, "le dernier paragraphe tient");
+    scene_mark_visited(411);
+    CHECK(scene_visited(411) == 1, "la derniere scene tient");
     scene_mark_visited(9999);
     CHECK(scene_visited(9999) == 0, "hors bornes : non, et rien d'ecrit");
 
     /* Une mort remet le marais a neuf : sans cela la partie suivante sauterait
      * les descriptions longues de clairieres ou elle n'est jamais allee. */
     scene_memory_reset();
-    for (i = 0; i < 402; ++i)
+    for (i = 0; i < 412; ++i)
         if (scene_visited(i)) { CHECK(0, "la remise a zero a laisse %u", i); break; }
 }
 
@@ -443,7 +535,9 @@ int main(void)
     test_memoire_clairieres();
     test_clairieres_vues();
     test_perte_definitive();
+    test_benediction();
     test_pierres();
+    test_objets();
     if (failures == 0) printf("regles : tout passe\n");
     else               printf("regles : %d echec(s)\n", failures);
     return failures != 0;

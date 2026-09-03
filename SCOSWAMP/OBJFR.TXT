@@ -1,14 +1,11 @@
 ANNEAU Anneau de Cuivre
 CAPE Cape Rouge
-CHAINE Chaine d'Or
-AIMANT Aimant d'Or
-AMULOUP Amulette de Loup
-AMUFLEUR Amulette de Fleur
-FIOLE Fiole scellee
-BAIE Baie d'Antherique
-EPEMAGIQUE Epee Magique
-.GAYOLARD
-.POMPATARTE
-.STRATAGUS
-.ANTHERIQUE
-.AMIS
+CH Chaine d'Or
+AI Aimant d'Or
+FI Fiole scellee
+BA Baie d'Antherique
+EP Epee Magique
+BJ Bijou Violet
+CO Corne de Licorne
+PL Plumes de Perroquet
+.T

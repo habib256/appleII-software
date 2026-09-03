@@ -1,4 +1,6 @@
 T 189 The Discovered Stones
+P AMITIE
+P CHANCE
 
 You notice that the earth has been disturbed at the foot of one of the trees
 bordering the clearing. You dig immediately at this precise spot and find two

@@ -1,4 +1,5 @@
 T 251 Maitre des Jardins
+G FLEUR
 
 Vous avez tue le Maitre des Jardins. C'etait un bon sorcier qui ne voulait de
 mal a personne, et vous commencez a regretter votre geste. Vous perdez 3

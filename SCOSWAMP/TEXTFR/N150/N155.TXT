@@ -15,4 +15,5 @@ s'efface aussitot. Mieux encore, vous vous sentez renouvele, empli d'energie.
 Vos doutes se sont dissipes. Le destin vient de vous accorder un precieux
 present.
 
+E0 CHANCE +2
 C 335 Ajouter 2 points a votre CHANCE et continuer l'aventure

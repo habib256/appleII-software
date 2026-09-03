@@ -1,4 +1,5 @@
 T 049 Selling the Ring
+GX ANNEAU
 
 Driven by the lure of profit, you remove your Copper Ring. You toss it on the
 table; Pompatarte hands you a bag and counts out one hundred Gold Pieces.
@@ -6,4 +7,3 @@ table; Pompatarte hands you a bag and counts out one hundred Gold Pieces.
 You now have enough money to live for several years without working. Without
 the Ring, there's no question of risking yourself in the Swamp. Your adventure
 ends here.
-

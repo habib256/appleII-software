@@ -1,4 +1,5 @@
 T 184 Fausse amulette
+G FAUX
 
 Vous renoncez a attaquer la Maitresse des Oiseaux et lui racontez votre
 mission, confie par un mauvais sorcier. Elle hoche la tete, peine: "Je ne

@@ -6,3 +6,4 @@ Which one will you use?
 
 CU FLETRISSURE 322 Use the Withering Stone
 CU FEU 310 Use the Fire Stone
+C 134 Fight the Pincer Grass with your sword

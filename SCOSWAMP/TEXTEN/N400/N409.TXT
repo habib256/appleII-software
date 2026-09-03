@@ -1,0 +1,7 @@
+T 409 Potion of Skill
+
+The potion restores all your SKILL. The birds then show you the path leading
+northeast.
+
+E HABILETE +99
+C 248 Follow the birds

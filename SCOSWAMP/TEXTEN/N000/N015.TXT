@@ -4,7 +4,7 @@ A character asks you for an offering; he awaits your response.
 
 What do you propose to give him to get what he wants?
 
-C 063 A Gold Magnet
-C 198 An Amulet belonging to one of the other Masters
-C 276 An enormous Purple Jewel
+CI AI 063 A Gold Magnet
+CA 1 6 198 An Amulet belonging to one of the other Masters
+GU BJ 276 An enormous Purple Jewel
 C 212 Give him nothing and look for another option

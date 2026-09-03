@@ -14,4 +14,5 @@ The next moment, he has disappeared. You regain your senses. Your unease
 immediately fades. Better still, you feel renewed, filled with energy. Your
 doubts have dissipated. Fate has just granted you a precious gift.
 
+E0 CHANCE +2
 C 335 Add 2 points to your LUCK and continue the adventure

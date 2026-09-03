@@ -33,8 +33,7 @@ MAX_FOES    = 3    # doit suivre MAX_FOES dans scoswamp.c
 # depasse est tronque A L'ECRAN, en silence, et c'est ici -- et nulle part
 # ailleurs -- qu'on peut se payer la verification.
 MAX_CHOICES  = 5     # doit suivre MAX_CHOICES dans scoswamp.c
-CHOICE_TITLE = 76    # doit suivre CHOICE_TITLE dans scoswamp.c ('\0' compris)
-FILE_BUFFER  = 1344  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
+FILE_BUFFER  = 1253  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
 COL         = 39   # largeur d'une colonne de choix (2 par ligne)
 WRAP        = 78
 
@@ -44,7 +43,7 @@ RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # L'ordre de l'alternance FAIT FOI : `M` avant `MV` avalerait la ligne MV et
 # wrap() la replierait dans le corps. Les deux lettres passent donc devant la
 # lettre seule du meme prefixe, ici comme dans classify_line.
-DIRECTIVE = re.compile(r"^(MD|MS|MV|MB|M|E0|ED|E|PC|P|CF|CP|CU|CL|CE|CS|DV|V) ")
+DIRECTIVE = re.compile(r"^(MD|MS|MV|MB|M|E0|ED|E|PC|PD|PO|PX|P|TR|CF|CP|CU|CI|CN|CA|CL|CE|CS|DV|GU|GX|GA|G|V)(?: |$)")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -278,8 +277,9 @@ CARAC = {"ENDURANCE": "ENDURANCE", "STAMINA": "ENDURANCE",
          "CHANCE": "CHANCE", "LUCK": "CHANCE"}
 # Les quatre mots que le moteur admet sur une ligne E, E0, CE ou ED. Ils
 # restent en francais dans les deux corpus : c'est de la mecanique, pas du
-# texte affiche -- et E0 n'en accepte que les deux premiers.
-CARAC_WORDS = {"ENDURANCE", "HABILETE", "CHANCE", "OR"}
+# texte affiche -- et E0 n'en accepte que les trois premiers (pas d'OR ni de
+# BONUS : c'est un total de depart qu'il deplace).
+CARAC_WORDS = {"ENDURANCE", "HABILETE", "CHANCE", "OR", "BONUS"}
 GAIN = ("regagnez", "gagnez", "ajoutez", "regain", "gain")
 
 
@@ -730,6 +730,7 @@ def main():
                     problems.append(f"{f}: {w}")
             if derive and not any(d.startswith("PC ") for d in directives) \
                      and not any(d.startswith("P ") for d in directives) \
+                     and not any(d == "TR" for d in directives) \
                      and STONES_GIVEN.search(" ".join(body)) \
                      and not STONES_NOT_GIVEN.search(" ".join(body)):
                 problems.append(f"{f}: une Pierre semble remise ici, mais la "
@@ -757,16 +758,31 @@ def main():
                     problems.append(f"{f}: {parts[0]} sur un mot inconnu "
                                     f"{parts[1]!r} (attendu : "
                                     f"{', '.join(sorted(CARAC_WORDS))})")
+                # E0 deplace un TOTAL DE DEPART : l'OR et le BONUS n'en ont
+                # pas, et character_shift0 ne verifie rien -- il indexerait
+                # hors de sa table. C'est ici qu'on refuse.
+                if parts[0] == "E0" and len(parts) > 1 \
+                        and parts[1] in ("OR", "BONUS"):
+                    problems.append(f"{f}: E0 sur {parts[1]} -- seuls "
+                                    "ENDURANCE, HABILETE et CHANCE ont un "
+                                    "total de depart")
+                if parts[0] in ("G", "GX", "CI", "CN", "GU") and len(parts) > 1:
+                    keys = {"ANNEAU", "CAPE", "CH", "AI", "FI", "BA",
+                            "EP", "BJ", "CO", "PL",
+                            ".T", "LOUP", "FLEUR",
+                            "OISEAU", "ARAIGNEE", "GRENOUILLE", "FAUX"}
+                    if parts[1] not in keys:
+                        problems.append(f"{f}: objet/amulette inconnu {parts[1]!r}")
             if len(choices) > MAX_CHOICES:
                 problems.append(f"{f}: {len(choices)} choix > {MAX_CHOICES} "
                                 f"(MAX_CHOICES)")
-            # Un titre plus long est TRONQUE a l'ecran, sans un mot. C'est
-            # aussi ce garde qui rend prenable le levier CHOICE_TITLE 76 -> 73.
+            # Une ligne de choix ne doit jamais atteindre la derniere colonne,
+            # qui ferait scroller l'Apple II. Les titres pointent directement
+            # dans le tampon de scene : aucune troncature intermediaire.
             for cid, ctitle in choices:
-                if len(ctitle) > CHOICE_TITLE - 1:
+                if len(ctitle) > 76:
                     problems.append(f"{f}: titre du choix {cid:03d} "
-                                    f"{len(ctitle)} car. > {CHOICE_TITLE - 1} "
-                                    f"(CHOICE_TITLE)")
+                                    f"{len(ctitle)} car. > 76")
             r = choice_rows(choices)
             if r > CHOICE_ROWS:
                 problems.append(f"{f}: choix sur {r} lignes > {CHOICE_ROWS} "
@@ -813,7 +829,10 @@ def main():
             KEEP = {"M": 3, "MD": 2, "MS": 2, "MV": None, "CL": None,
                     "CF": 2, "PC": 3, "CU": 3, "CP": 3, "E": None,
                     "ED": None, "V": None, "E0": None, "CE": None,
-                    "CS": None, "DV": None, "MB": None}
+                    "CS": None, "DV": None, "MB": None, "G": None,
+                    "GX": None, "GA": None, "CI": 3, "CN": 3,
+                    "GU": 3, "CA": 4, "PD": None, "PO": None, "PX": None,
+                    "TR": None}
 
             def mechanics(dirs):
                 out = []

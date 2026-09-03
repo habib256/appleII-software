@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <conio.h>
 #include <apple2enh.h>
 #include <peekpoke.h>
@@ -28,7 +29,7 @@
  * "N999" (5). Deux champs de 64 octets pour ca, c'etaient 96 octets de BSS
  * dormants -- et c'est le seul levier memoire du programme qui ne depende
  * d'aucune mesure du corpus. */
-#define MAX_PATH  16
+#define MAX_PATH  10
 
 /* Mise en page d'une scene, en dur sur les 24 lignes de l'ecran 80 colonnes :
  *
@@ -60,7 +61,6 @@
  * est en cours d'edition ailleurs, et un titre de 73 caracteres serait
  * tronque a l'ecran sans que rien ne le dise. reflow_txt.py le refuse
  * desormais, ce qui rendra le levier prenable. */
-#define CHOICE_TITLE 76
 
 typedef struct {
     int scene_id;
@@ -74,35 +74,37 @@ typedef struct {
      * Pierre ne touchaient pas au sac -- et rien n'empechait d'en lancer une
      * qu'on n'avait pas. */
     unsigned char require;
-    char title[CHOICE_TITLE];
+    unsigned char object; /* OBJ_COUNT si aucune condition d'objet */
+    unsigned char obj_mode; /* 1=possede, 2=ne possede pas, 3=consomme */
+    char* title;          /* pointe dans file_buffer, valide jusqu'a la scene suivante */
 } Choice;
 
 /* Structure pour l'état global de l'application */
 typedef struct {
     int current_scene;
-    int video_mode;  /* 0=texte 80col, 1=HGR plein (2=mixte pour combat futur) */
+    unsigned char video_mode;  /* 0=texte 80col, 1=HGR plein, 2=mixte */
     Choice choices[MAX_CHOICES];
-    int num_choices;
+    unsigned char num_choices;
     char language[3];  /* FR ou EN */
     char imgPath[MAX_PATH];
     char txtPath[MAX_PATH];
-    int has_image;    /* image de la scene decodee en page HGR 1 ? */
+    unsigned char has_image; /* image de la scene decodee en page HGR 1 ? */
 
     /* La Feuille d'Aventure et la rencontre en cours. */
     Character hero;
-    int       hero_ready;    /* les des ont ete jetes */
+    unsigned char hero_ready; /* les des ont ete jetes */
     /* "Parfois, vous les affronterez comme si elles n'etaient qu'un seul
      * monstre ; parfois, vous les combattrez une par une." Les deux rencontres
      * a plusieurs du Marais sont du second type : une file, affrontee dans
      * l'ordre ou la page la donne. */
     Monster   foes[MAX_FOES];
-    int       foe_count;     /* nombre de lignes M sur la page */
-    int       foe_cur;       /* adversaire en cours dans la file */
+    unsigned char foe_count; /* nombre de lignes M sur la page */
+    unsigned char foe_cur;   /* adversaire en cours dans la file */
     int       flee_target;   /* scene ou mene la Fuite, -1 si la page n'en offre pas */
     int       pending_scene; /* scene a charger au prochain tour de boucle, -1 sinon */
     int       revisit;       /* ligne V : ou aller si la clairiere est deja vue, -1 sinon */
     unsigned char choose_n;  /* Pierres a choisir en entrant, 0 si aucune */
-    char      choose_cats[4];/* categories permises : N, B, M */
+    char      choose_cats[3];/* categories permises : N, B, M */
     int       luck_ok;       /* scene si Chanceux, -1 si la page ne teste rien */
     int       luck_ko;       /* scene si Malchanceux */
     int       luck_dok;      /* ENDURANCE gagnee ou perdue sur la branche Chanceux */
@@ -132,15 +134,92 @@ typedef struct {
 /* Variables globales optimisées */
 AppState app;
 /* La page la plus longue du corpus fait 1252 octets (TEXTFR/N350/N361.TXT),
- * remesure le 2026-08-30. Le tampon est la plus grosse variable du programme,
- * et 1344 lui laisse 7 % de marge. Descendre a 1280 rendrait 64 octets et
- * laisserait encore 27 octets au-dessus de la plus grosse page (fread en lit
- * SIZE-1) : levier tenu en reserve, PAS pris, parce qu'une page qui deborde
- * est tronquee en silence et que le corpus est en cours d'edition ailleurs.
- * Le prendre veut dire descendre le garde de reflow_txt.py a 1279 du meme
- * geste. reflow_txt.py refuse une page qui depasserait. */
-#define FILE_BUFFER_SIZE 1344
+ * remesure le 2026-09-03. fread en lit SIZE-1 et reserve le dernier octet au
+ * '\0'. reflow_txt.py tient exactement la meme limite. */
+#define FILE_BUFFER_SIZE 1253
 char file_buffer[FILE_BUFFER_SIZE];
+
+/* Sauvegarde binaire SCS2 : format explicite, independant du remplissage des
+ * structures C. Dix emplacements numerotes de 0 a 9 sur le disque. */
+#define SAVE_HEADER 8
+#define SAVE_SIZE (SAVE_HEADER + sizeof(Character) + SCENE_MEMORY_SIZE + MONSTER_MEMORY_SIZE)
+#define save_data ((unsigned char*)file_buffer)
+static unsigned char restoring;
+static void render_scene(void);
+void load_scene(int scene_id);
+
+#pragma code-name (push, "LC")
+#pragma rodata-name (push, "LC")
+#pragma code-name (push, "CODE")
+static unsigned char* save_u16(unsigned char* p, unsigned int v)
+{ *p++ = (unsigned char)v; *p++ = (unsigned char)(v >> 8); return p; }
+#pragma code-name (pop)
+#pragma code-name (push, "CODE")
+static unsigned int load_u16(const unsigned char* p)
+{ return (unsigned int)p[0] | ((unsigned int)p[1] << 8); }
+#pragma code-name (pop)
+
+#pragma code-name (push, "CODE")
+static unsigned char save_checksum(void)
+{
+    unsigned int i; unsigned char sum=0;
+    for(i=5;i<SAVE_SIZE;i++) sum^=save_data[i];
+    return sum;
+}
+#pragma code-name (pop)
+
+static void pack_save(void)
+{
+    unsigned char* p = save_data;
+    memcpy(p, "SCS2", 4); p += 5;
+    p = save_u16(p, (unsigned int)app.current_scene); *p++ = app.language[0];
+    memcpy(p,&app.hero,sizeof app.hero); p+=sizeof app.hero;
+    scene_memory_export(p); p += SCENE_MEMORY_SIZE; monster_memory_export(p);
+    save_data[4]=save_checksum();
+}
+
+static int unpack_save(void)
+{
+    const unsigned char* p; int scene;
+    if (memcmp(save_data,"SCS2",4)!=0 || save_data[4]!=save_checksum()) return 0;
+    p=save_data+5; scene=(int)load_u16(p); p+=2;
+    app.language[0]=*p++; app.language[1]=(app.language[0]=='F')?'R':'N'; app.language[2]='\0';
+    memcpy(&app.hero,p,sizeof app.hero); p+=sizeof app.hero;
+    scene_memory_import(p); p+=SCENE_MEMORY_SIZE; monster_memory_import(p);
+    app.hero_ready=1;
+    restoring=1;
+    app.pending_scene=scene;
+    return 1;
+}
+#pragma rodata-name (pop)
+#pragma code-name (pop)
+
+/* Les appels ProDOS doivent vivre en memoire principale : ProDOS utilise la
+ * Language Card et peut remplacer le code LC pendant un open/read/write. */
+static int enter_save(unsigned char slot)
+{
+    memcpy(app.imgPath,"PARTIE0",8); app.imgPath[6]=(char)('0'+slot);
+    return chdir("/SCOSWAMP")==0 && chdir("SAVE")==0;
+}
+
+static int save_game(unsigned char slot)
+{
+    int fd, ok; pack_save();
+    if(!enter_save(slot)) return 0;
+    fd=open(app.imgPath,O_WRONLY|O_TRUNC); if(fd<0) return 0;
+    ok=(write(fd,save_data,SAVE_SIZE)==SAVE_SIZE); close(fd); return ok;
+}
+
+static int load_game(unsigned char slot)
+{
+    FILE* f; int ok;
+    if(!enter_save(slot)) return 0;
+    f=fopen(app.imgPath,"r"); if(!f) return 0;
+    /* Une troncature est refusee ici ; toute alteration des octets lus est
+     * ensuite detectee par la signature et le checksum de unpack_save. */
+    ok=(fread(save_data,1,SAVE_SIZE,f)==SAVE_SIZE); fclose(f);
+    return ok && unpack_save();
+}
 
 /* Decoupage de la scene courante. Titre et lignes de corps ne sont pas
  * recopies : ce sont des pointeurs DANS file_buffer, dont les fins de ligne
@@ -149,7 +228,7 @@ char file_buffer[FILE_BUFFER_SIZE];
  * -- et ca evite un seul octet de copie. */
 static char* scene_title;
 static char* body_lines[BODY_ROWS];
-static int   body_count;
+static unsigned char body_count;
 
 static int enter_asset_dir(const char* kind, int scene_id)
 {
@@ -165,12 +244,8 @@ static int enter_asset_dir(const char* kind, int scene_id)
 
 static void report_open_error(const char* path)
 {
-    unsigned char prodos_error = (unsigned char)_oserror;
-    int c_error = errno;
-
-    cprintf("Erreur ouverture %s\r\n", path);
-    cprintf("Source: fopen(path, r)\r\n");
-    cprintf("errno=%d ProDOS=$%02X\r\n", c_error, prodos_error);
+    (void)path;
+    cputs("Erreur\r");
 }
 
 /* Fonction pour charger une image HGR */
@@ -306,7 +381,21 @@ static void render_title_bar(void)
 static int choice_available(int i)
 {
     unsigned char req = app.choices[i].require;
-    return req >= STONE_COUNT || character_has_stone(&app.hero, (Stone)req);
+    Choice* c = &app.choices[i];
+    if (req < STONE_COUNT && !character_has_stone(&app.hero, (Stone)req)) return 0;
+    if (c->object < OBJ_COUNT) {
+        int has = character_has_object(&app.hero, (Object)c->object);
+        return c->obj_mode == 2 ? !has : has;
+    }
+    if (c->object & 0x80) {
+        int has = character_has_amulet(&app.hero, (Amulet)(c->object & 0x7f));
+        return c->obj_mode == 2 ? !has : has;
+    }
+    if (c->object == 0x7f) {
+        unsigned char n=character_amulet_count(&app.hero);
+        return n >= (c->obj_mode >> 4) && n <= (c->obj_mode & 15);
+    }
+    return 1;
 }
 
 static char choice_tag(int i)
@@ -352,6 +441,7 @@ static void render_scene(void)
 /* ── Lecture d'une page de scene ──────────────────────────────────────── */
 
 /* Avance sur les chiffres puis sur les espaces, et rend la valeur lue. */
+#pragma code-name (push, "LC")
 static char* take_uint(char* t, unsigned int* out)
 {
     unsigned int v = 0;
@@ -387,6 +477,7 @@ static char* take_word(char* t, char** word)
  * ecran de texte. Rend 4 si le mot n'est pas reconnu.
  * Les mots restent en francais dans les deux corpus, comme les lignes E/E0/CE
  * existantes : c'est de la mecanique, pas du texte affiche. */
+#pragma code-name (push, "CODE")
 static unsigned char carac_of(const char* w)
 {
     /* L'INITIALE suffit : ENDURANCE, HABILETE, CHANCE et OR sont les quatre
@@ -397,6 +488,7 @@ static unsigned char carac_of(const char* w)
      * ENDURANCE -- et c'est reflow_txt.py qui la refuse, du cote ou l'on peut
      * se payer une verification. */
     switch (*w) {
+    case 'B': return 4;
     case 'E': return 0;
     case 'H': return 1;
     case 'C': return 2;
@@ -404,6 +496,8 @@ static unsigned char carac_of(const char* w)
     }
     return 4;
 }
+#pragma code-name (pop)
+#pragma code-name (pop)
 
 /* L'effet, applique par la seule porte qui connaisse les regles de bornes :
  * plafond au total de depart pour les trois caracteristiques, plancher zero
@@ -415,6 +509,10 @@ static void carac_apply(unsigned char c, int d)
     case 1: character_adjust_hab(&app.hero, d);  break;
     case 2: character_adjust_cha(&app.hero, d);  break;
     case 3: character_adjust_gold(&app.hero, d); break;
+    case 4:
+        app.hero.weapon_bonus += (unsigned char)d;
+        if (app.hero.weapon_bonus > 2) app.hero.weapon_bonus=2;
+        break;
     }
 }
 
@@ -429,8 +527,42 @@ static void push_choice(int scene, unsigned char grant, unsigned char require,
     c->scene_id = scene;
     c->grant    = grant;
     c->require  = require;
-    strncpy(c->title, title, CHOICE_TITLE - 1);
-    c->title[CHOICE_TITLE - 1] = '\0';
+    c->object   = OBJ_COUNT;
+    c->obj_mode = 0;
+    c->title = (char*)title;
+}
+
+static void push_object_choice(int scene, Object o, unsigned char mode,
+                               const char* title)
+{
+    Choice* c;
+    push_choice(scene, STONE_COUNT, STONE_COUNT, title);
+    if (app.num_choices == 0) return;
+    c = &app.choices[app.num_choices - 1];
+    c->object = (unsigned char)o; c->obj_mode = mode;
+}
+
+static void lose_items(unsigned char n)
+{
+    unsigned char i;
+    unsigned int bits;
+    while (n) {
+        for (i = 0; i < STONE_COUNT && !app.hero.stones[i]; ++i) {}
+        if (i < STONE_COUNT) { --app.hero.stones[i]; --n; continue; }
+        /* Seuls les dix objets visibles peuvent etre voles. Les bits suivants
+         * sont des faits narratifs caches, pas des biens poses dans le sac. */
+        bits = app.hero.objects & 0x03FEu;
+        if (bits) {
+            bits &= bits - 1;
+            app.hero.objects = (app.hero.objects & ~0x03FEu) | bits;
+            --n; continue;
+        }
+        if (app.hero.amulets) {
+            app.hero.amulets &= (unsigned char)(app.hero.amulets - 1);
+            --n; continue;
+        }
+        break;
+    }
 }
 
 /* Classe une ligne du fichier. Le format d'une page :
@@ -457,8 +589,11 @@ static void push_choice(int scene, unsigned char grant, unsigned char require,
  *                               prendre lui-meme, et rend la ligne d'ecran
  *                               qu'il mangeait sur les 4 disponibles
  *   E  <CARAC> <delta>          effet a l'entree : E ENDURANCE -2
- *   E0 <CARAC> <delta>          perte qui entame le TOTAL DE DEPART, donc
- *                               definitive : E0 HABILETE -2
+ *   E0 <CARAC> <delta>          variation du TOTAL DE DEPART, valeur courante
+ *                               comprise. En perte elle est definitive :
+ *                               E0 HABILETE -2 (page 87). En gain elle releve
+ *                               le plafond : E0 CHANCE +2, la benediction de
+ *                               Grognard (page 155)
  *   ED <CARAC> <+-ndes>         jet de des VISIBLE : `ED ENDURANCE -1` =
  *                               "lancez un de et perdez autant de points
  *                               d'ENDURANCE" ; `ED OR +1` = un de de Pieces
@@ -476,6 +611,9 @@ static void push_choice(int scene, unsigned char grant, unsigned char require,
  *   PC <n> <cats>               il vous en laisse choisir n parmi les
  *                               categories citees (N neutre, B benefique,
  *                               M malefique)
+ *   PD / PO / PX                 retire deux objets, un objet, ou tout le sac
+ *   TR                           echange jusqu'a trois objets/amulettes contre
+ *                               autant de Pierres neutres a choisir
  *   CL <ok> <ko> [<dok> <dko>]  "Tentez votre Chance" : la page envoie en
  *                               <ok> si Chanceux, en <ko> sinon, avec un
  *                               effet d'ENDURANCE optionnel sur chaque
@@ -484,6 +622,8 @@ static void push_choice(int scene, unsigned char grant, unsigned char require,
  *                               d'ENDURANCE et vous vous rendez au 270")
  *   CP <PIERRE> <id> <titre>    choix qui remet une Pierre Magique
  *   CU <PIERRE> <id> <titre>    choix qui EXIGE et consomme une Pierre
+ *   G/GX/GA <OBJET>              donne/retire un objet, ou remet les amulettes
+ *   CI/CN/GU <OBJET> <id> ...   possede/ne possede pas/possede et consomme
  *   C  <id> <titre>             choix
  *   CF <id> <titre>             Fuite -- "n'est possible que si elle est
  *                               specifiee a la page ou vous vous trouverez"
@@ -496,6 +636,80 @@ static void classify_line(char* l)
     unsigned int a, b;
 
     if (app.revisit >= 0) return;   /* la page est court-circuitee (ligne V) */
+
+    /* L'instantane contient deja les effets d'entree de la scene reprise. */
+    if (restoring && ((l[0] == 'E' && (l[1] == ' ' || l[1] == '0' || l[1] == 'D')) ||
+                      (l[0] == 'P' && (l[1] == ' ' || l[1] == 'C' ||
+                                                   l[1] == 'D' || l[1] == 'O' ||
+                                                   l[1] == 'X')) ||
+                      (l[0] == 'G' && (l[1] == ' ' || l[1] == 'X' || l[1] == 'A')) ||
+                      (l[0] == 'C' && l[1] == 'E') ||
+                      (l[0] == 'T' && l[1] == 'R') ||
+                      (l[0] == 'V' && l[1] == ' '))) return;
+
+    if (l[0] == 'G' && l[1] == 'X' && l[2] == ' ') {
+        t = take_word(l + 3, &word);
+        (void)t; character_take_object(&app.hero, object_from_name(word));
+        return;
+    }
+    if (l[0] == 'G' && l[1] == 'A' && l[2] == ' ') {
+        take_uint(l+3,&a);
+        character_trade_amulets(&app.hero,a);
+        return;
+    }
+    if (l[0] == 'G' && l[1] == ' ') {
+        Amulet am;
+        t = take_word(l + 2, &word);
+        (void)t; am=amulet_from_name(word);
+        if (am != AMULET_COUNT) character_give_amulet(&app.hero, am);
+        else character_give_object(&app.hero,object_from_name(word));
+        return;
+    }
+    if (l[0] == 'C' && (l[1] == 'I' || l[1] == 'N') && l[2] == ' ') {
+        Object o;
+        Amulet am;
+        unsigned char mode = (l[1] == 'I') ? 1 : 2;
+        t = take_word(l + 3, &word); o = object_from_name(word);
+        t = take_uint(t, &a);
+        am=amulet_from_name(word);
+        if (am != AMULET_COUNT) push_object_choice((int)a, (Object)(0x80|am), mode, t);
+        else if (o != OBJ_COUNT) push_object_choice((int)a, o, mode, t);
+        return;
+    }
+    if (l[0] == 'C' && l[1] == 'A' && l[2] == ' ') {
+        unsigned int lo, hi;
+        t=take_uint(l+3,&lo); t=take_uint(t,&hi); t=take_uint(t,&a);
+        push_object_choice((int)a,(Object)0x7f,
+                           (unsigned char)((lo<<4)|hi),t);
+        return;
+    }
+    if (l[0] == 'G' && l[1] == 'U' && l[2] == ' ') {
+        Object o;
+        t = take_word(l + 3, &word); o = object_from_name(word);
+        t = take_uint(t, &a);
+        if (o != OBJ_COUNT) push_object_choice((int)a, o, 3, t);
+        return;
+    }
+    if (l[0] == 'P' && (l[1] == 'D' || l[1] == 'O') && l[2] == '\0') {
+        lose_items((unsigned char)(l[1] == 'D' ? 2 : 1));
+        return;
+    }
+    if (l[0] == 'P' && l[1] == 'X' && l[2] == '\0') {
+        memset(app.hero.stones, 0, sizeof app.hero - 9);
+        return;
+    }
+    if (l[0] == 'T' && l[1] == 'R' && l[2] == '\0') {
+        unsigned int bits = app.hero.objects & 0x018Cu;
+        a = 0;
+        while (bits && a < 3) { bits &= bits - 1; ++a; }
+        app.hero.objects = (app.hero.objects & ~0x018Cu) | bits;
+        while (app.hero.amulets && a < 3) {
+            app.hero.amulets &= (unsigned char)(app.hero.amulets - 1); ++a;
+        }
+        app.choose_n = (unsigned char)a;
+        app.choose_cats[0] = 'N'; app.choose_cats[1] = '\0';
+        return;
+    }
 
     /* MD et MS qualifient le dernier adversaire declare. */
     if (l[0] == 'M' && l[1] == 'D' && l[2] == ' ' && app.foe_count > 0) {
@@ -541,16 +755,12 @@ static void classify_line(char* l)
         return;
     }
     if (l[0] == 'E' && l[1] == '0' && l[2] == ' ') {
-        /* Perte qui entame le total de depart : elle ne se rattrape jamais. */
-        int delta;
-        unsigned char k;
+        /* Variation du total de depart : perte definitive (page 87) ou
+         * benediction qui releve le plafond (page 155). */
+        /* Ce n'est pas carac_apply -- celle-ci deplace le PLAFOND -- mais
+         * la meme numerotation, que rules.c connait. */
         t = take_word(l + 3, &word);
-        delta = atoi(t);
-        /* Deux appels propres -- ce n'est pas la primitive de carac_apply,
-         * celle-ci abaisse le PLAFOND -- mais le meme aiguillage. */
-        k = carac_of(word);
-        if      (k == 0) character_lower_end0(&app.hero, delta);
-        else if (k == 1) character_lower_hab0(&app.hero, delta);
+        character_shift0(&app.hero, carac_of(word), atoi(t));
         return;
     }
     if (l[0] == 'C' && l[1] == 'E' && l[2] == ' ') {
@@ -1008,7 +1218,19 @@ static void show_inventory(int in_combat)
                         ? "" : (msg(M_INTERDITE_EN_PLEIN)));
             shown[n++] = s;
         }
-        if (n == 0) {
+        /* Objets visibles, suivis des six amulettes ; les drapeaux narratifs
+         * (indices 9 et suivants) ne figurent jamais dans le sac. */
+        for (i = 0; i < 10; ++i) {
+            if (!character_has_object(&app.hero, (Object)i)) continue;
+            gotoxy(40, 4 + i);
+            cprintf("- %s", object_name((Object)i, !is_fr()));
+        }
+        for (i = 0; i < AMULET_COUNT; ++i) {
+            if (!character_has_amulet(&app.hero, (Amulet)i)) continue;
+            gotoxy(40, 13 + i);
+            cprintf("- %s", amulet_name((Amulet)i, !is_fr()));
+        }
+        if (n == 0 && app.hero.objects == 0) {
             gotoxy(0, 4);
             cprintf(msg(M_AUCUNE_PIERRE_MAGIQUE));
         }
@@ -1450,7 +1672,7 @@ static void die_and_restart(void)
     game_over();
     monster_memory_reset();
     scene_memory_reset();
-    roll_character();
+    app.hero_ready = 0;
     app.pending_scene = 0;
 }
 
@@ -1498,6 +1720,7 @@ void load_scene(int scene_id) {
         return;
     }
     scene_mark_visited((unsigned int)scene_id);
+
 
     /* L'image est decodee en page HGR 1 mais PAS montree : on reste sur le
      * texte, c'est au joueur de basculer. Le decodage se fait donc sous un
@@ -1622,28 +1845,6 @@ void select_language(void) {
     }
 }
 
-/* DEBUG: Afficher l'état actuel (peut être appelé avec touche spéciale) */
-void show_debug_info(void) {
-    int i;
-    set_video_mode(0);
-    videomode(VIDEOMODE_80COL);
-    cprintf("\r\n=== DEBUG INFO ===\r\n");
-    cprintf("Scene: %d\r\n", app.current_scene);
-    cprintf("Video mode: %d\r\n", app.video_mode);
-    cprintf("Num choices: %d\r\n", app.num_choices);
-    cprintf("Has image: %d\r\n", app.has_image);
-    if (app.num_choices > 0) {
-        cprintf("\r\nChoix disponibles:\r\n");
-        for (i = 0; i < app.num_choices; i++) {
-            cprintf("%c) ID=%d %s\r\n", 'A'+i, app.choices[i].scene_id, app.choices[i].title);
-        }
-    }
-    cprintf("\r\nAppuyez sur une touche...\r\n");
-    cgetc();
-    /* Retourner au mode vidéo précédent */
-    display_scene_text(app.current_scene);
-}
-
 /* Fonction pour gérer les choix de l'utilisateur */
 void handle_user_input(char key) {
     int choice_num;
@@ -1659,6 +1860,38 @@ void handle_user_input(char key) {
 
     } else if (key == 'H' || key == 'h') {
         show_help();
+
+    } else if (key == 'S' || key == 's') {
+        char slot;
+        int saved;
+        set_video_mode(0);
+        clear_bottom();
+        print_at(CHOICE_ROW0, "SAVE 0-9 ?");
+        slot = cgetc();
+        if (slot < '0' || slot > '9') { render_scene(); return; }
+        saved=save_game((unsigned char)(slot-'0'));
+        print_at(CHOICE_ROW0, saved ? "SAVE OK" : "SAVE ERROR");
+        wait_key_at(CHOICE_ROWN, msg_continue());
+        /* pack_save partage file_buffer avec le texte de la scene. Le relire
+         * au prochain tour restaure ses pointeurs ; restoring interdit de
+         * rejouer les gains, pertes, jets et autres effets d'entree. Cela
+         * vaut aussi apres un echec d'ecriture, car pack_save a deja tourne. */
+        restoring=1;
+        app.pending_scene=app.current_scene;
+
+    } else if (key == 'L' || key == 'l') {
+        char slot;
+        set_video_mode(0);
+        clear_bottom();
+        print_at(CHOICE_ROW0, "LOAD 0-9 ?");
+        slot = cgetc();
+        if (slot < '0' || slot > '9') { render_scene(); return; }
+        if (!load_game((unsigned char)(slot - '0'))) {
+            clear_bottom();
+            print_at(CHOICE_ROW0, "LOAD ERROR");
+            wait_key_at(CHOICE_ROWN, msg_continue());
+            render_scene();
+        }
 
     } else if (key == 'Q' || key == 'q') {
         /* Quitter */
@@ -1693,6 +1926,13 @@ void handle_user_input(char key) {
                 character_give_stone(&app.hero,
                                      (Stone)app.choices[choice_num].grant, 1);
             }
+            if (app.choices[choice_num].obj_mode == 3)
+                character_take_object(&app.hero,
+                                      (Object)app.choices[choice_num].object);
+            /* Le premier choix de l'introduction lance la creation : le
+             * joueur comprend d'abord qui il va incarner, puis les des
+             * produisent sa Feuille d'Aventure avant l'entree au Marais. */
+            if (!app.hero_ready) roll_character();
             load_scene(app.choices[choice_num].scene_id);
         }
     }
@@ -1743,12 +1983,8 @@ void main(void) {
     /* Le catalogue de l'interface suit la langue choisie. */
     messages_load(app.language[0] != 'F');
 
-    /* "Avant de vous lancer dans cette aventure, il vous faut d'abord
-     * determiner vos propres forces et faiblesses." */
-    roll_character();
-    
-    /* Scene initiale (scene 0 = titre) : texte affiche, image prete en
-     * coulisse, l'ecran de titre s'obtient d'un appui sur ESPACE. */
+    /* L'introduction vient avant les des : son choix A initie explicitement
+     * la creation du personnage. [L] peut aussi reprendre une partie ici. */
     load_scene(0);
     
     /* Boucle principale. La scène en attente évite que load_scene s'appelle
@@ -1759,6 +1995,7 @@ void main(void) {
             int next = app.pending_scene;
             app.pending_scene = -1;
             load_scene(next);
+            restoring = 0;
             continue;
         }
         key = cgetc();

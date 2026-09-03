@@ -1,4 +1,5 @@
 T 386 The Thief's Loot
+G CAPE
 
 The Thief's corpse lies at your feet: he wasn't as skilled as he thought! You
 then search through his belongings and the only useful thing you find there is

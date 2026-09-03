@@ -1,4 +1,5 @@
 T 059 The Corpse and the Pendant
+G AI
 
 You decide to examine the clearing. Perhaps you'll find something useful, or
 someone needs help. Very quickly, you stumble upon the corpse of a Swamp Orc.

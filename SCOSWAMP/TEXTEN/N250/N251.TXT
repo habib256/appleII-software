@@ -1,4 +1,5 @@
 T 251 Garden Master
+G FLEUR
 
 You have killed the Garden Master. He was a good sorcerer who meant no harm to
 anyone, and you begin to regret your act. You lose 3 LUCK points.

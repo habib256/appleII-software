@@ -9,5 +9,5 @@ parseme de buissons : la Clairiere no 11.
 Vous tendez l'oreille, mais rien d'anormal ne trouble le silence. Puis,
 soudain, deux enormes loups apparaissent et vous fixent dans l'ombre.
 
-C 344 Si vous possedez l'Amulette en forme de Loup
-C 068 Sinon
+CI LOUP 344 Si vous possedez l'Amulette en forme de Loup
+CN LOUP 068 Sinon

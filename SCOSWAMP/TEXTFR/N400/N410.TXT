@@ -1,0 +1,7 @@
+T 410 Potion d'ENDURANCE
+
+La potion vous rend toute votre ENDURANCE. Les oiseaux vous montrent ensuite
+le chemin du nord-est.
+
+E ENDURANCE +99
+C 248 Suivre les oiseaux
