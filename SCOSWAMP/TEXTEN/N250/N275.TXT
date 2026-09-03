@@ -14,6 +14,7 @@ creature. The Giant is nonetheless dangerous for that.
 
 What will you do?
 
+MU MARAISNO.MB
 C 012 Attack him
 C 229 Try to calm him
 C 145 Resort to magic

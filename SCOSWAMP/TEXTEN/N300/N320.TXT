@@ -12,6 +12,7 @@ a challenge.
 
 What will you do?
 
+MU MARAISUD.MB
 C 368 Flee
 C 221 Fight it
 C 119 Resort to magic

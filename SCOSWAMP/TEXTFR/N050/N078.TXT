@@ -11,6 +11,7 @@ Avant votre depart, l'aubergiste vous parle : il sait que vous avez traverse
 le Marais aux Scorpions et suggere de visiter un sorcier voisin qui vend des
 Pierres de Magie.
 
+MU COURBENS.MB
 E ENDURANCE +2
 C 150 Aller voir le sorcier
 C 343 Repartir vers le sud pour retraverser le Marais

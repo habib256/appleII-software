@@ -14,6 +14,7 @@ your wanderings in the Swamp.
 You can't flee and you don't have enough time to resort to magic. All that's
 left is to fight them...
 
+MU +COMBAT.MB
 M 7 5 FIRST CUTPURSE
 M 8 5 SECOND CUTPURSE
 MV 186

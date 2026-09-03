@@ -6,6 +6,7 @@ mene vers l'inconnu.
 
 Quelle direction allez-vous choisir ?
 
+MU MARAISNO.MB
 C 138 Prendre le sentier du sud
 C 041 Suivre la piste vers l'est
 C 014 Marcher vers l'ouest

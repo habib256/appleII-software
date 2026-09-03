@@ -4,6 +4,7 @@ You have done everything in your power.
 
 Now, it's time to return to see your master to report your success or failure.
 
+MU VILLAGE.MB
 C 006 If you serve Gayolard
 C 226 If you are in Stratagus's service
 C 056 If you chose Pompatarte

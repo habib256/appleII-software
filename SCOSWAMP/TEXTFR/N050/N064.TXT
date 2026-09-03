@@ -11,6 +11,7 @@ La blessure handicape votre main d'epee: vous perdez de la force de frappe. De
 suite, vous perdez 3 points d'HABILETE et 1 point d'ENDURANCE. Il ne reste
 plus qu'a attaquer au corps a corps.
 
+MU +COMBAT.MB
 M 11 10 MAITRE DES LOUPS
 CF 314 Prendre la fuite si vous etes en mauvaise posture
 E HABILETE -3

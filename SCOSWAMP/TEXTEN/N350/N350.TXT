@@ -9,6 +9,7 @@ You stop at the tree's foot to contemplate this large nest, but, soon, you
 hear wingbeats behind you and see an enormous EAGLE flying above the clearing
 observing you attentively. Do you have:
 
+MU MARAISNO.MB
 CI PL 392 Parrot Feathers
 CI OISEAU 025 A Silver bird-shaped Amulet
 C 233 Neither one nor the other

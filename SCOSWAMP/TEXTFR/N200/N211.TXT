@@ -9,5 +9,6 @@ Son rugissement fait trembler la clairiere. Votre sort a diminue sa force,
 mais sa fureur est terrible et il vous barre toute retraite. L'affrontement
 est inevitable.
 
+MU +COMBAT.MB
 M 6 12 GEANT
 MV 366

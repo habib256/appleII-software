@@ -13,5 +13,6 @@ He then wishes you good luck and gives you a Beneficial Magic Stone (choose
 which one). You now resume your journey. Only one path allows leaving the
 clearing so you take it, walking west.
 
+MU MARAISNO.MB
 PC 1 B
 C 363 Continue west

@@ -6,5 +6,6 @@ soudain et se transforme en une lame dentelee.
 Il se met en garde. L'arme etincelle: elle est clairement magique. Ce combat
 sera le dernier de votre aventure.
 
+MU +COMBAT.MB
 M 13 18 STRATAGUS
 MV 340

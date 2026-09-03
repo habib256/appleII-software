@@ -48,7 +48,6 @@
    "pages": [
     305,
     238,
-    363,
     84,
     117,
     251,
@@ -412,8 +411,7 @@
    "id": 3,
    "hub": 47,
    "pages": [
-    47,
-    394
+    47
    ],
    "titre": "Trois chemins herbeux",
    "x": 4,
@@ -701,7 +699,6 @@
    "pages": [
     195,
     24,
-    208,
     58,
     404,
     405
@@ -749,7 +746,6 @@
    "hub": 82,
    "pages": [
     209,
-    330,
     82,
     308,
     397
@@ -790,6 +786,8 @@
   "Sentiers allonges (2 cases) : 9<->Courbensaule (N/S), croisement<->Clairiere n 7 (E/O), Clairiere n 17<->Clairiere n 12 (N/S).",
   "Coquilles de numerotation reperees dans la prose : page 33 ecrit « Clairiere n 388 » (lire 24), page 42 « Clairiere n 042 » (lire 32), page 25 « Clairiere n 025 » (lire 16), page 388 « Clairiere n 0 24 » (lire 24).",
   "Les numeros de clairiere du livre effectivement donnes en clair : 1, 3, 4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35 -- 30 valeurs pour 35 clairieres (4 restent anonymes, et le 9 est double).",
-  "Les numeros 2, 6, 10, 22, 31 et au-dela de 35 n'apparaissent nulle part : l'adaptation ne couvre pas tout le Marais du livre."
+  "Les numeros 2, 6, 10, 22, 31 et au-dela de 35 n'apparaissent nulle part : l'adaptation ne couvre pas tout le Marais du livre.",
+  "Arbitrages appliques : 363 -> clairiere 19, 394 -> 21, 330 -> 12 (CARTOGRAPHIE.md § 6).",
+  "Page 208 (sortie du Marais vers le village) retiree de la clairiere de depart : c'est la route, pas la clairiere ; sa musique est celle du village."
  ]
 }

@@ -10,5 +10,6 @@ of an experienced sorcerer, you risk greatly never seeing the sun again."
 
 His words seem sincere.
 
+MU VILLAGE.MB
 C 240 Listen to him further
 C 296 Go alone to the Swamp

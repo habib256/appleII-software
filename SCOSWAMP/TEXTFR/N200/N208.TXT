@@ -18,5 +18,6 @@ songer a retourner aupres de votre sorcier, afin de lui rapporter le fruit de
 vos recherches. Le choix vous appartient, entre poursuivre l'aventure ou
 rentrer aureole de gloire.
 
+MU VILLAGE.MB
 C 195 Revenir sur vos pas et regagner une clairiere du Marais
 C 159 Retourner chez votre sorcier pour lui faire rapport

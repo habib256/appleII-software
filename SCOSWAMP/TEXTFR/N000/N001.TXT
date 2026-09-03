@@ -14,5 +14,6 @@ Les villageois veulent vous retenir.
 
 Que faites-vous ?
 
+MU VILLAGE.MB
 C 048 Tirer votre epee pour intimider ceux qui vous barrent la route
 C 095 Expliquer poliment que votre decision est irrevocable

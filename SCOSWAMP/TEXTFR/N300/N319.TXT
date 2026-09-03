@@ -4,6 +4,7 @@ Vous vous hatez de choisir une direction.
 
 Ou souhaitez-vous aller ?
 
+MU DANGER.MB
 C 138 Au nord
 C 047 A l'est
 C 066 A l'ouest

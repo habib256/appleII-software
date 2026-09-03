@@ -11,5 +11,6 @@ Affrontez-les en appliquant les regles de combat du livre. Si vous les
 vainquez, poursuivez la lecture au numero indique. Sinon, votre cadavre
 servira d'engrais pour le marais.
 
+MU +COMBAT.MB
 M 9 12 ARBRES-EPEES
 MV 362

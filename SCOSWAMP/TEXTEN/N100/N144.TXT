@@ -13,6 +13,7 @@ Ring warms around your finger: an evil sign.
 
 What do you want to do?
 
+MU DANGER.MB
 C 074 Resort to magic
 C 026 Attack without waiting
 C 332 Speak to the man in a friendly tone

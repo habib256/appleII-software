@@ -7,5 +7,6 @@ La moitie de votre mission est ainsi accomplie mais, a present, il vous faut
 revenir aupres du sorcier en emportant avec vous la precieuse baie. Le seul
 chemin que vous puissiez prendre, pour l'instant, est oriente au sud.
 
+MU MARAISNO.MB
 G .T
 C 342 Continuer vers le sud

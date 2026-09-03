@@ -9,3 +9,4 @@ Face a vous, un crocodile ouvre ses machoires enormes. Vous empoignez votre
 epee et tentez un geste, mais il est vain. Les machoires se referment; la
 douleur est breve. Votre aventure s'acheve dans l'estomac du reptile.
 
+MU +MORT.MB

@@ -6,4 +6,5 @@ You cast a worried look around you to see if they're still there, and...
 indeed they are, rushing toward you from all sides. But this time, you're
 ready to face them.
 
+MU DANGER.MB
 C 070 Face the Scorpions

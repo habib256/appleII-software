@@ -7,5 +7,6 @@ A l'oree de la clairiere, vous constatez qu'elle est en feu : il n'y a plus la
 qu'un immense brasier qui vous interdit le passage. La fumee qui se degage de
 l'incendie vous etouffe a moitie et vous perdez 1 point d'ENDURANCE.
 
+MU DANGER.MB
 E ENDURANCE -1
 C 165 Continuer

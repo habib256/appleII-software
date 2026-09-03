@@ -4,5 +4,6 @@ Le chemin s'elargit et debouche sur une nouvelle clairiere. Deux sentiers
 permettent d'en sortir: l'un mene vers l'est, l'autre s'ouvre en direction du
 sud. Choisissez votre route.
 
+MU MARAISNO.MB
 C 305 Aller vers l'est
 C 121 Prendre la direction du sud

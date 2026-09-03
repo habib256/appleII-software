@@ -5,4 +5,5 @@ quickly as possible.
 
 The only path allowing you to leave brings you back west.
 
+MU MARAISUD.MB
 C 330 Continue west

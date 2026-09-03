@@ -154,7 +154,7 @@ def reduce_voices(notes, nvoices):
 
 
 # ── Ecriture MB1 ──────────────────────────────────────────────────────────
-def write_mb1(path, voices, vols, tail):
+def write_mb1(path, voices, vols, tail, loop=True):
     events = {}
     end_tick = 0
     for v, seq in enumerate(voices):
@@ -189,7 +189,7 @@ def write_mb1(path, voices, vols, tail):
     while gap > 0:
         n = min(gap, 127); stream.append(n); gap -= n
     stream.append(0xE0)
-    header = b"MB1\0" + bytes([TICK_HZ, 1]) + struct.pack("<H", 8)
+    header = b"MB1\0" + bytes([TICK_HZ, 1 if loop else 0]) + struct.pack("<H", 8)
     Path(path).write_bytes(header + bytes(stream))
     return len(header) + len(stream), end_tick + tail
 
@@ -245,12 +245,17 @@ def main():
                     help="volumes 0-15 par voix, dans l'ordre 0..5")
     ap.add_argument("--tail", type=int, default=24)
     ap.add_argument("--wav"); ap.add_argument("--notes-inc")
+    ap.add_argument("--no-loop", action="store_true", help="joue une fois puis s'arrete (mort, victoire)")
+    ap.add_argument("--max", type=int, default=1280, help="taille maximale du .MB (un demi-tampon)")
     a = ap.parse_args()
     vols = [int(x) for x in a.vol.split(",")][:a.voices]
     vols += [11] * (a.voices - len(vols))
     division, notes = read_midi(a.midi)
     voices = reduce_voices(to_ticks(notes, division, a.bpm), a.voices)
-    size, total = write_mb1(a.out, voices, vols, a.tail)
+    size, total = write_mb1(a.out, voices, vols, a.tail, loop=not a.no_loop)
+    if size > a.max:
+        raise SystemExit(f"{a.out}: {size} octets, plus que le demi-tampon de {a.max} -- "
+                         f"raccourcir la piece ou baisser --voices")
     if a.notes_inc: write_note_table(a.notes_inc)
     if a.wav: render_wav(a.wav, voices, vols, total)
     dropped = len(notes) - sum(len(v) for v in voices)

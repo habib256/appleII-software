@@ -6,6 +6,7 @@ constantly regrows and ends up surrounding you.
 You must fight this vegetation as if it formed a single adversary, implacable
 and infinite. The shock is brutal; keep your breath and your composure.
 
+MU +COMBAT.MB
 M 6 16 PINCER GRASS
 CF 187 Flee
 MV 081

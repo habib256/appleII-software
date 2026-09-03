@@ -9,5 +9,6 @@ Soon, the trees thin out and you reach a vast clearing dotted with bushes.
 You listen, but nothing abnormal disturbs the silence. Then, suddenly, two
 enormous wolves appear and stare at you in the shadow.
 
+MU MARAISNO.MB
 CI LOUP 344 If you possess the Wolf-shaped Amulet
 CN LOUP 068 Otherwise

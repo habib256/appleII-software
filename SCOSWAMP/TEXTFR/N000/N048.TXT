@@ -14,5 +14,6 @@ Le vent humide porte deja une odeur lourde de vase. Le Marais vous attend, et
 le souvenir de votre colere vous pese. Rien ne changera votre decision :
 l'aventure est devant vous.
 
+MU VILLAGE.MB
 E CHANCE -1
 C 095 Poursuivre votre route vers le Marais aux Scorpions

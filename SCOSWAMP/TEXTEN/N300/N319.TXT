@@ -4,6 +4,7 @@ You hasten to choose a direction.
 
 Where do you wish to go?
 
+MU DANGER.MB
 C 138 North
 C 047 East
 C 066 West

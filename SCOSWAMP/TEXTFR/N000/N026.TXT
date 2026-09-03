@@ -8,6 +8,7 @@ Chaque coup porte par sa baguette vous fera perdre 1 point d'ENDURANCE
 supplementaire (3 au lieu de 2). Le combat sera rude: mesurez vos forces et
 votre endurance.
 
+MU +COMBAT.MB
 M 9 6 MAITRE DES ARAIGNEES
 MD 3
 MV 354

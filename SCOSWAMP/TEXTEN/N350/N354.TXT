@@ -12,5 +12,6 @@ You hasten to leave the clearing taking the Amulet while flames spread behind
 you. The fire will quickly burn the spiders, but you must hurry to get to 165
 if you don't want to be carbonized in turn!
 
+MU DANGER.MB
 G ARAIGNEE
 C 165 Leave immediately

@@ -10,6 +10,7 @@ PATROUILLEUR.
 
 Quel sorcier servez-vous?
 
+MU MARAISNO.MB
 C 029 Stratagus
 C 262 Pompatarte
 C 076 Gayolard

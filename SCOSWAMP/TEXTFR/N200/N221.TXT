@@ -13,6 +13,7 @@ plantes du Marais.
 Serrez les dents, frappez avec precision: meme blesse, la bete reste
 dangereuse et chaque erreur peut vous etre fatale.
 
+MU +COMBAT.MB
 M 11 4 LICORNE
 CF 348 Prendre la fuite apres avoir porte au moins deux Assauts
 MV 277

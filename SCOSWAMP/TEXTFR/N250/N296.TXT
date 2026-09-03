@@ -12,4 +12,5 @@ meurtri apres avoir du vous defendre contre toutes sortes de creatures, a la
 fois familieres et etranges. Vous estimez bientot preferable de retourner au
 village et vous faites donc demi-tour. Tentez votre Chance.
 
+MU VILLAGE.MB
 CL 272 003

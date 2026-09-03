@@ -6,4 +6,5 @@ further north, but warns you: "Beware of the Wolves!"
 
 You thank him and take leave, resuming your journey.
 
+MU MARAISNO.MB
 C 161 Resume the journey northward

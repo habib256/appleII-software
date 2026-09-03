@@ -11,5 +11,6 @@ l'Araignee Geante vous attaque. Vous ne pouvez pas fuir; il vous faut
 combattre jusqu'a la mort.
 
 ED ENDURANCE -1
+MU +COMBAT.MB
 M 8 9 ARAIGNEE GEANTE
 MV 354

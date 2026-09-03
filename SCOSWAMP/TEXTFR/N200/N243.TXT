@@ -6,4 +6,5 @@ Une multitude d'insectes charognards, ressemblant a des crabes, festoie.
 L'odeur et le tableau vous repugnent; vous refusez de vous approcher. Vous
 faites demi-tour et reprenez le sentier vers l'est, a grandes enjambees.
 
+MU DANGER.MB
 C 279 Partir vers l'est

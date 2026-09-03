@@ -9,6 +9,7 @@ water stirs; ripples betray the beast's power.
 
 What do you do?
 
+MU MARAISUD.MB
 C 397 Flee
 C 082 Attack with your sword
 C 034 Resort to magic

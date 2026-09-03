@@ -8,5 +8,6 @@ You approach it and you carefully examine the mushroom. You then notice traces
 of human teeth on one of the cap's edges. The mushroom gives off a pleasant
 smell and you can eat a piece if you wish.
 
+MU MARAISUD.MB
 C 178 Eat a piece
 C 352 Leave northward

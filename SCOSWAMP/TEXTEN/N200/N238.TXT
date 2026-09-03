@@ -4,4 +4,5 @@ You enter the Garden Master's clearing; it's beautiful and completely
 deserted. Calm reigns, nothing moves. You decide to leave by following the
 path westward.
 
+MU MARAISNO.MB
 C 363 Resume the journey westward

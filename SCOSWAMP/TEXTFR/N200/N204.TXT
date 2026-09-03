@@ -11,6 +11,7 @@ et vous sentez vos mains trembler. Vous perdez 1 point d'HABILETE.
 
 Que faites-vous ?
 
+MU DANGER.MB
 E HABILETE -1
 C 269 Fuir droit devant vous
 C 032 Les trancher a coups d'epee

@@ -13,5 +13,6 @@ flammes se propagent derriere vous. L'incendie aura tot fait de bruler les
 araignees, mais il faut vous depecher si vous ne voulez pas etre carbonise a
 votre tour !
 
+MU DANGER.MB
 G ARAIGNEE
 C 165 Partir immediatement

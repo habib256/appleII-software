@@ -12,6 +12,7 @@ earth.
 
 What do you do?
 
+MU DANGER.MB
 C 176 Face it in combat
 C 102 Flee immediately
 C 374 Try to cast a spell on it

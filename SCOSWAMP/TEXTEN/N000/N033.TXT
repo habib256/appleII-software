@@ -8,5 +8,6 @@ You must choose quickly: strike with your sword or use a spell to contain it.
 
 What do you do?
 
+MU DANGER.MB
 C 134 Fight the Pincer Grass with sword strokes
 C 167 Resort to magic to contain it

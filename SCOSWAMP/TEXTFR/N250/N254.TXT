@@ -11,5 +11,6 @@ et s'effondre dans le courant, emportant ses racines et ses branches.
 Devant vous, deux sentiers distincts se dessinent : l'un remonte vers le nord,
 l'autre file vers le sud. Le choix vous appartient.
 
+MU RIVIERE.MB
 C 157 Prendre le chemin vers le nord
 C 398 Prendre le chemin vers le sud

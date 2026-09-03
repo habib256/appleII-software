@@ -17,5 +17,6 @@ consider returning to your sorcerer, to report the fruit of your research. The
 choice is yours, between continuing the adventure or returning crowned with
 glory.
 
+MU VILLAGE.MB
 C 195 Retrace your steps and return to a Swamp clearing
 C 159 Return to your sorcerer to report

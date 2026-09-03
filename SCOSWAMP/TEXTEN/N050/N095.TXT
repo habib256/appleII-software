@@ -15,5 +15,6 @@ conviction.
 Grognard awaits your response in silence. Do you accept his advice, or do you
 follow your own path?
 
+MU VILLAGE.MB
 C 240 Approve Grognard's words and accept his help
 C 122 Refuse his advice and pursue your own route

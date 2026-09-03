@@ -10,5 +10,6 @@ Bientot, vous remarquez que chaque bras tient une epee a son extremite. Ces
 arbres se meuvent et convergent vers vous. Vous etes attaque par des
 ARBRES-EPEES ! Ils vous encerclent et preparent leur assaut.
 
+MU DANGER.MB
 C 028 Combattre les Arbres-Epees a l'epee
 C 203 Recourir a la magie pour vous defendre

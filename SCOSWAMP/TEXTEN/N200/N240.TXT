@@ -14,5 +14,6 @@ Grognard stares at you without blinking, awaiting your decision. Will you
 agree to know more about the others, or proclaim your loyalty to Good without
 further delay?
 
+MU VILLAGE.MB
 C 205 Want to know more and listen to Grognard attentively
 C 155 Declare you will serve only the cause of Good

@@ -8,5 +8,6 @@ If you killed them all, nothing will disturb your passage and you can resume
 your journey without risk. Otherwise, the zone remains dangerous and it would
 be better to avoid it or run to cross it without delay.
 
+MU DANGER.MB
 C 187 I went all the way: the Grass is dead, I pass
 C 033 The Grass is still alive, I change route or I flee

@@ -12,4 +12,5 @@ you to tell the truth. Despite yourself, you obey.
 He takes back his Amulet and leaves. Gradually, you regain your strength and
 resume the journey westward.
 
+MU MARAISNO.MB
 C 363 Go westward

@@ -7,4 +7,5 @@ Si vous les avez deja tues, rendez-vous au 309. Sinon, vous devrez les
 combattre avec le total d'ENDURANCE qu'ils avaient lorsque vous les avez
 quittes.
 
+MU DANGER.MB
 C 281 Combattre les Orques

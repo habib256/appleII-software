@@ -12,6 +12,7 @@ La clairiere est devant vous, et vous devez choisir une direction. A l'ouest,
 un chemin sombre. A l'est, un passage bordant les hautes herbes. Au sud, la
 voie du retour. Votre destin est entre vos mains.
 
+MU MARAISUD.MB
 CE ENDURANCE 0 -1
 C 398 Prendre le sentier qui part vers l'ouest
 C 105 Suivre le chemin herbeux vers l'est

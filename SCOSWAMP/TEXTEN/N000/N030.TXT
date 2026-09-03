@@ -8,3 +8,4 @@ Facing you, a crocodile opens its enormous jaws. You grab your sword and
 attempt a move, but it's futile. The jaws close; the pain is brief. Your
 adventure ends in the reptile's stomach.
 
+MU +MORT.MB

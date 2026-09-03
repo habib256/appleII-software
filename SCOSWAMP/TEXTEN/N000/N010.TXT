@@ -11,5 +11,6 @@ staying risks attracting the attention of hidden enemies.
 
 What do you do?
 
+MU MARAISUD.MB
 C 059 Examine the clearing and search for clues
 C 227 Leave the clearing as quickly as possible and depart

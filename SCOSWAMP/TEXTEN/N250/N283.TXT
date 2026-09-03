@@ -7,5 +7,6 @@ the bush. He gives you a beneficial Magic Stone: choose which one yourself.
 Only one path leads out of this clearing, so you take it back towards the
 west.
 
+MU MARAISNO.MB
 PC 1 B
 C 363 Continue westward

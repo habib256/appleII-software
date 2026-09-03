@@ -14,6 +14,7 @@ crawling toward you.
 
 What will you do?
 
+MU DANGER.MB
 C 085 Flee
 C 257 Try to jump over it
 C 171 Attack it with your sword

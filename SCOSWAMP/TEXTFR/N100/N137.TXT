@@ -7,5 +7,6 @@ Si vous l'avez deja tuee :
 Sinon, elle vous barre a nouveau le passage. Ses blessures sont completement
 gueries.
 
+MU DANGER.MB
 C 153 Continuer votre route
 C 336 Revenir en arriere pour trouver une solution

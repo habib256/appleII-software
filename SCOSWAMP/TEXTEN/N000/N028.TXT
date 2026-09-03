@@ -10,5 +10,6 @@ Face them by applying the combat rules from the book. If you defeat them,
 continue reading at the indicated number. Otherwise, your corpse will serve as
 fertilizer for the swamp.
 
+MU +COMBAT.MB
 M 9 12 SWORD TREES
 MV 362

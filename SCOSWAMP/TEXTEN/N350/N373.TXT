@@ -7,4 +7,5 @@ of your opponent before combat engages.
 If you're Unlucky, you don't manage to hit him; in that case, you'll also go
 to 225 to fight him, but without changing this time the total STAMINA he has.
 
+MU TOUR.MB
 CL 402 225

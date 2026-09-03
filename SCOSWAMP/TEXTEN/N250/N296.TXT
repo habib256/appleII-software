@@ -12,4 +12,5 @@ after having had to defend yourself against all sorts of creatures, both
 familiar and strange. You soon deem it preferable to return to the village and
 you therefore turn back. Test your Luck.
 
+MU VILLAGE.MB
 CL 272 003

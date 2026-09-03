@@ -14,5 +14,6 @@ votre position. Grognard vous fixe sans ciller, attendant votre decision.
 Accepterez-vous d'en savoir davantage sur les autres, ou proclamerez-vous
 votre fidelite au Bien sans plus attendre ?
 
+MU VILLAGE.MB
 C 205 Vouloir en savoir plus et ecouter Grognard attentivement
 C 155 Declarer que vous servirez uniquement la cause du Bien

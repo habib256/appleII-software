@@ -12,6 +12,7 @@ here; your body will serve as fertilizer for Swamp plants.
 Grit your teeth, strike with precision: even wounded, the beast remains
 dangerous and every mistake can be fatal.
 
+MU +COMBAT.MB
 M 11 4 UNICORN
 CF 348 Flee after striking at least two Assaults
 MV 277

@@ -4,6 +4,7 @@ Trois chemins vous permettent de quitter cette clairiere.
 
 Dans quelle direction souhaitez-vous aller ?
 
+MU DANGER.MB
 C 047 Au nord
 C 053 Au sud
 C 388 A l'ouest

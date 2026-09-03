@@ -7,4 +7,5 @@ La Bete Immonde se jette sur elles, en abat une, puis se precipite en furie.
 Vous profitez de la confusion pour rebrousser chemin et regagner le sentier
 par lequel vous etes arrive, en direction de l'est.
 
+MU DANGER.MB
 C 279 Rebrousser chemin vers l'est

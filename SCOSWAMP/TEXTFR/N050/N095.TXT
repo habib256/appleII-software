@@ -15,5 +15,6 @@ d'une etrange conviction.
 Grognard attend votre reponse en silence. Acceptez-vous son conseil, ou
 suivez-vous votre propre voie ?
 
+MU VILLAGE.MB
 C 240 Approuver les paroles de Grognard et accepter son aide
 C 122 Refuser son conseil et poursuivre votre propre route

@@ -6,5 +6,6 @@ porte encore les traces du combat, couvert de griffures et de terre remuee.
 Un silence lourd pese entre les arbres, comme si le lieu retenait son souffle,
 attendant votre decision.
 
+MU DANGER.MB
 C 243 Si la creature est morte et que le lieu est sur
 C 143 Si la Bete Immonde vit encore dans la clairiere

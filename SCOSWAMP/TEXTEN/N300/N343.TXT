@@ -2,5 +2,6 @@ T 343 Return to the Brigands
 
 You approach the place where you had encountered the Brigands.
 
+MU MARAISNO.MB
 C 199 If you were friends
 C 301 If you fled, deceived or killed them

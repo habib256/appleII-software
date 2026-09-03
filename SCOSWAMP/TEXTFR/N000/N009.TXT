@@ -14,4 +14,5 @@ bottes. Seule issue : suivre le sentier sans jamais vous en ecarter.
 La moiteur colle a votre peau et les insectes tournoient en nuages. Le Marais
 s'ouvre devant vous, hostile et silencieux, comme un piege vivant.
 
+MU VILLAGE.MB
 C 195 Avancer prudemment sur le sentier vers le coeur du Marais

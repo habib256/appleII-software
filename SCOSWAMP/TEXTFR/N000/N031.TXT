@@ -11,6 +11,7 @@ par laquelle vous etes arrive vous relie au monde exterieur.
 
 Que faites-vous?
 
+MU MARAISUD.MB
 C 047 Quitter les lieux en retournant vers l'ouest
 C 394 Attendre quelques minutes pour observer
 C 077 Boire l'eau du bassin

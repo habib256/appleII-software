@@ -138,15 +138,16 @@ typedef struct {
      * dv_done bloque la cascade a la premiere ligne DV qui correspond. */
     unsigned char last_loss;
     unsigned char dv_done;
-    char music_name[16];     /* ligne MU : MUSIC/<NOM>.MB a jouer, vide sinon */
+    char music_name[16];     /* ligne MU : MUSIC/<NOM>.MB, "-" = silence, vide = rien */
+    unsigned char music_over; /* la ligne MU portait un + : surcouche de la page */
 } AppState;
 
 /* Variables globales optimisées */
 AppState app;
-/* La page la plus longue du corpus fait 1252 octets (TEXTFR/N350/N361.TXT),
- * remesure le 2026-09-03. fread en lit SIZE-1 et reserve le dernier octet au
- * '\0'. reflow_txt.py tient exactement la meme limite. */
-#define FILE_BUFFER_SIZE 1253
+/* La page la plus longue du corpus fait 1264 octets (TEXTFR/N350/N361.TXT
+ * avec sa ligne MU, 2026-09-03). fread en lit SIZE-1 et reserve le dernier
+ * octet au '\0'. reflow_txt.py tient exactement la meme limite. */
+#define FILE_BUFFER_SIZE 1280
 /* En LOWBSS ($1000-$1FFF, voir scoswamp.cfg) : la RAM basse entre le tampon
  * ProDOS et HGR page 1, que le lieur ignorait. main() la met a zero. */
 #pragma bss-name (push, "LOWBSS")
@@ -301,18 +302,68 @@ static void report_open_error(const char* path)
  * lit meme pas le disque. */
 static unsigned char music_slot;
 
-/* Lit MUSIC/<name> dans music_buf. Rend 1 si c'est bien un flux MB1. Un
- * seul fichier ouvert a la fois, comme partout ; la musique est deja coupee
- * par load_scene avant toute lecture. */
-static unsigned char music_load(const char* name)
+/* Ce qui joue, et le theme de la zone courante : deux noms de MUSIC/.
+ * music_cur vide = silence. Ils different quand une surcouche joue. */
+static char music_cur[16];
+static char music_zone[16];
+
+/* Lit MUSIC/<name> dans le demi-tampon `half`. Rend 1 si c'est bien un flux
+ * MB1. Un seul fichier ouvert a la fois, comme partout ; l'appelant a deja
+ * arrete la musique avant la lecture. */
+static unsigned char music_load(const char* name, unsigned char half)
 {
     FILE* f;
     size_t n;
+    unsigned char* dst = music_buf + (half ? MUSIC_HALF : 0);
     if (!music_slot) return 0;
     if (chdir("/SCOSWAMP") != 0 || chdir("MUSIC") != 0) return 0;
     f = fopen(name, "rb"); if (!f) return 0;
-    n = fread(music_buf, 1, MUSIC_BUF_SIZE, f); fclose(f);
-    return n > 8 && memcmp(music_buf, "MB1", 3) == 0;
+    n = fread(dst, 1, MUSIC_HALF, f); fclose(f);
+    return n > 8 && memcmp(dst, "MB1", 3) == 0;
+}
+
+/* Arrete, charge <name> dans le demi-tampon `half` et le joue depuis le
+ * debut. Le seul chemin qui lit le disque. */
+static void music_switch(const char* name, unsigned char half)
+{
+    music_stop();
+    music_select(half);
+    if (music_load(name, half)) {
+        music_play();
+        memcpy(music_cur, name, sizeof music_cur);
+    } else {
+        music_cur[0] = '\0';
+    }
+}
+
+/* La cascade de la ligne MU, une fois le texte de la page lu :
+ *   "-"      silence, et plus de zone ;
+ *   rien     la musique continue -- ou, si une surcouche jouait, la zone
+ *            reprend la ou elle en etait, sans lecture ;
+ *   meme nom rien a faire, ni lecture ni redemarrage ;
+ *   nouveau  lecture et depart ; un theme (sans +) devient la zone. */
+static void music_for_page(void)
+{
+    const char* n = app.music_name;
+    if (n[0] == '-') {
+        music_stop();
+        music_cur[0] = music_zone[0] = '\0';
+        return;
+    }
+    if (n[0] == '\0') {
+        if (memcmp(music_cur, music_zone, sizeof music_cur) == 0) return;
+        music_stop();
+        music_cur[0] = '\0';
+        if (music_zone[0]) {
+            music_select(0);
+            music_continue();
+            memcpy(music_cur, music_zone, sizeof music_cur);
+        }
+        return;
+    }
+    if (memcmp(n, music_cur, sizeof music_cur) == 0) return;
+    music_switch(n, app.music_over);
+    if (!app.music_over && music_cur[0]) memcpy(music_zone, music_cur, sizeof music_zone);
 }
 
 /* Fonction pour charger une image HGR */
@@ -728,9 +779,14 @@ static void lose_items(unsigned char n)
  *   DV <max> <id>               en cascade : premiere ligne dont la perte du
  *                               dernier combat est <= max fabrique l'unique
  *                               choix "continuer" vers <id>
- *   MU <NOM>.MB                 la musique de la page, lue dans MUSIC/ et
- *                               jouee en boucle sur la Mockingboard ; une
- *                               page sans MU est silencieuse
+ *   MU <NOM>.MB                 le theme de la zone : lu dans MUSIC/ et joue
+ *                               en boucle, seulement si ce n'est pas deja
+ *                               lui qui joue. Toutes les pages d'une
+ *                               clairiere portent le meme. Sans MU, la
+ *                               musique continue ; MU +<NOM>.MB pose une
+ *                               surcouche pour la page (combat, mort,
+ *                               victoire) apres laquelle la zone reprend ou
+ *                               elle en etait ; MU - fait silence
  *   MV <id>                     apres le dernier adversaire tombe, la page
  *                               envoie en <id> sans repasser par les choix.
  *                               Le jumeau de CF cote victoire : elle remplace
@@ -882,9 +938,12 @@ static void classify_line(char* l)
      * qui l'avalerait -- mais sans leur garde `foe_count > 0` : MV ne qualifie
      * pas le dernier adversaire declare, et peut preceder les lignes M. */
     if (c0 == 'M' && c1 == 'U' && c2 == ' ') {
-        /* La musique de la page : un nom de fichier dans MUSIC/, joue en
-         * boucle sur la Mockingboard une fois la page chargee. */
-        strncpy(app.music_name, l + 3, sizeof(app.music_name) - 1);
+        /* La musique de la page : "MU NOM.MB" est le theme de la zone,
+         * "MU +NOM.MB" une surcouche pour cette page seule, "MU -" le
+         * silence. Voir music.h et music_for_page. */
+        t = l + 3;
+        if (*t == '+') { app.music_over = 1; t++; }
+        strncpy(app.music_name, t, sizeof(app.music_name) - 1);
         app.music_name[sizeof(app.music_name) - 1] = '\0';
         return;
     }
@@ -1841,6 +1900,9 @@ static void roll_character(void)
  * cher que la fonction. */
 static void die_and_restart(void)
 {
+    /* L'ecran de mort n'est pas une page : sa marche funebre se pose ici, en
+     * surcouche, et ne boucle pas. */
+    music_switch("MORT.MB", 1);
     if (game_over()) return;
     monster_memory_reset();
     scene_memory_reset();
@@ -1851,11 +1913,6 @@ static void die_and_restart(void)
 /* Charger une nouvelle scene - version optimisée */
 void load_scene(int scene_id) {
     int issue;
-
-    /* La musique ne joue que sur l'accueil : coupee avant toute lecture
-     * disque (ProDOS masque les IRQ pendant les E/S, et l'AY tiendrait la
-     * derniere note), relancee plus bas une fois la page 000 chargee. */
-    music_stop();
 
     app.current_scene = scene_id;
     app.num_choices = 0;  /* Réinitialiser les choix */
@@ -1881,6 +1938,7 @@ void load_scene(int scene_id) {
      * qui la lit (lignes DV). dv_done, si : la cascade repart a chaque page. */
     app.dv_done = 0;
     app.music_name[0] = '\0';
+    app.music_over = 0;
 
     /* Charger d'abord le texte et les choix. Le chargeur HGR assembleur est
      * ensuite le dernier client ProDOS de la scène : son décodage direct en
@@ -1889,6 +1947,11 @@ void load_scene(int scene_id) {
      * P (Pierres reçues) : elles jouent une fois par visite. */
     app.video_mode = 0;
     display_scene_text(scene_id);
+    /* La musique de la page, des que sa ligne MU est connue : avant les des,
+     * les jets et les Pierres, qui attendent une touche. La lecture du texte
+     * s'est faite musique ouverte -- ProDOS masque les IRQ ~45 ms, une note
+     * tenue, moins genante qu'un silence deliberer. */
+    if (app.revisit < 0) music_for_page();
     /* Une ligne E peut tuer a l'entree -- "vous perdez 5 points d'ENDURANCE",
      * page 357 -- et seuls le de et le combat etaient testes. La page se lit
      * d'abord, puis c'est la mort. La garde hero_ready ecarte l'accueil, ou
@@ -1952,9 +2015,10 @@ void load_scene(int scene_id) {
     /* Une clairiere avec un adversaire prend son image de bataille si elle
      * existe, sinon son illustration ordinaire. */
     app.has_image = 0;
+    music_pause();   /* l'image : ~120 ms de lecture, mixeur ferme plutot qu'une note tenue */
     if (app.foe_count > 0) app.has_image = load_hgr_image_as(scene_id, 'B');
     if (!app.has_image)  app.has_image = load_hgr_image_as(scene_id, 'N');
-    if (app.music_name[0] && music_load(app.music_name)) music_play();
+    music_resume();
 
     if (app.foe_count == 0) return;
 

@@ -10,6 +10,7 @@ Which direction will you take? Choose without delay.
 North offers a path that rises toward drier lands. South leads back to the
 deep river. West presents a narrow passage, perhaps less dangerous.
 
+MU DANGER.MB
 C 320 Take the path that climbs to the north
 C 090 Join the deep river to the south
 C 011 Take the narrow passage to the west

@@ -10,5 +10,6 @@ d'un sorcier aguerri, vous risquez fort de ne jamais revoir le soleil."
 
 Ses paroles semblent sinceres.
 
+MU VILLAGE.MB
 C 240 L'ecouter davantage
 C 296 Partir seul vers le Marais

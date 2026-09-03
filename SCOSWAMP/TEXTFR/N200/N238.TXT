@@ -4,4 +4,5 @@ Vous entrez dans la clairiere du Maitre des Jardins; elle est belle et
 completement deserte. Le calme regne, rien ne bouge. Vous decidez de repartir
 en suivant le sentier vers l'ouest.
 
+MU MARAISNO.MB
 C 363 Reprendre la route vers l'ouest

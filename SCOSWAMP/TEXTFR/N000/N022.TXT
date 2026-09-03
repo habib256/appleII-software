@@ -12,6 +12,7 @@ Le nord offre un sentier qui s'eleve vers des terres plus seches. Le sud
 ramene vers la riviere profonde. L'ouest presente un passage etroit, peut-etre
 moins dangereux.
 
+MU DANGER.MB
 C 320 Prendre le chemin qui monte vers le nord
 C 090 Rejoindre la riviere profonde vers le sud
 C 011 Emprunter le passage etroit vers l'ouest

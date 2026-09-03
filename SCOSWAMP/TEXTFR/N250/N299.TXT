@@ -9,5 +9,6 @@ Si vous voulez la poursuivre et la combattre, attention : l'effet de votre
 sortilege se dissipera bientot, et la Bete redeviendra alors aussi redoutable
 qu'avant.
 
+MU DANGER.MB
 C 176 La poursuivre et la combattre
 C 279 Faire demi-tour et quitter la clairiere

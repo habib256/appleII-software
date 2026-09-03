@@ -14,6 +14,7 @@ votre doigt: signe malefique.
 
 Que voulez-vous faire?
 
+MU DANGER.MB
 C 074 Recourir a la magie
 C 026 Attaquer sans attendre
 C 332 Parler a l'homme d'un ton aimable

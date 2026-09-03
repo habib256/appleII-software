@@ -8,5 +8,6 @@ full speed to pass without being paralyzed by their attractive perfume.
 A rustling rises between the trunks, the petals shiver - the moment to act has
 arrived.
 
+MU DANGER.MB
 C 367 Continue - the flowers are dead, I advance into the clearing
 C 269 Flee at full speed - the flowers are alive, I escape quickly

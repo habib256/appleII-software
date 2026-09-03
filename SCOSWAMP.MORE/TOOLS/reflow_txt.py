@@ -28,7 +28,7 @@
 Ne touche pas aux mots : seuls les retours a la ligne changent. Les lignes
 purement decoratives (----- / =====) sautent, la barre de titre les remplace.
 """
-import re, sys, textwrap
+import json, re, sys, textwrap
 from pathlib import Path
 
 # Le moteur laisse maintenant TOUJOURS la ligne 2 vide sous la barre de titre :
@@ -42,7 +42,7 @@ MAX_FOES    = 3    # doit suivre MAX_FOES dans scoswamp.c
 # depasse est tronque A L'ECRAN, en silence, et c'est ici -- et nulle part
 # ailleurs -- qu'on peut se payer la verification.
 MAX_CHOICES  = 5     # doit suivre MAX_CHOICES dans scoswamp.c
-FILE_BUFFER  = 1253  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
+FILE_BUFFER  = 1280  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
 COL         = 39   # largeur d'une colonne de choix (2 par ligne)
 WRAP        = 78
 
@@ -687,6 +687,7 @@ def main():
     apply = "--apply" in sys.argv
     derive = "--derive" in sys.argv
     found = {}          # (lang, id) -> directives, pour le recoupement FR/EN
+    mus = {}            # (lang, id) -> lignes MU, pour le croisement avec carte.json
     problems, changed = [], 0
     for lang in ("TEXTFR", "TEXTEN"):
         for f in sorted((root / lang).rglob("N*.TXT")):
@@ -766,8 +767,21 @@ def main():
             # faute de frappe y passe en silence -- "EDURANCE" serait lue
             # comme ENDURANCE, "OBJET" comme OR -- et c'est ici, du cote ou
             # l'on peut se payer une comparaison de chaines, qu'on la refuse.
+            mus[(lang, sid)] = [d for d in directives if d.startswith("MU ")]
+            if len(mus[(lang, sid)]) > 1:
+                problems.append(f"{f}: plusieurs lignes MU, la derniere gagne")
             for d in directives:
                 parts = d.split()
+                # MU <NOM>.MB (theme de zone), MU +<NOM>.MB (surcouche), MU -
+                # (silence). Le nom tient en 15 caracteres ProDOS et dans le
+                # champ music_name[16] du moteur, qui tronque en silence ; et le
+                # fichier doit exister, music_load echouant sans un mot.
+                if parts[0] == "MU":
+                    arg = parts[1] if len(parts) == 2 else ""
+                    if not re.fullmatch(r"-|\+?[A-Z0-9]{1,12}\.MB", arg):
+                        problems.append(f"{f}: ligne MU mal formee {d!r}")
+                    elif arg != "-" and not (root / "MUSIC" / (arg.lstrip("+") + ".BIN")).exists():
+                        problems.append(f"{f}: MU {arg} : pas de MUSIC/{arg.lstrip('+')}.BIN")
                 if parts[0] in ("E", "E0", "CE", "ED") and len(parts) > 1 \
                         and parts[1] not in CARAC_WORDS:
                     problems.append(f"{f}: {parts[0]} sur un mot inconnu "
@@ -892,6 +906,24 @@ def main():
         for sid in combats:
             print("   N%03d  %s" % (sid, "  ".join(found[("TEXTFR", sid)])))
 
+    # Une clairiere, une musique : toutes ses pages (SCOSWAMP.MORE/carte.json,
+    # arbitrages appliques) portent le meme theme de zone, ou une surcouche.
+    # Sans cela, entrer par un autre sentier changerait ou couperait la musique
+    # au milieu du lieu -- exactement ce que le moteur par clairiere evite.
+    carte = root.parent / "SCOSWAMP.MORE" / "carte.json"
+    if carte.exists():
+        for c in json.loads(carte.read_text())["clairieres"]:
+            zones = set()
+            for p in c["pages"]:
+                m = mus.get(("TEXTFR", p))
+                if not m:
+                    problems.append(f"clairiere {c['hub']:03d} : page {p:03d} sans ligne MU")
+                    continue
+                arg = m[-1].split()[1]
+                if not arg.startswith("+") and arg != "-": zones.add(arg)
+            if len(zones) != 1:
+                problems.append(f"clairiere {c['hub']:03d} ({c['titre']}) : "
+                                f"themes de zone {sorted(zones)}, il en faut un seul")
     print(f"problemes : {len(problems)}")
     for p in problems[:40]: print("  " + p)
 

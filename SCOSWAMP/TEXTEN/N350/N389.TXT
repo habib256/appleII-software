@@ -7,5 +7,6 @@ Half of your mission is thus accomplished but, now, you must return to the
 sorcerer taking with you the precious berry. The only path you can take for
 now is oriented south.
 
+MU MARAISNO.MB
 G .T
 C 342 Continue south

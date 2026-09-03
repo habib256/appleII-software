@@ -6,6 +6,7 @@ reprenez le chemin du sud.
 
 Que faites-vous?
 
+MU MARAISNO.MB
 G BA
 C 389 Je sers Gayolard
 C 342 Quitter la clairiere et reprendre le sud

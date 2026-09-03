@@ -6,6 +6,7 @@ affronter le Maitre lui-meme...
 
 Si le combat tourne mal, vous pouvez fuir.
 
+MU +COMBAT.MB
 M 7 5 PREMIER LOUP
 M 6 6 DEUXIEME LOUP
 M 11 10 MAITRE DES LOUPS

@@ -18,5 +18,6 @@ Ici, chaque decision peut etre la frontiere entre survie et desastre. Vous
 serrez votre epee, pret a choisir la voie qui vous permettra de quitter cette
 clairiere sans y laisser vos forces. Le danger est tangible.
 
+MU MARAISUD.MB
 C 058 Traverser prudemment la clairiere vers un autre sentier
 C 091 Tenter de franchir d'un bond la zone marecageuse
