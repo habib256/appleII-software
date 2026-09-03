@@ -20,4 +20,10 @@ void __fastcall__ sfx_dodge(void);   /* les deux esquivent */
 void __fastcall__ sfx_fall(void);    /* une creature s'effondre */
 void __fastcall__ sfx_death(void);   /* l'ENDURANCE du heros tombe a zero */
 
+/* Un cinquieme de seconde de silence. Il vit ici et non dans le C parce que
+ * c'est la meme affaire que les sons : un compte de cycles, que l'optimiseur
+ * de cc65 ferait varier d'une version a l'autre -- et qu'il supprimerait tout
+ * simplement si la boucle etait ecrite en C sans effet de bord. */
+void __fastcall__ sfx_beat(void);    /* le temps que le coup tombe */
+
 #endif /* SFX_H */

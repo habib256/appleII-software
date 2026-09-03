@@ -158,6 +158,14 @@ static void test_assaut(void)
         CHECK((r.outcome == ROUND_HERO_HITS)    == (r.hero_force >  r.monster_force), "issue");
         CHECK((r.outcome == ROUND_MONSTER_HITS) == (r.hero_force <  r.monster_force), "issue");
         CHECK((r.outcome == ROUND_DODGE)        == (r.hero_force == r.monster_force), "issue");
+        /* Les des exposes doivent etre les des du jet, pas un decor : l'ecran
+         * ecrit "d1 + d2 + HABILETE = force", et une somme qui ne retombe pas
+         * dessus ferait mentir la ligne sous les yeux du joueur. */
+        CHECK(r.hero_d1 >= 1 && r.hero_d1 <= 6 && r.hero_d2 >= 1 && r.hero_d2 <= 6 &&
+              r.monster_d1 >= 1 && r.monster_d1 <= 6 && r.monster_d2 >= 1 && r.monster_d2 <= 6,
+              "des hors de 1..6");
+        CHECK(r.hero_d1 + r.hero_d2 + c.hab == r.hero_force, "des du heros");
+        CHECK(r.monster_d1 + r.monster_d2 + m.hab == r.monster_force, "des de la creature");
     }
 
     /* Les deux epees magiques du livre n'ont pas la meme puissance : celle

@@ -30,16 +30,42 @@ MESSAGES = [
     ('M_VOUS_FUYEZ_ELLE', 'Vous fuyez : elle vous blesse au passage.', 'You flee: it wounds you on the way.'),
     ('M_CHANCEUX', 'Chanceux !', 'Lucky!'),
     ('M_MALCHANCEUX', 'Malchanceux !', 'Unlucky!'),
-    ('M_ASSAUT_FORCE_D', 'ASSAUT %u     votre force %u   %s   la sienne %u', 'ROUND %u     your strength %u   %s   its %u'),
+    # L'assaut ne dit plus que son numero : les deux jets s'ecrivent en clair
+    # sur les deux lignes suivantes, ou le joueur voit les des au lieu d'un
+    # total tout fait. Les 39 octets rendus par l'ancienne ligne de force ont
+    # paye les trois messages neufs, catalogue a taille constante.
+    ('M_ASSAUT_N', 'ASSAUT %u', 'ROUND %u'),
+    # Les deux etiquettes du jet, alignees sur la meme largeur dans chaque
+    # langue : "Vous :" et "Lui  :" font six caracteres, "You:" et "It :"
+    # quatre. Sans cet alignement les deux totaux ne se comparent pas d'un
+    # coup d'oeil, et c'est toute l'affaire d'un assaut.
+    ('M_JET_VOUS', 'Vous :', 'You:'),
+    ('M_JET_LUI', 'Lui  :', 'It :'),
     ('M_VOUS_AVEZ_CHACUN', 'Vous avez chacun esquive.', 'You have each dodged.'),
     ('M_VOUS_L_AVEZ', "Vous l'avez blesse", 'You have wounded it'),
     ('M_ELLE_VOUS_A', 'Elle vous a blesse', 'It has wounded you'),
     ('M_CHANCEUX2', 'Chanceux !', 'Lucky!'),
     ('M_MALCHANCEUX2', 'Malchanceux !', 'Unlucky!'),
     ('M_K_ENGAGER', 'engager', 'engage'),
-    ('M_K_ENCAISSER', 'encaisser le coup', 'take the blow'),
-    ('M_K_FRAPPER', 'porter le coup', 'strike home'),
+    # Raccourcis de "encaisser le coup" et "porter le coup" : la ligne du
+    # dessus vient de dire qui a blesse qui, et les huit caracteres rendus
+    # sont exactement ce qui manquait a l'enjeu ci-dessous pour tenir dans les
+    # 80 colonnes a cote de FUIR.
+    ('M_K_ENCAISSER', 'encaisser', 'take it'),
+    ('M_K_FRAPPER', 'frapper', 'strike'),
     ('M_K_CHANCE', 'tenter la Chance', 'test your Luck'),
+    # L'enjeu, et non la seule touche. "Tentez votre Chance" ne dit pas ce
+    # qu'on parie : un point de CHANCE contre une blessure qui passe de 2 a 4,
+    # ou qui retombe a 1. Le premier nombre est le sort du Chanceux, le second
+    # celui du Malchanceux. Commence par une espace : il s'ecrit juste apres
+    # la touche C en video inverse.
+    # Largeur : 42 caracteres au plus (CHANCE a deux chiffres, blessures a un
+    # seul -- le corpus ne connait que MD 3 et MD 4). Avec " ESPACE  encaisser "
+    # et " F  fuir ", la ligne fait 79 colonnes, la derniere qu'on puisse
+    # ecrire sans faire defiler l'ecran.
+    ('M_K_ENJEU',
+     ' Tentez votre Chance (CHANCE %u) : %u ou %u',
+     ' Test your Luck (LUCK %u): %u or %u'),
     ('M_K_SUIVANT', 'assaut suivant', 'next round'),
     ('M_K_FUIR', 'fuir', 'flee'),
     ('M_K_SAC', 'sac a dos', 'backpack'),

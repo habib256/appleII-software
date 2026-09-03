@@ -251,12 +251,30 @@ int monster_is_beaten(const Monster* m) { return m->end <= m->stop_at; }
 
 void combat_round(const Character* c, const Monster* m, Round* out)
 {
-    out->monster_force = (unsigned char)(roll_2d6() + m->hab);
-    out->hero_force    = (unsigned char)(roll_2d6() + c->hab);
-    if (c->objects & (1u << OBJ_EPEMAGIQUE)) out->hero_force += c->weapon_bonus;
-    if (out->hero_force > out->monster_force)      out->outcome = ROUND_HERO_HITS;
-    else if (out->hero_force < out->monster_force) out->outcome = ROUND_MONSTER_HITS;
-    else                                          out->outcome = ROUND_DODGE;
+    /* Les des un par un, et non par roll_2d6 : c'est la meme somme -- donc la
+     * meme partie a semence egale -- mais l'ecran peut ensuite montrer le jet
+     * au lieu du seul total.
+     *
+     * Tout passe par des variables locales et n'atteint `out` qu'a la fin.
+     * Cc65 ne garde pas un pointeur de parametre dans un registre : chaque
+     * `out->x` relit sp, reconstruit ptr1 et repasse par staspidx, une
+     * quinzaine d'octets a chaque fois. Ecrire les six champs une seule fois
+     * chacun a coute deux fois moins que la version ecrite naturellement. */
+    unsigned char a  = roll_d6();
+    unsigned char b  = roll_d6();
+    unsigned char d  = roll_d6();
+    unsigned char e  = roll_d6();
+    unsigned char mf = (unsigned char)(a + b + m->hab);
+    unsigned char hf = (unsigned char)(d + e + c->hab);
+
+    if (c->objects & (1u << OBJ_EPEMAGIQUE)) hf = (unsigned char)(hf + c->weapon_bonus);
+    out->monster_d1 = a; out->monster_d2 = b;
+    out->hero_d1    = d; out->hero_d2    = e;
+    out->monster_force = mf;
+    out->hero_force    = hf;
+    if (hf > mf)      out->outcome = ROUND_HERO_HITS;
+    else if (hf < mf) out->outcome = ROUND_MONSTER_HITS;
+    else              out->outcome = ROUND_DODGE;
 }
 
 int combat_apply(Character* c, Monster* m, const Round* r, int use_luck)

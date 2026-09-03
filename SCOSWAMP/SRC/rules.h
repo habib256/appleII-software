@@ -177,9 +177,21 @@ typedef enum {
 } RoundOutcome;
 
 typedef struct {
-    unsigned char hero_force;      /* 2d6 + HABILETE du heros */
+    /* Les deux des de chacun, gardes a part de leur somme : "chacun lance
+     * deux des". Un total tout fait ne se lit pas comme un jet -- l'ecran
+     * doit pouvoir montrer "4 + 3 + 11 = 18", sinon le joueur n'a plus qu'un
+     * verdict, et un verdict n'a pas de suspense. Quatre octets sur la pile
+     * de run_combat, rien en memoire vive. */
+    unsigned char hero_d1, hero_d2;
+    unsigned char monster_d1, monster_d2;
+    unsigned char hero_force;      /* 2d6 + HABILETE du heros (+ Epee Magique) */
     unsigned char monster_force;   /* 2d6 + HABILETE de la creature */
-    RoundOutcome  outcome;
+    /* Un RoundOutcome, range dans un octet et non dans l'enum lui-meme. Sur
+     * cc65 un enum est un `int` : chaque comparaison passait par le jeu
+     * d'appels 16 bits (pushax, toscmp...), et le seul fait de descendre ce
+     * champ a un octet a rendu 63 octets de code -- de quoi payer les quatre
+     * des ci-dessus cinq fois. Le type reste documente ici. */
+    unsigned char outcome;
 } Round;
 
 /* Un assaut : etapes 1 a 3 du livre. Ne modifie rien, se contente de jeter les

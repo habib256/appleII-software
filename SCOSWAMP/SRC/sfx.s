@@ -10,6 +10,7 @@
 ; ---------------------------------------------------------------------------
 
         .export _sfx_hit, _sfx_hurt, _sfx_dodge, _sfx_fall, _sfx_death
+        .export _sfx_beat
 
 SPEAKER = $C030
 
@@ -64,6 +65,28 @@ step:   ldy     steplen
 up:     inc     period          ; vers le grave
         jmp     step
 done:   rts
+.endproc
+
+; --- Un silence long, le temps d'un battement -----------------------------
+; Le seul "bruitage" qui ne fait aucun bruit. Les des tombent, on les lit,
+; PUIS le coup porte : sans cette respiration les deux annonces apparaissent
+; du meme coup de touche et il ne se passe rien -- le joueur lit un resultat
+; au lieu d'assister a un assaut.
+;
+; La machine n'a pas d'horloge et le portage n'a pas de Mockingboard : il ne
+; reste que le compte de cycles, comme pour les hauteurs ci-dessus. La boucle
+; interne fait 5 cycles (dey/bne) et 256 tours, soit 1 280 cycles ; 160 tours
+; externes font environ 206 000 cycles, un cinquieme de seconde a 1,023 MHz.
+; Sur //c+ a 4 MHz le battement sera quatre fois plus court -- comme les sons,
+; et pour la meme raison.
+.proc _sfx_beat
+        ldx     #160
+outer:  ldy     #0
+:       dey
+        bne     :-
+        dex
+        bne     outer
+        rts
 .endproc
 
 ; --- Un silence court, pour detacher deux coups. ---------------------------
