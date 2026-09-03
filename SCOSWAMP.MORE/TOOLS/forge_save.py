@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""forge_save.py - fabrique une sauvegarde SCS3 de SCOSWAMP et l'injecte dans
+"""forge_save.py - fabrique une sauvegarde SCS4 de SCOSWAMP et l'injecte dans
 un volume ProDOS (.hdv) sans reconstruire l'image.
 
 Prototype ecrit pour le rapport d'automatisation. Ne modifie rien de suivi.
+
+SCS4 (2026-09-04) ajoute UN octet a la fin, apres la memoire des monstres :
+l'index de la clairiere ou l'on se tient, que le menu MAP garde d'une page a
+l'autre. 297 pages sur 412 ne sont d'aucun lieu ; sans cet octet, une partie
+reprise en plein combat rouvrait la carte sans savoir ou. Les sauvegardes
+SCS3 sont refusees par la signature, pas lues de travers.
 """
 import argparse, struct, sys
 
 SAVE_HEADER, SAVE_TITLE = 8, 32
-CHAR_SIZE, SCENE_MEM, MON_MEM = 24, 52, 160
-SAVE_SIZE = SAVE_HEADER + SAVE_TITLE + CHAR_SIZE + SCENE_MEM + MON_MEM  # 276
+CHAR_SIZE, SCENE_MEM, MON_MEM, CLR = 24, 52, 160, 1
+SAVE_SIZE = SAVE_HEADER + SAVE_TITLE + CHAR_SIZE + SCENE_MEM + MON_MEM + CLR  # 277
 
 STONES = ["HABILETE","ENDURANCE","CHANCE","FEU","GLACE","ILLUSION",
           "AMITIE","CROISSANCE","BENEDICTION","TERREUR","FLETRISSURE","MALEDICTION"]
@@ -19,9 +25,9 @@ AMULETS = ["LOUP","FLEUR","OISEAU","ARAIGNEE","GRENOUILLE","FAUSSE_OISEAU"]
 
 def build(scene, lang="F", title="", hab=(12,12), end=(20,20), cha=(11,11),
           gold=20, weapon_bonus=0, stones=None, objects=(), amulets=(),
-          visited=(), monsters=()):
+          visited=(), monsters=(), clairiere=0xFF):
     b = bytearray(SAVE_SIZE)
-    b[0:4] = b"SCS3"
+    b[0:4] = b"SCS4"
     struct.pack_into("<H", b, 5, scene)
     b[7] = ord(lang)
     t = title.encode("ascii", "replace")[:SAVE_TITLE - 1]
@@ -48,6 +54,7 @@ def build(scene, lang="F", title="", hab=(12,12), end=(20,20), cha=(11,11),
     p += SCENE_MEM                                      # 116 : memoire des monstres
     for i, (sc, idx, endv) in enumerate(monsters[:40]):
         struct.pack_into("<HBB", b, p + i * 4, sc, idx, endv)
+    b[p + MON_MEM] = clairiere                          # 276 : clairiere du MAP
     b[4] = 0
     x = 0
     for v in b[5:]:
@@ -76,10 +83,10 @@ if __name__ == "__main__":
                  hab=(12, 12), end=(24, 24), cha=(12, 12), gold=99,
                  stones={"FEU": 3, "CHANCE": 2},
                  objects=("BAIE", "CAPE"), amulets=("LOUP", "OISEAU"),
-                 visited=(1, 155), monsters=((12, 0, 6),))
+                 visited=(1, 155), monsters=((12, 0, 6),), clairiere=0xFF)
     assert len(blob) == SAVE_SIZE
     if a.out:
         open(a.out, "wb").write(blob)
     if a.hdv:
         patch_hdv(a.hdv, blob)
-    print("SCS3 %d octets, checksum $%02X" % (len(blob), blob[4]))
+    print("SCS4 %d octets, checksum $%02X" % (len(blob), blob[4]))

@@ -386,7 +386,12 @@ void monster_memory_import(const unsigned char* in)
 
 #define SCENE_BITS SCENE_MEMORY_SIZE /* 412 paragraphes arrondis a l'octet */
 
+/* Le bitmap des pages vues part dans la zone MAPRAM ($0C00-$0FFF), avec les
+ * donnees du menu MAP qui le lisent : 52 octets de moins dans la fenetre
+ * principale, et rien de change pour qui l'appelle. */
+#pragma bss-name (push, "MAPBSS")
 static unsigned char visited[SCENE_BITS];
+#pragma bss-name (pop)
 
 void scene_memory_reset(void)
 {

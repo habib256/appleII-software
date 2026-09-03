@@ -703,6 +703,170 @@ static void test_clairieres_vues(void)
     }
 }
 
+
+/* ── La carte : le rabattement page -> clairiere ──────────────────────────
+ *
+ * Le fichier MAP est une donnee du disque, comme les pages : ces tests le
+ * lisent la ou build_map.py l'ecrit et rejouent, a l'identique, les deux
+ * boucles du moteur (map_of_page et map_seen dans scoswamp.c). Le moteur
+ * lui-meme ne peut pas etre lie ici -- il parle a ProDOS et a l'ecran -- mais
+ * la table, elle, est de l'arithmetique pure, et c'est elle qui decide quelle
+ * clairiere la touche M montre.
+ */
+#define MAP_CLR    35
+#define MAP_PAGES  115
+#define MAP_NAMEW  13
+#define MAP_HEAD   20
+#define MAP_POOL   (MAP_HEAD + 3 * MAP_CLR)
+#define MAP_NONE   0xFF
+
+static unsigned char carte[2048];
+static unsigned char carte_pages[2 * MAP_PAGES];
+static int carte_ok;
+
+/* La copie conforme de map_of_page() : meme table, meme boucle. */
+static unsigned char map_of_page(unsigned int page)
+{
+    unsigned char i;
+    unsigned int p = 0;
+    const unsigned char* t = carte_pages;
+
+    for (i = MAP_PAGES; i; --i) {
+        p += *t++;
+        if (p >= page) return (p == page) ? *t : MAP_NONE;
+        ++t;
+    }
+    return MAP_NONE;
+}
+
+/* La copie conforme de map_seen() : une clairiere est vue des qu'UNE de ses
+ * pages l'est, quelle que soit la porte par laquelle on y est entre. */
+static void map_seen(unsigned char* out)
+{
+    unsigned char i;
+    unsigned int p = 0;
+    const unsigned char* t = carte_pages;
+
+    memset(out, 0, MAP_CLR);
+    for (i = MAP_PAGES; i; --i) {
+        p += *t++;
+        if (scene_visited(p)) out[*t] = 1;
+        ++t;
+    }
+}
+
+static const char* clr_nom(unsigned char i)
+{
+    return (const char*)(carte + MAP_POOL + MAP_NAMEW * (unsigned)i);
+}
+
+static void charger_carte(void)
+{
+    static const char* const chemins[] = {
+        "SCOSWAMP/MAP.BIN", "../SCOSWAMP/MAP.BIN", "../../SCOSWAMP/MAP.BIN",
+        "../../../SCOSWAMP/MAP.BIN", "../../../../SCOSWAMP/MAP.BIN"
+    };
+    unsigned i;
+    FILE* f = NULL;
+    size_t n;
+
+    for (i = 0; i < sizeof chemins / sizeof *chemins && !f; ++i)
+        f = fopen(chemins[i], "rb");
+    if (!f) { printf("SAUTE carte : MAP.BIN introuvable\n"); return; }
+    n = fread(carte, 1, sizeof carte, f);
+    fclose(f);
+    CHECK(n > MAP_POOL + 2 * MAP_PAGES, "MAP.BIN tronque : %u octets", (unsigned)n);
+    CHECK(memcmp(carte, "MAP\3", 4) == 0, "MAP.BIN : signature absente");
+    CHECK(carte[4] == MAP_CLR, "MAP.BIN : %u clairieres, 35 attendues", carte[4]);
+    CHECK(carte[5] == MAP_PAGES, "MAP.BIN : %u pages, 115 attendues", carte[5]);
+    CHECK(carte[6] == MAP_NAMEW, "MAP.BIN : noms de %u octets", carte[6]);
+    if (n <= MAP_POOL + 2 * MAP_PAGES) return;
+    memcpy(carte_pages, carte + MAP_POOL, sizeof carte_pages);
+    /* Le bloc francais suit la table des pages ; le moteur le lit a la meme
+     * adresse (trois freads d'affilee), ici on le ramene sur place pour que
+     * clr_nom() vise juste. */
+    memmove(carte + MAP_POOL, carte + MAP_POOL + sizeof carte_pages,
+            n - MAP_POOL - sizeof carte_pages);
+    carte_ok = 1;
+}
+
+static void test_carte(void)
+{
+    unsigned char vu[MAP_CLR];
+    unsigned char depart, i;
+    unsigned int p, prec;
+    const unsigned char* t;
+
+    charger_carte();
+    if (!carte_ok) return;
+
+    /* La table est TRIEE et sans doublon : c'est ce qui autorise la sortie
+     * anticipee de map_of_page des que la page cherchee est depassee. */
+    prec = 0;
+    t = carte_pages;
+    for (i = 0; i < MAP_PAGES; ++i) {
+        p = prec + *t++;
+        CHECK(p > prec || i == 0, "table des pages non croissante en %u", i);
+        CHECK(p < 412u, "page %u hors du corpus", p);
+        CHECK(*t < MAP_CLR, "page %u renvoie a la clairiere %u", p, *t);
+        ++t;
+        prec = p;
+    }
+
+    /* Le depart : page 195, la Clairiere n 1, le rond-point.
+     * L'en-tete : 0-3 magie, 4 clairieres, 5 pages, 6 largeur d'un nom,
+     * 7 clairiere de depart, 8 le pont, 9 la ligne de la riviere. */
+    depart = carte[7];
+    CHECK(map_of_page(195) == depart, "la page 195 n'est pas la clairiere de depart");
+    CHECK(carte[MAP_HEAD + 3 * depart + 1] == 1,
+          "la clairiere de depart ne porte pas le numero 1 du livre");
+    CHECK(strcmp(clr_nom(depart), "Rond-point") == 0,
+          "la clairiere de depart s'appelle %s", clr_nom(depart));
+
+    /* Les deux portes de la clairiere 13 : le sentier de l'est depose sur
+     * 118, le pont depose au sud sur 303. Le meme lieu, deux pages -- c'est
+     * exactement ce que les listes des lignes V disent page par page. */
+    CHECK(map_of_page(118) == map_of_page(303),
+          "118 et 303 devraient etre la meme clairiere");
+    CHECK(map_of_page(118) != MAP_NONE, "118 n'est rattachee a aucun lieu");
+
+    /* Les trois arbitrages de CARTOGRAPHIE.md Sec. 6.1 I. */
+    CHECK(map_of_page(363) == map_of_page(234), "363 va au Patrouilleur (clr 19)");
+    CHECK(map_of_page(394) == map_of_page(31),  "394 va au Bassin de cristal (clr 21)");
+    CHECK(map_of_page(330) == map_of_page(390), "330 va aux Pierres et tronc (clr 12)");
+    CHECK(map_of_page(363) != map_of_page(84),  "363 n'est PAS le Maitre des Jardins");
+    CHECK(map_of_page(330) != map_of_page(82),  "330 n'est PAS la Bete du bassin");
+
+    /* Les pages qui ne sont d'aucun lieu : le prologue, les combats, la
+     * sortie du Marais. La clairiere courante doit alors rester COLLANTE --
+     * c'est le moteur qui s'en charge, la table dit seulement "aucune". */
+    CHECK(map_of_page(1) == MAP_NONE,   "la page 1 est le prologue, hors Marais");
+    CHECK(map_of_page(134) == MAP_NONE, "le combat de l'Herbe a Pinces n'est pas un lieu");
+    CHECK(map_of_page(208) == MAP_NONE, "la sortie sud est la route, pas la clairiere");
+    CHECK(map_of_page(0) == MAP_NONE,   "l'ecran d'accueil n'est pas un lieu");
+
+    /* Le brouillard de guerre : une seule page vue allume sa clairiere, et
+     * elle seule. */
+    scene_memory_reset();
+    map_seen(vu);
+    for (i = 0; i < MAP_CLR; ++i) CHECK(vu[i] == 0, "clairiere %u vue a blanc", i);
+
+    scene_mark_visited(303);              /* on arrive par le pont */
+    map_seen(vu);
+    CHECK(vu[map_of_page(118)] == 1, "arriver en 303 allume la clairiere 13");
+    CHECK(vu[map_of_page(195)] == 0, "elle n'allume pas le rond-point");
+
+    /* Toute page rattachee allume sa clairiere, et les 35 s'allument. */
+    scene_memory_reset();
+    t = carte_pages;
+    p = 0;
+    for (i = 0; i < MAP_PAGES; ++i) { p += *t++; ++t; scene_mark_visited(p); }
+    map_seen(vu);
+    for (i = 0; i < MAP_CLR; ++i)
+        CHECK(vu[i] == 1, "clairiere %u restee eteinte, toutes pages vues", i);
+    scene_memory_reset();
+}
+
 int main(void)
 {
     test_dice();
@@ -720,6 +884,7 @@ int main(void)
     test_benediction();
     test_pierres();
     test_objets();
+    test_carte();
     if (failures == 0) printf("regles : tout passe\n");
     else               printf("regles : %d echec(s)\n", failures);
     return failures != 0;

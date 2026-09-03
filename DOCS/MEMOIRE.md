@@ -12,7 +12,7 @@ $0000-$01FF  Page zéro + pile 6502 (système)
 $0200-$03FF  Buffer d'entrée, vecteurs
 $0400-$07FF  Page texte 1  ← utilisée, sauvegardée par memory_swap.c
 $0800-$0BFF  Tampon d'E/S ProDOS du fichier ouvert (iobuf-0800)
-$0C00-$0FFF  Réservé au 2e fichier ouvert (jamais le cas aujourd'hui)
+$0C00-$0FFF  MAPBSS (1 Ko) ← données du menu MAP + tampons ; voir plus bas
 $1000-$1FFF  LOWBSS (4 Ko) ← gros tampons, segment à part, voir « Zones récupérables »
 $2000-$3FFF  HGR page 1 (8 Ko)  ← images des scènes
 $4000-....   Moteur : CODE, RODATA, DATA, BSS
@@ -26,7 +26,8 @@ $D000-$FFFF  ROM / Language Card (banques commutées)
 
 Le moteur charge à `$4000` et non à l'adresse cc65 par défaut `$0803`, afin de
 préserver HGR page 1. `$1000-$1FFF` est repris depuis le 2026-09-03 par le
-segment `LOWBSS` de `SRC/scoswamp.cfg`.
+segment `LOWBSS` de `SRC/scoswamp.cfg`, et `$0C00-$0FFF` depuis le 2026-09-04
+par le segment `MAPBSS`.
 
 ---
 
@@ -144,9 +145,13 @@ char file_buffer[FILE_BUFFER_SIZE];
 #pragma bss-name (pop)
 ```
 
-Y vivent le catalogue des messages (1 573 o), le tampon de page (1 253 o), le
-tampon du décodeur HGR (1 024 o) et la barre de titre (81 o) : 3 869 octets,
-227 restent. Deux règles :
+Y vivent le catalogue des messages (1 763 o), le tampon de page (1 280 o), le
+tampon du décodeur HGR (**256 o** depuis le 2026-09-04 — ProDOS lit par blocs
+de 512 octets et les met en cache dans son propre tampon, donc le même nombre
+de blocs lus, seulement plus d'appels à `fread`), l'état de l'application
+`app` (238 o), la barre de titre (81 o), les lignes de corps, les deux noms de
+musique et la table de rabattement page → clairière : 4 060 octets, 36
+restent. Deux règles :
 
 - `crt0` ne met à zéro que le segment `BSS` ; `main()` efface `LOWBSS` lui-même
   avec `__LOWBSS_RUN__` / `__LOWBSS_SIZE__` (déclarés côté C avec un souligné
@@ -155,7 +160,28 @@ tampon du décodeur HGR (1 024 o) et la barre de titre (81 o) : 3 869 octets,
   ses tampons de 1 Ko à partir de `$0800` vers le haut sans connaître `LOWRAM`.
   Le jeu n'en ouvre qu'un.
 
-`$0C00-$0FFF` reste libre pour un éventuel second tampon ProDOS.
+### 2 bis. `$0C00-$0FFF` — le second tampon ProDOS : 1 024 o ✅ retenu (segment MAPBSS, 2026-09-04)
+
+Le kilo-octet que la note ci-dessus réservait « pour un éventuel second tampon
+ProDOS » n'a jamais été réclamé : **le jeu n'ouvre qu'un fichier à la fois**,
+chaque `fopen` étant suivi de son `fclose` avant le suivant (texte, image,
+musique, aide, sauvegarde, catalogue, carte). `SRC/scoswamp.cfg` y pose la zone
+`MAPRAM` et le segment `MAPBSS`, qui loge :
+
+| Contenu | Taille |
+|---|---|
+| `map_data[]` — en-tête, 35 clairières, bloc de langue du fichier `MAP` | 884 o |
+| `visited[]` de `rules.c` — le bitmap des pages vues | 52 o |
+| l'en-tête de sauvegarde lu par `slot_title`, la liste de `choose_stones`, les statiques de `cfmt` | ~87 o |
+
+**Ce sont 1 024 octets qui ne coûtent rien à la fenêtre principale.** C'est ce
+qui a rendu le menu MAP possible : la marge du tas était de 510 octets avant le
+chantier, et les seules données de la carte en demandaient le double.
+
+**La contrepartie, écrite dans le `.cfg` :** plus jamais deux fichiers ouverts
+en même temps. `iobuf-0800` distribue ses tampons de 1 Ko à partir de `$0800`
+vers le haut, sans connaître `MAPRAM` : un second `fopen` simultané écraserait
+la carte.
 
 ### 3. `$D400-$DFFF` — Language Card : 3 072 o ✅ pleine (3 030 o utilisés)
 
@@ -206,6 +232,8 @@ Mesures cc65 2.19, chargement à `$4000`, pile 2 Ko.
 | SCOSWAMP + COMBAT | `$A64B` | 26 187 o | ❌ dépasse de 6 219 o | ✅ marge 4 277 o |
 | SCOSWAMP 2026-09-03 matin (objets, amulettes, `__HIMEM__` $BF00, pile 384 o) | `$BCC8` | 31 944 o | — | ✅ marge 184 o |
 | SCOSWAMP 2026-09-03 soir (LOWBSS, sans printf, `-Cl`) | `$A0B0` env. | 24 600 o env. | — | ✅ marge 7 544 o |
+| SCOSWAMP 2026-09-04 (musique, objets, amulettes) — avant le menu MAP | `$BB82` | 31 618 o | — | ✅ marge **510 o** |
+| SCOSWAMP 2026-09-04 (menu MAP, `--codesize 100`, MAPBSS) | `$BC46` | 31 814 o | — | ✅ marge **314 o** |
 
 La dernière ligne cumule quatre mesures du même jour, chacune faite seule sur
 le binaire complet :
@@ -216,6 +244,19 @@ le binaire complet :
 | `cfmt` maison à la place de cprintf/sprintf (famille printf déliée) | + 876 o |
 | `-Cl` (locales statiques) | + 547 o |
 | `classify_line` sur trois octets au lieu du pointeur, `int` → `unsigned char`, barre de titre et bandeau via `cfmt` | + 1 100 o env. |
+
+Et le 2026-09-04, pour payer le menu MAP (mesures au lien, chacune seule) :
+
+| Étape | Gain |
+|-------|------|
+| `--codesize 100` passé à cc65 (il en prend bien plus par défaut) | + 1 310 o |
+| zone `MAPRAM` en `$0C00-$0FFF` (segment `MAPBSS`) | + 1 024 o *(hors fenêtre)* |
+| `int` → `unsigned char`, `is_fr()` à la place de `strcmp`, `load_hgr_image` morte | + 228 o |
+| tampon HGR de 1 Ko à 256 o, puis `app` et les tampons partis en RAM basse | + 416 o |
+| `classify_line` : table de 33 directives + `switch`, au lieu de 29 cascades de tests | + 336 o |
+| `map_voisin` et `map_str` dans la Language Card, deux tampons de 81 o partagés | + 531 o |
+| toutes les pannes de disque par une seule fonction `oops()` | + 213 o |
+| `visited[]`, `slot_title`, `choose_stones`, `cfmt` déménagés en `MAPBSS` | + 175 o |
 
 La fusion SCOSWAMP + COMBAT **ne passe qu'avec la configuration étendue**, où
 elle laisse 4 277 octets de tas — soit quatre buffers ProDOS, alors que le jeu

@@ -26,7 +26,7 @@ backpack
 picture
 continue
   -%u STA
-SPACE=VIEW  A-Z=CHOICE  I=BAG  Q=QUIT
+SPACE=VIEW  A-Z=CHOICE  I=BAG  M=MAP  Q=QUIT
 You roll: %u, against %u.
 %s collapses.
 HELPEN

@@ -18,7 +18,7 @@ pas une estimation) :
 | Zone | État |
 | --- | --- |
 | `$0800-$0BFF` | tampon d'E/S ProDOS (via `apple2enh-iobuf-0800.o`) |
-| `$0C00-$0FFF` | libre (réservé à un 2e fichier ouvert) |
+| `$0C00-$0FFF` | **segment `MAPBSS`** (2026-09-04) : le fichier `MAP` du menu carte, le bitmap `visited`, quelques tampons — 1 023 o, reste 1. Le « 2e fichier ouvert » n'a jamais existé : le jeu n'en ouvre qu'un |
 | `$1000-$1FFF` | **segment `LOWBSS`** (2026-09-03) : catalogue, tampon de page, tampon HGR, barre de titre — 3 869 o, reste 227 |
 | `$2000-$3FFF` | HGR page 1 (et le lanceur `SCOSWAMP.SYSTEM`, mort après le saut) |
 | `$4000-$A0xx` | code + données (25 Ko) |
@@ -499,6 +499,22 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
 - **Le choix des Pierres ne se repeint plus a chaque prise.** La liste des
   Pierres permises ne bouge pas ; seul le compteur change. Six Pierres, c'etait
   neuf lignes redessinees neuf fois.
+
+- ✅ **Le mode carte est revenu, en texte** (2026-09-04, branche
+  `feat/scoswamp-map`, `DOCS/rapport-map.md`). Touche `M`, bascule comme `[I]`
+  et `[H]`, refusée sans l'Anneau de Cuivre. Grille 6 × 9 en texte 80
+  colonnes : **aucune primitive de tracé**, c'était elles qui coûtaient les
+  5 019 octets. Les données sont sur le disque (`MAP`, 1 844 octets, écrit par
+  `TOOLS/build_map.py` depuis `carte.json`) et résident dans le kilo-octet de
+  `$0C00-$0FFF` que le second tampon ProDOS n'a jamais réclamé — donc **zéro
+  octet de la fenêtre principale**. Le brouillard de guerre sort du seul
+  bitmap `visited`, déjà sauvegardé ; il n'y a **pas** de table des sentiers,
+  le voisin étant la première case occupée dans la direction annoncée. Une
+  ligne de lieu s'installe sous la barre de titre. Il manque le curseur de
+  consultation et le fil Pompatarte.
+  Coût payé par : `--codesize 100` (1 310 o), la cure `int` → `unsigned char`,
+  `classify_line` en table de directives, `oops()`, et six déménagements de
+  tampons. **Marge finale : 314 octets.**
 
 - **Le mode carte a ete retire.** Il avait ete construit (fichier `MAP` genere
   depuis les directions de la prose, cercles numerotes, sentiers, rayons pour
