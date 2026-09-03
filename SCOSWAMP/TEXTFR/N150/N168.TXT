@@ -9,4 +9,5 @@ Si vous ne l'avez pas encore vaincue, elle vous attend, avec le meme total
 d'ENDURANCE qu'au moment de votre fuite.
 
 C 330 Quitter la clairiere
-C 209 Reprendre le combat contre la Bete du Bassin
+C 082 Reprendre le combat a l'epee
+C 034 Recourir a la magie

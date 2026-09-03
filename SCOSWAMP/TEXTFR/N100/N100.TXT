@@ -6,5 +6,7 @@ vers l'auberge.
 Vous avez echoue dans votre mission, mais vous etes toujours en vie. Peut-etre
 retenterez-vous un jour ?
 
-Pour l'instant, votre aventure est termine.
+Pour l'instant, en tout cas, votre aventure est terminee.
+
+FIN DE L'AVENTURE.
 

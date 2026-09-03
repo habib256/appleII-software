@@ -5,5 +5,7 @@ Exhausted and bruised, you leave Pompatarte's house and head toward the inn.
 You have failed in your mission, but you are still alive. Perhaps you will try
 again one day?
 
-For now, your adventure is over.
+For now, in any case, your adventure is over.
+
+END OF ADVENTURE.
 

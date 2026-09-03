@@ -7,5 +7,7 @@ sadly.
 At his disappointment, you offer to try again, but he refuses: "That would be
 taking too great a risk," he objects.
 
-You did what you could. Alas, it wasn't enough. Your adventure ends here.
+You did what you could. Alas, it wasn't enough, and your adventure ends here.
+
+END OF ADVENTURE.
 

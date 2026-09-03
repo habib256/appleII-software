@@ -13,3 +13,5 @@ You're alive, that's essential, and, in the future, there's no doubt you'll
 show yourself more circumspect in choosing the masters you'll serve. Your
 adventure, in any case, ends here.
 
+END OF ADVENTURE.
+

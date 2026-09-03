@@ -13,3 +13,5 @@ les geoles de la ville.
 
 Votre aventure se termine donc ici.
 
+FIN DE L'AVENTURE.
+

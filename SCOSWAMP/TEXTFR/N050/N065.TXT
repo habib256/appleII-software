@@ -1,4 +1,5 @@
 T 065 Clairiere aux brigands
+V 343
 
 Le sentier suit un trace sinueux; vous ne vous en ecartez pas. Vous contournez
 un grand champignon ou grouillent des creatures.

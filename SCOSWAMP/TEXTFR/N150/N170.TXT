@@ -1,4 +1,5 @@
 T 170 Le Patrouilleur vert
+V 363
 
 Le sentier etroit serpente entre de gros rochers dans un brouillard epais. La
 brume se leve soudain et vous debouchez dans une clairiere. Un homme, grand et

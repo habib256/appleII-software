@@ -5,6 +5,8 @@ Pompatarte.
 
 His servant brings a potion. You swallow it, and your wounds heal immediately.
 
-Your adventure is over. But if you have failed, you have also learned, and
-perhaps you will return one day to explore the Swamp.
+Your adventure is over, but if you have failed, you have also learned much,
+and perhaps you will return one day to explore the Swamp.
+
+END OF ADVENTURE.
 

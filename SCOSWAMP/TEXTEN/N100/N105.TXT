@@ -1,4 +1,5 @@
 T 105 Stones and Log
+V 330
 
 You notice a clearing some distance ahead. The ground there is firm; you can
 enter it with a confident step. Large flat stones, a massive hollow log, and

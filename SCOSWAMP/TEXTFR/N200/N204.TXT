@@ -1,4 +1,5 @@
 T 204 Les Fleurs d'Angoisse
+V 250
 
 Le sentier s'elargit, et des fleurs colores bordent le chemin. C'est la
 Clairiere n 23. Mais soudain, un frisson vous parcourt : quelque chose ne va

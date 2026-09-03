@@ -1,4 +1,5 @@
 T 144 The Spider Tent
+V 345
 
 The path is invaded by spider webs hanging from branches. A little further you
 make out a clearing studded with webs. Thousands of threads form garlands

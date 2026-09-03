@@ -1,4 +1,5 @@
 T 170 The Green Patroller
+V 363
 
 The narrow path winds between large rocks in thick fog. The mist suddenly
 lifts and you emerge into a clearing. A man, tall and tanned, entirely dressed

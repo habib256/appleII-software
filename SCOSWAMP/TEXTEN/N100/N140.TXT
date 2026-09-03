@@ -3,11 +3,14 @@ T 140 Stratagus's Fall
 Your blade pierces his chest. He dies without a word, the serrated blade
 falling from his fingers.
 
-It's a Magic Sword: it gives you +2 in SKILL.
+You pick it up: it is a Magic Sword, which adds 2 points to the SKILL of
+whoever wields it in combat.
 
 But the atmosphere darkens. Your ring remains warm. A smell of sulfur rises.
 The danger is not averted.
 
+G EP
+E BONUS +2
 C 375 Stay to explore the tower
 C 335 Return to see Gayolard
 C 027 Go back to see Pompatarte

@@ -1,4 +1,5 @@
 T 144 Tente aux araignees
+V 345
 
 Le sentier est envahi de toiles d'araignees qui pendent des branches. Un peu
 plus loin vous distinguez une clairiere constelle de toiles. Des milliers de

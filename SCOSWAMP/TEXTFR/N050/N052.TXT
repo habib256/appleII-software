@@ -7,6 +7,8 @@ que vous avez fait de votre mieux", dit-il d'un air triste.
 A sa deception, vous proposez d'essayer encore, mais il refuse: "Ce serait
 courir de trop grands risques", objecte-t-il.
 
-Vous avez fait ce que vous pouviez. Helas, ce n'etait pas suffisant. Votre
-aventure s'acheve ici.
+Vous avez fait ce que vous pouviez. Helas, ce n'etait pas suffisant, et votre
+aventure se termine ici.
+
+FIN DE L'AVENTURE.
 

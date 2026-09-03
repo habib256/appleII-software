@@ -1,11 +1,13 @@
 T 141 Le repos du guerrier
 
-L'offre vous semble raisonnable. Vous remettez vos Pierres Magiques inutilises
-a Pompatarte.
+L'offre vous semble raisonnable. Vous remettez vos Pierres Magiques
+inutilisees a Pompatarte.
 
 Sa servante apporte une potion. Vous l'avalez, et vos blessures guerissent
 aussitot.
 
-Votre aventure est termine. Mais si vous avez echoue, vous avez aussi appris,
-et peut-etre reviendrez-vous un jour explorer le Marais.
+Votre aventure est terminee, mais si vous avez echoue, vous avez aussi
+beaucoup appris, et peut-etre reviendrez-vous un jour explorer le Marais.
+
+FIN DE L'AVENTURE.
 

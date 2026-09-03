@@ -14,3 +14,5 @@ by ridding it of such a harmful mage, but you promise yourself in the future
 to show more circumspection in the choice of masters you'll serve. For now, in
 any case, your adventure is over.
 
+END OF ADVENTURE.
+

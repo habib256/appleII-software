@@ -1,4 +1,5 @@
 T 204 The Anguish Flowers
+V 250
 
 The path widens, and colorful flowers border the way. This is Clearing No. 23.
 But suddenly, a shiver runs through you: something's wrong. Your Copper Ring
