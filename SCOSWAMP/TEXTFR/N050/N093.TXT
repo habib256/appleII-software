@@ -10,4 +10,7 @@ epee et la pointe vers vous.
 points de son total d'HABILETE et de son total d'ENDURANCE.
 
 ED ENDURANCE -1
-C 120 Combattre le Maitre des Loups
+MU +COMBAT.MB
+M 9 8 MAITRE DES LOUPS
+CF 314 Prendre la fuite si vous etes en mauvaise posture
+MV 154
