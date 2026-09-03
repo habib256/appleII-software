@@ -16,5 +16,5 @@ Ce jeu est un hommage au livre-jeu de Steve Jackson, illustre par Duncan Smith
 Commandes :
  [A-E] - Choisir   [L] - Charger une partie   [H] - Aide   [Q] - Quitter
 
-MU SALTARELLO.MB
+MU COMEAGAIN.MB
 C 001 Creer mon personnage

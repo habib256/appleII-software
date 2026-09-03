@@ -564,12 +564,16 @@ static void render_choices(void)
 
 static void render_scene(void)
 {
-    int i;
+    unsigned char i, row;
 
     clrscr();
     render_title_bar();
+    /* Une ligne vide sous la barre d'etat, chaque fois qu'elle tient : le
+     * corpus ne depasse pas 18 lignes de corps, la marge tient donc toujours,
+     * mais une page qui remplirait les 19 rangs les aurait tous. */
+    row = BODY_ROW0 + (body_count < BODY_ROWS ? 1 : 0);
     for (i = 0; i < body_count; i++) {
-        cputsxy(0, BODY_ROW0 + i, body_lines[i]);
+        cputsxy(0, row + i, body_lines[i]);
     }
     render_choices();
 }
