@@ -105,14 +105,13 @@ def degree(root, mode, d, octave=4):
 
 
 def chord(name, octave=3):
-    """\"Dm\", \"Bb\", \"A7sus4\", \"E5\" -> liste de hauteurs MIDI, fondamentale
-    dans l'octave donnee. Un chiffre colle au nom fixe l'octave : \"Dm4\"."""
+    """\"Dm\", \"Bb\", \"F#m\", \"A7sus4\", \"E5\" -> hauteurs MIDI, fondamentale
+    dans l'octave donnee. Pas de chiffre d'octave dans le nom : \"E5\" est la
+    quinte a vide sur mi, pas un accord de mi a l'octave 5."""
     i = 1
     while i < len(name) and name[i] in "#b":
         i += 1
     root, qual = name[:i], name[i:]
-    if qual and qual[-1].isdigit() and (qual[:-1] in QUALITIES):
-        octave, qual = int(qual[-1]), qual[:-1]
     if qual not in QUALITIES:
         raise ValueError(f"accord inconnu : {name!r} (qualite {qual!r})")
     r = 12 * (octave + 1) + pc(root)
@@ -274,13 +273,6 @@ def double(part, semitones=-12, keep=None):
             if keep is None or keep(n, t, d)]
 
 
-def swell(part, t0, length, low, high, step=1.0):
-    """Crescendo par la densite : inutile ici (pas de volume par note), garde
-    la trace de l'intention en ecrivant la partie plus serree vers la fin."""
-    raise NotImplementedError("le lecteur n'a pas de volume par note ; "
-                              "faire le crescendo par le registre et la densite")
-
-
 def shift(part, dt):
     return [(n, t + dt, d) for n, t, d in part]
 
@@ -297,7 +289,7 @@ class Piece:
     """Six parties nommees, ecrites dans un MIDI a six pistes."""
 
     def __init__(self, root, mode, bpm, beats_per_bar=4, title=""):
-        self.root, self.mode, self.bpm = root, mode, beats_per_bar and bpm
+        self.root, self.mode, self.bpm = root, mode, bpm
         self.bar = beats_per_bar
         self.title = title
         self.parts = []           # [(nom, [(hauteur, debut, duree)])]
@@ -342,8 +334,7 @@ class Piece:
             for n, t, d in p:
                 events.append((t, 1, i, n)); events.append((t + d - 1e-9, -1, i, n))
         events.sort()
-        cur, peak, over = 0, 0, 0.0
-        last, prev = None, 0
+        cur, peak, over, last = 0, 0, 0.0, None
         for t, k, _, _ in events:
             if last is not None and cur > 6:
                 over += t - last

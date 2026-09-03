@@ -303,9 +303,11 @@ static void report_open_error(const char* path)
 static unsigned char music_slot;
 
 /* Ce qui joue, et le theme de la zone courante : deux noms de MUSIC/.
- * music_cur vide = silence. Ils different quand une surcouche joue. */
+ * music_cur vide = silence. Ils different quand une surcouche joue.
+ * cur_half est le demi-tampon qui joue, zone_half celui qui tient la zone. */
 static char music_cur[16];
 static char music_zone[16];
+static unsigned char cur_half, zone_half;
 
 /* Lit MUSIC/<name> dans le demi-tampon `half`. Rend 1 si c'est bien un flux
  * MB1. Un seul fichier ouvert a la fois, comme partout ; l'appelant a deja
@@ -322,18 +324,20 @@ static unsigned char music_load(const char* name, unsigned char half)
     return n > 8 && memcmp(dst, "MB1", 3) == 0;
 }
 
-/* Arrete, charge <name> dans le demi-tampon `half` et le joue depuis le
- * debut. Le seul chemin qui lit le disque. */
-static void music_switch(const char* name, unsigned char half)
+/* Charge <name> dans le demi-tampon LIBRE -- l'autre continue de jouer
+ * pendant la lecture -- puis bascule dessus : la seule interruption est la
+ * bascule elle-meme, quelques microsecondes. Le seul chemin qui lit le
+ * disque. Si la lecture echoue, la musique en cours continue. */
+static void music_switch(const char* name, unsigned char over)
 {
-    music_stop();
-    music_select(half);
-    if (music_load(name, half)) {
-        music_play();
-        memcpy(music_cur, name, sizeof music_cur);
-    } else {
-        music_cur[0] = '\0';
-    }
+    unsigned char h = (unsigned char)(1 - cur_half);
+    if (!music_load(name, h)) return;
+    music_pause();              /* tick arrete : l'echange de curseurs est sur */
+    music_select(h);
+    music_play();
+    cur_half = h;
+    if (!over) zone_half = h;
+    memcpy(music_cur, name, sizeof music_cur);
 }
 
 /* La cascade de la ligne MU, une fois le texte de la page lu :
@@ -341,7 +345,8 @@ static void music_switch(const char* name, unsigned char half)
  *   rien     la musique continue -- ou, si une surcouche jouait, la zone
  *            reprend la ou elle en etait, sans lecture ;
  *   meme nom rien a faire, ni lecture ni redemarrage ;
- *   nouveau  lecture et depart ; un theme (sans +) devient la zone. */
+ *   nouveau  lecture dans l'autre demi-tampon pendant que l'ancien joue,
+ *            puis bascule ; un theme (sans +) devient la zone. */
 static void music_for_page(void)
 {
     const char* n = app.music_name;
@@ -355,8 +360,9 @@ static void music_for_page(void)
         music_stop();
         music_cur[0] = '\0';
         if (music_zone[0]) {
-            music_select(0);
+            music_select(zone_half);
             music_continue();
+            cur_half = zone_half;
             memcpy(music_cur, music_zone, sizeof music_cur);
         }
         return;
@@ -1902,7 +1908,7 @@ static void die_and_restart(void)
 {
     /* L'ecran de mort n'est pas une page : sa marche funebre se pose ici, en
      * surcouche, et ne boucle pas. */
-    music_switch("MORT.MB", 1);
+    music_switch("MORT.MB", 1);   /* surcouche : dans l'autre demi-tampon */
     if (game_over()) return;
     monster_memory_reset();
     scene_memory_reset();
@@ -2014,11 +2020,12 @@ void load_scene(int scene_id) {
 
     /* Une clairiere avec un adversaire prend son image de bataille si elle
      * existe, sinon son illustration ordinaire. */
+    /* La musique joue pendant les lectures : ProDOS masque les IRQ le temps
+     * de l'E/S, le tick prend un peu de retard et reprend -- jamais de
+     * coupure, c'est la regle. */
     app.has_image = 0;
-    music_pause();   /* l'image : ~120 ms de lecture, mixeur ferme plutot qu'une note tenue */
     if (app.foe_count > 0) app.has_image = load_hgr_image_as(scene_id, 'B');
     if (!app.has_image)  app.has_image = load_hgr_image_as(scene_id, 'N');
-    music_resume();
 
     if (app.foe_count == 0) return;
 
