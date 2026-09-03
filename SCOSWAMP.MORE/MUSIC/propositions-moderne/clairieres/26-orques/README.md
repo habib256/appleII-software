@@ -1,6 +1,6 @@
 # Clairière 26 — Orques des Marais (`hub` 309)
 
-**`ORQUES.MB.BIN` — 2 017 octets, 43,0 s, boucle.**
+**`ORQUES.MB.BIN` — 1 918 octets, 40,8 s, boucle, avec batterie.**
 
 ## Ce que la clairière raconte
 
@@ -20,32 +20,53 @@ Zone de référence : **`danger`** (`DANGER.MB`, *Ce qui Attend Sous l'Eau*).
 | Titre | **Trois Arcs dans la Brume** |
 | Source | composition originale, `orques.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | martial : la seule clairière où le Marais est tenu par une troupe, et non par une créature |
+| Caractère | martial : une troupe qui avance, trois arcs, une flèche qui frôle la tête |
 | Mode | **ré phrygien** (ré **mi♭** fa sol la si♭ do) |
-| Tempo | **158** à la noire |
+| Tempo | **166** à la noire (158 auparavant : la troupe avance) |
 | Forme | intro (4) — A (8) — B (8) — A' à l'octave (8) |
-| Durée | 28 mesures à 4/4 = **43,0 s** |
-| Taille | **2 017 octets** (tampon de zone : 2 304) |
-| Notes | 516 écrites, **0 abandonnée** |
+| Durée | 28 mesures à 4/4 = **40,8 s** |
+| Taille | **1 918 octets** (tampon de zone : 2 304) |
+| Notes | 383 hauteurs + **105 coups de batterie**, **0 abandonnée** |
 
-Ce qui la rattache à `danger` : le **demi-ton phrygien**, ici mi♭–ré, et le
-bourdon de ré. Ce qui n'appartient qu'à elle : le **rythme pointé**, à la basse
-comme à la mélodie (noire pointée, croche, deux noires), et une cellule de
-fanfare de trois notes énoncée deux fois de suite un demi-ton plus haut, ré puis
-mi♭ (mesures 5-6, reprise à l'octave mesures 21-22) — trois arcs, la même
-flèche. Le bourdon est refrappé **toutes les deux mesures** au lieu de toutes
-les quatre : c'est un tambour, pas une brume.
+Le procédé de `danger` est intact : demi-ton phrygien mi♭–ré, bourdon de ré.
+
+**Ce que la révision change.**
+
+* **C'est devenu une vraie marche.** La grosse caisse tient le pas, si bien que
+  le bourdon n'a plus besoin d'être refrappé toutes les deux mesures : il tient,
+  et la piece y gagne trente notes. Le tempo monte à 166.
+* **Le crochet.** L'appel pointé `la la | ré do` — deux fois la même note, puis
+  la quarte — est énoncé quatre fois : mesures 5, 9 (une quarte plus haut),
+  21 (à l'octave) et 25 (sur mi♭). Trois arcs, la même flèche.
+* **Une vraie partie B** (mesures 13-20) : si♭ et fa, les deux seuls accords
+  majeurs du morceau, et le chant qui monte au sol 6.
+* **La réponse** : mesures 8, 12, 16 et 28, le chant tient une ronde et l'arpège
+  lui rend l'appel une octave plus bas, à droite.
+* **La surprise** : mesure 20, le **grand silence**. Tout se fige sur un ré tenu,
+  la batterie s'arrête net ; deux coups de caisse claire au dernier temps
+  relancent la troupe. C'est la flèche qui passe.
+* **L'arc** : un tambour lointain aux mesures 3-4, la marche en A, le charleston
+  en B, la marche doublée en A'.
 
 ## Les six voix (mesurées par `verifier.py`)
 
+Avec une batterie, la voix 5 devient le canal de bruit : il ne reste que **cinq**
+voix de hauteur, et le bourdon a migré de la voix 5 (droite) à la voix 2
+(gauche). C'est le lit d'accords tenus qui a cédé sa place.
+
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | D5..B♭6 | 82 |
-| 1 | gauche | médiane (contre-chant) | G3..B♭4 | 87 |
-| 2 | **gauche** | basse, marche pointée | F2..G3 | 111 |
-| 3 | **droite** | arpège fondamentale-tierce-quinte | B♭3..D5 | 168 |
-| 4 | droite | médiane (accords tenus) | F3..G4 | 54 |
-| 5 | **droite** | bourdon de ré, refrappé toutes les 2 mesures | D2 | 14 |
+| 0 | **gauche** | mélodie | D5..B♭6 | 72 |
+| 1 | gauche | contre-chant | G3..B♭4 | 84 |
+| 2 | **gauche** | bourdon de ré, une seule note tenue | D2 | 1 |
+| 3 | **droite** | l'arpège pointé, et les quatre appels de réponse | B♭3..D5 | 111 |
+| 4 | droite | basse | F2..G3 | 115 |
+| 5 | **droite** | **BATTERIE** — grosse caisse 50, caisse claire 32, charleston fermé 21, cymbale 2 | bruit | 105 |
+
+Les registres se recouvrent d'une voix à l'autre : c'est le lecteur qui attribue,
+et à chaque articulation la basse et le contre-chant peuvent s'échanger un instant
+leur puce. `verifier.py` conclut `OK` — aucune note abandonnée, six voix employées,
+stéréo 59/41.
 
 ## Régénérer
 
@@ -53,5 +74,5 @@ les quatre : c'est un tambour, pas une brume.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/clairieres/26-orques
 python3 orques.py
 python3 ../../../midi_to_mb.py orques.mid ORQUES.MB.BIN \
-    --bpm 158 --max 2304 --wav ORQUES.wav
+    --bpm 166 --max 2304 --wav ORQUES.wav
 ```

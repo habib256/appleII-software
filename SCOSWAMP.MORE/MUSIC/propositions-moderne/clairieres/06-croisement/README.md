@@ -1,6 +1,6 @@
 # Clairière 6 — Le croisement (`hub` 121, case 2,1)
 
-**`CROISEMENT.MB.BIN` — 1 901 octets, 46,7 s, boucle.**
+**`CROISEMENT.MB.BIN` — 2 177 octets, 44,8 s, boucle.**
 
 ## Les pages
 
@@ -21,51 +21,66 @@ Scorpion.
 | Licence | GPL v3, comme le reste du dépôt |
 | Caractère | l'hésitation, pas la peur. On est arrêté au milieu, et la même question se pose quatre fois |
 | Mode | **mi éolien** (mi fa♯ sol la si do ré) — celui de la zone, délibérément |
-| Tempo | **144** à la noire |
+| Tempo | **150** à la noire (auparavant 144) |
 | Forme | intro (4) — nord (6) — sud (6) — est (6) — ouest (6) |
-| Durée | 28 mesures à 4/4 = **46,7 s** |
-| Taille | **1 901 octets** (marge 403) |
-| Notes | 488 écrites, **0 abandonnée** |
+| Durée | 28 mesures à 4/4 = **44,8 s** |
+| Taille | **2 177 octets** (marge 127 sur le tampon de zone) |
+| Notes | 432 de hauteur + **88 coups de batterie**, **0 abandonnée** |
+| Voix | **cinq parties de hauteur** + la batterie sur la voix 5 |
+
+## Ce que la révision a changé
+
+- **le crochet est la tête de panneau** : deux mesures, `mi si ré' / si la sol`,
+  qui reviennent au début de **chacune des quatre routes**. La même question
+  posée quatre fois, la dernière une octave plus haut ;
+- **une réponse par panneau** : à la sixième mesure de chaque route le chant
+  tient une ronde et la cellule — voix 3, à droite — répond. Quatre questions à
+  gauche, quatre réponses à droite ;
+- **la surprise** : le quatrième panneau, l'ouest, passe en **si majeur**. Le ré
+  dièse n'appartient pas au mode : c'est la seule route qui ment, et la cellule
+  ment avec elle, deux mesures sur six. Juste avant, **un temps et demi de
+  silence général** et un roulement de tom : le passage manque ;
+- **le rythme harmonique varie** : grille à la demi-mesure. L'arrêt du carrefour
+  tient un accord par mesure ; dès qu'une route s'engage, les accords vont à la
+  demi-mesure. Et **chaque route a sa basse** : elle marche au nord et à
+  l'ouest, elle pose et lâche au sud et à l'est ;
+- **le tempo monte de 144 à 150**.
+
+## La batterie
+
+**Une par direction**, et c'est la seule des douze qui change de batterie quatre
+fois. Rien au carrefour : on est arrêté. Marche au nord, contretemps au sud,
+charleston seul à l'est, pression à l'ouest — la route qui ment est aussi celle
+qui pousse. Le bourdon de mi a cédé la place.
 
 ## Ce qui la relie à `nord`, et ce qui l'en sépare
 
 C'est la variation la plus littérale des huit clairières du nord, et c'est
-voulu : le croisement est le **centre** de la zone, il n'avait aucune raison de
-changer de couleur. Même mode, même bourdon de mi, même basse en noires que
-`MARAISNO.MB`.
+voulu : le croisement est le **centre** de la zone. Même mode, même basse. Ce
+qui change est la **forme** : l'ostinato est fixe **à l'intérieur d'un panneau**
+et change à chaque panneau.
 
-Ce qui change est la **forme**. Le procédé de la zone est l'ostinato fixe ; ici
-il est fixe **à l'intérieur d'un panneau** et change à chaque panneau : quatre
-cellules de quatre croches, une par direction, toutes bâties sur d'autres degrés
-du même mode et toutes dans la même bande de registre, donc dans la même voix.
-
-| Panneau | Mesures | Cellule | Harmonie |
+| Panneau | Mesures | Cellule | Batterie |
 | --- | :---: | --- | --- |
-| nord | 5-10 | si - sol - la - mi | Mim - Sol - Ré - Mim - Do - Sim |
-| sud | 11-16 | la - mi - fa♯ - ré | Lam - Mim - Do - Sol - Lam - Sim |
-| est | 17-22 | ré - sol - si - sol | Sol - Ré - Mim - Do - Sol - Ré |
-| ouest | 23-28 | mi - la - do - la | Do - Lam - Sim - Mim - Ré - Mim |
-
-La même **tête de mélodie** de deux mesures ouvre chaque panneau, transposée à
-chaque fois : c'est la question de la page 121 posée quatre fois, « laquelle
-allez-vous choisir ? ».
-
-Dans l'intro la cellule est en **noires** au lieu de croches — on est arrêté au
-milieu du carrefour. Elle passe en croches dès le premier panneau et ne
-s'arrête plus.
+| nord | 5-10 | si - sol - la - mi | `K.H.S.H.` — la marche |
+| sud | 11-16 | la - mi - fa♯ - ré | `K..H..S.` — le contretemps |
+| est | 17-22 | ré - sol - si - sol | `..H...H.` — presque rien |
+| ouest | 23-28 | mi - la - do - la, puis **ré♯ - la - si - fa♯** | `K.S.KKS.` — la pression |
 
 ## Les six voix, mesurées
 
-`python3 ../../verifier.py croisement.mid --bpm 144`
+`python3 ../../verifier.py croisement.mid --bpm 150`
 
 | voix | côté | ce qui s'y trouve | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | la mélodie, seule | D5..A6 | 77 |
-| 1 | gauche | le contre-chant | A3..C5 | 78 |
-| 2 | **gauche** | la basse en noires, seule | E2..G3 | 112 |
-| 3 | **droite** | **les quatre cellules** | D4..C5 | 180 |
-| 4 | droite | les accords tenus | F♯3..B4 | 34 |
-| 5 | **droite** | le bourdon de mi | E2 | 7 |
+| 0 | **gauche** | la mélodie, seule | D5..B6 | 75 |
+| 1 | gauche | le contre-chant, détaché | A3..C5 | 71 |
+| 2 | **gauche** | la basse, marchée ou posée selon la route | E2..G3 | 80 |
+| 3 | **droite** | **les quatre cellules**, et les quatre réponses | D4..C5 | 168 |
+| 4 | droite | les accords tenus | F♯3..B4 | 38 |
+| 5 | **droite** | **LA BATTERIE** — grosse caisse 30, charleston fermé 30, caisse claire 24, tom 3, cymbale 1 | bruit | 88 |
+
+Stéréo mesurée **55/45**, aucune note abandonnée, `verifier.py` conclut `OK`.
 
 Les quatre cellules restent dans la même voix, donc du même côté : quand
 l'ostinato change, c'est la clairière qui tourne, pas la stéréo.
@@ -76,5 +91,5 @@ l'ostinato change, c'est la clairière qui tourne, pas la stéréo.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/clairieres/06-croisement
 python3 croisement.py
 python3 ../../../midi_to_mb.py croisement.mid CROISEMENT.MB.BIN \
-    --bpm 144 --max 2304 --wav CROISEMENT.wav
+    --bpm 150 --max 2304 --wav CROISEMENT.wav
 ```

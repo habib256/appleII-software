@@ -1,6 +1,6 @@
 # Clairière 34 — Pierres et tronc creux (`hub` 390)
 
-**`TRONC.MB.BIN` — 1 888 octets, 45,3 s, boucle.**
+**`TRONC.MB.BIN` — 2 006 octets, 45,1 s, boucle, avec batterie.**
 
 ## Ce que la clairière raconte
 
@@ -19,37 +19,59 @@ Zone de référence : **`sud`** (`MARAISUD.MB`, *Sentiers Verts*).
 | Titre | **Pierres Plates** |
 | Source | composition originale, `tronc.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | la seule clairière sûre des onze — et elle le dit par le vide, pas par la joie |
+| Caractère | la seule clairière sûre des onze, et elle le dit par le vide, pas par la joie |
 | Mode | **do éolien** (do ré mi♭ fa sol la♭ si♭) |
-| Tempo | **150** à la noire |
-| Forme | intro (4) — A (8) — B (8) — A' (8) |
-| Durée | 28 mesures à 4/4 = **45,3 s** |
-| Taille | **1 888 octets** (tampon de zone : 2 304) |
-| Notes | 473 écrites, **0 abandonnée** |
+| Tempo | **150** à la noire (inchangé) |
+| Forme | intro (4) — A (8) — B (8) — on écoute (1) — A' (7) |
+| Durée | 28 mesures à 4/4 = **45,1 s** |
+| Taille | **2 006 octets** (tampon de zone : 2 304) |
+| Notes | 422 hauteurs + **97 coups de batterie**, **0 abandonnée** |
 
-Ce qui la rattache à `sud` : la marche **i-VI-III-VII** (Cm-A♭-E♭-B♭) sur un
-bourdon de do immobile. Deux choses n'appartiennent qu'à elle.
+Le procédé de `sud` est là : marche i-VI-III-VII (Cm-A♭-E♭-B♭) sur un bourdon de
+do immobile. Celui de la clairière aussi : l'arpège ne joue que des **quintes à
+vide**, la liste `CREUX` remplaçant chaque accord par sa quinte nue.
 
-**Le tronc est creux.** L'arpège ne joue que des **quintes à vide** — la liste
-`CREUX` du script remplace chaque accord par sa quinte nue, fondamentale-quinte-
-octave. La seule voix qui possède encore une tierce, et donc qui dise le mode,
-est le lit d'accords tenus. L'harmonie sonne de l'extérieur ; il n'y a rien
-dedans.
+**Ce que la révision change.**
 
-**Le coup sur le bois.** La mélodie frappe deux noires sur la même hauteur aux
-mesures 5, 6, 17, 18 et 21 : on frappe le tronc pour savoir s'il est habité.
-C'est le seul motif de note répétée des onze clairières.
+* **Le tronc est plus creux qu'avant.** Le lit d'accords tenus a cédé sa voix à
+  la batterie ; c'est donc le **contre-chant** qui porte désormais la seule
+  tierce du morceau, et lui seul qui dise le mode. Tout le reste sonne à vide.
+* **Le crochet est le coup sur le bois** : deux noires sur la même hauteur, puis
+  une chute de quarte — `do do | sol`. On frappe le tronc pour savoir s'il est
+  habité. Énoncé quatre fois (mesures 5, 9 sur mi♭, 22 à l'octave, et par
+  l'arpège en réponse).
+* **La batterie est faite de toms et presque rien d'autre** : deux coups collés,
+  bois sur bois, **jamais de charleston**. La grosse caisse n'entre qu'en B,
+  quand on décide d'y regarder de plus près.
+* **Une vraie partie B** (mesures 13-20) : le registre monte au la♭ 6 et
+  l'harmonie s'installe sur fa mineur et si♭, les deux degrés que A n'a pas.
+* **La réponse** : mesures 8, 12 et 16, le chant tient une ronde et les quintes à
+  vide rendent le coup.
+* **La surprise** : mesure 21, **on frappe et on écoute**. Deux coups de tom, et
+  puis plus rien : la batterie disparaît une mesure entière, les cinq voix
+  tiennent un do mineur immobile, et personne ne répond du fond du tronc.
+* **L'arc** : deux notes d'arpège par mesure à l'intro, huit en A' ; la basse
+  passe de la ronde à la croche.
 
 ## Les six voix (mesurées par `verifier.py`)
 
+Avec une batterie, la voix 5 devient le canal de bruit : il ne reste que **cinq**
+voix de hauteur, et le bourdon a migré de la voix 5 (droite) à la voix 2
+(gauche). C'est le lit d'accords tenus qui a cédé sa place.
+
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie, et le coup sur le bois | C5..G6 | 74 |
-| 1 | gauche | médiane (contre-chant) | A♭3..E♭5 | 84 |
-| 2 | **gauche** | basse | D2..F3 | 84 |
-| 3 | **droite** | arpège de quintes à vide, sans aucune tierce | C4..A♭5 | 140 |
-| 4 | droite | médiane (accords tenus, la seule tierce) | G3..C5 | 84 |
-| 5 | **droite** | bourdon de do | C2 | 7 |
+| 0 | **gauche** | mélodie — le coup sur le bois | G5..A♭6 | 69 |
+| 1 | gauche | contre-chant — **la seule tierce du morceau** | G3..C5 | 94 |
+| 2 | **gauche** | bourdon de do, une seule note tenue | C2 | 1 |
+| 3 | **droite** | l'arpège de quintes à vide, et les trois réponses | C4..A♭5 | 112 |
+| 4 | droite | basse | D2..F3 | 146 |
+| 5 | **droite** | **BATTERIE** — du bois : tom 68, grosse caisse 15, caisse claire 14 | bruit | 97 |
+
+Les registres se recouvrent d'une voix à l'autre : c'est le lecteur qui attribue,
+et à chaque articulation la basse et le contre-chant peuvent s'échanger un instant
+leur puce. `verifier.py` conclut `OK` — aucune note abandonnée, six voix employées,
+stéréo 60/40.
 
 ## Régénérer
 

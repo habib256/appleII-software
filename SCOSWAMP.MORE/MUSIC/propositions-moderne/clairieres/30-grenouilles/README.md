@@ -1,6 +1,6 @@
 # Clairière 30 — Clairière des grenouilles (`hub` 230)
 
-**`GRENOUILLES.MB.BIN` — 2 029 octets, 40,9 s, boucle.**
+**`GRENOUILLES.MB.BIN` — 2 246 octets, 38,5 s, boucle, avec batterie.**
 
 ## Ce que la clairière raconte
 
@@ -19,32 +19,57 @@ Zone de référence : **`sud`** (`MARAISUD.MB`, *Sentiers Verts*).
 | Titre | **Le Bal des Mares** |
 | Source | composition originale, `grenouilles.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | la seule clairière comique des onze, et la seule où le Marais fait du bruit — mais ça rebondit lourdement, ça ne vole pas |
+| Caractère | la seule clairière comique des onze, et la seule où le Marais danse |
 | Mode | **sol éolien** (sol la si♭ do ré mi♭ fa) |
-| Tempo | **166** à la noire |
+| Tempo | **176** à la noire (166 auparavant : on danse) |
 | Forme | intro (4) — A (8) — B (8) — A' à l'octave (8) |
-| Durée | 28 mesures à 4/4 = **40,9 s** |
-| Taille | **2 029 octets** (tampon de zone : 2 304) |
-| Notes | 520 écrites, **0 abandonnée** |
+| Durée | 28 mesures à 4/4 = **38,5 s** |
+| Taille | **2 246 octets** (tampon de zone : 2 304) — la plus grosse des onze |
+| Notes | 459 hauteurs + **115 coups de batterie**, **0 abandonnée** |
 
-Ce qui la rattache à `sud` : la marche **i-VI-III-VII** (Gm-E♭-B♭-F) posée sur un
-bourdon de sol qui ne bouge jamais — le procédé exact de *Sentiers Verts*, dans
-une autre tonique. Ce qui n'appartient qu'à elle : le **saut**. Presque chaque
-phrase de la mélodie commence par deux croches écartées d'une octave ou d'une
-quinte, puis retombe ; et la basse saute elle aussi, alternant fondamentale et
-quinte grave à chaque temps au lieu de marcher. Le petit homme de la page 053
-est corpulent : le rebond est lourd.
+Le procédé de `sud` est gardé tel quel : la marche i-VI-III-VII (Gm-E♭-B♭-F)
+posée sur un bourdon de sol qui ne bouge pas. Le caractère aussi : la mélodie
+**saute** l'octave en croches et retombe lourdement, la basse alterne
+fondamentale et quinte grave. Le petit homme est corpulent : ça rebondit, ça ne
+vole pas.
+
+**Ce que la révision change.**
+
+* **C'est la pièce à batterie du lot.** Le bal a enfin son tambourin :
+  charleston sur les croches — c'est le coassement —, grosse caisse au premier
+  temps, caisse claire au troisième, charleston ouvert en A'. C'est la seule des
+  onze dont la batterie ne se retire jamais une fois entrée.
+* **Le crochet** : le saut d'octave `sol · sol' | ré · si♭`. Énoncé quatre fois
+  (mesures 5, 9 renversé vers le bas, 21 à l'octave, et à la cadence).
+* **Une vraie partie B** (mesures 13-20) : do mineur et fa, registre haut, et le
+  chant qui ne redescend plus sous le do 6.
+* **La réponse** : mesures 8, 12 et 16, le chant tient une ronde et l'arpège lui
+  répond par le même saut d'octave — la grenouille d'en face.
+* **La surprise** : mesures 13 et 25, **sol majeur**. Le si bécarre n'est pas
+  dans le mode ; c'est la bouche anormalement large du petit homme, un sourire
+  qui ne devrait pas être là.
+* **L'arc** : deux notes d'arpège par mesure et pas un coup à l'intro ; huit
+  notes, le charleston ouvert et la basse en croches en A'.
 
 ## Les six voix (mesurées par `verifier.py`)
 
+Avec une batterie, la voix 5 devient le canal de bruit : il ne reste que **cinq**
+voix de hauteur, et le bourdon a migré de la voix 5 (droite) à la voix 2
+(gauche). C'est le lit d'accords tenus qui a cédé sa place.
+
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie sauteuse | D5..G6 | 93 |
-| 1 | gauche | médiane (contre-chant) | D3..B♭4 | 71 |
-| 2 | **gauche** | basse, sauts fondamentale-quinte | A2..C4 | 100 |
-| 3 | **droite** | arpège en croches | C4..D5 | 167 |
-| 4 | droite | médiane (accords tenus) | D3..G4 | 82 |
-| 5 | **droite** | bourdon de sol | G2 | 7 |
+| 0 | **gauche** | mélodie, qui saute l'octave | D5..G6 | 82 |
+| 1 | gauche | contre-chant | D3..B♭4 | 104 |
+| 2 | **gauche** | bourdon de sol, une seule note tenue | G2 | 1 |
+| 3 | **droite** | l'arpège, et les trois réponses | B♭3..D5 | 149 |
+| 4 | droite | basse — fondamentale et quinte grave | F2..D4 | 123 |
+| 5 | **droite** | **BATTERIE** — charleston fermé 57, grosse caisse 25, caisse claire 24, charleston ouvert 7, cymbale 2 | bruit | 115 |
+
+Les registres se recouvrent d'une voix à l'autre : c'est le lecteur qui attribue,
+et à chaque articulation la basse et le contre-chant peuvent s'échanger un instant
+leur puce. `verifier.py` conclut `OK` — aucune note abandonnée, six voix employées,
+stéréo 60/40.
 
 ## Régénérer
 
@@ -52,5 +77,5 @@ est corpulent : le rebond est lourd.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/clairieres/30-grenouilles
 python3 grenouilles.py
 python3 ../../../midi_to_mb.py grenouilles.mid GRENOUILLES.MB.BIN \
-    --bpm 166 --max 2304 --wav GRENOUILLES.wav
+    --bpm 176 --max 2304 --wav GRENOUILLES.wav
 ```

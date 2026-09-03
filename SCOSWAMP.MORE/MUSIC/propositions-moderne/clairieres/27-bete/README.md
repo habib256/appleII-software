@@ -1,6 +1,6 @@
 # Clairière 27 — Cul-de-sac de la Bête (`hub` 125)
 
-**`BETE.MB.BIN` — 1 176 octets, 45,8 s, boucle.**
+**`BETE.MB.BIN` — 1 467 octets, 45,6 s, boucle, avec batterie.**
 
 ## Ce que la clairière raconte
 
@@ -22,39 +22,59 @@ Zone de référence : **`danger`** (`DANGER.MB`, *Ce qui Attend Sous l'Eau*).
 | Titre | **Le Rocher qui Respire** |
 | Source | composition originale, `bete.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | lourd, boiteux, sans issue : quelque chose de très grand se lève et il n'y a qu'un chemin, celui par lequel on est venu |
+| Caractère | six pattes qui ne tombent pas ensemble, et un cœur qu'on entend battre sous la pierre |
 | Mode | **sol phrygien** (sol **la♭** si♭ do ré mi♭ fa) |
-| Tempo | **143** à la noire |
+| Tempo | **143** à la noire (inchangé) |
 | Forme | intro (2) — A (6) — B (6) — A' (4) |
-| Durée | 18 mesures à **6/4** = **45,8 s** |
-| Taille | **1 176 octets** (tampon de zone : 2 304) |
-| Notes | 301 écrites, **0 abandonnée** |
+| Durée | 18 mesures à **6/4** = **45,6 s** |
+| Taille | **1 467 octets** (tampon de zone : 2 304) — la plus légère des onze |
+| Notes | 301 hauteurs + **66 coups de batterie**, **0 abandonnée** |
 
-Ce qui la rattache à `danger` : le **demi-ton phrygien**, ici la♭–sol, et le
-bourdon de sol. Deux choses n'appartiennent qu'à elle, et les deux sortent de la
-page 011.
+Elle reste la seule des trente-cinq à ne pas être à quatre temps, et l'arpège y
+boite toujours en 1 + ½ + ½ + 1 + 1½ + 1½. Le procédé de `danger` est intact :
+demi-ton phrygien la♭–sol, bourdon de sol **refrappé à chaque mesure** — c'est
+la respiration, et elle est restée.
 
-**Six pattes.** C'est la seule des trente-cinq clairières qui ne soit pas à
-quatre temps : elle est à **6/4**, et l'arpège y boite en 1 + ½ + ½ + 1 + 1½ +
-1½ — six appuis qui ne tombent jamais régulièrement.
+**Ce que la révision change.**
 
-**La respiration lourde.** Le bourdon est refrappé à **chaque mesure** au lieu
-de toutes les quatre : dix-huit inspirations sur les quarante-cinq secondes.
-
-C'est un cul-de-sac : l'harmonie ne module jamais et la dernière mesure retombe
-exactement sur la première. La pièce est aussi la plus légère des onze en
-octets — la texture est volontairement clairsemée, comme la clairière.
+* **La batterie du danger, telle qu'on l'entend.** Deux coups de grosse caisse
+  collés, *loub-doub* : le **cœur qui bat sourd** sous le rocher. Il bat une
+  fois par mesure en A, deux fois en B, sans répit en A'. Aucun charleston, rien
+  de brillant : la Bête n'est pas rythmée, elle respire.
+* **Le crochet** : `ré · mi♭ · ré`, long-bref-long, le demi-ton phrygien étiré
+  sur six temps. Il ouvre A (mesure 3), revient à l'octave en A' (mesure 15) et
+  conclut la pièce.
+* **Une vraie partie B** (mesures 9-14) : le chant passe au-dessus du sol 6 et
+  l'harmonie quitte le sol pour do mineur, si♭ et fa mineur.
+* **La réponse** : mesures 8 et 18, le chant tient une ronde pointée et l'arpège
+  lui rend le crochet une octave plus bas.
+* **Le rythme harmonique varie** : les mesures à un accord gardent la boiterie à
+  six temps entière ; celles à deux accords la coupent en deux. La Bête change
+  de pas.
+* **La surprise** : mesure 14, **la Bête cesse de respirer**. Silence complet de
+  la batterie sur un sol tenu, six temps entiers. Puis le cœur repart, plus vite.
+* **La cadence** : la♭–sol posé à la basse mesure 18, et la boucle repart sur le
+  même sol. C'est un cul-de-sac : l'harmonie ne module jamais.
 
 ## Les six voix (mesurées par `verifier.py`)
 
+Avec une batterie, la voix 5 devient le canal de bruit : il ne reste que **cinq**
+voix de hauteur, et le bourdon a migré de la voix 5 (droite) à la voix 2
+(gauche). C'est le lit d'accords tenus qui a cédé sa place.
+
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | B♭4..A♭6 | 50 |
-| 1 | gauche | médiane (contre-chant en blanches pointées) | G3..B♭4 | 34 |
-| 2 | **gauche** | basse, foulée à six temps | B♭2..C4 | 69 |
-| 3 | **droite** | l'arpège boiteux | D4..E♭5 | 95 |
-| 4 | droite | médiane (accords tenus) | G3..G4 | 35 |
-| 5 | **droite** | bourdon de sol, refrappé à chaque mesure | G2 | 18 |
+| 0 | **gauche** | mélodie | B♭4..A♭6 | 48 |
+| 1 | gauche | contre-chant | D3..B♭4 | 57 |
+| 2 | **gauche** | bourdon de sol, refrappé à chaque mesure | G2 | 18 |
+| 3 | **droite** | l'arpège boiteux, et les deux réponses | A3..E♭5 | 93 |
+| 4 | droite | basse | F2..E♭4 | 85 |
+| 5 | **droite** | **BATTERIE** — grosse caisse 54, tom 11, cymbale 1 | bruit | 66 |
+
+Les registres se recouvrent d'une voix à l'autre : c'est le lecteur qui attribue,
+et à chaque articulation la basse et le contre-chant peuvent s'échanger un instant
+leur puce. `verifier.py` conclut `OK` — aucune note abandonnée, six voix employées,
+stéréo 60/40.
 
 ## Régénérer
 

@@ -74,3 +74,6 @@ SPACETRIP.MORE/
 SCOSWAMP.MORE/MUSIC/*.wav
 SCOSWAMP.MORE/MUSIC/propositions/**/*.wav
 SCOSWAMP.MORE/MUSIC/propositions-moderne/**/*.wav
+
+# Worktrees des agents Claude
+.claude/worktrees/
