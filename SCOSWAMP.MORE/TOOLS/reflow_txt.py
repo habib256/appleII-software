@@ -97,12 +97,25 @@ STOP  = re.compile(r"(?:r[eé]duis\w*|reduce\w*)[^.]{0,30}?\b(?:a|to)\s+(\d+)", 
 # rappelle celles "que Gayolard vous a confiees" (191) et celle ou l'on en
 # LANCE une (282) -- dans les deux cas la Pierre change de main dans l'autre
 # sens, ou pas du tout.
+# Les verbes anglais comptent autant que les francais : sans eux la regle ne
+# lisait que la moitie du corpus, et la page 173 -- Pompatarte ouvrant son
+# coffret -- passait dans les deux langues, la ligne PC manquant aux deux.
+# "notez / inscrivez / note / record" entrent avec eux : c'est la formule du
+# livre pour une Pierre recue ("vous notez vos cinq Pierres de Magie sur votre
+# Feuille d'Aventure"), et la phrase qui l'offre finit souvent avant elle.
 STONES_GIVEN = re.compile(
-    r"\b(?:donne|donnerai|offre|remet|prenez|prendre|choisissez|choisir)\b"
-    r"[^.]{0,80}?\bPierres?\b(?![^.]{0,20}\bdesintegre)", re.I)
+    r"\b(?:donne|donnerai|offre|remet|prenez|prendre|choisissez|choisir"
+    r"|notez|inscrivez|gives?|offers?|choose|note|record)\b"
+    r"[^.]{0,80}?\b(?:Pierres?|Stones?)\b"
+    r"(?![^.]{0,20}\b(?:desintegre|disintegrat))", re.I)
+# Les Pierres qui partent dans l'autre sens : le heros paie le Chef des
+# Brigands (128), remet ses Pierres inutilisees a Pompatarte (141), ou troque
+# des objets chez le marchand de potions (150, dont la ligne TR est au 408).
 STONES_NOT_GIVEN = re.compile(
-    r"\b(?:confie[es]?|lancez|lance|depense[es]?|utilis\w+"
-    r"|entrusted|throw|thrown|spent|used)\b", re.I)
+    r"\b(?:confie[es]?|lancez|lance|depense[es]?|utilis\w+|echang\w+"
+    r"|remettez|lui donner|lui donnez"
+    r"|entrusted|throw|thrown|spent|used|exchang\w+|traded?"
+    r"|give him|give her|hand over)\b", re.I)
 
 
 def derive_combat(text, choices, lang):

@@ -334,6 +334,21 @@ static void test_pierres(void)
     CHECK(stone_kind(STONE_TERREUR)     == STONE_MALEFIQUE, "TERREUR malefique");
     CHECK(stone_kind(STONE_MALEDICTION) == STONE_MALEFIQUE, "MALEDICTION malefique");
 
+    /* Aucune categorie ne doit etre vide : choose_stones dresse sa liste en
+     * filtrant les douze Pierres par leur categorie, et si le filtre ne rend
+     * rien il abandonne le choix EN SILENCE (`count == 0` -> choose_n = 0).
+     * Une ligne PC citant une categorie sans Pierre ne donnerait donc rien,
+     * exactement comme la ligne PC absente du 173 (Pompatarte).
+     * Le compte, lui, tient la liste dans les 20 lignes de l'ecran. */
+    {
+        int par_kind[3];
+        par_kind[0] = par_kind[1] = par_kind[2] = 0;
+        for (s = 0; s < STONE_COUNT; ++s) par_kind[stone_kind(s)]++;
+        CHECK(par_kind[STONE_NEUTRE]    == 6, "6 Pierres neutres (PC ... N)");
+        CHECK(par_kind[STONE_BENEFIQUE] == 3, "3 Pierres benefiques (PC ... B)");
+        CHECK(par_kind[STONE_MALEFIQUE] == 3, "3 Pierres malefiques (PC ... M)");
+    }
+
     /* Reconnaissance des noms, telle que les pages les ecrivent */
     CHECK(stone_from_name("Feu")         == STONE_FEU,         "Feu");
     CHECK(stone_from_name("fletrissure") == STONE_FLETRISSURE, "casse ignoree");

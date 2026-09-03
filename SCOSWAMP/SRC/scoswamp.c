@@ -335,20 +335,29 @@ static unsigned char music_load(const char* name, unsigned char half)
  * quelques microsecondes. Si la moitie libre est la petite et que le flux
  * n'y tient pas, on passe par la grande, au prix d'une coupure : cela
  * n'arrive qu'en changeant de zone. Le seul chemin qui lit le disque. */
+/* Attend la fin du fondu en cours ; le tick tourne pendant ce temps. */
+static void music_settle(void)
+{
+    while (music_fading()) ;
+}
+
 static void music_switch(const char* name, unsigned char over)
 {
     unsigned char h = (unsigned char)(1 - cur_half);
+    music_fade_out();           /* l'ancienne s'efface pendant la lecture */
     if (!music_load(name, h)) {
-        if (h == 0) return;             /* la grande n'en a pas voulu : le fichier manque */
+        if (h == 0) { music_fade_in(); return; }   /* le fichier manque : on remonte */
+        music_settle();
         music_stop();
         music_cur[0] = '\0';
         h = 0;
         if (!music_load(name, 0)) return;
     }
     if (over && h == zone_half) zone_ok = 0;   /* la zone vient d'etre ecrasee */
+    music_settle();
     music_pause();              /* tick arrete : l'echange de curseurs est sur */
     music_select(h);
-    music_play();
+    music_play();               /* et la nouvelle monte en fondu */
     cur_half = h;
     if (!over) { zone_half = h; zone_ok = 1; }
     memcpy(music_cur, name, sizeof music_cur);
@@ -365,6 +374,8 @@ static void music_for_page(void)
 {
     const char* n = app.music_name;
     if (n[0] == '-') {
+        music_fade_out();
+        music_settle();
         music_stop();
         music_cur[0] = music_zone[0] = '\0';
         zone_ok = 0;
@@ -373,6 +384,8 @@ static void music_for_page(void)
     if (n[0] == '\0') {
         if (memcmp(music_cur, music_zone, sizeof music_cur) == 0) return;
         if (music_zone[0] && !zone_ok) { music_switch(music_zone, 0); return; }
+        music_fade_out();
+        music_settle();
         music_stop();
         music_cur[0] = '\0';
         if (music_zone[0]) {
