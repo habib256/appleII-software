@@ -1382,7 +1382,13 @@ static void row_blank(unsigned char row)
     pad_to(79);
 }
 
-/* Une jauge de dix cases : "[####------]".
+/* Une jauge de dix cases, en pleins et en creux : "[####------]" ou les
+ * pleins sont des espaces en video inverse -- le seul pave plein dont
+ * dispose la machine, et le seul qui se lise d'un metre. Le diese faisait
+ * une trame grise ou l'on ne comptait rien.
+ *
+ * Ecrite a l'ecran et non dans un tampon : le pave plein n'est pas un
+ * caractere mais un MODE, il ne se range pas dans une chaine.
  *
  * Les chiffres restent -- le livre compte en points -- mais c'est la barre qui
  * dit d'un coup d'oeil qui est en train de mourir. Arrondi vers le HAUT : tant
@@ -1396,15 +1402,25 @@ static void put_gauge(unsigned char v, unsigned char v0)
         : (unsigned char)(((unsigned int)v * 10u + v0 - 1u) / v0);
     if (n > 10) n = 10;
     cputc('[');
-    for (i = 0; i < 10; i++) cputc((i < n) ? '#' : '-');
+    revers(1);
+    for (i = 0; i < n; i++) cputc(' ');
+    revers(0);
+    for (; i < 10; i++) cputc('-');
     cputc(']');
 }
 
-/* Une touche et son verbe : la touche en video inverse, comme la barre de
- * titre. Entre crochets, l'oeil devait chercher ; en inverse il accroche. */
-static void put_key(const char* key, const char* label)
+/* La touche seule, en video inverse comme la barre de titre. Entre crochets,
+ * l'oeil devait chercher ; en inverse il accroche. Separee de put_key parce
+ * que l'invite de Chance ecrit son enjeu a la main derriere le C. */
+static void put_tag(const char* key)
 {
     revers(1); cfmt(" %s ", key); revers(0);
+}
+
+/* Une touche et son verbe. */
+static void put_key(const char* key, const char* label)
+{
+    put_tag(key);
     cfmt(" %s   ", label);
 }
 
@@ -1421,7 +1437,43 @@ static void put_fighter(const char* name, unsigned char nmax,
 
     cfmt(is_fr() ? " HAB %u " : " SKL %u ", hab);
     put_gauge(end, end0);
+    /* Sous cinq points, deux assauts ordinaires suffisent a tuer : le compte
+     * passe en video inverse. La machine ne fait pas de rouge en 80 colonnes ;
+     * l'inverse est le seul cri dont elle dispose, et il porte des deux cotes
+     * du bandeau -- une creature a bout est une nouvelle, elle aussi. */
+    revers(end < 5);
     cfmt(" %u/%u", end, end0);
+    revers(0);
+}
+
+/* Un jet d'assaut ecrit en clair : "Vous : 4 + 3 + 12 = 19".
+ *
+ * Le livre fait lancer deux des et ajouter l'HABILETE ; l'ecran ne montrait
+ * que la somme, et une somme n'a pas de suspense -- on lisait un verdict deja
+ * rendu. Les deux des, l'HABILETE et le total, c'est le geste du joueur de
+ * table rendu a l'ecran.
+ *
+ * L'HABILETE affichee est deduite (force - d1 - d2) plutot que relue : c'est
+ * ce qui fait entrer le bonus de l'Epee Magique dans le compte sans un champ
+ * de plus ni un second appel. La colonne 11 laisse "ASSAUT %u" a gauche. */
+static void put_roll(unsigned char row, const char* who,
+                     unsigned char d1, unsigned char d2, unsigned char force)
+{
+    gotoxy(11, row);
+    cfmt("%s %u + %u + %u = %u", who, d1, d2,
+         (unsigned char)(force - d1 - d2), force);
+    pad_to(79);
+}
+
+/* Le verdict de l'assaut, a DROITE du jet de la creature et non par-dessus :
+ * les deux lignes de des restent sous les yeux pendant que le coup tombe. Les
+ * effacer pour annoncer la blessure reprendrait d'une main ce que put_roll
+ * vient de donner. */
+static void put_verdict(const char* text)
+{
+    gotoxy(40, CHOICE_ROW0 + 2);
+    cputs(text);
+    pad_to(79);
 }
 
 static void prompt_luck(void)
@@ -1443,7 +1495,13 @@ static void show_fighters(void)
      * droite doit finir avant la colonne 79, ou l'ecran scrollerait. */
     put_fighter(msg(M_VOUS), 12, app.hero.hab, app.hero.end, app.hero.end0);
     pad_to(33);
-    put_fighter(m->name, 19, m->hab, m->end, m->end0);
+    /* "vous devrez les combattre tous deux a tour de role" : le rang dans la
+     * file appartient au bandeau, a cote de celui qui est en face -- il etait
+     * jusqu'ici perdu au bout de la ligne d'assaut, la seule que les des
+     * viennent de reprendre. Le nom cede trois lettres quand la file compte :
+     * "PREMIERE GRENOUI" en dit assez, et 80 colonnes sont 80 colonnes. */
+    put_fighter(m->name, app.foe_count > 1 ? 16 : 19, m->hab, m->end, m->end0);
+    if (app.foe_count > 1) cfmt(" %u/%u", app.foe_cur + 1, app.foe_count);
     pad_to(79);
 }
 
@@ -1735,7 +1793,16 @@ static int run_combat(void)
     unsigned char assaut = 0;
     unsigned char use_luck, lucky;
     unsigned char pending = 0;  /* une blessure annoncee attend d'etre encaissee */
+    /* "c'est le heros qui a touche" : lu quatre fois par assaut, dans
+     * l'invite, le bruitage, la blessure et le duel au premier sang. Un octet
+     * coute une comparaison directe la ou `r.outcome` en coutait une par
+     * dereference de pointeur. */
+    unsigned char hits = 0;
     unsigned char hurt;
+    /* Ce que la Chance ferait de la blessure annoncee : Chanceux, puis
+     * Malchanceux. Calcules au moment ou la blessure s'affiche et gardes
+     * jusqu'a l'invite, qui les montre au joueur avant qu'il ne parie. */
+    unsigned char wgood = 0, wbad = 0;
     unsigned char end_in = app.hero.end;   /* pour last_loss (lignes DV) */
     Round r;
     char key;
@@ -1766,12 +1833,27 @@ static int run_combat(void)
         put_key(msg_space(),
                 msg(assaut == 0 ? M_K_ENGAGER
                     : (!pending ? M_K_SUIVANT
-                       : (r.outcome == ROUND_HERO_HITS ? M_K_FRAPPER
-                                                       : M_K_ENCAISSER))));
-        if (pending) put_key("C", msg(M_K_CHANCE));
+                       : (hits ? M_K_FRAPPER : M_K_ENCAISSER))));
         if (assaut == 0) put_key("I", msg(M_K_SAC));
         if (app.flee_target >= 0) put_key("F", msg(M_K_FUIR));
-        put_key("ESC", msg(M_K_IMAGE));
+        /* L'enjeu, et pas seulement la touche. "Tentez votre Chance" ne dit
+         * pas ce qu'on parie ; le joueur pariait a l'aveugle un point de
+         * CHANCE contre une blessure dont il ignorait les deux issues. Le
+         * livre, lui, les donne : "vous pouvez oter deux points de plus" ou
+         * "vous n'aurez ote qu'un seul point".
+         * Une CHANCE a zero ne propose plus rien : le jet serait perdu
+         * d'avance -- 2d6 ne descend pas sous 2 -- et couterait quand meme sa
+         * frappe au joueur.
+         * L'enjeu passe en dernier et la touche image lui cede la place : les
+         * deux ne tiennent pas dans 80 colonnes, et le temps d'une frappe
+         * l'enjeu compte davantage. ESC continue de fonctionner, il n'est
+         * simplement plus annonce. */
+        if (pending && app.hero.cha) {
+            put_tag("C");
+            cfmt(msg(M_K_ENJEU), app.hero.cha, wgood, wbad);
+        } else {
+            put_key("ESC", msg(M_K_IMAGE));
+        }
         pad_to(79);
 
         key = cgetc();
@@ -1800,7 +1882,9 @@ static int run_combat(void)
             set_video_mode(0);
             return character_is_dead(&app.hero) ? 0 : 2;
         }
-        use_luck = (pending && (key == 'C' || key == 'c'));
+        /* Le `cha` est le meme que celui qui decide d'afficher l'enjeu : une
+         * touche qu'on n'a pas proposee ne doit pas repondre. */
+        use_luck = (pending && app.hero.cha && (key == 'C' || key == 'c'));
         if (!use_luck && key != ' ' && key != '\r') continue;
         if (assaut == 0 && app.has_image) set_video_mode(2);   /* on engage : l'image */
 
@@ -1810,15 +1894,16 @@ static int run_combat(void)
             pending = 0;
             lucky = combat_apply(&app.hero, &app.foes[app.foe_cur], &r, use_luck);
             render_title_bar();
+            /* La jauge ne bouge qu'ICI, une fois la blessure portee et la
+             * Chance tentee : elle est le constat du coup, pas son annonce.
+             * Le battement qui suit laisse voir les cases tomber avant que
+             * les des de l'assaut suivant ne reprennent la ligne. */
             show_fighters();
+            sfx_beat();
             if (use_luck) {
                 /* La Chance a change la blessure : le dire, et rendre la main
                  * plutot que d'enchainer -- on vient de payer un point. */
-                /* Le meme mot que plus haut : le catalogue en portait deux
-                 * exemplaires, et le binaire n'a plus la place de payer deux
-                 * fois "Chanceux !". */
-                print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX))
-                                                : (msg(M_MALCHANCEUX)));
+                put_verdict(lucky ? (msg(M_CHANCEUX)) : (msg(M_MALCHANCEUX)));
                 wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
             }
             if (monster_is_beaten(&app.foes[app.foe_cur])) {
@@ -1853,6 +1938,9 @@ static int run_combat(void)
             }
             if (character_is_dead(&app.hero)) {
                 sfx_death();
+                /* L'ecran de mort n'arrive pas sur le coup : la jauge vide
+                 * reste une seconde de plus sous les yeux. */
+                sfx_beat();
                 monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
                 set_video_mode(0);
                 return 0;
@@ -1861,43 +1949,62 @@ static int run_combat(void)
              * combat s'arrete la et la suite dit QUI a touche. Le detour par
              * win_scene reutilise la sortie de MV telle quelle. */
             if (app.mb_ok >= 0) {
-                app.win_scene = (r.outcome == ROUND_HERO_HITS) ? app.mb_ok
-                                                               : app.mb_ko;
+                app.win_scene = hits ? app.mb_ok : app.mb_ko;
                 wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
                 set_video_mode(0);
                 return 1;
             }
         }
 
-        /* L'assaut suivant, jete et annonce dans la foulee. */
+        /* L'assaut suivant : les des d'abord, le verdict apres.
+         *
+         * "Lancez les deux des pour la creature. Ajoutez ses points
+         * d'HABILETE" -- deux lignes, une par combattant, la ou l'ecran ne
+         * donnait qu'un total et un signe. */
         assaut++;
         combat_round(&app.hero, &app.foes[app.foe_cur], &r);
+        hits = (r.outcome == ROUND_HERO_HITS);
         gotoxy(0, CHOICE_ROW0 + 1);
-        cfmt(msg(M_ASSAUT_FORCE_D), assaut, r.hero_force,
-                r.hero_force > r.monster_force ? ">"
-                : (r.hero_force < r.monster_force ? "<" : "="),
-                r.monster_force);
-        if (app.foe_count > 1) cfmt("   %u/%u",
-                                       (unsigned)(app.foe_cur + 1),
-                                       (unsigned)app.foe_count);
-        pad_to(79);
+        cfmt(msg(M_ASSAUT_N), assaut);
+        put_roll(CHOICE_ROW0 + 1, msg(M_JET_VOUS),
+                 r.hero_d1, r.hero_d2, r.hero_force);
+        put_roll(CHOICE_ROW0 + 2, msg(M_JET_LUI),
+                 r.monster_d1, r.monster_d2, r.monster_force);
+
+        /* Le temps de lire les deux jets avant que le coup ne porte. Sans ce
+         * battement, des et blessure apparaissent du meme coup de touche : il
+         * n'y a plus d'assaut, seulement un resultat. */
+        sfx_beat();
 
         /* Le bruitage suit QUI a touche : lame seche contre coup sourd. Il
          * part avant le texte, pour tomber en meme temps que l'annonce. */
         if (r.outcome == ROUND_DODGE) {
             sfx_dodge();
-            print_at(CHOICE_ROW0 + 2, msg(M_VOUS_AVEZ_CHACUN));
+            put_verdict(msg(M_VOUS_AVEZ_CHACUN));
             continue;   /* personne n'est blesse : rien a encaisser */
         }
-        if (r.outcome == ROUND_HERO_HITS) sfx_hit(); else sfx_hurt();
+        if (hits) sfx_hit(); else sfx_hurt();
         /* "chaque blessure coute 2 points d'ENDURANCE" -- sauf aux creatures
          * dont la page dit autrement (ligne MD). On annonce la perte seche ;
-         * la Chance peut encore la changer, et la jauge dira le vrai. */
-        hurt = (r.outcome == ROUND_HERO_HITS) ? 2 : app.foes[app.foe_cur].damage;
-        gotoxy(0, CHOICE_ROW0 + 2);
-        cputs(r.outcome == ROUND_HERO_HITS ? msg(M_VOUS_L_AVEZ)
-                                           : msg(M_ELLE_VOUS_A));
-        cfmt(msg(M_DEGATS), (unsigned)hurt);
+         * la Chance peut encore la changer, et la jauge dira le vrai.
+         *
+         * Et on retient ce que la Chance en ferait, pour que l'invite le dise
+         * avant le pari : "vous pouvez oter deux points de plus" (4 au lieu de
+         * 2) ou "vous n'aurez ote qu'un seul point" quand le heros frappe ;
+         * un point de moins ou un point de plus quand il encaisse. */
+        if (hits) {
+            hurt = 2; wgood = 4; wbad = 1;
+        } else {
+            hurt = app.foes[app.foe_cur].damage;
+            wgood = (unsigned char)(hurt - 1);
+            wbad  = (unsigned char)(hurt + 1);
+        }
+        /* Colonne 40 : le verdict s'ecrit A COTE du jet de la creature, pas
+         * par-dessus. Les deux lignes de des restent lisibles pendant que le
+         * coup porte. */
+        gotoxy(40, CHOICE_ROW0 + 2);
+        cputs(hits ? msg(M_VOUS_L_AVEZ) : msg(M_ELLE_VOUS_A));
+        cfmt(msg(M_DEGATS), hurt);
         pad_to(79);
         pending = 1;
     }

@@ -10,14 +10,17 @@ La Pierre de %s se desintegre.
 Vous fuyez : elle vous blesse au passage.
 Chanceux !
 Malchanceux !
-ASSAUT %u     votre force %u   %s   la sienne %u
+ASSAUT %u
+Vous :
+Lui  :
 Vous avez chacun esquive.
 Vous l'avez blesse
 Elle vous a blesse
 engager
-encaisser le coup
-porter le coup
+encaisser
+frapper
 tenter la Chance
+ Tentez votre Chance (CHANCE %u) : %u ou %u
 assaut suivant
 fuir
 sac a dos
