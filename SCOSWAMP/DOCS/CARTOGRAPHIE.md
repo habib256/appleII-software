@@ -899,6 +899,11 @@ contenu textuel. Si le menu MAP les affiche, il devra les lire dans le fichier
 
 ## 7. Spécification du menu MAP (touche `M`)
 
+> **Construit le 2026-09-04** (branche `feat/scoswamp-map`). Ce qui suit est la
+> spécification d'origine ; l'écart entre elle et ce qui a été fait est résumé
+> au § 7.9 et détaillé dans `DOCS/rapport-map.md`.
+
+
 ### 7.1 Ce que le moteur garde déjà
 
 **Tout l'état nécessaire existe.** `SCOSWAMP/SRC/rules.c:384-406` :
@@ -1175,6 +1180,31 @@ Coût d'état côté moteur : **1 octet** (`app.clairiere_courante`). Le bitmap
    la page 158 conditionné à ce test. Le menu MAP devient alors *l'objet de la
    quête* — et le corpus le dit déjà : « il vous faut un but plus digne que
    **tracer une simple carte** » (page 095).
+
+### 7.9 Ce qui a été construit, et ce qui a bougé
+
+| Point du § 7 | Réalisé | Écart |
+| --- | --- | --- |
+| fichier `MAP` généré depuis `carte.json` | `TOOLS/build_map.py` → `SCOSWAMP/MAP.BIN`, 1 844 octets | version 3 du format, deux blocs de langue au lieu d'un pool de créatures |
+| table des clairières | 35 × **3** octets | `x` et `y` tiennent dans un octet ; le nom est à offset fixe, pas de champ ; les pages ne sont plus indexées par clairière |
+| table des sentiers (39 × 3) | **supprimée** | le voisin est la première case occupée dans la direction annoncée ; les trois sentiers de deux cases sortent gratuitement, et les 117 octets avec |
+| rabattement page → clairière | 115 paires (écart, clairière) = **230 octets** | la table plate de 412 octets ne tenait pas ; la boucle coûte trente octets de code et sert aussi au brouillard de guerre |
+| pool de noms de créatures | **remplacé** par 35 noms de lieu ≤ 12 caractères, FR et EN | le livre demande le nom de la créature ; le nom du lieu tient sur la ligne de lieu de chaque page, ce que le livre ne prévoyait pas |
+| les trois états du § 7.3 | tels quels | — |
+| maquette 80 × 24 du § 7.4 | rendue à l'octet près | titre raccourci en « CARTE DU MARAIS » (14 octets de pool) ; pas de curseur de consultation |
+| `M` grisée sans l'Anneau | **refus** avec message | choisi contre « carte désorientée » : un second rendu coûtait des centaines d'octets, et le refus donne son prix à la page 049 |
+| coût mémoire : 1 octet d'état | 1 octet (`map_here`), **sauvegardé** — le format passe de `SCS3` à `SCS4` | 297 pages sur 412 ne sont d'aucun lieu : sans lui, reprendre en plein combat rouvrait la carte sans savoir où |
+| « le tas offre 6 766 octets » | **faux au 2026-09-04** : il en restait 510 | c'est la musique et les objets qui les ont pris entre-temps. Le kilo-octet de `$0C00-$0FFF` — le second tampon ProDOS que le jeu ne réclame jamais — a fourni la place |
+| curseur de consultation (§ 7.8 point 8) | **non fait** | il demandait ce qui manquait le plus : de la place |
+| fil Pompatarte (§ 7.8 point 9) | **non fait** | — |
+
+Deux corrections de modèle ont été appliquées par `build_map.py`, dans l'esprit
+des `FIX` du § 8 : la direction d'un sentier est **dérivée de la grille** et non
+du libellé (ce qui règle l'incohérence A sans table d'exception), et la
+clairière 14 reçoit la sortie `S` que sa prose annonce et que son libellé de
+choix ne porte pas (incohérence C). Le script **vérifie** ensuite, arête par
+arête, que la recherche « première case occupée dans cette direction »
+retrouve bien le voisin de `carte.json` : 39 sur 39.
 
 ---
 

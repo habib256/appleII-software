@@ -161,6 +161,23 @@ if [ -n "$lowbss_line" ]; then
     fi
 fi
 
+# Le segment MAPBSS (scoswamp.cfg) loge les donnees du menu MAP et quelques
+# tampons dans $0C00-$0FFF -- le kilo-octet que le second tampon ProDOS n'a
+# jamais reclame, le jeu n'ouvrant qu'un fichier a la fois. ld65 refuse
+# lui-meme un debordement ; on affiche ce qu'il reste.
+mapbss_line=$(grep -E '^MAPBSS ' "$MAP" | head -1)
+if [ -n "$mapbss_line" ]; then
+    mb_start=$((16#$(echo "$mapbss_line" | awk '{print $2}')))
+    mb_end=$((16#$(echo "$mapbss_line" | awk '{print $3}')))
+    mb_size=$((16#$(echo "$mapbss_line" | awk '{print $4}')))
+    printf '  MAPBSS        : $%04X - $%04X  (%d o, reste %d o sous $1000)\n' \
+           "$mb_start" "$mb_end" "$mb_size" "$((0x1000 - mb_end - 1))"
+    if [ "$mb_end" -ge $((0x1000)) ]; then
+        printf 'ERREUR : MAPBSS deborde dans LOWRAM.\n'
+        exit 1
+    fi
+fi
+
 printf '\n'
 printf 'OK : tient en mémoire, marge de %d octets.\n' "$((CEILING - bss_end))"
 exit 0

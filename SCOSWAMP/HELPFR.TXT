@@ -1,18 +1,18 @@
 LES TOUCHES
   [A-E] Choix de la scene (jamais une commande)
   [ESPACE/RETURN/ESC] Texte, image HGR, puis image et texte
-  [I] Sac : objets, Pierres Magiques et amulettes
-  [S]/[L] Page des sauvegardes (ecrire / reprendre) ; [H] aide ; [Q] quitter
+  [I] Sac : objets, Pierres Magiques et amulettes ; [M] Carte du Marais
+  [S]/[L] Sauvegardes (ecrire / reprendre) ; [H] aide ; [Q] quitter
+
+CARTE
+  Une case par clairiere, vide tant que vous n'y avez pas mis les pieds
+  (nn) vue ; <nn> vous y etes ; -- sentier emprunte ; -? sentier a explorer
+  [M]/[ESC] referme ; sans l'Anneau de Cuivre, les boussoles perdent le nord
 
 SAUVEGARDES
   [0-9] Emplacement ; chaque partie porte le titre de la page ou elle est
-  Etat sauve : scene, heros, objets, amulettes, visites et monstres
+  Etat sauve : scene, heros, objets, amulettes, visites, monstres, clairiere
   Un fichier absent, incomplet ou corrompu est refuse
-
-AMULETTES
-  Loup, Fleur, Oiseau, Araignee et Grenouille sont distinctes
-  La fausse Oiseau reste distincte ; Stratagus compte 0, 1-2 ou 3+
-  Une remise les retire du sac et ajoute la recompense
-
+AMULETTES : Loup, Fleur, Oiseau, Araignee, Grenouille ; la fausse reste a part
 SAC : [A-L] choisit une Pierre ; [I] ou [ESC] ferme ; commandes suspendues
-COMBAT : [ESPACE] assaut ; [C] Chance ; [F] Fuite ; [I] sac ; [ESC] image
+COMBAT : [ESPACE] assaut ; [C] Chance ; [F] Fuite ; [I] sac ; [M] carte

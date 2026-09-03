@@ -335,11 +335,18 @@ int combat_flee(Character* c, const Monster* m, int use_luck)
  * l'ecran de titre, elle n'a pas d'adversaire. `index` retient lequel de la
  * file etait en cours ; sans lui, fuir devant le deuxieme LOUP puis revenir
  * ferait recommencer au premier. */
+/* En RAM basse ($1000-$1FFF, segment LOWBSS de scoswamp.cfg), avec les gros
+ * tampons : 160 octets de moins dans la fenetre principale, ou il n'en restait
+ * que 89 apres la fusion du menu MAP, du prologue et du combat rythme. Rien ne
+ * change a l'acces -- une adresse absolue en $1xxx vaut une adresse absolue en
+ * $Bxxx -- ni a la sauvegarde, qui passe par monster_memory_export. */
+#pragma bss-name (push, "LOWBSS")
 static struct {
     unsigned int  scene;
     unsigned char index;
     unsigned char end;
 } seen[MONSTER_SLOTS];
+#pragma bss-name (pop)
 
 void monster_memory_reset(void)
 {
@@ -407,7 +414,12 @@ void monster_memory_import(const unsigned char* in)
 
 #define SCENE_BITS SCENE_MEMORY_SIZE /* 419 paragraphes arrondis a l'octet */
 
+/* Le bitmap des pages vues part dans la zone MAPRAM ($0C00-$0FFF), avec les
+ * donnees du menu MAP qui le lisent : 52 octets de moins dans la fenetre
+ * principale, et rien de change pour qui l'appelle. */
+#pragma bss-name (push, "MAPBSS")
 static unsigned char visited[SCENE_BITS];
+#pragma bss-name (pop)
 
 void scene_memory_reset(void)
 {

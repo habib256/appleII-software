@@ -7,6 +7,12 @@ FR/EN en dur, 2 409 octets de litteraux dans un binaire qui n'avait plus 21
 octets de libre. Ils vivent maintenant dans MSGFR / MSGEN, et le binaire n'en
 charge qu'une langue.
 
+Les chaines de l'ecran MAP, elles, ne passent PAS par ici : elles voyagent
+dans le fichier MAP (SCOSWAMP.MORE/TOOLS/build_map.py), avec les noms des
+clairieres. Le catalogue vit en RAM basse, ou il ne restait que quelques
+dizaines d'octets ; le bloc MAP vit dans le kilo-octet de $0C00, ou il y a
+de la place.
+
 Ce script est la seule source : il ecrit d'un meme geste l'enumeration C et les
 deux fichiers. Editer l'un sans l'autre decalerait tout le catalogue, et le jeu
 afficherait les messages les uns pour les autres.
@@ -70,7 +76,7 @@ MESSAGES = [
     ('M_K_IMAGE', 'image', 'picture'),
     ('M_K_CONTINUER', 'continuer', 'continue'),
     ('M_DEGATS', '  -%u END', '  -%u STA'),
-    ('M_TOUCHES', 'ESPACE=VUE  A-Z=CHOIX  I=SAC  Q=QUITTER', 'SPACE=VIEW  A-Z=CHOICE  I=BAG  Q=QUIT'),
+    ('M_TOUCHES', 'ESPACE=VUE  A-Z=CHOIX  I=SAC  M=CARTE  Q=QUITTER', 'SPACE=VIEW  A-Z=CHOICE  I=BAG  M=MAP  Q=QUIT'),
     ('M_JET_CONTRE', 'Vous jetez : %u, contre %u.', 'You roll: %u, against %u.'),
     ('M_S_EFFONDRE', "%s s'effondre.", '%s collapses.'),
     ('M_HELPFR', 'HELPFR', 'HELPEN'),
