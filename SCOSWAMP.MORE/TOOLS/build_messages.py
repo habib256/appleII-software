@@ -20,10 +20,10 @@ from pathlib import Path
 MESSAGES = [
     ('M_ESPACE_CONTINUER', '[ESPACE] continuer', '[SPACE] continue'),
     ('M_VOUS', 'VOUS', 'YOU'),
-    ('M_SAC_A_DOS', "SAC A DOS -- %u Pieces d'Or, une epee, une cotte de mailles", 'BACKPACK -- %u Gold Pieces, a sword, chainmail'),
+    ('M_SAC_A_DOS', "SAC A DOS -- %u Pieces d'Or, une epee, un justaucorps de cuir", 'BACKPACK -- %u Gold Pieces, a sword, a leather jerkin'),
     ('M_INTERDITE_EN_PLEIN', '   interdite en plein combat', '   forbidden mid-fight'),
     ('M_AUCUNE_PIERRE_MAGIQUE', 'Aucune Pierre Magique.', 'No Magic Stones.'),
-    ('M_UNE_PIERRE_SE', "Une Pierre se desintegre a l'usage.  [A-Z] utiliser  [ESC] fermer", 'A Stone crumbles when used.  [A-Z] use  [ESC] close'),
+    ('M_UNE_PIERRE_SE', "Une Pierre se desintegre a l'usage.  [A-Z] utiliser  [I/ESC] fermer", 'A Stone crumbles when used.  [A-Z] use  [I/ESC] close'),
     ('M_LE_PREMIER_COUP', 'Le premier coup a ete donne.', 'The first blow was struck.'),
     ('M_PIERRE_ABSENTE', 'Pierre absente.', 'No such Stone.'),
     ('M_LA_PIERRE_DE', 'La Pierre de %s se desintegre.', 'The %s Stone crumbles.'),
@@ -57,7 +57,7 @@ MESSAGES = [
     ('M_HABILETE_DE', 'HABILETE  %2u   (1 de + 6)', 'SKILL    %2u   (1 die + 6)'),
     ('M_ENDURANCE_DES', 'ENDURANCE %2u   (2 des + 12)', 'STAMINA  %2u   (2 dice + 12)'),
     ('M_CHANCE_DE', 'CHANCE    %2u   (1 de + 6)', 'LUCK     %2u   (1 die + 6)'),
-    ('M_UNE_EPEE_UNE', "Une epee, une cotte de mailles, un sac a dos, %u Pieces d'Or.", 'A sword, chainmail, a backpack, %u Gold Pieces.'),
+    ('M_UNE_EPEE_UNE', "Une epee, un justaucorps de cuir, un sac a dos, %u Pieces d'Or.", 'A sword, a leather jerkin, a backpack, %u Gold Pieces.'),
     ('M_AUCUN_DE_CES', 'Aucun de ces trois totaux ne pourra depasser sa valeur de depart.', 'None of these three scores may ever rise above its start value.'),
     ('M_ESPACE_ENTRER_DANS', '[ESPACE] entrer dans le Marais', '[SPACE] enter the Swamp')
 ,
@@ -88,6 +88,19 @@ MESSAGES = [
     ('M_VOUS_JETEZ',
      'Vous jetez : %u.',
      'You roll: %u.'),
+    # La page des sauvegardes : dix emplacements, chacun sous le titre de la
+    # page ou la partie s'est arretee -- c'est ce qui permet de se situer dans
+    # le Marais avant de reprendre. [S] et [L] la ferment comme ils l'ouvrent.
+    ('M_SAUVEGARDES',
+     'SAUVER -- [0-9] ecrire dans un emplacement   [S/ESC] retour',
+     'SAVE -- [0-9] write to a slot   [S/ESC] back'),
+    ('M_CHARGEMENTS',
+     'REPRENDRE -- [0-9] charger un emplacement   [L/ESC] retour',
+     'RESUME -- [0-9] load a slot   [L/ESC] back'),
+    ('M_VIDE', '-- vide --', '-- empty --'),
+    ('M_SAUVE_OK', 'Partie sauvee.', 'Game saved.'),
+    ('M_SAUVE_ERREUR', 'Echec de la sauvegarde.', 'Save failed.'),
+    ('M_CHARGE_ERREUR', 'Emplacement vide ou fichier corrompu.', 'Empty slot or corrupt file.'),
 ]
 
 

@@ -154,9 +154,14 @@ char file_buffer[FILE_BUFFER_SIZE];
 /* Sauvegarde binaire SCS2 : format explicite, independant du remplissage des
  * structures C. Dix emplacements numerotes de 0 a 9 sur le disque. */
 #define SAVE_HEADER 8
-#define SAVE_SIZE (SAVE_HEADER + sizeof(Character) + SCENE_MEMORY_SIZE + MONSTER_MEMORY_SIZE)
+/* Le titre de la page ou la partie s'est arretee, tel que la ligne T le
+ * donne, sur 32 octets termines par zero : la page des sauvegardes l'affiche
+ * pour que le joueur se situe dans le Marais avant de reprendre. */
+#define SAVE_TITLE  32
+#define SAVE_SIZE (SAVE_HEADER + SAVE_TITLE + sizeof(Character) + SCENE_MEMORY_SIZE + MONSTER_MEMORY_SIZE)
 #define save_data ((unsigned char*)file_buffer)
 static unsigned char restoring;
+static char* scene_title;   /* la ligne T de la page, dans file_buffer */
 static void render_scene(void);
 void load_scene(int scene_id);
 
@@ -180,22 +185,35 @@ static unsigned char save_checksum(void)
 }
 #pragma code-name (pop)
 
+/* pack_save repasse en CODE : avec le titre, la Language Card debordait
+ * d'un octet, et la fenetre principale a 7 Ko de marge. */
+#pragma code-name (push, "CODE")
 static void pack_save(void)
 {
-    unsigned char* p = save_data;
-    memcpy(p, "SCS2", 4); p += 5;
-    p = save_u16(p, (unsigned int)app.current_scene); *p++ = app.language[0];
+    unsigned char* p = save_data + SAVE_HEADER;
+    unsigned char n = scene_title ? (unsigned char)strlen(scene_title) : 0;
+    if (n > SAVE_TITLE - 1) n = SAVE_TITLE - 1;
+    /* Le titre vit dans file_buffer, que save_data recouvre : il part en
+     * premier, et par memmove, car sa source peut chevaucher sa place. */
+    if (n) memmove(p, scene_title, n);
+    memset(p + n, 0, SAVE_TITLE - n);
+    p += SAVE_TITLE;
+    memcpy(save_data, "SCS3", 4);
+    save_u16(save_data + 5, (unsigned int)app.current_scene);
+    save_data[7] = app.language[0];
     memcpy(p,&app.hero,sizeof app.hero); p+=sizeof app.hero;
     scene_memory_export(p); p += SCENE_MEMORY_SIZE; monster_memory_export(p);
     save_data[4]=save_checksum();
 }
 
+#pragma code-name (pop)
 static int unpack_save(void)
 {
     const unsigned char* p; int scene;
-    if (memcmp(save_data,"SCS2",4)!=0 || save_data[4]!=save_checksum()) return 0;
+    if (memcmp(save_data,"SCS3",4)!=0 || save_data[4]!=save_checksum()) return 0;
     p=save_data+5; scene=(int)load_u16(p); p+=2;
     app.language[0]=*p++; app.language[1]=(app.language[0]=='F')?'R':'N'; app.language[2]='\0';
+    p += SAVE_TITLE;
     memcpy(&app.hero,p,sizeof app.hero); p+=sizeof app.hero;
     scene_memory_import(p); p+=SCENE_MEMORY_SIZE; monster_memory_import(p);
     app.hero_ready=1;
@@ -233,12 +251,28 @@ static int load_game(unsigned char slot)
     return ok && unpack_save();
 }
 
+/* Le titre range dans un emplacement, ou une chaine vide si l'emplacement
+ * est vierge (les PARTIEn du disque font deux octets) ou d'un autre format.
+ * Ne lit que l'en-tete : dix emplacements a lister, pas dix parties. */
+static void slot_title(unsigned char slot, char* out)
+{
+    FILE* f;
+    unsigned char hdr[SAVE_HEADER + SAVE_TITLE];
+    out[0] = '\0';
+    if (!enter_save(slot)) return;
+    f = fopen(app.imgPath, "r"); if (!f) return;
+    if (fread(hdr, 1, sizeof hdr, f) == sizeof hdr && memcmp(hdr, "SCS3", 4) == 0) {
+        memcpy(out, hdr + SAVE_HEADER, SAVE_TITLE);
+        out[SAVE_TITLE - 1] = '\0';
+    }
+    fclose(f);
+}
+
 /* Decoupage de la scene courante. Titre et lignes de corps ne sont pas
  * recopies : ce sont des pointeurs DANS file_buffer, dont les fins de ligne
  * ont ete remplacees par des '\0'. Le buffer n'est reecrit qu'au chargement
  * de la scene suivante, donc ils restent valides tant qu'on affiche celle-ci
  * -- et ca evite un seul octet de copie. */
-static char* scene_title;
 static char* body_lines[BODY_ROWS];
 static unsigned char body_count;
 
@@ -308,9 +342,7 @@ void set_video_mode(int mode) {
  * Le rappel des touches vit ici plutot qu'en bas : les 4 lignes du bas sont
  * reservees aux choix, et un rappel fixe en tete est de toute facon plus
  * lisible qu'une ligne qui se deplace avec la longueur du texte. */
-#pragma bss-name (push, "LOWBSS")
 static char title_bar[81];
-#pragma bss-name (pop)
 
 /* Le formateur maison, a la place de la famille printf.
  *
@@ -1913,6 +1945,43 @@ void select_language(void) {
 }
 
 /* Fonction pour gérer les choix de l'utilisateur */
+/* La page des sauvegardes. Dix emplacements, chacun sous le titre de la
+ * page ou la partie s'est arretee. `saving` dit si [0-9] ecrit ou reprend.
+ * La touche qui l'a ouverte la referme, ESC aussi. Rend 1 si une partie a
+ * ete chargee (pending_scene est alors pose par unpack_save). */
+static unsigned char show_saves(unsigned char saving)
+{
+    char title[SAVE_TITLE];
+    unsigned char slot;
+    char key;
+
+    set_video_mode(0);
+    for (;;) {
+        clrscr();
+        render_title_bar();
+        print_at(2, msg(saving ? M_SAUVEGARDES : M_CHARGEMENTS));
+        for (slot = 0; slot < 10; slot++) {
+            slot_title(slot, title);
+            gotoxy(2, 4 + slot);
+            cfmt("%c) %s", '0' + slot, title[0] ? title : msg(M_VIDE));
+        }
+        key = cgetc();
+        if (key == 27) return 0;
+        if (saving  && (key == 'S' || key == 's')) return 0;
+        if (!saving && (key == 'L' || key == 'l')) return 0;
+        if (key < '0' || key > '9') continue;
+        slot = (unsigned char)(key - '0');
+        if (saving) {
+            print_at(CHOICE_ROW0, msg(save_game(slot) ? M_SAUVE_OK : M_SAUVE_ERREUR));
+            wait_key_at(CHOICE_ROWN, msg_continue());
+            return 0;
+        }
+        if (load_game(slot)) return 1;
+        print_at(CHOICE_ROW0, msg(M_CHARGE_ERREUR));
+        wait_key_at(CHOICE_ROWN, msg_continue());
+    }
+}
+
 void handle_user_input(char key) {
     unsigned char choice_num;
     Choice* c;
@@ -1929,36 +1998,14 @@ void handle_user_input(char key) {
     } else if (key == 'H' || key == 'h') {
         show_help();
 
-    } else if (key == 'S' || key == 's') {
-        char slot;
-        int saved;
-        set_video_mode(0);
-        clear_bottom();
-        print_at(CHOICE_ROW0, "SAVE 0-9 ?");
-        slot = cgetc();
-        if (slot < '0' || slot > '9') { render_scene(); return; }
-        saved=save_game((unsigned char)(slot-'0'));
-        print_at(CHOICE_ROW0, saved ? "SAVE OK" : "SAVE ERROR");
-        wait_key_at(CHOICE_ROWN, msg_continue());
-        /* pack_save partage file_buffer avec le texte de la scene. Le relire
-         * au prochain tour restaure ses pointeurs ; restoring interdit de
-         * rejouer les gains, pertes, jets et autres effets d'entree. Cela
-         * vaut aussi apres un echec d'ecriture, car pack_save a deja tourne. */
-        restoring=1;
-        app.pending_scene=app.current_scene;
-
-    } else if (key == 'L' || key == 'l') {
-        char slot;
-        set_video_mode(0);
-        clear_bottom();
-        print_at(CHOICE_ROW0, "LOAD 0-9 ?");
-        slot = cgetc();
-        if (slot < '0' || slot > '9') { render_scene(); return; }
-        if (!load_game((unsigned char)(slot - '0'))) {
-            clear_bottom();
-            print_at(CHOICE_ROW0, "LOAD ERROR");
-            wait_key_at(CHOICE_ROWN, msg_continue());
-            render_scene();
+    } else if (key == 'S' || key == 's' || key == 'L' || key == 'l') {
+        /* pack_save et load_game partagent file_buffer avec le texte de la
+         * scene. Sans partie chargee, on relit la page au prochain tour pour
+         * restaurer ses pointeurs ; restoring interdit de rejouer les gains,
+         * pertes, jets et autres effets d'entree. */
+        if (!show_saves(key == 'S' || key == 's')) {
+            restoring = 1;
+            app.pending_scene = app.current_scene;
         }
 
     } else if (key == 'Q' || key == 'q') {

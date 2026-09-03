@@ -47,3 +47,9 @@ Vous jetez les deux des : %u, contre une CHANCE de %u.
 [R] recommencer une aventure   [Q] quitter vers ProDOS
 Le sort en decide. [ESPACE] lancer les des
 Vous jetez : %u.
+SAUVER -- [0-9] ecrire dans un emplacement   [S/ESC] retour
+REPRENDRE -- [0-9] charger un emplacement   [L/ESC] retour
+-- vide --
+Partie sauvee.
+Echec de la sauvegarde.
+Emplacement vide ou fichier corrompu.

@@ -2,10 +2,10 @@ THE KEYS
   [A-E] Scene choice (never a command)
   [SPACE/RETURN/ESC] Text, HGR picture, then picture and text
   [I] Bag: items, Magic Stones and amulets
-  [S]/[L] Save/load PARTIE0 to PARTIE9; [H] help; [Q] quit
+  [S]/[L] Saved games page (write / resume); [H] help; [Q] quit
 
 SAVED GAMES
-  [0-9] Slot, only after [S] or [L]
+  [0-9] Slot; each game carries the title of the page it stands on
   Saved state: scene, hero, items, amulets, visits and monsters
   A missing, incomplete or corrupt file is rejected
 

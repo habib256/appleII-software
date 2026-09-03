@@ -2,10 +2,10 @@ LES TOUCHES
   [A-E] Choix de la scene (jamais une commande)
   [ESPACE/RETURN/ESC] Texte, image HGR, puis image et texte
   [I] Sac : objets, Pierres Magiques et amulettes
-  [S]/[L] Sauver/charger PARTIE0 a PARTIE9 ; [H] aide ; [Q] quitter
+  [S]/[L] Page des sauvegardes (ecrire / reprendre) ; [H] aide ; [Q] quitter
 
 SAUVEGARDES
-  [0-9] Emplacement, uniquement apres [S] ou [L]
+  [0-9] Emplacement ; chaque partie porte le titre de la page ou elle est
   Etat sauve : scene, heros, objets, amulettes, visites et monstres
   Un fichier absent, incomplet ou corrompu est refuse
 
