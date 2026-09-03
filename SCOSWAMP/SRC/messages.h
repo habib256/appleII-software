@@ -21,8 +21,6 @@ enum {
     M_VOUS_AVEZ_CHACUN,
     M_VOUS_L_AVEZ,
     M_ELLE_VOUS_A,
-    M_CHANCEUX2,
-    M_MALCHANCEUX2,
     M_K_ENGAGER,
     M_K_ENCAISSER,
     M_K_FRAPPER,
@@ -68,7 +66,7 @@ enum {
  * un catalogue qui en demandait 1100, dans un binaire ou il en
  * restait 215 de libres. La marge de 32 laisse la place a une
  * traduction un peu plus longue sans toucher au code. */
-#define MSG_BYTES 1643
+#define MSG_BYTES 1618
 
 /* Charge le catalogue de la langue voulue. Rend 0 si le fichier manque
  * ou ne contient pas MSG_COUNT lignes -- mieux vaut un ecran vide

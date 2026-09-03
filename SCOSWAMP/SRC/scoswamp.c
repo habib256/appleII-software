@@ -1814,8 +1814,11 @@ static int run_combat(void)
             if (use_luck) {
                 /* La Chance a change la blessure : le dire, et rendre la main
                  * plutot que d'enchainer -- on vient de payer un point. */
-                print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX2))
-                                                : (msg(M_MALCHANCEUX2)));
+                /* Le meme mot que plus haut : le catalogue en portait deux
+                 * exemplaires, et le binaire n'a plus la place de payer deux
+                 * fois "Chanceux !". */
+                print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX))
+                                                : (msg(M_MALCHANCEUX)));
                 wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
             }
             if (monster_is_beaten(&app.foes[app.foe_cur])) {
@@ -1992,6 +1995,11 @@ static void roll_character(void)
     cfmt(msg(M_UNE_EPEE_UNE), app.hero.gold);
     gotoxy(0, 10);
     cputs(msg(M_AUCUN_DE_CES));
+    /* Qui est ce personnage, et non seulement ce qu'il vaut : c'est la page
+     * 419 qui le dit, juste apres cet ecran, et la 000 juste avant. Deux
+     * lignes de plus ICI auraient coute 149 octets de LOWBSS, qui n'en a que
+     * 39 de libres -- la RAM basse s'arrete a $2000, ou commence HGR. Une
+     * page ne coute rien, en dit davantage, et se traduit sans relier. */
     wait_key_at(13, msg(M_ESPACE_ENTRER_DANS));
 }
 #pragma code-name (pop)

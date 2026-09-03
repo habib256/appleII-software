@@ -1,0 +1,22 @@
+T 417 L'Anneau de Cuivre
+
+   Vous ecartez les doigts. L'anneau n'a l'air de rien : un cercle de cuivre
+sans gravure, donne par une vieille femme que vous aviez relevee sur la route
+du Roi. Il vous semblait trop grand ; une heure plus tard, il vous allait a
+merveille.
+
+   Vous savez maintenant ce qu'il vaut. Tant qu'il est a votre doigt, vous
+savez ou est le nord et vous ne perdez jamais votre chemin, ni dans la plus
+sombre foret, ni dans les rues les plus tortueuses. C'est deja beaucoup pour
+qui veut entrer dans un marais que nul n'a jamais su cartographier.
+
+   Il fait davantage. Il se rechauffe chaque fois que vous vous trouvez en
+presence d'un etre malfaisant, meme si celui-ci vous fait de grandes
+demonstrations d'amitie. Il est reste froid une semaine entiere chez des
+brigands, rudes et brutaux mais honnetes a leur maniere ; il vous a prevenu,
+en revanche, devant des grottes ou l'on pratiquait la magie noire.
+
+   Chaud devant le Mal, froid devant le Bien : voila votre boussole.
+
+MU VILLAGE.MB
+C 412 Revenir sur la place

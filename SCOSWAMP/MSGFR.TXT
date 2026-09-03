@@ -14,8 +14,6 @@ ASSAUT %u     votre force %u   %s   la sienne %u
 Vous avez chacun esquive.
 Vous l'avez blesse
 Elle vous a blesse
-Chanceux !
-Malchanceux !
 engager
 encaisser le coup
 porter le coup

@@ -244,14 +244,17 @@ void monster_remember(unsigned int scene, int index, const Monster* m);
  * description longue la premiere fois et une courte ensuite. Le livre confie
  * ce comptage au joueur ; le portage le tient lui-meme, par la ligne `V`.
  *
- * Un bit par paragraphe, 412 bits = 52 octets -- assez peu pour ne pas
- * chercher plus malin, et sans le plafond d'une table clairsemee. */
+ * Un bit par paragraphe, 419 bits arrondis a 53 octets -- assez peu pour ne
+ * pas chercher plus malin, et sans le plafond d'une table clairsemee. Le
+ * corpus est monte a 419 pages avec le prologue de Bourbenville : a 52 octets
+ * la memoire s'arretait au 415 et les lignes V posees au-dela n'auraient
+ * jamais declenche, en silence. */
 void scene_memory_reset(void);
 int  scene_visited(unsigned int scene);
 void scene_mark_visited(unsigned int scene);
 
 /* Etat opaque exporte pour la sauvegarde. Les tailles sont stables sur cc65. */
-#define SCENE_MEMORY_SIZE 52
+#define SCENE_MEMORY_SIZE 53
 #define MONSTER_MEMORY_SIZE (MONSTER_SLOTS * 4)
 void scene_memory_export(unsigned char* out);
 void scene_memory_import(const unsigned char* in);

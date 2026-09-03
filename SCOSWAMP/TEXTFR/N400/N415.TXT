@@ -1,0 +1,16 @@
+T 415 La boutique du vieil homme
+
+   Le vieil homme ouvre un oeil quand votre ombre passe sur sa vitrine. Il
+vend de la corde, du suif et des lanternes, et donne ses conseils pour rien.
+
+   "Le bon Gayolard ? Tout le monde ici sait ou il habite : la petite maison
+au bout du village, celle qui a un jardin. Un homme doux, qui fait de la
+poterie. Pompatarte, c'est la grande maison au bord du marche ; on ne sait pas
+grand-chose de lui, sinon qu'il est riche et qu'il rit fort. Quant a la tour,
+la-bas, au nord, on n'en parle pas ici."
+
+   Il se tait, et son regard dit le reste.
+
+MU VILLAGE.MB
+C 418 Ecouter ce qu'on dit des trois hommes
+C 412 Revenir sur la place

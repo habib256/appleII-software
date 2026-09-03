@@ -17,4 +17,4 @@ Duncan Smith (1984), French edition by Gallimard (1985).
  [A-E] - Choose   [L] - Load a game   [H] - Help   [Q] - Quit
 
 MU ACCUEIL.MB
-C 001 Create my character
+C 419 Create my character

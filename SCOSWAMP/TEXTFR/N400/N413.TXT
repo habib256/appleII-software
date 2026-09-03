@@ -1,0 +1,11 @@
+T 413 Bourbenville
+
+   Vous revenez sur la place. Le vieil homme n'a pas bouge de sa vitrine, le
+marche crie toujours, et la tour noire est toujours la, au nord.
+
+MU VILLAGE.MB
+C 414 La salle de la taverne
+C 415 La boutique du vieil homme
+C 416 Le bout du village
+C 417 Regarder votre Anneau
+C 240 Retourner a la table de Grognard

@@ -14,8 +14,6 @@ ROUND %u     your strength %u   %s   its %u
 You have each dodged.
 You have wounded it
 It has wounded you
-Lucky!
-Unlucky!
 engage
 take the blow
 strike home

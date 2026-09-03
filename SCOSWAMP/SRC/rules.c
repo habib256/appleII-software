@@ -384,7 +384,7 @@ void monster_memory_import(const unsigned char* in)
 
 /* ── Les clairieres deja parcourues ────────────────────────────────────── */
 
-#define SCENE_BITS SCENE_MEMORY_SIZE /* 412 paragraphes arrondis a l'octet */
+#define SCENE_BITS SCENE_MEMORY_SIZE /* 419 paragraphes arrondis a l'octet */
 
 static unsigned char visited[SCENE_BITS];
 

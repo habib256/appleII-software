@@ -7,8 +7,8 @@ Prototype ecrit pour le rapport d'automatisation. Ne modifie rien de suivi.
 import argparse, struct, sys
 
 SAVE_HEADER, SAVE_TITLE = 8, 32
-CHAR_SIZE, SCENE_MEM, MON_MEM = 24, 52, 160
-SAVE_SIZE = SAVE_HEADER + SAVE_TITLE + CHAR_SIZE + SCENE_MEM + MON_MEM  # 276
+CHAR_SIZE, SCENE_MEM, MON_MEM = 24, 53, 160   # SCENE_MEM suit SCENE_MEMORY_SIZE (rules.h)
+SAVE_SIZE = SAVE_HEADER + SAVE_TITLE + CHAR_SIZE + SCENE_MEM + MON_MEM  # 277
 
 STONES = ["HABILETE","ENDURANCE","CHANCE","FEU","GLACE","ILLUSION",
           "AMITIE","CROISSANCE","BENEDICTION","TERREUR","FLETRISSURE","MALEDICTION"]
@@ -45,7 +45,7 @@ def build(scene, lang="F", title="", hab=(12,12), end=(20,20), cha=(11,11),
     p += CHAR_SIZE                                      # 64 : memoire des scenes
     for s in visited:
         b[p + (s >> 3)] |= 1 << (s & 7)
-    p += SCENE_MEM                                      # 116 : memoire des monstres
+    p += SCENE_MEM                                      # 117 : memoire des monstres
     for i, (sc, idx, endv) in enumerate(monsters[:40]):
         struct.pack_into("<HBB", b, p + i * 4, sc, idx, endv)
     b[4] = 0

@@ -1,0 +1,21 @@
+T 419 Who You Are
+
+   You are a fearless adventurer whom no peril has ever turned back, and wise
+enough never to have ventured into the Scorpion Swamp. No one has ever managed
+to map it: its paths mislead, the fog hides the sky, and compasses lose north
+there.
+
+   Then fate stepped in. On the King's Road you helped up an old woman, you
+carried her into the shade, and she gave you a circle of copper with no
+engraving. An hour later the ring had fitted itself to your finger.
+
+   As long as you wear it you know where north lies and you never lose your
+way. And it grows warm whenever you stand before an evil being, even one who
+makes a great show of friendship. Warm before Evil, cold before Good.
+
+   That is enough to walk into the Swamp. What remains is why: at Marshville,
+the last township before the low lands, three men are looking for an
+adventurer bold enough to risk it.
+
+MU ACCUEIL.MB
+C 001 Take the road to the Swamp

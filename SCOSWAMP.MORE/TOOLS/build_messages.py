@@ -34,8 +34,6 @@ MESSAGES = [
     ('M_VOUS_AVEZ_CHACUN', 'Vous avez chacun esquive.', 'You have each dodged.'),
     ('M_VOUS_L_AVEZ', "Vous l'avez blesse", 'You have wounded it'),
     ('M_ELLE_VOUS_A', 'Elle vous a blesse', 'It has wounded you'),
-    ('M_CHANCEUX2', 'Chanceux !', 'Lucky!'),
-    ('M_MALCHANCEUX2', 'Malchanceux !', 'Unlucky!'),
     ('M_K_ENGAGER', 'engager', 'engage'),
     ('M_K_ENCAISSER', 'encaisser le coup', 'take the blow'),
     ('M_K_FRAPPER', 'porter le coup', 'strike home'),
