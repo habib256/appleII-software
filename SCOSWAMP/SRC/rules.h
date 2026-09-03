@@ -188,8 +188,8 @@ typedef struct {
     /* Les deux des de chacun, gardes a part de leur somme : "chacun lance
      * deux des". Un total tout fait ne se lit pas comme un jet -- l'ecran
      * doit pouvoir montrer "4 + 3 + 11 = 18", sinon le joueur n'a plus qu'un
-     * verdict, et un verdict n'a pas de suspense. Quatre octets sur la pile
-     * de run_combat, rien en memoire vive. */
+     * verdict, et un verdict n'a pas de suspense. Quatre octets de plus dans
+     * l'unique Round de run_combat -- pas un de plus par adversaire. */
     unsigned char hero_d1, hero_d2;
     unsigned char monster_d1, monster_d2;
     unsigned char hero_force;      /* 2d6 + HABILETE du heros (+ Epee Magique) */

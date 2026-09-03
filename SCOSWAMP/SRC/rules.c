@@ -258,26 +258,29 @@ void combat_round(const Character* c, const Monster* m, Round* out)
      * meme partie a semence egale -- mais l'ecran peut ensuite montrer le jet
      * au lieu du seul total.
      *
-     * Tout passe par des variables locales et n'atteint `out` qu'a la fin.
-     * Cc65 ne garde pas un pointeur de parametre dans un registre : chaque
-     * `out->x` relit sp, reconstruit ptr1 et repasse par staspidx, une
-     * quinzaine d'octets a chaque fois. Ecrire les six champs une seule fois
-     * chacun a coute deux fois moins que la version ecrite naturellement. */
+     * L'assaut se compose dans `t` et ne touche `out` qu'a la toute fin, par
+     * une seule affectation de structure. Cc65 ne garde pas un pointeur de
+     * parametre : chaque `out->x` relit sp, reconstruit ptr1 et refait le
+     * detour, une douzaine d'octets a chaque champ -- sept champs, quatre-
+     * vingts octets de rechargement de pointeur. Avec -Cl les locales sont
+     * statiques, donc `t` s'ecrit en adressage absolu (trois octets par
+     * champ) et la copie finale est un memcpy de sept octets. */
     unsigned char a  = roll_d6();
     unsigned char b  = roll_d6();
     unsigned char d  = roll_d6();
     unsigned char e  = roll_d6();
-    unsigned char mf = (unsigned char)(a + b + m->hab);
-    unsigned char hf = (unsigned char)(d + e + c->hab);
+    Round t;
 
-    if (c->objects & (1u << OBJ_EPEMAGIQUE)) hf = (unsigned char)(hf + c->weapon_bonus);
-    out->monster_d1 = a; out->monster_d2 = b;
-    out->hero_d1    = d; out->hero_d2    = e;
-    out->monster_force = mf;
-    out->hero_force    = hf;
-    if (hf > mf)      out->outcome = ROUND_HERO_HITS;
-    else if (hf < mf) out->outcome = ROUND_MONSTER_HITS;
-    else              out->outcome = ROUND_DODGE;
+    t.monster_d1 = a; t.monster_d2 = b;
+    t.hero_d1    = d; t.hero_d2    = e;
+    t.monster_force = (unsigned char)(a + b + m->hab);
+    t.hero_force    = (unsigned char)(d + e + c->hab);
+    if (c->objects & (1u << OBJ_EPEMAGIQUE))
+        t.hero_force = (unsigned char)(t.hero_force + c->weapon_bonus);
+    if (t.hero_force > t.monster_force)      t.outcome = ROUND_HERO_HITS;
+    else if (t.hero_force < t.monster_force) t.outcome = ROUND_MONSTER_HITS;
+    else                                     t.outcome = ROUND_DODGE;
+    *out = t;
 }
 
 int combat_apply(Character* c, Monster* m, const Round* r, int use_luck)
