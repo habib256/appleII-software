@@ -13,7 +13,7 @@ need is to find an inn to spend a good night's sleep.
 
    Which will you choose?
 
-MU VILLAGE.MB
+MU COURBENS.MB
 C 395 The Black Bear
 C 078 The Twisted Lance
 C 289 Tancred's Flying Horse

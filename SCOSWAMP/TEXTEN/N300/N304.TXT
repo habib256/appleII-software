@@ -11,6 +11,6 @@ you want from the Bird Mistress?" it asks.
 
    What will you do?
 
-MU MARAISUD.MB
+MU OISEAUX.MB
 C 071 Attack the Parrot
 C 131 Ask to meet its Mistress

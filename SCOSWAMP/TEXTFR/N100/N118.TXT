@@ -9,5 +9,5 @@ voyez des dizaines de petits scorpions accourir vers vous.
 
    Tentez votre Chance.
 
-MU DANGER.MB
+MU SCORPIONS.MB
 CL 070 182

@@ -20,7 +20,7 @@ d'intentions amicales.
 
    Quel est le sorcier que vous servez ?
 
-MU MARAISNO.MB
+MU JARDINS.MB
 C 036 Gayolard
 C 084 Pompatarte
 C 334 Stratagus

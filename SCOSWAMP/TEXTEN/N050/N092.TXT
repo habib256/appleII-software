@@ -9,6 +9,6 @@ vegetation gives way to a deep forest.
    You listen, but nothing abnormal disturbs the silence. Then, suddenly, two
 enormous wolves appear and stare at you in the shadow.
 
-MU MARAISNO.MB
+MU LOUPS.MB
 CI LOUP 344 If you possess the Wolf-shaped Amulet
 CN LOUP 068 Otherwise

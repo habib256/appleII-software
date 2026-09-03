@@ -6,7 +6,7 @@ et juteuse.
 
    Que faites-vous?
 
-MU MARAISNO.MB
+MU LOUPS.MB
 C 020 Manger la baie sur-le-champ
 C 232 La cueillir et la ranger soigneusement
 C 342 La laisser et reprendre la route vers le sud

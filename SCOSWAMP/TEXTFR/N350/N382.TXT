@@ -16,7 +16,7 @@ l'utiliser a nouveau si jamais vous repassez par la suite dans cette
 clairiere. Si vous disposez de l'une ou l'autre de ces Pierres de Magie, vous
 pouvez en faire usage.
 
-MU DANGER.MB
+MU SABLES.MB
 C 270 Utiliser une Pierre de Magie
 C 190 Essayer de sauter par-dessus les Sables
 C 223 Rebrousser chemin

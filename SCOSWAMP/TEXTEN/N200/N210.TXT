@@ -7,6 +7,6 @@ earth.
    A heavy silence weighs between the trees, as if the place holds its breath,
 awaiting your decision.
 
-MU DANGER.MB
+MU BETE.MB
 C 243 If the creature is dead and the place is safe
 C 143 If the Foul Beast still lives in the clearing

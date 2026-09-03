@@ -6,6 +6,6 @@ T 137 Return Facing the Slime
 
    Otherwise, it blocks your way again. Its wounds have completely healed.
 
-MU DANGER.MB
+MU VASE.MB
 C 153 Continue your journey
 C 336 Go back to find a solution

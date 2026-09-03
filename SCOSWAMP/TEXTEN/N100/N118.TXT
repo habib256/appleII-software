@@ -9,5 +9,5 @@ small scorpions rushing toward you.
 
    Test your Luck.
 
-MU DANGER.MB
+MU SCORPIONS.MB
 CL 070 182

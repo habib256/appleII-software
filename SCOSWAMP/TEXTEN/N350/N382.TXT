@@ -13,7 +13,7 @@ on which you can walk safely. This path will remain there permanently and you
 can therefore use it again if you ever pass through this clearing again. If
 you have one or the other of these Magic Stones, you can make use of it.
 
-MU DANGER.MB
+MU SABLES.MB
 C 270 Use a Magic Stone
 C 190 Try to jump over the Sand
 C 223 Turn back

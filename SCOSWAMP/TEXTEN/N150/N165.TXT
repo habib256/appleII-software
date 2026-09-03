@@ -8,6 +8,6 @@ darker undergrowth.
 
    What do you do?
 
-MU DANGER.MB
+MU ARAIGNEES.MB
 C 388 Take the northern path
 C 105 Take the southern path

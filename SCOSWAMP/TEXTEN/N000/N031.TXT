@@ -10,7 +10,7 @@ connects you to the outside world.
 
    What do you do?
 
-MU MARAISUD.MB
+MU CRISTAL.MB
 C 047 Leave the place by returning west
 C 394 Wait a few minutes to observe
 C 077 Drink the water from the pool

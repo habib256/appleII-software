@@ -12,7 +12,7 @@ prendre des risques inutiles.
 
    Que faites-vous?
 
-MU MARAISNO.MB
+MU BRIGANDS.MB
 C 137 Revenir sur vos pas le long du chemin emprunte
 C 231 Vous ruer sur eux en criant et brandissant votre epee
 C 387 Faire usage de magie depuis votre cachette

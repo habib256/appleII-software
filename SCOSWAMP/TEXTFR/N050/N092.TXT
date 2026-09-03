@@ -10,6 +10,6 @@ parsemee de buissons.
    Vous tendez l'oreille, mais rien d'anormal ne trouble le silence. Puis,
 soudain, deux enormes loups apparaissent et vous fixent dans l'ombre.
 
-MU MARAISNO.MB
+MU LOUPS.MB
 CI LOUP 344 Si vous possedez l'Amulette en forme de Loup
 CN LOUP 068 Sinon

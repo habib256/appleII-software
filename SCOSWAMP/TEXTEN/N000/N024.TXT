@@ -12,5 +12,5 @@ to take to find the clearing.
 
    What do you do?
 
-MU MARAISUD.MB
+MU RONDPOINT.MB
 CL 273 297 0 -2

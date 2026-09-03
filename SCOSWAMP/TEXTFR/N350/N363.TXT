@@ -5,7 +5,7 @@ Patrouilleur.
 
    Que s'est-il passe avec lui ?
 
-MU MARAISNO.MB
+MU PATROUIL.MB
 C 133 L'avez-vous quitte en bons termes
 C 234 L'avez-vous tue
 C 306 Avez-vous pris la Fuite au cours d'un combat

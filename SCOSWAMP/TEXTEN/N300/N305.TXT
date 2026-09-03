@@ -17,7 +17,7 @@ remains cold: this man is driven by friendly intentions.
 
    Which sorcerer do you serve?
 
-MU MARAISNO.MB
+MU JARDINS.MB
 C 036 Gayolard
 C 084 Pompatarte
 C 334 Stratagus

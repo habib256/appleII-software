@@ -9,7 +9,7 @@ in green, greets you from atop a rock. He's a PATROLLER.
 
    Which sorcerer do you serve?
 
-MU MARAISNO.MB
+MU PATROUIL.MB
 C 029 Stratagus
 C 262 Pompatarte
 C 076 Gayolard

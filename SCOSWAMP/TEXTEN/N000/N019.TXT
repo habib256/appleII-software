@@ -8,6 +8,6 @@ less traveled; it may hide surprises or offer a secret shortcut.
 
    Which direction do you choose?
 
-MU MARAISNO.MB
+MU BRIGANDS.MB
 C 280 Take the wide path to the north
 C 137 Take the narrow path to the east

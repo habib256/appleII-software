@@ -6,5 +6,5 @@ T 303 Return of the Scorpions
 indeed they are, rushing toward you from all sides. But this time, you're
 ready to face them.
 
-MU DANGER.MB
+MU SCORPIONS.MB
 C 070 Face the Scorpions

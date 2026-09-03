@@ -4,7 +4,7 @@ T 319 Choose a Direction
 
    Where do you wish to go?
 
-MU DANGER.MB
+MU SCORPIONS.MB
 C 138 North
 C 047 East
 C 066 West

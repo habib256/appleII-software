@@ -4,6 +4,6 @@ T 330 Le tronc creux
 calme, mais vous savez que le tronc a deja abrite autre chose que des
 ossements.
 
-MU MARAISUD.MB
+MU TRONC.MB
 C 129 Si vous y avez vu une creature lors d'une precedente visite
 C 268 Examiner la clairiere

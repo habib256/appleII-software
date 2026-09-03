@@ -13,7 +13,7 @@ bois; ses griffes lacerent la terre.
 
    Que faites-vous?
 
-MU DANGER.MB
+MU BETE.MB
 C 176 L'affronter en combat
 C 102 Prendre la fuite immediatement
 C 374 Essayer de lui jeter un sort

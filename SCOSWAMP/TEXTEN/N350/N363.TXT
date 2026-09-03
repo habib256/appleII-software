@@ -4,7 +4,7 @@ T 363 Return to the Patroller
 
    What happened with him?
 
-MU MARAISNO.MB
+MU PATROUIL.MB
 C 133 Did you leave on good terms
 C 234 Did you kill him
 C 306 Did you Flee during a combat

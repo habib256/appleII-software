@@ -6,7 +6,7 @@ the southern path.
 
    What do you do?
 
-MU MARAISNO.MB
+MU LOUPS.MB
 G BA
 C 389 I serve Gayolard
 C 342 Leave the clearing and resume southward
