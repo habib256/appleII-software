@@ -31,7 +31,11 @@ purement decoratives (----- / =====) sautent, la barre de titre les remplace.
 import re, sys, textwrap
 from pathlib import Path
 
-BODY_ROWS   = 19   # lignes 2..20
+# Le moteur laisse maintenant TOUJOURS la ligne 2 vide sous la barre de titre :
+# le corps commence ligne 3 et s'arrete ligne 20. Le budget passe donc de 19 a
+# 18 rangs. Les lignes vides du corps -- celles qui font les paragraphes --
+# comptent dedans : wrap() les rend telles quelles, une seule a la fois.
+BODY_ROWS   = 18   # lignes 3..20, la 2 etant la marge sous le titre
 CHOICE_ROWS = 4    # lignes 21..24
 MAX_FOES    = 3    # doit suivre MAX_FOES dans scoswamp.c
 # Les trois bornes du moteur. Elles ne sont pas decoratives : ce qui les
