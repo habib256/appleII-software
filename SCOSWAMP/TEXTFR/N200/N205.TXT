@@ -1,11 +1,11 @@
 T 205 Grognard, la biere et les sorciers
 
-Grognard commande un autre pichet et vous parle des trois sorciers :
+   Grognard commande un autre pichet et vous parle des trois sorciers :
 
-- **Gayolard** est selon lui un bon sorcier. - **Stratagus** s'est tourne vers
-le Mal. - **Pompatarte** est un mystere, puissant, mais imprevisible.
+   Gayolard est selon lui un bon sorcier. Stratagus s'est tourne vers le Mal.
+Pompatarte est un mystere, puissant, mais imprevisible.
 
-Tous trois recrutent un aventurier pour explorer le Marais.
+   Tous trois recrutent un aventurier pour explorer le Marais.
 
 C 335 Gayolard, le bon sorcier
 C 255 Stratagus, au service du Mal

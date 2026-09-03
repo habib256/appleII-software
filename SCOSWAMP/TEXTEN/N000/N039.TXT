@@ -1,11 +1,11 @@
 T 039 Soothed Unicorn
 
-You cast a Friendship spell; the unicorn looks at you, suspicious.
+   You cast a Friendship spell; the unicorn looks at you, suspicious.
 
-Obviously, it doesn't trust humans, but your magic works. Gradually it stops
-watching you and goes back to grazing. You see it slowly move away; the
+   Obviously, it doesn't trust humans, but your magic works. Gradually it
+stops watching you and goes back to grazing. You see it slowly move away; the
 atmosphere becomes calm again.
 
-What do you do?
+   What do you do?
 
 C 348 Continue the journey to the next clearing

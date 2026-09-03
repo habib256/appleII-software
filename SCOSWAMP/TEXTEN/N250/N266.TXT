@@ -1,9 +1,9 @@
 T 266 The Gold Bag
-GA 250
 
-He throws you a gold bag that you catch in flight. Without a word, you turn
+   He throws you a gold bag that you catch in flight. Without a word, you turn
 around and walk along the dark corridor toward the door with the hideous
 sculpture. The step is heavy, the air is thick; you head toward the next
 stage.
 
+GA 250
 C 242 Continue toward the door with the sculpture

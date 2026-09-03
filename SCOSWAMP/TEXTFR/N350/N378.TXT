@@ -1,11 +1,12 @@
 T 378 Combat contre le Patrouilleur
 
-Le Patrouilleur n'est pas un sot et il sent bien que vous travaillez pour le
-compte d'un sorcier malefique. Il saute alors a bas de son rocher et vous
+   Le Patrouilleur n'est pas un sot et il sent bien que vous travaillez pour
+le compte d'un sorcier malefique. Il saute alors a bas de son rocher et vous
 attaque.
 
-Vous pourrez, a tout moment, prendre la Fuite.
+   Vous pourrez, a tout moment, prendre la Fuite.
 
+MU +COMBAT.MB
 M 10 10 PATROUILLEUR
 CF 234 Prendre la Fuite
 MV 219

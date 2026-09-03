@@ -1,10 +1,10 @@
 T 278 Terror Stone
 
-You want to frighten the Brigands to make them flee, but without harming them
-and you therefore use against them a Terror Stone. A moment later, you leap
-from behind the trees yelling and brandishing your sword.
+   You want to frighten the Brigands to make them flee, but without harming
+them and you therefore use against them a Terror Stone. A moment later, you
+leap from behind the trees yelling and brandishing your sword.
 
-The Brigands are terrified, they think you're part of a real army come to
+   The Brigands are terrified, they think you're part of a real army come to
 invade their territory and they flee at full speed, disappearing among the
 trees surrounding the clearing. You then pass before them running while they
 bury themselves in the mud to better hide. The way is clear for you and you go

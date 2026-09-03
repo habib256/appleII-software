@@ -1,11 +1,11 @@
 T 236 La chaise de l'aubergiste
 
-Epuise par le long voyage, vous descendez l'escalier quatre a quatre.
+   Epuise par le long voyage, vous descendez l'escalier quatre a quatre.
 Brandissant votre epee, vous menacez les joyeux fetards reunis. Ils repondent
 par des eclats de rire qui enflent la salle.
 
-L'aubergiste saisit une chaise et vous frappe le bras d'un grand coup. Votre
-epee tombe a terre; votre bras est contusionne. Vous perdez 2 points
+   L'aubergiste saisit une chaise et vous frappe le bras d'un grand coup.
+Votre epee tombe a terre; votre bras est contusionne. Vous perdez 2 points
 d'HABILETE. Il est vain de combattre tous ces hommes: vous retournez dans
 votre chambre.
 

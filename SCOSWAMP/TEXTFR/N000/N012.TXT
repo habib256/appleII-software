@@ -1,12 +1,13 @@
 T 012 Le Geant
 
-Le GEANT se bat en poussant des cris de fureur. Il est doue d'une force
+   Le GEANT se bat en poussant des cris de fureur. Il est doue d'une force
 extraordinaire mais, par chance pour vous, ses gestes sont plutot maladroits
 et sa massue ne vous frappe que rarement.
 
-Lorsqu'elle atteint son but, cependant, vous perdez 4 points d'ENDURANCE au
+   Lorsqu'elle atteint son but, cependant, vous perdez 4 points d'ENDURANCE au
 lieu de 2 en raison de la puissance du coup. Aussi, faites attention !
 
+MU +COMBAT.MB
 M 9 12 GEANT
 MD 4
 MS 6

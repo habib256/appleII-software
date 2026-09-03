@@ -1,16 +1,16 @@
 T 350 Le nid de l'Aigle
-V 331
+V 331 202 025 112
 
-Un arbre immense, plante dans un sol dur et nu, se dresse au milieu de la
+   Un arbre immense, plante dans un sol dur et nu, se dresse au milieu de la
 clairiere dans laquelle vous vous trouvez. Au sommet de cet arbre, un nid
-gigantesque a ete amenage a l'aide de branchages. Vous etes dans la Clairiere
-n 16.
+gigantesque a ete amenage a l'aide de branchages.
 
-Vous vous arretez au pied de l'arbre pour contempler ce grand nid, mais,
+   Vous vous arretez au pied de l'arbre pour contempler ce grand nid, mais,
 bientot, vous entendez un battement d'ailes derriere vous et vous apercevez un
 AIGLE enorme qui vole au-dessus de la clairiere en vous observant
 attentivement. Avez-vous :
 
+MU AIGLE.MB
 CI PL 392 Des Plumes de Perroquet
 CI OISEAU 025 Une Amulette d'Argent en forme d'oiseau
 C 233 Ni les unes ni l'autre

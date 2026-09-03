@@ -1,6 +1,6 @@
 T 291 Ineffective Fire Stone
 
-You throw your Fire Magic Stone at the Basin Beast, but the creature is damp
-and slimy: it therefore cannot burn. All that's left is to fight it.
+   You throw your Fire Magic Stone at the Basin Beast, but the creature is
+damp and slimy: it therefore cannot burn. All that's left is to fight it.
 
 C 082 Fight the creature

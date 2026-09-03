@@ -1,11 +1,11 @@
 T 262 Au service de Pompatarte
 
-"Je suis au service de Pompatarte le marchand A , repondez-vous calmement.
+   "Je suis au service de Pompatarte le marchand", repondez-vous calmement.
 
-Vous ajoutez que vous ne savez s'il est bon ou mal, et que vous ne faites que
-lui dessiner une carte pour l'aider a traverser le Marais. Le ton est neutre,
-la verite partielle - assez pour obtenir une reponse sans conflit. Selon votre
-parcours precedent, deux directions s'offrent a vous.
+   Vous ajoutez que vous ne savez s'il est bon ou mal, et que vous ne faites
+que lui dessiner une carte pour l'aider a traverser le Marais. Le ton est
+neutre, la verite partielle - assez pour obtenir une reponse sans conflit.
+Selon votre parcours precedent, deux directions s'offrent a vous.
 
 C 166 Je suis deja parvenu jusqu'a Courbensaule
 C 115 Je ne suis pas encore parvenu a Courbensaule

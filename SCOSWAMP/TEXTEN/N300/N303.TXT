@@ -1,9 +1,10 @@
 T 303 Return of the Scorpions
 
-You're back in the clearing where you were attacked by the Scorpions.
+   You're back in the clearing where you were attacked by the Scorpions.
 
-You cast a worried look around you to see if they're still there, and...
+   You cast a worried look around you to see if they're still there, and...
 indeed they are, rushing toward you from all sides. But this time, you're
 ready to face them.
 
+MU SCORPIONS.MB
 C 070 Face the Scorpions

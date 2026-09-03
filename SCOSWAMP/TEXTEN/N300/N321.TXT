@@ -1,9 +1,9 @@
 T 321 Swim to the Bridge
 
-You think you might perhaps reach the bridge by swimming in the river.
+   You think you might perhaps reach the bridge by swimming in the river.
 
-Perhaps there even exists somewhere an eastward-oriented path you could take.
-You'll in any case have a long distance to cover and you prepare for it
+   Perhaps there even exists somewhere an eastward-oriented path you could
+take. You'll in any case have a long distance to cover and you prepare for it
 carefully.
 
 C 030 Prepare

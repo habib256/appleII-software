@@ -1,7 +1,8 @@
 T 265 Unicorn Clearing
 
-You're back in the clearing where you had encountered the Unicorn, but the
+   You're back in the clearing where you had encountered the Unicorn, but the
 place is deserted now; silence weighs. Traces on the ground show the creature
 has left. The road calls you, it's time to advance.
 
+MU LICORNE.MB
 C 348 Continue out of the clearing

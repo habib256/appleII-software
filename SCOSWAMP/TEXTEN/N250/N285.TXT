@@ -1,10 +1,10 @@
 T 285 Weakness Spell
 
-The evil Sorcerer is furious and decides to annihilate you instantly. "Prepare
-to die, insolent worm!" he launches.
+   The evil Sorcerer is furious and decides to annihilate you instantly.
+"Prepare to die, insolent worm!" he launches.
 
-He then makes a hand gesture and casts a Weakness spell on you. You lose half
-of your STAMINA points, and you must now fight or die.
+   He then makes a hand gesture and casts a Weakness spell on you. You lose
+half of your STAMINA points, and you must now fight or die.
 
 C 124 Attack the Sorcerer with your sword
 C 256 Face him by resorting to magic

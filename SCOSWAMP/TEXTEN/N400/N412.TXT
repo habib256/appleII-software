@@ -1,20 +1,21 @@
 T 412 The Square of Marshville
 V 413
 
-You leave Grognard to his tankard and push open the tavern door. Outside,
+   You leave Grognard to his tankard and push open the tavern door. Outside,
 Marshville lies in the sun: a beaten-earth township set on the low lands, the
 last one before the Swamp. Travellers pass through every day and nobody turns
 to look at your steel helmet.
 
-On the square, an old man dozes against his shop window. Further on, the
+   On the square, an old man dozes against his shop window. Further on, the
 market is loud with shouting and poultry; a large house takes up one whole
 side of it, its shutters closed. The street ends at the edge of the village,
 among gardens. And to the north, where the ground turns soft, a black tower
 stands out against the sky.
 
-Three men of this village are looking for an adventurer. There is no hurry
+   Three men of this village are looking for an adventurer. There is no hurry
 yet: Grognard is waiting, and his tankard is full.
 
+MU VILLAGE.MB
 C 414 The taproom
 C 415 The old man's shop
 C 416 The end of the village

@@ -1,0 +1,62 @@
+LE MARAIS AUX SCORPIONS - CARTE DES CLAIRIERES
+NORD ^   C=COURBENSAULE  *1=DEPART p.195  -=SANS NUMERO
+
+ [ C ]                 [19 ] ---- [27 ]      [11 ]
+   |                     |                     |
+   |        [15 ] ---- [ - ] --------------- [ 7 ]
+   |          |          |                     |
+ [ 9 ] ---- [28 ]      [32 ] ---- [16 ] ---- [30 ]
+                                    |
+            [33 ] ---- [20 ]      [35 ]
+              |          |          |
+ [14 ]      [ - ]      [9b ] ---- [13 ] ---- [ 3 ] ---- [21 ]
+   ^          |          |                     |
+ [23 ] ---- [29 ] ---- [ 5 ] ---- [24 ] ---- [26 ]
+              |                     |          |
+ [ - ] ---- [18 ]                 [17 ]      [ 8 ]
+              |                     |
+            [34 ]                   |
+              |                     |
+            [ 4 ] ---- [*1 ] ---- [12 ] ---- [25 ]
+
+RIVIERE CROUPIE: LIGNE y=3; PONT UNIQUE EN CLAIRIERE 35.
+--/| RECIPROQUE   ->/^/v SENS UNIQUE   LONG TRAIT: 2 CASES
+PIEGE: 15 --(FEU FOLLET, SENS UNIQUE)--> 1
+MISSIONS: GAYOLARD=11; POMPATARTE=C; STRATAGUS=4,27,17,8,14.
+
+LIEUX (numero: titre; pages)
+   -: Route de Courbensaule; pages 280,355,078,150,408
+  19: Le Patrouilleur vert; pages 170,363,234
+  27: Le Maitre des Jardins; pages 305,238,363,084,117,251,283,396
+  11: Les deux loups; pages 092,232,247,389
+  15: Feu follet a l'oree; pages 218,249
+   -: Le croisement; pages 121
+   7: Le Geant; pages 275,342,161,103,244
+   9: Clairiere aux brigands; pages 065,343,019
+  28: Le bassin de Vase; pages 336,137,153
+  32: Scorpion et nain; pages 014,338,088
+  16: Le nid de l'Aigle; pages 350,331,025,112,202
+  30: Sables mouvants; pages 041,382,270
+  33: La Riviere Croupie; pages 295
+  20: Sommet de la falaise; pages 183
+  35: Le pont sur la riviere Croupie; pages 138,045,101
+  14: Le Perroquet / Maitresse des Oiseaux; pages 304,149,217
+   -: La brume fetide; pages 094
+9bis: Le pique-nique suspect; pages 066,192,179
+  13: La clairiere des scorpions; pages 118,303,319
+   3: Trois chemins herbeux; pages 047,394
+  21: Bassin de cristal; pages 031,077,394
+  23: Les Fleurs d'Angoisse; pages 204,250,367
+  29: La Licorne; pages 320,265,348
+   5: La clairiere des combats; pages 010,142,227
+  24: Herbe a Pinces; pages 388,263,033,187
+  26: Orques des Marais; pages 290,323,352,309
+   -: Cul-de-sac de la Bete; pages 011,210,299,125,228,243
+  18: La clairiere des Arbres-Epees; pages 157,279,022
+  17: Tente aux araignees; pages 144,345,354,165
+   8: Clairiere des grenouilles; pages 053,329,230
+  34: La riviere profonde; pages 090,044,254,370
+   4: Clairiere du Maitre des Loups; pages 398,239,314
+   1: Clairiere n 1 (rond-point); pages 195,024,208,058,404,405
+  12: Pierres et tronc; pages 105,330,390
+  25: Bete du bassin; pages 209,330,082,308,397

@@ -1,13 +1,13 @@
 T 029 Useful Lie
 
-You conclude that it would be stupid to reveal that you serve a sorcerer. You
-lie: "I serve the forces of Good. For now I'm only seeking the way out of the
-Swamp; I'm looking for one of the Masters."
+   You conclude that it would be stupid to reveal that you serve a sorcerer.
+You lie: "I serve the forces of Good. For now I'm only seeking the way out of
+the Swamp; I'm looking for one of the Masters."
 
-Test your Luck: fate decides if your lie goes unnoticed. If fortune smiles
+   Test your Luck: fate decides if your lie goes unnoticed. If fortune smiles
 upon you, the ruse works and he believes you. If misfortune strikes you, your
 lie betrays you.
 
-What do you do?
+   What do you do?
 
 CL 185 378

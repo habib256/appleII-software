@@ -1,10 +1,10 @@
 T 016 Inquisitive Gaze
 
-Something in your voice betrays you; he makes hand gestures while staring at
-you with an inquisitive gaze. You have the impression he's probing your
+   Something in your voice betrays you; he makes hand gestures while staring
+at you with an inquisitive gaze. You have the impression he's probing your
 thoughts, as if reading the hidden truth behind your words. A heavy silence
 settles; your breathing suddenly seems important.
 
-What do you do?
+   What do you do?
 
 C 198 Answer evasively and change the subject

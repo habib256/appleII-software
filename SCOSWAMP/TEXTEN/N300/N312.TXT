@@ -1,8 +1,9 @@
 T 312 The Giant Scorpion
 
-The Giant Scorpion threatens you with its pincers. It's not seriously wounded:
-obviously, the Dwarf wasn't a very skilled fighter.
+   The Giant Scorpion threatens you with its pincers. It's not seriously
+wounded: obviously, the Dwarf wasn't a very skilled fighter.
 
+MU +COMBAT.MB
 M 9 10 GIANT SCORPION
 CF 088 Flee
 MV 324

@@ -1,6 +1,6 @@
 T 344 Les Loups fuient
 
-Les Loups baissent l'oreille et se mettent a gemir puis ils se hatent de
+   Les Loups baissent l'oreille et se mettent a gemir puis ils se hatent de
 disparaitre.
 
 C 247 Continuer

@@ -1,10 +1,10 @@
 T 016 Regard inquisiteur
 
-Quelque chose dans votre voix vous trahit; il fait des gestes de la main en
+   Quelque chose dans votre voix vous trahit; il fait des gestes de la main en
 vous fixant d'un regard inquisiteur. Vous avez l'impression qu'il sonde vos
-penses, comme s'il lisait l'evidence cache derriere vos mots. Un silence lourd
-s'installe; votre respiration semble soudain importante.
+pensees, comme s'il lisait l'evidence cachee derriere vos mots. Un silence
+lourd s'installe; votre respiration semble soudain importante.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 198 Repondre evasivement et changer de sujet

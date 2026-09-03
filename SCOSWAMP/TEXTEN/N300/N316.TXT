@@ -1,9 +1,9 @@
 T 316 No More Magic Stones
 
-Unfortunately, you have no more Magic Stones left.
+   Unfortunately, you have no more Magic Stones left.
 
-"Too bad," he says, "I would have liked to help you, but Healing Potions cost
-dearly and I've already lost enough money in this enterprise."
+   "Too bad," he says, "I would have liked to help you, but Healing Potions
+cost dearly and I've already lost enough money in this enterprise."
 
 C 100 Leave right now
 C 341 Attack Pompatarte

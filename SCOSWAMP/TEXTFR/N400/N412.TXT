@@ -1,20 +1,21 @@
 T 412 La place de Bourbenville
 V 413
 
-Vous laissez Grognard a sa chope et poussez la porte de la taverne. Dehors,
+   Vous laissez Grognard a sa chope et poussez la porte de la taverne. Dehors,
 Bourbenville s'etale au soleil : une bourgade de terre battue posee sur les
 basses terres, la derniere avant le Marais. Des voyageurs y passent tous les
 jours et personne ne se retourne sur votre heaume d'acier.
 
-Sur la place, un vieil homme somnole contre la vitrine de sa boutique. Plus
+   Sur la place, un vieil homme somnole contre la vitrine de sa boutique. Plus
 loin, le marche bruit de cris et de volailles ; une grande maison en occupe
 tout un cote, volets clos. La rue se termine au bout du village, sur des
 jardins. Et vers le nord, la ou la terre devient molle, une tour noire se
 decoupe sur le ciel.
 
-Trois hommes de ce village cherchent un aventurier. Rien ne presse encore :
+   Trois hommes de ce village cherchent un aventurier. Rien ne presse encore :
 Grognard vous attend, et sa chope est pleine.
 
+MU VILLAGE.MB
 C 414 La salle de la taverne
 C 415 La boutique du vieil homme
 C 416 Le bout du village

@@ -1,13 +1,13 @@
 T 113 The Spider Blaze
 
-The idea comes to you that spider webs burn wonderfully. You throw a Fire
+   The idea comes to you that spider webs burn wonderfully. You throw a Fire
 Stone at the Spider Master: his clothes immediately catch fire.
 
-He collapses screaming, and the fire races across the entire clearing.
+   He collapses screaming, and the fire races across the entire clearing.
 Curtains of flames rise and reduce to ashes the repugnant creature lurking in
 these places.
 
-The heat is so intense that you give up searching. You flee this blaze, not
+   The heat is so intense that you give up searching. You flee this blaze, not
 without suffering burns that cost you 3 STAMINA points.
 
 E ENDURANCE -3

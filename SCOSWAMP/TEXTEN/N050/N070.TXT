@@ -1,12 +1,12 @@
 T 070 Scorpions on the Path
 
-Scorpions bar the passage, their carapace shiny and venomous.
+   Scorpions bar the passage, their carapace shiny and venomous.
 
-You must react quickly: Walk on them and strike with your sword to try to
+   You must react quickly: Walk on them and strike with your sword to try to
 crush them. Use a Magic Fire Stone to make them flee. Jump over them in one
 leap and reach the nearby shelter.
 
-What do you do?
+   What do you do?
 
 CU FEU 110 Use a Magic Fire Stone
 C 216 Walk on them and strike with your sword

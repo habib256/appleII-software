@@ -1,10 +1,10 @@
 T 213 Saving Reflex
 
-The Copper Ring suddenly starts burning your finger. Danger is near. Without
-thinking, you throw yourself backward, narrowly avoiding the cord a man was
-trying to pass around your neck.
+   The Copper Ring suddenly starts burning your finger. Danger is near.
+Without thinking, you throw yourself backward, narrowly avoiding the cord a
+man was trying to pass around your neck.
 
-The Thief, surprised, loses his balance and you take advantage of the moment
-to straighten up, ready to retaliate.
+   The Thief, surprised, loses his balance and you take advantage of the
+moment to straighten up, ready to retaliate.
 
 C 267 You leap up to face the Thief

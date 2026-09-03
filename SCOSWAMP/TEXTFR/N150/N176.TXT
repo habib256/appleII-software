@@ -1,10 +1,11 @@
 T 176 La Bete Immonde
 
-Une creature monstrueuse surgit devant vous: peau epaisse, griffes geantes,
+   Une creature monstrueuse surgit devant vous: peau epaisse, griffes geantes,
 regard de fureur.
 
-Elle bondit avec une souplesse inattendue et vous comprenez qu'aucune fuite
+   Elle bondit avec une souplesse inattendue et vous comprenez qu'aucune fuite
 n'est possible. Le combat sera total, jusqu'a la mort.
 
+MU +COMBAT.MB
 M 9 10 BETE IMMONDE
 MV 125

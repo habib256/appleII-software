@@ -1,10 +1,12 @@
 T 171 Combat Against the Slime
 
-The creature standing before you is a viscous mass and powerful, almost
+   The creature standing before you is a viscous mass and powerful, almost
 without intelligence but of terrible strength.
 
-You can choose to flee at any time, but you will have to retrace your steps.
+   You can choose to flee at any time, but you will have to retrace your
+steps.
 
+MU +COMBAT.MB
 M 5 17 SLIME
 CF 153 Flee
 MV 038

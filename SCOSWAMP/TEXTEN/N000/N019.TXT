@@ -1,12 +1,13 @@
 T 019 Two Paths
 
-You arrive at an opening where two paths divide before you.
+   You arrive at an opening where two paths divide before you.
 
-One, to the north, is wide and well-marked: many travelers have taken it; it
-seems safer and faster. The other, to the east, is narrow, more shaded and
+   One, to the north, is wide and well-marked: many travelers have taken it;
+it seems safer and faster. The other, to the east, is narrow, more shaded and
 less traveled; it may hide surprises or offer a secret shortcut.
 
-Which direction do you choose?
+   Which direction do you choose?
 
+MU BRIGANDS.MB
 C 280 Take the wide path to the north
 C 137 Take the narrow path to the east

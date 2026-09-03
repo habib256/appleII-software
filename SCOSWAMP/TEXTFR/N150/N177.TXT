@@ -1,9 +1,9 @@
 T 177 Le Geant pacifique
 
-Le Geant pousse un long soupir et baisse les bras. Sa colere s'est eteinte, et
-vous comprenez qu'il ne veut plus se battre.
+   Le Geant pousse un long soupir et baisse les bras. Sa colere s'est eteinte,
+et vous comprenez qu'il ne veut plus se battre.
 
-Vous ne pouvez rien faire pour lui, sinon respecter sa lassitude. Sans un mot,
-vous reprenez la route et passez devant lui.
+   Vous ne pouvez rien faire pour lui, sinon respecter sa lassitude. Sans un
+mot, vous reprenez la route et passez devant lui.
 
 C 161 Poursuivre votre chemin

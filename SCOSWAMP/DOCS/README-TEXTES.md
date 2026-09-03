@@ -2,9 +2,9 @@
 
 ## 📊 Vue d'ensemble
 
-- **Total de scènes** : 419 scènes de jeu (N000 à N418)
-- **Fichiers français** : 419 fichiers .TXT (TEXTFR/) ✓ 100% complet
-- **Fichiers anglais** : 419 fichiers .TXT (TEXTEN/) ✓ 100% complet
+- **Total de scènes** : 420 scènes de jeu (N000 à N419)
+- **Fichiers français** : 420 fichiers .TXT (TEXTFR/) ✓ 100% complet
+- **Fichiers anglais** : 420 fichiers .TXT (TEXTEN/) ✓ 100% complet
 - **Support bilingue** : Français et Anglais intégralement traduits
 - **Organisation** : Par tranches de 50 (N000/, N050/, N100/, etc.)
 - **Conformité** : 100% des fichiers ≤18 lignes ✓
@@ -97,7 +97,7 @@ C 095 Choix numéro 2 (texte du choix)
 ### Structure complète bilingue
 
 ```
-TEXTFR/ (Version française - 419 fichiers)
+TEXTFR/ (Version française - 420 fichiers)
 ├── N000/  (scènes 0-49)    → 50 fichiers
 │   ├── N000.TXT (titre du jeu)
 │   ├── N001.TXT
@@ -109,9 +109,9 @@ TEXTFR/ (Version française - 419 fichiers)
 ├── N250/  (scènes 250-299) → 50 fichiers
 ├── N300/  (scènes 300-349) → 50 fichiers
 ├── N350/  (scènes 350-399) → 50 fichiers
-└── N400/  (scènes 400-418) → 19 fichiers
+└── N400/  (scènes 400-419) → 20 fichiers
 
-TEXTEN/ (Version anglaise - 419 fichiers)
+TEXTEN/ (Version anglaise - 420 fichiers)
 ├── N000/  (scenes 0-49)    → 50 fichiers
 │   ├── N000.TXT (game title)
 │   ├── N001.TXT
@@ -123,7 +123,7 @@ TEXTEN/ (Version anglaise - 419 fichiers)
 ├── N250/  (scenes 250-299) → 50 fichiers
 ├── N300/  (scenes 300-349) → 50 fichiers
 ├── N350/  (scenes 350-399) → 50 fichiers
-└── N400/  (scenes 400-411) → 12 fichiers
+└── N400/  (scenes 400-419) → 20 fichiers
 ```
 
 ### Correspondance des fichiers
@@ -139,7 +139,7 @@ Chaque fichier français a son équivalent anglais :
 ### Statut : 100% complète ✓
 
 - **Date de traduction** : Octobre 2024
-- **Fichiers traduits** : 419 fichiers (100%)
+- **Fichiers traduits** : 420 fichiers (100%)
 - **Méthode** : Traduction manuelle préservant :
   - Les numéros de scène
   - La structure des choix (C xxx)
@@ -206,7 +206,7 @@ echo "Fichiers FR: $(find TEXTFR -name "*.TXT" | wc -l)"
 echo "Fichiers EN: $(find TEXTEN -name "*.TXT" | wc -l)"
 ```
 
-**Résultat attendu** : 419 fichiers dans chaque langue
+**Résultat attendu** : 420 fichiers dans chaque langue
 
 ## 🎯 Recommandations
 
@@ -235,6 +235,7 @@ qui se joue mecaniquement y est ecrit en clair, une directive par ligne.
 | Ligne | Effet |
 | --- | --- |
 | `T <id> <titre>` | le titre, affiche en video inverse ligne 1 |
+| `V <cible> [<page> ...]` | « si vous y etes deja venu, rendez-vous au `<cible>` » ; les numeros qui suivent sont les autres pages de la meme clairiere |
 | `M <hab> <end> <nom>` | la creature de la clairiere |
 | `MD <n>` | ses coups coutent n ENDURANCE (defaut 2) |
 | `MS <n>` | le combat cesse a n ENDURANCE (defaut 0) |
@@ -267,10 +268,28 @@ aucun fait qui ne vienne du livre.
   de Pompatarte et la tour de Stratagus (416), l'Anneau de Cuivre et ses deux
   pouvoirs (417), et ce que le village raconte des trois missions (418). Le
   seul point d'entree est un choix ajoute a la page 240 ; toutes les sorties
-  ramenent a la place, et la place ramene au 240.
+  ramenent a la place, et la place ramene au 240. Les sept portent
+  `MU VILLAGE.MB`, le theme du village, comme les pages 001, 095 et 240.
+- **419** : la presentation, entre la Feuille d'Aventure et la route. La page
+  000 y envoie son unique choix, `roll_character` joue au passage, et la 419
+  dit qui est ce personnage : l'aventurier, la vieille femme de la route du
+  Roi, l'Anneau de Cuivre et ses deux pouvoirs, et les trois hommes de
+  Bourbenville. Elle garde `MU ACCUEIL.MB` : le theme d'accueil couvre
+  desormais la creation du personnage et ne s'arrete qu'au 001, ou VILLAGE.MB
+  prend le relais.
 
-Ces sept pages n'ont pas encore d'illustration (comme 407 a 411) : une page
+Ces huit pages n'ont pas encore d'illustration (comme 407 a 411) : une page
 sans image tombe sur le texte, et le moteur le fait sans broncher.
+
+La ligne `V` a deux particularites. Elle doit **preceder tout le reste de la
+page** : le moteur court-circuite la page entiere des qu'il la lit, et une
+ligne `E` ou `P` placee avant elle serait rejouee a chaque retour. Et elle
+enumere la **clairiere**, pas la page : le livre dit « si vous *y* etes deja
+venu », or une clairiere occupe plusieurs pages -- l'arrivee, la page-hub qui
+porte les sentiers, la page de revisite ou un voisin depose parfois
+directement. Le detour se declenche si la page courante, la cible, ou l'une
+des pages citees a deja ete vue. Sans cette liste, revenir par un autre
+sentier rejouait la premiere visite : creature ressuscitee, objets redonnes.
 
 La plupart se **derivent de la prose** : `SCOSWAMP.MORE/TOOLS/reflow_txt.py
 --derive` lit le bloc de stats que la page ecrit deja en toutes lettres et en

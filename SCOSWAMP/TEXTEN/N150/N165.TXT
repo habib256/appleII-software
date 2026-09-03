@@ -1,12 +1,13 @@
 T 165 Two Paths
 
-You are in a small clearing, barely protected from the winds.
+   You are in a small clearing, barely protected from the winds.
 
-Only two paths allow you to continue your journey. The northern path climbs
+   Only two paths allow you to continue your journey. The northern path climbs
 between rocks; mists can be seen. The southern trail runs toward calmer,
 darker undergrowth.
 
-What do you do?
+   What do you do?
 
+MU ARAIGNEES.MB
 C 388 Take the northern path
 C 105 Take the southern path

@@ -1,9 +1,9 @@
 T 156 Tas de graviers
 
-A bout de souffle mais vivant, vous voyez votre adversaire reduit a un tas de
-graviers sur le sol.
+   A bout de souffle mais vivant, vous voyez votre adversaire reduit a un tas
+de graviers sur le sol.
 
-Vous eclatez de rire, lancez un regard narquois a Stratagus et jetez
+   Vous eclatez de rire, lancez un regard narquois a Stratagus et jetez
 par-dessus votre epaule le pied de la table, qui retombe sur des debris de
 bibliotheque. Stratagus contemple le desordre qui regne a present dans la
 piece.

@@ -1,9 +1,9 @@
 T 139 Retrait prudent
 
-Non, decidement, cet endroit ne vous inspire pas confiance. Vous revenez vers
-le village.
+   Non, decidement, cet endroit ne vous inspire pas confiance. Vous revenez
+vers le village.
 
-Votre Anneau refroidit et retrouve sa temperature normale.
+   Votre Anneau refroidit et retrouve sa temperature normale.
 
 C 335 Aller voir le sorcier Gayolard
 C 027 Rendre visite a Pompatarte

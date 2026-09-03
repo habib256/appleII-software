@@ -1,24 +1,26 @@
 T 305 Le Maitre des Jardins
-V 238
+V 238 084 117 251 283 396
 
-Le chemin oriente vers l'est est fort bien entretenu, les arbres et les
+   Le chemin oriente vers l'est est fort bien entretenu, les arbres et les
 buissons ont ete soigneusement tailles et leur feuillage n'envahit pas le
-sentier. Bientot, vous arrivez devant une agreable clairiere. C'est la
-Clairiere n 27. Toutes sortes de plantes et de fleurs poussent e a et la : de
-toute evidence, on en prend grand soin et l'endroit parait tout a fait
-accueillant. Cette clairiere semble d'ailleurs trop belle pour etre
-entierement naturelle, mais trop naturelle egalement pour etre vraiment un
-jardin.
+sentier.
 
-Tandis que vous jetez un coup d'oeil autour de vous, un homme s'approche : il
-est grand, large d'epaules et porte des vetements macules de terre. Vous
+   Bientot, vous arrivez devant une agreable clairiere. Toutes sortes de
+plantes et de fleurs poussent ca et la : de toute evidence, on en prend grand
+soin et l'endroit parait tout a fait accueillant. Cette clairiere semble
+d'ailleurs trop belle pour etre entierement naturelle, mais trop naturelle
+egalement pour etre vraiment un jardin.
+
+   Tandis que vous jetez un coup d'oeil autour de vous, un homme s'approche :
+il est grand, large d'epaules et porte des vetements macules de terre. Vous
 devinez cependant que vous n'avez pas affaire a un simple jardinier, car il
 porte autour du cou une Amulette d'Argent en forme de fleur : il s'agit la du
 MAITRE DES JARDINS. Votre Anneau de Cuivre reste froid : cet homme est anime
 d'intentions amicales.
 
-Quel est le sorcier que vous servez ?
+   Quel est le sorcier que vous servez ?
 
+MU JARDINS.MB
 C 036 Gayolard
 C 084 Pompatarte
 C 334 Stratagus

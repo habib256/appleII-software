@@ -1,10 +1,10 @@
 T 091 Le saut hasardeux
 
-Devant vous s'etend une zone marecageuse qu'il va falloir franchir d'un bond.
-Vous prenez votre elan.
+   Devant vous s'etend une zone marecageuse qu'il va falloir franchir d'un
+bond. Vous prenez votre elan.
 
-Lancez deux des. Si le total est inferieur ou egal a vos points d'ENDURANCE,
-vous reussissez a franchir la zone marecageuse. Dans le cas contraire, votre
-bond est trop court.
+   Lancez deux des. Si le total est inferieur ou egal a vos points
+d'ENDURANCE, vous reussissez a franchir la zone marecageuse. Dans le cas
+contraire, votre bond est trop court.
 
 CS ENDURANCE 404 405

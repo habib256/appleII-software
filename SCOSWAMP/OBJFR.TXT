@@ -8,4 +8,5 @@ EP Epee Magique
 BJ Bijou Violet
 CO Corne de Licorne
 PL Plumes de Perroquet
+GR Graines d'Arbre-Epee
 .T

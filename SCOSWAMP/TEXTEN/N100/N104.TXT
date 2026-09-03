@@ -1,14 +1,14 @@
 T 104 The Frog Master
 
-The Frog Master jumps from his mushroom and gathers water in his hand, shaping
-it into a crystal ball. He plunges his gaze into the sphere and murmurs a few
-words, then throws it into the pond.
+   The Frog Master jumps from his mushroom and gathers water in his hand,
+shaping it into a crystal ball. He plunges his gaze into the sphere and
+murmurs a few words, then throws it into the pond.
 
-He turns to you: "The plant you seek is to the north, but the path is winding
-and dangerous. Beware of the other Masters for not all are benevolent. And be
-kind to the Giant."
+   He turns to you: "The plant you seek is to the north, but the path is
+winding and dangerous. Beware of the other Masters for not all are benevolent.
+And be kind to the Giant."
 
-With these words, he leaps and disappears into the trees. The clearing is now
-empty.
+   With these words, he leaps and disappears into the trees. The clearing is
+now empty.
 
 C 352 Continue your journey

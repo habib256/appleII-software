@@ -1,10 +1,11 @@
 T 215 The Wolves Attack
 
-The wolves growl and leap. No time for magic. Your sword whistles and cleanly
-cuts the first's throat mid-leap.
+   The wolves growl and leap. No time for magic. Your sword whistles and
+cleanly cuts the first's throat mid-leap.
 
-The second circles around you, seeking the attack angle. You must hold firm
+   The second circles around you, seeking the attack angle. You must hold firm
 and fight to the end.
 
+MU +COMBAT.MB
 M 7 6 WOLF
 MV 247

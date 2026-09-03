@@ -1,16 +1,17 @@
 T 117 L'Amulette du Jardin
 
-Vous lancez la Pierre d'Amitie au Maitre des Jardins. Il sourit largement :
+   Vous lancez la Pierre d'Amitie au Maitre des Jardins. Il sourit largement :
 "Que puis-je faire pour vous, cher ami ?"
 
-Vous demandez son Amulette a Fleur. Il la passe a votre cou, mais des qu'elle
-vous touche, vous etes paralyse. Le Maitre des Jardins vous fixe et vous
-ordonne de dire la verite. Malgre vous, vous obeissez.
+   Vous demandez son Amulette a Fleur. Il la passe a votre cou, mais des
+qu'elle vous touche, vous etes paralyse. Le Maitre des Jardins vous fixe et
+vous ordonne de dire la verite. Malgre vous, vous obeissez.
 
-"Vous n'etes pas mauvais, dit-il, mais vous servez un maitre meprisable.
+   "Vous n'etes pas mauvais, dit-il, mais vous servez un maitre meprisable.
 Prenez garde."
 
-Il reprend son Amulette et s'en va. Peu a peu, vous retrouvez vos forces et
+   Il reprend son Amulette et s'en va. Peu a peu, vous retrouvez vos forces et
 reprenez la route vers l'ouest.
 
+MU JARDINS.MB
 C 363 Partir vers l'ouest

@@ -1,10 +1,11 @@
 T 301 Combat Against the Brigands
 
-Two Brigands rest in the clearing which seems to be their rallying point.
+   Two Brigands rest in the clearing which seems to be their rallying point.
 
-When they see you, they rise and attack you. You must fight both of them at
+   When they see you, they rise and attack you. You must fight both of them at
 once...
 
+MU +COMBAT.MB
 M 8 10 FIRST BRIGAND
 M 8 11 SECOND BRIGAND
 CF 019 Flee

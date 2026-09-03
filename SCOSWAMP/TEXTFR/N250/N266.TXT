@@ -1,9 +1,9 @@
 T 266 Le Sac d'Or
+
+   Il vous lance un sac d'or que vous attrapez au vol. Sans un mot, vous
+tournez les talons et marchez le long du couloir sombre vers la porte a la
+hideuse sculpture. Le pas est lourd, l'air est epais; vous vous dirigez vers
+la prochaine etape.
+
 GA 250
-
-Il vous lance un sac d'or que vous attrapez au vol. Sans un mot, vous tournez
-les talons et marchez le long du couloir sombre vers la porte a la hideuse
-sculpture. Le pas est lourd, l'air est epais; vous vous dirigez vers la
-prochaine etape.
-
 C 242 Continuer vers la porte a la sculpture

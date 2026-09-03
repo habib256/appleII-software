@@ -1,6 +1,6 @@
 T 220 Vain Conversation
 
-You talk at length with the Garden Master, but without learning anything
+   You talk at length with the Garden Master, but without learning anything
 useful. His Amulet shines on his neck, out of your reach, and the conversation
 fizzles without result.
 

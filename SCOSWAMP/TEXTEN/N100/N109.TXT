@@ -1,9 +1,9 @@
 T 109 The Undecided Adversary
 
-He curses and grumbles, but he has seen you fight and is not yet angry enough
-to attack you.
+   He curses and grumbles, but he has seen you fight and is not yet angry
+enough to attack you.
 
-What do you do?
+   What do you do?
 
 C 349 Leave the place
 C 124 Attack him

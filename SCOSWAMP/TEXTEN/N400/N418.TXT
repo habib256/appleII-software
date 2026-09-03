@@ -1,23 +1,24 @@
 T 418 What Is Said of the Three Men
 
-All three have let it be known the same thing: they are looking for an
+   All three have let it be known the same thing: they are looking for an
 adventurer for the Swamp, and none of them can go there himself. For the rest,
 the village talks.
 
-Gayolard, the good sorcerer, is looking for a plant. They call it the
+   Gayolard, the good sorcerer, is looking for a plant. They call it the
 Antherica; the forces of Evil have almost wiped it from the world and a single
 bush is said to remain somewhere in the Swamp. He pays in magic, they say.
 
-Pompatarte, the red-skinned merchant, is looking for a road. His caravans go
-around the Swamp and lose weeks doing it; a reliable map through to
+   Pompatarte, the red-skinned merchant, is looking for a road. His caravans
+go around the Swamp and lose weeks doing it; a reliable map through to
 Courbensaule would be worth a fortune to him, and a share of it to you.
 
-Stratagus, in his tower, is looking for silver Amulets, the ones the sorcerers
-settled in the Swamp are said to wear about their necks. He pays in gold, and
-pays well.
+   Stratagus, in his tower, is looking for silver Amulets, the ones the
+sorcerers settled in the Swamp are said to wear about their necks. He pays in
+gold, and pays well.
 
-Grognard will say only this: the first serves Good, the second is a mystery,
-the third has put himself in the service of Evil.
+   Grognard will say only this: the first serves Good, the second is a
+mystery, the third has put himself in the service of Evil.
 
+MU VILLAGE.MB
 C 412 Back to the square
 C 240 Back to Grognard's table

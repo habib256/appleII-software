@@ -1,8 +1,8 @@
 T 020 Beneficial Flavor
 
-The fruit has a delicious taste; a feeling of well-being overwhelms you.
+   The fruit has a delicious taste; a feeling of well-being overwhelms you.
 
-You recover 2 STAMINA points and 1 LUCK point immediately. You discover
+   You recover 2 STAMINA points and 1 LUCK point immediately. You discover
 nothing else of interest; it's time to leave.
 
 E ENDURANCE +2

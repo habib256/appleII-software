@@ -1,9 +1,9 @@
 T 089 The Ice Bridge
 
-You use your Magic Stone to freeze the river and create a passage. But the
+   You use your Magic Stone to freeze the river and create a passage. But the
 water course is wide and its temperature high.
 
-Under the effect of the heat, your ice bridge begins to melt dangerously...
+   Under the effect of the heat, your ice bridge begins to melt dangerously...
 
 C 325 Try to cross the bridge
 C 295 Don't trust it and retrace your steps

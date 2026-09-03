@@ -20,21 +20,24 @@ static const char* const kStoneEn[STONE_COUNT] = {
 static const char* const kObjectFr[OBJ_COUNT] = {
     "Anneau Cuivre", "Cape Rouge", "Chaine Or", "Aimant Or", "Fiole",
     "Baie Antherique", "Epee Magique", "Bijou Violet", "Corne Licorne",
-    "Plumes de Perroquet", ""
+    "Plumes de Perroquet", "Graines d'Arbre-Epee", ""
 };
 static const char* const kObjectEn[OBJ_COUNT] = {
     "Copper Ring", "Red Cape", "Gold Chain", "Gold Magnet", "Vial", "Antherique Berry",
     "Magic Sword", "Purple Jewel", "Unicorn Horn", "Parrot Feathers",
-    ""
+    "Sword Tree Seeds", ""
 };
 static const char* const kObjectKey[OBJ_COUNT] = {
-    "ANNEAU", "CAPE", "CH", "AI", "FI", "BA", "EP", "BJ", "CO", "PL", ".T"
+    "ANNEAU", "CAPE", "CH", "AI", "FI", "BA", "EP", "BJ", "CO", "PL", "GR", ".T"
 };
 static const char* const kAmuletFr[AMULET_COUNT] = {
-    "Loup", "Fleur", "Oiseau", "Araignee", "Grenouille", "Faux Oiseau"
+    "Amulette du Loup", "Amulette de la Fleur", "Amulette de l'Oiseau",
+    "Amulette de l'Araignee", "Amulette de la Grenouille",
+    "Fausse Amulette de l'Oiseau"
 };
 static const char* const kAmuletEn[AMULET_COUNT] = {
-    "Wolf", "Flower", "Bird", "Spider", "Frog", "False Bird"
+    "Wolf Amulet", "Flower Amulet", "Bird Amulet", "Spider Amulet",
+    "Frog Amulet", "False Bird Amulet"
 };
 static const char* const kAmuletKey[AMULET_COUNT] = {
     "LOUP", "FLEUR", "OISEAU", "ARAIGNEE", "GRENOUILLE", "FAUX"

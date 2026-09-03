@@ -1,14 +1,15 @@
 T 047 Three Grassy Paths
 
-You arrive in a small clearing overgrown with grass. Nothing interesting
+   You arrive in a small clearing overgrown with grass. Nothing interesting
 appears there at first sight; the air is heavy and calm.
 
-Three paths allow you to leave this clearing: south, east and west. The south
-path seems wetter; the east offers a glimpse of horizon; the west is narrow
-and bordered by tight trees. You are in Clearing No. 003.
+   Three paths allow you to leave this clearing: south, east and west. The
+south path seems wetter; the east offers a glimpse of horizon; the west is
+narrow and bordered by tight trees.
 
-What do you do?
+   What do you do?
 
+MU HERBEUX.MB
 C 290 Go south
 C 031 Take the east path
 C 118 Take the west path

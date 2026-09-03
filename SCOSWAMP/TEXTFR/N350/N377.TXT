@@ -1,9 +1,9 @@
 T 377 Saut par-dessus les Scorpions
 
-Lancez deux des. Si le total obtenu est inferieur ou egal a vos points
+   Lancez deux des. Si le total obtenu est inferieur ou egal a vos points
 d'ENDURANCE, vous parvenez a sauter par-dessus les Scorpions.
 
-Si ce total est superieur a vos points d'ENDURANCE, votre bond est trop court
-et vous vous faites piquer.
+   Si ce total est superieur a vos points d'ENDURANCE, votre bond est trop
+court et vous vous faites piquer.
 
 CS ENDURANCE 319 406

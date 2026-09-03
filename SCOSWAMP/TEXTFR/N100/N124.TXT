@@ -1,10 +1,11 @@
 T 124 Le duel final
 
-Le sorcier malefique, fou de rage, tire de sa toge une baguette qui brille
+   Le sorcier malefique, fou de rage, tire de sa toge une baguette qui brille
 soudain et se transforme en une lame dentelee.
 
-Il se met en garde. L'arme etincelle: elle est clairement magique. Ce combat
-sera le dernier de votre aventure.
+   Il se met en garde. L'arme etincelle: elle est clairement magique. Ce
+combat sera le dernier de votre aventure.
 
+MU +COMBAT.MB
 M 13 18 STRATAGUS
 MV 340

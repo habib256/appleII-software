@@ -1,12 +1,13 @@
 T 222 Stratagus's Demon
 
-An enormous horned demon surges between you and the sorcerer. Green fur,
+   An enormous horned demon surges between you and the sorcerer. Green fur,
 repulsive warts, gnarled hands like roots. Stratagus points a dry finger:
 "Kill this fool and bring me his ring." You've been reckless; you must pay the
 price.
 
-Impossible to flee: it would catch you. It has no weapon, only its monstrous
-fists: a chance remains to defeat it.
+   Impossible to flee: it would catch you. It has no weapon, only its
+monstrous fists: a chance remains to defeat it.
 
+MU +COMBAT.MB
 M 12 16 DEMON
 MV 174

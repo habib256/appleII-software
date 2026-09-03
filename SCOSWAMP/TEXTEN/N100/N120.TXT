@@ -1,13 +1,16 @@
 T 120 The Master's Wolves
 
-The Wolf Master makes a gesture and his two creatures leap at you. You must
+   The Wolf Master makes a gesture and his two creatures leap at you. You must
 fight them one after another. If you kill them, you'll then have to face the
 Master himself....
 
-If the fight turns bad, you can flee.
+   If the fight turns bad, you can flee.
 
+MU +COMBAT.MB
 M 7 5 FIRST WOLF
+MI 224
 M 6 6 SECOND WOLF
+MI 224
 M 11 10 WOLF MASTER
 CF 314 Flee
 MV 154

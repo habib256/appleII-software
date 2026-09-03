@@ -1,6 +1,7 @@
 T 343 Retour aux Brigands
 
-Vous approchez de l'endroit ou vous aviez rencontre les Brigands.
+   Vous approchez de l'endroit ou vous aviez rencontre les Brigands.
 
+MU BRIGANDS.MB
 C 199 Si vous etiez amis
 C 301 Si vous les avez fuis, trompes ou tues
