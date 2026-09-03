@@ -1,4 +1,5 @@
 T 063 Aimant rejete
+GX AI
 
 Vous fouillez dans votre sac a dos et lui offrez l'Aimant d'Or pris sur le
 cadavre du guerrier.

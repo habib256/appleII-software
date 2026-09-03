@@ -5,9 +5,9 @@ delicieuse odeur s'eleve: quelque mets mijote. Le sorcier vous accueille
 cordialement et vous regarde avec soin.
 
 Il vous pose alors une question simple et decisive: "Avez-vous la baie?" S'il
-s'agit de la fruit violet de l'Antherique, cela change tout.
+s'agit du fruit violet de l'Antherique, cela change tout.
 
 Que faites-vous?
 
-C 175 Oui, je lui rapporte la baie de l'Antherique
-C 052 Non, je ne lui ai pas rapporte la baie
+GU BA 175 Lui remettre la baie de l'Antherique
+CN BA 052 Avouer que je n'ai pas rapporte la baie

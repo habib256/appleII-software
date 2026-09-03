@@ -10,5 +10,5 @@ tete en sifflant. Vous apercevez alors trois ORQUES DESMARAIS a la peau ronge
 par la gale. Ils ont des arcs a la main, et les deux creatures qui n'ont pas
 encore tire vous decochent leurs fleches.
 
-C 083 Si vous possedez l'Aimant d'Or
-C 151 Sinon
+CI AI 083 Si vous possedez l'Aimant d'Or
+CN AI 151 Sinon

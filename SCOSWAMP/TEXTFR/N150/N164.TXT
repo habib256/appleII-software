@@ -15,6 +15,8 @@ d'elle. Elle leur murmure quelques mots, les ecoute, puis se tourne vers vous
 : "Gayolard avait raison, dit-elle doucement, il existe bien un buisson
 d'Antherique, au nord-est du Marais. Je peux t'aider a t'y rendre."
 
-Vous acceptez avec reconnaissance.
+Vous acceptez avec reconnaissance. Quelle caracteristique restaurez-vous ?
 
-C 248 Etre guide par la Maitresse des Oiseaux
+C 409 Restaurer mon HABILETE
+C 410 Restaurer mon ENDURANCE
+C 411 Restaurer ma CHANCE

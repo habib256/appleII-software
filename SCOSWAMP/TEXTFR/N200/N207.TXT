@@ -1,4 +1,5 @@
 T 207 Le paiement du sorcier
+GA 500
 
 Stratagus fronce les sourcils et un sourire mauvais eclaire son visage.
 "Insolent... mais malin !" dit-il en ouvrant une bourse de cuir. Sous votre

@@ -1,0 +1,8 @@
+T 408 Trading with Alphonse
+TR
+
+You place up to three accepted items on the counter. Alphonse takes them in
+the order he finds them in your bag, then lets you choose one neutral Magic
+Stone for each. If you have nothing suitable, no item or Stone changes hands.
+
+C 343 Leave the shop and head back south

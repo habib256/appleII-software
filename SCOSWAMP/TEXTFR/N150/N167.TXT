@@ -7,3 +7,4 @@ Laquelle allez-vous utiliser ?
 
 CU FLETRISSURE 322 Utiliser la Pierre de Fletrissure
 CU FEU 310 Utiliser la Pierre de Feu
+C 134 Combattre l'Herbe a Pinces avec votre epee

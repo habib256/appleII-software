@@ -1,4 +1,5 @@
 T 245 Discreet Theft
+G GRENOUILLE
 
 You use an Illusion Stone and take the appearance of a frog. Discreet, you
 slip among the others and sneak behind the mushroom on which the Master sits.

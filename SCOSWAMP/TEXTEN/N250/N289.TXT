@@ -1,4 +1,5 @@
 T 289 Tancred's Flying Horse
+PD
 
 The Forest Guards told you that "Tancred's Flying Horse" was the least
 expensive of the three inns and so that's where you decided to spend the
@@ -9,9 +10,9 @@ your finger wakes you abruptly. The Copper Ring is warning you that danger
 threatens. You then jump from your bed and seize your sword; at that moment, a
 shadow flees the room. You then double-lock the door and go back to bed. When
 you wake in the morning, you feel well rested and you recover 2 STAMINA
-points. Alas! you realize your night thief stole something from you. Cross out
-from your Adventure Sheet two objects of your choice, Magic Stone or other,
-except for the Copper Ring which remained on your finger. You now leave the
+points. Alas! your night thief took two possessions from your bag, starting
+with any Magic Stones lying on top. The Copper Ring remained on your finger.
+You now leave the
 inn to resume your path. Test your Luck.
 
 E ENDURANCE +2

@@ -1,4 +1,5 @@
 T 266 Le Sac d'Or
+GA 250
 
 Il vous lance un sac d'or que vous attrapez au vol. Sans un mot, vous tournez
 les talons et marchez le long du couloir sombre vers la porte a la hideuse

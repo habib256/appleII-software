@@ -1,4 +1,5 @@
 T 354 Amulette incendiaire
+G ARAIGNEE
 
 Vous retirez votre epee du cadavre de votre repugnant adversaire en poussant
 un soupir de soulagement. Mais, tout autour de vous, les Araignees vous

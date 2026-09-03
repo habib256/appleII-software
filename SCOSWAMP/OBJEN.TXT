@@ -1,14 +1,11 @@
 ANNEAU Copper Ring
 CAPE Red Cape
-CHAINE Gold Chain
-AIMANT Gold Magnet
-AMULOUP Wolf Amulet
-AMUFLEUR Flower Amulet
-FIOLE Sealed Vial
-BAIE Antherique Berry
-EPEMAGIQUE Magic Sword
-.GAYOLARD
-.POMPATARTE
-.STRATAGUS
-.ANTHERIQUE
-.AMIS
+CH Gold Chain
+AI Gold Magnet
+FI Sealed Vial
+BA Antherique Berry
+EP Magic Sword
+BJ Purple Jewel
+CO Unicorn Horn
+PL Parrot Feathers
+.T

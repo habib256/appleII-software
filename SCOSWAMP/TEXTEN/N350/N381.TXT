@@ -16,4 +16,6 @@ LUCK Stone.
 You thank the Unicorn being sure it heard you wherever it is, and you continue
 your journey.
 
+P AMITIE
+P CHANCE
 C 348 Continue

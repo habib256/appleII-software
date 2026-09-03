@@ -1,4 +1,5 @@
 T 253 Potion des Nains
+GX FI
 
 Vous buvez la potion et vous eprouvez aussitot une etrange sensation. La
 mixture etait destine a "rendre beau" celui qui la boit, mais elle a ete

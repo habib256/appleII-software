@@ -1,4 +1,6 @@
 T 340 Mort de Stratagus
+G EP
+E BONUS +2
 
 La lame de votre epee s'enfonce profondement dans sa poitrine. Il vous regarde
 alors d'un air incredule et ouvre la bouche avec l'intention manifeste de vous

@@ -16,6 +16,31 @@ static const char* const kStoneEn[STONE_COUNT] = {
     "FEAR", "WITHERING", "CURSE"
 };
 
+#pragma rodata-name (push, "LC")
+static const char* const kObjectFr[OBJ_COUNT] = {
+    "Anneau Cuivre", "Cape Rouge", "Chaine Or", "Aimant Or", "Fiole",
+    "Baie Antherique", "Epee Magique", "Bijou Violet", "Corne Licorne",
+    "Plumes de Perroquet", ""
+};
+static const char* const kObjectEn[OBJ_COUNT] = {
+    "Copper Ring", "Red Cape", "Gold Chain", "Gold Magnet", "Vial", "Antherique Berry",
+    "Magic Sword", "Purple Jewel", "Unicorn Horn", "Parrot Feathers",
+    ""
+};
+static const char* const kObjectKey[OBJ_COUNT] = {
+    "ANNEAU", "CAPE", "CH", "AI", "FI", "BA", "EP", "BJ", "CO", "PL", ".T"
+};
+static const char* const kAmuletFr[AMULET_COUNT] = {
+    "Loup", "Fleur", "Oiseau", "Araignee", "Grenouille", "Faux Oiseau"
+};
+static const char* const kAmuletEn[AMULET_COUNT] = {
+    "Wolf", "Flower", "Bird", "Spider", "Frog", "False Bird"
+};
+static const char* const kAmuletKey[AMULET_COUNT] = {
+    "LOUP", "FLEUR", "OISEAU", "ARAIGNEE", "GRENOUILLE", "FAUX"
+};
+#pragma rodata-name (pop)
+
 StoneKind stone_kind(Stone s)
 {
     if (s >= STONE_TERREUR) return STONE_MALEFIQUE;
@@ -43,6 +68,36 @@ static int same_name(const char* a, const char* b)
     return *a == *b;
 }
 
+#pragma code-name (push, "LC")
+const char* object_name(Object o, int english)
+{
+    if (o < 0 || o >= OBJ_COUNT) return "";
+    return english ? kObjectEn[o] : kObjectFr[o];
+}
+
+Object object_from_name(const char* name)
+{
+    int i;
+    for (i = 0; i < OBJ_COUNT; ++i)
+        if (same_name(name, kObjectKey[i])) return (Object)i;
+    return OBJ_COUNT;
+}
+
+const char* amulet_name(Amulet a, int english)
+{
+    if (a < 0 || a >= AMULET_COUNT) return "";
+    if (english) return kAmuletEn[a];
+    return kAmuletFr[a];
+}
+
+Amulet amulet_from_name(const char* name)
+{
+    int i;
+    for (i=0;i<AMULET_COUNT;i++) if (same_name(name,kAmuletKey[i])) return (Amulet)i;
+    return AMULET_COUNT;
+}
+#pragma code-name (pop)
+
 Stone stone_from_name(const char* name)
 {
     int i;
@@ -67,9 +122,48 @@ void character_roll(Character* c)
     /* "quelques Pieces d'Or qui vous permettront de subvenir a de menues
      * depenses" : le livre ne chiffre pas, le corpus parle en dizaines. */
     c->gold       = 20;
-    c->provisions = 0;
+    c->weapon_bonus = 0;
     for (i = 0; i < STONE_COUNT; ++i) c->stones[i] = 0;
+    c->objects = (1u << OBJ_ANNEAU); /* l'Anneau de Cuivre est l'objet initial */
+    c->amulets = 0;
 }
+
+#pragma code-name (push, "LC")
+void character_give_object(Character* c, Object o)
+{
+    if (o >= 0 && o < OBJ_COUNT) c->objects |= (1u << o);
+}
+
+void character_take_object(Character* c, Object o)
+{
+    if (o >= 0 && o < OBJ_COUNT) c->objects &= ~(1u << o);
+}
+
+int character_has_object(const Character* c, Object o)
+{
+    return (o >= 0 && o < OBJ_COUNT) && (c->objects & (1u << o));
+}
+
+void character_give_amulet(Character* c, Amulet a)
+{ if (a >= 0 && a < AMULET_COUNT) c->amulets |= (1u << a); }
+int character_has_amulet(const Character* c, Amulet a)
+{ return (a >= 0 && a < AMULET_COUNT) && (c->amulets & (1u << a)); }
+#pragma code-name (push, "CODE")
+unsigned char character_amulet_count(const Character* c)
+{
+    unsigned char bits=c->amulets, n=0;
+    while (bits) { n += bits & 1; bits >>= 1; }
+    return n;
+}
+unsigned char character_trade_amulets(Character* c, unsigned int each)
+{
+    unsigned char n=character_amulet_count(c);
+    character_adjust_gold(c,(int)(n*each));
+    c->amulets=0;
+    return n;
+}
+#pragma code-name (pop)
+#pragma code-name (pop)
 
 /* Plancher a zero, plafond au total de depart. */
 static void adjust(unsigned char* cur, unsigned char start, int delta)
@@ -104,19 +198,28 @@ void character_adjust_gold(Character* c, int d)
     c->gold = (unsigned int)(v < 0 ? 0 : v);
 }
 
-/* Abaisse le plafond ET la valeur courante : le livre retire les deux d'un
- * coup, et laisser la valeur courante au-dessus de son propre maximum ferait
- * mentir la jauge. `delta` est negatif. */
-static void lower(unsigned char* v, unsigned char* v0, int delta)
+/* Deplace le plafond ET la valeur courante, du meme pas.
+ *
+ * En perte (page 87) : "vous perdez 2 points d'HABILETE et devez reduire
+ * aussi de 2 points votre total initial" -- les deux baissent de 2, et la
+ * valeur courante reste sous son nouveau plafond. En gain (page 155) les
+ * points sont donnes tout de suite ET restent rattrapables ensuite : le
+ * plafond monte d'autant, la valeur courante aussi.
+ *
+ * La paire (valeur, total de depart) est atteinte par son rang dans la
+ * structure -- voir le commentaire du typedef -- ce qui epargne trois
+ * wrappers et deux `if` : 150 octets de cc65 que la fenetre n'avait plus.
+ * Pas de borne haute non plus : les totaux tiennent sous 25 et le corpus ne
+ * releve un plafond qu'une fois, de 2. */
+void character_shift0(Character* c, unsigned char k, int delta)
 {
-    int n0 = (int)*v0 + delta;
+    static const unsigned char pair[3] = { 2, 0, 4 };  /* END, HAB, CHA */
+    unsigned char* v = &c->hab + pair[k];
+    int n0 = (int)v[1] + delta;
     if (n0 < 1) n0 = 1;              /* une caracteristique nulle serait une mort */
-    *v0 = (unsigned char)n0;
-    if (*v > *v0) *v = *v0;
+    v[1] = (unsigned char)n0;
+    adjust(v, (unsigned char)n0, delta);
 }
-
-void character_lower_hab0(Character* c, int d) { lower(&c->hab, &c->hab0, d); }
-void character_lower_end0(Character* c, int d) { lower(&c->end, &c->end0, d); }
 
 int character_is_dead(const Character* c) { return c->end == 0; }
 
@@ -150,6 +253,7 @@ void combat_round(const Character* c, const Monster* m, Round* out)
 {
     out->monster_force = (unsigned char)(roll_2d6() + m->hab);
     out->hero_force    = (unsigned char)(roll_2d6() + c->hab);
+    if (c->objects & (1u << OBJ_EPEMAGIQUE)) out->hero_force += c->weapon_bonus;
     if (out->hero_force > out->monster_force)      out->outcome = ROUND_HERO_HITS;
     else if (out->hero_force < out->monster_force) out->outcome = ROUND_MONSTER_HITS;
     else                                          out->outcome = ROUND_DODGE;
@@ -255,9 +359,29 @@ void monster_remember(unsigned int scene, int index, const Monster* m)
     }
 }
 
+void monster_memory_export(unsigned char* out)
+{
+    int i;
+    for (i = 0; i < MONSTER_SLOTS; ++i) {
+        *out++ = (unsigned char)seen[i].scene;
+        *out++ = (unsigned char)(seen[i].scene >> 8);
+        *out++ = seen[i].index;
+        *out++ = seen[i].end;
+    }
+}
+
+void monster_memory_import(const unsigned char* in)
+{
+    int i;
+    for (i = 0; i < MONSTER_SLOTS; ++i) {
+        seen[i].scene = (unsigned int)in[0] | ((unsigned int)in[1] << 8);
+        seen[i].index = in[2]; seen[i].end = in[3]; in += 4;
+    }
+}
+
 /* ── Les clairieres deja parcourues ────────────────────────────────────── */
 
-#define SCENE_BITS 52          /* 402 paragraphes arrondis a l'octet */
+#define SCENE_BITS SCENE_MEMORY_SIZE /* 412 paragraphes arrondis a l'octet */
 
 static unsigned char visited[SCENE_BITS];
 
@@ -277,6 +401,9 @@ void scene_mark_visited(unsigned int scene)
 {
     if (scene < SCENE_BITS * 8) visited[scene >> 3] |= (1 << (scene & 7));
 }
+
+void scene_memory_export(unsigned char* out) { memcpy(out, visited, SCENE_BITS); }
+void scene_memory_import(const unsigned char* in) { memcpy(visited, in, SCENE_BITS); }
 
 /* ── La Magie ────────────────────────────────────────────────────────────── */
 

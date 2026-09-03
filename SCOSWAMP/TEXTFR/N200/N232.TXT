@@ -1,4 +1,5 @@
 T 232 La baie range
+G BA
 
 Vous cueillez delicatement la baie et la rangez soigneusement. Si vous etes au
 service de Gayolard, agissez en consequence. Sinon, quittez la clairiere et

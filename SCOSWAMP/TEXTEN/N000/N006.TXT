@@ -9,5 +9,5 @@ it's the purple fruit of the Asphodel, everything changes.
 
 What do you do?
 
-C 175 Yes, I bring him the Asphodel berry
-C 052 No, I did not bring him the berry
+GU BA 175 Give him the Asphodel berry
+CN BA 052 Admit that I did not bring back the berry

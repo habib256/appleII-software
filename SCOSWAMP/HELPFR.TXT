@@ -1,15 +1,18 @@
 LES TOUCHES
+  [A-E] Choix de la scene (jamais une commande)
+  [ESPACE/RETURN/ESC] Texte, image HGR, puis image et texte
+  [I] Sac : objets, Pierres Magiques et amulettes
+  [S]/[L] Sauver/charger PARTIE0 a PARTIE9 ; [H] aide ; [Q] quitter
 
-  [A-Z]                 Faire un choix
-  [ESPACE/RETURN/ESC]   Texte, image HGR, puis HGR + 4 lignes de texte
-  [I]                   Le sac a dos et les Pierres Magiques
-  [H]                   Cette aide
-  [Q]                   Quitter l'aventure
+SAUVEGARDES
+  [0-9] Emplacement, uniquement apres [S] ou [L]
+  Etat sauve : scene, heros, objets, amulettes, visites et monstres
+  Un fichier absent, incomplet ou corrompu est refuse
 
-EN COMBAT
+AMULETTES
+  Loup, Fleur, Oiseau, Araignee et Grenouille sont distinctes
+  La fausse Oiseau reste distincte ; Stratagus compte 0, 1-2 ou 3+
+  Une remise les retire du sac et ajoute la recompense
 
-  [ESPACE]              Porter un assaut
-  [C]                   Tentez votre Chance sur la blessure qui vient
-  [F]                   Prendre la Fuite, quand la page l'autorise
-  [I]                   Le sac, tant que le premier coup n'est pas donne
-  [ESC]                 Voir l'illustration du combat
+SAC : [A-L] choisit une Pierre ; [ESC] ferme ; commandes suspendues
+COMBAT : [ESPACE] assaut ; [C] Chance ; [F] Fuite ; [I] sac ; [ESC] image

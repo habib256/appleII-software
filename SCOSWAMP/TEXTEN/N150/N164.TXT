@@ -14,6 +14,8 @@ She murmurs a few words to them, listens to them, then turns to you: "Gayolard
 was right," she says softly, "there is indeed an Asphodel bush, northeast of
 the Swamp. I can help you get there."
 
-You accept with gratitude.
+You accept gratefully. Which characteristic do you restore?
 
-C 248 Be guided by the Bird Mistress
+C 409 Restore my SKILL
+C 410 Restore my STAMINA
+C 411 Restore my LUCK

@@ -1,4 +1,5 @@
 T 241 Epe magique de Stratagus
+G EP
 
 Stratagus vous felicite pour votre courage et vous tend un present. Il sort
 une epee miniature qui grandit devant vous et devient une Epe Magique.
@@ -11,4 +12,6 @@ protege un peu.
 
 Acceptez-vous le cadeau et poursuivez-vous avec lui?
 
+E CHANCE +99
+E BONUS +1
 C 206 Accepter l'epee et poursuivre avec Stratagus

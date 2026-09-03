@@ -1,4 +1,5 @@
 T 059 Le cadavre et le pendentif
+G AI
 
 Vous decidez d'examiner la clairiere. Peut-etre trouverez-vous quelque chose
 d'utile, ou quelqu'un a-t-il besoin d'aide. Tres vite, vous butez contre le

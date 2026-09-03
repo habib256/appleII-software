@@ -1,4 +1,5 @@
 T 386 Le butin du voleur
+G CAPE
 
 Le cadavre du Voleur est etendu a vos pieds : il n'etait pas si habile qu'il
 l'avait cru ! Vous fouiller alors dans ses affaires et la seule chose utile

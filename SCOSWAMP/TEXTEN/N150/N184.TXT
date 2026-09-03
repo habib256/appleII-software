@@ -1,4 +1,5 @@
 T 184 False Amulet
+G FAUX
 
 You give up attacking the Bird Mistress and tell her your mission, entrusted
 by an evil sorcerer. She nods, saddened: "I shouldn't help you, you serve

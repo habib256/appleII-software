@@ -2,9 +2,9 @@
 
 ## 📊 Vue d'ensemble
 
-- **Total de scènes** : 402 scènes de jeu (N000 à N401)
-- **Fichiers français** : 402 fichiers .TXT (TEXTFR/) ✓ 100% complet
-- **Fichiers anglais** : 402 fichiers .TXT (TEXTEN/) ✓ 100% complet
+- **Total de scènes** : 412 scènes de jeu (N000 à N411)
+- **Fichiers français** : 412 fichiers .TXT (TEXTFR/) ✓ 100% complet
+- **Fichiers anglais** : 412 fichiers .TXT (TEXTEN/) ✓ 100% complet
 - **Support bilingue** : Français et Anglais intégralement traduits
 - **Organisation** : Par tranches de 50 (N000/, N050/, N100/, etc.)
 - **Conformité** : 100% des fichiers ≤18 lignes ✓
@@ -97,7 +97,7 @@ C 095 Choix numéro 2 (texte du choix)
 ### Structure complète bilingue
 
 ```
-TEXTFR/ (Version française - 402 fichiers)
+TEXTFR/ (Version française - 412 fichiers)
 ├── N000/  (scènes 0-49)    → 50 fichiers
 │   ├── N000.TXT (titre du jeu)
 │   ├── N001.TXT
@@ -109,9 +109,9 @@ TEXTFR/ (Version française - 402 fichiers)
 ├── N250/  (scènes 250-299) → 50 fichiers
 ├── N300/  (scènes 300-349) → 50 fichiers
 ├── N350/  (scènes 350-399) → 50 fichiers
-└── N400/  (scènes 400-401) → 2 fichiers
+└── N400/  (scènes 400-411) → 12 fichiers
 
-TEXTEN/ (Version anglaise - 402 fichiers)
+TEXTEN/ (Version anglaise - 412 fichiers)
 ├── N000/  (scenes 0-49)    → 50 fichiers
 │   ├── N000.TXT (game title)
 │   ├── N001.TXT
@@ -123,7 +123,7 @@ TEXTEN/ (Version anglaise - 402 fichiers)
 ├── N250/  (scenes 250-299) → 50 fichiers
 ├── N300/  (scenes 300-349) → 50 fichiers
 ├── N350/  (scenes 350-399) → 50 fichiers
-└── N400/  (scene 400)      → 1 fichier
+└── N400/  (scenes 400-411) → 12 fichiers
 ```
 
 ### Correspondance des fichiers
@@ -139,7 +139,7 @@ Chaque fichier français a son équivalent anglais :
 ### Statut : 100% complète ✓
 
 - **Date de traduction** : Octobre 2024
-- **Fichiers traduits** : 402 fichiers (100%)
+- **Fichiers traduits** : 412 fichiers (100%)
 - **Méthode** : Traduction manuelle préservant :
   - Les numéros de scène
   - La structure des choix (C xxx)
@@ -206,7 +206,7 @@ echo "Fichiers FR: $(find TEXTFR -name "*.TXT" | wc -l)"
 echo "Fichiers EN: $(find TEXTEN -name "*.TXT" | wc -l)"
 ```
 
-**Résultat attendu** : 402 fichiers dans chaque langue
+**Résultat attendu** : 412 fichiers dans chaque langue
 
 ## 🎯 Recommandations
 
@@ -241,8 +241,13 @@ qui se joue mecaniquement y est ecrit en clair, une directive par ligne.
 | `E <CARAC> <delta>` | effet applique en entrant |
 | `P <PIERRE> <n>` | Pierres Magiques recues |
 | `PC <n> <cats>` | n Pierres a choisir parmi les categories N, B, M |
+| `PD` / `PO` / `PX` | retire deux objets, un objet, ou tout le sac |
+| `TR` | echange jusqu'a trois objets/amulettes contre autant de Pierres neutres |
+| `G` / `GX` / `GA` | donne/retire un objet, ou remet les amulettes a Stratagus |
+| `CI` / `CN` / `GU` | choix conditionne par un objet, eventuellement consomme |
 | `CF <id> <titre>` | la Fuite, quand la page l'autorise |
 | `CP <PIERRE> <id> <titre>` | choix qui remet une Pierre |
+| `CU <PIERRE> <id> <titre>` | choix qui exige et consomme une Pierre |
 | `C <id> <titre>` | choix ordinaire |
 
 La plupart se **derivent de la prose** : `SCOSWAMP.MORE/TOOLS/reflow_txt.py

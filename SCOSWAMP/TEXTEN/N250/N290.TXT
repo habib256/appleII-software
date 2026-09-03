@@ -8,5 +8,5 @@ When you enter this new clearing, an arrow grazes your head whistling. You
 then see three SWAMP ORCS with skin eaten by scabies. They have bows in hand,
 and the two creatures who haven't yet fired shoot their arrows at you.
 
-C 083 If you possess the Gold Magnet
-C 151 Otherwise
+CI AI 083 If you possess the Gold Magnet
+CN AI 151 Otherwise

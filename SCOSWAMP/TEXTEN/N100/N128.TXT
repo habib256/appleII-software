@@ -13,4 +13,4 @@ You must give him a Magic Stone, a jewel or any other object.
 If you only possess the Copper Ring:
 
 C 180 Give him the Copper Ring
-C 019 If you give him another object of your choice
+C 407 If you give him another object of your choice

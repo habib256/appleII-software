@@ -45,6 +45,26 @@ typedef enum {
     STONE_MALEFIQUE
 } StoneKind;
 
+/* Objets du Sac a Dos. Le nom commencant par un point est un drapeau narratif
+ * invisible ; il passe par le meme bitmap afin
+ * que les conditions du corpus et la sauvegarde restent simples. */
+typedef enum {
+    OBJ_ANNEAU = 0, OBJ_CAPE, OBJ_CHAINE, OBJ_AIMANT,
+    OBJ_FIOLE, OBJ_BAIE, OBJ_EPEMAGIQUE, OBJ_BIJOU, OBJ_CORNE, OBJ_PLUMES,
+    OBJ_ANTHERIQUE,
+    OBJ_COUNT
+} Object;
+
+typedef enum {
+    AMULET_LOUP = 0, AMULET_FLEUR, AMULET_OISEAU,
+    AMULET_ARAIGNEE, AMULET_GRENOUILLE, AMULET_FAUSSE_OISEAU, AMULET_COUNT
+} Amulet;
+
+const char* object_name(Object o, int english);
+Object object_from_name(const char* name);
+const char* amulet_name(Amulet a, int english);
+Amulet amulet_from_name(const char* name);
+
 StoneKind   stone_kind(Stone s);
 const char* stone_name(Stone s, int english);
 /* Rend STONE_COUNT si le nom n'est pas reconnu. Comparaison insensible a la
@@ -57,13 +77,26 @@ Stone       stone_from_name(const char* name);
  * d'ENDURANCE et de CHANCE, ce total ne doit en aucun cas exceder vos points
  * de depart." D'ou le couple (courant, depart) pour chacune des trois. */
 typedef struct {
+    /* Chaque caracteristique est suivie de son total de depart, et les trois
+     * paires se suivent dans l'ordre HABILETE, ENDURANCE, CHANCE :
+     * character_shift0 compte la-dessus pour les atteindre sans aiguillage. */
     unsigned char hab,  hab0;
     unsigned char end,  end0;
     unsigned char cha,  cha0;
     unsigned int  gold;
-    unsigned char provisions;
+    unsigned char weapon_bonus;  /* bonus d'assaut de l'Epee Magique : 0, 1 ou 2 */
     unsigned char stones[STONE_COUNT];
+    unsigned int  objects;       /* un bit par Object */
+    unsigned char amulets;       /* loup, fleur, oiseau, araignee, grenouille */
 } Character;
+
+void character_give_object(Character* c, Object o);
+void character_take_object(Character* c, Object o);
+int  character_has_object(const Character* c, Object o);
+void character_give_amulet(Character* c, Amulet a);
+int  character_has_amulet(const Character* c, Amulet a);
+unsigned char character_amulet_count(const Character* c);
+unsigned char character_trade_amulets(Character* c, unsigned int each);
 
 /* "Lancez un de. Ajoutez 6 [...] HABILETE. Lancez ensuite les deux des.
  * Ajoutez 12 [...] ENDURANCE. [...] Lancez a nouveau un de, ajoutez 6 [...]
@@ -85,12 +118,23 @@ void character_adjust_cha(Character* c, int delta);
  * sou qui paie une piece a l'aubergiste (page 078). */
 void character_adjust_gold(Character* c, int delta);
 
-/* "vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points votre
- * total initial d'HABILETE. Vous ne pourrez plus jamais retrouver tous vos
- * points de depart" (paragraphe 87). La perte ordinaire se rattrape ; celle-ci
- * abaisse le plafond, donc rien ne la rend jamais. */
-void character_lower_hab0(Character* c, int delta);
-void character_lower_end0(Character* c, int delta);
+/* Variation du TOTAL DE DEPART, et de la valeur courante avec lui.
+ *
+ * Vers le bas : "vous perdez 2 points d'HABILETE et devez reduire aussi de 2
+ * points votre total initial d'HABILETE. Vous ne pourrez plus jamais
+ * retrouver tous vos points de depart" (paragraphe 87). La perte ordinaire se
+ * rattrape ; celle-ci abaisse le plafond, donc rien ne la rend jamais.
+ *
+ * Vers le haut : la benediction de Grognard (paragraphe 155) tombe au village,
+ * avant le premier pas dans le Marais, ou le heros est encore a sa CHANCE de
+ * depart. Deux points plafonnes n'y donneraient rien : une benediction est
+ * une benediction, elle releve le plafond et la valeur courante avec lui.
+ *
+ * `k` suit la numerotation de carac_of : 0 ENDURANCE, 1 HABILETE, 2 CHANCE.
+ * Rien d'autre n'est admis, et rien n'est verifie ici -- une version a trois
+ * wrappers et deux `if` coutait 150 octets que le binaire n'a pas ; c'est
+ * reflow_txt.py qui refuse `E0 OR` et `E0 BONUS`. */
+void character_shift0(Character* c, unsigned char k, int delta);
 
 int  character_is_dead(const Character* c);   /* ENDURANCE tombee a zero */
 
@@ -169,7 +213,7 @@ int combat_flee(Character* c, const Monster* m, int use_luck);
 /* Une entree par creature laissee blessee derriere soi. Le livre ne place un
  * adversaire que dans 29 clairieres : 40 emplacements couvrent le pire cas
  * avec de la marge, pour 120 octets, la ou un octet par paragraphe en aurait
- * coute 402 -- et sur cette machine 282 octets, c'est un ecran de texte. */
+ * coute 412 -- et sur cette machine pres de 300 octets, soit un ecran. */
 #define MONSTER_SLOTS 40
 
 void monster_memory_reset(void);
@@ -192,11 +236,19 @@ void monster_remember(unsigned int scene, int index, const Monster* m);
  * description longue la premiere fois et une courte ensuite. Le livre confie
  * ce comptage au joueur ; le portage le tient lui-meme, par la ligne `V`.
  *
- * Un bit par paragraphe, 402 bits = 51 octets -- assez peu pour ne pas
+ * Un bit par paragraphe, 412 bits = 52 octets -- assez peu pour ne pas
  * chercher plus malin, et sans le plafond d'une table clairsemee. */
 void scene_memory_reset(void);
 int  scene_visited(unsigned int scene);
 void scene_mark_visited(unsigned int scene);
+
+/* Etat opaque exporte pour la sauvegarde. Les tailles sont stables sur cc65. */
+#define SCENE_MEMORY_SIZE 52
+#define MONSTER_MEMORY_SIZE (MONSTER_SLOTS * 4)
+void scene_memory_export(unsigned char* out);
+void scene_memory_import(const unsigned char* in);
+void monster_memory_export(unsigned char* out);
+void monster_memory_import(const unsigned char* in);
 
 /* ── La Magie ─────────────────────────────────────────────────────────────
  * "chacune d'elle vous permettra de jeter un sort, mais un seul, car les

@@ -1,4 +1,5 @@
 T 071 The Parrot
+G PL
 
 Fearing that the bird might raise the alarm, you behead it with a sword
 stroke. The parrot's body falls to the ground without a sound.

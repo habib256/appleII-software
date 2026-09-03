@@ -1,4 +1,5 @@
 T 099 La bourse de Stratagus
+GA 0
 
 Vous remettez a Stratagus les Amulettes conquises au prix des perils du Marais
 aux Scorpions. Il les saisit en ricanant, sort de la piece, puis revient avec

@@ -1,4 +1,5 @@
 T 286 Le mouchoir du Geant
+GX CAPE
 
 Il vous vient soudain une idee qui vous fait presque eclater de rire, mais
 vous vous retenez pour ne pas offenser le malheureux Geant. Vous fouillez

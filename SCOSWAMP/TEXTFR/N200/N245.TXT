@@ -1,4 +1,5 @@
 T 245 Vol discret
+G GRENOUILLE
 
 Vous usez une Pierre d'Illusion et prenez l'aspect d'une grenouille. Discret,
 vous vous glissez parmi les autres et vous faufilez derriere le champignon sur
