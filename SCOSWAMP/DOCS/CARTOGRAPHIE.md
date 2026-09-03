@@ -293,16 +293,13 @@ transforme la vente de l'anneau en vrai dilemme.
 Le corpus impose une structure à **deux étages**, qu'il faut démonter :
 
 ```
-     page d'ARRIVÉE                        page-HUB
-  (ce qu'on trouve dans la               (les sentiers qui partent
-   clairière : créature, objet,           de la clairière)
-   PNJ, piège)
-  ───────────────────────────           ────────────────────
-  N157 « La clairière des                N022 « Les pousses rapides »
-        Arbres-Épées »                     C 320  … vers le nord
-    V 279                                  C 090  … vers le sud
-    C 028 Combattre                        C 011  … vers l'ouest
-    C 203 Magie
+  page d'ARRIVÉE : ce qu'on trouve       page-HUB : les sentiers qui
+  (créature, objet, PNJ, piège)          partent de la clairière
+  ───────────────────────────            ────────────────────
+  N157 « La clairière des Arbres-Épées » N022 « Les pousses rapides »
+    V 279                                  C 320  … vers le nord
+    C 028 Combattre                        C 090  … vers le sud
+    C 203 Magie                            C 011  … vers l'ouest
         │                                       ▲
         └── combat 028/203 ── … ────────────────┘
 ```
@@ -390,21 +387,19 @@ Le prologue est hors Marais et ne se cartographie pas :
  ├─ 048 défi aux villageois
  └─ 095 la rencontre avec Grognard
       ├─ 240 la proposition (les trois missions)
-      └─ 122 mise en garde → 296 partir seul
-                     ↓
-              173 / 009  « L'ENTRÉE DU MARAIS »
+      └─ 122 mise en garde → 296 partir seul  →  173 / 009 « L'ENTRÉE DU MARAIS »
 ```
 
 Page **009** : « Vous êtes à la **lisière sud** du Marais aux Scorpions. Grâce à
 l'Anneau de Cuivre, vous saurez toujours où est le nord. Vous découvrez **un
 sentier orienté plein nord**. » → `C 195`.
 
-| Point | Page | Clairière | Direction | Case |
-| --- | --- | --- | --- | --- |
-| **Entrée** (prologue) | 009 → 195 | 1 | on entre par le sud | (2,8) |
-| **Sortie sud** | 208 « Sortir du Marais » | depuis la 1, vers le sud | (2,8) → dehors |
-| **Sortie nord** | 280 « Route de Courbensaule » | depuis la 9 (brigands), vers le nord | (0,2) → (0,0) |
-| Fausses sorties (mort) | 030 / 321 | depuis la 20, en nageant N ou E | crocodile |
+| Point | Page | Depuis, et dans quelle direction | Case |
+| --- | --- | --- | --- |
+| **Entrée** (prologue) | 009 → 195 | clairière 1, on entre par le sud | (2,8) |
+| **Sortie sud** | 208 « Sortir du Marais » | depuis la clr 1, vers le sud | (2,8) → dehors |
+| **Sortie nord** | 280 « Route de Courbensaule » | depuis la clr 9 (brigands), vers le nord | (0,2) → (0,0) |
+| Fausses sorties (mort) | 030 / 321 | depuis la clr 20, en nageant N ou E | crocodile |
 
 La page 208 est une porte à double sens (`C 195 Revenir sur vos pas…` /
 `C 159 Retourner chez votre sorcier…`). **Courbensaule** (hub 078, case (0,0)) est
@@ -897,20 +892,18 @@ void scene_memory_import(const unsigned char* in);
 emplacements `PARTIE0-9` (`HELPFR.TXT` : « État sauvé : scène, héros, objets,
 amulettes, **visites** et monstres »). La mémoire des monstres existe aussi
 (`MONSTER_SLOTS = 40`, `monster_memory_export`, 160 octets) : elle donne « la
-créature et son état » que le livre demande sur chaque cercle.
-
-**Rien à ajouter côté état** : la carte ne demande **pas de second bitmap de
-sentiers**. Un sentier est emprunté quand ses deux extrémités sont visitées —
-c'est déductible, et cela économise les 5 octets de bits de sentiers *et* le code
-pour les tenir à jour.
+créature et son état » que le livre demande sur chaque cercle. **Rien à ajouter
+côté état** : la carte ne demande **pas de second bitmap de sentiers** — un
+sentier est emprunté quand ses deux extrémités sont visitées, ce qui économise les
+5 octets de bits de sentiers *et* le code pour les tenir à jour.
 
 ### 7.2 Le rabattement page → clairière
 
 `scene_visited(page)` répond sur le *paragraphe*, la carte raisonne sur la
-*clairière*. Mesure sur `carte.json` : **116 pages distinctes** se rattachent à un
-lieu, réparties sur les 35 nœuds, soit 3,3 pages par clairière (de 1 pour la 33 à
-8 pour la 27). Les 296 autres pages (combats, dialogues, morts, prologue) ne se
-rattachent à aucun lieu.
+*clairière*. Mesure sur `carte.json` : 119 entrées, **116 pages distinctes** (les
+trois doublons du § 6.1 I), réparties sur les 35 nœuds — 3,3 pages par clairière,
+de 1 (clr 20, clr 33, brume fétide) à 8 (clr 27). Les 296 autres pages (combats,
+dialogues, morts, prologue) ne se rattachent à aucun lieu.
 
 ```c
 /* clairiere_visitee(i) : la i-eme clairiere a-t-elle ete vue,
@@ -1024,20 +1017,20 @@ en rendant au joueur le mode vidéo qu'il avait choisi. `show_map()` doit faire
 pareil, avec `M` et `ESC` comme sorties.
 
 **Le test de `M` doit précéder la branche `A-Z`** de `handle_user_input()`
-(`scoswamp.c:1985-2022`). La chaîne est un `else if` : `' '/'\r'/27`, puis `I`,
-`H`, `S`/`L`, `Q`, **puis** `(key >= 'A' && key <= 'Z')`. Insérer la branche `M`
-avant ce dernier test suffit ; `M` serait sinon lu comme l'index 12, donc jamais un
-choix valide (`choice_num < app.num_choices`, `MAX_CHOICES = 5`), mais le code
+(`scoswamp.c:1985-2022`). La chaîne est un `else if` : `' '/'\r'/27`, puis `I`, `H`,
+`S`/`L`, `Q`, **puis** `(key >= 'A' && key <= 'Z')` ; insérer la branche `M` avant
+ce dernier test suffit. `M` serait sinon lu comme l'index 12, donc jamais un choix
+valide (`choice_num < app.num_choices`, `MAX_CHOICES = 5`), mais le code
 deviendrait fragile au premier élargissement.
 
 **Grisée sans l'Anneau de Cuivre** (§ 3.2) : si
 `!character_has_object(&app.hero, OBJ_ANNEAU)`, `M` affiche un message du
-catalogue — « Sans l'Anneau de Cuivre, les boussoles perdent le nord » — et rend
-la main. Ce message passe par `build_messages.py`, **source unique** qui écrit
+catalogue — « Sans l'Anneau de Cuivre, les boussoles perdent le nord » — et rend la
+main. Ce message passe par `build_messages.py`, **source unique** qui écrit
 `messages.h` **et** les deux catalogues d'un même geste : `messages_load` refuse un
-fichier qui n'a pas exactement `MSG_COUNT` lignes, donc tout doit être régénéré
-ensemble. Le rappel `M=CARTE` dans `M_TOUCHES` et les deux fichiers d'aide sont à
-retoucher dans la même passe.
+fichier qui n'a pas exactement `MSG_COUNT` lignes, donc tout se régénère ensemble.
+Le rappel `M=CARTE` dans `M_TOUCHES` et les deux fichiers d'aide sont à retoucher
+dans la même passe.
 
 ### 7.6 Le format du fichier `MAP`
 
@@ -1071,7 +1064,7 @@ table de rabattement page -> clairiere      412 octets
 
 pool de noms de creatures                  ~311 octets
    chaines ASCII terminees par 0 : "GEANT", "LICORNE", "ARBRES-EPEES", ...
-   26 noms mesures = 311 octets
+   les 26 noms du § 4.3, mesures : 311 octets
 
 TOTAL                                     ~1 054 octets
 ```
@@ -1109,16 +1102,14 @@ Carte mémoire **mesurée** sur `SCOSWAMP/SRC/build.map` (2026-09-03) :
 | AUX 64 Ko | seul `$400-$7FF` sert (page texte 80 col.) | **~47 Ko** |
 
 * **La Language Card est pleine** à 246 octets près : elle ne peut pas accueillir
-  le mode carte. C'est là que vit le code froid (tables de règles), et il n'y a
-  rien d'autre à y prendre sous ProDOS 8 — la banque 1 est le noyau,
-  `$D000-$D3FF` de la banque 2 son code de sortie.
-* **`LOWBSS` n'a plus que 83 octets** : pas question d'y loger les 1 054 octets du
-  fichier `MAP`.
+  le mode carte. C'est là que vit le code froid, et il n'y a rien d'autre à y
+  prendre sous ProDOS 8 — la banque 1 est le noyau, `$D000-$D3FF` de la banque 2
+  son code de sortie. **`LOWBSS` n'a plus que 83 octets** : pas question d'y loger
+  les 1 054 octets du fichier `MAP`.
 * **La fenêtre principale offre 6 766 octets de tas.** En mode texte 80 × 24, code
-  + données doivent tenir sous 2 Ko : ~1 054 octets chargés sur le tas au premier
-  appui sur `M`, plus quelques centaines d'octets de code (grille, curseur,
-  panneau). **C'est jouable dans la marge actuelle** — ce que le mode HGR n'était
-  pas.
+  + données tiennent sous 2 Ko : ~1 054 octets chargés sur le tas au premier appui
+  sur `M`, plus quelques centaines d'octets de code (grille, curseur, panneau).
+  **C'est jouable dans la marge actuelle** — ce que le mode HGR n'était pas.
 * **La RAM auxiliaire (~47 Ko) est le vrai gisement** pour la version HGR :
   données en lecture seule, donc cas d'usage exact de l'AUX. cc65 n'en sait rien
   et n'a pas besoin d'en savoir : un `AUXMOVE` (`$C311`) ou un basculement
@@ -1126,8 +1117,7 @@ Carte mémoire **mesurée** sur `SCOSWAMP/SRC/build.map` (2026-09-03) :
 * Piège avant de toucher `__HIMEM__` : `apple2enh.cfg` calcule la taille du BSS
   par `__HIMEM__ - __STACKSIZE__ - __ONCE_RUN__` ; quand le code déborde, la
   soustraction passe en négatif et **`ld65` ne signale rien**. Un lien qui réussit
-  ne prouve pas que le programme tient : vérifier l'adresse de fin du BSS dans le
-  `.map`.
+  ne prouve pas que le programme tient : vérifier la fin du BSS dans le `.map`.
 
 Coût d'état côté moteur : **1 octet** (`app.clairiere_courante`). Le bitmap
 `visited` (52 o) et la mémoire des monstres (160 o) existent et sont déjà sauvés.

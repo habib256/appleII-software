@@ -668,7 +668,13 @@ def words(seq):
     return " ".join(" ".join(seq).split())
 
 def main():
-    root = Path(sys.argv[1])
+    root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("")
+    # Le chemin attendu est le dossier SCOSWAMP, qui contient TEXTFR et TEXTEN :
+    # passer TEXTFR lui-meme faisait parcourir zero fichier, et le script
+    # repondait "0 / 0" comme si tout allait bien.
+    if not (root / "TEXTFR").is_dir() or not (root / "TEXTEN").is_dir():
+        sys.exit(f"usage : reflow_txt.py <dossier SCOSWAMP> [--apply] [--derive]\n"
+                 f"{root or '(rien)'} ne contient pas TEXTFR et TEXTEN : aucun fichier ne serait lu.")
     apply = "--apply" in sys.argv
     derive = "--derive" in sys.argv
     found = {}          # (lang, id) -> directives, pour le recoupement FR/EN

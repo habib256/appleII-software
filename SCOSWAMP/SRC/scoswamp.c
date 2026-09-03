@@ -1828,6 +1828,15 @@ void load_scene(int scene_id) {
      * P (Pierres reçues) : elles jouent une fois par visite. */
     app.video_mode = 0;
     display_scene_text(scene_id);
+    /* Une ligne E peut tuer a l'entree -- "vous perdez 5 points d'ENDURANCE",
+     * page 357 -- et seuls le de et le combat etaient testes. La page se lit
+     * d'abord, puis c'est la mort. La garde hero_ready ecarte l'accueil, ou
+     * le heros n'existe pas encore et son ENDURANCE vaut zero. */
+    if (app.hero_ready && character_is_dead(&app.hero)) {
+        wait_key_at(CHOICE_ROWN, msg_continue());
+        die_and_restart();
+        return;
+    }
 
     /* Deja venu : la page longue cede la place a sa version courte, sans rien
      * afficher entre les deux. Le passage n'est PAS marque -- c'est la page
