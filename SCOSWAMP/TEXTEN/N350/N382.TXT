@@ -2,8 +2,11 @@ T 382 Return to the Quicksand
 
 You realize you've returned to the Quicksand clearing, but this time, you
 won't let yourself be surprised. You have two solutions if you wish to resort
-to magic. The first consists of throwing an Ice Stone. Thus, the Quicksand
-will freeze and you can cross it, but the ice will melt quickly behind you.
+to magic.
+
+The first consists of throwing an Ice Stone. Thus, the Quicksand will freeze
+and you can cross it, but the ice will melt quickly behind you.
+
 The second solution consists of throwing a Growth Stone to make nearby plants
 grow. These will then cover the Sand's surface forming a sort of path on which
 you can walk safely. This path will remain there permanently and you can

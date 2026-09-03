@@ -8,7 +8,9 @@ Gold Magnet found on the warrior's body is actually a cursed object. It
 attracts arrows, indeed, and almost killed you after causing the death of
 whoever wore it before you.
 
-The Orcs are preparing new arrows. What will you do?
+The Orcs are preparing new arrows.
+
+What will you do?
 
 E ENDURANCE -5
 C 281 Attack them with your sword

@@ -8,8 +8,9 @@ Vous vous apercevez alors que l'Aimant d'Or trouve sur le corps du guerrier
 est en fait un objet maudit. Il attire les fleches, en effet, et a bien failli
 vous tuer apres avoir cause la perte de celui qui le portait avant vous.
 
-Les Orques sont en train de preparer de nouvelles fleches. Qu'allez-vous faire
-?
+Les Orques sont en train de preparer de nouvelles fleches.
+
+Qu'allez-vous faire ?
 
 E ENDURANCE -5
 C 281 Les attaquer avec votre epee

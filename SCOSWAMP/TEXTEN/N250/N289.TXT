@@ -4,11 +4,14 @@ The Forest Guards told you that "Tancred's Flying Horse" was the least
 expensive of the three inns and so that's where you decided to spend the
 night. The room price is very reasonable indeed since they only ask you half a
 Gold Piece. You go up to bed and fall asleep as soon as you've put your head
-on the pillow. In the middle of the night, however, a burning sensation on
-your finger wakes you abruptly. The Copper Ring is warning you that danger
-threatens. You then jump from your bed and seize your sword; at that moment, a
-shadow flees the room. You then double-lock the door and go back to bed. When
-you wake in the morning, you feel well rested and you recover 2 STAMINA
+on the pillow.
+
+In the middle of the night, however, a burning sensation on your finger wakes
+you abruptly. The Copper Ring is warning you that danger threatens. You then
+jump from your bed and seize your sword; at that moment, a shadow flees the
+room. You then double-lock the door and go back to bed.
+
+When you wake in the morning, you feel well rested and you recover 2 STAMINA
 points. Alas! your night thief took two possessions from your bag, starting
 with any Magic Stones lying on top. The Copper Ring remained on your finger.
 You now leave the inn to resume your path. Test your Luck.

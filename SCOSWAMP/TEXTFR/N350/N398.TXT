@@ -4,11 +4,12 @@ V 239 314
 Vous entrez dans une clairiere ou l'on a bati une petite maison en rondins.
 Vous entendez alors un grognement qui ressemble a celui d'un chien : ce n'est
 pas un chien, cependant, mais un Loup qui grogne ainsi. L'animal vous observe,
-debout a cote de la maison. La porte s'ouvre presque aussitot, et un homme
-robuste apparait sur le seuil. Un autre Loup le suit. L'homme porte une epee
-au cote et il est vetu comme un Garde Forestier, mais l'Amulette d'Argent en
-forme de loup qui pend sur sa poitrine vous indique qu'il s'agit la du MAITRE
-DES LOUPS.
+debout a cote de la maison.
+
+La porte s'ouvre presque aussitot, et un homme robuste apparait sur le seuil.
+Un autre Loup le suit. L'homme porte une epee au cote et il est vetu comme un
+Garde Forestier, mais l'Amulette d'Argent en forme de loup qui pend sur sa
+poitrine vous indique qu'il s'agit la du MAITRE DES LOUPS.
 
 Vous le saluez d'un ton amical mais il vous repond avec mauvaise humeur en
 vous ordonnant de passer votre chemin.

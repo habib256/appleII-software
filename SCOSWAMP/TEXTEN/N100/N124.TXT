@@ -4,9 +4,7 @@ The evil sorcerer, mad with rage, draws from his robe a wand that suddenly
 shines and transforms into a serrated blade.
 
 He takes his guard. The weapon sparkles: it is clearly magical. This combat
-will be the last of your adventure.
-
-It's a duel to the death. You cannot flee.
+will be the last of your adventure. It's a duel to the death. You cannot flee.
 
 M 13 18 STRATAGUS
 MV 340

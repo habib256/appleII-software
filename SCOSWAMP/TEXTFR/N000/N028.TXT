@@ -7,10 +7,9 @@ acerees, et ils convergent en silence. Vous disposez d'un avantage: ils ne
 detectent que le son. Faites preuve de prudence et de precision dans votre
 attaque.
 
-Affrontez-les en appliquant les regles
-
-de combat du livre. Si vous les vainquez, poursuivez la lecture au numero
-indique. Sinon, votre cadavre servira d'engrais pour le marais.
+Affrontez-les en appliquant les regles de combat du livre. Si vous les
+vainquez, poursuivez la lecture au numero indique. Sinon, votre cadavre
+servira d'engrais pour le marais.
 
 M 9 12 ARBRES-EPEES
 MV 362

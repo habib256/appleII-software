@@ -7,8 +7,10 @@ Each frog will fight you in turn at each assault. Before each assault, you
 will choose which one to face as a priority. If your Attack Strength exceeds
 that of the chosen adversary, you will inflict no injury on the other: you
 will have dodged it. If, on the contrary, the second has superior Strength,
-you will suffer an injury according to the usual rules. If you kill one of the
-two frogs, the combat continues against the other according to normal rules.
+you will suffer an injury according to the usual rules.
+
+If you kill one of the two frogs, the combat continues against the other
+according to normal rules.
 
 M 5 6 FIRST GIANT FROG
 M 6 5 SECOND GIANT FROG
