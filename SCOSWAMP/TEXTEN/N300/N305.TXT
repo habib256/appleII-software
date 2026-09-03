@@ -1,5 +1,5 @@
 T 305 The Garden Master
-V 238
+V 238 084 117 251 283 396
 
 The path oriented eastward is very well maintained, the trees and bushes have
 been carefully trimmed and their foliage doesn't invade the trail. Soon, you

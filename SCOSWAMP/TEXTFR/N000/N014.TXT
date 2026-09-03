@@ -1,4 +1,5 @@
 T 014 Scorpion et nain
+V 338 088
 
 Le sentier conduit a une petite clairiere ou plusieurs arbres sont tombes.
 Vous approchez et entendez des bruits de lutte derriere un large tronc.

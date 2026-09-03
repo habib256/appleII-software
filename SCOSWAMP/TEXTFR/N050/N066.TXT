@@ -1,5 +1,5 @@
 T 066 Le pique-nique suspect
-V 192
+V 192 179
 
 Vous entrez dans une agreable clairiere entouree de chenes noueux.
 

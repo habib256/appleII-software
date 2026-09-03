@@ -1,4 +1,5 @@
 T 209 Bete du bassin
+V 168 082 308 397
 
 Vous marchez vers l'est et decouvrez une clairiere avec un bassin. Une
 creature enorme a la peau brune et caoutchouteuse emerge soudain du bassin et

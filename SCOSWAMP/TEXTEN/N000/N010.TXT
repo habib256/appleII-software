@@ -1,5 +1,5 @@
 T 010 The Battle Clearing
-V 142
+V 142 227
 
 You pass through gnarled trees and enter a new clearing.
 

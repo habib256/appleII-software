@@ -1,5 +1,5 @@
 T 010 La clairiere des combats
-V 142
+V 142 227
 
 Vous franchissez des arbres noueux et entrez dans une nouvelle clairiere.
 

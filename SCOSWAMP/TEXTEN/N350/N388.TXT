@@ -1,5 +1,5 @@
 T 388 Pincer Grass
-V 263
+V 263 187 033
 
 Soon, you enter a pleasant grass-covered clearing. Two paths allow you to go
 further.

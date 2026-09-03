@@ -1,4 +1,5 @@
 T 209 Basin Beast
+V 168 082 308 397
 
 You walk eastward and discover a clearing with a basin. An enormous creature
 with brown rubbery skin suddenly emerges from the basin and attempts to seize

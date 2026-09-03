@@ -13,4 +13,4 @@ geste.
 Tentez votre CHANCE : si le sort vous favorise, vous eviterez le piege ;
 sinon, vous tomberez dans le filet et devrez vous en degager par la force.
 
-CL 213 267
+CL 213 106

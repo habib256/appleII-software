@@ -1,6 +1,7 @@
 T 330 The Hollow Log
 
-You're in the clearing with the large hollow log. If you saw a creature there
-during a previous visit, go to 129.
+You're in the clearing with the large hollow log. The path is quiet, but you
+know the log has sheltered more than gnawed bones.
 
+C 129 If you saw a creature there during a previous visit
 C 268 Examine the clearing

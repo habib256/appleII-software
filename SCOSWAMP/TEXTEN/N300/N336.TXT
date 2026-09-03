@@ -1,5 +1,5 @@
 T 336 The Slime Basin
-V 137
+V 137 153
 
 You're in a particularly marshy zone, and each of your steps produces a
 sucking sound on the ground. Soon, the path turns slightly and runs along a

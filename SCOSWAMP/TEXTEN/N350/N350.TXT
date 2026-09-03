@@ -1,5 +1,5 @@
 T 350 The Eagle's Nest
-V 331
+V 331 202 025 112
 
 An immense tree, planted in hard bare ground, stands in the middle of the
 clearing you're in. At this tree's summit , a gigantic nest has been built

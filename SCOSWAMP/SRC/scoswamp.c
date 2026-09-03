@@ -684,9 +684,15 @@ static void lose_items(unsigned char n)
 /* Classe une ligne du fichier. Le format d'une page :
  *
  *   T  <id> <titre>             titre, en video inverse ligne 1
- *   V  <id>                     "si vous y etes deja venu, rendez-vous au
+ *   V  <id> [<page> ...]        "si vous y etes deja venu, rendez-vous au
  *                               <id>" -- doit preceder tout le reste de la
- *                               page, qu'un detour annule
+ *                               page, qu'un detour annule. Les numeros qui
+ *                               suivent sont les AUTRES pages de la meme
+ *                               clairiere (page-hub, variantes de recit) :
+ *                               le detour se declenche si l'une d'elles, ou
+ *                               <id>, ou la page courante, a deja ete vue.
+ *                               Sans elles, entrer par un autre sentier
+ *                               rejouait la premiere visite
  *   M  <hab> <end> <nom>        la creature de la clairiere (Batailles)
  *   MD <n>                      ses coups coutent n ENDURANCE (defaut 2)
  *   MS <n>                      le combat cesse a n ENDURANCE (defaut 0)
@@ -975,9 +981,24 @@ static void classify_line(char* l)
          * son texte, ni ses choix, ni surtout ses lignes E et P, qui
          * donneraient une seconde fois ce qu'on a deja pris. D'ou le garde
          * en tete de fonction -- et l'invariant, verifie par reflow_txt.py,
-         * que la ligne V precede tout le reste. */
-        take_uint(l + 2, &a);
-        if (scene_visited((unsigned int)app.current_scene)) app.revisit = (int)a;
+         * que la ligne V precede tout le reste.
+         *
+         * Le livre dit "si vous Y etes deja venu" -- dans la CLAIRIERE, pas
+         * sur cette page. Or une clairiere en occupe plusieurs : la page
+         * d'arrivee, la page-hub qui porte les sentiers, la page de revisite
+         * ou l'on entre parfois directement depuis le voisin. Le bitmap est
+         * indexe sur la page, donc revenir par une autre porte rejouait la
+         * premiere visite -- creature ressuscitee, objets redonnes. D'ou la
+         * liste : on teste la page courante, la cible, puis chaque page
+         * citee, et le premier drapeau leve suffit. */
+        t = take_uint(l + 2, &a);
+        b = (unsigned int)app.current_scene;
+        while (!scene_visited(b)) {
+            if (*t) { t = take_uint(t, &b); continue; }
+            if (b == a) return;   /* la cible a ete testee : la liste est finie */
+            b = a;                /* passer par la revisite compte aussi */
+        }
+        app.revisit = (int)a;
         return;
     }
     if (c0 == 'C' && c1 == 'S' && c2 == ' ') {

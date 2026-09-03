@@ -1,4 +1,5 @@
 T 011 The Beast's Dead End
+V 210 125 299 228 243
 
 You advance westward; the swamp becomes even more sinister. Finally the path
 widens and leads to a narrow, long clearing. There is no other path: you have

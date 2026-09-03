@@ -1,5 +1,5 @@
 T 320 The Unicorn
-V 265
+V 265 348
 
 The path follows a slight downward slope and leads to a clearing with ground
 overgrown with grass.

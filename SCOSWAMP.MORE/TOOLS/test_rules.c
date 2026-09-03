@@ -485,10 +485,24 @@ static void test_benediction(void)
     CHECK(c.cha == 10, "le rattrapage s'arrete au plafond releve, vu %u", c.cha);
 }
 
+/* Le test de la ligne `V <cible> [<page> ...]`, tel que classify_line le joue :
+ * la page courante, puis la cible, puis chaque page citee. Le moteur vit dans
+ * scoswamp.c, qui n'est pas lie ici -- mais la REGLE, elle, ne tient qu'au
+ * bitmap de rules.c, et c'est elle qu'on verifie. */
+static int detour_clairiere(unsigned int courante, unsigned int cible,
+                            const unsigned int* autres, unsigned int n)
+{
+    unsigned int i;
+    if (scene_visited(courante) || scene_visited(cible)) return 1;
+    for (i = 0; i < n; ++i)
+        if (scene_visited(autres[i])) return 1;
+    return 0;
+}
+
 static void test_clairieres_vues(void)
 {
     /* "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui
-     * suit." Quatorze pages ouvrent la-dessus ; c'est ce drapeau qui les
+     * suit." Vingt-six pages ouvrent la-dessus ; c'est ce drapeau qui les
      * departage, la ou le livre s'en remettait a la memoire du joueur. */
     unsigned int i;
     unsigned char snapshot[SCENE_MEMORY_SIZE];
@@ -520,6 +534,45 @@ static void test_clairieres_vues(void)
     scene_memory_reset();
     for (i = 0; i < 412; ++i)
         if (scene_visited(i)) { CHECK(0, "la remise a zero a laisse %u", i); break; }
+
+    /* La clairiere 30, une seule porte : `V 382 270` sur la page 041.
+     * Marquer 041 doit lever le detour, et NE PAS marquer 382 ni 270 --
+     * c'est la page de revisite qui sera marquee a son tour, par load_scene. */
+    {
+        static const unsigned int clr30[] = { 270u };
+        scene_memory_reset();
+        CHECK(detour_clairiere(41, 382, clr30, 1) == 0,
+              "premiere visite des Sables Mouvants : pas de detour");
+        scene_mark_visited(41);
+        CHECK(scene_visited(382) == 0, "041 vue ne marque pas 382");
+        CHECK(scene_visited(270) == 0, "041 vue ne marque pas le hub 270");
+        CHECK(detour_clairiere(41, 382, clr30, 1) == 1,
+              "revenir en 041 renvoie bien au 382");
+    }
+
+    /* La clairiere 13, deux portes : `V 303 319` sur la page 118. Le pont
+     * (045) depose au sud sur 303, la page de revisite ; le sentier de l'est
+     * depose sur 118. Entrer par l'une puis par l'autre ne doit pas rejouer
+     * la nuee de Scorpions -- c'etait le bug : le bitmap disait "page vue",
+     * le livre dit "clairiere deja visitee". */
+    {
+        static const unsigned int clr13[] = { 319u };
+        scene_memory_reset();
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 0,
+              "jamais venu : la premiere visite se joue");
+        scene_mark_visited(303);            /* entree par le pont */
+        CHECK(scene_visited(118) == 0, "303 vue ne marque pas 118");
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 1,
+              "deja passe par la revisite : arriver en 118 detourne");
+        scene_memory_reset();
+        scene_mark_visited(319);            /* seulement la page-hub */
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 1,
+              "le hub 319 vu suffit a dire que la clairiere est connue");
+        scene_memory_reset();
+        scene_mark_visited(117);            /* une page d'une AUTRE clairiere */
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 0,
+              "une page voisine non citee ne declenche rien");
+    }
 }
 
 int main(void)

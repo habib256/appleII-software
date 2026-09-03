@@ -1,5 +1,5 @@
 T 118 La clairiere des scorpions
-V 303
+V 303 319
 
 A quelque distance, deux sentiers rejoignent celui que vous suivez. Le
 croisement se fait dans une petite clairiere.

@@ -1,5 +1,5 @@
 T 320 La Licorne
-V 265
+V 265 348
 
 Le chemin suit une legere pente descendante et aboutit a une clairiere au sol
 envahi d'herbes.

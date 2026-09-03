@@ -1,5 +1,5 @@
 T 388 Herbe a pinces
-V 263
+V 263 187 033
 
 Bientot, vous entrez dans une agreable clairiere envahie d'herbes. Deux
 chemins vous permettent d'aller plus loin.

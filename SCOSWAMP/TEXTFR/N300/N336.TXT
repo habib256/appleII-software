@@ -1,5 +1,5 @@
 T 336 Le bassin de Vase
-V 137
+V 137 153
 
 Vous vous trouvez dans une zone particulierement marecageuse, et chacun de vos
 pas produit sur le sol un bruit de succion. Bientot, le chemin tourne

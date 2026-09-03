@@ -11,4 +11,4 @@ The thief smiles and seems to wait for you to make the first move.
 Test your LUCK: if fate favors you, you will avoid the trap; otherwise, you
 will fall into the net and will have to free yourself by force.
 
-CL 213 267
+CL 213 106

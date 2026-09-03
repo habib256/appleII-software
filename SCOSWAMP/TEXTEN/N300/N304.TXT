@@ -1,5 +1,5 @@
 T 304 The Parrot
-V 149
+V 149 217
 
 As you advance northward, the Swamp changes appearance. It becomes less gloomy
 and looks more and more like a tropical jungle. Brightly colored birds fly

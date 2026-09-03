@@ -1,5 +1,5 @@
 T 118 The Scorpion Clearing
-V 303
+V 303 319
 
 Some distance away, two paths join the one you are following. The crossing
 occurs in a small clearing.

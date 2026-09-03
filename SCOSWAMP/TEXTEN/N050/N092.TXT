@@ -1,4 +1,5 @@
 T 092 The Two Wolves
+V 108 232 247 389
 
 The path northward gradually rises. The ground becomes drier and the swamp
 vegetation gives way to a deep forest.

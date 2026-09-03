@@ -25,12 +25,13 @@ décrits par **116 pages** sur 412 : une clairière est toujours un *groupe* de
 pages — première visite, revisites, variantes de récit, page-hub qui porte les
 directions — jamais une page unique. **La carte doit donc être indexée par
 clairière, non par page** : un index par page afficherait le même lieu jusqu'à
-quatre fois (6 numéros du livre portent deux pages, 14 lignes `V` créent 14
-paires aller/retour, 21 pages de revisite existent en plus). La rivière Croupie
+quatre fois (6 numéros du livre portent deux pages, 26 lignes `V` créent 26
+paires aller/retour, d'autres pages de revisite existent en plus). La rivière Croupie
 coule d'est en ouest sur la ligne `y = 3` et le **pont** (clairière 35) est le
 seul passage entre les 12 clairières du nord et les 23 du sud. Le départ est la
-page 195 = clairière 1, case (2,8). Le graphe complet compte 412 nœuds, 729 arcs,
-0 cible manquante, 21 pages terminales, 19 pages inaccessibles. Le moteur possède
+page 195 = clairière 1, case (2,8). Le graphe complet compte 412 nœuds, 743 arcs,
+0 cible manquante, 21 pages terminales, **1 seule page inaccessible** — la 000,
+l'écran d'accueil, où le moteur entre sans qu'un choix y mène (§ 6.2). Le moteur possède
 déjà tout l'état nécessaire : 52 octets de bitmap `visited`, sauvegardés.
 
 ---
@@ -220,9 +221,9 @@ par page en moyenne, 0 caractère non ASCII, 0 fichier en CRLF.
 
 | Mesure | Valeur |
 | --- | --- |
-| nœuds / arcs | **412** / **729** (727 distincts : l'arc 400→336 est déclaré trois fois) |
-| **cibles inexistantes** | **0** — les 729 cibles pointent toutes sur un fichier existant |
-| atteignable depuis 001 | **393** / 412 ; **19 pages inaccessibles** (dont la page de titre 000) |
+| nœuds / arcs | **412** / **743** (729 avant les correctifs du § 6.2) |
+| **cibles inexistantes** | **0** — les 743 cibles pointent toutes sur un fichier existant |
+| atteignable depuis 001 | **411** / 412 ; **1 seule page inaccessible**, la page de titre 000 |
 | composantes faiblement connexes | **1** — le corpus tient d'un seul morceau |
 | composantes fortement connexes | **84** ; la plus grande = **316 pages** (le cœur navigable du Marais), la 2ᵉ = 14 (l'épisode de la tour de Stratagus) ; 82 singletons |
 | degré sortant max | **5** — pages 119, 152, 191, 256, 336, 374, 387 |
@@ -239,9 +240,11 @@ ENDURANCE nulle ne passe par aucune page (`die_and_restart()` → `game_over()`,
 meilleur signal automatique pour poser les nœuds : 019 (11 entrants), 161, 348,
 363 (9), 234, 336 (8), 281, 398, 314, 124 (7), 088, 342, 390, 202, 047 (6).
 
-**Les 19 pages inaccessibles** : 000 (page de titre, normal), 106, 108, 126, 129,
-143, 168, 178, 181, 190, 210, 223, 243, 329, 338, 345, 364, 380, 382 — dont sept
-pages de « déjà venu », exactement celles qu'une ligne `V` devrait viser (§ 6.2).
+**Les pages inaccessibles** étaient 19 au relevé initial : 000 (page de titre,
+normal), 106, 108, 126, 129, 143, 168, 178, 181, 190, 210, 223, 243, 329, 338,
+345, 364, 380, 382. Les douze lignes `V` manquantes et les trois liens rétablis
+du § 6.2 les ont toutes ramenées dans le graphe : **il ne reste que la 000**, où
+le moteur entre au lancement sans qu'aucun choix y mène.
 
 ---
 
@@ -330,32 +333,37 @@ justifie la mémoire des clairières : *sans elle, fuir puis revenir soignerait 
 monstre*. `monster_enter()` rend l'ENDURANCE laissée au dernier passage, et 0 si
 la créature est morte.
 
-Seules **14 pages** portent une ligne `V` — 14 nœuds de carte, pas 28 :
+**26 pages** portent une ligne `V` — les 25 couples que le livre écrit noir sur
+blanc (`grep « déjà venu, rendez-vous au » sur le fac-similé`), plus Courbensaule,
+dont la formule diffère (« si vous êtes déjà venu à Courbensaule ») :
 
-| 1re visite → revisite | Clr | 1re visite → revisite | Clr |
-| --- | --- | --- | --- |
-| 010 → 142 La clairière des combats | 5 | 290 → 323 Orques des Marais | 26 |
-| 066 → 192 Le pique-nique suspect | 9 *(bis)* | 304 → 149 Le Perroquet | 14 |
-| 118 → 303 La clairière des scorpions | 13 | 305 → 238 Le Maître des Jardins | 27 |
-| 157 → 279 Les Arbres-Épées | 18 | 320 → 265 La Licorne | 29 |
-| 275 → 342 Le Géant | 7 | 336 → 137 Le bassin de Vase | 28 |
-| 280 → 355 Route de Courbensaule | — | 350 → 331 Le nid de l'Aigle | 16 |
-| | | 388 → 263 Herbe à Pinces | 24 |
-| | | 398 → 239 Le Maître des Loups | 4 |
+| 1re → revisite | Clr | 1re → revisite | Clr | 1re → revisite | Clr |
+| --- | --- | --- | --- | --- | --- |
+| 010 → 142 Clairière des combats | 5 | 105 → 330 Pierres et tronc | 12 | 290 → 323 Orques des Marais | 26 |
+| 011 → 210 Cul-de-sac de la Bête | — | 118 → 303 Clairière des scorpions | 13 | 304 → 149 Le Perroquet | 14 |
+| 014 → 338 Scorpion et nain | 32 | 144 → 345 Tente aux araignées | 17 | 305 → 238 Maître des Jardins | 27 |
+| 031 → 364 Bassin de cristal | 21 | 157 → 279 Les Arbres-Épées | 18 | 320 → 265 La Licorne | 29 |
+| 041 → 382 Sables mouvants | 30 | 170 → 363 Le Patrouilleur vert | 19 | 336 → 137 Le bassin de Vase | 28 |
+| 053 → 329 Clairière des grenouilles | 8 | 204 → 250 Fleurs d'Angoisse | 23 | 350 → 331 Le nid de l'Aigle | 16 |
+| 065 → 343 Clairière aux brigands | 9 | 209 → 168 Bête du bassin | 25 | 388 → 263 Herbe à Pinces | 24 |
+| 066 → 192 Le pique-nique suspect | 9 *(bis)* | 275 → 342 Le Géant | 7 | 398 → 239 Maître des Loups | 4 |
+| 092 → 108 Les deux loups | 11 | 280 → 355 Route de Courbensaule | — | | |
 
-Mécanisme (`scoswamp.c:961-970`) : dès que la ligne `V` est lue, si
-`scene_visited(current_scene)`, **rien d'autre de la page ne joue** — ni le texte,
-ni les choix, ni surtout les lignes `E` et `P`.
+Mécanisme (`scoswamp.c`, branche `V` de `classify_line`) : dès que la ligne `V`
+est lue et que le drapeau est levé, **rien d'autre de la page ne joue** — ni le
+texte, ni les choix, ni surtout les lignes `E` et `P`.
 
-Mais **21 autres pages sont des pages de revisite** sans que la première visite
-les déclare par `V` : on les atteint directement par un choix — 077, 137, 149,
-210, 217, 250, 263, 265, 279, 303, 323, 329, 330, 331, 338, 342, 343, 345, 352,
-363, 382 (« Retour aux Brigands », « Retour aux Sables Mouvants », « Le tronc
-creux », « Retour au Patrouilleur », …).
+**La détection se fait par clairière, pas par page.** La syntaxe est
+`V <cible> [<page> …]` : les numéros qui suivent la cible sont les *autres* pages
+de la même clairière (page-hub, variantes de récit, autres arrivées). Le détour
+se déclenche si la page courante, la cible, **ou** l'une des pages citées a déjà
+été vue. Sans cette liste, un joueur revenant par un autre sentier — le pont
+dépose au sud sur 303 et non sur 118, par exemple — retombait sur une page jamais
+vue et relisait la première visite : créature ressuscitée, objets redonnés.
 
-**Conséquence directe pour le MAP** : un bitmap indexé sur le paragraphe est trop
-fin. Il faut la table *paragraphe → clairière* (§ 7.2) pour qu'une clairière
-s'allume **quelle que soit la porte par laquelle on y entre**.
+**Conséquence pour le MAP** : la même table *paragraphe → clairière* (§ 7.2) sert
+à allumer une clairière **quelle que soit la porte par laquelle on y entre** ; les
+listes des lignes `V` en sont l'expression, page par page, dans le corpus.
 
 ### 3.5 La rivière Croupie et le pont
 
@@ -483,7 +491,7 @@ variantes d'arrivée ; **Autres hubs** = pages-hub équivalentes ; **Sorties** =
 | — | (0,0) | 078 | 280 | 355 | 150 408 | Route de Courbensaule | S→343 | **HORS MARAIS** : ville, La Lance Tordue, boutique d'Alphonse ; coupeurs de bourses |
 | 19 | (2,0) | 234 | 170 | 363 | — | Le Patrouilleur vert | S→121 E→305 | PATROUILLEUR (10/10 en 378) ; demande quel sorcier vous servez ; donne l'itinéraire 166 |
 | 27 | (3,0) | 084 | 305 | 238 363 | 117 251 283 396 | Le Maître des Jardins | O→363 | MAÎTRE DES JARDINS (7/10 en 379) — **Amulette de Fleur** ; indique l'Anthérique. **Cul-de-sac** |
-| 11 | (4,0) | 232 | 092 | — | 247 389 | Les deux loups | S→342 | 2 LOUPS GRIS (7/5, 6/6 en 224) ; **buisson d'Anthérique** → `232 G BA`. **Cul-de-sac** |
+| 11 | (4,0) | 232 | 092 | 108 | 247 389 | Les deux loups | S→342 | 2 LOUPS GRIS (7/5, 6/6 en 224) ; **buisson d'Anthérique** → `232 G BA`. **Cul-de-sac** |
 | 15 | (1,1) | 218 | 218 | — | 249 | Feu follet à l'orée | S→336 E→121 O→072 | FEU FOLLET — piège : l'ouest téléporte à la clairière 1 |
 | — | (2,1) | 121 | 121 | — | — | Le croisement | N→170 S→014 E→275 O→218 | rien : le seul carrefour à quatre branches du nord |
 | 7 | (4,1) | 161 | 275 | 342 | 103 244 | Le Géant | N→092 S→041 O→121 | GÉANT (9/12 en 012, 6/12 en 211) — « IL EST INTERDIT DE PASSER ! » ; mouchoir → `286 GX CAPE` |
@@ -500,7 +508,7 @@ variantes d'arrivée ; **Autres hubs** = pages-hub équivalentes ; **Sorties** =
 | 9 *(bis)* | (2,4) | 179 | 066 | 192 | — | Le pique-nique suspect | N→183 S→010 E→118 | VOLEUR (10/9 en 267) déguisé en pique-niqueur ; **Cape Rouge** (`386 G CAPE`) ; l'Anneau chauffe |
 | 13 | (3,4) | 319 | 118 | 303 | — | La clairière des scorpions | N→138 E→047 O→066 | nuée de petits SCORPIONS ; `CL 070 182` (jamais de choix à prendre) |
 | 3 | (4,4) | 047 | 047 | — | — | Trois chemins herbeux | S→290 E→031 O→118 | rien |
-| 21 | (5,4) | 031 | 031 | 077 394 | — | Bassin de cristal | O→047 | bassin bienfaisant (récupération d'ENDURANCE). **Cul-de-sac** |
+| 21 | (5,4) | 031 | 031 | 364 077 394 | — | Bassin de cristal | O→047 | bassin bienfaisant (récupération d'ENDURANCE). **Cul-de-sac** |
 | 23 | (0,5) | 367 | 204 | 250 | — | Les Fleurs d'Angoisse | N→304 E→265 | FLEURS D'ANGOISSE : `E HABILETE -1` (et −1 de plus si l'on fuit, 269) |
 | 29 | (1,5) | 348 | 320 | 265 | — | La Licorne | N→094 S→157 E→010 O→204 | LICORNE blessée (11/4 en 221) ; **Corne de Licorne** (`277 G CO`) ; bénédiction (381) |
 | 5 | (2,5) | 227 | 010 | 142 | — | La clairière des combats | N→066 E→388 O→320 | traces d'un combat, cadavre → **Aimant d'Or** (`059 G AI`, maudit : `063 GX AI`) |
@@ -514,7 +522,7 @@ variantes d'arrivée ; **Autres hubs** = pages-hub équivalentes ; **Sorties** =
 | 4 | (1,8) | 314 | 398 | 239 | — | Clairière du Maître des Loups | N→090 E→195 | MAÎTRE DES LOUPS (11/10 en 064/120) + 2 LOUPS — **Amulette de Loup** (`154 G LOUP`) ; maison fermée en revisite |
 | **1** | **(2,8)** | **058** | **195** | 024 208 | 404 405 | **Clairière n° 1 (rond-point)** | **S→208** *(sortie)* **E→105 O→398** | **DÉPART.** « Un large rond-point d'où partent trois sentiers », sol instable et détrempé |
 | 12 | (3,8) | 390 | 105 | 330 | — | Pierres et tronc | N→144 E→209 O→195 | pierres plates (repos, 021), tronc creux (055/069), OURS (7/8 en 200) en revisite |
-| 25 | (4,8) | 082 | 209 | — | 308 397 | Bête du bassin | O→330 | BÊTE DU BASSIN (8/10 en 082) — **Bijou Violet** au front (`308 G BJ`, `276 GX BJ`). **Cul-de-sac** |
+| 25 | (4,8) | 082 | 209 | 168 | 308 397 | Bête du bassin | O→330 | BÊTE DU BASSIN (8/10 en 082) — **Bijou Violet** au front (`308 G BJ`, `276 GX BJ`). **Cul-de-sac** |
 
 ### 4.2 Les 39 sentiers
 
@@ -819,35 +827,51 @@ pleine phrase** en anglais (« If you have one or ») et n'a **aucune sortie**.
 ne compare que la mécanique des directives, jamais les lignes `C`. **Une carte
 générée depuis le seul corpus français serait fausse pour l'anglais.**
 
-### 6.2 Correctifs proposés dans les pages
+### 6.2 Correctifs appliqués dans les pages
+
+**Appliqué le 2026-09-03**, FR et EN. Chaque rattachement a été relu sur le
+fac-similé avant d'être écrit ; deux des propositions initiales étaient fausses
+et le livre les a corrigées (lignes marquées ⚠).
 
 | Page | Correctif | Justification |
 | --- | --- | --- |
 | `N230.TXT` | `C 352 Reprendre la route vers le nord` (au lieu de « vers l'est ») | la page 352 dit « EN DIRECTION DU NORD » ; un mot, et l'incohérence A disparaît |
 | `N217.TXT` | `C 250 Reprendre la direction du sud vers les Fleurs d'Angoisse` | la prose dit déjà « Vous reprenez la direction du sud » ; la clairière 14 cesse d'être à sens unique (C) |
-| `N041.TXT` | + `V 382` | clr 30 : rattache « Retour aux Sables Mouvants », dont le texte riche (Pierre de Glace / de Croissance) est inatteignable |
-| `N053.TXT` | + `V 329` | clr 8 : rattache « Le champignon lumineux », la revisite qui manque vraiment |
-| `N144.TXT` | + `V 345` | clr 17 : rattache « La clairière en feu », après la mort du Maître des Araignées |
-| `N014.TXT` | + `V 338` | clr 32 : rattache « Retour au Scorpion Géant » |
-| `N011.TXT` | + `V 210` | cul-de-sac de la Bête : rattache « Retour à la clairière maudite », et par elle 143 et 243 |
-| `N031.TXT` | + `V 077` | clr 21 : rend la revisite du bassin explicite |
-| `N170.TXT` | + `V 363` | clr 19 : rend la revisite du Patrouilleur explicite |
-| `N209.TXT` | + `V 168` | clr 25 : rattache « Retour à la Clairière du Bassin » |
-| `N105.TXT` | + `V 330` | clr 12 : rend la revisite du tronc creux explicite |
-| `N065.TXT` | + `V 343` | clr 9 : rend la revisite des Brigands explicite |
-| `N204.TXT` | + `V 250` | clr 23 : rend la revisite des Fleurs explicite |
+| `N041.TXT` | + `V 382 270` | clr 30 : livre § 41, « rendez-vous au 382 » |
+| `N053.TXT` | + `V 329 230` | clr 8 : livre § 53, « rendez-vous au 329 » |
+| `N144.TXT` | + `V 345 165 354` | clr 17 : livre § 144, « rendez-vous au 345 » |
+| `N014.TXT` | + `V 338 088` | clr 32 : livre § 14, « rendez-vous au 338 » |
+| `N011.TXT` | + `V 210 125 299 228 243` | cul-de-sac de la Bête : livre § 11 ; ouvre par 210 les pages 143 et 243 |
+| ⚠ `N031.TXT` | + `V 364 077 394` | clr 21 : le livre § 31 renvoie au **364**, pas au 077. Le 077 est la page où l'on *boit* (+3 ENDURANCE) : en faire la revisite aurait donné une fontaine à ENDURANCE inépuisable |
+| `N170.TXT` | + `V 363 234` | clr 19 : livre § 170, « rendez-vous au 363 » |
+| `N209.TXT` | + `V 168 082 308 397` | clr 25 : livre § 209, « rendez-vous au 168 » |
+| `N105.TXT` | + `V 330 390` | clr 12 : livre § 105, « rendez-vous au 330 » |
+| `N065.TXT` | + `V 343 019` | clr 9 : livre § 65, « rendez-vous au 343 » |
+| `N204.TXT` | + `V 250 367` | clr 23 : livre § 204, « rendez-vous au 250 » |
+| ⚠ `N092.TXT` | + `V 108 232 247 389` | clr **11**, pas 7 : la page 108 dit « la clairière où vous aviez rencontré les **loups** » et son buisson sans baies, et le livre § 92 y renvoie. La 275 portait déjà `V 342` |
 
-**Effet mesuré** de ces 11 lignes `V` : elles portent les lignes `V` de 14 à 25,
-soit **25 clairières sur 35 avec une revisite explicite**, et font tomber les pages
-inaccessibles de **19 à 8** (vérifié par BFS depuis la page 001 sur le graphe
-augmenté : il reste 000, 106, 108, 126, 129, 181, 364, 380). Une douzième ligne,
-`V 108` sur `N275.TXT` (clr 7, « Retour dans la clairière »), ramènerait ce reste à
-7.
+**Les 14 lignes `V` préexistantes ont été complétées** de la même façon avec les
+autres pages de leur clairière (§ 3.4). Trois liens perdus à l'adaptation ont
+par ailleurs été rétablis, chacun vérifié sur le fac-similé :
+
+| Page | Correctif | Justification |
+| --- | --- | --- |
+| `N145.TXT` | + `CU GLACE 126 Pierre de Glace` | le livre § 145 offre **quatre** Pierres contre le Géant — Malédiction, Amitié, Feu, **Glace** ; la Glace manquait, et avec elle la page 126 |
+| `N147.TXT` | `CL 213 106` (au lieu de `CL 213 267`) | livre § 147 : « Si vous êtes Malchanceux, rendez-vous au **106** ». Le portage sautait le piège du filet (−2 ENDURANCE) pour aller droit au combat |
+| `N330.TXT` | + `C 129 Si vous y avez vu une creature lors d'une precedente visite` | la prose portait encore « rendez-vous au 129 » sans que le choix existe ; la 129 et, par elle, la 181 (« Le retour de l'Ours ») étaient injouables |
+
+**Effet mesuré** : les lignes `V` passent de 14 à **26**, soit **25 clairières
+sur 35** avec une revisite explicite, et les pages inaccessibles tombent de 18 à
+**1** — la 000, l'écran d'accueil du portage, où le moteur entre au lancement
+sans qu'aucun choix y mène. Le graphe passe de 729 à 743 arcs. Vérifié par BFS
+depuis la page 001, sur les deux corpus, qui donnent le même graphe.
 
 **Contrainte de forme** : la ligne `V` doit être placée **immédiatement après la
 ligne `T`**, avant tout le reste. Le garde de `classify_line` court-circuite la
 page entière dès qu'il la lit ; une ligne `E` ou `P` placée avant elle serait
-rejouée à chaque visite. `reflow_txt.py` vérifie cet invariant.
+rejouée à chaque visite. `reflow_txt.py` vérifie cet invariant, et depuis le même
+jour que la liste soit entièrement numérique, sans doublon et sans citer sa
+propre page.
 
 Les quatre coquilles de numéro (§ 6.1 F) n'ont plus d'objet dans la prose (§ 6.3)
 mais restent à corriger **dans les `aliases` de `decors.json`**, où
@@ -1205,10 +1229,10 @@ python3 -c "import json; print(len(json.load(open('SCOSWAMP.MORE/carte.json'))['
 | --- | --- |
 | pages | 412 (`N000`-`N411`) × 2 langues = **824 fichiers** ; 188 810 o FR / 167 310 o EN |
 | page la plus longue | 1 252 o = `FILE_BUFFER_SIZE − 1`, à l'octet (`N361`) |
-| directives | **31** reconnues, **30** employées ; 567 lignes `C` sur 334 pages ; 14 lignes `V` |
-| graphe | 412 nœuds, **729 arcs** (727 distincts), **0 cible manquante**, 1 composante faible, 84 SCC (la plus grande = 316) |
+| directives | **31** reconnues, **30** employées ; 568 lignes `C` sur 335 pages ; **26** lignes `V` |
+| graphe | 412 nœuds, **743 arcs**, **0 cible manquante**, 1 composante faible |
 | pages terminales | **21** — 11 morts, 3 victoires (158, 175, 358), 7 fins vivantes |
-| pages inaccessibles depuis 001 | **19** → **8** après les 11 lignes `V` proposées |
+| pages inaccessibles depuis 001 | **19** → **1** (la page de titre 000) après les correctifs du § 6.2 |
 | pages à choix directionnels | **58**, pour **111** choix, tous cardinaux |
 | **clairières canoniques** | **35** (30 numéros du livre, 4 anonymes, le 9 en double) |
 | pages-hub | **58**, regroupées en 35 ; **116** pages rattachées à un lieu, soit 3,3 par clairière |

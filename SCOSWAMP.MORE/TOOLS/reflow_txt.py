@@ -2,6 +2,11 @@
 """Remet les pages TXT de SCOSWAMP au format attendu par le moteur.
 
   T  <id> <Titre>     titre de scene, une seule ligne, barre inversee ligne 1
+  V  <cible> [<page> ...]  "si vous y etes deja venu, rendez-vous au <cible>".
+                      Doit preceder tout le reste, qu'un detour annule. Les
+                      numeros suivants sont les AUTRES pages de la meme
+                      clairiere (hub, variantes, revisite) : le detour joue
+                      des que l'une d'elles, ou la cible, a ete vue
   <corps>             replie a 78 colonnes, tient dans les lignes 2 a 20
   M  <hab> <end> <nom>  la creature de la clairiere
   MD <n>              ses coups coutent n ENDURANCE (defaut 2)
@@ -779,6 +784,24 @@ def main():
                             "OISEAU", "ARAIGNEE", "GRENOUILLE", "FAUX"}
                     if parts[1] not in keys:
                         problems.append(f"{f}: objet/amulette inconnu {parts[1]!r}")
+                # `V <cible> [<page> ...]` : la cible, puis les AUTRES pages de
+                # la meme clairiere. take_uint lit des chiffres et rien
+                # d'autre ; un mot glisse dans la liste serait lu comme un
+                # zero et le moteur testerait la page 000. La liste est libre
+                # en longueur, mais entierement numerique, sans doublon, et
+                # sans la page qui la porte -- que classify_line teste deja.
+                if parts[0] == "V":
+                    nums = parts[1:]
+                    if not nums or not all(x.isdigit() for x in nums):
+                        problems.append(f"{f}: ligne V mal formee {d!r} "
+                                        "(attendu : des numeros de page)")
+                    else:
+                        v = [int(x) for x in nums]
+                        if len(set(v)) != len(v):
+                            problems.append(f"{f}: ligne V avec un doublon {d!r}")
+                        if sid in v:
+                            problems.append(f"{f}: ligne V citant sa propre "
+                                            f"page {sid:03d}")
             if len(choices) > MAX_CHOICES:
                 problems.append(f"{f}: {len(choices)} choix > {MAX_CHOICES} "
                                 f"(MAX_CHOICES)")

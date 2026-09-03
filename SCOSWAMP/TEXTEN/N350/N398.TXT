@@ -1,5 +1,5 @@
 T 398 The Wolf Master's Clearing
-V 239
+V 239 314
 
 You enter a clearing where a small log house has been built. You then hear a
 growl resembling a dog's: it's not a dog, however, but a Wolf growling thus.

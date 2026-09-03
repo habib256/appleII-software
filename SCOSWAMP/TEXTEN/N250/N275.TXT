@@ -1,5 +1,5 @@
 T 275 The Giant
-V 342
+V 342 161 103 244
 
 A hole in the ground soon makes you stumble. You look down and then realize
 that the hole in question is actually a fifty-centimeter-long footprint, left

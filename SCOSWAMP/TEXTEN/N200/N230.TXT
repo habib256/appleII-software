@@ -6,4 +6,4 @@ threatening; you leave quickly, on your guard.
 
 What do you do?
 
-C 352 Resume the journey eastward
+C 352 Resume the journey northward

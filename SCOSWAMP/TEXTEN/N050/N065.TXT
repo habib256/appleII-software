@@ -1,4 +1,5 @@
 T 065 Brigands Clearing
+V 343 019
 
 The path follows a winding trail; you don't stray from it. You go around a
 large mushroom where creatures swarm.

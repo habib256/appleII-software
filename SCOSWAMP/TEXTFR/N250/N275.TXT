@@ -1,5 +1,5 @@
 T 275 Le Geant
-V 342
+V 342 161 103 244
 
 Un trou dans le sol vous fait bientot trebucher. Vous regardez a terre et vous
 vous apercevez alors que le trou en question est en fait une empreinte de

@@ -1,4 +1,5 @@
 T 014 Scorpion and Dwarf
+V 338 088
 
 The path leads to a small clearing where several trees have fallen. You
 approach and hear sounds of struggle behind a wide trunk.

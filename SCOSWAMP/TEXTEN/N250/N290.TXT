@@ -1,5 +1,5 @@
 T 290 Swamp Orcs
-V 323
+V 323 309 352
 
 You make out traces indicating someone passed through recently. At some
 distance before you lies another clearing.

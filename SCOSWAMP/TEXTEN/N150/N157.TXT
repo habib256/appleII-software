@@ -1,5 +1,5 @@
 T 157 The Sword Trees Clearing
-V 279
+V 279 022
 
 The path narrows worryingly and you fear reaching a dead end. A few meters
 further, it widens and you enter a very small clearing. The place is

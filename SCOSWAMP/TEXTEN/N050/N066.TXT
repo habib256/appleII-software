@@ -1,5 +1,5 @@
 T 066 The Suspicious Picnic
-V 192
+V 192 179
 
 You enter a pleasant clearing surrounded by gnarled oaks.
 

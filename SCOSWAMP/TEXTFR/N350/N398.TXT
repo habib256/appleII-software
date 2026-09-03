@@ -1,5 +1,5 @@
 T 398 La clairiere du Maitre des Loups
-V 239
+V 239 314
 
 Vous entrez dans une clairiere ou l'on a bati une petite maison en rondins.
 Vous entendez alors un grognement qui ressemble a celui d'un chien : ce n'est

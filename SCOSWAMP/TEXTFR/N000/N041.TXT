@@ -1,4 +1,5 @@
 T 041 Sables mouvants
+V 382 270
 
 Vous entrez dans une clairiere entouree d'arbres dont les troncs sont couverts
 de lierre. Le sol devient soudain plus meuble. Aucun autre chemin ne semble
