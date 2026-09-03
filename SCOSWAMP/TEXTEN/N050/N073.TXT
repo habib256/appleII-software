@@ -1,5 +1,4 @@
 T 073 The Nest in the Tree
-G CH
 
 Test your Luck. If you are Unlucky, you fall and lose 2 STAMINA points, but
 you nevertheless manage to climb up to the nest. If you are Lucky, you reach
@@ -8,5 +7,6 @@ the nest without difficulty.
 You then discover a Gold Chain attached to a branch, which you can take if you
 wish. You climb down immediately after and resume your journey.
 
+G CH
 CE ENDURANCE 0 -2
 C 202 Continue your path

@@ -1,6 +1,6 @@
-T 195 Clearing Number 1
+T 195 The Wide Roundabout
 
-You arrive in Clearing No. 1. In truth, it's only a wide roundabout from which
+You arrive in a clearing. In truth, it's only a wide roundabout from which
 three paths depart. The ground is unstable and waterlogged, and large clouds
 of insects flutter above the stagnant ponds covering the place.
 

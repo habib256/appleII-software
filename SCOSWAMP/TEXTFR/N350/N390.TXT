@@ -1,7 +1,7 @@
 T 390 Trois sentiers marecageux
 
 Vous avez le choix entre trois sentiers. Tous trois semblent plutot marecageux
-et peu seurs.
+et peu surs.
 
 Dans quelle direction souhaitez-vous aller ?
 

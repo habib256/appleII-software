@@ -3,8 +3,7 @@ V 331
 
 Un arbre immense, plante dans un sol dur et nu, se dresse au milieu de la
 clairiere dans laquelle vous vous trouvez. Au sommet de cet arbre, un nid
-gigantesque a ete amenage a l'aide de branchages. Vous etes dans la Clairiere
-n 16.
+gigantesque a ete amenage a l'aide de branchages.
 
 Vous vous arretez au pied de l'arbre pour contempler ce grand nid, mais,
 bientot, vous entendez un battement d'ailes derriere vous et vous apercevez un

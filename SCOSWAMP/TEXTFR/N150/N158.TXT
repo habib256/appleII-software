@@ -1,8 +1,8 @@
 T 158 Reussite : la carte est complete
 
 Vous souriez et tirez de votre poche un parchemin chiffonne: la carte que vous
-avez trace au fil du Marais. Chemins, clairieres et perils y sont marques avec
-soin. Pompatarte suit vos explications, enchante.
+avez tracee au fil du Marais. Chemins, clairieres et perils y sont marques
+avec soin. Pompatarte suit vos explications, enchante.
 
 Quand vous terminez, il vous donne une grande claque dans le dos qui vous fait
 chanceler. "Merveilleux! Absolument parfait!" Il ouvre un tiroir et en sort

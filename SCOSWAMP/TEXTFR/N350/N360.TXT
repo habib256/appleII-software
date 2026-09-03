@@ -1,7 +1,7 @@
 T 360 Duel gagne
 
 "Bravo, jolie feinte ! s'ecrie le Chef des Brigands en se tenant le bras a
-l'endroit ou votre lame l'a atteint, c'etait un beau combat ! "
+l'endroit ou votre lame l'a atteint, c'etait un beau combat !"
 
 L'un de ses compagnons panse sa blessure tandis qu'un autre lui offre l'eau de
 sa gourde. Un instant plus tard, vous etes tous en train de rire et de

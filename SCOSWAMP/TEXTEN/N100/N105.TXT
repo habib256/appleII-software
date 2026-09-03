@@ -2,7 +2,7 @@ T 105 Stones and Log
 
 You notice a clearing some distance ahead. The ground there is firm; you can
 enter it with a confident step. Large flat stones, a massive hollow log, and
-two paths appear a little further on. You are in Clearing No. 012.
+two paths appear a little further on.
 
 What do you want to do?
 

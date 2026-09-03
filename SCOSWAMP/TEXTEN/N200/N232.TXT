@@ -1,5 +1,4 @@
 T 232 The Berry Put Away
-G BA
 
 You carefully pick the berry and store it carefully. If you're in Gayolard's
 service, act accordingly. Otherwise, leave the clearing and resume the
@@ -7,5 +6,6 @@ southern path.
 
 What do you do?
 
+G BA
 C 389 I serve Gayolard
 C 342 Leave the clearing and resume southward

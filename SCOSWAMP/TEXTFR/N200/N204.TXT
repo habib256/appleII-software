@@ -1,12 +1,12 @@
 T 204 Les Fleurs d'Angoisse
 
-Le sentier s'elargit, et des fleurs colores bordent le chemin. C'est la
-Clairiere n 23. Mais soudain, un frisson vous parcourt : quelque chose ne va
-pas. Votre Anneau de Cuivre devient brulant, signe d'un danger proche.
+Le sentier s'elargit, et des fleurs colorees bordent le chemin. Mais soudain,
+un frisson vous parcourt : quelque chose ne va pas. Votre Anneau de Cuivre
+devient brulant, signe d'un danger proche.
 
 Autour de vous, ces fleurs semblent trop belles... Vous vous souvenez alors de
-leur nom redoutable : les **Fleurs d'Angoisse** ! Leur pollen inspire la
-terreur et vous sentez vos mains trembler. Vous perdez 1 point d'HABILETE.
+leur nom redoutable : les Fleurs d'Angoisse ! Leur pollen inspire la terreur
+et vous sentez vos mains trembler. Vous perdez 1 point d'HABILETE.
 
 Que faites-vous ?
 

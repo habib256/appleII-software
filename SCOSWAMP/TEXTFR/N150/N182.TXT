@@ -1,6 +1,6 @@
 T 182 Piques venimeuses
 
-Avant que vous ragissiez, des scorpions grimpent sur vos bottes et le long de
+Avant que vous reagissiez, des scorpions grimpent sur vos bottes et le long de
 vos jambes. Leurs dards vous piquent a plusieurs reprises: lancez 1 de et
 perdez autant de points d'ENDURANCE.
 

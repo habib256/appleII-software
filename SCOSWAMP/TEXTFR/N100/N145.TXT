@@ -2,7 +2,7 @@ T 145 Le choix des pierres
 
 Il vous semble que recourir a la magie soit le meilleur moyen d'echapper a la
 colere d'un Geant. Devant vous, quatre emplacements accueillent des pierres
-differentes, chacune emetant une faible lueur enigmatique.
+differentes, chacune emettant une faible lueur enigmatique.
 
 Quel talisman choisirez-vous pour defier le Geant et passer vivant ?
 

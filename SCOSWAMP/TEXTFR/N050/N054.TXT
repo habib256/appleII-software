@@ -1,7 +1,7 @@
 T 054 Colere accusation
 
 Ses traits se convulsent sous l'effet de la fureur; il se met a hurler.
-"Comment osez-vous revenir les mains vides ?" tonne-t-il, la voix brise.
+"Comment osez-vous revenir les mains vides ?" tonne-t-il, la voix brisee.
 
 Tentez votre CHANCE. Test: lancez 2 des (2d6). Si total <= CHANCE alors vous
 etes Chanceux; sinon vous etes Malchanceux. Appliquez immediatement les effets

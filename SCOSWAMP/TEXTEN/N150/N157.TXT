@@ -2,9 +2,9 @@ T 157 The Sword Trees Clearing
 V 279
 
 The path narrows worryingly and you fear reaching a dead end. A few meters
-further, it widens and you enter a very small clearing. This is Clearing No.
-18. The place is surrounded by strangely shaped trees: small, dark green, with
-branches resembling arms.
+further, it widens and you enter a very small clearing. The place is
+surrounded by strangely shaped trees: small, dark green, with branches
+resembling arms.
 
 Soon, you notice that each arm holds a sword at its end. These trees move and
 converge toward you. You are attacked by SWORD TREES! They encircle you and

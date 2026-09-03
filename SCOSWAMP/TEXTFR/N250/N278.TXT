@@ -6,9 +6,9 @@ instant plus tard, vous bondissez de derriere les arbres en hurlant et en
 brandissant votre epee.
 
 Les Brigands sont terrifies, ils pensent que vous faites partie d'une
-veritable arme venue envahir leur territoire et ils s'enfuient a toutes
+veritable armee venue envahir leur territoire et ils s'enfuient a toutes
 jambes, disparaissant parmi les arbres qui entourent la clairiere. Vous passez
 alors devant eux en courant tandis qu'ils s'enfouissent dans la boue pour
-mieux se cacher. La voie est libre pour vous et vous vous rendez au 19.
+mieux se cacher. La voie est libre pour vous.
 
 C 019 Continuer

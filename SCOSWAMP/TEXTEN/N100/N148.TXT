@@ -10,4 +10,4 @@ Brigands jostle each other and rush in pursuit without seeing you.
 
 You take advantage of their disorder and cross the clearing.
 
-C 019 Go to 19.
+C 019 Resume the journey

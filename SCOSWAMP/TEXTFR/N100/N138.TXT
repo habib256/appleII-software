@@ -1,7 +1,7 @@
 T 138 Le pont sur la riviere Croupie
 
-Les arbres se font plus rares et vous entrez dans la Clairiere no 35. La
-riviere Croupie la traverse d'est en ouest.
+Les arbres se font plus rares et vous entrez dans une clairiere. La riviere
+Croupie la traverse d'est en ouest.
 
 Un pont l'enjambe, apparemment desert.
 

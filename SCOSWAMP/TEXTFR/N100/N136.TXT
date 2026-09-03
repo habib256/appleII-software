@@ -1,4 +1,4 @@
-T 136 Flamme detourne
+T 136 Flamme detournee
 
 Vous lancez une Pierre de Feu sur le Maitre des Jardins. Mais d'un simple
 geste, il detourne la flamme sans effort.

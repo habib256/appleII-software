@@ -1,7 +1,7 @@
 T 254 Pont de l'arbre
 
 Vous jetez la Pierre Magique de Fletrissure sur un gros arbre plante sur la
-rive. L'arbre s'abat aussitot et forme un pont vers la berge oppose. Vous
+rive. L'arbre s'abat aussitot et forme un pont vers la berge opposee. Vous
 traversez d'un pas rapide tandis que le bois craque sous vos bottes et que la
 terre tremble legerement.
 

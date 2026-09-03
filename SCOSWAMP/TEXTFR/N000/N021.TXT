@@ -4,7 +4,7 @@ Vous vous reposez quelques minutes et recuperez 1 point d'ENDURANCE.
 
 Un bruit vient soudain de l'interieur du tronc creux. Si vous voulez savoir ce
 qui s'y cache, examinez le tronc. Sinon, vous pouvez l'ignorer et reprendre la
-route. Vous etes dans la Clairiere n 012.
+route.
 
 Que faites-vous?
 

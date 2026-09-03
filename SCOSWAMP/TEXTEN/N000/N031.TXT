@@ -5,7 +5,7 @@ You advance eastward and feel you've gone too far into the swamp.
 Suddenly, you enter a clearing overgrown with grass. In the center, a pool
 gleams with water pure as crystal. A small beach of fine sand borders one side
 of the pool. No other path allows an exit: only the trail by which you arrived
-connects you to the outside world. You are in Clearing No. 021.
+connects you to the outside world.
 
 What do you do?
 

@@ -1,5 +1,4 @@
 T 059 The Corpse and the Pendant
-G AI
 
 You decide to examine the clearing. Perhaps you'll find something useful, or
 someone needs help. Very quickly, you stumble upon the corpse of a Swamp Orc.
@@ -14,4 +13,5 @@ around his neck, in the shape of a magnet. You can take it if you wish.
 
 Once your gestures are complete, you resume the journey.
 
+G AI
 C 227 Leave the clearing and resume the journey

@@ -1,5 +1,4 @@
 T 289 Tancred's Flying Horse
-PD
 
 The Forest Guards told you that "Tancred's Flying Horse" was the least
 expensive of the three inns and so that's where you decided to spend the
@@ -12,8 +11,8 @@ shadow flees the room. You then double-lock the door and go back to bed. When
 you wake in the morning, you feel well rested and you recover 2 STAMINA
 points. Alas! your night thief took two possessions from your bag, starting
 with any Magic Stones lying on top. The Copper Ring remained on your finger.
-You now leave the
-inn to resume your path. Test your Luck.
+You now leave the inn to resume your path. Test your Luck.
 
+PD
 E ENDURANCE +2
 CL 150 343

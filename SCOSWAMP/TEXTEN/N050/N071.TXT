@@ -1,5 +1,4 @@
 T 071 The Parrot
-G PL
 
 Fearing that the bird might raise the alarm, you behead it with a sword
 stroke. The parrot's body falls to the ground without a sound.
@@ -7,4 +6,5 @@ stroke. The parrot's body falls to the ground without a sound.
 You pluck a few brightly colored feathers and sheathe your sword. Then you
 resume the path with more caution.
 
+G PL
 C 149 Continue your journey

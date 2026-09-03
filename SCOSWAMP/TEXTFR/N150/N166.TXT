@@ -5,9 +5,9 @@ sorti, aventurier !" dit-il avec un sourire. "Tout ce qu'il vous reste a faire
 maintenant, c'est de sortir vivant du Marais aux Scorpions. Ecoutez bien mes
 instructions :"
 
--> Prenez **la direction du sud**, -> puis allez **vers l'est**, -> puis **au
-sud encore** lorsque vous atteindrez **le Nid d'Aigle**, -> ensuite, partez
-**vers l'ouest**, -> et enfin **au sud** une derniere fois.
+Prenez la direction du sud, puis allez vers l'est, puis au sud encore lorsque
+vous atteindrez le Nid d'Aigle, ensuite partez vers l'ouest, et enfin au sud
+une derniere fois.
 
 "Si vous suivez ce trajet a la lettre, vous atteindrez la lisiere sud du
 Marais. Au-dela, le sol redevient ferme et vous serez sauf."

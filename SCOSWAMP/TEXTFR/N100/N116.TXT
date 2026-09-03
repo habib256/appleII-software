@@ -1,6 +1,6 @@
-T 116 Nuit agite
+T 116 Nuit agitee
 
-Vous tentez d'ignorer le vacarme qui monte du rez-de-chausse, mais les rires
+Vous tentez d'ignorer le vacarme qui monte du rez-de-chaussee, mais les rires
 et chants deviennent assourdissants. Vous ne trouvez le sommeil que bien apres
 minuit.
 

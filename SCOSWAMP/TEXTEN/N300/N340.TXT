@@ -1,6 +1,4 @@
 T 340 Stratagus's Death
-G EP
-E BONUS +2
 
 Your sword's blade sinks deep into his chest. He then looks at you with an
 incredulous air and opens his mouth with the manifest intention of telling you
@@ -18,5 +16,7 @@ treasures he's hidden there. But the atmosphere soon becomes heavy and
 oppressive. Your ring is still as hot, thus warning you of perhaps even
 greater danger than before. You also smell sulfur.
 
+G EP
+E BONUS +2
 C 375 Stay a few moments
 C 298 Leave immediately

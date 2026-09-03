@@ -2,7 +2,7 @@ T 271 Coup traitre au Maitre des Loups
 
 Au moment ou vous passez devant le Maitre des Loups, vous portez un coup de
 lame par derriere. Ce geste de lacherte vous coute 1 point de CHANCE. La
-blessure inflige au Maitre reduira de 2 points son total d'ENDURANCE lors du
+blessure infligee au Maitre reduira de 2 points son total d'ENDURANCE lors du
 combat qui suit.
 
 E CHANCE -1

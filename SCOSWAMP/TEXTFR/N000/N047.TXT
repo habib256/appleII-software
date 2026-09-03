@@ -5,7 +5,7 @@ n'y apparait a premiere vue; l'air est lourd et calme.
 
 Trois sentiers permettent de quitter cette clairiere: sud, est et ouest. Le
 sentier du sud semble plus humide; l'est offre une lueur d'horizon; l'ouest
-est etroit et borde d'arbres serres. Vous etes dans la Clairiere n 003.
+est etroit et borde d'arbres serres.
 
 Que faites-vous?
 

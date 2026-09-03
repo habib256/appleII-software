@@ -1,7 +1,7 @@
-T 233 L'Aigle menace ant
+T 233 L'Aigle menacant
 
 Un aigle se pose sur une branche et vous observe, regard feroce. Son grand bec
-crochu s'ouvre et se referme d'un air menace ant. Il vous suffit d'un geste
+crochu s'ouvre et se referme d'un air menacant. Il vous suffit d'un geste
 brutal pour declencher l'assaut.
 
 Que faites-vous?

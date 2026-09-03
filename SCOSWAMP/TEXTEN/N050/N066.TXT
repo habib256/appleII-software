@@ -1,8 +1,7 @@
 T 066 The Suspicious Picnic
 V 192
 
-You enter a pleasant clearing surrounded by gnarled oaks. You are in Clearing
-No. 9.
+You enter a pleasant clearing surrounded by gnarled oaks.
 
 A small man with a cheerful air is sitting on the ground, back leaning against
 the trunk of a tree. He's eating cheese, a picnic basket open beside him. He

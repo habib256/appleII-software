@@ -3,8 +3,7 @@ V 137
 
 You're in a particularly marshy zone, and each of your steps produces a
 sucking sound on the ground. Soon, the path turns slightly and runs along a
-large basin. You're in a clearing accessible only by this single trail. This
-is Clearing No. 28.
+large basin. You're in a clearing accessible only by this single trail.
 
 The basin's water is agitated by wavelets and a greenish Slime covers its
 surface. This certainly isn't where you'd wish to quench your thirst!

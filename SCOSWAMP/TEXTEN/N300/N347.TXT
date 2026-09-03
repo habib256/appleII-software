@@ -7,3 +7,4 @@ Your movement however has broken the spell and the Garden Master, seeing you
 reappear in your usual form, leaps backward. The attempt has failed.
 
 C 379 Attack the Garden Master
+C 363 Flee the clearing

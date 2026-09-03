@@ -1,6 +1,4 @@
 T 189 Les pierres decouvertes
-P AMITIE
-P CHANCE
 
 Vous remarquez que la terre a ete remue au pied d'un des arbres qui bordent la
 clairiere. Vous creusez aussitot en cet endroit precis et vous trouvez deux
@@ -12,4 +10,6 @@ utiles ulterieurement dans votre quete.
 Vous rangez soigneusement les Pierres dans votre bourse, puis vous reprenez la
 route, le coeur leger d'avoir gagne ces precieuses ressources.
 
+P AMITIE
+P CHANCE
 C 348 Reprendre la route et repartir

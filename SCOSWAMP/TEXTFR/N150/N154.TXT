@@ -1,5 +1,4 @@
 T 154 L'amulette du Loup
-G LOUP
 
 Le Maitre des Loups git a vos pieds. Vous fouillez son corps et trouvez une
 Amulette en forme de Loup, seul objet digne d'interet.
@@ -7,4 +6,5 @@ Amulette en forme de Loup, seul objet digne d'interet.
 Le metal froid pulse d'une energie etrange, presque vivante. Vous la prenez et
 la glissez a votre cou, sentant son poids mystique.
 
+G LOUP
 C 046 Quitter les lieux

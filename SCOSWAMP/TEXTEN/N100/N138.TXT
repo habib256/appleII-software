@@ -1,7 +1,7 @@
 T 138 The Bridge over the Croupie River
 
-The trees become scarcer and you enter Clearing No. 35. The Croupie River
-crosses it from east to west.
+The trees become scarcer and you enter a clearing. The Croupie River crosses
+it from east to west.
 
 A bridge spans it, apparently deserted.
 

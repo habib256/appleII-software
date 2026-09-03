@@ -1,5 +1,4 @@
 T 308 The Purple Jewel
-G BJ
 
 The Basin Beast is finally dead.
 
@@ -8,4 +7,5 @@ Jewel and you leave immediately without forgetting to record your new
 acquisition on your Adventure Sheet. The only path that allows leaving the
 clearing takes you back westward.
 
+G BJ
 C 330 Continue westward

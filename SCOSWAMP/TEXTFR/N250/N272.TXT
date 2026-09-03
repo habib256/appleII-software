@@ -6,7 +6,7 @@ total de CHANCE et remerciez le ciel d'etre encore en vie. Vous prenez un bain
 chaud a l'auberge et vous vous sentez alors nettement mieux.
 
 Vous allez ensuite retrouver Grognard en vous excusant de votre impetuosite.
-Il hoche la tete et esquisse un sourire. " Vous avez de la chance et vous etes
-resistant, sinon, vous ne seriez jamais revenu vivant, dit-il.
+Il hoche la tete et esquisse un sourire. "Vous avez de la chance et vous etes
+resistant, sinon, vous ne seriez jamais revenu vivant", dit-il.
 
 C 205 Ecouter Grognard

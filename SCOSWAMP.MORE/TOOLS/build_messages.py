@@ -74,8 +74,8 @@ MESSAGES = [
      'Vous jetez les deux des : %u, contre une CHANCE de %u.',
      'You roll two dice: %u, against a LUCK of %u.'),
     ('M_MORT_RECOMMENCER',
-     '[R] recommencer une aventure   [Q] quitter vers ProDOS',
-     '[R] start a new adventure   [Q] quit to ProDOS'),
+     '[R] recommencer une aventure  [L] reprendre une sauvegarde  [Q] quitter',
+     '[R] start a new adventure  [L] resume a saved game  [Q] quit to ProDOS'),
     # Le jet de des VISIBLE de la ligne ED. Deux messages, et deux seulement :
     # la prose de la page est encore a l'ecran au-dessus et dit deja ce que le
     # de coute ("lancez un de et perdez autant de points d'ENDURANCE"), donc

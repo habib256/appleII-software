@@ -1,13 +1,13 @@
 T 191 Choix de la Pierre Magique
 
 Face au Maitre des Loups, l'affrontement a l'epee serait hasardeux. Vos doigts
-cherchent les Pierres Magiques que Gayolard vous a confies. Le temps presse :
+cherchent les Pierres Magiques que Gayolard vous a confiees. Le temps presse :
 les fauves grondent et le Maitre vous jauge d'un regard percant.
 
 Choisir la bonne Pierre peut inverser la rencontre, mais attention : une
-Pierre depense est perdue pour toujours. Chaque Pierre a un effet propre ;
+Pierre depensee est perdue pour toujours. Chaque Pierre a un effet propre ;
 certains effets peuvent se retourner contre vous si la situation n'est pas
-adapte.
+adaptee.
 
 Vous sentez le pouvoir vibrer dans votre main ; la moindre erreur pourrait
 etre fatale. Reflechissez vite et bien. Voici vos options :

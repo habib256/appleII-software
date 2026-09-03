@@ -5,8 +5,7 @@ brume se leve soudain et vous debouchez dans une clairiere. Un homme, grand et
 bronze, entierement vetu de vert, vous salue du sommet d'un rocher. C'est un
 PATROUILLEUR.
 
-"He, l'aventurier ! Es-tu au service du Bien ou du Mal ?" Vous etes dans la
-Clairiere n 019.
+"He, l'aventurier ! Es-tu au service du Bien ou du Mal ?"
 
 Quel sorcier servez-vous?
 

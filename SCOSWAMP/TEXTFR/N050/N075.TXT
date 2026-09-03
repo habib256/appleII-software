@@ -1,6 +1,6 @@
 T 075 Les Arbres-Epees
 
-Lorsque vous lancez votre Pierre Magique de Feu, les Arbres- Epees se
+Lorsque vous lancez votre Pierre Magique de Feu, les Arbres-Epees se
 retractent quelque peu, visiblement furieux, mais sans etre gravement
 atteints.
 

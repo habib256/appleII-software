@@ -1,6 +1,6 @@
-T 228 Graines armes
+T 228 Graines armees
 
-Vous rependez les graines d'Arbres-Epees devant vous puis lancez une Pierre de
+Vous repandez les graines d'Arbres-Epees devant vous puis lancez une Pierre de
 Croissance. Les pousses jaillissent immediatement et brandissent leurs epees.
 
 La Bete Immonde se jette sur elles, en abat une, puis se precipite en furie.

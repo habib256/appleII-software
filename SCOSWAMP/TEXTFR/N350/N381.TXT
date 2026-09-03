@@ -1,6 +1,6 @@
 T 381 Benediction de la Licorne
 
-Vous ne voulez pas attaquer la Licorne blesse car vous avez toujours entendu
+Vous ne voulez pas attaquer la Licorne blessee car vous avez toujours entendu
 dire que ce sont des creatures bienveillantes. Vous lui lancez donc une Pierre
 Magique de Benediction et vous la voyez frissonner lorsque le sortilege
 l'atteint.
@@ -12,11 +12,11 @@ creuser le sol avec sa corne a l'autre bout de la clairiere puis vous lance un
 regard et s'en va.
 
 Vous allez voir alors l'endroit ou elle a creuse et vous decouvrez la deux
-Pierres de Magie semblables a celles que Gayolard vous a donnes. L'une est une
-Pierre d'Amitie, l'Autre une Pierre de CHANCE.
+Pierres de Magie semblables a celles que Gayolard vous a donnees. L'une est
+une Pierre d'Amitie, l'autre une Pierre de CHANCE.
 
-Vous remerciez la Licorne en etant seur qu'elle vous a entendu ou qu'elle
-soit, et vous poursuivez votre route.
+Vous remerciez la Licorne en etant sur qu'elle vous a entendu ou qu'elle soit,
+et vous poursuivez votre route.
 
 P AMITIE
 P CHANCE

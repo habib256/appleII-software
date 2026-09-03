@@ -8,7 +8,7 @@ du bien", dit-il.
 Vous hesitez, puis gouttez le contenu d'une bouteille. Le sorcier rit de votre
 prudence, mais il disait vrai : vous sentez vos forces revenir. C'etait une
 Potion de Guerison ! Vous videz les autres fioles et, contre toute attente,
-aucune n'est empoisonne. Vos points d'HABILETE, d'ENDURANCE et de CHANCE
+aucune n'est empoisonnee. Vos points d'HABILETE, d'ENDURANCE et de CHANCE
 reviennent a leur total initial.
 
 C 206 Poursuivre apres cette etrange entrevue

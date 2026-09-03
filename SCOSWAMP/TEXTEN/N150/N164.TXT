@@ -6,8 +6,8 @@ joy: "So there's still an Asphodel bush? What wonder!" Her enthusiasm is so
 sincere that for a moment she resembles a delighted little girl.
 
 Aware of the importance of your quest for the cause of Good, she hands you a
-**magic potion**: it has the power to restore to their initial value your
-SKILL, STAMINA or LUCK points - your choice.
+magic potion: it has the power to restore to their initial value your SKILL,
+STAMINA or LUCK points - your choice.
 
 Then, with a gesture, she calls several birds that come swirling around her.
 She murmurs a few words to them, listens to them, then turns to you: "Gayolard

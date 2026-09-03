@@ -1,13 +1,13 @@
 T 245 Vol discret
-G GRENOUILLE
 
 Vous usez une Pierre d'Illusion et prenez l'aspect d'une grenouille. Discret,
 vous vous glissez parmi les autres et vous faufilez derriere le champignon sur
 lequel est assis le Maitre.
 
-D'un mouvement precise, vous faites glisser la chaine et l'Amulette tombe dans
+D'un mouvement precis, vous faites glisser la chaine et l'Amulette tombe dans
 votre patte. Le Maitre bascule dans la mare, coasse et a la bouche pleine
 d'eau. Profitant du desordre, vous regagnez le sentier et quittez la
 clairiere.
 
+G GRENOUILLE
 C 352 Rejoindre le sentier et prendre la fuite

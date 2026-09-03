@@ -1,6 +1,6 @@
-T 195 La clairiere numero 1
+T 195 Le large rond-point
 
-Vous arrivez dans la Clairiere n 1. En verite, il ne s'agit que d'un large
+Vous arrivez dans une clairiere. En verite, il ne s'agit que d'un large
 rond-point d'ou partent trois sentiers. Le sol est instable et detrempe, et de
 grosses nues d'insectes volettent au-dessus des mares stagnantes qui
 recouvrent l'endroit.

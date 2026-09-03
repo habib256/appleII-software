@@ -1,9 +1,9 @@
 T 277 La corne de Licorne
-G CO
 
-La Licorne est morte. Sachant que sa corne est dote de grands pouvoirs
+La Licorne est morte. Sachant que sa corne est dotee de grands pouvoirs
 magiques, vous la coupez a l'aide de votre epee et vous la rangez dans votre
 Sac a Dos (inscrivez-la sur votre Feuille d'Aventure).
 
+G CO
 C 348 Repartir des a present
 C 086 Rester un peu pour fouiller la clairiere

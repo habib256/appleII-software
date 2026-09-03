@@ -1,15 +1,15 @@
 T 144 Tente aux araignees
 
 Le sentier est envahi de toiles d'araignees qui pendent des branches. Un peu
-plus loin vous distinguez une clairiere constelle de toiles. Des milliers de
+plus loin vous distinguez une clairiere constellee de toiles. Des milliers de
 fils forment des guirlandes entre les arbres. Partout, les araignees abondent
 et tapissent le feuillage alentour.
 
 Au centre, une tente somptueuse semble flotter au-dessus du marais. Un homme
 de haute taille est assis a l'interieur: barbe et sourcils d'un blanc de
-neige; sa toge argente se confond avec la tente. Une Amulette d'Argent en
+neige; sa toge argentee se confond avec la tente. Une Amulette d'Argent en
 forme d'araignee brille a son cou. L'Anneau de Cuivre se rechauffe autour de
-votre doigt: signe malefique. Vous etes dans la Clairiere n 017.
+votre doigt: signe malefique.
 
 Que voulez-vous faire?
 

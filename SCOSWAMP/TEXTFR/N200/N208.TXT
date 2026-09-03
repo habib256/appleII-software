@@ -1,7 +1,7 @@
 T 208 Sortir du Marais
 
 La clarte semble grandir a mesure que vous progressez. Soudain, vous apercevez
-un coin de ciel bleu a travers une troue du feuillage, juste au-dessus de
+un coin de ciel bleu a travers une trouee du feuillage, juste au-dessus de
 votre tete. Quelques minutes plus tard, les arbres s'ecartent au bout du
 chemin et vous comprenez que vous avez quitte le Marais. L'air est plus sec,
 la lumiere plus pure, et vos pas se font moins lourds.

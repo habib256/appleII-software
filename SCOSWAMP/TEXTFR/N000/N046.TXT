@@ -1,6 +1,6 @@
-T 046 Hutte verrouille
+T 046 Hutte verrouillee
 
-Il n'y a pas grand-chose a faire ici: la porte de la hutte est verrouille par
+Il n'y a pas grand-chose a faire ici: la porte de la hutte est verrouillee par
 un tour de magie; il est rigoureusement impossible de l'ouvrir.
 
 Vous decidez donc de repartir et de reprendre la route par le chemin par

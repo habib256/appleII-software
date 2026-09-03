@@ -1,5 +1,4 @@
 T 017 The Thief's Strangling
-PX
 
 You cross the clearing without paying attention to the man. The moment you
 reach the path, a cord wraps around your neck. You struggle, but the thief
@@ -12,5 +11,6 @@ stripped and abandoned.
 
 What do you do?
 
+PX
 E ENDURANCE -3
 C 179 Regain consciousness and continue the journey

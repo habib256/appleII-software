@@ -1,7 +1,7 @@
 T 285 Sortilege de Faiblesse
 
-Le mauvais Sorcier est furieux et decide de vous aneantir a l'instant meme."
-Prepare-toi a mourir, insolent ver de terre ! " lance-t-il.
+Le mauvais Sorcier est furieux et decide de vous aneantir a l'instant meme.
+"Prepare-toi a mourir, insolent ver de terre !" lance-t-il.
 
 Il fait alors un geste de la main et vous lance un sortilege de Faiblesse.
 Vous perdez la moitie de vos points d'ENDURANCE, et il vous faut a present

@@ -1,7 +1,7 @@
 T 050 Confrontation a la porte
 
 Stratagus ecoute votre histoire avec un interet manifeste. "Un anneau magique?
-Vraiment?" s'exclame-t-il, les yeux grands.
+Vraiment?" s'exclame-t-il, les yeux grands ouverts.
 
 Vous tendez la main pour lui montrer l'Anneau de Cuivre qui luit. Il recule
 d'un pas, fait un geste etrange de la main: un sort se forme. L'anneau se

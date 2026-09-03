@@ -1,7 +1,7 @@
 T 210 Retour a la clairiere maudite
 
 Vous retrouvez la clairiere ou la Bete Immonde vous avait attaque. Le sol
-porte encore les traces du combat, couvert de griffures et de terre remue.
+porte encore les traces du combat, couvert de griffures et de terre remuee.
 
 Un silence lourd pese entre les arbres, comme si le lieu retenait son souffle,
 attendant votre decision.

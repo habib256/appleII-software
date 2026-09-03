@@ -1,8 +1,7 @@
 T 010 The Battle Clearing
 V 142
 
-You pass through gnarled trees and enter a new clearing. This is Clearing No.
-5.
+You pass through gnarled trees and enter a new clearing.
 
 The place bears the recent marks of combat: the ground is trampled, the wet
 grass stained with blood, and two arrows are still stuck in a tree a little

@@ -164,6 +164,7 @@ static unsigned char restoring;
 static char* scene_title;   /* la ligne T de la page, dans file_buffer */
 static void render_scene(void);
 void load_scene(int scene_id);
+static unsigned char show_saves(unsigned char saving);
 
 #pragma code-name (push, "LC")
 #pragma rodata-name (push, "LC")
@@ -506,22 +507,34 @@ static char choice_tag(int i)
     return choice_available(i) ? (char)('A' + i) : '-';
 }
 
+/* Deux choix courts tiennent sur une ligne, en deux colonnes. */
+static unsigned char pair_fits(unsigned char i)
+{
+    return i + 1 < app.num_choices &&
+           strlen(app.choices[i].title)     <= CHOICE_WIDTH - 3 &&
+           strlen(app.choices[i + 1].title) <= CHOICE_WIDTH - 3;
+}
+
 static void render_choices(void)
 {
-    int i = 0;
-    int row = CHOICE_ROW0;
+    unsigned char i, rows = 0, row;
 
+    /* Les choix se calent en BAS des quatre lignes : la derniere ligne de
+     * choix est toujours la ligne 24, et le vide reste au-dessus, contre le
+     * texte. On compte d'abord les lignes, avec la meme regle de pairage. */
+    for (i = 0; i < app.num_choices; i += pair_fits(i) ? 2 : 1) rows++;
+    if (rows > CHOICE_ROWN - CHOICE_ROW0 + 1) rows = CHOICE_ROWN - CHOICE_ROW0 + 1;
+    row = (unsigned char)(CHOICE_ROWN + 1 - rows);
+
+    i = 0;
     while (i < app.num_choices && row <= CHOICE_ROWN) {
-        if (i + 1 < app.num_choices &&
-            (int)strlen(app.choices[i].title)     <= CHOICE_WIDTH - 3 &&
-            (int)strlen(app.choices[i + 1].title) <= CHOICE_WIDTH - 3) {
-            gotoxy(0, row);
+        gotoxy(0, row);
+        if (pair_fits(i)) {
             cfmt("%c) %s", choice_tag(i), app.choices[i].title);
             gotoxy(CHOICE_COL2, row);
             cfmt("%c) %s", choice_tag(i + 1), app.choices[i + 1].title);
             i += 2;
         } else {
-            gotoxy(0, row);
             cfmt("%c) %.75s", choice_tag(i), app.choices[i].title);
             i += 1;
         }
@@ -1713,18 +1726,23 @@ static void show_help(void)
  * la seule sortie possible depuis que le jeu occupe la place de
  * BASIC.SYSTEM. */
 #pragma code-name (push, "LC")
-static void game_over(void)
+/* Rend 1 si le joueur a repris une sauvegarde : unpack_save a alors deja
+ * pose le heros, les memoires et la scene en attente, rien a remettre a
+ * zero. L'ecran se repeint apres une page des sauvegardes refermee sans
+ * charger. */
+static unsigned char game_over(void)
 {
     char key;
 
-    set_video_mode(0);
-    clrscr();
-    gotoxy(0, 6);
-    cputs(msg(M_VOTRE_ENDURANCE_EST));
-    print_at(8, msg(M_MORT_RECOMMENCER));
     for (;;) {
+        set_video_mode(0);
+        clrscr();
+        gotoxy(0, 6);
+        cputs(msg(M_VOTRE_ENDURANCE_EST));
+        print_at(8, msg(M_MORT_RECOMMENCER));
         key = cgetc();
-        if (key == 'R' || key == 'r') return;
+        if (key == 'R' || key == 'r') return 0;
+        if ((key == 'L' || key == 'l') && show_saves(0)) return 1;
         if (key == 'Q' || key == 'q') {
             videomode(VIDEOMODE_40COL);
             clrscr();
@@ -1768,7 +1786,7 @@ static void roll_character(void)
  * cher que la fonction. */
 static void die_and_restart(void)
 {
-    game_over();
+    if (game_over()) return;
     monster_memory_reset();
     scene_memory_reset();
     app.hero_ready = 0;
@@ -2008,6 +2026,14 @@ void handle_user_input(char key) {
             app.pending_scene = app.current_scene;
         }
 
+    } else if ((key == 'R' || key == 'r') && app.num_choices == 0) {
+        /* Recommencer depuis une page sans issue : la meme remise a zero que
+         * die_and_restart, sans l'ecran de mort -- la page vient de la dire. */
+        monster_memory_reset();
+        scene_memory_reset();
+        app.hero_ready = 0;
+        app.pending_scene = 0;
+
     } else if (key == 'Q' || key == 'q') {
         /* Quitter */
         set_video_mode(0);
@@ -2106,6 +2132,12 @@ void main(void) {
             restoring = 0;
             continue;
         }
+        /* Une page restee sans aucun choix est une fin -- mort par la prose,
+         * victoire, ou combat gagne sans suite. Le moteur offre alors de
+         * recommencer, de reprendre une sauvegarde ou de quitter, plutot que
+         * de laisser le joueur devant un ecran muet. Ici, au point ou la
+         * page est vraiment inactive : apres les des, les jets et le combat. */
+        if (app.num_choices == 0) print_at(CHOICE_ROWN, msg(M_MORT_RECOMMENCER));
         key = cgetc();
         handle_user_input(key);
     }

@@ -1,8 +1,8 @@
 T 150 Le marchand de potions
 
-La rue qui mene a la sortie de la ville est borde de petites boutiques. L'une
+La rue qui mene a la sortie de la ville est bordee de petites boutiques. L'une
 attire votre regard : ALPHONSE MACHEFER, MARCHAND DE POTIONS ET NEGOCIANT EN
-MAGIE. Vous entrez aussitot. Le jeune homme a barbe fournie et nez proeminant
+MAGIE. Vous entrez aussitot. Le jeune homme a barbe fournie et nez proeminent
 vous accueille avec un sourire prudent. C'est un sorcier neutre : il ne vend
 que des Pierres de Magie neutres.
 

@@ -1,8 +1,7 @@
 T 025 The Eagle Flies Away
 
 The Eagle cries out and circles above the clearing. It then flies away to its
-nest; you can consider yourself lucky to leave without harm. You are in
-Clearing No. 025.
+nest; you can consider yourself lucky to leave without harm.
 
 What do you do?
 

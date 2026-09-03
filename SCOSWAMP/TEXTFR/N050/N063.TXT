@@ -1,5 +1,4 @@
 T 063 Aimant rejete
-GX AI
 
 Vous fouillez dans votre sac a dos et lui offrez l'Aimant d'Or pris sur le
 cadavre du guerrier.
@@ -13,5 +12,6 @@ tenter une strategie differente.
 
 Que faites-vous?
 
+GX AI
 C 015 Proposer un autre objet
 C 212 Essayer une autre tactique

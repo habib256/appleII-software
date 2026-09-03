@@ -1,5 +1,4 @@
 T 289 Le Cheval Volant de Tancrede
-PD
 
 Les Gardes Forestiers vous ont dit que "le Cheval Volant de Tancrede" etait la
 moins chere des trois auberges et c'est donc la que vous avez decide de passer
@@ -12,10 +11,11 @@ sautez alors de votre lit et vous saisissez votre epee ; a cet instant, une
 ombre s'enfuit de la chambre. Vous fermez ensuite la porte a double tour et
 vous allez vous recoucher. Lorsque vous vous eveillez au matin, vous vous
 sentez bien repose et vous reprenez 2 points d'ENDURANCE. Helas ! vous vous
-apercevez que votre voleur de la nuit a pris deux possessions de votre sac,
-les Pierres placees au-dessus ayant disparu les premieres. L'Anneau de Cuivre
-est reste a votre doigt. Vous quittez a
-present l'auberge pour reprendre votre chemin. Tentez votre Chance.
+apercevez que votre voleur de la nuit a pris deux objets dans votre sac, les
+Pierres placees au-dessus ayant disparu les premieres. L'Anneau de Cuivre est
+reste a votre doigt. Vous quittez a present l'auberge pour reprendre votre
+chemin. Tentez votre Chance.
 
+PD
 E ENDURANCE +2
 CL 150 343

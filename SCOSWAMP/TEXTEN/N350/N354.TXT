@@ -1,5 +1,4 @@
 T 354 Incendiary Amulet
-G ARAIGNEE
 
 You pull your sword from your repugnant opponent's corpse with a sigh of
 relief. But, all around you, the Spiders watch you and approach closer and
@@ -13,4 +12,5 @@ You hasten to leave the clearing taking the Amulet while flames spread behind
 you. The fire will quickly burn the spiders, but you must hurry to get to 165
 if you don't want to be carbonized in turn!
 
+G ARAIGNEE
 C 165 Leave immediately

@@ -1,6 +1,6 @@
 T 261 Malediction et Araignee
 
-Vous jetez votre Malediction contre le Maitre des Araignees. Son cri sechange
+Vous jetez votre Malediction contre le Maitre des Araignees. Son cri se change
 en convulsions; il s'effondre, se tord et puis se releve dans une forme
 abominable: une immense araignee grise au corps geant et a la tete d'homme,
 les yeux pleins de haine.

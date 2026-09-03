@@ -1,6 +1,6 @@
 T 142 Silence apres la bataille
 
-Vous ne voyez plus aucune trace de la bataille passe. Les cadavres des Orques
+Vous ne voyez plus aucune trace de la bataille passee. Les cadavres des Orques
 ont disparu.
 
 Tandis que vous traversez la clairiere, un Scorpion d'une trentaine de

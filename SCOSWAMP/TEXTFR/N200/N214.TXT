@@ -3,10 +3,9 @@ T 214 Les brigands amicaux
 Les Brigands, desormais souriants, acceptent de bavarder avec vous. L'un
 d'eux, un grand barbu, vous indique la direction du nord. "La ville de
 Courbensaule n'est plus tres loin, dit-il. Et si tu veux te reposer, cherche
-l'auberge de la Lance Tordue. Le patron est honnete, ce qui est rare par ici.
-u
+l'auberge de la Lance Tordue. Le patron est honnete, ce qui est rare par ici."
 
 Vous les remerciez chaleureusement et reprenez votre route, le coeur leger, en
 direction du nord.
 
-C 019 Vous quitter la clairiere et poursuivez votre chemin
+C 019 Quitter la clairiere et poursuivre votre chemin

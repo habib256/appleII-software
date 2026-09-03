@@ -1,9 +1,9 @@
-T 218 Feu follet a l'ore
+T 218 Feu follet a l'oree
 
 Le chemin s'elargit et debouche sur une clairiere calme. Une faible lueur
 flotte a l'ouest: un FEU FOLLET danse dans l'air. Il recule de quelques
 metres, revelant un sentier boueux et envahi. Ailleurs, des pistes menent au
-sud et a l'est sous les arbres. Vous etes dans la Clairiere n 015.
+sud et a l'est sous les arbres.
 
 Le suivez-vous ou l'ignorez-vous ?
 

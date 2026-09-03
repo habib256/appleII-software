@@ -1,5 +1,4 @@
 T 286 The Giant's Handkerchief
-GX CAPE
 
 An idea suddenly comes to you that almost makes you burst out laughing, but
 you hold back not to offend the unfortunate Giant. You then search in your
@@ -17,6 +16,7 @@ your mission.
 
 Which Sorcerer's service did you enter?
 
+GX CAPE
 C 244 Gayolard
 C 317 Stratagus
 C 103 Pompatarte

@@ -1,5 +1,4 @@
 T 386 The Thief's Loot
-G CAPE
 
 The Thief's corpse lies at your feet: he wasn't as skilled as he thought! You
 then search through his belongings and the only useful thing you find there is
@@ -8,4 +7,5 @@ a large Red Cloak you can take with you if you wish.
 You then nibble a piece of cheese you find in his basket, then continue your
 journey.
 
+G CAPE
 C 179 Continue

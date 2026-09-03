@@ -1,6 +1,6 @@
 T 206 Mission de Stratagus
 
-Le sorcier Stratagus vous accueille dans une salle aux etageres charges de
+Le sorcier Stratagus vous accueille dans une salle aux etageres chargees de
 grimoires et de fioles. Sur le mur, un miroir vivant montre des scenes
 changantes. D'une voix grave, il parle de nouveaux sorciers installes dans le
 Marais aux Scorpions. Certains controlent les loups, d'autres les plantes.

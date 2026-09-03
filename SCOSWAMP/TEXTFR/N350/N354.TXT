@@ -1,5 +1,4 @@
 T 354 Amulette incendiaire
-G ARAIGNEE
 
 Vous retirez votre epee du cadavre de votre repugnant adversaire en poussant
 un soupir de soulagement. Mais, tout autour de vous, les Araignees vous
@@ -14,4 +13,5 @@ flammes se propagent derriere vous. L'incendie aura tot fait de bruler les
 araignees, mais il faut vous depecher si vous ne voulez pas etre carbonise a
 votre tour !
 
+G ARAIGNEE
 C 165 Partir immediatement

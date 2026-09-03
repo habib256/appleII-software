@@ -1,5 +1,4 @@
 T 207 Le paiement du sorcier
-GA 500
 
 Stratagus fronce les sourcils et un sourire mauvais eclaire son visage.
 "Insolent... mais malin !" dit-il en ouvrant une bourse de cuir. Sous votre
@@ -11,4 +10,5 @@ Lorsqu'il a fini, il pousse le sac vers vous d'un geste sec. Son regard luit
 d'une etrange flamme, et vous sentez qu'il ne faut pas tarder a quitter cet
 endroit maudit.
 
+GA 500
 C 358 Quitter la tour de Stratagus avec votre or

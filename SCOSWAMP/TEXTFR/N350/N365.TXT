@@ -4,7 +4,7 @@ Vous pensez qu'un sortilege de Terreur vous donnera la meilleure chance de
 vaincre Stratagus et vous lui lancez donc votre Pierre Magique.
 
 Helas ! il fait un geste de la main et c'est vous qui subissez alors les
-effets du sortilege. Une sensation glace vous envahit aussitot : vous avez
+effets du sortilege. Une sensation glacee vous envahit aussitot : vous avez
 peur, terriblement peur, et vous perdez un point d'HABILETE.
 
 C 124 Combattre
