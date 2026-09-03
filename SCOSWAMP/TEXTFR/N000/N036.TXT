@@ -7,7 +7,7 @@ vous ecoute d'une voix mesuree et jauge votre sincerite.
 avez trouve le buisson d'Antherique, il sait quoi faire. Sinon, il vous
 indiquera un autre chemin ou une piste a suivre.
 
-   Que faites-vous?
+   Il attend votre reponse.
 
-C 283 J'ai deja decouvert le buisson d'Antherique
-C 396 Je ne l'ai pas encore trouve
+CI .T 283 J'ai deja decouvert le buisson d'Antherique
+CN .T 396 Je ne l'ai pas encore trouve

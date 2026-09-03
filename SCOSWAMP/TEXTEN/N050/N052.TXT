@@ -9,3 +9,6 @@ be taking too great a risk," he objects.
 
    You did what you could. Alas, it wasn't enough. Your adventure ends here.
 
+   END OF ADVENTURE.
+
+MU +MORT.MB

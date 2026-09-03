@@ -6,6 +6,9 @@ d'Or.
 
    Vous avez desormais assez d'argent pour vivre plusieurs annees sans
 travailler. Sans l'Anneau, il n'est plus question de vous risquer dans le
-Marais. Votre aventure s'acheve ici.
+Marais: votre aventure s'acheve donc avant d'avoir commence.
+
+   FIN DE L'AVENTURE.
 
 GX ANNEAU
+MU +MORT.MB

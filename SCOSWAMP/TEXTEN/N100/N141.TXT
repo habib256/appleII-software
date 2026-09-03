@@ -9,3 +9,6 @@ immediately.
    Your adventure is over. But if you have failed, you have also learned, and
 perhaps you will return one day to explore the Swamp.
 
+   END OF ADVENTURE.
+
+MU -

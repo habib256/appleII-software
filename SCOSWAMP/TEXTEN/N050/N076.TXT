@@ -10,5 +10,5 @@ help you.
 any.
 
 E HABILETE +1
-C 166 If you have already found the Asphodel bush
-C 333 Otherwise
+CI .T 166 If you have already found the Asphodel bush
+CN .T 333 Otherwise
