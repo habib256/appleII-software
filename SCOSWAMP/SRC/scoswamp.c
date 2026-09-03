@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <conio.h>
+#include <stdarg.h>
 #include <apple2enh.h>
 #include <peekpoke.h>
 #include "paths.h"
@@ -15,6 +16,13 @@
 #include "dice.h"
 #include "messages.h"
 #include "sfx.h"
+
+/* Bornes du segment LOWBSS, exportees par le lieur (define = yes) sous les
+ * noms __LOWBSS_RUN__ et __LOWBSS_SIZE__. cc65 prefixe tout identifiant C
+ * d'un '_', d'ou un souligne de moins ici. Leur "adresse" est la valeur :
+ * c'est l'idiome cc65 pour les symboles de segment. */
+extern char _LOWBSS_RUN__[];
+extern char _LOWBSS_SIZE__[];
 
 /* Adresse de la page HGR 1 */
 #define HGR_PAGE1 ((unsigned char*)0x2000)
@@ -137,7 +145,11 @@ AppState app;
  * remesure le 2026-09-03. fread en lit SIZE-1 et reserve le dernier octet au
  * '\0'. reflow_txt.py tient exactement la meme limite. */
 #define FILE_BUFFER_SIZE 1253
+/* En LOWBSS ($1000-$1FFF, voir scoswamp.cfg) : la RAM basse entre le tampon
+ * ProDOS et HGR page 1, que le lieur ignorait. main() la met a zero. */
+#pragma bss-name (push, "LOWBSS")
 char file_buffer[FILE_BUFFER_SIZE];
+#pragma bss-name (pop)
 
 /* Sauvegarde binaire SCS2 : format explicite, independant du remplissage des
  * structures C. Dix emplacements numerotes de 0 a 9 sur le disque. */
@@ -237,7 +249,7 @@ static int enter_asset_dir(const char* kind, int scene_id)
 
     if (chdir("/SCOSWAMP") != 0) return 0;
     if (chdir(kind) != 0) return 0;
-    sprintf(bucket, "N%03u", subdirectory);
+    *put_scene(bucket, subdirectory) = '\0';
     if (chdir(bucket) != 0) return 0;
     return 1;
 }
@@ -296,32 +308,100 @@ void set_video_mode(int mode) {
  * Le rappel des touches vit ici plutot qu'en bas : les 4 lignes du bas sont
  * reservees aux choix, et un rappel fixe en tete est de toute facon plus
  * lisible qu'une ligne qui se deplace avec la longueur du texte. */
+#pragma bss-name (push, "LOWBSS")
 static char title_bar[81];
+#pragma bss-name (pop)
 
-static char* put_str(char* p, const char* t) { while (*t) *p++ = *t++; return p; }
+/* Le formateur maison, a la place de la famille printf.
+ *
+ * Il connait %u, %s et %c, une largeur (%2u, %-12s) et une precision (%.75s)
+ * -- tout ce que le code et le catalogue MSGFR/MSGEN emploient. Toute autre
+ * lettre de conversion est lue comme %u. Rien de plus : _printf, vsnprintf,
+ * vcprintf et ltoa coutaient 1,5 Ko de code pour ces trois conversions, et
+ * sprintf les embarquait meme sans affichage formate.
+ *
+ * Les valeurs passent en `unsigned int` : cc65 promeut les caracteres et
+ * octets a l'appel (pusha0), comme pour printf. Tout est en unsigned char
+ * ici, et les locales sont statiques (-Cl) : chaque `int` ou variable de
+ * pile coute une poignee d'octets par acces sur 6502. */
+/* La sortie de cfmt : l'ecran, ou un tampon quand fmt_out est pose. La barre
+ * de titre se compose ainsi en memoire pour etre peinte d'un bloc. */
+static char* fmt_out;
+static void emit(char c) { if (fmt_out) { *fmt_out = c; ++fmt_out; } else cputc(c); }
+static void pad_spaces(unsigned char n) { while (n) { emit(' '); --n; } }
 
-static char* put_u8(char* p, unsigned char v)
+static void cfmt(const char* f, ...)
 {
-    if (v >= 100) *p++ = (char)('0' + v / 100u);
-    if (v >= 10)  *p++ = (char)('0' + (v / 10u) % 10u);
-    *p++ = (char)('0' + v % 10u);
-    return p;
+    va_list ap;
+    char buf[6];
+    /* Trois pointeurs en page zero (la banque de registres de cc65 en tient
+     * exactement trois). `f` reste en pile : va_start prend son adresse. */
+    register const char* p = f;
+    register const char* s;
+    register char* q;
+    unsigned char c, left, width, prec, n;
+    va_start(ap, f);
+    for (;;) {
+        c = (unsigned char)*p++;
+        if (c == 0) break;
+        if (c != '%') { emit((char)c); continue; }
+        left = 0; width = 0; prec = 255;
+        c = (unsigned char)*p++;
+        if (c == '-') { left = 1; c = (unsigned char)*p++; }
+        while (c >= '0' && c <= '9') { width = width * 10 + (c - '0'); c = (unsigned char)*p++; }
+        if (c == '.') {
+            prec = 0;
+            while ((c = (unsigned char)*p++) >= '0' && c <= '9') prec = prec * 10 + (c - '0');
+        }
+        if (c == 'c') {
+            buf[0] = (char)va_arg(ap, int); buf[1] = '\0'; s = buf;
+        } else if (c == 's') {
+            s = va_arg(ap, const char*);
+        } else {
+            unsigned int v = va_arg(ap, unsigned int);
+            q = buf + sizeof(buf) - 1;
+            *q = '\0';
+            do { *--q = (char)('0' + v % 10u); v /= 10u; } while (v);
+            s = q;
+        }
+        n = (unsigned char)strlen(s);
+        if (n > prec) n = prec;
+        width = (width > n) ? (unsigned char)(width - n) : 0;
+        if (!left) { pad_spaces(width); width = 0; }
+        while (n) { emit(*s++); --n; }
+        pad_spaces(width);
+    }
+    va_end(ap);
+}
+
+/* Les deux lignes que toute erreur de disque affiche, une seule fois en
+ * RODATA. errno est celui de cc65, l'autre le code ProDOS brut. */
+static void wait_any(void)
+{
+    cputs("Appuyez sur une touche...\r\n");
+    cgetc();
+}
+
+static void prodos_error(const char* source)
+{
+    cputs("Source: "); cputs(source);
+    cfmt("\r\nerrno=%u ProDOS=%u\r\n", (unsigned)errno, (unsigned)_oserror);
 }
 
 static void render_title_bar(void)
 {
     char sheet[40];
-    int i, n;
+    unsigned char n;
 
     /* Une fois les des jetes, la barre porte la Feuille d'Aventure : les trois
      * caracteristiques sont ce qu'on consulte a chaque page, et le livre les
      * veut sous les yeux en permanence. Avant la creation du personnage, elle
      * sert encore au rappel des touches. */
-    for (i = 0; i < 80; i++) title_bar[i] = ' ';
+    memset(title_bar, ' ', 80);
     title_bar[80] = '\0';
 
     if (scene_title != NULL) {
-        n = (int)strlen(scene_title);
+        n = (unsigned char)strlen(scene_title);
         if (n > 40) n = 40;
         memcpy(title_bar + 1, scene_title, n);
         /* Le rappel se glisse apres le titre : c'est le seul endroit visible
@@ -334,32 +414,23 @@ static void render_title_bar(void)
         }
     }
     if (app.hero_ready) {
-        /* Formatage a la main : `sprintf` ferait entrer tout le formateur de
-         * chaines dans le binaire pour ces six nombres, et la fenetre
-         * $4000-$9600 est pleine. */
         /* Les etiquettes suivent la langue : en anglais ce sont SKILL,
-         * STAMINA et LUCK, les trois mots de Fighting Fantasy. Elles restaient
-         * en francais quelle que soit la partie. */
-        /* Le test en clair plutot que is_fr() : cette fonction est definie
-         * plus bas, avec le reste de l'ecran de combat. */
-        char* q = sheet;
-        const int fr = (app.language[0] == 'F');
-        q = put_str(q, fr ? "HAB " : "SKL ");
-        q = put_u8(q, app.hero.hab); *q++ = '/';
-        q = put_u8(q, app.hero.hab0);
-        q = put_str(q, fr ? "  END " : "  STA ");
-        q = put_u8(q, app.hero.end); *q++ = '/';
-        q = put_u8(q, app.hero.end0);
-        q = put_str(q, fr ? "  CHA " : "  LCK ");
-        q = put_u8(q, app.hero.cha); *q++ = '/';
-        q = put_u8(q, app.hero.cha0);
-        n = (int)(q - sheet);
+         * STAMINA et LUCK, les trois mots de Fighting Fantasy. Le test en
+         * clair plutot que is_fr() : cette fonction est definie plus bas.
+         * cfmt ecrit dans `sheet` (fmt_out), et le bloc est cale a droite. */
+        fmt_out = sheet;
+        cfmt((app.language[0] == 'F') ? "HAB %u/%u  END %u/%u  CHA %u/%u"
+                                      : "SKL %u/%u  STA %u/%u  LCK %u/%u",
+             app.hero.hab, app.hero.hab0, app.hero.end, app.hero.end0,
+             app.hero.cha, app.hero.cha0);
+        n = (unsigned char)(fmt_out - sheet);
+        fmt_out = NULL;
         memcpy(title_bar + 79 - n, sheet, n);
     } else {
         /* Avant la creation du personnage : le rappel des touches. Il vit au
          * catalogue -- la barre ne se peint jamais avant messages_load. */
         const char* hint = msg(M_TOUCHES);
-        n = (int)strlen(hint);
+        n = (unsigned char)strlen(hint);
         memcpy(title_bar + 79 - n, hint, n);
     }
 
@@ -378,17 +449,17 @@ static void render_title_bar(void)
 /* Un choix qui exige une Pierre absente du sac ne porte pas de lettre : on
  * le voit -- le livre l'ecrit, et savoir ce qu'une Pierre aurait permis fait
  * partie de la lecture -- mais on ne peut pas le prendre. */
-static int choice_available(int i)
+static unsigned char choice_available(unsigned char i)
 {
-    unsigned char req = app.choices[i].require;
     Choice* c = &app.choices[i];
-    if (req < STONE_COUNT && !character_has_stone(&app.hero, (Stone)req)) return 0;
+    unsigned char has;
+    if (c->require < STONE_COUNT && !character_has_stone(&app.hero, (Stone)c->require)) return 0;
     if (c->object < OBJ_COUNT) {
-        int has = character_has_object(&app.hero, (Object)c->object);
+        has = (unsigned char)character_has_object(&app.hero, (Object)c->object);
         return c->obj_mode == 2 ? !has : has;
     }
     if (c->object & 0x80) {
-        int has = character_has_amulet(&app.hero, (Amulet)(c->object & 0x7f));
+        has = (unsigned char)character_has_amulet(&app.hero, (Amulet)(c->object & 0x7f));
         return c->obj_mode == 2 ? !has : has;
     }
     if (c->object == 0x7f) {
@@ -413,13 +484,13 @@ static void render_choices(void)
             (int)strlen(app.choices[i].title)     <= CHOICE_WIDTH - 3 &&
             (int)strlen(app.choices[i + 1].title) <= CHOICE_WIDTH - 3) {
             gotoxy(0, row);
-            cprintf("%c) %s", choice_tag(i), app.choices[i].title);
+            cfmt("%c) %s", choice_tag(i), app.choices[i].title);
             gotoxy(CHOICE_COL2, row);
-            cprintf("%c) %s", choice_tag(i + 1), app.choices[i + 1].title);
+            cfmt("%c) %s", choice_tag(i + 1), app.choices[i + 1].title);
             i += 2;
         } else {
             gotoxy(0, row);
-            cprintf("%c) %.75s", choice_tag(i), app.choices[i].title);
+            cfmt("%c) %.75s", choice_tag(i), app.choices[i].title);
             i += 1;
         }
         row++;
@@ -634,30 +705,37 @@ static void classify_line(char* l)
     char* t;
     char* word;
     unsigned int a, b;
+    /* Les trois premieres lettres, lues une fois. Chaque `l[1] == 'X'` sur le
+     * pointeur coutait un rechargement indirect (ldy/lda (ptr),y) ; sur trois
+     * octets statiques c'est un `lda` absolu. Une centaine de comparaisons
+     * dans cette fonction : 4,6 Ko avant, sans changer une seule regle. */
+    unsigned char c0 = (unsigned char)l[0];
+    unsigned char c1 = (unsigned char)l[1];
+    unsigned char c2 = (unsigned char)l[2];
 
     if (app.revisit >= 0) return;   /* la page est court-circuitee (ligne V) */
 
     /* L'instantane contient deja les effets d'entree de la scene reprise. */
-    if (restoring && ((l[0] == 'E' && (l[1] == ' ' || l[1] == '0' || l[1] == 'D')) ||
-                      (l[0] == 'P' && (l[1] == ' ' || l[1] == 'C' ||
-                                                   l[1] == 'D' || l[1] == 'O' ||
-                                                   l[1] == 'X')) ||
-                      (l[0] == 'G' && (l[1] == ' ' || l[1] == 'X' || l[1] == 'A')) ||
-                      (l[0] == 'C' && l[1] == 'E') ||
-                      (l[0] == 'T' && l[1] == 'R') ||
-                      (l[0] == 'V' && l[1] == ' '))) return;
+    if (restoring && ((c0 == 'E' && (c1 == ' ' || c1 == '0' || c1 == 'D')) ||
+                      (c0 == 'P' && (c1 == ' ' || c1 == 'C' ||
+                                                   c1 == 'D' || c1 == 'O' ||
+                                                   c1 == 'X')) ||
+                      (c0 == 'G' && (c1 == ' ' || c1 == 'X' || c1 == 'A')) ||
+                      (c0 == 'C' && c1 == 'E') ||
+                      (c0 == 'T' && c1 == 'R') ||
+                      (c0 == 'V' && c1 == ' '))) return;
 
-    if (l[0] == 'G' && l[1] == 'X' && l[2] == ' ') {
+    if (c0 == 'G' && c1 == 'X' && c2 == ' ') {
         t = take_word(l + 3, &word);
         (void)t; character_take_object(&app.hero, object_from_name(word));
         return;
     }
-    if (l[0] == 'G' && l[1] == 'A' && l[2] == ' ') {
+    if (c0 == 'G' && c1 == 'A' && c2 == ' ') {
         take_uint(l+3,&a);
         character_trade_amulets(&app.hero,a);
         return;
     }
-    if (l[0] == 'G' && l[1] == ' ') {
+    if (c0 == 'G' && c1 == ' ') {
         Amulet am;
         t = take_word(l + 2, &word);
         (void)t; am=amulet_from_name(word);
@@ -665,10 +743,10 @@ static void classify_line(char* l)
         else character_give_object(&app.hero,object_from_name(word));
         return;
     }
-    if (l[0] == 'C' && (l[1] == 'I' || l[1] == 'N') && l[2] == ' ') {
+    if (c0 == 'C' && (c1 == 'I' || c1 == 'N') && c2 == ' ') {
         Object o;
         Amulet am;
-        unsigned char mode = (l[1] == 'I') ? 1 : 2;
+        unsigned char mode = (c1 == 'I') ? 1 : 2;
         t = take_word(l + 3, &word); o = object_from_name(word);
         t = take_uint(t, &a);
         am=amulet_from_name(word);
@@ -676,29 +754,29 @@ static void classify_line(char* l)
         else if (o != OBJ_COUNT) push_object_choice((int)a, o, mode, t);
         return;
     }
-    if (l[0] == 'C' && l[1] == 'A' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'A' && c2 == ' ') {
         unsigned int lo, hi;
         t=take_uint(l+3,&lo); t=take_uint(t,&hi); t=take_uint(t,&a);
         push_object_choice((int)a,(Object)0x7f,
                            (unsigned char)((lo<<4)|hi),t);
         return;
     }
-    if (l[0] == 'G' && l[1] == 'U' && l[2] == ' ') {
+    if (c0 == 'G' && c1 == 'U' && c2 == ' ') {
         Object o;
         t = take_word(l + 3, &word); o = object_from_name(word);
         t = take_uint(t, &a);
         if (o != OBJ_COUNT) push_object_choice((int)a, o, 3, t);
         return;
     }
-    if (l[0] == 'P' && (l[1] == 'D' || l[1] == 'O') && l[2] == '\0') {
-        lose_items((unsigned char)(l[1] == 'D' ? 2 : 1));
+    if (c0 == 'P' && (c1 == 'D' || c1 == 'O') && c2 == '\0') {
+        lose_items((unsigned char)(c1 == 'D' ? 2 : 1));
         return;
     }
-    if (l[0] == 'P' && l[1] == 'X' && l[2] == '\0') {
+    if (c0 == 'P' && c1 == 'X' && c2 == '\0') {
         memset(app.hero.stones, 0, sizeof app.hero - 9);
         return;
     }
-    if (l[0] == 'T' && l[1] == 'R' && l[2] == '\0') {
+    if (c0 == 'T' && c1 == 'R' && c2 == '\0') {
         unsigned int bits = app.hero.objects & 0x018Cu;
         a = 0;
         while (bits && a < 3) { bits &= bits - 1; ++a; }
@@ -712,12 +790,12 @@ static void classify_line(char* l)
     }
 
     /* MD et MS qualifient le dernier adversaire declare. */
-    if (l[0] == 'M' && l[1] == 'D' && l[2] == ' ' && app.foe_count > 0) {
+    if (c0 == 'M' && c1 == 'D' && c2 == ' ' && app.foe_count > 0) {
         take_uint(l + 3, &a);
         app.foes[app.foe_count - 1].damage = (unsigned char)a;
         return;
     }
-    if (l[0] == 'M' && l[1] == 'S' && l[2] == ' ' && app.foe_count > 0) {
+    if (c0 == 'M' && c1 == 'S' && c2 == ' ' && app.foe_count > 0) {
         take_uint(l + 3, &a);
         app.foes[app.foe_count - 1].stop_at = (unsigned char)a;
         return;
@@ -725,12 +803,12 @@ static void classify_line(char* l)
     /* MV se lit avec MD et MS -- donc avant le test `M ` d'une seule lettre,
      * qui l'avalerait -- mais sans leur garde `foe_count > 0` : MV ne qualifie
      * pas le dernier adversaire declare, et peut preceder les lignes M. */
-    if (l[0] == 'M' && l[1] == 'V' && l[2] == ' ') {
+    if (c0 == 'M' && c1 == 'V' && c2 == ' ') {
         take_uint(l + 3, &a);
         app.win_scene = (int)a;
         return;
     }
-    if (l[0] == 'M' && l[1] == 'B' && l[2] == ' ') {
+    if (c0 == 'M' && c1 == 'B' && c2 == ' ') {
         /* MB <si-vous-touchez> <si-touche> : duel au premier sang. */
         t = take_uint(l + 3, &a);
         app.mb_ok = (int)a;
@@ -738,7 +816,7 @@ static void classify_line(char* l)
         app.mb_ko = (int)b;
         return;
     }
-    if (l[0] == 'M' && l[1] == ' ') {
+    if (c0 == 'M' && c1 == ' ') {
         /* Chaque ligne M ajoute un adversaire a la file, dans l'ordre de la
          * page -- c'est l'ordre dans lequel le livre les fait venir. */
         if (app.foe_count < MAX_FOES) {
@@ -754,7 +832,7 @@ static void classify_line(char* l)
         }
         return;
     }
-    if (l[0] == 'E' && l[1] == '0' && l[2] == ' ') {
+    if (c0 == 'E' && c1 == '0' && c2 == ' ') {
         /* Variation du total de depart : perte definitive (page 87) ou
          * benediction qui releve le plafond (page 155). */
         /* Ce n'est pas carac_apply -- celle-ci deplace le PLAFOND -- mais
@@ -763,7 +841,7 @@ static void classify_line(char* l)
         character_shift0(&app.hero, carac_of(word), atoi(t));
         return;
     }
-    if (l[0] == 'C' && l[1] == 'E' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'E' && c2 == ' ') {
         /* "Tentez votre Chance" qui ne branche pas : il decide seulement d'un
          * effet, et la page continue de se lire. Le livre le fait souvent --
          * "si vous etes Malchanceux, vous tombez et perdez 2 points
@@ -776,7 +854,7 @@ static void classify_line(char* l)
         return;
     }
     /* ED avant E, meme raison que MV avant M. */
-    if (l[0] == 'E' && l[1] == 'D' && l[2] == ' ') {
+    if (c0 == 'E' && c1 == 'D' && c2 == ' ') {
         t = take_word(l + 3, &word);
         app.dice_carac = carac_of(word);
         /* atoi et pas take_uint : ici le signe porte le sens de la ligne.
@@ -787,7 +865,7 @@ static void classify_line(char* l)
         if (app.dice_carac < 4) app.dice_n = (signed char)atoi(t);
         return;
     }
-    if (l[0] == 'E' && l[1] == ' ') {
+    if (c0 == 'E' && c1 == ' ') {
         t = take_word(l + 2, &word);
         /* L'or passe par character_adjust_gold comme le reste : un
          * `gold += delta` sur un champ non signe donnait 65535 Pieces d'Or au
@@ -795,14 +873,14 @@ static void classify_line(char* l)
         carac_apply(carac_of(word), atoi(t));
         return;
     }
-    if (l[0] == 'P' && l[1] == 'C' && l[2] == ' ') {
+    if (c0 == 'P' && c1 == 'C' && c2 == ' ') {
         t = take_uint(l + 3, &a);
         app.choose_n = (unsigned char)a;
         strncpy(app.choose_cats, t, sizeof(app.choose_cats) - 1);
         app.choose_cats[sizeof(app.choose_cats) - 1] = '\0';
         return;
     }
-    if (l[0] == 'P' && l[1] == ' ') {
+    if (c0 == 'P' && c1 == ' ') {
         Stone s;
         t = take_word(l + 2, &word);
         s = stone_from_name(word);
@@ -813,7 +891,7 @@ static void classify_line(char* l)
         }
         return;
     }
-    if (l[0] == 'C' && l[1] == 'L' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'L' && c2 == ' ') {
         t = take_uint(l + 3, &a);
         app.luck_ok = (int)a;
         t = take_uint(t, &a);
@@ -828,7 +906,7 @@ static void classify_line(char* l)
         }
         return;
     }
-    if (l[0] == 'C' && l[1] == 'U' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'U' && c2 == ' ') {
         Stone st;
         t = take_word(l + 3, &word);
         st = stone_from_name(word);
@@ -837,7 +915,7 @@ static void classify_line(char* l)
             push_choice((int)a, (unsigned char)STONE_COUNT, (unsigned char)st, t);
         return;
     }
-    if (l[0] == 'C' && l[1] == 'P' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'P' && c2 == ' ') {
         Stone st;
         t = take_word(l + 3, &word);
         st = stone_from_name(word);
@@ -846,7 +924,7 @@ static void classify_line(char* l)
             push_choice((int)a, st, (unsigned char)STONE_COUNT, t);
         return;
     }
-    if (l[0] == 'V' && l[1] == ' ') {
+    if (c0 == 'V' && c1 == ' ') {
         /* "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui
          * suit." Le detour decide, plus rien de la page ne doit jouer : ni
          * son texte, ni ses choix, ni surtout ses lignes E et P, qui
@@ -857,7 +935,7 @@ static void classify_line(char* l)
         if (scene_visited((unsigned int)app.current_scene)) app.revisit = (int)a;
         return;
     }
-    if (l[0] == 'C' && l[1] == 'S' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'S' && c2 == ' ') {
         /* CS <STAT> <ok> <ko> : le jet est joue par load_scene, comme un jet
          * de Chance, mais contre la caracteristique nommee et gratuit. */
         t = take_word(l + 3, &word);
@@ -868,7 +946,7 @@ static void classify_line(char* l)
         app.cs_ko = (int)b;
         return;
     }
-    if (l[0] == 'D' && l[1] == 'V' && l[2] == ' ') {
+    if (c0 == 'D' && c1 == 'V' && c2 == ' ') {
         /* DV <max> <id>, en cascade : la premiere ligne dont la perte du
          * dernier combat ne depasse pas <max> fabrique l'unique choix de la
          * page -- "continuer" -- vers sa cible. Le moteur repond ainsi a
@@ -882,18 +960,18 @@ static void classify_line(char* l)
         }
         return;
     }
-    if (l[0] == 'C' && l[1] == 'F' && l[2] == ' ') {
+    if (c0 == 'C' && c1 == 'F' && c2 == ' ') {
         t = take_uint(l + 3, &a);
         app.flee_target = (int)a;
         return;
     }
 
-    if (l[0] == 'T' && l[1] == ' ') {
+    if (c0 == 'T' && c1 == ' ') {
         t = l + 2;
         while (*t >= '0' && *t <= '9') t++;
         while (*t == ' ') t++;
         scene_title = t;
-    } else if (l[0] == 'C' && l[1] == ' ') {
+    } else if (c0 == 'C' && c1 == ' ') {
         /* take_uint plutot que sscanf : sur cc65 le premier appel a scanf
          * fait entrer plusieurs kilo-octets d'analyseur de format dans le
          * binaire, pour lire trois chiffres. */
@@ -904,7 +982,7 @@ static void classify_line(char* l)
     } else if (body_count < BODY_ROWS) {
         /* Pas de ligne vide en tete : le fichier en a une sous le titre, et
          * elle couterait la ligne de marge du budget de 19. */
-        if (body_count > 0 || l[0] != '\0') {
+        if (body_count > 0 || c0 != '\0') {
             body_lines[body_count++] = l;
         }
     }
@@ -917,14 +995,13 @@ int parse_text_file(int scene_id, int display_mode) {
     char* p;
     char* q;
     char* end;
-    int crlf;
+    unsigned char crlf;
 
     /* Build paths */
     if (build_paths(scene_id, app.language, app.imgPath, app.txtPath) != 0) {
         if (display_mode) {
-            cprintf("Erreur: scene %d hors plage (0-999).\r\n", scene_id);
-            cprintf("Appuyez sur une touche...\r\n");
-            cgetc();
+            cfmt("Erreur: scene %u hors plage (0-999).\r\n", scene_id);
+            wait_any();
         }
         return 0;
     }
@@ -946,11 +1023,8 @@ int parse_text_file(int scene_id, int display_mode) {
     if (!enter_asset_dir(strcmp(app.language, "FR") == 0 ? "TEXTFR" : "TEXTEN",
                          scene_id)) {
         if (display_mode) {
-            cprintf("Source: chdir composant texte\r\n");
-            cprintf("errno=%d ProDOS=$%02X\r\n", errno,
-                    (unsigned char)_oserror);
-            cprintf("Appuyez sur une touche...\r\n");
-            cgetc();
+            prodos_error("chdir composant texte");
+            wait_any();
         }
         return 0;
     }
@@ -960,8 +1034,7 @@ int parse_text_file(int scene_id, int display_mode) {
     if (!f) {
         if (display_mode) {
             report_open_error(app.txtPath);
-            cprintf("Appuyez sur une touche...\r\n");
-            cgetc();
+            wait_any();
         }
         return 0;
     }
@@ -972,7 +1045,7 @@ int parse_text_file(int scene_id, int display_mode) {
     
     if (bytes_read == 0) {
         if (display_mode) {
-            cprintf("Erreur: fichier vide.\r\n");
+            cputs("Erreur: fichier vide.\r\n");
         }
         return 0;
     }
@@ -1071,25 +1144,24 @@ static void row_blank(unsigned char row)
  * dit d'un coup d'oeil qui est en train de mourir. Arrondi vers le HAUT : tant
  * qu'il reste un point d'ENDURANCE, il reste une case, sinon la creature
  * paraitrait morte un assaut trop tot. */
-static char* put_gauge(char* p, unsigned char v, unsigned char v0)
+static void put_gauge(unsigned char v, unsigned char v0)
 {
     unsigned char i, n;
     n = (v0 == 0 || v == 0)
         ? 0
         : (unsigned char)(((unsigned int)v * 10u + v0 - 1u) / v0);
     if (n > 10) n = 10;
-    *p++ = '[';
-    for (i = 0; i < 10; i++) *p++ = (i < n) ? '#' : '-';
-    *p++ = ']';
-    return p;
+    cputc('[');
+    for (i = 0; i < 10; i++) cputc((i < n) ? '#' : '-');
+    cputc(']');
 }
 
 /* Une touche et son verbe : la touche en video inverse, comme la barre de
  * titre. Entre crochets, l'oeil devait chercher ; en inverse il accroche. */
 static void put_key(const char* key, const char* label)
 {
-    revers(1); cprintf(" %s ", key); revers(0);
-    cprintf(" %s   ", label);
+    revers(1); cfmt(" %s ", key); revers(0);
+    cfmt(" %s   ", label);
 }
 
 /* Un demi-bandeau de combattant : nom en inverse, HABILETE, jauge, points. */
@@ -1097,22 +1169,15 @@ static void put_fighter(const char* name, unsigned char nmax,
                         unsigned char hab,
                         unsigned char end, unsigned char end0)
 {
-    char buf[40];
-    char* q = buf;
     unsigned char n = 0;
 
     revers(1);
     while (name[n] && n < nmax) { cputc(name[n]); n++; }
     revers(0);
 
-    q = put_str(q, is_fr() ? " HAB " : " SKL ");
-    q = put_u8(q, hab);
-    *q++ = ' ';
-    q = put_gauge(q, end, end0);
-    *q++ = ' ';
-    q = put_u8(q, end); *q++ = '/'; q = put_u8(q, end0);
-    *q = '\0';
-    cprintf("%s", buf);
+    cfmt(is_fr() ? " HAB %u " : " SKL %u ", hab);
+    put_gauge(end, end0);
+    cfmt(" %u/%u", end, end0);
 }
 
 static void prompt_luck(void)
@@ -1154,7 +1219,7 @@ static void print_at(unsigned char row, const char* text)
      * Chance" -- et la ligne ne clignote pas. 79 et pas 80, la derniere
      * cellule de l'ecran ferait scroller. */
     gotoxy(0, row);
-    cprintf("%s", text);
+    cputs(text);
     pad_to(79);
 }
 
@@ -1184,8 +1249,7 @@ static void show_inventory(int in_combat)
      * donne pas de pierre malefique), mais elle tient en une lettre. */
     static const char kKind[3] = { 'N', 'B', 'M' };
     Stone shown[STONE_COUNT];
-    int n, i, row;
-    int back;
+    unsigned char n, i, row, back;
     char key;
     Stone s;
 
@@ -1205,13 +1269,13 @@ static void show_inventory(int in_combat)
         clrscr();
         render_title_bar();
         gotoxy(0, 2);
-        cprintf(msg(M_SAC_A_DOS), app.hero.gold);
+        cfmt(msg(M_SAC_A_DOS), app.hero.gold);
 
         n = 0; row = 4;
         for (s = 0; s < STONE_COUNT; s++) {
             if (app.hero.stones[s] == 0) continue;
             gotoxy(0, row++);
-            cprintf("%c) %2u  %-12s  %c%s",
+            cfmt("%c) %2u  %-12s  %c%s",
                     'A' + n, app.hero.stones[s],
                     stone_name(s, !is_fr()), kKind[stone_kind(s)],
                     stone_usable(s, in_combat)
@@ -1223,36 +1287,38 @@ static void show_inventory(int in_combat)
         for (i = 0; i < 10; ++i) {
             if (!character_has_object(&app.hero, (Object)i)) continue;
             gotoxy(40, 4 + i);
-            cprintf("- %s", object_name((Object)i, !is_fr()));
+            cfmt("- %s", object_name((Object)i, !is_fr()));
         }
         for (i = 0; i < AMULET_COUNT; ++i) {
             if (!character_has_amulet(&app.hero, (Amulet)i)) continue;
             gotoxy(40, 13 + i);
-            cprintf("- %s", amulet_name((Amulet)i, !is_fr()));
+            cfmt("- %s", amulet_name((Amulet)i, !is_fr()));
         }
         if (n == 0 && app.hero.objects == 0) {
             gotoxy(0, 4);
-            cprintf(msg(M_AUCUNE_PIERRE_MAGIQUE));
+            cputs(msg(M_AUCUNE_PIERRE_MAGIQUE));
         }
 
         print_at(22, msg(M_UNE_PIERRE_SE));
         key = cgetc();
         if (key == 27) break;
-        i = (key >= 'a') ? (key - 'a') : (key - 'A');
-        if (i < 0 || i >= n) continue;
+        /* Une lettre hors de A..Z passe en negatif, donc au-dela de n
+         * une fois dans l'octet : un seul test suffit. */
+        i = (unsigned char)((key >= 'a') ? (key - 'a') : (key - 'A'));
+        if (i >= n) continue;
 
         s = shown[i];
         clear_bottom();
         gotoxy(0, 22);
         switch (stone_use(&app.hero, s, in_combat)) {
         case STONE_USE_FORBIDDEN:
-            cprintf(msg(M_LE_PREMIER_COUP));
+            cputs(msg(M_LE_PREMIER_COUP));
             break;
         case STONE_USE_NONE:
-            cprintf(msg(M_PIERRE_ABSENTE));
+            cputs(msg(M_PIERRE_ABSENTE));
             break;
         default:
-            cprintf(msg(M_LA_PIERRE_DE), stone_name(s, !is_fr()));
+            cfmt(msg(M_LA_PIERRE_DE), stone_name(s, !is_fr()));
             break;
         }
         wait_key_at(23, msg_continue());
@@ -1272,7 +1338,7 @@ static int run_luck_test(void)
     int lucky;
 
     gotoxy(0, CHOICE_ROW0);
-    cprintf(msg(M_TENTEZ_VOTRE_CHANCE), app.hero.cha);
+    cfmt(msg(M_TENTEZ_VOTRE_CHANCE), app.hero.cha);
     pad_to(79);
     cgetc();
 
@@ -1282,7 +1348,7 @@ static int run_luck_test(void)
     roll = roll_2d6();
     lucky = (roll <= app.hero.cha);
     gotoxy(0, CHOICE_ROW0);
-    cprintf(msg(M_JET_DE_CHANCE), (unsigned)roll, (unsigned)app.hero.cha);
+    cfmt(msg(M_JET_DE_CHANCE), (unsigned)roll, (unsigned)app.hero.cha);
     pad_to(79);
     row_blank(CHOICE_ROW0 + 2);
     if (app.hero.cha > 0) app.hero.cha--;
@@ -1323,7 +1389,7 @@ static void run_dice_roll(void)
     if (n > 1 || n < -1) roll = (unsigned char)(roll + roll_d6());
 
     gotoxy(0, CHOICE_ROW0);
-    cprintf(msg(M_VOUS_JETEZ), (unsigned)roll);
+    cfmt(msg(M_VOUS_JETEZ), (unsigned)roll);
     pad_to(79);
     carac_apply(app.dice_carac, (n < 0) ? -(int)roll : (int)roll);
     render_title_bar();
@@ -1357,7 +1423,7 @@ static int run_stat_test(void)
     roll = roll_2d6();
     against = carac_value(app.cs_carac);
     gotoxy(0, CHOICE_ROW0);
-    cprintf(msg(M_JET_CONTRE), (unsigned)roll, (unsigned)against);
+    cfmt(msg(M_JET_CONTRE), (unsigned)roll, (unsigned)against);
     pad_to(79);
     wait_key_at(CHOICE_ROWN, msg_continue());
     return (roll <= against) ? app.cs_ok : app.cs_ko;
@@ -1390,7 +1456,7 @@ static void choose_stones(void)
         const char k = kKindLetter[stone_kind(s)];
         if (strchr(app.choose_cats, k) == NULL) continue;
         gotoxy(0, 4 + count);
-        cprintf("%c) %-12s %c", 'A' + count, stone_name(s, !is_fr()), k);
+        cfmt("%c) %-12s %c", 'A' + count, stone_name(s, !is_fr()), k);
         allowed[count++] = s;
     }
     if (count == 0) { app.choose_n = 0; return; }
@@ -1398,7 +1464,7 @@ static void choose_stones(void)
 
     while (app.choose_n > 0) {
         gotoxy(0, 2);
-        cprintf(msg(M_CHOISISSEZ_PIERRES), (unsigned)app.choose_n);
+        cfmt(msg(M_CHOISISSEZ_PIERRES), (unsigned)app.choose_n);
         key = cgetc();
         i = (key >= 'a') ? (key - 'a') : (key - 'A');
         if (i >= 0 && i < count) {
@@ -1412,9 +1478,9 @@ static void choose_stones(void)
 /* Un combat. Rend 0 si le heros meurt, 1 si la creature tombe, 2 s'il fuit. */
 static int run_combat(void)
 {
-    unsigned int assaut = 0;
-    int use_luck, lucky;
-    int pending = 0;            /* une blessure annoncee attend d'etre encaissee */
+    unsigned char assaut = 0;
+    unsigned char use_luck, lucky;
+    unsigned char pending = 0;  /* une blessure annoncee attend d'etre encaissee */
     unsigned char hurt;
     unsigned char end_in = app.hero.end;   /* pour last_loss (lignes DV) */
     Round r;
@@ -1461,7 +1527,7 @@ static int run_combat(void)
         if ((key == 'I' || key == 'i') && assaut == 0) { show_inventory(0); continue; }
         if ((key == 'F' || key == 'f') && app.flee_target >= 0) {
             gotoxy(0, CHOICE_ROW0);
-            cprintf(msg(M_VOUS_FUYEZ_ELLE));
+            cputs(msg(M_VOUS_FUYEZ_ELLE));
             pad_to(79);
             row_blank(CHOICE_ROW0 + 1);
             row_blank(CHOICE_ROW0 + 2);
@@ -1499,7 +1565,7 @@ static int run_combat(void)
             if (monster_is_beaten(&app.foes[app.foe_cur])) {
                 sfx_fall();
                 gotoxy(0, CHOICE_ROW0 + 2);
-                cprintf(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
+                cfmt(msg(M_S_EFFONDRE), app.foes[app.foe_cur].name);
                 pad_to(79);
                 /* "vous devrez les combattre tous deux a tour de role" : le
                  * suivant se presente, et le heros garde l'ENDURANCE qui lui
@@ -1542,11 +1608,11 @@ static int run_combat(void)
         assaut++;
         combat_round(&app.hero, &app.foes[app.foe_cur], &r);
         gotoxy(0, CHOICE_ROW0 + 1);
-        cprintf(msg(M_ASSAUT_FORCE_D), assaut, r.hero_force,
+        cfmt(msg(M_ASSAUT_FORCE_D), assaut, r.hero_force,
                 r.hero_force > r.monster_force ? ">"
                 : (r.hero_force < r.monster_force ? "<" : "="),
                 r.monster_force);
-        if (app.foe_count > 1) cprintf("   %u/%u",
+        if (app.foe_count > 1) cfmt("   %u/%u",
                                        (unsigned)(app.foe_cur + 1),
                                        (unsigned)app.foe_count);
         pad_to(79);
@@ -1564,9 +1630,9 @@ static int run_combat(void)
          * la Chance peut encore la changer, et la jauge dira le vrai. */
         hurt = (r.outcome == ROUND_HERO_HITS) ? 2 : app.foes[app.foe_cur].damage;
         gotoxy(0, CHOICE_ROW0 + 2);
-        cprintf("%s", r.outcome == ROUND_HERO_HITS ? (msg(M_VOUS_L_AVEZ))
-                                                   : (msg(M_ELLE_VOUS_A)));
-        cprintf(msg(M_DEGATS), (unsigned)hurt);
+        cputs(r.outcome == ROUND_HERO_HITS ? msg(M_VOUS_L_AVEZ)
+                                           : msg(M_ELLE_VOUS_A));
+        cfmt(msg(M_DEGATS), (unsigned)hurt);
         pad_to(79);
         pending = 1;
     }
@@ -1621,7 +1687,7 @@ static void game_over(void)
     set_video_mode(0);
     clrscr();
     gotoxy(0, 6);
-    cprintf(msg(M_VOTRE_ENDURANCE_EST));
+    cputs(msg(M_VOTRE_ENDURANCE_EST));
     print_at(8, msg(M_MORT_RECOMMENCER));
     for (;;) {
         key = cgetc();
@@ -1648,17 +1714,17 @@ static void roll_character(void)
     clrscr();
     render_title_bar();
     gotoxy(0, 3);
-    cprintf(msg(M_FEUILLE_D_AVENTURE));
+    cputs(msg(M_FEUILLE_D_AVENTURE));
     gotoxy(0, 5);
-    cprintf(msg(M_HABILETE_DE),   app.hero.hab);
+    cfmt(msg(M_HABILETE_DE),   app.hero.hab);
     gotoxy(0, 6);
-    cprintf(msg(M_ENDURANCE_DES), app.hero.end);
+    cfmt(msg(M_ENDURANCE_DES), app.hero.end);
     gotoxy(0, 7);
-    cprintf(msg(M_CHANCE_DE),   app.hero.cha);
+    cfmt(msg(M_CHANCE_DE),   app.hero.cha);
     gotoxy(0, 9);
-    cprintf(msg(M_UNE_EPEE_UNE), app.hero.gold);
+    cfmt(msg(M_UNE_EPEE_UNE), app.hero.gold);
     gotoxy(0, 10);
-    cprintf(msg(M_AUCUN_DE_CES));
+    cputs(msg(M_AUCUN_DE_CES));
     wait_key_at(13, msg(M_ESPACE_ENTRER_DANS));
 }
 #pragma code-name (pop)
@@ -1817,10 +1883,10 @@ void display_language_selection(void) {
      * convention que MSGFR/MSGEN. */
     f = fopen("TITLE", "r");
     if (f) {
-        while (fgets(line, sizeof(line), f)) cprintf("%s\r", line);
+        while (fgets(line, sizeof(line), f)) { cputs(line); cputc('\r'); }
         fclose(f);
     } else {
-        cprintf("[F] Francais   [E] English\r\n");
+        cputs("[F] Francais   [E] English\r\n");
     }
 }
 
@@ -1847,7 +1913,8 @@ void select_language(void) {
 
 /* Fonction pour gérer les choix de l'utilisateur */
 void handle_user_input(char key) {
-    int choice_num;
+    unsigned char choice_num;
+    Choice* c;
     
     if (key == ' ' || key == '\r' || key == 27) {
         /* Barre d'espace, RETURN ou ESC : cycler les modes */
@@ -1899,16 +1966,17 @@ void handle_user_input(char key) {
         videomode(VIDEOMODE_40COL);
         clrscr();
         if (strcmp(app.language, "FR") == 0) {
-            cprintf("Au revoir!\r\n");
+            cputs("Au revoir!\r\n");
         } else {
-            cprintf("Goodbye!\r\n");
+            cputs("Goodbye!\r\n");
         }
         exit(0);
         
     } else if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
         /* Choix par lettre */
-        choice_num = (key >= 'a') ? (key - 'a') : (key - 'A');
+        choice_num = (unsigned char)((key >= 'a') ? (key - 'a') : (key - 'A'));
         if (choice_num < app.num_choices) {
+            c = &app.choices[choice_num];
             if (!choice_available(choice_num)) {
                 /* On ne lance pas un sort qu'on n'a pas. */
                 clear_bottom();
@@ -1918,30 +1986,26 @@ void handle_user_input(char key) {
                 return;
             }
             /* La Pierre exigee se desintegre en servant. */
-            if (app.choices[choice_num].require < STONE_COUNT) {
-                stone_use(&app.hero, (Stone)app.choices[choice_num].require, 0);
-            }
+            if (c->require < STONE_COUNT) stone_use(&app.hero, (Stone)c->require, 0);
             /* Une Pierre offerte par le choix change de main avant le saut. */
-            if (app.choices[choice_num].grant < STONE_COUNT) {
-                character_give_stone(&app.hero,
-                                     (Stone)app.choices[choice_num].grant, 1);
-            }
-            if (app.choices[choice_num].obj_mode == 3)
-                character_take_object(&app.hero,
-                                      (Object)app.choices[choice_num].object);
+            if (c->grant < STONE_COUNT) character_give_stone(&app.hero, (Stone)c->grant, 1);
+            if (c->obj_mode == 3) character_take_object(&app.hero, (Object)c->object);
             /* Le premier choix de l'introduction lance la creation : le
              * joueur comprend d'abord qui il va incarner, puis les des
              * produisent sa Feuille d'Aventure avant l'entree au Marais. */
             if (!app.hero_ready) roll_character();
-            load_scene(app.choices[choice_num].scene_id);
+            load_scene(c->scene_id);
         }
     }
 }
 
 void main(void) {
     char key;
-    unsigned char prefix_error;
-    
+
+    /* LOWBSS n'est pas dans la BSS que crt0 met a zero : on le fait ici,
+     * avant tout, avec les bornes que le lieur exporte (scoswamp.cfg). */
+    memset(_LOWBSS_RUN__, 0, (size_t)_LOWBSS_SIZE__);
+
     /* Initialiser l'état de l'application */
     app.current_scene = 0;
     app.video_mode = 0;  /* Démarrer en mode texte 80 colonnes */
@@ -1960,14 +2024,10 @@ void main(void) {
     /* BASIC.SYSTEM ne garantit pas le préfixe cc65. Le fixer explicitement
      * valide aussi le nom de volume ProDOS avant toute ouverture de fichier. */
     if (chdir("/SCOSWAMP") != 0) {
-        prefix_error = (unsigned char)_oserror;
         clrscr();
-        cprintf("Source: chdir(/SCOSWAMP)\r\n");
-        cprintf("Echec prefixe volume: errno=%d ProDOS=$%02X\r\n",
-                errno, prefix_error);
-        cprintf("Cause: entree volume/repertoire HDV invalide\r\n");
-        cprintf("Appuyez sur une touche...\r\n");
-        cgetc();
+        prodos_error("chdir(/SCOSWAMP)");
+        cputs("Cause: entree volume/repertoire HDV invalide\r\n");
+        wait_any();
         return;
     }
     

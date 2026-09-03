@@ -12,6 +12,7 @@
  *   imgPath: "IMG/N001.RLE"
  *   txtPath: "TEXTFR/N000/N001.TXT"
  */
+char* put_scene(char* p, unsigned int id);
 int build_paths(unsigned int scene_id, const char* lang, 
                 char* imgPath, char* txtPath);
 

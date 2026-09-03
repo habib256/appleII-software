@@ -16,8 +16,10 @@
 
 /* Le dernier octet reste a zero : c'est la chaine vide que rend msg() quand
  * le catalogue n'a pas pu etre charge. */
+#pragma bss-name (push, "LOWBSS")   /* RAM basse $1000-$1FFF, cf. scoswamp.cfg */
 static char  pool[MSG_BYTES];
 static char* slot[MSG_COUNT];
+#pragma bss-name (pop)
 static int   ready;
 
 int messages_load(int english)
