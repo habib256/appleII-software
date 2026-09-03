@@ -25,6 +25,13 @@ Format MB1 (DOCS/MUSIQUE.md § 5.2), sous-ensemble emis :
   en-tete  'M','B','1',0, 50, drapeaux (bit0 = boucle), offset de boucle (16 bits)
   $01-$7F  DELAY n ticks     $80|v, note  NOTE     $90|v  OFF
   $A0|v, vol  VOL            $E0  END        $F0  FADE (fondu sortant de 45 ticks)
+  $B0|v, periode  NOISE      la voix v bat le canal de bruit de sa puce (ton coupe)
+
+Percussions : les notes du canal MIDI 10 deviennent des NOISE sur la voix
+--drum-voice (5 par defaut, a droite), avec la periode de bruit tiree de la
+note (grosse caisse 35/36 -> 24, caisse claire 38/40 -> 10, charleston 42/44
+-> 2, ouvert 46 -> 4, toms 41-50 -> 14, cymbales 49/51/57 -> 6) et la duree de
+la note MIDI ; les hauteurs sont alors reduites sur les cinq autres voix.
 """
 import argparse
 import math
@@ -47,7 +54,7 @@ def read_midi(path):
     _, ntracks, division = struct.unpack(">HHH", data[8:14])
     assert not division & 0x8000, "division SMPTE non geree"
     pos = 14
-    notes = []
+    notes = []                       # (debut, fin, hauteur, batterie)
 
     def vlq(p):
         v = 0
@@ -74,19 +81,21 @@ def read_midi(path):
             if b & 0x80:
                 status = b; p += 1
             hi = status & 0xF0
+            drum = (status & 0x0F) == 9
             if hi in (0x80, 0x90, 0xA0, 0xB0, 0xE0):
                 d1, d2 = data[p], data[p+1]; p += 2
+                key = (d1, drum)
                 if hi == 0x90 and d2 > 0:
-                    if d1 in active:
-                        notes.append((active.pop(d1), time, d1))
-                    active[d1] = time
+                    if key in active:
+                        notes.append((active.pop(key), time, d1, drum))
+                    active[key] = time
                 elif hi == 0x80 or (hi == 0x90 and d2 == 0):
-                    if d1 in active:
-                        notes.append((active.pop(d1), time, d1))
+                    if key in active:
+                        notes.append((active.pop(key), time, d1, drum))
             else:
                 p += 1
-        for pitch, start in active.items():
-            notes.append((start, time, pitch))
+        for (pitch, drum), start in active.items():
+            notes.append((start, time, pitch, drum))
     notes = [n for n in notes if n[1] > n[0]]
     notes.sort()
     return division, notes
@@ -96,11 +105,20 @@ def read_midi(path):
 def to_ticks(notes, division, bpm):
     tpb = TICK_HZ * 60.0 / bpm            # ticks de 50 Hz par noire
     out = []
-    for s, e, n in notes:
+    for s, e, n, *rest in notes:
         a, b = round(s / division * tpb), round(e / division * tpb)
         if b <= a: b = a + 1
-        out.append((a, b, n))
+        out.append((a, b, n, *rest))
     return out
+
+
+DRUM_PERIOD = {35: 24, 36: 24, 38: 10, 40: 10, 37: 8, 39: 8, 42: 2, 44: 2, 46: 4,
+               41: 14, 43: 14, 45: 14, 47: 12, 48: 12, 50: 12, 49: 6, 51: 6, 57: 6}
+
+
+def drum_hits(notes):
+    """(debut, fin, periode de bruit) pour chaque note du canal 10."""
+    return [(s, e, DRUM_PERIOD.get(n, 8)) for s, e, n, drum in notes if drum]
 
 
 def fold(pitch):
@@ -154,11 +172,16 @@ def reduce_voices(notes, nvoices):
 
 
 # ── Ecriture MB1 ──────────────────────────────────────────────────────────
-def write_mb1(path, voices, vols, tail, loop=True, fade=30):
+def write_mb1(path, voices, vols, tail, loop=True, fade=30, drums=(), drum_voice=5):
     """`fade` : le FADE part autant de ticks avant la derniere fin de note ;
-    avec la queue, le fondu de 45 ticks (0,9 s) couvre la fin du morceau."""
+    avec la queue, le fondu de 45 ticks (0,9 s) couvre la fin du morceau.
+    `drums` : (debut, fin, periode) -> NOISE puis OFF sur drum_voice."""
     events = {}
     end_tick = 0
+    for s, e, per in drums:
+        end_tick = max(end_tick, e)
+        events.setdefault(s, []).append((1, bytes([0xB0 | drum_voice, per])))
+        events.setdefault(e, []).append((0, bytes([0x90 | drum_voice])))
     for v, seq in enumerate(voices):
         prev_end, prev_idx = -1, None
         for s, e, idx in seq:
@@ -213,10 +236,29 @@ def write_note_table(path):
 
 
 # ── Apercu a ondes carrees, depuis la reduction elle-meme ─────────────────
-def render_wav(path, voices, vols, total_ticks, fade_start=None):
-    """Stereo : voix 0-2 a gauche, 3-5 a droite, avec un tiers de fuite."""
+def render_wav(path, voices, vols, total_ticks, fade_start=None, drums=(), drum_voice=5):
+    """Stereo : voix 0-2 a gauche, 3-5 a droite, avec un tiers de fuite. Le
+    bruit de l'AY : un tirage aleatoire tenu 16 * periode cycles."""
+    import random
     total = int((total_ticks / TICK_HZ + 0.3) * RATE)
     left, right = [0.0] * total, [0.0] * total
+    rnd = random.Random(1)
+    g = vols[drum_voice] / 15.0 * 0.22
+    side = left if drum_voice < 3 else right
+    other = right if drum_voice < 3 else left
+    for s, e, per in drums:
+        s0, s1 = int(s / TICK_HZ * RATE), int(e / TICK_HZ * RATE)
+        hold = max(1, int(RATE * 16 * per / AY_CLOCK))
+        v = 0.0
+        for i in range(s1 - s0):
+            if i % hold == 0: v = rnd.choice((-1.0, 1.0))
+            rem = (s1 - s0 - i) / RATE
+            env = 1.0 if rem > 0.02 else rem / 0.02
+            tsec = (s0 + i) / RATE
+            if fade_start is not None and tsec > fade_start:
+                env *= max(0.0, 1.0 - (tsec - fade_start) / 0.9)
+            x = v * env * g
+            if s0 + i < total: side[s0 + i] += x; other[s0 + i] += x / 3.0
     for v, seq in enumerate(voices):
         g = vols[v] / 15.0 * 0.22
         side = left if v < 3 else right
@@ -249,6 +291,7 @@ def main():
     ap.add_argument("midi"); ap.add_argument("out")
     ap.add_argument("--bpm", type=float, default=100.0)
     ap.add_argument("--voices", type=int, default=6, choices=range(1, 7))
+    ap.add_argument("--drum-voice", type=int, default=5, help="voix des percussions du canal 10")
     ap.add_argument("--vol", default="10,8,8,9,8,8",
                     help="volumes 0-15 par voix, dans l'ordre 0..5")
     ap.add_argument("--tail", type=int, default=15)
@@ -260,18 +303,28 @@ def main():
     vols = [int(x) for x in a.vol.split(",")][:a.voices]
     vols += [11] * (a.voices - len(vols))
     division, notes = read_midi(a.midi)
-    voices = reduce_voices(to_ticks(notes, division, a.bpm), a.voices)
-    size, total = write_mb1(a.out, voices, vols, a.tail, loop=not a.no_loop, fade=a.fade)
+    ticked = to_ticks(notes, division, a.bpm)
+    drums = drum_hits(ticked)
+    pitched = [(s, e, n) for s, e, n, drum in ticked if not drum]
+    nv = a.voices - (1 if drums else 0)
+    voices = reduce_voices(pitched, nv)
+    if drums:
+        voices = voices[:a.drum_voice] + [[]] + voices[a.drum_voice:]   # la voix des percussions reste vide de tons
+        voices = voices[:6]
+    size, total = write_mb1(a.out, voices, vols, a.tail, loop=not a.no_loop, fade=a.fade,
+                            drums=drums, drum_voice=a.drum_voice)
     if size > a.max:
         raise SystemExit(f"{a.out}: {size} octets, plus que le demi-tampon de {a.max} -- "
                          f"raccourcir la piece ou baisser --voices")
     if a.notes_inc: write_note_table(a.notes_inc)
     if a.wav:
-        end = max((e for seq in voices for _, e, _ in seq), default=0)
-        render_wav(a.wav, voices, vols, total, (max(0, end - a.fade)) / TICK_HZ if a.fade else None)
-    dropped = len(notes) - sum(len(v) for v in voices)
+        end = max([e for seq in voices for _, e, _ in seq] + [e for _, e, _ in drums], default=0)
+        render_wav(a.wav, voices, vols, total, (max(0, end - a.fade)) / TICK_HZ if a.fade else None,
+                   drums=drums, drum_voice=a.drum_voice)
+    dropped = len(pitched) - sum(len(v) for v in voices)
     print(f"{Path(a.midi).name}: {len(notes)} notes -> "
-          f"{[len(v) for v in voices]} par voix ({max(dropped, 0)} abandonnees), {size} octets, "
+          f"{[len(v) for v in voices]} par voix ({max(dropped, 0)} abandonnees), "
+          f"{len(drums)} coups de batterie, {size} octets, "
           f"{total / TICK_HZ:.1f} s a {a.bpm:g} bpm -> {a.out}")
 
 
