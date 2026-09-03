@@ -60,5 +60,5 @@ par temps qui tombent juste.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/tour
 python3 tour.py
 python3 ../../midi_to_mb.py tour.mid TOUR.MB.BIN \
-    --bpm 125 --max 2400 --wav TOUR.wav
+    --bpm 125 --max 2304 --wav TOUR.wav
 ```

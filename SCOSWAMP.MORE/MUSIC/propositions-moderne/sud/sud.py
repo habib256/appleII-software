@@ -10,7 +10,7 @@ dorien de l'accueil : on est entre dans le Marais.
 28 mesures a 4/4, 44,8 s. Forme intro(4) - A(8) - B(8) - A'(8), A' a l'octave.
 
     python3 sud.py && python3 ../../midi_to_mb.py sud.mid \\
-        MARAISUD.MB.BIN --bpm 150 --max 2400 --wav MARAISUD.wav
+        MARAISUD.MB.BIN --bpm 150 --max 2304 --wav MARAISUD.wav
 """
 import sys
 from pathlib import Path

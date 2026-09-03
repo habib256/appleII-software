@@ -10,7 +10,7 @@ motif mord ; c'est tout le sujet de la zone.
 octave au-dessus.
 
     python3 nord.py && python3 ../../midi_to_mb.py nord.mid \\
-        MARAISNO.MB.BIN --bpm 150 --max 2400 --wav MARAISNO.wav
+        MARAISNO.MB.BIN --bpm 150 --max 2304 --wav MARAISNO.wav
 """
 import sys
 from pathlib import Path

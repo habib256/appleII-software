@@ -59,5 +59,5 @@ dès la première seconde, sans que la mélodie ait à se répéter.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/nord
 python3 nord.py
 python3 ../../midi_to_mb.py nord.mid MARAISNO.MB.BIN \
-    --bpm 150 --max 2400 --wav MARAISNO.wav
+    --bpm 150 --max 2304 --wav MARAISNO.wav
 ```

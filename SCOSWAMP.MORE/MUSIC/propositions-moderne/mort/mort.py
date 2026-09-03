@@ -11,7 +11,7 @@ puis retombe de sol a do en huit mesures.
 et laisse le silence, comme les pieces de mort et de victoire.
 
     python3 mort.py && python3 ../../midi_to_mb.py mort.mid \\
-        MORT.MB.BIN --bpm 125 --no-loop --max 2400 --wav MORT.wav
+        MORT.MB.BIN --bpm 125 --no-loop --max 1280 --wav MORT.wav
 """
 import sys
 from pathlib import Path

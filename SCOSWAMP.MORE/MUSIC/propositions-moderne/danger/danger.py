@@ -13,7 +13,7 @@ les vingt suivantes en croches. Le morceau se resserre au lieu de monter.
 28 mesures a 4/4, 49,4 s. Forme intro(4) - A(8) - B(8) - A'(8).
 
     python3 danger.py && python3 ../../midi_to_mb.py danger.mid \\
-        DANGER.MB.BIN --bpm 136 --max 2400 --wav DANGER.wav
+        DANGER.MB.BIN --bpm 136 --max 2304 --wav DANGER.wav
 """
 import sys
 from pathlib import Path

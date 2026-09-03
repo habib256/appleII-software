@@ -22,32 +22,40 @@ seul objet à écouter pour juger. Il n'est pas suivi par git
 
 ## 1. Les dix musiques
 
-| Zone | Fichier disque | Pièce | Mode | bpm | Durée | Octets |
-| --- | --- | --- | --- | ---: | ---: | ---: |
-| `accueil` | `ACCUEIL.MB` | **L'Appel du Marais** | ré dorien | 136 | 49,9 s | 2 070 |
-| `village` | `VILLAGE.MB` | **Les Feux de Bourbenville** | sol mixolydien | **166** | 46,7 s | 2 285 |
-| `nord` | `MARAISNO.MB` | **Le Bois des Guetteurs** | mi éolien | 150 | 45,3 s | 1 978 |
-| `riviere` | `RIVIERE.MB` | **Le Pont sur la Croupie** | la dorien | 125 | 54,2 s | 1 861 |
-| `sud` | `MARAISUD.MB` | **Sentiers Verts** | ré éolien | 150 | 45,3 s | 1 981 |
-| `danger` | `DANGER.MB` | **Ce qui Attend Sous l'Eau** | do phrygien | 136 | 49,9 s | 1 764 |
-| `tour` | `TOUR.MB` | **La Tour de Stratagus** | sol mineur harm. | 125 | 46,5 s | 1 056 |
-| `combat` | `COMBAT.MB` | **Le Fer et la Pince** | si éolien | **200** | 34,1 s | 1 860 |
-| `mort` | `MORT.MB` | **Le Marais Referme** | do éolien | 125 | 31,2 s | 659 |
-| `victoire` | `VICTOIRE.MB` | **Par la Trouée de Ciel** | ré mixolydien | 150 | 32,5 s | 1 424 |
+| Zone | Fichier disque | Pièce | Mode | bpm | Durée | Octets | Tampon |
+| --- | --- | --- | --- | ---: | ---: | ---: | :---: |
+| `accueil` | `ACCUEIL.MB` | **L'Appel du Marais** | ré dorien | 136 | 49,9 s | 2 070 | zone |
+| `village` | `VILLAGE.MB` | **Les Feux de Bourbenville** | sol mixolydien | **166** | 46,7 s | 2 285 | zone |
+| `nord` | `MARAISNO.MB` | **Le Bois des Guetteurs** | mi éolien | 150 | 45,3 s | 1 978 | zone |
+| `riviere` | `RIVIERE.MB` | **Le Pont sur la Croupie** | la dorien | 125 | 54,2 s | 1 861 | zone |
+| `sud` | `MARAISUD.MB` | **Sentiers Verts** | ré éolien | 150 | 45,3 s | 1 981 | zone |
+| `danger` | `DANGER.MB` | **Ce qui Attend Sous l'Eau** | do phrygien | 136 | 49,9 s | 1 764 | zone |
+| `tour` | `TOUR.MB` | **La Tour de Stratagus** | sol mineur harm. | 125 | 46,5 s | 1 056 | zone |
+| `combat` | `COMBAT.MB` | **Le Fer et la Pince** | si éolien | **200** | 24,5 s | 1 215 | **surcouche** |
+| `mort` | `MORT.MB` | **Le Marais Referme** | do éolien | 125 | 31,2 s | 659 | **surcouche** |
+| `victoire` | `VICTOIRE.MB` | **Par la Trouée de Ciel** | ré mixolydien | 150 | 26,1 s | 1 141 | **surcouche** |
 
-**Total sur le volume : 16 938 octets**, sur ~28 Mo libres — le nombre de pièces
+**Total sur le volume : 16 010 octets**, sur ~28 Mo libres — le nombre de pièces
 ne coûte rien.
 
-⚠ **Ce qui coûte, c'est la plus grosse.** `VILLAGE.MB` fait 2 285 octets : ces
-pièces demandent le **tampon complet de 2 560 octets** déjà déclaré
-(`SCOSWAMP/SRC/music.h:16`), et sont donc incompatibles avec la réduction à
-1 280 proposée par `../propositions/INDEX.md`. C'est le prix de six voix contre
-trois, et c'est le seul arbitrage technique entre les deux dossiers. Le
-`--max 1280` par défaut de `midi_to_mb.py` doit être relevé à `--max 2400` pour
-convertir ce dossier ; toutes les commandes des `README.md` le font.
+⚠ **Ce qui coûte, c'est la plus grosse de chaque tampon.** Le moteur en a deux,
+et chaque pièce doit tenir dans le sien :
 
-`mort` et `victoire` se convertissent avec **`--no-loop`** : elles se jouent une
-fois et laissent le silence.
+| Tampon | Limite | Pièces | La plus grosse | Marge |
+| --- | ---: | --- | ---: | ---: |
+| **zone** | 2 304 o | `accueil`, `village`, `nord`, `riviere`, `sud`, `danger`, `tour` | `VILLAGE.MB`, 2 285 o | 19 o |
+| **surcouche** | 1 280 o | `COMBAT`, `MORT`, `VICTOIRE` | `COMBAT.MB`, 1 215 o | 65 o |
+
+Les commandes des `README.md` passent donc `--max 2304` pour les thèmes de zone
+et `--max 1280` pour les trois surcouches : la conversion **échoue** au lieu de
+livrer un flux qui déborderait à l'exécution.
+
+`village` est à 19 octets de la limite de zone. Toute retouche de cette pièce
+doit être reconvertie avant d'être crue ; les six autres thèmes de zone ont
+entre 234 et 1 248 octets de marge.
+
+`mort` et `victoire` se convertissent en plus avec **`--no-loop`** : elles se
+jouent une fois et laissent le silence.
 
 ---
 
@@ -165,7 +173,7 @@ maximale = 6 exactement, jamais 7).
 | Sources | onze pièces XV<sup>e</sup>-XVIII<sup>e</sup>, Mutopia, domaine public | dix compositions originales, GPL v3 |
 | Voix | 3, mono en pratique | **6**, stéréo écrite |
 | Taille max | 1 058 o (`MARAISNO.MB`) | 2 285 o (`VILLAGE.MB`) |
-| Tampon | 1 280 o suffisent | **2 560 o nécessaires** |
+| Tampons | tout tient en 1 280 o | **zone 2 304 o**, surcouche 1 280 o |
 | Langage | contrepoint vocal, cadences fonctionnelles, sensible | modes (dorien, phrygien, mixolydien, éolien), bourdons, quintes à vide, ostinatos |
 | Forme | celle de l'œuvre d'origine | intro - A - B - A', écrite pour boucler sans couture |
 | Tempo | 120-200, celui du genre | 125-200, jamais en dessous de 125 |
@@ -174,9 +182,11 @@ maximale = 6 exactement, jamais 7).
 
 Trois différences méritent une décision, pas un goût :
 
-- **Le tampon.** Six voix coûtent le double. Si le propriétaire veut réduire
-  `MUSIC_BUF_SIZE`, ce dossier ne passe pas : il faudrait raccourcir chaque
-  boucle d'un tiers, et les formes A-B-A' n'y survivraient pas.
+- **Le tampon.** Six voix coûtent le double d'octets pour la même durée. C'est
+  ce qui a fixé les deux tailles du moteur : **2 304 octets pour une zone,
+  1 280 pour une surcouche.** `COMBAT` et `VICTOIRE` ont été réécrites pour la
+  seconde — le combat a perdu sa reprise A' (20 mesures au lieu de 28, ce qui
+  lui va : une mêlée boucle court) et la victoire sa quatrième phrase.
 - **L'unité.** Le dossier Renaissance emprunte onze langages à onze
   compositeurs ; celui-ci en a un seul, décliné. Le premier a plus de variété
   et moins de cohérence ; le second l'inverse. La question est de savoir si le
@@ -196,16 +206,16 @@ On peut prendre `DANGER.MB` ici et `TOUR.MB` là.
 ```sh
 cd /Users/gistair/src/pom2adventure/SCOSWAMP.MORE/MUSIC/propositions-moderne
 M=../../midi_to_mb.py
-(cd accueil  && python3 accueil.py   && python3 $M accueil.mid   ACCUEIL.MB.BIN  --bpm 136 --max 2400 --wav ACCUEIL.wav)
-(cd village  && python3 village.py   && python3 $M village.mid   VILLAGE.MB.BIN  --bpm 166 --max 2400 --wav VILLAGE.wav)
-(cd nord     && python3 nord.py      && python3 $M nord.mid      MARAISNO.MB.BIN --bpm 150 --max 2400 --wav MARAISNO.wav)
-(cd riviere  && python3 riviere.py   && python3 $M riviere.mid   RIVIERE.MB.BIN  --bpm 125 --max 2400 --wav RIVIERE.wav)
-(cd sud      && python3 sud.py       && python3 $M sud.mid       MARAISUD.MB.BIN --bpm 150 --max 2400 --wav MARAISUD.wav)
-(cd danger   && python3 danger.py    && python3 $M danger.mid    DANGER.MB.BIN   --bpm 136 --max 2400 --wav DANGER.wav)
-(cd tour     && python3 tour.py      && python3 $M tour.mid      TOUR.MB.BIN     --bpm 125 --max 2400 --wav TOUR.wav)
-(cd combat   && python3 combat.py    && python3 $M combat.mid    COMBAT.MB.BIN   --bpm 200 --max 2400 --wav COMBAT.wav)
-(cd mort     && python3 mort.py      && python3 $M mort.mid      MORT.MB.BIN     --bpm 125 --no-loop --max 2400 --wav MORT.wav)
-(cd victoire && python3 victoire.py  && python3 $M victoire.mid  VICTOIRE.MB.BIN --bpm 150 --no-loop --max 2400 --wav VICTOIRE.wav)
+(cd accueil  && python3 accueil.py   && python3 $M accueil.mid   ACCUEIL.MB.BIN  --bpm 136 --max 2304 --wav ACCUEIL.wav)
+(cd village  && python3 village.py   && python3 $M village.mid   VILLAGE.MB.BIN  --bpm 166 --max 2304 --wav VILLAGE.wav)
+(cd nord     && python3 nord.py      && python3 $M nord.mid      MARAISNO.MB.BIN --bpm 150 --max 2304 --wav MARAISNO.wav)
+(cd riviere  && python3 riviere.py   && python3 $M riviere.mid   RIVIERE.MB.BIN  --bpm 125 --max 2304 --wav RIVIERE.wav)
+(cd sud      && python3 sud.py       && python3 $M sud.mid       MARAISUD.MB.BIN --bpm 150 --max 2304 --wav MARAISUD.wav)
+(cd danger   && python3 danger.py    && python3 $M danger.mid    DANGER.MB.BIN   --bpm 136 --max 2304 --wav DANGER.wav)
+(cd tour     && python3 tour.py      && python3 $M tour.mid      TOUR.MB.BIN     --bpm 125 --max 2304 --wav TOUR.wav)
+(cd combat   && python3 combat.py    && python3 $M combat.mid    COMBAT.MB.BIN   --bpm 200 --max 1280 --wav COMBAT.wav)
+(cd mort     && python3 mort.py      && python3 $M mort.mid      MORT.MB.BIN     --bpm 125 --no-loop --max 1280 --wav MORT.wav)
+(cd victoire && python3 victoire.py  && python3 $M victoire.mid  VICTOIRE.MB.BIN --bpm 150 --no-loop --max 1280 --wav VICTOIRE.wav)
 ```
 
 Chaque ligne entre dans son sous-dossier, d'où le `../../midi_to_mb.py` : c'est

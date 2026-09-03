@@ -11,7 +11,7 @@ bourdon est sur **re**, la dominante : la tour n'est jamais posee.
 24 mesures a 4/4, 46,1 s. Forme intro(4) - A(8) - B(8) - coda(4).
 
     python3 tour.py && python3 ../../midi_to_mb.py tour.mid \\
-        TOUR.MB.BIN --bpm 125 --max 2400 --wav TOUR.wav
+        TOUR.MB.BIN --bpm 125 --max 2304 --wav TOUR.wav
 """
 import sys
 from pathlib import Path

@@ -10,7 +10,7 @@ du nord et les vingt-trois du sud.
 28 mesures a 4/4, 53,8 s. Forme intro(4) - A(8) - B(8) - A'(8).
 
     python3 riviere.py && python3 ../../midi_to_mb.py riviere.mid \\
-        RIVIERE.MB.BIN --bpm 125 --max 2400 --wav RIVIERE.wav
+        RIVIERE.MB.BIN --bpm 125 --max 2304 --wav RIVIERE.wav
 """
 import sys
 from pathlib import Path

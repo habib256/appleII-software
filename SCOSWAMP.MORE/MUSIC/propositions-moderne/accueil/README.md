@@ -56,7 +56,7 @@ tient.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/accueil
 python3 accueil.py
 python3 ../../midi_to_mb.py accueil.mid ACCUEIL.MB.BIN \
-    --bpm 136 --max 2400 --wav ACCUEIL.wav
+    --bpm 136 --max 2304 --wav ACCUEIL.wav
 python3 ../verifier.py accueil.mid --bpm 136
 ```
 

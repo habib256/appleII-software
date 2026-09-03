@@ -64,5 +64,5 @@ bécarre du village ; c'est le seul repère tonal du jeu, et il est gratuit.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/sud
 python3 sud.py
 python3 ../../midi_to_mb.py sud.mid MARAISUD.MB.BIN \
-    --bpm 150 --max 2400 --wav MARAISUD.wav
+    --bpm 150 --max 2304 --wav MARAISUD.wav
 ```

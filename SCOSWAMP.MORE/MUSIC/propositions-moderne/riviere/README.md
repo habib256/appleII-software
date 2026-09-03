@@ -51,5 +51,5 @@ lumière franche de la pièce — c'est le pont lui-même, et il revient quatre 
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/riviere
 python3 riviere.py
 python3 ../../midi_to_mb.py riviere.mid RIVIERE.MB.BIN \
-    --bpm 125 --max 2400 --wav RIVIERE.wav
+    --bpm 125 --max 2304 --wav RIVIERE.wav
 ```

@@ -2,6 +2,9 @@
 
 **`MORT.MB.BIN` — 659 octets, 31,2 s, `--no-loop`.**
 
+Surcouche : le flux doit tenir dans le **tampon de surcouche de 1 280
+octets**, la moitié de celui des thèmes de zone. Il reste 621 octets — c'est la pièce la plus au large du dossier.
+
 ## Ce que la zone couvre
 
 | Pages | 003, 030, 098, 260, 297, 313, 332, 361, 372, 375, 401 |
@@ -49,5 +52,5 @@ finale est plagale (A♭-Cm), pas dominante : elle referme au lieu de conclure.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/mort
 python3 mort.py
 python3 ../../midi_to_mb.py mort.mid MORT.MB.BIN \
-    --bpm 125 --no-loop --max 2400 --wav MORT.wav
+    --bpm 125 --no-loop --max 1280 --wav MORT.wav
 ```

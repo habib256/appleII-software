@@ -64,5 +64,5 @@ et c'est plus efficace sur une onde carrée.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/danger
 python3 danger.py
 python3 ../../midi_to_mb.py danger.mid DANGER.MB.BIN \
-    --bpm 136 --max 2400 --wav DANGER.wav
+    --bpm 136 --max 2304 --wav DANGER.wav
 ```

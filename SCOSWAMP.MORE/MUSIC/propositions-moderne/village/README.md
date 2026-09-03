@@ -59,5 +59,5 @@ page 009, l'entrée du Marais.
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/village
 python3 village.py
 python3 ../../midi_to_mb.py village.mid VILLAGE.MB.BIN \
-    --bpm 166 --max 2400 --wav VILLAGE.wav
+    --bpm 166 --max 2304 --wav VILLAGE.wav
 ```

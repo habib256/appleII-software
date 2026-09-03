@@ -8,7 +8,7 @@ registre, A' reprend le theme une octave au-dessus, la ou l'onde carree crie.
 28 mesures a 4/4, 49 s de boucle.
 
     python3 accueil.py && python3 ../../midi_to_mb.py accueil.mid \\
-        ACCUEIL.MB.BIN --bpm 136 --wav ACCUEIL.wav
+        ACCUEIL.MB.BIN --bpm 136 --max 2304 --wav ACCUEIL.wav
 """
 import sys
 from pathlib import Path

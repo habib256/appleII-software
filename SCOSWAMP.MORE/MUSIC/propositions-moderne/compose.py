@@ -32,11 +32,13 @@ conversion.
 
 ## Le budget
 
-Le tampon du lecteur fait 2 560 octets et la consigne est de rester sous 2 400.
-Une note coute environ 3 a 4 octets (NOTE + OFF + les delais). Il faut donc de
-l'ordre de **600 notes au total** pour une boucle de 60 s : une seule voix en
-croches continues en mange la moitie. D'ou l'ecriture du style : bourdons tenus,
-quintes ouvertes en rondes, une seule voix rapide a la fois.
+Le moteur a deux tampons : **2 304 octets pour un theme de zone, 1 280 pour une
+surcouche** (combat, mort, victoire). Une note coute environ 3 a 4 octets
+(NOTE + OFF + les delais). Il faut donc rester sous ~600 notes pour une zone et
+sous ~330 pour une surcouche : une seule voix en croches continues mange la
+moitie du budget. D'ou l'ecriture du style : bourdons tenus, quintes ouvertes en
+rondes, une seule voix rapide a la fois — et, pour les surcouches, une boucle
+courte plutot qu'une texture amaigrie.
 
 ## Ce qu'il faut eviter
 
