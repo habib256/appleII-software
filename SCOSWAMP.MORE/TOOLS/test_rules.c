@@ -321,6 +321,99 @@ static void test_memoire_clairieres(void)
     CHECK(monster_enter(224, m, 2) == 2, "les deux tombes : plus de combat");
 }
 
+/* La file de TROIS du paragraphe 120 : "ses deux creatures bondissent sur
+ * vous. Vous devez les combattre tour a tour. Si vous les tuez, il faudra
+ * ensuite affronter le Maitre lui-meme." Deux Loups puis leur Maitre, dans
+ * l'ordre des lignes M -- et la clairiere 32 est de celles ou l'on revient.
+ *
+ * C'est le combat sur lequel un joueur a signale que l'ecran montrait le
+ * Maitre du debut a la fin. La file, elle, etait juste : ces verifications
+ * fixent l'invariant que le portrait doit suivre (scoswamp.c, ligne MI). */
+static void file_120(Monster* m)
+{
+    monster_init(&m[0]); m[0].hab = 7;  m[0].end = 5;  strcpy(m[0].name, "PREMIER LOUP");
+    monster_init(&m[1]); m[1].hab = 6;  m[1].end = 6;  strcpy(m[1].name, "DEUXIEME LOUP");
+    monster_init(&m[2]); m[2].hab = 11; m[2].end = 10; strcpy(m[2].name, "MAITRE DES LOUPS");
+    monster_seal(&m[0]); monster_seal(&m[1]); monster_seal(&m[2]);
+}
+
+static void test_file_120(void)
+{
+    Monster m[3];
+    unsigned char snapshot[MONSTER_MEMORY_SIZE];
+
+    monster_memory_reset();
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 0,
+          "premier passage : on commence au PREMIER LOUP, pas au Maitre");
+    CHECK(m[0].end == 5 && m[1].end == 6 && m[2].end == 10,
+          "premier passage : les trois sont entiers");
+
+    /* Le premier Loup tombe : run_combat avance la file PUIS retient le
+     * suivant, entier. C'est cet appel-la qu'on rejoue ici. */
+    m[0].end = 0;
+    monster_remember(120, 1, &m[1]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 1, "revisite : au DEUXIEME LOUP");
+    CHECK(m[1].end == 6, "le second n'a pas encore ete touche, vu %u", m[1].end);
+    CHECK(m[1].end0 == 6, "sa jauge garde le maximum du livre, vu %u", m[1].end0);
+
+    /* On l'entame et on fuit : la Fuite retient l'adversaire courant. */
+    m[1].end = 2;
+    monster_remember(120, 1, &m[1]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 1, "retour apres la Fuite : au DEUXIEME");
+    CHECK(m[1].end == 2, "et il est toujours entame, vu %u", m[1].end);
+    CHECK(m[2].end == 10, "le Maitre attend son tour, entier, vu %u", m[2].end);
+
+    /* Le second tombe a son tour : reste le Maitre, entier. */
+    m[1].end = 0;
+    monster_remember(120, 2, &m[2]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 2, "les deux Loups tombes : au MAITRE");
+    CHECK(m[2].end == 10, "le Maitre est intact, vu %u", m[2].end);
+
+    /* Fuir DEVANT le Maitre entame, puis revenir, en passant par le disque. */
+    m[2].end = 4;
+    monster_remember(120, 2, &m[2]);
+    monster_memory_export(snapshot);
+    monster_memory_reset();
+    monster_memory_import(snapshot);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 2,
+          "sauvegarde : la reprise reste au troisieme adversaire");
+    CHECK(m[2].end == 4, "sauvegarde : le Maitre reste blesse, vu %u", m[2].end);
+
+    /* Le Maitre tombe : foe_cur vaut alors 3, et c'est CE nombre-la que
+     * run_combat retient. La file est finie, la page part sur sa ligne MV. */
+    m[2].end = 0;
+    monster_remember(120, 3, &m[2]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 3, "les trois tombes : plus de combat");
+    CHECK(m[0].end == 5 && m[2].end == 10,
+          "file finie : monster_enter ne touche a aucune ENDURANCE");
+
+    /* Un adversaire acheve juste avant la Fuite : la memoire retient l'indice
+     * courant avec une ENDURANCE nulle, et la reprise saute au suivant. */
+    monster_memory_reset();
+    file_120(m);
+    m[0].end = 0;
+    monster_remember(120, 0, &m[0]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 1,
+          "acheve puis fuite : la reprise passe au DEUXIEME LOUP");
+
+    /* Une AUTRE clairiere garde ses propres Loups : le 224 (Pierre de Terreur)
+     * n'herite pas des blessures du 120. */
+    monster_memory_reset();
+    file_120(m);
+    m[0].end = 1;
+    monster_remember(120, 0, &m[0]);
+    file_120(m);
+    CHECK(monster_enter(224, m, 2) == 0 && m[0].end == 5,
+          "le 224 ne lit pas la memoire du 120");
+}
+
 static void test_pierres(void)
 {
     Character c = hero(11, 20, 9);
@@ -621,6 +714,7 @@ int main(void)
     test_blessures();
     test_fuite();
     test_memoire_clairieres();
+    test_file_120();
     test_clairieres_vues();
     test_perte_definitive();
     test_benediction();

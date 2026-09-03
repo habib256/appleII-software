@@ -15,6 +15,11 @@
   MS <n>              le combat cesse a n ENDURANCE (defaut 0)
   MV <id>             le dernier adversaire tombe : la page envoie en <id>
                       sans repasser par les choix
+  MI <page>           son portrait de bataille est le B<page>.RLE d'une
+                      AUTRE page : le disque n'en range qu'un par page,
+                      et une file peut melanger les especes (les deux
+                      Loups du 120 empruntent le B224, leur Maitre garde
+                      le B120). Sans MI, l'image est celle de la page
   E  <CARAC> <delta>  effet applique en entrant dans la clairiere
   ED <CARAC> <+-ndes> jet de des visible : le signe dit gain ou perte, la
                       valeur absolue le nombre de des (1 ou 2)
@@ -61,7 +66,7 @@ RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # L'ordre de l'alternance FAIT FOI : `M` avant `MV` avalerait la ligne MV et
 # wrap() la replierait dans le corps. Les deux lettres passent donc devant la
 # lettre seule du meme prefixe, ici comme dans classify_line.
-DIRECTIVE = re.compile(r"^(MD|MS|MV|MB|MU|M|E0|ED|E|PC|PD|PO|PX|P|TR|CF|CP|CU|CI|CN|CA|CL|CE|CS|DV|GU|GX|GA|G|V)(?: |$)")
+DIRECTIVE = re.compile(r"^(MD|MS|MI|MV|MB|MU|M|E0|ED|E|PC|PD|PO|PX|P|TR|CF|CP|CU|CI|CN|CA|CL|CE|CS|DV|GU|GX|GA|G|V)(?: |$)")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -831,6 +836,17 @@ def main():
                         problems.append(f"{f}: ligne MU mal formee {d!r}")
                     elif arg != "-" and not (root / "MUSIC" / (arg.lstrip("+") + ".BIN")).exists():
                         problems.append(f"{f}: MU {arg} : pas de MUSIC/{arg.lstrip('+')}.BIN")
+                # MI <page> : l'image empruntee doit exister, load_foe_image
+                # retombant sans un mot sur celle de la page -- c'est-a-dire
+                # sur le bug qu'on vient de corriger.
+                if parts[0] == "MI":
+                    pg = int(parts[1]) if len(parts) == 2 and parts[1].isdigit() else -1
+                    img = root / "IMG" / ("N%03d" % (pg // 50 * 50)) / ("B%03d.RLE.BIN" % pg)
+                    if pg < 0:
+                        problems.append(f"{f}: ligne MI mal formee {d!r}")
+                    elif not img.exists():
+                        problems.append(f"{f}: MI {pg:03d} : pas de "
+                                        f"IMG/N{pg // 50 * 50:03d}/B{pg:03d}.RLE.BIN")
                 if parts[0] in ("E", "E0", "CE", "ED") and len(parts) > 1 \
                         and parts[1] not in CARAC_WORDS:
                     problems.append(f"{f}: {parts[0]} sur un mot inconnu "
@@ -923,6 +939,7 @@ def main():
             # bug corrige le 2026-08-29 pour CU/CL/PC, et le lot pose des MV
             # et des ED dans les deux langues.
             KEEP = {"M": 3, "MD": 2, "MS": 2, "MV": None, "MU": None, "CL": None,
+                    "MI": None,
                     "CF": 2, "PC": 3, "CU": 3, "CP": 3, "E": None,
                     "ED": None, "V": None, "E0": None, "CE": None,
                     "CS": None, "DV": None, "MB": None, "G": None,

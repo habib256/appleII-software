@@ -8,7 +8,9 @@ ensuite affronter le Maitre lui-meme...
 
 MU +COMBAT.MB
 M 7 5 PREMIER LOUP
+MI 224
 M 6 6 DEUXIEME LOUP
+MI 224
 M 11 10 MAITRE DES LOUPS
 CF 314 Prendre la fuite
 MV 154

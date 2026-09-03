@@ -107,6 +107,11 @@ typedef struct {
      * a plusieurs du Marais sont du second type : une file, affrontee dans
      * l'ordre ou la page la donne. */
     Monster   foes[MAX_FOES];
+    /* Ligne MI : la page dont on emprunte l'image de bataille pour CET
+     * adversaire, 0 si c'est celle de la page courante. Une file peut melanger
+     * les especes -- deux Loups puis leur Maitre, page 120 -- et une seule
+     * illustration pour les trois montrait le Maitre des le premier assaut. */
+    unsigned int  foe_img[MAX_FOES];
     unsigned char foe_count; /* nombre de lignes M sur la page */
     unsigned char foe_cur;   /* adversaire en cours dans la file */
     int       flee_target;   /* scene ou mene la Fuite, -1 si la page n'en offre pas */
@@ -424,6 +429,27 @@ static int load_hgr_image_as(int scene_id, char prefix) {
 }
 
 int load_hgr_image(int scene_id) { return load_hgr_image_as(scene_id, 'N'); }
+
+/* La page dont l'image de bataille est actuellement en HGR page 1, ou 0 quand
+ * on n'en a pas encore charge pour cette scene. */
+static int foe_shown;
+
+/* L'illustration de l'adversaire EN COURS. Le disque range une image de
+ * bataille par page (B<page>.RLE), mais une page peut aligner trois creatures
+ * differentes : la ligne MI dit alors de quelle page emprunter l'image. Sans
+ * elle, c'est celle de la page -- exactement l'ancien comportement.
+ *
+ * Le garde `foe_shown` est ce qui rend l'appel gratuit quand l'image ne change
+ * pas : une file d'une seule espece, ou une page sans ligne MI, ne relit pas
+ * le disque entre deux adversaires. */
+static void load_foe_image(void)
+{
+    int p = (int)app.foe_img[app.foe_cur];
+    if (!p) p = app.current_scene;
+    if (p == foe_shown) return;
+    foe_shown = p;
+    app.has_image = load_hgr_image_as(p, 'B');
+}
 
 /* Soft switches pour les modes video - version optimisée avec memory swap */
 void set_video_mode(int mode) {
@@ -820,6 +846,14 @@ static void lose_items(unsigned char n)
  *   DV <max> <id>               en cascade : premiere ligne dont la perte du
  *                               dernier combat est <= max fabrique l'unique
  *                               choix "continuer" vers <id>
+ *   MI <page>                   l'image de bataille du dernier adversaire
+ *                               declare est celle d'une AUTRE page : le disque
+ *                               n'en range qu'une par page (B<page>.RLE) et
+ *                               une file peut melanger les especes. Page 120,
+ *                               les deux Loups empruntent le B224 du combat
+ *                               contre les Loups seuls, et le Maitre garde le
+ *                               B120 de sa page. Sans MI, ou si l'emprunt
+ *                               manque au disque, c'est l'image de la page
  *   MU <NOM>.MB                 le theme de la zone : lu dans MUSIC/ et joue
  *                               en boucle, seulement si ce n'est pas deja
  *                               lui qui joue. Toutes les pages d'une
@@ -975,6 +1009,13 @@ static void classify_line(char* l)
         app.foes[app.foe_count - 1].stop_at = (unsigned char)a;
         return;
     }
+    /* MI <page> : l'illustration de bataille de CETTE creature-la est celle
+     * d'une autre page. Le disque ne porte qu'un B<page>.RLE par page, et la
+     * file du 120 comptait trois adversaires pour une seule image. */
+    if (c0 == 'M' && c1 == 'I' && c2 == ' ' && app.foe_count > 0) {
+        take_uint(l + 3, app.foe_img + (app.foe_count - 1));
+        return;
+    }
     /* MV se lit avec MD et MS -- donc avant le test `M ` d'une seule lettre,
      * qui l'avalerait -- mais sans leur garde `foe_count > 0` : MV ne qualifie
      * pas le dernier adversaire declare, et peut preceder les lignes M. */
@@ -1013,6 +1054,9 @@ static void classify_line(char* l)
             f->end = (unsigned char)b;
             strncpy(f->name, t, sizeof(f->name) - 1);
             f->name[sizeof(f->name) - 1] = '\0';
+            /* Par defaut l'image de la page ; une ligne MI qui suit corrige.
+             * C'est ici la remise a zero du tableau, load_scene n'en fait pas. */
+            app.foe_img[app.foe_count] = 0;
             app.foe_count++;
         }
         return;
@@ -1796,6 +1840,12 @@ static int run_combat(void)
                     return 1;
                 }
                 assaut = 0;      /* le sac redevient ouvrable avant l'assaut */
+                /* Le suivant amene son portrait -- sans quoi les deux Loups du
+                 * 120 se battaient sous l'image du Maitre des Loups, du
+                 * premier assaut au dernier. Seulement s'il CHANGE : une file
+                 * d'une seule espece ne relit pas le disque, et une page sans
+                 * ligne MI se comporte comme avant. */
+                load_foe_image();
                 continue;
             }
             if (character_is_dead(&app.hero)) {
@@ -2069,18 +2119,24 @@ void load_scene(int scene_id) {
     /* La musique joue pendant les lectures : ProDOS masque les IRQ le temps
      * de l'E/S, le tick prend un peu de retard et reprend -- jamais de
      * coupure, c'est la regle. */
+    /* monster_seal et monster_enter passent DEVANT l'image : ils ne touchent
+     * pas au disque, et l'image a montrer est celle de l'adversaire ou l'on
+     * reprend, pas celle du premier de la file. Le chargeur HGR reste ainsi le
+     * dernier client ProDOS de la scene. */
     app.has_image = 0;
-    if (app.foe_count > 0) app.has_image = load_hgr_image_as(scene_id, 'B');
+    foe_shown = 0;              /* la page precedente ne prete pas la sienne */
+    if (app.foe_count > 0) {
+        for (issue = 0; issue < app.foe_count; issue++) monster_seal(&app.foes[issue]);
+        /* "il est possible que vous reveniez plus tard dans cette clairiere et
+         * que ce ou ces monstres s'y trouvent encore" : monster_enter rend
+         * l'ENDURANCE laissee au dernier passage, et 0 si la creature est deja
+         * morte. */
+        app.foe_cur = monster_enter((unsigned int)scene_id, app.foes, app.foe_count);
+        if (app.foe_cur < app.foe_count) load_foe_image();
+    }
     if (!app.has_image)  app.has_image = load_hgr_image_as(scene_id, 'N');
 
     if (app.foe_count == 0) return;
-
-    for (issue = 0; issue < app.foe_count; issue++) monster_seal(&app.foes[issue]);
-
-    /* "il est possible que vous reveniez plus tard dans cette clairiere et que
-     * ce ou ces monstres s'y trouvent encore" : monster_enter rend l'ENDURANCE
-     * laissee au dernier passage, et 0 si la creature est deja morte. */
-    app.foe_cur = monster_enter((unsigned int)scene_id, app.foes, app.foe_count);
     /* La file peut avoir ete videe lors d'une visite precedente : c'est une
      * victoire acquise, pas un combat a rejouer. Elle sort donc par la meme
      * porte, et non plus par un `return` sec -- sans quoi une page passee a
