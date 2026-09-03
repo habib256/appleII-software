@@ -1,8 +1,8 @@
 T 231 LUCK Test
 
-Test your LUCK: fortune decides the outcome. Immediately apply the test
+   Test your LUCK: fortune decides the outcome. Immediately apply the test
 according to your LUCK rules.
 
-What do you do?
+   What do you do?
 
 CL 018 259

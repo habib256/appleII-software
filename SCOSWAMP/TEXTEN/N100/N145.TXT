@@ -1,12 +1,13 @@
 T 145 The Choice of Stones
 
-It seems to you that resorting to magic is the best way to escape a Giant's
+   It seems to you that resorting to magic is the best way to escape a Giant's
 anger. Before you, four slots hold different stones, each emitting a faint
 enigmatic glow.
 
-Which talisman will you choose to defy the Giant and pass alive?
+   Which talisman will you choose to defy the Giant and pass alive?
 
 CU MALEDICTION 252 Curse Stone
 CU AMITIE 328 Friendship Stone
 CU FEU 211 Fire Stone
+CU GLACE 126 Ice Stone
 C 275 None of these stones

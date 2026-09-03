@@ -1,19 +1,19 @@
 T 206 Mission de Stratagus
 
-Le sorcier Stratagus vous accueille dans une salle aux etageres charges de
+   Le sorcier Stratagus vous accueille dans une salle aux etageres chargees de
 grimoires et de fioles. Sur le mur, un miroir vivant montre des scenes
 changantes. D'une voix grave, il parle de nouveaux sorciers installes dans le
 Marais aux Scorpions. Certains controlent les loups, d'autres les plantes.
 Tous tirent leur pouvoir d'Amulettes d'Argent qu'ils portent au cou.
 
-"Je veux ces amulettes, dit-il. Trois au moins. Peu m'importe comment vous les
-obtiendrez. Je vous donnerai cinq cents pieces d'or pour chacune."
+   "Je veux ces amulettes, dit-il. Trois au moins. Peu m'importe comment vous
+les obtiendrez. Je vous donnerai cinq cents pieces d'or pour chacune."
 
-Il rit lorsqu'on lui demande une protection : "Je peux presque faire de vous
-un sorcier. Prenez six Pierres Magiques, mais pas de celles du Bien."
+   Il rit lorsqu'on lui demande une protection : "Je peux presque faire de
+vous un sorcier. Prenez six Pierres Magiques, mais pas de celles du Bien."
 
-Vous sentez que le Marais sera moins dangereux que cette tour lugubre. Votre
-mission commence : rapporter a Stratagus les Amulettes des Maitres.
+   Vous sentez que le Marais sera moins dangereux que cette tour lugubre.
+Votre mission commence : rapporter a Stratagus les Amulettes des Maitres.
 
 PC 6 NM
 C 009 Quitter la tour et partir vers le Marais

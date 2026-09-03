@@ -1,9 +1,9 @@
 T 074 Le Maitre des Araignees
 
-Vous avez decide de combattre le Maitre des Araignees a l'aide d'une de vos
+   Vous avez decide de combattre le Maitre des Araignees a l'aide d'une de vos
 Pierres de Magie.
 
-Mais laquelle choisir ?
+   Mais laquelle choisir ?
 
 CU MALEDICTION 261 Utiliser la Pierre de Malediction
 CU FEU 113 Utiliser la Pierre de Feu

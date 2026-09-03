@@ -235,6 +235,7 @@ qui se joue mecaniquement y est ecrit en clair, une directive par ligne.
 | Ligne | Effet |
 | --- | --- |
 | `T <id> <titre>` | le titre, affiche en video inverse ligne 1 |
+| `V <cible> [<page> ...]` | « si vous y etes deja venu, rendez-vous au `<cible>` » ; les numeros qui suivent sont les autres pages de la meme clairiere |
 | `M <hab> <end> <nom>` | la creature de la clairiere |
 | `MD <n>` | ses coups coutent n ENDURANCE (defaut 2) |
 | `MS <n>` | le combat cesse a n ENDURANCE (defaut 0) |
@@ -249,6 +250,16 @@ qui se joue mecaniquement y est ecrit en clair, une directive par ligne.
 | `CP <PIERRE> <id> <titre>` | choix qui remet une Pierre |
 | `CU <PIERRE> <id> <titre>` | choix qui exige et consomme une Pierre |
 | `C <id> <titre>` | choix ordinaire |
+
+La ligne `V` a deux particularites. Elle doit **preceder tout le reste de la
+page** : le moteur court-circuite la page entiere des qu'il la lit, et une
+ligne `E` ou `P` placee avant elle serait rejouee a chaque retour. Et elle
+enumere la **clairiere**, pas la page : le livre dit « si vous *y* etes deja
+venu », or une clairiere occupe plusieurs pages -- l'arrivee, la page-hub qui
+porte les sentiers, la page de revisite ou un voisin depose parfois
+directement. Le detour se declenche si la page courante, la cible, ou l'une
+des pages citees a deja ete vue. Sans cette liste, revenir par un autre
+sentier rejouait la premiere visite : creature ressuscitee, objets redonnes.
 
 La plupart se **derivent de la prose** : `SCOSWAMP.MORE/TOOLS/reflow_txt.py
 --derive` lit le bloc de stats que la page ecrit deja en toutes lettres et en

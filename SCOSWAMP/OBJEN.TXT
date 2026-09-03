@@ -8,4 +8,5 @@ EP Magic Sword
 BJ Purple Jewel
 CO Unicorn Horn
 PL Parrot Feathers
+GR Sword Tree Seeds
 .T

@@ -1,12 +1,12 @@
 T 062 Charge Against the Master
 
-You rush at the Master, sword raised. He leaps back from the top of his
+   You rush at the Master, sword raised. He leaps back from the top of his
 mushroom and makes a quick gesture toward you.
 
-Immediately, his two enormous frogs leap and charge. The situation becomes
+   Immediately, his two enormous frogs leap and charge. The situation becomes
 dangerous: you are surrounded and must act.
 
-Will you flee by retracing your steps or hold your position?
+   Will you flee by retracing your steps or hold your position?
 
 C 323 Go back and flee
 C 146 Fight the Frogs with your sword

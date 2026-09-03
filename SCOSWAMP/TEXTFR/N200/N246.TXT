@@ -1,10 +1,10 @@
 T 246 Butin des brigands
 
-Vous fouillez les cadavres des Brigands. L'un d'eux avait un bocal contenant
-une poudre a l'odeur amere. Elle pourrait etre utile ou n'etre qu'un reste
-sans valeur.
+   Vous fouillez les cadavres des Brigands. L'un d'eux avait un bocal
+contenant une poudre a l'odeur amere. Elle pourrait etre utile ou n'etre qu'un
+reste sans valeur.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 019 Abandonner la poudre et poursuivre votre chemin
 C 067 Frotter vos blessures avec la poudre

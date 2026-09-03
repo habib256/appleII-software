@@ -1,5 +1,5 @@
 T 368 Unicorn's Flight
 
-You'll have to leave this clearing by the same path you took to get there.
+   You'll have to leave this clearing by the same path you took to get there.
 
 C 348 Take this path

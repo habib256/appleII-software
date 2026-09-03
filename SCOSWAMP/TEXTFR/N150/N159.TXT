@@ -1,10 +1,11 @@
 T 159 Retour au Maitre
 
-Vous avez fait tout ce qui etait en votre pouvoir.
+   Vous avez fait tout ce qui etait en votre pouvoir.
 
-A present, il est temps de retourner voir votre maitre pour lui rendre compte
-de votre succes ou de votre echec.
+   A present, il est temps de retourner voir votre maitre pour lui rendre
+compte de votre succes ou de votre echec.
 
+MU VILLAGE.MB
 C 006 Si vous servez Gayolard
 C 226 Si vous etes au service de Stratagus
 C 056 Si vous avez choisi Pompatarte

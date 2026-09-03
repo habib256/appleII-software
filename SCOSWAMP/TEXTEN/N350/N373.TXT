@@ -1,10 +1,12 @@
 T 373 Surprise Attack
 
-Test your Luck. If you're Lucky, your attack is so lightning-fast you manage
-to wound the sorcerer. Then go to 225, but you'll subtract 2 points from the
-total STAMINA of your opponent before combat engages.
+   Test your Luck. If you're Lucky, your attack is so lightning-fast you
+manage to wound the sorcerer; you will then subtract 2 points from the total
+STAMINA of your opponent before combat engages.
 
-If you're Unlucky, you don't manage to hit him; in that case, you'll also go
-to 225 to fight him, but without changing this time the total STAMINA he has.
+   If you're Unlucky, you don't manage to hit him; in that case, you'll also
+go to 225 to fight him, but without changing this time the total STAMINA he
+has.
 
+MU TOUR.MB
 CL 402 225

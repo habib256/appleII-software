@@ -1,9 +1,9 @@
 T 198 Cris et coassements
 
-"Au secours ! Un tueur de sorciers !" coasse-t-il soudain. Son visage se
+   "Au secours ! Un tueur de sorciers !" coasse-t-il soudain. Son visage se
 convulse de terreur; il bondit de trois metres en arriere.
 
-"Tue z-le !" ordonne-t-il en vous montrant du doigt. Ses deux Grenouilles
+   "Tuez-le !" ordonne-t-il en vous montrant du doigt. Ses deux Grenouilles
 avancent, bouches larges et pattes jaillissantes. Le combat est inevitable.
 
 C 146 Combattre les Grenouilles

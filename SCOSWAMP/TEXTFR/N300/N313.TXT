@@ -1,12 +1,13 @@
 T 313 Noyade dans la riviere
 
-L'eau de la riviere est chaude et le morceau de glace est en train de fondre
-sous vos pieds. Quelques instants plus tard, il se rompt en plusieurs autres
-morceaux et vous nagez desesperement en direction de la berge, votre epee a la
-main pour vous defendre contre toute attaque.
+   L'eau de la riviere est chaude et le morceau de glace est en train de
+fondre sous vos pieds. Quelques instants plus tard, il se rompt en plusieurs
+autres morceaux et vous nagez desesperement en direction de la berge, votre
+epee a la main pour vous defendre contre toute attaque.
 
-Helas ! votre Sac a Dos est trop lourd et vous coulez au fond en vous enlisant
-dans la vase que charrie le cours d'eau.
+   Helas ! votre Sac a Dos est trop lourd et vous coulez au fond en vous
+enlisant dans la vase que charrie le cours d'eau.
 
-Nous sommes au regret de vous annoncer que votre aventure se termine ici.
+   Nous sommes au regret de vous annoncer que votre aventure se termine ici.
 
+MU +MORT.MB

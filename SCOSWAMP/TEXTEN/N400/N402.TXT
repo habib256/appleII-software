@@ -1,11 +1,12 @@
 T 402 Wrath of the Wounded Stratagus
 
-Your lightning attack struck home: the sorcerer bleeds, and his fury is all
+   Your lightning attack struck home: the sorcerer bleeds, and his fury is all
 the blacker for it. With a swift movement, he draws from his toga an ebony
 wand that transforms into a jagged, glowing sword. His snapping voice
 threatens you: "I am going to kill you!"
 
-The assault is inevitable; you must engage in combat without delay.
+   The assault is inevitable; you must engage in combat without delay.
 
+MU +COMBAT.MB
 M 9 8 STRATAGUS
 MV 140

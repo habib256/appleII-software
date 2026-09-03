@@ -40,7 +40,7 @@ n = 0
 for line in open(manifest, encoding="utf-8"):
     r = json.loads(line)
     dest = r["source_png"]
-    if os.path.exists(os.path.join(root, dest)):
+    if os.path.exists(os.path.join(root, dest)) and os.environ.get("FORCE", "0") != "1":
         continue
     if limit and n >= limit:
         break
@@ -85,8 +85,11 @@ run_one() {
     # Le nom exact du brouillon varie -- B284-0.png, N025.raw.png,
     # N098.source.png -- mais il commence toujours par le nom de la cible.
     # On efface donc tout ce qui partage sa racine sans etre elle.
-    for stray in "$GEN_ROOT/${dest%.png}"?*.png; do
-        [ -e "$stray" ] && [ "$stray" != "$GEN_ROOT/$dest" ] && rm -f "$stray"
+    # Ne jamais utiliser `${base}?*.png` ici : pour `CLAIRIERE.png`, ce motif
+    # englobe les vraies references `CLAIRIERE_01.png`, etc. Les brouillons
+    # connus portent soit un tiret numerote, soit le suffixe `.raw`.
+    for stray in "$GEN_ROOT/${dest%.png}"-[0-9]*.png "$GEN_ROOT/${dest%.png}.raw.png"; do
+        [ -e "$stray" ] && rm -f "$stray"
     done
 
     if [ -f "$GEN_ROOT/$dest" ]; then

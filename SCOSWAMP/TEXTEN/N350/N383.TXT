@@ -1,8 +1,8 @@
 T 383 Blessing on the Dwarf
 
-You throw the Blessing Magic Stone at the Dwarf hoping to be able to save him.
-He then blinks, and for a moment you think you've succeeded.
+   You throw the Blessing Magic Stone at the Dwarf hoping to be able to save
+him. He then blinks, and for a moment you think you've succeeded.
 
-Alas! the spell isn't powerful enough to bring anyone back from the dead.
+   Alas! the spell isn't powerful enough to bring anyone back from the dead.
 
 C 324 Make another choice

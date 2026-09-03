@@ -1,6 +1,6 @@
 T 366 Victory over the Giant
 
-You've defeated the Giant and search his huge corpse, but you find nothing
+   You've defeated the Giant and search his huge corpse, but you find nothing
 interesting aside from his big spike-studded club; it's too heavy for you
 however, and you can't take it.
 

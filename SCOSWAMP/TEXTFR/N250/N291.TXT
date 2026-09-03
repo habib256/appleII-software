@@ -1,6 +1,6 @@
 T 291 Pierre de Feu inefficace
 
-Vous lancez sur la Bete du Bassin votre Pierre Magique de Feu, mais la
+   Vous lancez sur la Bete du Bassin votre Pierre Magique de Feu, mais la
 creature est humide et visqueuse : elle ne peut donc pas bruler. Il ne vous
 reste plus qu'a la combattre.
 

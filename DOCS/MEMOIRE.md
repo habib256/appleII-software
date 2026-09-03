@@ -11,7 +11,9 @@ coûte de le récupérer. Toutes les valeurs ont été mesurées avec cc65 2.19.
 $0000-$01FF  Page zéro + pile 6502 (système)
 $0200-$03FF  Buffer d'entrée, vecteurs
 $0400-$07FF  Page texte 1  ← utilisée, sauvegardée par memory_swap.c
-$0800-$1FFF  LIBRE (6 Ko)  ← voir « Zones récupérables », piège du tas
+$0800-$0BFF  Tampon d'E/S ProDOS du fichier ouvert (iobuf-0800)
+$0C00-$0FFF  Réservé au 2e fichier ouvert (jamais le cas aujourd'hui)
+$1000-$1FFF  LOWBSS (4 Ko) ← gros tampons, segment à part, voir « Zones récupérables »
 $2000-$3FFF  HGR page 1 (8 Ko)  ← images des scènes
 $4000-....   Moteur : CODE, RODATA, DATA, BSS
      ....    Tas C (buffers ProDOS, 1 Ko par fichier ouvert)
@@ -23,7 +25,8 @@ $D000-$FFFF  ROM / Language Card (banques commutées)
 ```
 
 Le moteur charge à `$4000` et non à l'adresse cc65 par défaut `$0803`, afin de
-préserver HGR page 1. Conséquence : `$0800-$1FFF` reste inutilisé.
+préserver HGR page 1. `$1000-$1FFF` est repris depuis le 2026-09-03 par le
+segment `LOWBSS` de `SRC/scoswamp.cfg`.
 
 ---
 
@@ -115,33 +118,46 @@ Il faut sortir par l'appel MLI QUIT — voir `SRC/prodos_quit.asm` :
 Décrit ci-dessus. C'est le gain le plus important et le plus simple : un
 changement de config plus un remplacement de `exit()`.
 
-### 2. `$0800-$1FFF` — RAM basse : 6 144 o ⛔ inexploitable via le linker
+### 2. `$1000-$1FFF` — RAM basse : 4 096 o ✅ retenu (segment LOWBSS, 2026-09-03)
 
 Cette zone est réellement libre, puisque le chargement commence à `$4000`. Y
-placer la BSS semble un gain facile. **C'en est un piège.**
-
-Dans cc65, le tas n'est pas un segment. `_heap.o` n'importe que quatre symboles
-— `sp`, `__STACKSIZE__`, `__BSS_SIZE__`, `__BSS_RUN__` — et calcule :
+reloger **toute** la BSS serait un piège : dans cc65 le tas n'est pas un
+segment, `_heap.o` calcule
 
 ```
 __heaporg = __BSS_RUN__ + __BSS_SIZE__     (juste après la BSS)
 __heapend = sp - __STACKSIZE__
 ```
 
-**Le tas suit donc la BSS, où qu'elle soit.** Relogée en `$0800`, elle finit
-vers `$1B96`, et le tas part de là jusqu'à la pile — traversant HGR page 1
-(`$2000-$3FFF`) puis la totalité du code. `fopen()` allouant 1 Ko par fichier
-ouvert, l'image affichée puis le programme lui-même seraient écrasés, sans
-aucun diagnostic.
+et **le tas suit la BSS, où qu'elle soit**. Relogée en `$0800`, le tas partirait
+de là jusqu'à la pile, à travers HGR page 1 puis le code. Vérifié : le linker
+accepte cette configuration sans broncher, `tools/check-memory.sh` la refuse.
 
-Vérifié : le linker accepte cette configuration sans broncher.
-`tools/check-memory.sh` la refuse.
+La bonne façon est un **second segment**. `SRC/scoswamp.cfg` (copie de
+`apple2enh.cfg`) ajoute une zone `LOWRAM` `$1000-$1FFF` et un segment `LOWBSS`
+de type bss. La BSS principale reste derrière le code, le tas derrière elle ;
+seuls les gros tampons désignés partent en bas :
 
-Cette zone reste utilisable pour des **buffers gérés à la main** (adresses
-codées en dur, hors du contrôle du linker et de `malloc`), par exemple un cache
-d'image ou de texte. Pas pour de la BSS.
+```c
+#pragma bss-name (push, "LOWBSS")
+char file_buffer[FILE_BUFFER_SIZE];
+#pragma bss-name (pop)
+```
 
-### 3. `$D400-$DFFF` — Language Card : 3 072 o ⚙️ disponible, sur demande
+Y vivent le catalogue des messages (1 573 o), le tampon de page (1 253 o), le
+tampon du décodeur HGR (1 024 o) et la barre de titre (81 o) : 3 869 octets,
+227 restent. Deux règles :
+
+- `crt0` ne met à zéro que le segment `BSS` ; `main()` efface `LOWBSS` lui-même
+  avec `__LOWBSS_RUN__` / `__LOWBSS_SIZE__` (déclarés côté C avec un souligné
+  de moins, cc65 en ajoute un) ;
+- jamais plus de **deux fichiers ouverts à la fois** : `iobuf-0800` distribue
+  ses tampons de 1 Ko à partir de `$0800` vers le haut sans connaître `LOWRAM`.
+  Le jeu n'en ouvre qu'un.
+
+`$0C00-$0FFF` reste libre pour un éventuel second tampon ProDOS.
+
+### 3. `$D400-$DFFF` — Language Card : 3 072 o ✅ pleine (3 030 o utilisés)
 
 Les configs cc65 définissent déjà un segment `LC` à cette adresse (banque deux,
 derrière le code quit). Il accueille du code **en lecture seule**, désigné
@@ -153,8 +169,11 @@ void fonction_peu_appelee(void) { ... }
 #pragma code-name(pop)
 ```
 
-Utile si la config étendue ne suffisait plus. Attention : la commutation de
-banque entre en conflit avec ProDOS, qui y réside également.
+C'est fait pour les fonctions froides (jets, pierres, noms d'objets) : il reste
+42 octets. Il n'y a **rien d'autre à prendre** dans la Language Card sous
+ProDOS 8 : la banque 1 de `$D000-$FFFF` porte le noyau, et `$D000-$D3FF` de la
+banque 2 son code de sortie. Les « 16 Ko inutilisés » qu'on lisait ailleurs
+n'existent pas.
 
 ### 4. RAM auxiliaire — 64 Ko ⚙️ gros gain, gros travail
 
@@ -165,6 +184,13 @@ cc65 ne les gère pas : il faut commuter les banques à la main (`$C002-$C005`,
 Piste sérieuse pour un cache d'images HGR — charger plusieurs scènes d'avance
 en RAM auxiliaire et les basculer instantanément — mais sans rapport avec la
 taille du moteur, que le linker ne saurait pas y placer.
+
+cc65 livre déjà le mécanisme : le pilote de mémoire étendue `a2e.auxmem.emd`
+(454 octets, liable en statique) expose l'auxiliaire en pages de 256 octets via
+`em_copyto` / `em_copyfrom`. Pour du **code**, la voie est celle des overlays
+ld65 (fenêtre commune pour les écrans froids : aide, sauvegarde, création du
+personnage, boutique de pierres), préchargés en auxiliaire puis recopiés à
+l'appel.
 
 ---
 
@@ -178,6 +204,18 @@ Mesures cc65 2.19, chargement à `$4000`, pile 2 Ko.
 | COMBAT | `$7A3B` | 14 907 o | ✅ | ✅ |
 | SCOSWAMP | `$8516` | 17 686 o | ✅ marge 2 282 o | ✅ marge 12 778 o |
 | SCOSWAMP + COMBAT | `$A64B` | 26 187 o | ❌ dépasse de 6 219 o | ✅ marge 4 277 o |
+| SCOSWAMP 2026-09-03 matin (objets, amulettes, `__HIMEM__` $BF00, pile 384 o) | `$BCC8` | 31 944 o | — | ✅ marge 184 o |
+| SCOSWAMP 2026-09-03 soir (LOWBSS, sans printf, `-Cl`) | `$A0B0` env. | 24 600 o env. | — | ✅ marge 7 544 o |
+
+La dernière ligne cumule quatre mesures du même jour, chacune faite seule sur
+le binaire complet :
+
+| Étape | Gain |
+|-------|------|
+| segment `LOWBSS` en `$1000` (3 869 o de tampons sortis de la fenêtre) | + 3 869 o |
+| `cfmt` maison à la place de cprintf/sprintf (famille printf déliée) | + 876 o |
+| `-Cl` (locales statiques) | + 547 o |
+| `classify_line` sur trois octets au lieu du pointeur, `int` → `unsigned char`, barre de titre et bandeau via `cfmt` | + 1 100 o env. |
 
 La fusion SCOSWAMP + COMBAT **ne passe qu'avec la configuration étendue**, où
 elle laisse 4 277 octets de tas — soit quatre buffers ProDOS, alors que le jeu

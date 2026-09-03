@@ -1,12 +1,12 @@
 T 174 Threat at Stratagus's
 
-You cast a cold gaze on Stratagus; his servant's corpse lies. The sorcerer
+   You cast a cold gaze on Stratagus; his servant's corpse lies. The sorcerer
 mutters, furious and indecisive; a spell in preparation is sensed.
 
-The atmosphere is tense: he can retaliate magically or try to talk. Act
+   The atmosphere is tense: he can retaliate magically or try to talk. Act
 quickly: attack or negotiate, each choice will have heavy consequences.
 
-What do you do?
+   What do you do?
 
 C 225 Attack him immediately
 C 193 Invite him to talk business

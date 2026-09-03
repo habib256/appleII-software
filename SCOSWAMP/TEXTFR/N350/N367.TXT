@@ -1,6 +1,7 @@
 T 367 Deux chemins
 
-Deux chemins permettent de quitter cette clairiere.
+   Deux chemins permettent de quitter cette clairiere.
 
+MU ANGOISSE.MB
 C 304 Aller au nord
 C 265 Aller vers l'est

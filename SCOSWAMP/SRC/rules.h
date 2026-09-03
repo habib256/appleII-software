@@ -51,9 +51,17 @@ typedef enum {
 typedef enum {
     OBJ_ANNEAU = 0, OBJ_CAPE, OBJ_CHAINE, OBJ_AIMANT,
     OBJ_FIOLE, OBJ_BAIE, OBJ_EPEMAGIQUE, OBJ_BIJOU, OBJ_CORNE, OBJ_PLUMES,
+    OBJ_GRAINES,
     OBJ_ANTHERIQUE,
     OBJ_COUNT
 } Object;
+
+/* Les drapeaux caches se rangent APRES les objets, et OBJ_HIDDEN0 est le
+ * premier d'entre eux : tout ce qui le precede a un nom et se montre dans le
+ * sac, tout ce qui le suit est un fait narratif. Ajouter un objet = l'ecrire
+ * juste avant OBJ_ANTHERIQUE, ici et dans build_objects.py, et le sac comme
+ * le vol de PD/PO suivent d'eux-memes. */
+#define OBJ_HIDDEN0 OBJ_ANTHERIQUE
 
 typedef enum {
     AMULET_LOUP = 0, AMULET_FLEUR, AMULET_OISEAU,

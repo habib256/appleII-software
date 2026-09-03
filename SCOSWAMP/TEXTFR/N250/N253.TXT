@@ -1,16 +1,16 @@
 T 253 Potion des Nains
-GX FI
 
-Vous buvez la potion et vous eprouvez aussitot une etrange sensation. La
-mixture etait destine a "rendre beau" celui qui la boit, mais elle a ete
-prepare pour des nains.
+   Vous buvez la potion et vous eprouvez aussitot une etrange sensation. La
+mixture etait destinee a "rendre beau" celui qui la boit, mais elle a ete
+preparee pour des nains.
 
-Son effet sur vous est insolite : pendant une heure vous etes plus petit et
+   Son effet sur vous est insolite : pendant une heure vous etes plus petit et
 plus trapu que d'habitude, et votre nez devient sensiblement plus gros.
 
-Au bout d'une heure vous retrouverez votre apparence normale, mais vous devrez
-reduire de 1 point votre total d'HABILETE lors du prochain combat que vous
-aurez a livrer. Des la fin de ce combat, vos points d'HABILETE reviennent a
-leur niveau initial.
+   Au bout d'une heure vous retrouverez votre apparence normale, mais vous
+devrez reduire de 1 point votre total d'HABILETE lors du prochain combat que
+vous aurez a livrer. Des la fin de ce combat, vos points d'HABILETE reviennent
+a leur niveau initial.
 
-C 088 Reprendre la route et poursuivre (aller au 88)
+GX FI
+C 088 Reprendre la route et poursuivre

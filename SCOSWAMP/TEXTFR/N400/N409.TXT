@@ -1,6 +1,6 @@
 T 409 Potion d'HABILETE
 
-La potion vous rend toute votre HABILETE. Les oiseaux vous montrent ensuite
+   La potion vous rend toute votre HABILETE. Les oiseaux vous montrent ensuite
 le chemin du nord-est.
 
 E HABILETE +99

@@ -1,7 +1,7 @@
 T 410 Potion of Stamina
 
-The potion restores all your STAMINA. The birds then show you the path leading
-northeast.
+   The potion restores all your STAMINA. The birds then show you the path
+leading northeast.
 
 E ENDURANCE +99
 C 248 Follow the birds

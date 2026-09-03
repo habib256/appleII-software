@@ -1,6 +1,6 @@
 T 129 After the Bear
 
-Did you kill the Bear or flee?
+   Did you kill the Bear or flee?
 
 C 268 If you killed the Bear
 C 181 If you fled

@@ -1,6 +1,7 @@
 T 367 Two Paths
 
-Two paths allow leaving this clearing.
+   Two paths allow leaving this clearing.
 
+MU ANGOISSE.MB
 C 304 Go north
 C 265 Go east

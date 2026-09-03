@@ -1,13 +1,14 @@
 T 299 Pierre de Terreur
 
-Vous lancez votre Pierre Magique de Terreur qui produit un resultat stupefiant
-! La Bete Immonde, en effet, s'arrete net puis va se refugier de l'autre cote
-de la clairiere en se cachant derriere des rochers et en poussant de petits
-gemissements plaintifs.
+   Vous lancez votre Pierre Magique de Terreur qui produit un resultat
+stupefiant ! La Bete Immonde, en effet, s'arrete net puis va se refugier de
+l'autre cote de la clairiere en se cachant derriere des rochers et en poussant
+de petits gemissements plaintifs.
 
-Si vous voulez la poursuivre et la combattre, rendez-vous au 176, mais,
-attention : l'effet de votre sortilege se dissipera bientot, et la Bete
-redeviendra alors aussi redoutable qu'avant.
+   Si vous voulez la poursuivre et la combattre, attention : l'effet de votre
+sortilege se dissipera bientot, et la Bete redeviendra alors aussi redoutable
+qu'avant.
 
+MU BETE.MB
 C 176 La poursuivre et la combattre
 C 279 Faire demi-tour et quitter la clairiere

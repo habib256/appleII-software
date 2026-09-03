@@ -1,11 +1,12 @@
 T 045 Pont suspect
 
-Vous vous mefiez de ce pont qui vous parait trop simple; il doit sans doute
+   Vous vous mefiez de ce pont qui vous parait trop simple; il doit sans doute
 dissimuler un piege quelconque. Vous rebroussez donc chemin dans la direction
 d'ou vous etes venu.
 
-Le trajet depend de votre provenance: retournez vers le nord si vous veniez du
-nord, ou vers le sud si vous veniez du sud.
+   Le trajet depend de votre provenance: retournez vers le nord si vous veniez
+du nord, ou vers le sud si vous veniez du sud.
 
+MU PONT.MB
 C 331 Revenir vers le nord
 C 303 Revenir vers le sud

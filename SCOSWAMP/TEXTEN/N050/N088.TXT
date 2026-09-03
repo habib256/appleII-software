@@ -1,6 +1,7 @@
 T 088 Leave the Clearing
 
-You leave the clearing and arrive at a fork.
+   You leave the clearing and arrive at a fork.
 
+MU SCORPNAIN.MB
 C 121 Go north
 C 331 Go east

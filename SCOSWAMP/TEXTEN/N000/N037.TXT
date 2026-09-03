@@ -1,8 +1,8 @@
 T 037 Tell the Truth or Lie
 
-You take a moment to weigh your words.
+   You take a moment to weigh your words.
 
-Telling the truth can earn trust, but would expose you if you serve a
+   Telling the truth can earn trust, but would expose you if you serve a
 sorcerer. Lying allows you to buy time, but risks being turned against you.
 Choose according to your strategy and the information you have.
 

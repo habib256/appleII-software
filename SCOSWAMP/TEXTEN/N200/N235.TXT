@@ -1,9 +1,10 @@
 T 235 Back Against the Trunk
 
-You lean against a large tree; only one brigand can approach at a time. Three
-of them show determination. The position prevents you from fleeing: you must
-withstand the shock.
+   You lean against a large tree; only one brigand can approach at a time.
+Three of them show determination. The position prevents you from fleeing: you
+must withstand the shock.
 
+MU +COMBAT.MB
 M 9 10 BRIGAND CHIEF
 M 8 8 SECOND BRIGAND
 M 8 11 THIRD BRIGAND

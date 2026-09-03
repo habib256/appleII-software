@@ -15,6 +15,10 @@ rep_byte:       .res 1
 saved_80store:  .res 1
 remaining:      .res 2
 saved_dst:      .res 2
+
+; Le tampon de lecture vit en RAM basse ($1000-$1FFF, segment LOWBSS de
+; scoswamp.cfg) : 1 Ko de moins dans la fenetre $4000-$BF00.
+        .segment "LOWBSS"
 packed_data:    .res CHUNK_SIZE
 
         .segment "RODATA"

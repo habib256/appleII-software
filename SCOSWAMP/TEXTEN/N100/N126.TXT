@@ -1,10 +1,9 @@
 T 126 Useless Frost
 
-You throw your Stone at the Giant as he stands before you. Frost forms on his
-beard and eyebrows, and he shivers.
+   You throw your Stone at the Giant as he stands before you. Frost forms on
+his beard and eyebrows, and he shivers.
 
-"It's starting to get cold around here," he mutters.
-
-That's all the effect produced.
+   "It's starting to get cold around here," he mutters. That's all the effect
+produced.
 
 C 145 Go back to make another choice

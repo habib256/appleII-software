@@ -1,13 +1,13 @@
 T 055 Taniere de l'ours
 
-Vous vous approchez du tronc creux avec prudence; une forte odeur se degage:
-un animal sauvage y a sans doute installe sa taniere.
+   Vous vous approchez du tronc creux avec prudence; une forte odeur se
+degage: un animal sauvage y a sans doute installe sa taniere.
 
-Soudain, la tete hirsute d'un OURS gigantesque apparait dans l'ouverture. Sa
-respiration lourde fait vibrer le bois; ses yeux sombres vous fixent. Il rampe
-legerement, pret a bondir sur tout intrus qui s'approche.
+   Soudain, la tete hirsute d'un OURS gigantesque apparait dans l'ouverture.
+Sa respiration lourde fait vibrer le bois; ses yeux sombres vous fixent. Il
+rampe legerement, pret a bondir sur tout intrus qui s'approche.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 390 Prendre la fuite immediatement
 C 200 Combattre l'Ours a l'epee

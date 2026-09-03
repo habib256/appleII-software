@@ -1,14 +1,14 @@
 T 007 Offre du sorcier
 
-Le visage du sorcier s'assombrit; les dessins de sa robe se mettent a danser
-devant vos yeux d'une maniere menace ante.
+   Le visage du sorcier s'assombrit; les dessins de sa robe se mettent a
+danser devant vos yeux d'une maniere menacante.
 
-"C'est toujours mieux que rien", marmonne-t-il. "Donnez-moi ce que vous avez
-et vous recevrez deux cent cinquante Pieces d'Or en echange." L'offre est
+   "C'est toujours mieux que rien", marmonne-t-il. "Donnez-moi ce que vous
+avez et vous recevrez deux cent cinquante Pieces d'Or en echange." L'offre est
 tentante, mais son sourire en coin laisse soupconner une ruse. Peser le gain
 immediat contre la valeur future de vos objets est sage.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 266 Accepter son offre et recevoir l'argent
 C 207 Lui rappeler qu'il vous devait davantage

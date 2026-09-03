@@ -1,9 +1,9 @@
 T 169 The Snake Illusion
 
-You throw your Illusion Stone and make appear the image of a venomous snake
+   You throw your Illusion Stone and make appear the image of a venomous snake
 between you and the Orcs.
 
-But they are not frightened at all. One of them even leans forward with a
+   But they are not frightened at all. One of them even leans forward with a
 carnivorous grin and tries to catch the illusory snake! Your stratagem has
 failed... all that's left is to fight.
 

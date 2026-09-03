@@ -1,14 +1,14 @@
 T 376 Frog Master's Advice
 
-You explain to him you're simply seeking to reach Courbensaule and return from
-it. A surprised expression then appears on his frog face.
+   You explain to him you're simply seeking to reach Courbensaule and return
+from it. A surprised expression then appears on his frog face.
 
-"Courbensaule lies far to the north and west," he says. "But you're likable to
-me and I'll give you advice. Don't follow the Will-o'-the-Wisp or you'll
+   "Courbensaule lies far to the north and west," he says. "But you're likable
+to me and I'll give you advice. Don't follow the Will-o'-the-Wisp or you'll
 endanger your life. And now, goodbye, I have work waiting for me."
 
-He suddenly disappears and his Frogs hop away with loud croaking. You cast a
-glance around the clearing, but you discover nothing interesting. The only
+   He suddenly disappears and his Frogs hop away with loud croaking. You cast
+a glance around the clearing, but you discover nothing interesting. The only
 path allowing leaving the place is oriented north and you therefore take it,
 retracing your steps toward the clearing where you encountered the Swamp Orcs.
 

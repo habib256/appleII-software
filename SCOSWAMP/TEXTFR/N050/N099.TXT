@@ -1,13 +1,13 @@
 T 099 La bourse de Stratagus
-GA 0
 
-Vous remettez a Stratagus les Amulettes conquises au prix des perils du Marais
-aux Scorpions. Il les saisit en ricanant, sort de la piece, puis revient avec
-une petite bourse qui parait lourde.
+   Vous remettez a Stratagus les Amulettes conquises au prix des perils du
+Marais aux Scorpions. Il les saisit en ricanant, sort de la piece, puis
+revient avec une petite bourse qui parait lourde.
 
-D'un geste vif, il vous la lance. Vous entendez le tintement des pieces a
+   D'un geste vif, il vous la lance. Vous entendez le tintement des pieces a
 l'interieur.
 
-"A present, filez ! dit-il. Ne revenez jamais, j'en ai fini avec vous."
+   "A present, filez ! dit-il. Ne revenez jamais, j'en ai fini avec vous."
 
+GA 0
 C 242 Quitter Stratagus

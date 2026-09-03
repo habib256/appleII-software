@@ -1,6 +1,6 @@
 T 129 Apres l'Ours
 
-Avez-vous tue l'Ours ou pris la fuite ?
+   Avez-vous tue l'Ours ou pris la fuite ?
 
 C 268 Si vous avez tue l'Ours
 C 181 Si vous avez pris la fuite

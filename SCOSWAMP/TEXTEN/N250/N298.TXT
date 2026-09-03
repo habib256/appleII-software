@@ -1,16 +1,17 @@
 T 298 Flight from the Tower
 
-You hurry to leave the room, you run along the dark corridor and you pass
+   You hurry to leave the room, you run along the dark corridor and you pass
 through the door with the hideous sculpture. Soon, the evil tower is far
 behind you.
 
-You have your life, but what have you gained? You've fought formidable
+   You have your life, but what have you gained? You've fought formidable
 adversaries facing death dozens of times and all this for what? An evil
 Sorcerer is an ungrateful master who's perilous to serve.
 
-You can consider yourself fortunate however to have escaped so easily the
+   You can consider yourself fortunate however to have escaped so easily the
 clutches of Stratagus. At least you've rendered a great service to the world
 by ridding it of such a harmful mage, but you promise yourself in the future
 to show more circumspection in the choice of masters you'll serve. For now, in
 any case, your adventure is over.
 
+MU TOUR.MB

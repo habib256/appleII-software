@@ -1,11 +1,12 @@
 T 401 La Trappe
 
-Une trappe s'ouvre devant vous et vous tombez dans un trou. Lorsque vous
+   Une trappe s'ouvre devant vous et vous tombez dans un trou. Lorsque vous
 reprenez conscience, vous vous retrouvez attache a un mur par de grosses
 chaines.
 
-Stratagus se tient devant vous et vous sourit. Son sourire, cependant, n'a
+   Stratagus se tient devant vous et vous sourit. Son sourire, cependant, n'a
 rien de chaleureux, et a la vue de ce qu'il tient dans les mains, vous vous
 mettez a trembler de tous vos membres. Inutile de preciser que votre aventure
 est terminee.
 
+MU +MORT.MB

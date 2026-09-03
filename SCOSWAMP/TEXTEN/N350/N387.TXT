@@ -1,6 +1,6 @@
 T 387 Magic Stone Choice
 
-Which Magic Stone will you use?
+   Which Magic Stone will you use?
 
 CU MALEDICTION 107 Curse Stone
 CU TERREUR 278 Terror

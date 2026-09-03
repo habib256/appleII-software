@@ -1,11 +1,11 @@
 T 110 The Ring of Fire
 
-The only Magic Stone capable of saving you from this swarming multitude is a
-Fire Stone.
+   The only Magic Stone capable of saving you from this swarming multitude is
+a Fire Stone.
 
-You throw one and a ring of flames immediately bursts all around you. The
+   You throw one and a ring of flames immediately bursts all around you. The
 blaze spreads, then goes out, but the scorpions have already fled.
 
-You leave the clearing before they return.
+   You leave the clearing before they return.
 
 C 319 Move away quickly

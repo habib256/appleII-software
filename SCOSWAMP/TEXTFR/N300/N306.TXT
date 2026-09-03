@@ -1,9 +1,9 @@
 T 306 Le Patrouilleur furieux
 
-Le Patrouilleur est toujours la et il vous attend, furieux.
+   Le Patrouilleur est toujours la et il vous attend, furieux.
 
-Si vous lui aviez fait perdre des points d'ENDURANCE, il les a tous recuperes
-depuis, grace a une Pierre Magique d'ENDURANCE dont il a fait usage sur
-lui-meme. Il vous faut le combattre a nouveau.
+   Si vous lui aviez fait perdre des points d'ENDURANCE, il les a tous
+recuperes depuis, grace a une Pierre Magique d'ENDURANCE dont il a fait usage
+sur lui-meme. Il vous faut le combattre a nouveau.
 
 C 378 Combattre le Patrouilleur

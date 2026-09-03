@@ -1,13 +1,14 @@
 T 033 Herbe a pinces encore
 
-Vous vous hatez pour traverser la clairiere, esperant echapper a la plante.
+   Vous vous hatez pour traverser la clairiere, esperant echapper a la plante.
 Helas, l'herbe pousse plus vite encore et se dresse devant vous en masse. Des
 tenailles s'ouvrent avidement et cherchent a vous saisir de toutes parts.
 
-Il faut choisir vite: frapper a l'epee ou employer un sort pour la contenir.
-Vous etes dans la Clairiere n 388.
+   Il faut choisir vite: frapper a l'epee ou employer un sort pour la
+contenir.
 
-Que faites-vous?
+   Que faites-vous?
 
+MU PINCES.MB
 C 134 Combattre l'Herbe a Pinces a coups d'epee
 C 167 Recourir a la magie pour la contenir

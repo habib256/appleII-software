@@ -1,9 +1,10 @@
 T 319 Choose a Direction
 
-You hasten to choose a direction.
+   You hasten to choose a direction.
 
-Where do you wish to go?
+   Where do you wish to go?
 
+MU SCORPIONS.MB
 C 138 North
 C 047 East
 C 066 West

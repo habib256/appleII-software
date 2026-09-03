@@ -1,16 +1,17 @@
 T 183 Sommet de la falaise
 
-Vous montez: le sol devient rocheux et le chemin s'eleve. Bientot, au lieu du
-morne feuillage, c'est le ciel qui s'ouvre. Vous atteignez le sommet d'une
-haute falaise dominant la riviere. Vous etes dans la Clairiere n 20.
+   Vous montez: le sol devient rocheux et le chemin s'eleve. Bientot, au lieu
+du morne feuillage, c'est le ciel qui s'ouvre. Vous atteignez le sommet d'une
+haute falaise dominant la riviere.
 
-En contrebas, les aux boueuses coulent loin sous vous. Des crocodiles
+   En contrebas, les eaux boueuses coulent loin sous vous. Des crocodiles
 paresseux flottent au soleil dans l'eau. Plus loin a l'est, un pont enjambe le
 cours d'eau, inaccessible. Aucune piste ne longe la rive; plusieurs voies
 s'offrent a vous.
 
-Que voulez-vous faire?
+   Que voulez-vous faire?
 
+MU FALAISE.MB
 C 066 Entrer dans le Marais vers le sud
 C 295 Longer la riviere vers l'ouest
 C 030 Plonger et nager vers le nord

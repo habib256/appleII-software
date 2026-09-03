@@ -1,16 +1,16 @@
 T 010 The Battle Clearing
-V 142
+V 142 227
 
-You pass through gnarled trees and enter a new clearing. This is Clearing No.
-5.
+   You pass through gnarled trees and enter a new clearing.
 
-The place bears the recent marks of combat: the ground is trampled, the wet
+   The place bears the recent marks of combat: the ground is trampled, the wet
 grass stained with blood, and two arrows are still stuck in a tree a little
 further on. Footprints lead east and west, as if opposing forces had clashed
 here recently. You can search the clearing to discover clues or loot, but
 staying risks attracting the attention of hidden enemies.
 
-What do you do?
+   What do you do?
 
+MU ARENE.MB
 C 059 Examine the clearing and search for clues
 C 227 Leave the clearing as quickly as possible and depart

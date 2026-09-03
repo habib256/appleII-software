@@ -1,15 +1,15 @@
 T 107 The Brigands' Curse
 
-You cast your curse on the nearest brigand. He screams and collapses
+   You cast your curse on the nearest brigand. He screams and collapses
 immediately. His companions rush over, then frightened, flee northward.
 
-The brigand on the ground is dead, features convulsed, struck by a dreadful
+   The brigand on the ground is dead, features convulsed, struck by a dreadful
 evil.
 
-But soon, you yourself feel the backlash: roll a die and lose as many STAMINA
-points as the number rolled.
+   But soon, you yourself feel the backlash: roll a die and lose as many
+STAMINA points as the number rolled.
 
-If you survive, you can continue your journey.
+   If you survive, you can continue your journey.
 
 ED ENDURANCE -1
 C 019 Continue your path

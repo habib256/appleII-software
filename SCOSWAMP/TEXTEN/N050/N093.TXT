@@ -1,14 +1,17 @@
 T 093 The Wolf Master
 
-You cast your Curse on the Wolf Master. He immediately brings a hand to his
+   You cast your Curse on the Wolf Master. He immediately brings a hand to his
 throat under the effect of pain. But with the other hand he draws his sword
 and points it at you.
 
-It's your turn to feel the effects of your Magic Stone: roll a die and lose as
-many STAMINA points as the number obtained.
+   It's your turn to feel the effects of your Magic Stone: roll a die and lose
+as many STAMINA points as the number obtained.
 
-If you survive, you must fight the Wolf Master, but deduct 2 points from his
-SKILL total and his STAMINA total.
+   If you survive, you must fight the Wolf Master, but deduct 2 points from
+his SKILL total and his STAMINA total.
 
 ED ENDURANCE -1
-C 120 Fight the Wolf Master
+MU +COMBAT.MB
+M 9 8 WOLF MASTER
+CF 314 Flee if the fight turns against you
+MV 154

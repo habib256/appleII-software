@@ -1,10 +1,10 @@
 T 385 Sortilege de Feu
 
-Vous hesitez a utiliser contre Stratagus l'une des Pierres de Magie qu'il vous
-a donnes : ce pourrait etre dangereux pour vous. Vous lui lancez plutot un
-sortilege de Feu et sa longue toge s'enflamme aussitot, mais le sorcier n'est
-pas blesse.
+   Vous hesitez a utiliser contre Stratagus l'une des Pierres de Magie qu'il
+vous a donnees : ce pourrait etre dangereux pour vous. Vous lui lancez plutot
+un sortilege de Feu et sa longue toge s'enflamme aussitot, mais le sorcier
+n'est pas blesse.
 
-Il eclate d'un rire dement et le feu s'eteint autour de lui.
+   Il eclate d'un rire dement et le feu s'eteint autour de lui.
 
 C 124 Combattre

@@ -1,10 +1,11 @@
 T 252 Curse Stone
 
-Gathering your courage, you throw a Curse stone toward the Giant. He staggers,
-lets out a muted roar, rubs his eyes with great gestures and immediately
-becomes blind. He passes before you staggering, then falls into the deep mud.
+   Gathering your courage, you throw a Curse stone toward the Giant. He
+staggers, lets out a muted roar, rubs his eyes with great gestures and
+immediately becomes blind. He passes before you staggering, then falls into
+the deep mud.
 
-You take advantage of the occasion to move away, heart pounding. A strange
+   You take advantage of the occasion to move away, heart pounding. A strange
 cold runs through you however: the spell also affects you. Roll a die; you
 lose as many STAMINA points as the number obtained. If you survive, continue
 your journey and keep your strength.

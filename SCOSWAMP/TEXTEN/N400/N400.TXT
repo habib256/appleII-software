@@ -1,8 +1,8 @@
 T 400 Magic against the Slime
 
-Which Magic Stone will you use to defend yourself against the Slime?
+   Which Magic Stone will you use to defend yourself against the Slime?
 
-CU FEU 336 A Fire Stone
-CU FLETRISSURE 336 Withering
+CU FEU 188 A Fire Stone
+CU FLETRISSURE 380 Withering
 CU GLACE 282 Ice
 C 336 None of these

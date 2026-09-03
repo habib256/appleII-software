@@ -1,9 +1,9 @@
 T 257 The Marsh Jump
 
-You prepare to jump over a vast patch of mud.
+   You prepare to jump over a vast patch of mud.
 
-Roll two dice. If the sum of the numbers rolled is less than or equal to your
-SKILL total, you clear the mud without falling. If the sum is greater, you
-land right in the middle of the muddy mass.
+   Roll two dice. If the sum of the numbers rolled is less than or equal to
+your SKILL total, you clear the mud without falling. If the sum is greater,
+you land right in the middle of the muddy mass.
 
 CS HABILETE 403 311

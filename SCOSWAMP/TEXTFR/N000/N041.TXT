@@ -1,14 +1,16 @@
 T 041 Sables mouvants
+V 382 270
 
-Vous entrez dans une clairiere entoure d'arbres dont les troncs sont couverts
-de lierre. Le sol devient soudain plus meuble. Aucun autre chemin ne semble
-present: vous etes pris au centre.
+   Vous entrez dans une clairiere entouree d'arbres dont les troncs sont
+couverts de lierre. Le sol devient soudain plus meuble. Aucun autre chemin ne
+semble present: vous etes pris au centre.
 
-Sans avertissement, le terrain cede et vous commencez a vous enfoncer dans des
-sables mouvants. Tentez votre Chance: si vous etes chanceux, vous perdez 2
+   Sans avertissement, le terrain cede et vous commencez a vous enfoncer dans
+des sables mouvants. Tentez votre Chance: si vous etes chanceux, vous perdez 2
 points d'ENDURANCE et parvenez a vous en sortir. Si vous etes malchanceux, la
-situation devient plus dangereuse. Vous etes dans la Clairiere n 030.
+situation devient plus dangereuse.
 
-Que faites-vous?
+   Que faites-vous?
 
+MU SABLES.MB
 CL 270 087 -2 0

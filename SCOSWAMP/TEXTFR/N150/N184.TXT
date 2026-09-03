@@ -1,17 +1,17 @@
 T 184 Fausse amulette
-G FAUX
 
-Vous renoncez a attaquer la Maitresse des Oiseaux et lui racontez votre
-mission, confie par un mauvais sorcier. Elle hoche la tete, peine: "Je ne
+   Vous renoncez a attaquer la Maitresse des Oiseaux et lui racontez votre
+mission, confiee par un mauvais sorcier. Elle hoche la tete, peinee: "Je ne
 devrais pas t'aider, tu sers le Mal. Mais tu n'es pas mauvais, sinon tu
 n'aurais pas parle avec autant de franchise."
 
-Apres un instant, elle sourit: "Je vais forger une fausse Amulette en forme
+   Apres un instant, elle sourit: "Je vais forger une fausse Amulette en forme
 d'oiseau. Quiconque la verra la croira authentique; ainsi Stratagus sera dupe
 et tu n'importuneras pas mes freres." "Si tu rencontres le Maitre des
 Araignees, tue-le: c'est un etre nefaste."
 
-D'un geste, une amulette identique a la sienne apparait dans ta paume. Tu la
-remercies et te prepares a repartir.
+   D'un geste, une amulette identique a la sienne apparait dans votre paume.
+Vous la remerciez et vous preparez a repartir.
 
+G FAUX
 C 217 Reprendre la route avec la fausse amulette

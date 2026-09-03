@@ -1,7 +1,7 @@
 T 203 Magic Against Strange Adversaries
 
-Against these strange adversaries, it's better to resort to magic. Which Stone
-will you use? Choose carefully.
+   Against these strange adversaries, it's better to resort to magic. Which
+Stone will you use? Choose carefully.
 
 CU FEU 075 Use the Fire Stone
 CU FLETRISSURE 393 Use the Withering Stone

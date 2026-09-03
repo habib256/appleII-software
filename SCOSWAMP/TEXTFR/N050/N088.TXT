@@ -1,6 +1,7 @@
 T 088 Quitter la clairiere
 
-Vous quittez la clairiere et arrivez a une bifurcation.
+   Vous quittez la clairiere et arrivez a une bifurcation.
 
+MU SCORPNAIN.MB
 C 121 Aller vers le nord
 C 331 Aller vers l'est

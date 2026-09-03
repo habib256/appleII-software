@@ -1,10 +1,10 @@
 T 233 The Threatening Eagle
 
-An eagle lands on a branch and observes you, fierce gaze. Its large hooked
+   An eagle lands on a branch and observes you, fierce gaze. Its large hooked
 beak opens and closes threateningly. A brutal gesture from you is enough to
 trigger the assault.
 
-What do you do?
+   What do you do?
 
 C 392 Attack the eagle
 C 025 Back away cautiously and let it leave

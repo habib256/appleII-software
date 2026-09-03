@@ -1,11 +1,11 @@
 T 002 Le globe et l'offre
 
-Son histoire vous fascine; bientot il se leve d'un mouvement lent. Il
+   Son histoire vous fascine; bientot il se leve d'un mouvement lent. Il
 s'approche d'une table ou un globe est pose et le fait tourner. La rotation
-revele une cachette dans la sphere: des Pieces y sont empiles a foison. Vos
+revele une cachette dans la sphere: des Pieces y sont empilees a foison. Vos
 yeux s'ecarquillent devant tant d'or.
 
-Pompatarte vous sourit: "Accepteriez-vous de me le vendre?" Il propose en
+   Pompatarte vous sourit: "Accepteriez-vous de me le vendre?" Il propose en
 echange cent Pieces d'Or fines.
 
 C 049 Accepter l'offre et vendre votre anneau

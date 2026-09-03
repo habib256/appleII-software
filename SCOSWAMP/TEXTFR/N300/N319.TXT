@@ -1,9 +1,10 @@
 T 319 Choisir une direction
 
-Vous vous hatez de choisir une direction.
+   Vous vous hatez de choisir une direction.
 
-Ou souhaitez-vous aller ?
+   Ou souhaitez-vous aller ?
 
+MU SCORPIONS.MB
 C 138 Au nord
 C 047 A l'est
 C 066 A l'ouest

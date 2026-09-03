@@ -104,37 +104,49 @@ outer:  ldy     #0
 ; Une note pure sonnait comme un bip de terminal. Un balayage tres court vers
 ; le grave donne un transitoire : l'oreille y entend un choc, pas une note.
 .proc _sfx_hit
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #4
         sta     steplen
         lda     #22
         ldx     #60
-        jmp     sweep
+        jsr     sweep
+        plp
+        rts
 .endproc
 
 ; --- Le heros encaisse ----------------------------------------------------
 ; Deux coups sourds plutot qu'un bourdonnement : le premier est l'impact, le
 ; second, plus grave, le corps qui accuse.
 .proc _sfx_hurt
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #150
         ldx     #26
         jsr     tone
         jsr     gap
         lda     #205
         ldx     #22
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc
 
 ; --- Esquive --------------------------------------------------------------
 ; Deux ticks de hauteurs differentes : deux lames qui se croisent, pas un
 ; double clic de souris.
 .proc _sfx_dodge
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #48
         ldx     #7
         jsr     tone
         jsr     gap
         lda     #38
         ldx     #7
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc
 
 ; --- Une creature s'effondre : une chute vers les graves. -------------------
@@ -142,6 +154,8 @@ outer:  ldy     #0
 ; balayer 60->200 mettait plus d'une seconde -- une eternite quand la page
 ; aligne trois BRIGANDS.
 .proc _sfx_fall
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #12
         sta     steplen
         lda     #60
@@ -150,12 +164,16 @@ outer:  ldy     #0
         jsr     gap
         lda     #235            ; le corps qui touche le sol
         ldx     #30
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc
 
 ; --- Mort du heros : la meme chute, plus lente et plus basse. ---------------
 ; La mort du heros a droit a sa longueur : c'est la fin de la partie.
 .proc _sfx_death
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #16             ; paliers plus longs : la chute chante
         sta     steplen
         lda     #90
@@ -163,5 +181,7 @@ outer:  ldy     #0
         jsr     sweep
         lda     #255
         ldx     #120
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc

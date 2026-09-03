@@ -1,10 +1,11 @@
 T 378 Combat against the Patroller
 
-The Patroller's no fool and senses well you're working for an evil sorcerer's
-account. He then jumps down from his rock and attacks you.
+   The Patroller's no fool and senses well you're working for an evil
+sorcerer's account. He then jumps down from his rock and attacks you.
 
-You can, at any time, Flee.
+   You can, at any time, Flee.
 
+MU +COMBAT.MB
 M 10 10 PATROLLER
 CF 234 Flee
 MV 219

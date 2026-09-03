@@ -1,6 +1,6 @@
 T 325 Le pont fond
 
-Vous essayez d'atteindre l'autre rive avant que le pont ne fonde, mais vous
+   Vous essayez d'atteindre l'autre rive avant que le pont ne fonde, mais vous
 n'etes pas assez rapide et il se rompt en plusieurs morceaux.
 
 CU GLACE 369 Si vous avez une autre Pierre Magique de Glace
