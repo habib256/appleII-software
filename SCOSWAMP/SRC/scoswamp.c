@@ -138,6 +138,7 @@ typedef struct {
      * dv_done bloque la cascade a la premiere ligne DV qui correspond. */
     unsigned char last_loss;
     unsigned char dv_done;
+    char music_name[16];     /* ligne MU : MUSIC/<NOM>.MB a jouer, vide sinon */
 } AppState;
 
 /* Variables globales optimisées */
@@ -294,6 +295,24 @@ static void report_open_error(const char* path)
 {
     (void)path;
     cputs("Erreur\r");
+}
+
+/* La Mockingboard, si music_detect l'a trouvee ; 0 sinon, et music_load ne
+ * lit meme pas le disque. */
+static unsigned char music_slot;
+
+/* Lit MUSIC/<name> dans music_buf. Rend 1 si c'est bien un flux MB1. Un
+ * seul fichier ouvert a la fois, comme partout ; la musique est deja coupee
+ * par load_scene avant toute lecture. */
+static unsigned char music_load(const char* name)
+{
+    FILE* f;
+    size_t n;
+    if (!music_slot) return 0;
+    if (chdir("/SCOSWAMP") != 0 || chdir("MUSIC") != 0) return 0;
+    f = fopen(name, "rb"); if (!f) return 0;
+    n = fread(music_buf, 1, MUSIC_BUF_SIZE, f); fclose(f);
+    return n > 8 && memcmp(music_buf, "MB1", 3) == 0;
 }
 
 /* Fonction pour charger une image HGR */
@@ -705,6 +724,9 @@ static void lose_items(unsigned char n)
  *   DV <max> <id>               en cascade : premiere ligne dont la perte du
  *                               dernier combat est <= max fabrique l'unique
  *                               choix "continuer" vers <id>
+ *   MU <NOM>.MB                 la musique de la page, lue dans MUSIC/ et
+ *                               jouee en boucle sur la Mockingboard ; une
+ *                               page sans MU est silencieuse
  *   MV <id>                     apres le dernier adversaire tombe, la page
  *                               envoie en <id> sans repasser par les choix.
  *                               Le jumeau de CF cote victoire : elle remplace
@@ -855,6 +877,13 @@ static void classify_line(char* l)
     /* MV se lit avec MD et MS -- donc avant le test `M ` d'une seule lettre,
      * qui l'avalerait -- mais sans leur garde `foe_count > 0` : MV ne qualifie
      * pas le dernier adversaire declare, et peut preceder les lignes M. */
+    if (c0 == 'M' && c1 == 'U' && c2 == ' ') {
+        /* La musique de la page : un nom de fichier dans MUSIC/, joue en
+         * boucle sur la Mockingboard une fois la page chargee. */
+        strncpy(app.music_name, l + 3, sizeof(app.music_name) - 1);
+        app.music_name[sizeof(app.music_name) - 1] = '\0';
+        return;
+    }
     if (c0 == 'M' && c1 == 'V' && c2 == ' ') {
         take_uint(l + 3, &a);
         app.win_scene = (int)a;
@@ -1847,6 +1876,7 @@ void load_scene(int scene_id) {
     /* last_loss ne se remet PAS a zero ici : c'est la page SUIVANT le combat
      * qui la lit (lignes DV). dv_done, si : la cascade repart a chaque page. */
     app.dv_done = 0;
+    app.music_name[0] = '\0';
 
     /* Charger d'abord le texte et les choix. Le chargeur HGR assembleur est
      * ensuite le dernier client ProDOS de la scène : son décodage direct en
@@ -1920,7 +1950,7 @@ void load_scene(int scene_id) {
     app.has_image = 0;
     if (app.foe_count > 0) app.has_image = load_hgr_image_as(scene_id, 'B');
     if (!app.has_image)  app.has_image = load_hgr_image_as(scene_id, 'N');
-    if (scene_id == 0) music_play();   /* apres les lectures disque de la page */
+    if (app.music_name[0] && music_load(app.music_name)) music_play();
 
     if (app.foe_count == 0) return;
 
@@ -2153,7 +2183,7 @@ void main(void) {
 
     /* Le catalogue de l'interface suit la langue choisie. */
     messages_load(app.language[0] != 'F');
-    music_detect();   /* Mockingboard : slots 7..1 ; sans carte, tout reste muet */
+    music_slot = music_detect();   /* Mockingboard : slots 7..1 ; 0 = muet */
 
     /* L'introduction vient avant les des : son choix A initie explicitement
      * la creation du personnage. [L] peut aussi reprendre une partie ici. */

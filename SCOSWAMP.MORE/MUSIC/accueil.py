@@ -10,10 +10,8 @@ juste), 28 mesures a 4/4 = 54 s, concu pour boucler. Aucune dependance.
 
 ecrit, a cote du script :
 - accueil.mid : trois pistes, programme 80 (square lead), pour Arkos Tracker ;
-- accueil.wav : rendu a ondes carrees, 22 050 Hz mono, pour l'oreille ;
-- accueil.mb  : le flux MB1 que SCOSWAMP/SRC/music.s joue en interruption ;
-et dans SCOSWAMP/SRC :
-- ay_notes.inc : la table note -> periode AY (60 mots, C2..B6, f = 63920 / TP).
+- accueil.wav : rendu a ondes carrees, 22 050 Hz mono, pour l'oreille.
+Le flux MB1 joue par la Mockingboard en sort par midi_to_mb.py (Makefile).
 
 Structure : fanfare (4 mesures, unisson sur re), A (16 mesures, l'appel du
 village, Dm-C-Am-F), B (8 mesures, l'oree du Marais, G-Dm-Am) qui retombe
@@ -218,9 +216,6 @@ if __name__ == "__main__":
     parts = [(mel, 100), (acc, 60), (bass, 85)]
     beats = 4 * len(MELODY)
     write_midi(here / "accueil.mid", parts)
-    size, last = write_mb1(here / "accueil.mb", parts)
-    write_note_table(src / "ay_notes.inc")
     render_wav(here / "accueil.wav", parts, beats)
-    print(f"accueil.mid, accueil.wav, accueil.mb ({size} octets, {last} ticks = "
-          f"{last / TICK_HZ:.1f} s) et SRC/ay_notes.inc ecrits ; "
+    print(f"accueil.mid et accueil.wav ecrits ; le flux MB1 sort de midi_to_mb.py ; "
           f"{len(mel)} + {len(acc)} + {len(bass)} notes a {BPM} bpm")

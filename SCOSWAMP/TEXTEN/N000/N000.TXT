@@ -16,4 +16,5 @@ Smith (1984), French edition by Gallimard (1985).
 Commands:
  [A-E] - Choose   [L] - Load a game   [H] - Help   [Q] - Quit
 
+MU SALTARELLO.MB
 C 001 Create my character
