@@ -1,0 +1,16 @@
+T 414 The Taproom
+
+The room smells of beer and peat. They are still talking about you: a man who
+wants to walk into the Swamp is not something you see every day. A boatman
+tells you again that others tried before you and that their bones are
+whitening at the bottom of the mud.
+
+The innkeeper, for his part, mostly remembers last week. A giant of a man came
+and sat down here, two grey wolves at his heels, and he said almost nothing.
+"One of the Masters," he whispers. "They have claimed the whole territory for
+themselves. That one was not the sort to welcome visitors with open arms."
+
+In his corner, Grognard watches you and says nothing.
+
+C 418 Hear what is said of the three men
+C 412 Step back out onto the square

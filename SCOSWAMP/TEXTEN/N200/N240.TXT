@@ -16,3 +16,4 @@ further delay?
 
 C 205 Want to know more and listen to Grognard attentively
 C 155 Declare you will serve only the cause of Good
+C 412 Take a turn around the village before choosing

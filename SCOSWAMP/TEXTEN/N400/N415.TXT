@@ -1,0 +1,15 @@
+T 415 The Old Man's Shop
+
+The old man opens one eye when your shadow crosses his window. He sells rope,
+tallow and lanterns, and gives his advice away for nothing.
+
+"Good Gayolard? Everyone here knows where he lives: the little house at the
+end of the village, the one with a garden. A gentle man, who makes pottery.
+Pompatarte is the large house beside the market; nobody knows much about him,
+except that he is rich and that he laughs loudly. As for the tower, over there
+to the north, we do not speak of it here."
+
+He falls silent, and his eyes say the rest.
+
+C 418 Hear what is said of the three men
+C 412 Back to the square

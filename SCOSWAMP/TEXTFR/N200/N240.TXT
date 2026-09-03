@@ -16,3 +16,4 @@ votre fidelite au Bien sans plus attendre ?
 
 C 205 Vouloir en savoir plus et ecouter Grognard attentivement
 C 155 Declarer que vous servirez uniquement la cause du Bien
+C 412 Faire un tour au village avant de choisir

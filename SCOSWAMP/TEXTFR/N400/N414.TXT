@@ -1,0 +1,17 @@
+T 414 La salle de la taverne
+
+La salle sent la biere et la tourbe. On y parle encore de vous : un homme qui
+veut entrer dans le Marais, cela ne se voit pas tous les jours. Un batelier
+vous repete que d'autres s'y sont essayes avant vous et que leurs os
+blanchissent au fond de la vase.
+
+L'aubergiste, lui, se souvient surtout de la semaine derniere. Un colosse est
+venu s'asseoir ici, deux loups gris sur les talons, et il n'a presque rien
+dit. "Un des Maitres", souffle-t-il. "Ils se sont declares proprietaires de
+tout le territoire. Celui-la n'etait pas homme a accueillir les visiteurs a
+bras ouverts."
+
+Dans son coin, Grognard vous observe et ne dit rien.
+
+C 418 Ecouter ce qu'on dit des trois hommes
+C 412 Ressortir sur la place

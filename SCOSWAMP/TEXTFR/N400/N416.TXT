@@ -1,0 +1,20 @@
+T 416 Le bout du village
+
+La rue s'arrete sur des jardins. Dans le dernier, un petit homme replet, vetu
+d'une tunique blanche et d'un pantalon de lin, tourne un pot sur son tour :
+Gayolard, le bon sorcier, celui dont tout le village connait la porte. Il ne
+leve pas la tete.
+
+En vous retournant, vous voyez le marche et la grande maison de Pompatarte,
+volets clos sur la rumeur des etals.
+
+Puis vous regardez le nord. Le sol y devient mou, les arbres y noircissent, et
+la tour de Stratagus se dresse pres du marais, cernee de statues aux visages
+grimacants. Vous savez deja ce que dira votre Anneau quand vous en
+approcherez.
+
+Aucun des trois ne peut entrer lui-meme dans le Marais. C'est la tout le
+probleme, et c'est pour cela qu'ils cherchent quelqu'un comme vous.
+
+C 417 Regarder votre Anneau de plus pres
+C 412 Revenir sur la place

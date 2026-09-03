@@ -1492,8 +1492,11 @@ static int run_combat(void)
             if (use_luck) {
                 /* La Chance a change la blessure : le dire, et rendre la main
                  * plutot que d'enchainer -- on vient de payer un point. */
-                print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX2))
-                                                : (msg(M_MALCHANCEUX2)));
+                /* Le meme mot que plus haut : le catalogue en portait deux
+                 * exemplaires, et le binaire n'a plus la place de payer deux
+                 * fois "Chanceux !". */
+                print_at(CHOICE_ROW0 + 2, lucky ? (msg(M_CHANCEUX))
+                                                : (msg(M_MALCHANCEUX)));
                 wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
             }
             if (monster_is_beaten(&app.foes[app.foe_cur])) {
@@ -1647,8 +1650,10 @@ static void roll_character(void)
     videomode(VIDEOMODE_80COL);
     clrscr();
     render_title_bar();
-    gotoxy(0, 3);
-    cprintf(msg(M_FEUILLE_D_AVENTURE));
+    /* print_at plutot que gotoxy + cprintf pour les lignes sans argument :
+     * un appel au lieu de deux, et cette fonction vit dans la Language Card,
+     * ou il ne restait que 42 octets. */
+    print_at(3, msg(M_FEUILLE_D_AVENTURE));
     gotoxy(0, 5);
     cprintf(msg(M_HABILETE_DE),   app.hero.hab);
     gotoxy(0, 6);
@@ -1657,9 +1662,16 @@ static void roll_character(void)
     cprintf(msg(M_CHANCE_DE),   app.hero.cha);
     gotoxy(0, 9);
     cprintf(msg(M_UNE_EPEE_UNE), app.hero.gold);
-    gotoxy(0, 10);
-    cprintf(msg(M_AUCUN_DE_CES));
-    wait_key_at(13, msg(M_ESPACE_ENTRER_DANS));
+    print_at(10, msg(M_AUCUN_DE_CES));
+    /* Deux lignes pour dire QUI est ce personnage avant de dire ce qu'il
+     * vaut : sans elles l'ecran de creation n'etait qu'une colonne de trois
+     * nombres, et le joueur entrait dans le Marais sans savoir ce qu'est
+     * l'Anneau de Cuivre ni pourquoi trois hommes l'attendent au village.
+     * Le reste du contexte est sur les pages -- 000, puis le prologue 412 a
+     * 418 -- ou il ne coute pas un octet de RAM. */
+    print_at(12, msg(M_VOUS_ETES_UN));
+    print_at(13, msg(M_ET_CHAUFFE_DEVANT));
+    wait_key_at(15, msg(M_ESPACE_ENTRER_DANS));
 }
 #pragma code-name (pop)
 

@@ -34,8 +34,6 @@ MESSAGES = [
     ('M_VOUS_AVEZ_CHACUN', 'Vous avez chacun esquive.', 'You have each dodged.'),
     ('M_VOUS_L_AVEZ', "Vous l'avez blesse", 'You have wounded it'),
     ('M_ELLE_VOUS_A', 'Elle vous a blesse', 'It has wounded you'),
-    ('M_CHANCEUX2', 'Chanceux !', 'Lucky!'),
-    ('M_MALCHANCEUX2', 'Malchanceux !', 'Unlucky!'),
     ('M_K_ENGAGER', 'engager', 'engage'),
     ('M_K_ENCAISSER', 'encaisser le coup', 'take the blow'),
     ('M_K_FRAPPER', 'porter le coup', 'strike home'),
@@ -59,6 +57,17 @@ MESSAGES = [
     ('M_CHANCE_DE', 'CHANCE    %2u   (1 de + 6)', 'LUCK     %2u   (1 die + 6)'),
     ('M_UNE_EPEE_UNE', "Une epee, une cotte de mailles, un sac a dos, %u Pieces d'Or.", 'A sword, chainmail, a backpack, %u Gold Pieces.'),
     ('M_AUCUN_DE_CES', 'Aucun de ces trois totaux ne pourra depasser sa valeur de depart.', 'None of these three scores may ever rise above its start value.'),
+    # Les deux lignes qui font de la Feuille d'Aventure une presentation et
+    # non trois nombres alignes : qui vous etes, ce que vaut l'Anneau, et ce
+    # qui vous attend au village. Le detail est sur les pages -- 000 pour
+    # l'Anneau, 412 a 418 pour Bourbenville -- parce qu'une page ne coute rien
+    # au binaire et qu'une ligne de catalogue coute son poids en RAM.
+    ('M_VOUS_ETES_UN',
+     "Vous etes un aventurier : l'Anneau de Cuivre a votre doigt montre le nord",
+     'You are an adventurer: the Copper Ring on your finger points north'),
+    ('M_ET_CHAUFFE_DEVANT',
+     'et chauffe devant le Mal. Trois hommes de Bourbenville cherchent un heros.',
+     'and warms before Evil. Three men of Marshville are seeking a hero.'),
     ('M_ESPACE_ENTRER_DANS', '[ESPACE] entrer dans le Marais', '[SPACE] enter the Swamp')
 ,
     ('M_CHOISISSEZ_PIERRES',

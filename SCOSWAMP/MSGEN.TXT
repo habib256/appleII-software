@@ -1,6 +1,6 @@
 [SPACE] continue
 YOU
-BACKPACK -- %u Gold Pieces, a sword, a leather jerkin
+BACKPACK -- %u Gold Pieces, a sword, chainmail
    forbidden mid-fight
 No Magic Stones.
 A Stone crumbles when used.  [A-Z] use  [ESC] close
@@ -14,8 +14,6 @@ ROUND %u     your strength %u   %s   its %u
 You have each dodged.
 You have wounded it
 It has wounded you
-Lucky!
-Unlucky!
 engage
 take the blow
 strike home
@@ -37,8 +35,10 @@ ADVENTURE SHEET
 SKILL    %2u   (1 die + 6)
 STAMINA  %2u   (2 dice + 12)
 LUCK     %2u   (1 die + 6)
-A sword, a leather jerkin, a backpack, %u Gold Pieces.
+A sword, chainmail, a backpack, %u Gold Pieces.
 None of these three scores may ever rise above its start value.
+You are an adventurer: the Copper Ring on your finger points north
+and warms before Evil. Three men of Marshville are seeking a hero.
 [SPACE] enter the Swamp
 CHOOSE YOUR MAGIC STONES -- %u left to take
 You may take the same one several times.  [A-Z] take

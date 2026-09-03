@@ -1,0 +1,19 @@
+T 416 The End of the Village
+
+The street stops at a row of gardens. In the last one a short, plump man in a
+white tunic and linen trousers is turning a pot on his wheel: Gayolard, the
+good sorcerer, whose door the whole village knows. He does not look up.
+
+Turning round, you see the market and Pompatarte's large house, its shutters
+closed against the noise of the stalls.
+
+Then you look north. The ground turns soft there, the trees darken, and
+Stratagus's tower rises close to the marsh, ringed with statues whose faces
+are twisted into grimaces. You already know what your Ring will say when you
+come near it.
+
+None of the three can enter the Swamp himself. That is the whole problem, and
+that is why they are looking for someone like you.
+
+C 417 Look more closely at your Ring
+C 412 Back to the square

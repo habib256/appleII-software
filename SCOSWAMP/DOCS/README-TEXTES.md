@@ -2,9 +2,9 @@
 
 ## 📊 Vue d'ensemble
 
-- **Total de scènes** : 412 scènes de jeu (N000 à N411)
-- **Fichiers français** : 412 fichiers .TXT (TEXTFR/) ✓ 100% complet
-- **Fichiers anglais** : 412 fichiers .TXT (TEXTEN/) ✓ 100% complet
+- **Total de scènes** : 419 scènes de jeu (N000 à N418)
+- **Fichiers français** : 419 fichiers .TXT (TEXTFR/) ✓ 100% complet
+- **Fichiers anglais** : 419 fichiers .TXT (TEXTEN/) ✓ 100% complet
 - **Support bilingue** : Français et Anglais intégralement traduits
 - **Organisation** : Par tranches de 50 (N000/, N050/, N100/, etc.)
 - **Conformité** : 100% des fichiers ≤18 lignes ✓
@@ -97,7 +97,7 @@ C 095 Choix numéro 2 (texte du choix)
 ### Structure complète bilingue
 
 ```
-TEXTFR/ (Version française - 412 fichiers)
+TEXTFR/ (Version française - 419 fichiers)
 ├── N000/  (scènes 0-49)    → 50 fichiers
 │   ├── N000.TXT (titre du jeu)
 │   ├── N001.TXT
@@ -109,9 +109,9 @@ TEXTFR/ (Version française - 412 fichiers)
 ├── N250/  (scènes 250-299) → 50 fichiers
 ├── N300/  (scènes 300-349) → 50 fichiers
 ├── N350/  (scènes 350-399) → 50 fichiers
-└── N400/  (scènes 400-411) → 12 fichiers
+└── N400/  (scènes 400-418) → 19 fichiers
 
-TEXTEN/ (Version anglaise - 412 fichiers)
+TEXTEN/ (Version anglaise - 419 fichiers)
 ├── N000/  (scenes 0-49)    → 50 fichiers
 │   ├── N000.TXT (game title)
 │   ├── N001.TXT
@@ -139,7 +139,7 @@ Chaque fichier français a son équivalent anglais :
 ### Statut : 100% complète ✓
 
 - **Date de traduction** : Octobre 2024
-- **Fichiers traduits** : 412 fichiers (100%)
+- **Fichiers traduits** : 419 fichiers (100%)
 - **Méthode** : Traduction manuelle préservant :
   - Les numéros de scène
   - La structure des choix (C xxx)
@@ -206,7 +206,7 @@ echo "Fichiers FR: $(find TEXTFR -name "*.TXT" | wc -l)"
 echo "Fichiers EN: $(find TEXTEN -name "*.TXT" | wc -l)"
 ```
 
-**Résultat attendu** : 412 fichiers dans chaque langue
+**Résultat attendu** : 419 fichiers dans chaque langue
 
 ## 🎯 Recommandations
 
@@ -249,6 +249,28 @@ qui se joue mecaniquement y est ecrit en clair, une directive par ligne.
 | `CP <PIERRE> <id> <titre>` | choix qui remet une Pierre |
 | `CU <PIERRE> <id> <titre>` | choix qui exige et consomme une Pierre |
 | `C <id> <titre>` | choix ordinaire |
+| `V <id>` | "si vous y etes deja venu, rendez-vous au <id>" -- doit preceder tout le reste de la page |
+
+## Les pages synthetiques (400 et au-dela)
+
+Le livre s'arrete au paragraphe 400. Au-dela, ce sont des pages que le portage
+ajoute pour ce que le livre confiait au joueur ou a une phrase en passant.
+Elles suivent exactement les memes regles que les autres et ne contiennent
+aucun fait qui ne vienne du livre.
+
+- **400-411** : les issues que le livre pliait dans une phrase (victoires
+  enchainees, potions, sauts reussis).
+- **412-418** : le prologue de Bourbenville. Le village devient un lieu qu'on
+  parcourt avant de choisir un employeur : la place (412, longue, avec `V 413`
+  vers sa version courte), la salle de la taverne (414), la boutique du vieil
+  homme (415), le bout du village d'ou l'on voit la maison de Gayolard, celle
+  de Pompatarte et la tour de Stratagus (416), l'Anneau de Cuivre et ses deux
+  pouvoirs (417), et ce que le village raconte des trois missions (418). Le
+  seul point d'entree est un choix ajoute a la page 240 ; toutes les sorties
+  ramenent a la place, et la place ramene au 240.
+
+Ces sept pages n'ont pas encore d'illustration (comme 407 a 411) : une page
+sans image tombe sur le texte, et le moteur le fait sans broncher.
 
 La plupart se **derivent de la prose** : `SCOSWAMP.MORE/TOOLS/reflow_txt.py
 --derive` lit le bloc de stats que la page ecrit deja en toutes lettres et en
