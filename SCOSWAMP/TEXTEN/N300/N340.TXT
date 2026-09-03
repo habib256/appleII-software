@@ -1,18 +1,18 @@
 T 340 Stratagus's Death
 
-Your sword's blade sinks deep into his chest. He then looks at you with an
+   Your sword's blade sinks deep into his chest. He then looks at you with an
 incredulous air and opens his mouth with the manifest intention of telling you
 something, but he has neither the strength nor the time and dies almost
 immediately.
 
-The serrated weapon slips from his fingers and you pick it up, intrigued by
+   The serrated weapon slips from his fingers and you pick it up, intrigued by
 its unusual shape. It doesn't take you long to realize it's a Magic Sword with
 great powers that add 2 points to the SKILL total of whoever uses it in
 combat. Nothing surprising, in these conditions, that Stratagus showed such
 great skill during your duel!
 
-You then begin searching the sorcerer's sinister tower to try discovering the
-treasures he's hidden there. But the atmosphere soon becomes heavy and
+   You then begin searching the sorcerer's sinister tower to try discovering
+the treasures he's hidden there. But the atmosphere soon becomes heavy and
 oppressive. Your ring is still as hot, thus warning you of perhaps even
 greater danger than before. You also smell sulfur.
 

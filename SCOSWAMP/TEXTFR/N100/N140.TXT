@@ -1,10 +1,10 @@
 T 140 La chute de Stratagus
 
-Votre lame perce sa poitrine. Il meurt sans un mot, la lame dentelee tombant
-de ses doigts.
+   Votre lame perce sa poitrine. Il meurt sans un mot, la lame dentelee
+tombant de ses doigts.
 
-Mais l'atmosphere s'assombrit. Votre anneau reste chaud. Une odeur de soufre
-s'eleve. Le danger n'est pas ecarte.
+   Mais l'atmosphere s'assombrit. Votre anneau reste chaud. Une odeur de
+soufre s'eleve. Le danger n'est pas ecarte.
 
 C 375 Rester explorer la tour
 C 335 Retourner voir Gayolard

@@ -1,20 +1,20 @@
 T 164 The Bird Mistress
 
-The Copper Ring remains cold: the Bird Mistress is therefore benevolent. You
-explain the purpose of your mission and she immediately begins hopping with
-joy: "So there's still an Asphodel bush? What wonder!" Her enthusiasm is so
-sincere that for a moment she resembles a delighted little girl.
+   The Copper Ring remains cold: the Bird Mistress is therefore benevolent.
+You explain the purpose of your mission and she immediately begins hopping
+with joy: "So there's still an Asphodel bush? What wonder!" Her enthusiasm is
+so sincere that for a moment she resembles a delighted little girl.
 
-Aware of the importance of your quest for the cause of Good, she hands you a
-magic potion: it has the power to restore to their initial value your SKILL,
+   Aware of the importance of your quest for the cause of Good, she hands you
+a magic potion: it has the power to restore to their initial value your SKILL,
 STAMINA or LUCK points - your choice.
 
-Then, with a gesture, she calls several birds that come swirling around her.
-She murmurs a few words to them, listens to them, then turns to you: "Gayolard
-was right," she says softly, "there is indeed an Asphodel bush, northeast of
-the Swamp. I can help you get there."
+   Then, with a gesture, she calls several birds that come swirling around
+her. She murmurs a few words to them, listens to them, then turns to you:
+"Gayolard was right," she says softly, "there is indeed an Asphodel bush,
+northeast of the Swamp. I can help you get there."
 
-You accept gratefully. Which characteristic do you restore?
+   You accept gratefully. Which characteristic do you restore?
 
 C 409 Restore my SKILL
 C 410 Restore my STAMINA

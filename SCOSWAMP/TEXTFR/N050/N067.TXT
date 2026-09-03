@@ -1,9 +1,9 @@
 T 067 Poudre de guerison
 
-Vous utilisez toute la Poudre de Guerison; vous sentez vos forces revenir.
+   Vous utilisez toute la Poudre de Guerison; vous sentez vos forces revenir.
 Vous recuperez 2 points d'ENDURANCE immediatement.
 
-Vous reprenez votre souffle et vous vous preparez a poursuivre la route.
+   Vous reprenez votre souffle et vous vous preparez a poursuivre la route.
 
 E ENDURANCE +2
 C 019 Reprendre la route

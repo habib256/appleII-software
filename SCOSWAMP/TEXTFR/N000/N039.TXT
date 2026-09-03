@@ -1,11 +1,11 @@
 T 039 Licorne apaisee
 
-Vous jetez un sort d'Amitie; la licorne vous regarde, soupconneuse.
+   Vous jetez un sort d'Amitie; la licorne vous regarde, soupconneuse.
 
-Evidemment, elle ne se fie pas aux humains, mais votre magie agit. Peu a peu
-elle cesse de vous observer et se remet a brouter l'herbe. Vous la voyez
+   Evidemment, elle ne se fie pas aux humains, mais votre magie agit. Peu a
+peu elle cesse de vous observer et se remet a brouter l'herbe. Vous la voyez
 s'eloigner lentement; l'atmosphere redevient calme.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 348 Poursuivre la route vers la clairiere suivante

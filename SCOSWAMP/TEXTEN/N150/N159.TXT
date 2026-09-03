@@ -1,8 +1,9 @@
 T 159 Return to the Master
 
-You have done everything in your power.
+   You have done everything in your power.
 
-Now, it's time to return to see your master to report your success or failure.
+   Now, it's time to return to see your master to report your success or
+failure.
 
 MU VILLAGE.MB
 C 006 If you serve Gayolard

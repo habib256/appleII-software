@@ -1,16 +1,16 @@
 T 354 Incendiary Amulet
 
-You pull your sword from your repugnant opponent's corpse with a sigh of
+   You pull your sword from your repugnant opponent's corpse with a sigh of
 relief. But, all around you, the Spiders watch you and approach closer and
 closer.
 
-You then bend over their deceased Master's body to seize his spider-shaped
+   You then bend over their deceased Master's body to seize his spider-shaped
 Amulet. But when you remove it from his neck, a spark suddenly bursts and the
 corpse instantly catches fire.
 
-You hasten to leave the clearing taking the Amulet while flames spread behind
-you. The fire will quickly burn the spiders, but you must hurry to get to 165
-if you don't want to be carbonized in turn!
+   You hasten to leave the clearing taking the Amulet while flames spread
+behind you. The fire will quickly burn the spiders, but you must hurry to get
+to 165 if you don't want to be carbonized in turn!
 
 MU DANGER.MB
 G ARAIGNEE

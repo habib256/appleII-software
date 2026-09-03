@@ -1,10 +1,10 @@
 T 290 Orques des Marais
 V 323 309 352
 
-Vous distinguez des traces indiquant que quelqu'un est passe par la recemment.
-A quelque distance devant vous se trouve une autre clairiere.
+   Vous distinguez des traces indiquant que quelqu'un est passe par la
+recemment. A quelque distance devant vous se trouve une autre clairiere.
 
-Lorsque vous entrez dans cette nouvelle clairiere, une fleche vous frole la
+   Lorsque vous entrez dans cette nouvelle clairiere, une fleche vous frole la
 tete en sifflant. Vous apercevez alors trois ORQUES DES MARAIS a la peau
 rongee par la gale. Ils ont des arcs a la main, et les deux creatures qui
 n'ont pas encore tire vous decochent leurs fleches.

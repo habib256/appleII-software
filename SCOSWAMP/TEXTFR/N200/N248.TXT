@@ -1,12 +1,12 @@
 T 248 Voyage de l'Aigle
 
-La Maitresse des Oiseaux appelle un Aigle immense qui descend du ciel. Il vous
-saisit par la taille et vous porte au-dessus des clairieres. Plus bas, la
+   La Maitresse des Oiseaux appelle un Aigle immense qui descend du ciel. Il
+vous saisit par la taille et vous porte au-dessus des clairieres. Plus bas, la
 Riviere Croupie brille et des crocodiles paressent.
 
-L'Aigle vous depose a cote d'un arbre dont le nid gigantesque est construit en
-branchages. Il vous laisse sur le sol puis repart.
+   L'Aigle vous depose a cote d'un arbre dont le nid gigantesque est construit
+en branchages. Il vous laisse sur le sol puis repart.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 202 Suivre le sentier vers le nid d'Aigle

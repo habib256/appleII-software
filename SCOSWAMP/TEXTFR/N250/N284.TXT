@@ -1,17 +1,17 @@
 T 284 Statue de Gobelin
 
-La creature de pierre s'avance vers vous en trainant les pieds tandis que
+   La creature de pierre s'avance vers vous en trainant les pieds tandis que
 Stratagus, fort satisfait de ce spectacle, emet de petits rires diaboliques.
 De toute evidence, votre epee ne vous sera d'aucun secours contre un
 adversaire dur comme le roc.
 
-Vous reflechissez une fraction de seconde puis vous abattez votre arme sur la
-table du sorcier: la lame en fend le bois et vous parvenez a detacher l'un des
-pieds de la table. Vous laissez alors tomber votre epee et vous affrontez la
-statue avec cette massue improvisee qui sera beaucoup plus efficace dans la
+   Vous reflechissez une fraction de seconde puis vous abattez votre arme sur
+la table du sorcier: la lame en fend le bois et vous parvenez a detacher l'un
+des pieds de la table. Vous laissez alors tomber votre epee et vous affrontez
+la statue avec cette massue improvisee qui sera beaucoup plus efficace dans la
 situation presente.
 
-Stratagus, impressionne par votre force et la promptitude de vos reflexes,
+   Stratagus, impressionne par votre force et la promptitude de vos reflexes,
 cesse de rire et observe attentivement le combat.
 
 MU +COMBAT.MB

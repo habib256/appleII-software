@@ -1,14 +1,14 @@
 T 382 Retour aux Sables Mouvants
 
-Vous vous apercevez que vous etes revenu dans la clairiere aux Sables
+   Vous vous apercevez que vous etes revenu dans la clairiere aux Sables
 Mouvants, mais cette fois, vous ne vous laisserez pas surprendre. Vous avez
 deux solutions si vous souhaitez recourir a la magie.
 
-La premiere consiste a lancer une Pierre de Glace. Ainsi, les Sables mouvants
-geleront et vous pourrez les traverser, mais la glace fondra vite derriere
-vous.
+   La premiere consiste a lancer une Pierre de Glace. Ainsi, les Sables
+mouvants geleront et vous pourrez les traverser, mais la glace fondra vite
+derriere vous.
 
-La deuxieme solution consiste a jeter une Pierre de Croissance pour faire
+   La deuxieme solution consiste a jeter une Pierre de Croissance pour faire
 grandir les plantes alentour. Celles-ci recouvriront alors la surface des
 Sables en formant une sorte de sentier sur lequel vous pourrez marcher en
 toute securite. Ce sentier restera la en permanence et vous pourrez donc

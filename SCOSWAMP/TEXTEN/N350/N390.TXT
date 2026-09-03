@@ -1,9 +1,9 @@
 T 390 Three Swampy Paths
 
-You have a choice between three paths. All three seem rather swampy and
+   You have a choice between three paths. All three seem rather swampy and
 unsafe.
 
-In which direction do you wish to go?
+   In which direction do you wish to go?
 
 MU MARAISUD.MB
 C 144 North

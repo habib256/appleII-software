@@ -1,14 +1,14 @@
 T 104 Le Maitre des Grenouilles
 
-Le Maitre des Grenouilles saute de son champignon et recueille de l'eau dans
-sa main, la modelant en une boule de cristal. Il plonge son regard dans la
-sphere et murmure quelques mots, puis la jette dans la mare.
+   Le Maitre des Grenouilles saute de son champignon et recueille de l'eau
+dans sa main, la modelant en une boule de cristal. Il plonge son regard dans
+la sphere et murmure quelques mots, puis la jette dans la mare.
 
-Il se tourne vers vous : "La plante que vous cherchez est au nord, mais le
+   Il se tourne vers vous : "La plante que vous cherchez est au nord, mais le
 chemin est tortueux et dangereux. Mefiez-vous des autres Maitres car tous ne
 sont pas bienveillants. Et soyez aimable avec le Geant."
 
-Sur ces paroles, il bondit et disparait dans les arbres. La clairiere est vide
-a present.
+   Sur ces paroles, il bondit et disparait dans les arbres. La clairiere est
+vide a present.
 
 C 352 Poursuivre votre route

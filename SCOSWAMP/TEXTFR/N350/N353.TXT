@@ -1,10 +1,10 @@
 T 353 Offense aux Brigands
 
-Vous avez gravement offense les Brigands. Ils pensaient vous avoir offert la
-une chance equitable de regler la question dans l'honneur et vous l'avez
+   Vous avez gravement offense les Brigands. Ils pensaient vous avoir offert
+la une chance equitable de regler la question dans l'honneur et vous l'avez
 refusee.
 
-A present, vous allez devoir en combattre plusieurs a la fois, au lieu d'un
+   A present, vous allez devoir en combattre plusieurs a la fois, au lieu d'un
 seul, et ce ne sera pas un duel au premier sang...
 
 C 235 Combattre les Brigands

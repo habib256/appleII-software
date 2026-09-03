@@ -1,14 +1,14 @@
 T 193 Les potions de Stratagus
 
-Stratagus observe le desordre de la salle, puis hausse les epaules en riant :
-"Soit, parlons affaires maintenant." Il vous mene dans une autre piece et
+   Stratagus observe le desordre de la salle, puis hausse les epaules en riant
+: "Soit, parlons affaires maintenant." Il vous mene dans une autre piece et
 revient avec plusieurs fioles aux couleurs chatoyantes. "Buvez, cela vous fera
 du bien", dit-il.
 
-Vous hesitez, puis gouttez le contenu d'une bouteille. Le sorcier rit de votre
-prudence, mais il disait vrai : vous sentez vos forces revenir. C'etait une
-Potion de Guerison ! Vous videz les autres fioles et, contre toute attente,
-aucune n'est empoisonnee. Vos points d'HABILETE, d'ENDURANCE et de CHANCE
-reviennent a leur total initial.
+   Vous hesitez, puis gouttez le contenu d'une bouteille. Le sorcier rit de
+votre prudence, mais il disait vrai : vous sentez vos forces revenir. C'etait
+une Potion de Guerison ! Vous videz les autres fioles et, contre toute
+attente, aucune n'est empoisonnee. Vos points d'HABILETE, d'ENDURANCE et de
+CHANCE reviennent a leur total initial.
 
 C 206 Poursuivre apres cette etrange entrevue

@@ -1,10 +1,10 @@
 T 086 Tenter sa CHANCE
 
-Tentez votre CHANCE. Si vous etes CHANCEUX, vous trouverez quelque chose
+   Tentez votre CHANCE. Si vous etes CHANCEUX, vous trouverez quelque chose
 d'utile dans la clairiere.
 
-Si vous etes MALCHANCEUX, vous ne decouvrez rien et devez reprendre la route,
-peut-etre moins riche qu'avant. Le sort en decide : lancez les des et
+   Si vous etes MALCHANCEUX, vous ne decouvrez rien et devez reprendre la
+route, peut-etre moins riche qu'avant. Le sort en decide : lancez les des et
 consultez le resultat.
 
 CL 189 348

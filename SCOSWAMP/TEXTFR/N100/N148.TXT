@@ -1,13 +1,13 @@
 T 148 Le cochon gras
 
-Vous vous demandez quel genre d'illusion pourrait tromper les Brigands; ils
+   Vous vous demandez quel genre d'illusion pourrait tromper les Brigands; ils
 ont l'air depenailles et affames. Sans doute seraient-ils ravis d'un bon
 repas. Vous esquissez un sourire: une bonne idee vous vient.
 
-Vous creez l'illusion d'un cochon gras qui traverse la clairiere, puis file le
-long d'un chemin qui y mene. Dans leur hate de capturer ce gibier inespere,
+   Vous creez l'illusion d'un cochon gras qui traverse la clairiere, puis file
+le long d'un chemin qui y mene. Dans leur hate de capturer ce gibier inespere,
 les Brigands se bousculent et se lancent a sa poursuite sans vous voir.
 
-Vous profitez de leur desordre et franchissez la clairiere.
+   Vous profitez de leur desordre et franchissez la clairiere.
 
 C 019 Reprendre la route

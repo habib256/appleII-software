@@ -1,12 +1,12 @@
 T 227 Le choix des chemins
 
-Trois chemins permettent de quitter la clairiere. Celui qui mene vers l'est
+   Trois chemins permettent de quitter la clairiere. Celui qui mene vers l'est
 parait plus etroit et plus sombre que les autres. Le sentier du nord s'eleve
 legerement et promet de l'air plus sec; celui de l'ouest semble retourner vers
 des lieux deja vus. Le silence pese, seulement rompu par le bourdonnement des
 mouches.
 
-Dans quelle direction souhaitez-vous aller ?
+   Dans quelle direction souhaitez-vous aller ?
 
 MU MARAISUD.MB
 C 066 Prendre le sentier qui monte vers le nord

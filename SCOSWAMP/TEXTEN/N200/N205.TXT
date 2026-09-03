@@ -1,11 +1,11 @@
 T 205 Grognard, Beer and Sorcerers
 
-Grognard orders another pitcher and tells you about the three sorcerers:
+   Grognard orders another pitcher and tells you about the three sorcerers:
 
-Gayolard is according to him a good sorcerer. Stratagus has turned to Evil.
+   Gayolard is according to him a good sorcerer. Stratagus has turned to Evil.
 Pompatarte is a mystery, powerful, but unpredictable.
 
-All three are recruiting an adventurer to explore the Swamp.
+   All three are recruiting an adventurer to explore the Swamp.
 
 C 335 Gayolard, the good sorcerer
 C 255 Stratagus, in the service of Evil

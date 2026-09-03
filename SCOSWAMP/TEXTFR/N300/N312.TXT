@@ -1,7 +1,7 @@
 T 312 Le Scorpion Geant
 
-Le Scorpion Geant vous menace de ses pinces. Il n'est pas gravement blesse: a
-l'evidence, le Nain n'etait pas un combattant tres habile.
+   Le Scorpion Geant vous menace de ses pinces. Il n'est pas gravement blesse:
+a l'evidence, le Nain n'etait pas un combattant tres habile.
 
 MU +COMBAT.MB
 M 9 10 SCORPION GEANT

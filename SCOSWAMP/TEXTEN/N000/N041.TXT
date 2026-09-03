@@ -1,15 +1,15 @@
 T 041 Quicksand
 V 382 270
 
-You enter a clearing surrounded by trees whose trunks are covered with ivy.
+   You enter a clearing surrounded by trees whose trunks are covered with ivy.
 The ground suddenly becomes softer. No other path seems present: you are
 caught in the center.
 
-Without warning, the ground gives way and you begin to sink into quicksand.
+   Without warning, the ground gives way and you begin to sink into quicksand.
 Test your Luck: if you are lucky, you lose 2 STAMINA points and manage to
 escape. If you are unlucky, the situation becomes more dangerous.
 
-What do you do?
+   What do you do?
 
 MU DANGER.MB
 CL 270 087 -2 0

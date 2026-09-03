@@ -1,9 +1,9 @@
 T 089 Le pont de glace
 
-Vous utilisez votre Pierre Magique pour geler la riviere et creer un passage.
-Mais le cours d'eau est large et sa temperature elevee.
+   Vous utilisez votre Pierre Magique pour geler la riviere et creer un
+passage. Mais le cours d'eau est large et sa temperature elevee.
 
-Sous l'effet de la chaleur, votre pont de glace se met a fondre
+   Sous l'effet de la chaleur, votre pont de glace se met a fondre
 dangereusement...
 
 C 325 Tenter de franchir le pont

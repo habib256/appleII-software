@@ -1,17 +1,17 @@
 T 320 La Licorne
 V 265 348
 
-Le chemin suit une legere pente descendante et aboutit a une clairiere au sol
-envahi d'herbes.
+   Le chemin suit une legere pente descendante et aboutit a une clairiere au
+sol envahi d'herbes.
 
-Un animal de couleur blanche est couche au centre de la clairiere. Vous pensez
-d'abord qu'il s'agit d'un cheval, mais lorsqu'il tourne la tete dans votre
-direction, vous reconnaissez aussitot une LICORNE. Elle semble blessee : des
-traces de griffes sont visibles sur son flanc. Elle se releve cependant et
+   Un animal de couleur blanche est couche au centre de la clairiere. Vous
+pensez d'abord qu'il s'agit d'un cheval, mais lorsqu'il tourne la tete dans
+votre direction, vous reconnaissez aussitot une LICORNE. Elle semble blessee :
+des traces de griffes sont visibles sur son flanc. Elle se releve cependant et
 baisse sa corne vers vous en lancant un grognement qui ressemble fort a un
 defi.
 
-Qu'allez-vous faire ?
+   Qu'allez-vous faire ?
 
 MU MARAISUD.MB
 C 368 Vous enfuir

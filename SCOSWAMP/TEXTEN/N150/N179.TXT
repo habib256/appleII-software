@@ -1,10 +1,10 @@
 T 179 The Three-Way Crossroads
 
-Three paths allow you to leave this clearing. The path oriented north seems to
-follow a downward slope. South leads back to the previous clearing, while east
-plunges deeper into the Swamp.
+   Three paths allow you to leave this clearing. The path oriented north seems
+to follow a downward slope. South leads back to the previous clearing, while
+east plunges deeper into the Swamp.
 
-Which path do you choose? Weigh quickly: each direction will lead you to
+   Which path do you choose? Weigh quickly: each direction will lead you to
 different trials and diverse encounters.
 
 MU MARAISUD.MB

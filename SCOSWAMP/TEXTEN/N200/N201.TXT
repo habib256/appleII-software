@@ -1,10 +1,10 @@
 T 201 The Birds' Cry
 
-You throw a Terror Stone toward the Bird Mistress. She lets out a scream of
+   You throw a Terror Stone toward the Bird Mistress. She lets out a scream of
 horror, but immediately, the sky darkens: hundreds of shimmering birds swoop
 down on you. They don't attack you, they protect her. Their wings beat around
 you, completely blinding you.
 
-When finally the tumult ceases, the Mistress has disappeared.
+   When finally the tumult ceases, the Mistress has disappeared.
 
 C 217 Leave the clearing

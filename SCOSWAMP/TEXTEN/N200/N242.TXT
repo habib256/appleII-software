@@ -1,10 +1,10 @@
 T 242 Light Bag
 
-Opening the bag you notice it isn't as heavy as it should be. You crossed the
-Swamp for him; and here upon returning, the contents are missing. Stratagus
-has deceived you, or there's been an error: anger rises.
+   Opening the bag you notice it isn't as heavy as it should be. You crossed
+the Swamp for him; and here upon returning, the contents are missing.
+Stratagus has deceived you, or there's been an error: anger rises.
 
-What do you do? Return to the tower and strike him? Try the magical way to
+   What do you do? Return to the tower and strike him? Try the magical way to
 recover what's due you? Or resign yourself and leave with what you've been
 given to avoid further perils?
 

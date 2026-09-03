@@ -1,17 +1,17 @@
 T 027 Chez Pompatarte
 
-Grognard vous conseille d'aller chercher Pompatarte au marche. Dans le dedale
-de rues vous vous perdez; apres des demandes partout, un groupe d'enfants vous
-conduit devant une grande maison au bord du marche. Vous frappez: une Gobeline
-servante vous ouvre la porte. Elle vous conduit a la bibliotheque ou
-Pompatarte est assis.
+   Grognard vous conseille d'aller chercher Pompatarte au marche. Dans le
+dedale de rues vous vous perdez; apres des demandes partout, un groupe
+d'enfants vous conduit devant une grande maison au bord du marche. Vous
+frappez: une Gobeline servante vous ouvre la porte. Elle vous conduit a la
+bibliotheque ou Pompatarte est assis.
 
-Homme enorme et etrange: tres grand, obese, barbe en tresses, peau d'un rouge
-brillant. Vous lui racontez votre histoire et proposez vos services. Il vous
-repond: "J'en ai besoin, mais comment comptez-vous survivre au Marais aux
+   Homme enorme et etrange: tres grand, obese, barbe en tresses, peau d'un
+rouge brillant. Vous lui racontez votre histoire et proposez vos services. Il
+vous repond: "J'en ai besoin, mais comment comptez-vous survivre au Marais aux
 Scorpions?"
 
-Que dites-vous?
+   Que dites-vous?
 
 C 002 Lui parler de la Vieille Femme et de l'Anneau de Cuivre
 C 173 Lui assurer que vous etes un guerrier hors pair

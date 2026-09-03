@@ -1,13 +1,13 @@
 T 028 Les Arbres-Epees
 
-Plusieurs ARBRES-EPEES vous attaquent comme s'ils formaient un seul
+   Plusieurs ARBRES-EPEES vous attaquent comme s'ils formaient un seul
 adversaire. Ils ne peuvent pas vous voir et ne se reperent que par les bruits
 que vous faites. Chacun d'eux porte plusieurs branches armees de lames
 acerees, et ils convergent en silence. Vous disposez d'un avantage: ils ne
 detectent que le son. Faites preuve de prudence et de precision dans votre
 attaque.
 
-Affrontez-les en appliquant les regles de combat du livre. Si vous les
+   Affrontez-les en appliquant les regles de combat du livre. Si vous les
 vainquez, poursuivez la lecture au numero indique. Sinon, votre cadavre
 servira d'engrais pour le marais.
 

@@ -1,12 +1,12 @@
 T 092 The Two Wolves
 V 108 232 247 389
 
-The path northward gradually rises. The ground becomes drier and the swamp
+   The path northward gradually rises. The ground becomes drier and the swamp
 vegetation gives way to a deep forest.
 
-Soon, the trees thin out and you reach a vast clearing dotted with bushes.
+   Soon, the trees thin out and you reach a vast clearing dotted with bushes.
 
-You listen, but nothing abnormal disturbs the silence. Then, suddenly, two
+   You listen, but nothing abnormal disturbs the silence. Then, suddenly, two
 enormous wolves appear and stare at you in the shadow.
 
 MU MARAISNO.MB

@@ -1,12 +1,12 @@
 T 035 The Cursed Magnet
 
-The orcs shoot two arrows: they miss you, then curve and embed themselves in
-your Backpack. Only one scratches your shoulder. You lose 1 STAMINA point.
+   The orcs shoot two arrows: they miss you, then curve and embed themselves
+in your Backpack. Only one scratches your shoulder. You lose 1 STAMINA point.
 
-You then understand that the Gold Magnet is cursed: it attracts arrows. By
+   You then understand that the Gold Magnet is cursed: it attracts arrows. By
 luck, it was stored in your bag and not worn on you.
 
-What do you do?
+   What do you do?
 
 E ENDURANCE -1
 C 281 Attack with your sword

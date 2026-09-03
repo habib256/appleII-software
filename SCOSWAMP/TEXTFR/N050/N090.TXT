@@ -1,12 +1,12 @@
 T 090 La riviere profonde
 
-Vous avez traverse plusieurs cours d'eau faciles a franchir, mais celui qui se
-trouve devant vous est beaucoup plus profond.
+   Vous avez traverse plusieurs cours d'eau faciles a franchir, mais celui qui
+se trouve devant vous est beaucoup plus profond.
 
-La riviere tourbillonne en remous et n'inspire guere confiance : qui sait
+   La riviere tourbillonne en remous et n'inspire guere confiance : qui sait
 quelles creatures se cachent dans son lit ?
 
-Qu'allez-vous faire face a cet obstacle ?
+   Qu'allez-vous faire face a cet obstacle ?
 
 MU RIVIERE.MB
 CU GLACE 370 Utiliser une Pierre Magique de Glace

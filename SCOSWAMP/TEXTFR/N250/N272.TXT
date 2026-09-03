@@ -1,12 +1,12 @@
 T 272 Retour au village
 
-Vous reussissez tant bien que mal a retourner au village. Vous etes epuise et
-trempe car vous etes tombe dans une mare de boue. Reduisez de 2 points votre
-total de CHANCE et remerciez le ciel d'etre encore en vie. Vous prenez un bain
-chaud a l'auberge et vous vous sentez alors nettement mieux.
+   Vous reussissez tant bien que mal a retourner au village. Vous etes epuise
+et trempe car vous etes tombe dans une mare de boue. Reduisez de 2 points
+votre total de CHANCE et remerciez le ciel d'etre encore en vie. Vous prenez
+un bain chaud a l'auberge et vous vous sentez alors nettement mieux.
 
-Vous allez ensuite retrouver Grognard en vous excusant de votre impetuosite.
-Il hoche la tete et esquisse un sourire. "Vous avez de la chance et vous etes
-resistant, sinon, vous ne seriez jamais revenu vivant", dit-il.
+   Vous allez ensuite retrouver Grognard en vous excusant de votre
+impetuosite. Il hoche la tete et esquisse un sourire. "Vous avez de la chance
+et vous etes resistant, sinon, vous ne seriez jamais revenu vivant", dit-il.
 
 C 205 Ecouter Grognard

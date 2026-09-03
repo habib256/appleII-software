@@ -1,10 +1,10 @@
 T 045 Suspicious Bridge
 
-You distrust this bridge which seems too simple; it must undoubtedly conceal
-some trap. So you retrace your steps in the direction you came from.
+   You distrust this bridge which seems too simple; it must undoubtedly
+conceal some trap. So you retrace your steps in the direction you came from.
 
-The route depends on your origin: return north if you came from the north, or
-south if you came from the south.
+   The route depends on your origin: return north if you came from the north,
+or south if you came from the south.
 
 MU RIVIERE.MB
 C 331 Return to the north

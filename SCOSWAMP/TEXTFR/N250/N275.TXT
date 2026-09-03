@@ -1,20 +1,20 @@
 T 275 Le Geant
 V 342 161 103 244
 
-Un trou dans le sol vous fait bientot trebucher. Vous regardez a terre et vous
-vous apercevez alors que le trou en question est en fait une empreinte de
+   Un trou dans le sol vous fait bientot trebucher. Vous regardez a terre et
+vous vous apercevez alors que le trou en question est en fait une empreinte de
 cinquante centimetres de long, laissee la par une enorme botte a semelle
 cloutee.
 
-Vous etes a l'entree d'une clairiere. Vous entrez dans la clairiere et vous
+   Vous etes a l'entree d'une clairiere. Vous entrez dans la clairiere et vous
 vous trouvez nez a nez avec un Geant d'une taille fantastique. Il a l'air
 furieux et brandit une grosse massue herissee de pointes. Votre Anneau de
 Cuivre reste froid, il ne s'agit donc pas d'une creature malefique. Le Geant
 n'en est pas moins dangereux pour autant.
 
-"IL EST INTERDIT DE PASSER !" hurle-t-il a votre adresse.
+   "IL EST INTERDIT DE PASSER !" hurle-t-il a votre adresse.
 
-Qu'allez-vous faire ?
+   Qu'allez-vous faire ?
 
 MU MARAISNO.MB
 C 012 L'attaquer

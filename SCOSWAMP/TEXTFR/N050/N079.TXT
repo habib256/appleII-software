@@ -1,10 +1,10 @@
 T 079 Duel au premier sang
 
-Apres etre tombes d'accord pour un duel au premier sang, le Chef des Brigands
-et vous vous mettez en garde. Les autres brigands se rassemblent, curieux mais
-sans hostilite, attentifs au combat.
+   Apres etre tombes d'accord pour un duel au premier sang, le Chef des
+Brigands et vous vous mettez en garde. Les autres brigands se rassemblent,
+curieux mais sans hostilite, attentifs au combat.
 
-Le combat s'arrete des qu'un des deux adversaires est blesse.
+   Le combat s'arrete des qu'un des deux adversaires est blesse.
 
 MU +COMBAT.MB
 M 9 10 CHEF DES BRIGANDS

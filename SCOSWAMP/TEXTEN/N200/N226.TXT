@@ -1,10 +1,10 @@
 T 226 At the Tower Door
 
-You find Stratagus's tower again, its heavy door opens and the sorcerer awaits
-you, impatient. He extends his hand asking for the Amulets: his voice is
-greedy. He awaits a concrete answer.
+   You find Stratagus's tower again, its heavy door opens and the sorcerer
+awaits you, impatient. He extends his hand asking for the Amulets: his voice
+is greedy. He awaits a concrete answer.
 
-What do you tell him according to what you've brought back?
+   What do you tell him according to what you've brought back?
 
 MU TOUR.MB
 CA 0 0 054 I didn't manage to obtain any Amulets

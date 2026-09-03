@@ -1,9 +1,9 @@
 T 154 The Wolf Amulet
 
-The Wolf Master lies at your feet. You search his body and find a Wolf-shaped
-Amulet, the only object of interest.
+   The Wolf Master lies at your feet. You search his body and find a
+Wolf-shaped Amulet, the only object of interest.
 
-The cold metal pulses with a strange, almost living energy. You take it and
+   The cold metal pulses with a strange, almost living energy. You take it and
 slip it around your neck, feeling its mystic weight.
 
 G LOUP

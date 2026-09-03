@@ -415,6 +415,26 @@ static void test_objets(void)
     CHECK(character_has_object(&c, OBJ_PLUMES), "plumes entrent dans le sac");
     character_take_object(&c, OBJ_BIJOU);
     CHECK(!character_has_object(&c, OBJ_BIJOU), "bijou remis quitte le sac");
+    /* Les Graines d'Arbres-Epees (pages 362 et 393, ramassees au 022,
+     * repandues au 228) : le jeton du corpus doit tomber sur un objet
+     * VISIBLE, sans quoi la page les donne dans le vide et le sac reste
+     * muet -- c'est exactement le bug qu'on a eu. */
+    CHECK(object_from_name("GR") == OBJ_GRAINES, "graines reconnues");
+    character_give_object(&c, OBJ_GRAINES);
+    CHECK(character_has_object(&c, OBJ_GRAINES), "graines entrent dans le sac");
+    CHECK(OBJ_GRAINES < OBJ_HIDDEN0, "les graines sont un objet, pas un drapeau");
+    CHECK(object_name(OBJ_GRAINES, 0)[0] && object_name(OBJ_GRAINES, 1)[0],
+          "les graines ont un nom dans les deux langues");
+    character_take_object(&c, OBJ_GRAINES);
+    CHECK(!character_has_object(&c, OBJ_GRAINES), "graines repandues au 228");
+    /* Tout ce qui precede OBJ_HIDDEN0 se montre, donc doit se nommer ; tout
+     * ce qui suit est un fait narratif et reste anonyme. */
+    {
+        int k;
+        for (k = 0; k < OBJ_COUNT; ++k)
+            CHECK((object_name((Object)k, 0)[0] != '\0') == (k < OBJ_HIDDEN0),
+                  "objet %d : nom present si et seulement si visible", k);
+    }
     c.amulets = 0;
     CHECK(amulet_from_name("ARAIGNEE") == AMULET_ARAIGNEE, "amulette araignee");
     CHECK(amulet_from_name("FAUX") == AMULET_FAUSSE_OISEAU,

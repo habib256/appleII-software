@@ -1,6 +1,6 @@
 T 130 Stone Choice
 
-Which Magic Stone will you try?
+   Which Magic Stone will you try?
 
 CU MALEDICTION 260 Use a Curse Stone
 CU AMITIE 111 Use a Friendship Stone

@@ -1,6 +1,6 @@
 T 387 Choix de Pierre Magique
 
-De quelle Pierre Magique allez-vous faire usage ?
+   De quelle Pierre Magique allez-vous faire usage ?
 
 CU MALEDICTION 107 Pierre de Malediction
 CU TERREUR 278 de Terreur

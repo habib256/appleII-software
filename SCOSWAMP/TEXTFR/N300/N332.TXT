@@ -1,7 +1,7 @@
 T 332 Piege du Maitre des Araignees
 
-Indifferent a l'avertissement que vous donne votre Anneau de Cuivre, vous vous
-adressez au Maitre des Araignees sur un ton fort aimable. Il vous repond
+   Indifferent a l'avertissement que vous donne votre Anneau de Cuivre, vous
+vous adressez au Maitre des Araignees sur un ton fort aimable. Il vous repond
 poliment en vous demandant ce qui vous amene par ici. Vous vous appretez a le
 lui expliquer lorsque vous ressentez soudain une vive douleur au cou. Le
 Maitre eclate alors d'un rire joyeux. Vous faites aussitot volte-face et vous
@@ -11,7 +11,7 @@ sang et vous vous ecroulez sur le sol, incapable de bouger. Dans un
 demi-brouillard, vous apercevez le Maitre des Araignees qui fouille votre Sac
 a Dos pour examiner le butin qu'il vient de s'approprier.
 
-Puis vous sentez qu'on vous souleve par-derriere et qu'on vous hisse sur la
+   Puis vous sentez qu'on vous souleve par-derriere et qu'on vous hisse sur la
 branche d'un arbre. Quelques instants plus tard vous vous retrouvez enveloppe
 d'une toile d'araignee et vous restez la, suspendu entre ciel et terre. Dans
 une semaine ou deux, les Araignees qui vivent en ces lieux jugeront sans doute

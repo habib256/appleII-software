@@ -1,6 +1,6 @@
 T 282 Pierre de Glace
 
-Vous lancez la Pierre de Glace sur la Vase. C'etait bien ce sortilege qu'il
+   Vous lancez la Pierre de Glace sur la Vase. C'etait bien ce sortilege qu'il
 convenait de choisir, car la Vase est une creature constituee d'eau et, sous
 l'effet de votre Pierre de Magie, elle gele instantanement et meurt.
 

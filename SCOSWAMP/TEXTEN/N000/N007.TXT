@@ -1,14 +1,14 @@
 T 007 The Sorcerer's Offer
 
-The sorcerer's face darkens; the patterns on his robe begin to dance before
+   The sorcerer's face darkens; the patterns on his robe begin to dance before
 your eyes in a threatening manner.
 
-"It's better than nothing," he mutters. "Give me what you have and you'll
+   "It's better than nothing," he mutters. "Give me what you have and you'll
 receive two hundred and fifty Gold Pieces in exchange." The offer is tempting,
 but his sly smile suggests a trick. Weighing the immediate gain against the
 future value of your items is wise.
 
-What do you do?
+   What do you do?
 
 C 266 Accept his offer and receive the money
 C 207 Remind him that he owed you more

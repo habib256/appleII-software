@@ -1,9 +1,9 @@
 T 243 The Beast's Carrion
 
-You find the enormous carcass of the Foul Beast in the clearing's center. A
+   You find the enormous carcass of the Foul Beast in the clearing's center. A
 multitude of scavenger insects, resembling crabs, feast.
 
-The smell and sight repel you; you refuse to approach. You turn around and
+   The smell and sight repel you; you refuse to approach. You turn around and
 resume the eastward trail, with good strides.
 
 MU DANGER.MB

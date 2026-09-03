@@ -7,7 +7,9 @@
                       numeros suivants sont les AUTRES pages de la meme
                       clairiere (hub, variantes, revisite) : le detour joue
                       des que l'une d'elles, ou la cible, a ete vue
-  <corps>             replie a 78 colonnes, tient dans les lignes 2 a 20
+  <corps>             replie a 78 colonnes, tient dans les lignes 2 a 20 ;
+                      chaque paragraphe s'ouvre sur un retrait de trois
+                      espaces, comme dans un livre imprime
   M  <hab> <end> <nom>  la creature de la clairiere
   MD <n>              ses coups coutent n ENDURANCE (defaut 2)
   MS <n>              le combat cesse a n ENDURANCE (defaut 0)
@@ -45,6 +47,13 @@ MAX_CHOICES  = 5     # doit suivre MAX_CHOICES dans scoswamp.c
 FILE_BUFFER  = 1280  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
 COL         = 39   # largeur d'une colonne de choix (2 par ligne)
 WRAP        = 78
+# Le retrait de premiere ligne de paragraphe. Trois espaces : sur une justif'
+# de 78 colonnes, deux se voient a peine et quatre mangent un mot de plus par
+# paragraphe sans rien ajouter a l'oeil. Il est COMPRIS dans les 78 -- la
+# premiere ligne se remplit donc a 75 -- et le moteur n'en sait rien :
+# classify_line range toute ligne qui ne commence pas par une lettre de
+# directive en colonne 0 dans le corps, et render_scene la sort telle quelle.
+INDENT      = "   "
 
 RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # Les directives de jeu : ni titre, ni corps, ni choix. Elles ne se replient
@@ -612,19 +621,46 @@ def parse(path):
     while body and not body[0].strip(): body.pop(0)
     return title, body, choices, directives
 
-def _w(text, width):
+def _w(text, width, indent=INDENT):
     # Les blancs multiples sont ramenes a un : textwrap les conserve, et le
     # trou laisse par une phrase retiree se voyait a l'ecran.
     text = re.sub(r"\s+", " ", text)
     # break_on_hyphens=False : sinon "spider-shaped" est coupe en deux mots et
     # la ligne se termine sur un tiret orphelin. break_long_words=False : aucun
     # mot n'est jamais casse ; le controle de largeur ci-dessous le verifierait.
-    return textwrap.wrap(text, width, break_on_hyphens=False,
-                         break_long_words=False)
+    # initial_indent : textwrap DECOMPTE le retrait de la largeur, donc la
+    # premiere ligne se remplit a `width - len(indent)` et le mot de trop
+    # descend tout seul a la ligne suivante. Coller le retrait apres coup
+    # aurait pousse cette ligne a 81 colonnes, et l'Apple II l'aurait
+    # enroulee -- en silence, comme toujours.
+    return textwrap.wrap(text, width, initial_indent=indent,
+                         break_on_hyphens=False, break_long_words=False)
+
+def deindent(body):
+    """Retire le retrait canonique pose par la passe precedente.
+
+    Sans ca, le format ne serait pas idempotent : la premiere ligne d'un
+    paragraphe deja indente tomberait dans la branche "deja mise en forme" de
+    wrap(), le paragraphe se figerait sur la coupe du jour, et les lignes
+    suivantes -- elles, non indentees -- se replieraient a part. Le retrait est
+    donc de la MISE EN FORME et rien d'autre : on le pose a l'ecriture et on
+    l'oublie a la relecture, exactement comme une fin de ligne.
+
+    Seule une premiere ligne de paragraphe est concernee, et seulement avec le
+    retrait exact : la ligne de menu du N000 (" [A-E] - Choisir ...") commence
+    par UNE espace, garde donc son alignement fait main.
+    """
+    out, start = [], True
+    for l in body:
+        if start and l.startswith(INDENT) and not l[len(INDENT):len(INDENT)+1].isspace():
+            l = l[len(INDENT):]
+        out.append(l)
+        start = not l.strip()
+    return out
 
 def wrap(body, width=WRAP):
     out, para = [], []
-    for l in body:
+    for l in deindent(body):
         if not l.strip():
             if para: out += _w(" ".join(para), width); para = []
             if out and out[-1] != "": out.append("")
@@ -797,7 +833,7 @@ def main():
                                     "total de depart")
                 if parts[0] in ("G", "GX", "CI", "CN", "GU") and len(parts) > 1:
                     keys = {"ANNEAU", "CAPE", "CH", "AI", "FI", "BA",
-                            "EP", "BJ", "CO", "PL",
+                            "EP", "BJ", "CO", "PL", "GR",
                             ".T", "LOUP", "FLEUR",
                             "OISEAU", "ARAIGNEE", "GRENOUILLE", "FAUX"}
                     if parts[1] not in keys:

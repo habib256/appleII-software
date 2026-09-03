@@ -1,14 +1,14 @@
 T 241 Stratagus's Magic Sword
 
-Stratagus congratulates you for your courage and hands you a gift. He pulls
+   Stratagus congratulates you for your courage and hands you a gift. He pulls
 out a miniature sword that grows before you and becomes a Magic Sword.
 
-When employed, it adds +1 point to your SKILL total for the corresponding
+   When employed, it adds +1 point to your SKILL total for the corresponding
 combat action. Then Stratagus touches your shoulder with his Wand: your LUCK
 immediately returns to its initial level if you had lost any. You feel the
 weapon's power and the magic protecting you somewhat.
 
-Do you accept the gift and continue with him?
+   Do you accept the gift and continue with him?
 
 G EP
 E CHANCE +99

@@ -1,10 +1,10 @@
 T 232 La baie rangee
 
-Vous cueillez delicatement la baie et la rangez soigneusement. Si vous etes au
-service de Gayolard, agissez en consequence. Sinon, quittez la clairiere et
+   Vous cueillez delicatement la baie et la rangez soigneusement. Si vous etes
+au service de Gayolard, agissez en consequence. Sinon, quittez la clairiere et
 reprenez le chemin du sud.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU MARAISNO.MB
 G BA

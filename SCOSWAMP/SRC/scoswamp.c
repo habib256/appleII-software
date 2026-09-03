@@ -762,12 +762,18 @@ static void lose_items(unsigned char n)
     while (n) {
         for (i = 0; i < STONE_COUNT && !app.hero.stones[i]; ++i) {}
         if (i < STONE_COUNT) { --app.hero.stones[i]; --n; continue; }
-        /* Seuls les dix objets visibles peuvent etre voles. Les bits suivants
-         * sont des faits narratifs caches, pas des biens poses dans le sac. */
-        bits = app.hero.objects & 0x03FEu;
+        /* Seuls les objets visibles peuvent etre voles, l'Anneau de Cuivre
+         * (bit 0) excepte : il est la boussole de Stratagus et le recit ne le
+         * reprend qu'a la page 049. Les bits a partir d'OBJ_HIDDEN0 sont des
+         * faits narratifs caches, pas des biens poses dans le sac. Le masque
+         * se calcule -- bits 1 a OBJ_HIDDEN0-1 -- pour qu'un objet ajoute a
+         * l'enum devienne volable sans qu'on ait a y repenser ; c'est une
+         * constante, le compilateur la plie. */
+#define STEALABLE ((unsigned int)((1u << OBJ_HIDDEN0) - 2u))
+        bits = app.hero.objects & STEALABLE;
         if (bits) {
             bits &= bits - 1;
-            app.hero.objects = (app.hero.objects & ~0x03FEu) | bits;
+            app.hero.objects = (app.hero.objects & ~STEALABLE) | bits;
             --n; continue;
         }
         if (app.hero.amulets) {
@@ -1463,16 +1469,25 @@ static void show_inventory(int in_combat)
                         ? "" : (msg(M_INTERDITE_EN_PLEIN)));
             shown[n++] = s;
         }
-        /* Objets visibles, suivis des six amulettes ; les drapeaux narratifs
-         * (indices 9 et suivants) ne figurent jamais dans le sac. */
-        for (i = 0; i < 10; ++i) {
+        /* Objets visibles, suivis des six amulettes, dans la colonne de
+         * droite ; les drapeaux narratifs (OBJ_HIDDEN0 et au-dela) ne
+         * figurent jamais dans le sac.
+         *
+         * Les deux listes se SUIVENT au lieu d'occuper chacune une plage
+         * fixe : les amulettes commencaient ligne 13, c'est-a-dire sur le
+         * dixieme objet, et le onzieme (les Graines) serait tombe dessous.
+         * Onze objets plus six amulettes tiennent lignes 4 a 20, au-dessus
+         * de l'invite de la ligne 22, et le compteur coute moins cher que
+         * l'addition qu'il remplace. */
+        row = 4;
+        for (i = 0; i < OBJ_HIDDEN0; ++i) {
             if (!character_has_object(&app.hero, (Object)i)) continue;
-            gotoxy(40, 4 + i);
+            gotoxy(40, row++);
             cfmt("- %s", object_name((Object)i, !is_fr()));
         }
         for (i = 0; i < AMULET_COUNT; ++i) {
             if (!character_has_amulet(&app.hero, (Amulet)i)) continue;
-            gotoxy(40, 13 + i);
+            gotoxy(40, row++);
             cfmt("- %s", amulet_name((Amulet)i, !is_fr()));
         }
         if (n == 0 && app.hero.objects == 0) {
@@ -1668,11 +1683,12 @@ static int run_combat(void)
     Round r;
     char key;
 
-    /* Le combat s'affiche en mode mixte : l'illustration des adversaires
-     * au-dessus, l'echange d'assauts dans les 4 lignes du bas. C'est pour ca
-     * que le bandeau porte les caracteristiques des DEUX combattants -- la
-     * barre de titre, elle, disparait sous l'image. */
-    if (app.has_image) set_video_mode(2);
+    /* La page reste en texte jusqu'au premier "engager" : le joueur lit ce
+     * qui l'attend, le bandeau des combattants occupant les 4 lignes du bas.
+     * Le combat passe ensuite en mode mixte, l'illustration des adversaires
+     * au-dessus de l'echange d'assauts -- c'est pour ca que le bandeau porte
+     * les caracteristiques des DEUX combattants, la barre de titre
+     * disparaissant sous l'image. */
 
     for (;;) {
         /* Chaque ligne est reecrite en un passage, aucune n'est effacee
@@ -1729,6 +1745,7 @@ static int run_combat(void)
         }
         use_luck = (pending && (key == 'C' || key == 'c'));
         if (!use_luck && key != ' ' && key != '\r') continue;
+        if (assaut == 0 && app.has_image) set_video_mode(2);   /* on engage : l'image */
 
         /* Encaisser la blessure en attente, puis enchainer : c'est ce qui fait
          * tenir un assaut en une seule frappe. */

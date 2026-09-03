@@ -1,8 +1,8 @@
 T 074 The Spider Master
 
-You have decided to fight the Spider Master using one of your Magic Stones.
+   You have decided to fight the Spider Master using one of your Magic Stones.
 
-But which one to choose?
+   But which one to choose?
 
 CU AMITIE 361 Use the Friendship Stone
 CU MALEDICTION 261 Use the Curse Stone

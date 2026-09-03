@@ -1,6 +1,6 @@
 T 331 The Eagle's Nest
 
-You're back in the clearing where the large Eagle established its nest. You
+   You're back in the clearing where the large Eagle established its nest. You
 see nothing else than the old tree and the nest it- self.
 
 MU MARAISNO.MB

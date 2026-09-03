@@ -1,15 +1,15 @@
 T 014 Scorpion and Dwarf
 V 338 088
 
-The path leads to a small clearing where several trees have fallen. You
+   The path leads to a small clearing where several trees have fallen. You
 approach and hear sounds of struggle behind a wide trunk.
 
-The image that unfolds is terrible: a GIANT SCORPION holds a DWARF. The beast
-has caught the dwarf by the neck in a claw and hurls him to the ground. The
-dwarf remains lying there, lifeless, while the scorpion seems to devour him.
-It seems unlikely that your Magic Stones will have any effect here.
+   The image that unfolds is terrible: a GIANT SCORPION holds a DWARF. The
+beast has caught the dwarf by the neck in a claw and hurls him to the ground.
+The dwarf remains lying there, lifeless, while the scorpion seems to devour
+him. It seems unlikely that your Magic Stones will have any effect here.
 
-What do you do?
+   What do you do?
 
 MU DANGER.MB
 C 088 Leave the clearing while the monster feeds

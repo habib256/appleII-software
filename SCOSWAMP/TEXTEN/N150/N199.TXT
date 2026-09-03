@@ -1,8 +1,8 @@
 T 199 Friendly Encounter
 
-Two Brigands rest in the clearing, their usual camp.
+   Two Brigands rest in the clearing, their usual camp.
 
-Seeing you approach, they recognize you, greet you and give you a broad smile.
-You return their salute without fear, then resume your journey.
+   Seeing you approach, they recognize you, greet you and give you a broad
+smile. You return their salute without fear, then resume your journey.
 
 C 019 Leave the clearing

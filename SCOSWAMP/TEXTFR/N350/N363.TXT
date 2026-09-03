@@ -1,9 +1,9 @@
 T 363 Retour au Patrouilleur
 
-Vous retournez dans la clairiere ou vous avez fait la rencontre du
+   Vous retournez dans la clairiere ou vous avez fait la rencontre du
 Patrouilleur.
 
-Que s'est-il passe avec lui ?
+   Que s'est-il passe avec lui ?
 
 MU MARAISNO.MB
 C 133 L'avez-vous quitte en bons termes

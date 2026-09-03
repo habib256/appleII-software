@@ -1,8 +1,8 @@
 T 121 Le croisement
 
-Vous vous trouvez a un croisement. Quatre directions s'offrent a vous.
+   Vous vous trouvez a un croisement. Quatre directions s'offrent a vous.
 
-Laquelle allez-vous choisir ?
+   Laquelle allez-vous choisir ?
 
 MU MARAISNO.MB
 C 170 Aller vers le nord

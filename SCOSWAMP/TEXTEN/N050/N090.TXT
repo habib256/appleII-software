@@ -1,12 +1,12 @@
 T 090 The Deep River
 
-You have crossed several easily fordable streams, but the one before you is
+   You have crossed several easily fordable streams, but the one before you is
 much deeper.
 
-The river swirls in eddies and hardly inspires confidence: who knows what
+   The river swirls in eddies and hardly inspires confidence: who knows what
 creatures hide in its bed?
 
-What will you do faced with this obstacle?
+   What will you do faced with this obstacle?
 
 MU RIVIERE.MB
 CU GLACE 370 Use a Magic Ice Stone

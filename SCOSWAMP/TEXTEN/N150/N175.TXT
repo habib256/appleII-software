@@ -1,21 +1,21 @@
 T 175 The Asphodel Miracle
 
-You carefully take from your pocket the Asphodel berry. "Marvelous!" exclaims
-Gayolard, beaming with joy. He takes it in his trembling hands and places it
-in his garden.
+   You carefully take from your pocket the Asphodel berry. "Marvelous!"
+exclaims Gayolard, beaming with joy. He takes it in his trembling hands and
+places it in his garden.
 
-A few magic words later, the earth comes alive: a stem springs up, rises, and
-becomes a large bush loaded with purple clusters perfuming the air. The old
-sorcerer replants several berries, and other shoots appear immediately. The
-life cycle is reborn before your eyes.
+   A few magic words later, the earth comes alive: a stem springs up, rises,
+and becomes a large bush loaded with purple clusters perfuming the air. The
+old sorcerer replants several berries, and other shoots appear immediately.
+The life cycle is reborn before your eyes.
 
-Gayolard turns to you, moved: "Thanks to you, the Asphodel will live again. I
-will send some to my brother mages. The magical world will owe you much,
+   Gayolard turns to you, moved: "Thanks to you, the Asphodel will live again.
+I will send some to my brother mages. The magical world will owe you much,
 adventurer."
 
-He offers you Healing Potions and a hot meal. You spend the evening talking
+   He offers you Healing Potions and a hot meal. You spend the evening talking
 before leaving, your heart light, duty accomplished, ready for other quests.
 
-END OF ADVENTURE - COMPLETE SUCCESS
+   END OF ADVENTURE - COMPLETE SUCCESS
 
 MU +VICTOIRE.MB

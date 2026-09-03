@@ -1,8 +1,8 @@
 T 015 What to Offer Him?
 
-A character asks you for an offering; he awaits your response.
+   A character asks you for an offering; he awaits your response.
 
-What do you propose to give him to get what he wants?
+   What do you propose to give him to get what he wants?
 
 CI AI 063 A Gold Magnet
 CA 1 6 198 An Amulet belonging to one of the other Masters

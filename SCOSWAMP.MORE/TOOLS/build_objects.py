@@ -27,8 +27,11 @@ OBJECTS = [
     ('BJ',         "Bijou Violet",       "Purple Jewel"),
     ('CO',         "Corne de Licorne",   "Unicorn Horn"),
     ('PL',         "Plumes de Perroquet", "Parrot Feathers"),
+    ('GR',         "Graines d'Arbre-Epee", "Sword Tree Seeds"),
     ('.T',         "", ""),   # le buisson d'Antherique est trouve
 ]
+# Les drapeaux caches se rangent APRES les objets : le moteur montre dans le
+# sac tout ce qui precede le premier d'entre eux (OBJ_HIDDEN0, rules.h).
 
 def main() -> int:
     ap = argparse.ArgumentParser()

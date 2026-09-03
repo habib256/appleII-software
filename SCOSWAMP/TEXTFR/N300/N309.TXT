@@ -1,8 +1,8 @@
 T 309 Trois chemins
 
-Trois chemins vous permettent de quitter cette clairiere.
+   Trois chemins vous permettent de quitter cette clairiere.
 
-Dans quelle direction souhaitez-vous aller ?
+   Dans quelle direction souhaitez-vous aller ?
 
 MU DANGER.MB
 C 047 Au nord

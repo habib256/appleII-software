@@ -1,8 +1,8 @@
 T 224 Terreur et Loups
 
-Vous lancez une Pierre de Terreur. Le Maitre des Loups fuit et se refugie dans
-sa demeure; en revanche les deux Loups vous attaquent. Ils se jetent sur vous
-a tour de role: il faut les combattre l'un apres l'autre.
+   Vous lancez une Pierre de Terreur. Le Maitre des Loups fuit et se refugie
+dans sa demeure; en revanche les deux Loups vous attaquent. Ils se jetent sur
+vous a tour de role: il faut les combattre l'un apres l'autre.
 
 MU +COMBAT.MB
 M 7 5 Premier LOUP

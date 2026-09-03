@@ -1,11 +1,11 @@
 T 046 Hutte verrouillee
 
-Il n'y a pas grand-chose a faire ici: la porte de la hutte est verrouillee par
-un tour de magie; il est rigoureusement impossible de l'ouvrir.
+   Il n'y a pas grand-chose a faire ici: la porte de la hutte est verrouillee
+par un tour de magie; il est rigoureusement impossible de l'ouvrir.
 
-Vous decidez donc de repartir et de reprendre la route par le chemin par
+   Vous decidez donc de repartir et de reprendre la route par le chemin par
 lequel vous etes venu.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 314 Repartir et retourner sur vos pas

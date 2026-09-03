@@ -1,9 +1,9 @@
 T 142 Silence After the Battle
 
-You no longer see any trace of the past battle. The Orc corpses have
+   You no longer see any trace of the past battle. The Orc corpses have
 disappeared.
 
-As you cross the clearing, a Scorpion about thirty centimeters long watches
+   As you cross the clearing, a Scorpion about thirty centimeters long watches
 you from a pond.
 
 MU MARAISUD.MB

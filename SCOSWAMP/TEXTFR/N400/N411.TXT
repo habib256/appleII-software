@@ -1,7 +1,7 @@
 T 411 Potion de CHANCE
 
-La potion vous rend toute votre CHANCE. Les oiseaux vous montrent ensuite le
-chemin du nord-est.
+   La potion vous rend toute votre CHANCE. Les oiseaux vous montrent ensuite
+le chemin du nord-est.
 
 E CHANCE +99
 C 248 Suivre les oiseaux

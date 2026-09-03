@@ -1,18 +1,18 @@
 T 173 The Red Merchant
 
-Pompatarte bursts into thunderous laughter that shakes the walls.
+   Pompatarte bursts into thunderous laughter that shakes the walls.
 
-Intrigued, you ask him what his goal is in the Swamp. "Information! If I had a
-map of the Scorpion Swamp, I could pass my caravans through and save weeks.
-Bring me a clear map leading to the town of Courbensaule, and I'll offer you
-half the profits of my first year!"
+   Intrigued, you ask him what his goal is in the Swamp. "Information! If I
+had a map of the Scorpion Swamp, I could pass my caravans through and save
+weeks. Bring me a clear map leading to the town of Courbensaule, and I'll
+offer you half the profits of my first year!"
 
-Pompatarte then opens a box filled with glittering Stones. "Choose five, all
-neutral, they will be useful to you." You note your five Magic Stones on your
-Adventure Sheet.
+   Pompatarte then opens a box filled with glittering Stones. "Choose five,
+all neutral, they will be useful to you." You note your five Magic Stones on
+your Adventure Sheet.
 
-He shakes your hand with a grip of steel, then the Goblin shows you out. You
-leave the village, heading north, toward the dark Scorpion Swamp, map and
+   He shakes your hand with a grip of steel, then the Goblin shows you out.
+You leave the village, heading north, toward the dark Scorpion Swamp, map and
 destiny in hand.
 
 MU VILLAGE.MB

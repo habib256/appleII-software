@@ -1,15 +1,15 @@
 T 304 The Parrot
 V 149 217
 
-As you advance northward, the Swamp changes appearance. It becomes less gloomy
-and looks more and more like a tropical jungle. Brightly colored birds fly
-among the trees and you soon see a clearing a little further.
+   As you advance northward, the Swamp changes appearance. It becomes less
+gloomy and looks more and more like a tropical jungle. Brightly colored birds
+fly among the trees and you soon see a clearing a little further.
 
-Perched on a branch, a large red and yellow Parrot observes you attentively.
-When you approach it, it speaks to you: "Who are you and what do you want from
-the Bird Mistress?" it asks.
+   Perched on a branch, a large red and yellow Parrot observes you
+attentively. When you approach it, it speaks to you: "Who are you and what do
+you want from the Bird Mistress?" it asks.
 
-What will you do?
+   What will you do?
 
 MU MARAISUD.MB
 C 071 Attack the Parrot

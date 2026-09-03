@@ -1,13 +1,13 @@
 T 047 Trois chemins herbeux
 
-Vous arrivez dans une petite clairiere envahie d'herbes. Rien d'interessant
+   Vous arrivez dans une petite clairiere envahie d'herbes. Rien d'interessant
 n'y apparait a premiere vue; l'air est lourd et calme.
 
-Trois sentiers permettent de quitter cette clairiere: sud, est et ouest. Le
+   Trois sentiers permettent de quitter cette clairiere: sud, est et ouest. Le
 sentier du sud semble plus humide; l'est offre une lueur d'horizon; l'ouest
 est etroit et borde d'arbres serres.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU MARAISUD.MB
 C 290 Partir vers le sud

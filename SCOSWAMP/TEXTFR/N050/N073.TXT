@@ -1,12 +1,12 @@
 T 073 Le nid dans l'arbre
 
-Tentez votre Chance. Si vous etes Malchanceux, vous tombez et perdez 2 points
-d'ENDURANCE, mais vous parvenez tout de meme a grimper jusqu'au nid. Si vous
-etes Chanceux, vous atteignez le nid sans difficulte.
+   Tentez votre Chance. Si vous etes Malchanceux, vous tombez et perdez 2
+points d'ENDURANCE, mais vous parvenez tout de meme a grimper jusqu'au nid. Si
+vous etes Chanceux, vous atteignez le nid sans difficulte.
 
-Vous decouvrez alors une Chaine d'Or accrochee a une branche, que vous pouvez
-emporter si vous le desirez. Vous redescendez aussitot apres et reprenez votre
-route.
+   Vous decouvrez alors une Chaine d'Or accrochee a une branche, que vous
+pouvez emporter si vous le desirez. Vous redescendez aussitot apres et
+reprenez votre route.
 
 G CH
 CE ENDURANCE 0 -2

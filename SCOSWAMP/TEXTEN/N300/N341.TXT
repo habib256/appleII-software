@@ -1,15 +1,15 @@
 T 341 Attack Against Pompatarte
 
-His casual attitude toward you, when you've risked your life trying to fulfill
-your mission, seems completely unacceptable.
+   His casual attitude toward you, when you've risked your life trying to
+fulfill your mission, seems completely unacceptable.
 
-You therefore draw your sword and attack him with the firm intention of making
-him pay dearly for his lightness. He's surprised, but nonetheless dodges your
-first blow. Despite his imposing mass, he moves with much skill and soon draws
-a sword from behind his desk. He defends himself vigorously and you realize
-very quickly you're dealing with a formidable adversary.
+   You therefore draw your sword and attack him with the firm intention of
+making him pay dearly for his lightness. He's surprised, but nonetheless
+dodges your first blow. Despite his imposing mass, he moves with much skill
+and soon draws a sword from behind his desk. He defends himself vigorously and
+you realize very quickly you're dealing with a formidable adversary.
 
-He has his back to the door, and if you wish to Flee, you'll have to dive
+   He has his back to the door, and if you wish to Flee, you'll have to dive
 through the window.
 
 MU +COMBAT.MB

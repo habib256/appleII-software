@@ -1,9 +1,9 @@
 T 171 Combat contre la Vase
 
-La creature qui se dresse devant vous est une masse visqueuse et puissante,
+   La creature qui se dresse devant vous est une masse visqueuse et puissante,
 presque sans intelligence mais d'une force terrible.
 
-Vous pouvez choisir de fuir a tout moment, mais il vous faudra rebrousser
+   Vous pouvez choisir de fuir a tout moment, mais il vous faudra rebrousser
 chemin.
 
 MU +COMBAT.MB

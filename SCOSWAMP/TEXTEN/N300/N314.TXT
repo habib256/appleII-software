@@ -1,6 +1,6 @@
 T 314 Two Directions
 
-You have the choice between two directions. An enormous snail slowly passes
+   You have the choice between two directions. An enormous snail slowly passes
 before you.
 
 MU MARAISUD.MB

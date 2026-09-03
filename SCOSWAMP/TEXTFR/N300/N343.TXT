@@ -1,6 +1,6 @@
 T 343 Retour aux Brigands
 
-Vous approchez de l'endroit ou vous aviez rencontre les Brigands.
+   Vous approchez de l'endroit ou vous aviez rencontre les Brigands.
 
 MU MARAISNO.MB
 C 199 Si vous etiez amis

@@ -1,11 +1,11 @@
 T 134 Combat contre l'herbe
 
-Vous frappez l'HERBE A PINCES a grands coups d'epee et vous la coupez. Elle
+   Vous frappez l'HERBE A PINCES a grands coups d'epee et vous la coupez. Elle
 repousse cependant sans cesse et finit par vous entourer.
 
-Il faut combattre cette vegetation comme si elle formait un seul adversaire,
-implacable et infini. Le choc est brutal; gardez votre souffle et votre
-sang-froid.
+   Il faut combattre cette vegetation comme si elle formait un seul
+adversaire, implacable et infini. Le choc est brutal; gardez votre souffle et
+votre sang-froid.
 
 MU +COMBAT.MB
 M 6 16 HERBE A PINCES

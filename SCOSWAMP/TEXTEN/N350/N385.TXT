@@ -1,9 +1,9 @@
 T 385 Fire Spell
 
-You hesitate to use against Stratagus one of the Magic Stones he gave you: it
-could be dangerous for you. You rather throw a Fire spell at him and his long
-robe immediately ignites, but the sorcerer isn't hurt.
+   You hesitate to use against Stratagus one of the Magic Stones he gave you:
+it could be dangerous for you. You rather throw a Fire spell at him and his
+long robe immediately ignites, but the sorcerer isn't hurt.
 
-He bursts into insane laughter and the fire extinguishes around him.
+   He bursts into insane laughter and the fire extinguishes around him.
 
 C 124 Fight

@@ -1,12 +1,12 @@
 T 404 On the Other Side
 
-You reach the other side safe and sound. Insects swirl around you, but the mud
-did not claim you.
+   You reach the other side safe and sound. Insects swirl around you, but the
+mud did not claim you.
 
-Three directions then open before you, each leading into the unknown. To the
-west, a dark path disappears behind damp trunks. To the east, a lighter trail
-seems to wind through tall grass. To the south, the passage you arrived by
-remains usable.
+   Three directions then open before you, each leading into the unknown. To
+the west, a dark path disappears behind damp trunks. To the east, a lighter
+trail seems to wind through tall grass. To the south, the passage you arrived
+by remains usable.
 
 MU MARAISUD.MB
 C 398 Take the path sinking to the west

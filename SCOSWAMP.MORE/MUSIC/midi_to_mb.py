@@ -241,7 +241,7 @@ def main():
     ap.add_argument("midi"); ap.add_argument("out")
     ap.add_argument("--bpm", type=float, default=100.0)
     ap.add_argument("--voices", type=int, default=6, choices=range(1, 7))
-    ap.add_argument("--vol", default="13,11,11,12,11,11",
+    ap.add_argument("--vol", default="10,8,8,9,8,8",
                     help="volumes 0-15 par voix, dans l'ordre 0..5")
     ap.add_argument("--tail", type=int, default=24)
     ap.add_argument("--wav"); ap.add_argument("--notes-inc")

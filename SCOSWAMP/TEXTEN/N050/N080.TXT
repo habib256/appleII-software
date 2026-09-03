@@ -1,6 +1,6 @@
 T 080 The Anguish Flowers
 
-Which Magic Stone will you use against the Anguish Flowers?
+   Which Magic Stone will you use against the Anguish Flowers?
 
 CU FEU 307 Use the Fire Stone
 CU FLETRISSURE 196 Use the Withering Stone

@@ -1,12 +1,12 @@
 T 248 Eagle's Journey
 
-The Bird Mistress calls an immense Eagle that descends from the sky. It seizes
-you by the waist and carries you above the clearings. Below, the Croupie River
-shines and crocodiles bask.
+   The Bird Mistress calls an immense Eagle that descends from the sky. It
+seizes you by the waist and carries you above the clearings. Below, the
+Croupie River shines and crocodiles bask.
 
-The Eagle deposits you next to a tree whose gigantic nest is built of
+   The Eagle deposits you next to a tree whose gigantic nest is built of
 branches. It leaves you on the ground then departs.
 
-What do you do?
+   What do you do?
 
 C 202 Follow the trail toward the Eagle's nest

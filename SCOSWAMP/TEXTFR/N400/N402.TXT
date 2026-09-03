@@ -1,11 +1,11 @@
 T 402 Colere de Stratagus blesse
 
-Votre attaque fulgurante a porte : le sorcier saigne, et sa fureur n'en est
+   Votre attaque fulgurante a porte : le sorcier saigne, et sa fureur n'en est
 que plus noire. D'un mouvement rapide, il sort de sa toge une baguette d'ebene
 qui se transforme en une epee dentelee, rougeoyante. Sa voix claquante vous
 menace : "Je vais te tuer !"
 
-L'assaut est inevitable ; il vous faut engager le combat sans tarder.
+   L'assaut est inevitable ; il vous faut engager le combat sans tarder.
 
 MU +COMBAT.MB
 M 9 8 STRATAGUS

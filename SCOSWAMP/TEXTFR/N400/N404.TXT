@@ -1,9 +1,9 @@
 T 404 De l'autre cote
 
-Vous atteignez l'autre cote sain et sauf. Les insectes tourbillonnent autour
-de vous, mais la boue n'a pas eu votre peau.
+   Vous atteignez l'autre cote sain et sauf. Les insectes tourbillonnent
+autour de vous, mais la boue n'a pas eu votre peau.
 
-Trois directions s'offrent alors a vous, et chacune mene vers l'inconnu. A
+   Trois directions s'offrent alors a vous, et chacune mene vers l'inconnu. A
 l'ouest, un sentier sombre disparait derriere les troncs humides. A l'est, un
 chemin plus clair semble serpenter a travers des herbes hautes. Au sud, le
 passage par lequel vous etes arrive reste praticable.

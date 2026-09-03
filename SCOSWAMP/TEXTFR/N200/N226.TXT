@@ -1,10 +1,10 @@
 T 226 A la porte de la tour
 
-Vous retrouvez la tour de Stratagus, sa lourde porte s'ouvre et le sorcier
+   Vous retrouvez la tour de Stratagus, sa lourde porte s'ouvre et le sorcier
 vous attend, impatient. Il vous tend la main en demandant les Amulettes: sa
 voix est avide. Il attend une reponse concrete.
 
-Que lui repondez-vous selon ce que vous avez rapporte?
+   Que lui repondez-vous selon ce que vous avez rapporte?
 
 MU TOUR.MB
 CA 0 0 054 Je n'ai pas reussi a me procurer d'Amulettes

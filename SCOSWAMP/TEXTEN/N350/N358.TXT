@@ -1,13 +1,13 @@
 T 358 Mission Accomplished
 
-You take the gold he gave you and leave. You wonder however... Have you acted
-rightly?
+   You take the gold he gave you and leave. You wonder however... Have you
+acted rightly?
 
-The money you've earned isn't very clean; alas! you can no longer do anything
-about it...
+   The money you've earned isn't very clean; alas! you can no longer do
+anything about it...
 
-Next time you undertake an adventure of this kind, you'll show yourself more
-circumspect in choosing the masters you'll serve. In any case, for now, you've
-successfully fulfilled your hardly shining mission...
+   Next time you undertake an adventure of this kind, you'll show yourself
+more circumspect in choosing the masters you'll serve. In any case, for now,
+you've successfully fulfilled your hardly shining mission...
 
 MU TOUR.MB

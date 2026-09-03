@@ -1,10 +1,11 @@
 T 134 Combat against the Grass
 
-You strike the PINCER GRASS with great sword blows and cut it. It however
+   You strike the PINCER GRASS with great sword blows and cut it. It however
 constantly regrows and ends up surrounding you.
 
-You must fight this vegetation as if it formed a single adversary, implacable
-and infinite. The shock is brutal; keep your breath and your composure.
+   You must fight this vegetation as if it formed a single adversary,
+implacable and infinite. The shock is brutal; keep your breath and your
+composure.
 
 MU +COMBAT.MB
 M 6 16 PINCER GRASS

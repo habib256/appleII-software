@@ -1,6 +1,6 @@
 T 268 Clairiere vide
 
-Il n'y a rien dans la clairiere a part quelques os ronges. Le chemin est
+   Il n'y a rien dans la clairiere a part quelques os ronges. Le chemin est
 libre; vous vous hatez de poursuivre votre route.
 
 C 390 Continuer sur le sentier

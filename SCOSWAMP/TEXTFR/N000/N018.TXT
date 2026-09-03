@@ -1,9 +1,9 @@
 T 018 Brigands effrayes
 
-Vous chargez en brandissant votre epee; les brigands ont peur. Tous les cinq
-s'enfuient parmi les arbres qui bordent la clairiere.
+   Vous chargez en brandissant votre epee; les brigands ont peur. Tous les
+cinq s'enfuient parmi les arbres qui bordent la clairiere.
 
-Vous ne vous arretez pas; vous traversez la clairiere en courant et en
+   Vous ne vous arretez pas; vous traversez la clairiere en courant et en
 hurlant. Les brigands desarmes ne songent meme pas a vous poursuivre. Vous
 laissez derriere vous leurs cris et leur fuite.
 

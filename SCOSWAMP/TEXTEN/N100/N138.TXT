@@ -1,9 +1,9 @@
 T 138 The Bridge over the Croupie River
 
-The trees become scarcer and you enter a clearing. The Croupie River crosses
-it from east to west.
+   The trees become scarcer and you enter a clearing. The Croupie River
+crosses it from east to west.
 
-A bridge spans it, apparently deserted.
+   A bridge spans it, apparently deserted.
 
 MU RIVIERE.MB
 C 101 Cross the bridge

@@ -1,16 +1,16 @@
 T 320 The Unicorn
 V 265 348
 
-The path follows a slight downward slope and leads to a clearing with ground
-overgrown with grass.
+   The path follows a slight downward slope and leads to a clearing with
+ground overgrown with grass.
 
-A white-colored animal lies in the clearing's center. You first think it's a
-horse, but when it turns its head in your direction, you immediately recognize
-a UNICORN. It seems wounded: scratch marks are visible on its flank. It rises
-however and lowers its horn toward you letting out a growl strongly resembling
-a challenge.
+   A white-colored animal lies in the clearing's center. You first think it's
+a horse, but when it turns its head in your direction, you immediately
+recognize a UNICORN. It seems wounded: scratch marks are visible on its flank.
+It rises however and lowers its horn toward you letting out a growl strongly
+resembling a challenge.
 
-What will you do?
+   What will you do?
 
 MU MARAISUD.MB
 C 368 Flee

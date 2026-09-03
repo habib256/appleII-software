@@ -1,8 +1,9 @@
 T 176 The Foul Beast
 
-A monstrous creature surges before you: thick skin, giant claws, furious gaze.
+   A monstrous creature surges before you: thick skin, giant claws, furious
+gaze.
 
-It leaps with unexpected agility and you understand that no escape is
+   It leaps with unexpected agility and you understand that no escape is
 possible. The combat will be total, to the death.
 
 MU +COMBAT.MB

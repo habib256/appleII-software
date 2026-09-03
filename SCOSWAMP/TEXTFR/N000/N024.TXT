@@ -1,15 +1,15 @@
 T 024 Piege du Feu Follet
 
-Le Feu Follet danse devant vous et vous le suivez sans rien soupconner. Le sol
-devient de plus en plus humide; soudain vous tombez dans un trou rempli de
+   Le Feu Follet danse devant vous et vous le suivez sans rien soupconner. Le
+sol devient de plus en plus humide; soudain vous tombez dans un trou rempli de
 vase. Le Feu Follet disparait: sa presence etait une tromperie.
 
-Tentez votre Chance: si vous etes Chanceux, vous vous extrairez sans dommage.
-Si vous etes Malchanceux, vous parvenez a sortir mais vous perdez 2 points
-d'ENDURANCE. Vous finissez par atteindre un sol plus ferme. Grace a l'Anneau
-de Cuivre vous savez quel chemin prendre pour retrouver la clairiere.
+   Tentez votre Chance: si vous etes Chanceux, vous vous extrairez sans
+dommage. Si vous etes Malchanceux, vous parvenez a sortir mais vous perdez 2
+points d'ENDURANCE. Vous finissez par atteindre un sol plus ferme. Grace a
+l'Anneau de Cuivre vous savez quel chemin prendre pour retrouver la clairiere.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU MARAISUD.MB
 CL 273 297 0 -2

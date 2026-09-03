@@ -1,6 +1,6 @@
 T 399 Magic against the Orcs
 
-Which Magic Stone will you use against the Swamp Orcs?
+   Which Magic Stone will you use against the Swamp Orcs?
 
 CU TERREUR 346 A Terror Stone
 CU ILLUSION 169 Illusion

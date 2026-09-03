@@ -1,18 +1,18 @@
 T 255 Stratagus's Tower
 
-As soon as you see Stratagus's tower, your Copper Ring starts heating around
-your finger. The tower stands near the swamp, dark, surrounded by statues with
-grimacing faces; tall arcades let filter a cold light. The gargoyles seem to
-watch every step.
+   As soon as you see Stratagus's tower, your Copper Ring starts heating
+around your finger. The tower stands near the swamp, dark, surrounded by
+statues with grimacing faces; tall arcades let filter a cold light. The
+gargoyles seem to watch every step.
 
-The sensation of heat intensifies as you approach; passersby avoid you and
+   The sensation of heat intensifies as you approach; passersby avoid you and
 whisper. Stratagus's name is enough to close mouths: an evil being, they
 murmur. The swamp trees rustle. The wrought iron portal is massive; it eyes
 you, almost alive.
 
-You weigh your options: go to the door or turn back.
+   You weigh your options: go to the door or turn back.
 
-What choice do you make?
+   What choice do you make?
 
 C 139 Back away and return to the village
 C 040 Go to the door and knock

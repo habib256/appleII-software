@@ -1,9 +1,9 @@
 T 186 Flight from Courbensaule
 
-You have killed the two cutpurses, but you don't take time to search their
+   You have killed the two cutpurses, but you don't take time to search their
 bodies.
 
-You sheathe your sword and leave Courbensaule as quickly as possible to avoid
-further trouble.
+   You sheathe your sword and leave Courbensaule as quickly as possible to
+avoid further trouble.
 
 C 343 Leave the town without delay

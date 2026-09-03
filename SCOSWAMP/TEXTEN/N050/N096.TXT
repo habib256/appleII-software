@@ -1,7 +1,7 @@
 T 096 Confidence
 
-It's impossible for you to hide anything from this good man.
+   It's impossible for you to hide anything from this good man.
 
-You soon tell him everything about your Copper Ring and its powers.
+   You soon tell him everything about your Copper Ring and its powers.
 
 C 371 Continue after this confidence

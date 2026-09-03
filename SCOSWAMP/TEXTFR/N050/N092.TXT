@@ -1,13 +1,13 @@
 T 092 Les deux loups
 V 108 232 247 389
 
-Le chemin vers le nord s'eleve peu a peu. Le sol devient plus sec et la
+   Le chemin vers le nord s'eleve peu a peu. Le sol devient plus sec et la
 vegetation des marais cede place a une foret profonde.
 
-Bientot, les arbres s'eclaircissent et vous atteignez une vaste clairiere
+   Bientot, les arbres s'eclaircissent et vous atteignez une vaste clairiere
 parsemee de buissons.
 
-Vous tendez l'oreille, mais rien d'anormal ne trouble le silence. Puis,
+   Vous tendez l'oreille, mais rien d'anormal ne trouble le silence. Puis,
 soudain, deux enormes loups apparaissent et vous fixent dans l'ombre.
 
 MU MARAISNO.MB

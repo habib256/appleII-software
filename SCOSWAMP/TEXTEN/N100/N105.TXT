@@ -1,11 +1,11 @@
 T 105 Stones and Log
 V 330 390
 
-You notice a clearing some distance ahead. The ground there is firm; you can
-enter it with a confident step. Large flat stones, a massive hollow log, and
-two paths appear a little further on.
+   You notice a clearing some distance ahead. The ground there is firm; you
+can enter it with a confident step. Large flat stones, a massive hollow log,
+and two paths appear a little further on.
 
-What do you want to do?
+   What do you want to do?
 
 MU MARAISUD.MB
 C 021 Sit on a stone to rest

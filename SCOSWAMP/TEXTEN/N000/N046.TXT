@@ -1,10 +1,11 @@
 T 046 Locked Hut
 
-There's not much to do here: the hut's door is locked by a magic spell; it is
-strictly impossible to open.
+   There's not much to do here: the hut's door is locked by a magic spell; it
+is strictly impossible to open.
 
-So you decide to leave and resume the journey by the path by which you came.
+   So you decide to leave and resume the journey by the path by which you
+came.
 
-What do you do?
+   What do you do?
 
 C 314 Leave and retrace your steps

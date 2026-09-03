@@ -1,10 +1,11 @@
 T 244 Le conseil du Geant
 
-Le Geant eclate d'un rire joyeux et vous raconte ce qu'il a vu recemment. Il
-indique qu'un buisson semblable a celui que vous cherchez se trouve dans une
-clairiere plus au nord, mais il vous met en garde: "Prenez garde aux Loups !"
+   Le Geant eclate d'un rire joyeux et vous raconte ce qu'il a vu recemment.
+Il indique qu'un buisson semblable a celui que vous cherchez se trouve dans
+une clairiere plus au nord, mais il vous met en garde: "Prenez garde aux Loups
+!"
 
-Vous le remerciez et prenez conge, reprenant votre route.
+   Vous le remerciez et prenez conge, reprenant votre route.
 
 MU MARAISNO.MB
 C 161 Reprendre la route vers le nord

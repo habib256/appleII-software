@@ -1,7 +1,7 @@
 T 330 The Hollow Log
 
-You're in the clearing with the large hollow log. The path is quiet, but you
-know the log has sheltered more than gnawed bones.
+   You're in the clearing with the large hollow log. The path is quiet, but
+you know the log has sheltered more than gnawed bones.
 
 MU MARAISUD.MB
 C 129 If you saw a creature there during a previous visit

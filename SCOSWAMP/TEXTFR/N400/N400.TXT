@@ -1,6 +1,7 @@
 T 400 Magie contre la Vase
 
-Quelle Pierre de Magie allez-vous utiliser pour vous defendre contre la Vase ?
+   Quelle Pierre de Magie allez-vous utiliser pour vous defendre contre la
+Vase ?
 
 CU FEU 188 Une Pierre de Feu
 CU FLETRISSURE 380 de Fletrissure

@@ -1,12 +1,12 @@
 T 021 Rest Near the Log
 
-You rest for a few minutes and recover 1 STAMINA point.
+   You rest for a few minutes and recover 1 STAMINA point.
 
-A noise suddenly comes from inside the hollow log. If you want to know what's
-hiding there, examine the log. Otherwise, you can ignore it and resume the
-journey.
+   A noise suddenly comes from inside the hollow log. If you want to know
+what's hiding there, examine the log. Otherwise, you can ignore it and resume
+the journey.
 
-What do you do?
+   What do you do?
 
 E ENDURANCE +1
 C 055 Explore the hollow log

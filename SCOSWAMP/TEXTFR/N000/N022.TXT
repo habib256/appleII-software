@@ -1,18 +1,19 @@
 T 022 Les pousses rapides
 
-Lorsque vous glissez les graines dans votre poche, a peine de nouvelles
+   Lorsque vous glissez les graines dans votre poche, a peine de nouvelles
 pousses apparaissent deja a la base des arbres. Elles croissent avec une
 rapidite etrange, s'enroulant autour des racines et refermant le sol derriere
 vous. Il vous faut partir au plus vite avant que les arbres ne reprennent
 force.
 
-Quelle direction allez-vous prendre ? Choisissez sans tarder.
+   Quelle direction allez-vous prendre ? Choisissez sans tarder.
 
-Le nord offre un sentier qui s'eleve vers des terres plus seches. Le sud
+   Le nord offre un sentier qui s'eleve vers des terres plus seches. Le sud
 ramene vers la riviere profonde. L'ouest presente un passage etroit, peut-etre
 moins dangereux.
 
 MU DANGER.MB
+G GR
 C 320 Prendre le chemin qui monte vers le nord
 C 090 Rejoindre la riviere profonde vers le sud
 C 011 Emprunter le passage etroit vers l'ouest

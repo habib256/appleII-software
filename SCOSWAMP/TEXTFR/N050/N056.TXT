@@ -1,12 +1,12 @@
 T 056 Maison de Pompatarte
 
-Apres un chemin a travers champs et rues sinueuses, vous arrivez au seuil de
-la maison de Pompatarte. Vous frappez; la Gobeline vous ouvre. Elle vous
+   Apres un chemin a travers champs et rues sinueuses, vous arrivez au seuil
+de la maison de Pompatarte. Vous frappez; la Gobeline vous ouvre. Elle vous
 conduit dans la bibliotheque ou Pompatarte est assis, en toge.
 
-"Alors, comment vont nos affaires?" lance-t-il d'emblee. "M'avez-vous rapporte
-une carte permettant d'atteindre Courbensaule?" La question est directe; il
-attend une reponse precise.
+   "Alors, comment vont nos affaires?" lance-t-il d'emblee. "M'avez-vous
+rapporte une carte permettant d'atteindre Courbensaule?" La question est
+directe; il attend une reponse precise.
 
 C 158 Oui, je suis alle jusqu'a Courbensaule
 C 008 Non, je ne l'ai pas trouvee

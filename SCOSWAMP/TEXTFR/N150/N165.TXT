@@ -1,12 +1,12 @@
 T 165 Deux chemins
 
-Vous etes dans une petite clairiere, a peine protege des vents.
+   Vous etes dans une petite clairiere, a peine protege des vents.
 
-Deux chemins seulement permettent de continuer votre route. Le sentier du nord
-grimpe entre des rochers; on devine des brumes. La piste du sud file vers un
-sous-bois plus calme et plus sombre.
+   Deux chemins seulement permettent de continuer votre route. Le sentier du
+nord grimpe entre des rochers; on devine des brumes. La piste du sud file vers
+un sous-bois plus calme et plus sombre.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU DANGER.MB
 C 388 Prendre le chemin du nord

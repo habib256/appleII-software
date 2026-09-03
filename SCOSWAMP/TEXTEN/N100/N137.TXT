@@ -1,10 +1,10 @@
 T 137 Return Facing the Slime
 
-You return to the place where you had encountered the Slime.
+   You return to the place where you had encountered the Slime.
 
-If you have already killed it:
+   If you have already killed it:
 
-Otherwise, it blocks your way again. Its wounds have completely healed.
+   Otherwise, it blocks your way again. Its wounds have completely healed.
 
 MU DANGER.MB
 C 153 Continue your journey

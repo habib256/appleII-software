@@ -1,11 +1,11 @@
 T 105 Pierres et tronc
 V 330 390
 
-Vous apercevez une clairiere a quelque distance devant vous. Le sol y est
+   Vous apercevez une clairiere a quelque distance devant vous. Le sol y est
 ferme; vous pouvez y penetrer d'un pas assure. Des pierres plates de grande
 taille, un tronc creux massif, et deux chemins se dessinent un peu plus loin.
 
-Que voulez-vous faire?
+   Que voulez-vous faire?
 
 MU MARAISUD.MB
 C 021 S'asseoir sur une pierre pour se reposer

@@ -1,6 +1,6 @@
 T 217 Retour force
 
-Un seul sentier quitte la clairiere: celui par lequel vous etes venu. Vous
+   Un seul sentier quitte la clairiere: celui par lequel vous etes venu. Vous
 reprenez la direction du sud. Bientot, l'air se charge d'un parfum inquietant:
 la clairiere des Fleurs d'Angoisse approche.
 

@@ -1,8 +1,9 @@
 T 114 Deadly Growth
 
-You throw a Growth Stone at the trees, hoping to make them grow out of reach.
+   You throw a Growth Stone at the trees, hoping to make them grow out of
+reach.
 
-Alas, new branches sprout from their trunks and strike you even more
+   Alas, new branches sprout from their trunks and strike you even more
 violently. You will have to fight them with their STAMINA total doubled.
 
 C 028 Fight the Sword Trees

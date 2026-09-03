@@ -1,16 +1,16 @@
 T 166 The Patroller and the Return Path
 
-The Patroller congratulates you for your bravery. "You did well, adventurer!"
-he says with a smile. "All you have left to do now is to leave the Scorpion
-Swamp alive. Listen carefully to my instructions:"
+   The Patroller congratulates you for your bravery. "You did well,
+adventurer!" he says with a smile. "All you have left to do now is to leave
+the Scorpion Swamp alive. Listen carefully to my instructions:"
 
-Take the southern direction, then go east, then south again when you reach the
-Eagle's Nest, next go west, and finally south one last time.
+   Take the southern direction, then go east, then south again when you reach
+the Eagle's Nest, next go west, and finally south one last time.
 
-"If you follow this route to the letter, you will reach the southern edge of
-the Swamp. Beyond, the ground becomes firm again and you will be safe."
+   "If you follow this route to the letter, you will reach the southern edge
+of the Swamp. Beyond, the ground becomes firm again and you will be safe."
 
-You thank him sincerely, carefully noting these precious directions. The
+   You thank him sincerely, carefully noting these precious directions. The
 Patroller salutes you with a nod before disappearing into the mist.
 
 C 234 Follow the Patroller's directions

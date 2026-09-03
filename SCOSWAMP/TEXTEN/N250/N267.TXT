@@ -1,6 +1,6 @@
 T 267 Thief's Attack
 
-The Thief lets out a cry of anger and rushes at you. He's only armed with a
+   The Thief lets out a cry of anger and rushes at you. He's only armed with a
 dagger, but he's a cunning opponent. It's impossible for you to flee; combat
 is inevitable. If you manage to kill him, continue the adventure.
 

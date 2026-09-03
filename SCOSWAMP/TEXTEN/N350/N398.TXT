@@ -1,19 +1,19 @@
 T 398 The Wolf Master's Clearing
 V 239 314
 
-You enter a clearing where a small log house has been built. You then hear a
-growl resembling a dog's: it's not a dog, however, but a Wolf growling thus.
+   You enter a clearing where a small log house has been built. You then hear
+a growl resembling a dog's: it's not a dog, however, but a Wolf growling thus.
 The animal observes you, standing next to the house.
 
-The door opens almost immediately, and a robust man appears on the threshold.
-Another Wolf follows him. The man wears a sword at his side and is dressed
-like a Forest Ranger, but the Silver wolf-shaped Amulet hanging on his chest
-indicates this is the WOLF MASTER.
+   The door opens almost immediately, and a robust man appears on the
+threshold. Another Wolf follows him. The man wears a sword at his side and is
+dressed like a Forest Ranger, but the Silver wolf-shaped Amulet hanging on his
+chest indicates this is the WOLF MASTER.
 
-You greet him in a friendly tone but he answers you with bad humor ordering
+   You greet him in a friendly tone but he answers you with bad humor ordering
 you to go your way.
 
-What will you do?
+   What will you do?
 
 MU MARAISUD.MB
 C 314 Obey and leave

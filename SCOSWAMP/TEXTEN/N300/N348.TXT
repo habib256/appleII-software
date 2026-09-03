@@ -1,8 +1,8 @@
 T 348 Four Paths
 
-Four paths allow you to leave.
+   Four paths allow you to leave.
 
-In which direction do you wish to go?
+   In which direction do you wish to go?
 
 MU MARAISUD.MB
 C 094 North

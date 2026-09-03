@@ -1,17 +1,17 @@
 T 011 Cul-de-sac de la bete
 V 210 125 299 228 243
 
-Vous avancez vers l'ouest; le marais devient plus sinistre encore. Enfin le
+   Vous avancez vers l'ouest; le marais devient plus sinistre encore. Enfin le
 sentier s'elargit et aboutit a une etroite et longue echappee. Il n'y a aucun
 autre sentier: vous etes arrive dans un cul-de-sac. Vous vous approchez d'un
 grand rocher gris pour vous allonger et vous reposer.
 
-Soudain, le rocher bouge: ce n'etait pas de la pierre. Un pelage reche se
+   Soudain, le rocher bouge: ce n'etait pas de la pierre. Un pelage reche se
 deploie; deux yeux rouges vous fixent, furieux. Une BETE IMMONDE a six pattes
 griffues s'avance aussitot vers vous. Sa respiration lourde fait vibrer le
 bois; ses griffes lacerent la terre.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU DANGER.MB
 C 176 L'affronter en combat

@@ -1,15 +1,15 @@
 T 031 Bassin de cristal
 V 364 077 394
 
-Vous avancez vers l'est et sentez que vous etes alle trop loin dans le
+   Vous avancez vers l'est et sentez que vous etes alle trop loin dans le
 marecage.
 
-Soudain, vous entrez dans une clairiere envahie d'herbes. Au centre, un bassin
-luit d'une eau pure comme du cristal. Une petite plage de sable fin borde l'un
-des cotes du bassin. Aucun autre chemin ne permet de sortir: seule la piste
-par laquelle vous etes arrive vous relie au monde exterieur.
+   Soudain, vous entrez dans une clairiere envahie d'herbes. Au centre, un
+bassin luit d'une eau pure comme du cristal. Une petite plage de sable fin
+borde l'un des cotes du bassin. Aucun autre chemin ne permet de sortir: seule
+la piste par laquelle vous etes arrive vous relie au monde exterieur.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU MARAISUD.MB
 C 047 Quitter les lieux en retournant vers l'ouest

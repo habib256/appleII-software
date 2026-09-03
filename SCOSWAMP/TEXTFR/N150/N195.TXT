@@ -1,20 +1,21 @@
 T 195 Le large rond-point
 
-Vous arrivez dans une clairiere. En verite, il ne s'agit que d'un large
+   Vous arrivez dans une clairiere. En verite, il ne s'agit que d'un large
 rond-point d'ou partent trois sentiers. Le sol est instable et detrempe, et de
 grosses nues d'insectes volettent au-dessus des mares stagnantes qui
 recouvrent l'endroit.
 
-Le brouillard humide monte en volutes, et chaque pas fait gicler l'eau sale
+   Le brouillard humide monte en volutes, et chaque pas fait gicler l'eau sale
 sous vos bottes. Les arbres rabougris bordant la clairiere semblent tordus,
 comme marques par la corruption du marais.
 
-Vous hesitez : avancer lentement ou tenter un saut risque par-dessus les zones
-les plus molles. Le silence pese autour de vous, seulement trouble par le
-bourdonnement des insectes et le bruit de l'eau. Le chemin qui s'ouvre au nord
-parait solide, mais rien ne vous assure qu'il ne cache pas de nouveaux pieges.
+   Vous hesitez : avancer lentement ou tenter un saut risque par-dessus les
+zones les plus molles. Le silence pese autour de vous, seulement trouble par
+le bourdonnement des insectes et le bruit de l'eau. Le chemin qui s'ouvre au
+nord parait solide, mais rien ne vous assure qu'il ne cache pas de nouveaux
+pieges.
 
-Ici, chaque decision peut etre la frontiere entre survie et desastre. Vous
+   Ici, chaque decision peut etre la frontiere entre survie et desastre. Vous
 serrez votre epee, pret a choisir la voie qui vous permettra de quitter cette
 clairiere sans y laisser vos forces. Le danger est tangible.
 

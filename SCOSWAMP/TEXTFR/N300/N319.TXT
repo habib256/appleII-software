@@ -1,8 +1,8 @@
 T 319 Choisir une direction
 
-Vous vous hatez de choisir une direction.
+   Vous vous hatez de choisir une direction.
 
-Ou souhaitez-vous aller ?
+   Ou souhaitez-vous aller ?
 
 MU DANGER.MB
 C 138 Au nord

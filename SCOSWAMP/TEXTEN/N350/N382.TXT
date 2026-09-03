@@ -1,17 +1,17 @@
 T 382 Return to the Quicksand
 
-You realize you've returned to the Quicksand clearing, but this time, you
+   You realize you've returned to the Quicksand clearing, but this time, you
 won't let yourself be surprised. You have two solutions if you wish to resort
 to magic.
 
-The first consists of throwing an Ice Stone. Thus, the Quicksand will freeze
-and you can cross it, but the ice will melt quickly behind you.
+   The first consists of throwing an Ice Stone. Thus, the Quicksand will
+freeze and you can cross it, but the ice will melt quickly behind you.
 
-The second solution consists of throwing a Growth Stone to make nearby plants
-grow. These will then cover the Sand's surface forming a sort of path on which
-you can walk safely. This path will remain there permanently and you can
-therefore use it again if you ever pass through this clearing again. If you
-have one or the other of these Magic Stones, you can make use of it.
+   The second solution consists of throwing a Growth Stone to make nearby
+plants grow. These will then cover the Sand's surface forming a sort of path
+on which you can walk safely. This path will remain there permanently and you
+can therefore use it again if you ever pass through this clearing again. If
+you have one or the other of these Magic Stones, you can make use of it.
 
 MU DANGER.MB
 C 270 Use a Magic Stone

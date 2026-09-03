@@ -1,14 +1,14 @@
 T 064 Feu contre les Loups
 
-Vous utilisez une Pierre de Feu: l'une des betes prend feu et les deux loups
-s'enfuient, pris de panique. Vous avez gagne un sursis precieux.
+   Vous utilisez une Pierre de Feu: l'une des betes prend feu et les deux
+loups s'enfuient, pris de panique. Vous avez gagne un sursis precieux.
 
-Le Maitre des Loups ne se laisse pas impressionner cependant. "Des petits
+   Le Maitre des Loups ne se laisse pas impressionner cependant. "Des petits
 tours de magie?", grogne-t-il, puis il brandit le poing. Une douleur violente
 vous traverse le bras; vous titubez, le souffle court.
 
-La blessure handicape votre main d'epee: vous perdez de la force de frappe. De
-suite, vous perdez 3 points d'HABILETE et 1 point d'ENDURANCE. Il ne reste
+   La blessure handicape votre main d'epee: vous perdez de la force de frappe.
+De suite, vous perdez 3 points d'HABILETE et 1 point d'ENDURANCE. Il ne reste
 plus qu'a attaquer au corps a corps.
 
 MU +COMBAT.MB

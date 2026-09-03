@@ -1,6 +1,6 @@
 T 133 The Patroller's Disappearance
 
-There is no more trace of the Patroller. He has melted among the trees,
+   There is no more trace of the Patroller. He has melted among the trees,
 without a sound.
 
 C 234 Continue your journey

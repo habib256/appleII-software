@@ -1,13 +1,13 @@
 T 006 Maison de Gayolard
 
-Vous revenez dans la maison de Gayolard. Un feu crepite dans la cheminee et
+   Vous revenez dans la maison de Gayolard. Un feu crepite dans la cheminee et
 une delicieuse odeur s'eleve: quelque mets mijote. Le sorcier vous accueille
 cordialement et vous regarde avec soin.
 
-Il vous pose alors une question simple et decisive: "Avez-vous la baie?" S'il
-s'agit du fruit violet de l'Antherique, cela change tout.
+   Il vous pose alors une question simple et decisive: "Avez-vous la baie?"
+S'il s'agit du fruit violet de l'Antherique, cela change tout.
 
-Que faites-vous?
+   Que faites-vous?
 
 GU BA 175 Lui remettre la baie de l'Antherique
 CN BA 052 Avouer que je n'ai pas rapporte la baie

@@ -1,8 +1,8 @@
 T 363 Return to the Patroller
 
-You return to the clearing where you met the Patroller.
+   You return to the clearing where you met the Patroller.
 
-What happened with him?
+   What happened with him?
 
 MU MARAISNO.MB
 C 133 Did you leave on good terms

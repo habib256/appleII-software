@@ -1,13 +1,13 @@
 T 044 Les sangsues
 
-Personne ne vous attaque lorsque vous traversez la riviere, mais, sur l'autre
-rive, de grosses sangsues se sont accrochees a vos jambes et vous sucent le
-sang.
+   Personne ne vous attaque lorsque vous traversez la riviere, mais, sur
+l'autre rive, de grosses sangsues se sont accrochees a vos jambes et vous
+sucent le sang.
 
-Lancez un de et perdez autant de points d'ENDURANCE que le chiffre obtenu. Si
-vous survivez, vous pourrez ensuite reprendre la route.
+   Lancez un de et perdez autant de points d'ENDURANCE que le chiffre obtenu.
+Si vous survivez, vous pourrez ensuite reprendre la route.
 
-Voulez-vous aller au nord ou au sud ?
+   Voulez-vous aller au nord ou au sud ?
 
 ED ENDURANCE -1
 MU RIVIERE.MB

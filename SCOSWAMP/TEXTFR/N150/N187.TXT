@@ -1,12 +1,12 @@
 T 187 Trois chemins
 
-Vous etes dans la clairiere; trois chemins s'ouvrent devant vous.
+   Vous etes dans la clairiere; trois chemins s'ouvrent devant vous.
 
-Le sentier du sud descend vers des brumes basses et des tourbes. La piste de
-l'est longe la riviere; on y entend l'eau qui murmure. Le chemin de l'ouest
+   Le sentier du sud descend vers des brumes basses et des tourbes. La piste
+de l'est longe la riviere; on y entend l'eau qui murmure. Le chemin de l'ouest
 file a travers des bois serres et sombres.
 
-Quelle direction choisissez-vous?
+   Quelle direction choisissez-vous?
 
 MU DANGER.MB
 C 144 Partir vers le sud

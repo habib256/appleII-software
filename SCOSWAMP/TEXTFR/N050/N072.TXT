@@ -1,10 +1,10 @@
 T 072 Feu follet
 
-Le sol sur lequel vous marchez est marecageux, mais vous parvenez malgre tout
-a garder votre equilibre.
+   Le sol sur lequel vous marchez est marecageux, mais vous parvenez malgre
+tout a garder votre equilibre.
 
-Le Feu Follet continue de danser devant vous, insaisissable et fascinant. Sa
-lumiere tremble comme un mirage.
+   Le Feu Follet continue de danser devant vous, insaisissable et fascinant.
+Sa lumiere tremble comme un mirage.
 
 C 249 Revenir sur vos pas
 C 024 Suivre le Feu Follet vers l'ouest

@@ -1,13 +1,13 @@
 T 019 Deux sentiers
 
-Vous arrivez a une ouverture ou deux sentiers se divisent devant vous.
+   Vous arrivez a une ouverture ou deux sentiers se divisent devant vous.
 
-L'un, vers le nord, est large et bien trace: de nombreux voyageurs l'ont
+   L'un, vers le nord, est large et bien trace: de nombreux voyageurs l'ont
 emprunte; il parait plus sur et plus rapide. L'autre, vers l'est, est etroit,
 plus ombrage et moins emprunte; il peut cacher des surprises ou offrir un
 raccourci secret.
 
-Quelle direction choisissez-vous?
+   Quelle direction choisissez-vous?
 
 MU MARAISNO.MB
 C 280 Prendre le chemin large vers le nord

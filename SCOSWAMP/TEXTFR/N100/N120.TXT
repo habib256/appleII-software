@@ -1,10 +1,10 @@
 T 120 Les loups du Maitre
 
-Le Maitre des Loups fait un geste et ses deux creatures bondissent sur vous.
-Vous devez les combattre tour a tour. Si vous les tuez, il faudra ensuite
-affronter le Maitre lui-meme...
+   Le Maitre des Loups fait un geste et ses deux creatures bondissent sur
+vous. Vous devez les combattre tour a tour. Si vous les tuez, il faudra
+ensuite affronter le Maitre lui-meme...
 
-Si le combat tourne mal, vous pouvez fuir.
+   Si le combat tourne mal, vous pouvez fuir.
 
 MU +COMBAT.MB
 M 7 5 PREMIER LOUP

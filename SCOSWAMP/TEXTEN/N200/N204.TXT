@@ -1,15 +1,15 @@
 T 204 The Anguish Flowers
 V 250 367
 
-The path widens, and colorful flowers border the way. But suddenly, a shiver
-runs through you: something's wrong. Your Copper Ring becomes burning, sign of
-nearby danger.
+   The path widens, and colorful flowers border the way. But suddenly, a
+shiver runs through you: something's wrong. Your Copper Ring becomes burning,
+sign of nearby danger.
 
-Around you, these flowers seem too beautiful... You then remember their
+   Around you, these flowers seem too beautiful... You then remember their
 dreaded name: the Anguish Flowers! Their pollen inspires terror and you feel
 your hands trembling. You lose 1 SKILL point.
 
-What do you do?
+   What do you do?
 
 MU DANGER.MB
 E HABILETE -1

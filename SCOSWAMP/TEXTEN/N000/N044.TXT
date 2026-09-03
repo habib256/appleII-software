@@ -1,12 +1,12 @@
 T 044 The Leeches
 
-No one attacks you as you cross the river, but, on the other bank, large
+   No one attacks you as you cross the river, but, on the other bank, large
 leeches have attached themselves to your legs and are sucking your blood.
 
-Roll a die and lose as many STAMINA points as the number rolled. If you
+   Roll a die and lose as many STAMINA points as the number rolled. If you
 survive, you can then resume the journey.
 
-Do you want to go north or south?
+   Do you want to go north or south?
 
 ED ENDURANCE -1
 MU RIVIERE.MB

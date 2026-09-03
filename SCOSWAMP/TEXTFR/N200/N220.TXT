@@ -1,6 +1,6 @@
 T 220 Conversation vaine
 
-Vous parlez longuement avec le Maitre des Jardins, mais sans rien apprendre
+   Vous parlez longuement avec le Maitre des Jardins, mais sans rien apprendre
 d'utile. Son Amulette brille a son cou, hors de votre portee, et la
 conversation s'essouffle sans resultat.
 

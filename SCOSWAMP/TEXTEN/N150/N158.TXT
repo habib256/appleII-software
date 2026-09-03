@@ -1,16 +1,16 @@
 T 158 Success: the Map is Complete
 
-You smile and pull from your pocket a crumpled parchment: the map you've drawn
-through the Swamp. Paths, clearings and perils are carefully marked.
+   You smile and pull from your pocket a crumpled parchment: the map you've
+drawn through the Swamp. Paths, clearings and perils are carefully marked.
 Pompatarte follows your explanations, delighted.
 
-When you finish, he gives you a great slap on the back that makes you stagger.
-"Marvelous! Absolutely perfect!" He opens a drawer and takes out an enormous
-emerald he offers you. "Consider this as a bonus. My first caravan leaves
-tomorrow. You will be my guest as long as you wish. And half of a year's
-savings will be yours, as promised."
+   When you finish, he gives you a great slap on the back that makes you
+stagger. "Marvelous! Absolutely perfect!" He opens a drawer and takes out an
+enormous emerald he offers you. "Consider this as a bonus. My first caravan
+leaves tomorrow. You will be my guest as long as you wish. And half of a
+year's savings will be yours, as promised."
 
-You thank him, satisfied: Pompatarte is a man of his word. Your mission
+   You thank him, satisfied: Pompatarte is a man of his word. Your mission
 succeeded and your adventure ends here.
 
 MU +VICTOIRE.MB

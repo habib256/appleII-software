@@ -1,9 +1,9 @@
 T 307 Feu sur les Fleurs
 
-Vous jetez votre Pierre Magique de Feu sur les Fleurs d'Angoisse. Plusieurs
+   Vous jetez votre Pierre Magique de Feu sur les Fleurs d'Angoisse. Plusieurs
 d'entre elles brulent aussitot, mais un plus grand nombre encore sont restees
 hors d'atteinte des flammes.
 
-Il vous faut tenter de fuir.
+   Il vous faut tenter de fuir.
 
 C 269 Fuir

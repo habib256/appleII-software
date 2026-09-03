@@ -1,6 +1,6 @@
 T 342 Retour au Geant
 
-Vous reconnaissez la clairiere ou vous avez rencontre l'enorme Geant.
+   Vous reconnaissez la clairiere ou vous avez rencontre l'enorme Geant.
 
 MU MARAISNO.MB
 C 197 Si vous l'avez tue

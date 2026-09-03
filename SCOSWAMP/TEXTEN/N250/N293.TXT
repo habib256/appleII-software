@@ -1,6 +1,6 @@
 T 293 Terror Stone
 
-You throw the Terror Magic Stone at the Unicorn which starts neighing and
+   You throw the Terror Magic Stone at the Unicorn which starts neighing and
 galloping away. A moment later, it's out of sight.
 
 C 348 Continue on your way

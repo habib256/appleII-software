@@ -1,12 +1,12 @@
 T 042 Discovered Vial
 
-Searching the unfortunate Dwarf's pocket you find a sealed vial. The liquid
+   Searching the unfortunate Dwarf's pocket you find a sealed vial. The liquid
 inside glows faintly; there is no label or clue.
 
-Drinking it could heal, poison or trigger a magical effect. Without
+   Drinking it could heal, poison or trigger a magical effect. Without
 information, the act is risky, but the opportunity is tempting.
 
-What do you do?
+   What do you do?
 
 G FI
 C 253 Drink the vial

@@ -1,11 +1,11 @@
 T 137 Retour face a la Vase
 
-Vous revenez a l'endroit ou vous aviez rencontre la Vase.
+   Vous revenez a l'endroit ou vous aviez rencontre la Vase.
 
-Si vous l'avez deja tuee :
+   Si vous l'avez deja tuee :
 
-Sinon, elle vous barre a nouveau le passage. Ses blessures sont completement
-gueries.
+   Sinon, elle vous barre a nouveau le passage. Ses blessures sont
+completement gueries.
 
 MU DANGER.MB
 C 153 Continuer votre route

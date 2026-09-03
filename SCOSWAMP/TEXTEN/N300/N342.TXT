@@ -1,6 +1,6 @@
 T 342 Return to the Giant
 
-You recognize the clearing where you encountered the enormous Giant.
+   You recognize the clearing where you encountered the enormous Giant.
 
 MU MARAISNO.MB
 C 197 If you killed him

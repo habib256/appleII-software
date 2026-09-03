@@ -1,14 +1,14 @@
 T 122 Mise en garde
 
-L'homme tente de vous convaincre avec serieux.
+   L'homme tente de vous convaincre avec serieux.
 
-"Il est plus interessant d'avoir une mission a remplir. Et surtout, la magie
-est cruciale dans le Marais aux Scorpions.
+   "Il est plus interessant d'avoir une mission a remplir. Et surtout, la
+magie est cruciale dans le Marais aux Scorpions.
 
-Vous etes sans doute valeureux, peut-etre meme un peu mage, mais sans l'aide
-d'un sorcier aguerri, vous risquez fort de ne jamais revoir le soleil."
+   Vous etes sans doute valeureux, peut-etre meme un peu mage, mais sans
+l'aide d'un sorcier aguerri, vous risquez fort de ne jamais revoir le soleil."
 
-Ses paroles semblent sinceres.
+   Ses paroles semblent sinceres.
 
 MU VILLAGE.MB
 C 240 L'ecouter davantage

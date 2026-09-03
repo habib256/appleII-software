@@ -1,12 +1,12 @@
 T 250 Flowers Clearing
 
-You find yourself in the clearing where you encountered the Anguish Flowers.
-If you killed them all, you can continue without risk; the clearing is then
-silent and dry. If they were still alive when you left, you'll have to run at
-full speed to pass without being paralyzed by their attractive perfume.
+   You find yourself in the clearing where you encountered the Anguish
+Flowers. If you killed them all, you can continue without risk; the clearing
+is then silent and dry. If they were still alive when you left, you'll have to
+run at full speed to pass without being paralyzed by their attractive perfume.
 
-A rustling rises between the trunks, the petals shiver - the moment to act has
-arrived.
+   A rustling rises between the trunks, the petals shiver - the moment to act
+has arrived.
 
 MU DANGER.MB
 C 367 Continue - the flowers are dead, I advance into the clearing

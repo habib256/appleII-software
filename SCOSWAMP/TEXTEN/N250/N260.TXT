@@ -1,10 +1,10 @@
 T 260 Death Under the Birds
 
-You throw your Curse against the Bird Mistress. For a moment nothing happens,
-then her face hardens. Your Magic Stone transforms her into an evil creature.
-The young woman lets out a scream and waves her hand furiously.
+   You throw your Curse against the Bird Mistress. For a moment nothing
+happens, then her face hardens. Your Magic Stone transforms her into an evil
+creature. The young woman lets out a scream and waves her hand furiously.
 
-Hundreds of birds swoop down on you in a black cloud of beaks. You suffer
+   Hundreds of birds swoop down on you in a black cloud of beaks. You suffer
 their attacks; the world blurs and pain overwhelms you. A last look toward the
 Mistress reveals her regret. The birds move away; it's already too late: you
 sink. Your body yields; your strength abandons you; the adventure ends. END OF

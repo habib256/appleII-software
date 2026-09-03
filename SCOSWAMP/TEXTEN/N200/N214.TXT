@@ -1,11 +1,11 @@
 T 214 The Friendly Brigands
 
-The Brigands, now smiling, agree to chat with you. One of them, a tall bearded
-man, indicates the northern direction. "The town of Courbensaule isn't very
-far now," he says. "And if you want to rest, look for the Twisted Lance inn.
-The owner is honest, which is rare around here."
+   The Brigands, now smiling, agree to chat with you. One of them, a tall
+bearded man, indicates the northern direction. "The town of Courbensaule isn't
+very far now," he says. "And if you want to rest, look for the Twisted Lance
+inn. The owner is honest, which is rare around here."
 
-You thank them warmly and resume your journey, your heart light, heading
+   You thank them warmly and resume your journey, your heart light, heading
 north.
 
 C 019 You leave the clearing and continue your path

@@ -1,10 +1,10 @@
 T 079 First-Blood Duel
 
-After agreeing to a first-blood duel, the Brigand Chief and you take your
+   After agreeing to a first-blood duel, the Brigand Chief and you take your
 guard. The other brigands gather, curious but without hostility, attentive to
 the fight.
 
-The fight stops as soon as one of the two adversaries is wounded.
+   The fight stops as soon as one of the two adversaries is wounded.
 
 MU +COMBAT.MB
 M 9 10 BRIGAND CHIEF

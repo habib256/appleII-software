@@ -1,6 +1,6 @@
 T 192 Retour chez le Voleur
 
-Vous reconnaissez la clairiere ou vous aviez croise le Voleur. Le silence y
+   Vous reconnaissez la clairiere ou vous aviez croise le Voleur. Le silence y
 regne, lourd de souvenirs recents.
 
 MU MARAISUD.MB

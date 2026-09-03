@@ -1,16 +1,16 @@
 T 357 L'Aimant maudit
 
-Les deux autres fleches manquent egalement leur but mais, soudain, elles
+   Les deux autres fleches manquent egalement leur but mais, soudain, elles
 changent de direction en pleine course et viennent vous frapper a la poitrine.
 Vous perdez aussitot 5 points d'ENDURANCE.
 
-Vous vous apercevez alors que l'Aimant d'Or trouve sur le corps du guerrier
+   Vous vous apercevez alors que l'Aimant d'Or trouve sur le corps du guerrier
 est en fait un objet maudit. Il attire les fleches, en effet, et a bien failli
 vous tuer apres avoir cause la perte de celui qui le portait avant vous.
 
-Les Orques sont en train de preparer de nouvelles fleches.
+   Les Orques sont en train de preparer de nouvelles fleches.
 
-Qu'allez-vous faire ?
+   Qu'allez-vous faire ?
 
 E ENDURANCE -5
 C 281 Les attaquer avec votre epee

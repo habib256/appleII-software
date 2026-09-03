@@ -1,14 +1,14 @@
 T 064 Fire Against the Wolves
 
-You use a Fire Stone: one of the beasts catches fire and the two wolves flee,
-panic-stricken. You have gained a precious reprieve.
+   You use a Fire Stone: one of the beasts catches fire and the two wolves
+flee, panic-stricken. You have gained a precious reprieve.
 
-The Wolf Master is not impressed however. "Little magic tricks?", he growls,
-then he brandishes his fist. A violent pain runs through your arm; you
+   The Wolf Master is not impressed however. "Little magic tricks?", he
+growls, then he brandishes his fist. A violent pain runs through your arm; you
 stagger, short of breath.
 
-The wound handicaps your sword hand: you lose striking power. Immediately, you
-lose 3 SKILL points and 1 STAMINA point. Only hand-to-hand combat remains.
+   The wound handicaps your sword hand: you lose striking power. Immediately,
+you lose 3 SKILL points and 1 STAMINA point. Only hand-to-hand combat remains.
 
 MU +COMBAT.MB
 M 11 10 WOLF MASTER

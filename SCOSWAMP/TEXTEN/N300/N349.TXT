@@ -1,15 +1,15 @@
 T 349 Departure from the Tower
 
-You shrug and you leave the room; you walk along the dark corridor then you
+   You shrug and you leave the room; you walk along the dark corridor then you
 pass through the door with the hideous sculpture. Some distance before you
 take shape the village's contours as you move away from the tower of Evil.
 
-You've fought all sorts of creatures, men and animals, you've ten times risked
-your life and all this for what ? Evil is an ungrateful and dangerous master,
-and you can consider yourself fortunate to have succeeded without too much
-difficulty in escaping thus from Stratagus's clutches.
+   You've fought all sorts of creatures, men and animals, you've ten times
+risked your life and all this for what ? Evil is an ungrateful and dangerous
+master, and you can consider yourself fortunate to have succeeded without too
+much difficulty in escaping thus from Stratagus's clutches.
 
-You're alive, that's essential, and, in the future, there's no doubt you'll
+   You're alive, that's essential, and, in the future, there's no doubt you'll
 show yourself more circumspect in choosing the masters you'll serve. Your
 adventure, in any case, ends here.
 

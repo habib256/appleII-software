@@ -1,10 +1,10 @@
 T 012 The Giant
 
-The GIANT fights on, roaring with fury. He is extraordinarily strong but, by
-good fortune for you, his movements are clumsy and his club rarely finds its
-mark.
+   The GIANT fights on, roaring with fury. He is extraordinarily strong but,
+by good fortune for you, his movements are clumsy and his club rarely finds
+its mark.
 
-When it does, however, you lose 4 STAMINA points instead of 2, such is the
+   When it does, however, you lose 4 STAMINA points instead of 2, such is the
 power of the blow. So take care!
 
 MU +COMBAT.MB

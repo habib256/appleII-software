@@ -1,9 +1,9 @@
 T 397 Creature's Flight
 
-You want nothing to do with this creature and therefore leave the clearing as
-quickly as possible.
+   You want nothing to do with this creature and therefore leave the clearing
+as quickly as possible.
 
-The only path allowing you to leave brings you back west.
+   The only path allowing you to leave brings you back west.
 
 MU MARAISUD.MB
 C 330 Continue west

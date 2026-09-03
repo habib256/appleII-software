@@ -1,18 +1,18 @@
 T 009 L'entree du Marais
 
-Vous etes a la lisiere sud du Marais aux Scorpions. Grace a l'Anneau de
+   Vous etes a la lisiere sud du Marais aux Scorpions. Grace a l'Anneau de
 Cuivre, vous saurez toujours ou est le nord. Vous decouvrez un sentier oriente
 plein nord. Quelques mots peints sur un rocher vous avertissent : ATTENTION !
 MARAIS AUX SCORPIONS ! FAITES DEMI-TOUR ! Deux tibias croises et un crane
 s'ajoutent a cette menace.
 
-Vous n'y pretez pas attention. D'une demarche assuree, vous franchissez la
+   Vous n'y pretez pas attention. D'une demarche assuree, vous franchissez la
 lisiere. L'air devient plus lourd, la vase suinte de partout. Tres vite, vous
 comprenez qu'il serait fou de quitter le chemin. Le sol trompeur aspire vos
 bottes. Seule issue : suivre le sentier sans jamais vous en ecarter.
 
-La moiteur colle a votre peau et les insectes tournoient en nuages. Le Marais
-s'ouvre devant vous, hostile et silencieux, comme un piege vivant.
+   La moiteur colle a votre peau et les insectes tournoient en nuages. Le
+Marais s'ouvre devant vous, hostile et silencieux, comme un piege vivant.
 
 MU VILLAGE.MB
 C 195 Avancer prudemment sur le sentier vers le coeur du Marais

@@ -1,6 +1,6 @@
 T 367 Deux chemins
 
-Deux chemins permettent de quitter cette clairiere.
+   Deux chemins permettent de quitter cette clairiere.
 
 MU DANGER.MB
 C 304 Aller au nord

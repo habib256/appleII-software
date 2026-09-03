@@ -1,6 +1,6 @@
 T 270 Two Paths
 
-Two paths allow you to leave the clearing: one goes toward the north, the
+   Two paths allow you to leave the clearing: one goes toward the north, the
 other toward the west. Choose your direction carefully.
 
 MU DANGER.MB

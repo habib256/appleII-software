@@ -1,9 +1,9 @@
 T 094 La brume fetide
 
-Le sentier descend et des tourbillons de brume vous entourent. Une odeur
+   Le sentier descend et des tourbillons de brume vous entourent. Une odeur
 infecte emplit l'air et vous retenez votre souffle.
 
-Mais bientot, force vous est de respirer de nouveau et l'atmosphere viciee
+   Mais bientot, force vous est de respirer de nouveau et l'atmosphere viciee
 vous coute 2 points d'ENDURANCE.
 
 MU MARAISUD.MB

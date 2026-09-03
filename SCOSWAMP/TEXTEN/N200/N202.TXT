@@ -1,9 +1,9 @@
 T 202 Three Directions
 
-You have no reason to stay here. The clearing is calm, but the wind brings a
-swamp smell. Three paths open before you; each leads to the unknown.
+   You have no reason to stay here. The clearing is calm, but the wind brings
+a swamp smell. Three paths open before you; each leads to the unknown.
 
-Which direction will you choose?
+   Which direction will you choose?
 
 MU MARAISNO.MB
 C 138 Take the southern trail

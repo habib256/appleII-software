@@ -1,10 +1,10 @@
 T 219 Victory Over the Patroller
 
-Your opponent lies on the ground, struck down after a fierce combat. Searching
-the body, you find a sharp dagger, provisions, and a solid helmet.
+   Your opponent lies on the ground, struck down after a fierce combat.
+Searching the body, you find a sharp dagger, provisions, and a solid helmet.
 
-Putting it on, you gain +1 in SKILL. Invigorated, you resume your march toward
-new dangers.
+   Putting it on, you gain +1 in SKILL. Invigorated, you resume your march
+toward new dangers.
 
 E HABILETE +1
 C 234 Leave the place and resume the journey

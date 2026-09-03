@@ -1,17 +1,17 @@
 T 098 Transformation
 
-Un rude coup s'abat sur votre crane et vous tombez aux pieds du sorcier,
+   Un rude coup s'abat sur votre crane et vous tombez aux pieds du sorcier,
 l'epee echappee de vos mains. En levant les yeux, vous croyez qu'il a grandi.
 Mais non : c'est vous qui avez retreci, reduit a la taille d'un insecte.
 
-Vous fuyez maladroitement sur vos nouvelles pattes. Stratagus rit aux eclats
-et vous ignore. Bientot, vous grimpez le long d'un mur pour vous cacher dans
-une fissure.
+   Vous fuyez maladroitement sur vos nouvelles pattes. Stratagus rit aux
+eclats et vous ignore. Bientot, vous grimpez le long d'un mur pour vous cacher
+dans une fissure.
 
-La faim vous prend et vous tissez une toile, esperant y pieger une mouche. Vos
-souvenirs d'aventurier s'effacent, remplaces par les instincts d'une araignee
-des champs.
+   La faim vous prend et vous tissez une toile, esperant y pieger une mouche.
+Vos souvenirs d'aventurier s'effacent, remplaces par les instincts d'une
+araignee des champs.
 
-Votre aventure est terminee.
+   Votre aventure est terminee.
 
 MU +MORT.MB

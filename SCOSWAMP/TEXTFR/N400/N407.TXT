@@ -1,6 +1,6 @@
 T 407 L'objet donne aux Brigands
 
-Vous remettez au Chef le premier objet de valeur accessible dans votre sac.
+   Vous remettez au Chef le premier objet de valeur accessible dans votre sac.
 L'Anneau de Cuivre reste a votre doigt. Le marche est respecte.
 
 PO

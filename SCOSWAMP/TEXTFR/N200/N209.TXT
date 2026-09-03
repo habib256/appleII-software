@@ -1,14 +1,14 @@
 T 209 Bete du bassin
 V 168 082 308 397
 
-Vous marchez vers l'est et decouvrez une clairiere avec un bassin. Une
+   Vous marchez vers l'est et decouvrez une clairiere avec un bassin. Une
 creature enorme a la peau brune et caoutchouteuse emerge soudain du bassin et
 tente de vous saisir d'un tentacule. Vous faites un bond en arriere: la BETE
 DU BASSIN s'avance vers vous. Un magnifique Bijou Violet brille a son front,
 attirant le regard. L'eau du bassin remue; des remous trahissent la puissance
 de la bete.
 
-Que faites-vous?
+   Que faites-vous?
 
 MU MARAISUD.MB
 C 397 Prendre la fuite

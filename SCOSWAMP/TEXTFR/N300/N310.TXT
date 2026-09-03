@@ -1,6 +1,6 @@
 T 310 Feu sur l'Herbe a Pinces
 
-Vous jetez votre Pierre Magique de Feu sur l'Herbe a Pinces. Elle n'est pas
+   Vous jetez votre Pierre Magique de Feu sur l'Herbe a Pinces. Elle n'est pas
 entierement brulee pour autant, mais elle recule suffisamment pour vous
 permettre de vous echapper.
 

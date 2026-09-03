@@ -1,18 +1,18 @@
 T 355 Return to Courbensaule
 
-The path leading to Courbensaule is now familiar to you, but when you enter
+   The path leading to Courbensaule is now familiar to you, but when you enter
 the town again, something seems to have changed. You indeed feel people
 looking at you and murmurs rising as you pass. You then understand the rumor
 of your exploits has spread around and they're now publicly known.
 
-You feel a certain unease being thus observed and, as you engage in a side
+   You feel a certain unease being thus observed and, as you engage in a side
 street, you have the impression of being followed. You immediately turn around
 to find yourself face to face with two ragged CUTPURSES. They attack you
 immediately, convinced you must have brought back a fabulous treasure from
 your wanderings in the Swamp.
 
-You can't flee and you don't have enough time to resort to magic. All that's
-left is to fight them...
+   You can't flee and you don't have enough time to resort to magic. All
+that's left is to fight them...
 
 MU +COMBAT.MB
 M 7 5 FIRST CUTPURSE

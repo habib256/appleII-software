@@ -1,8 +1,8 @@
 T 348 Quatre chemins
 
-Quatre chemins vous permettent de repartir.
+   Quatre chemins vous permettent de repartir.
 
-Dans quelle direction souhaitez-vous aller ?
+   Dans quelle direction souhaitez-vous aller ?
 
 MU MARAISUD.MB
 C 094 Au nord

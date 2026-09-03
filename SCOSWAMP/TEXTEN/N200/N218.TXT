@@ -1,11 +1,11 @@
 T 218 Will-o'-the-Wisp at the Edge
 
-The path widens and opens onto a calm clearing. A faint glow floats westward:
-a WILL-O'-THE-WISP dances in the air. It retreats a few meters, revealing a
-muddy and overgrown path. Elsewhere, trails lead south and east under the
-trees.
+   The path widens and opens onto a calm clearing. A faint glow floats
+westward: a WILL-O'-THE-WISP dances in the air. It retreats a few meters,
+revealing a muddy and overgrown path. Elsewhere, trails lead south and east
+under the trees.
 
-Do you follow it or ignore it?
+   Do you follow it or ignore it?
 
 MU MARAISNO.MB
 C 072 Follow the Will-o'-the-Wisp westward

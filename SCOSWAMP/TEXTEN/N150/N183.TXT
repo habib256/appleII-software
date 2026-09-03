@@ -1,14 +1,14 @@
 T 183 Cliff Summit
 
-You climb: the ground becomes rocky and the path rises. Soon, instead of the
-dreary foliage, the sky opens. You reach the summit of a high cliff
+   You climb: the ground becomes rocky and the path rises. Soon, instead of
+the dreary foliage, the sky opens. You reach the summit of a high cliff
 overlooking the river.
 
-Below, muddy waters flow far beneath you. Lazy crocodiles float in the sun in
-the water. Further east, a bridge spans the waterway, inaccessible. No trail
-runs along the bank; several paths offer themselves to you.
+   Below, muddy waters flow far beneath you. Lazy crocodiles float in the sun
+in the water. Further east, a bridge spans the waterway, inaccessible. No
+trail runs along the bank; several paths offer themselves to you.
 
-What do you want to do?
+   What do you want to do?
 
 MU RIVIERE.MB
 C 066 Enter the Swamp southward

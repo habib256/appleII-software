@@ -1,16 +1,17 @@
 T 117 The Garden Amulet
 
-You throw the Friendship Stone at the Garden Master. He smiles widely: "What
-can I do for you, dear friend?"
+   You throw the Friendship Stone at the Garden Master. He smiles widely:
+"What can I do for you, dear friend?"
 
-You ask for his Flower Amulet. He places it around your neck, but as soon as
-it touches you, you are paralyzed. The Garden Master stares at you and orders
-you to tell the truth. Despite yourself, you obey.
+   You ask for his Flower Amulet. He places it around your neck, but as soon
+as it touches you, you are paralyzed. The Garden Master stares at you and
+orders you to tell the truth. Despite yourself, you obey.
 
-"You are not evil," he says, "but you serve a despicable master. Take care."
+   "You are not evil," he says, "but you serve a despicable master. Take
+care."
 
-He takes back his Amulet and leaves. Gradually, you regain your strength and
-resume the journey westward.
+   He takes back his Amulet and leaves. Gradually, you regain your strength
+and resume the journey westward.
 
 MU MARAISNO.MB
 C 363 Go westward

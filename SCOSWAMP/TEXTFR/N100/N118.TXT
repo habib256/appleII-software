@@ -1,13 +1,13 @@
 T 118 La clairiere des scorpions
 V 303 319
 
-A quelque distance, deux sentiers rejoignent celui que vous suivez. Le
+   A quelque distance, deux sentiers rejoignent celui que vous suivez. Le
 croisement se fait dans une petite clairiere.
 
-Votre Anneau de Cuivre vous picote au doigt. En baissant les yeux, vous voyez
-des dizaines de petits scorpions accourir vers vous.
+   Votre Anneau de Cuivre vous picote au doigt. En baissant les yeux, vous
+voyez des dizaines de petits scorpions accourir vers vous.
 
-Tentez votre Chance.
+   Tentez votre Chance.
 
 MU DANGER.MB
 CL 070 182

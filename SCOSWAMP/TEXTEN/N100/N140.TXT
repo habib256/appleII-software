@@ -1,10 +1,10 @@
 T 140 Stratagus's Fall
 
-Your blade pierces his chest. He dies without a word, the serrated blade
+   Your blade pierces his chest. He dies without a word, the serrated blade
 falling from his fingers. It's a Magic Sword: it gives you +2 in SKILL.
 
-But the atmosphere darkens. Your ring remains warm. A smell of sulfur rises.
-The danger is not averted.
+   But the atmosphere darkens. Your ring remains warm. A smell of sulfur
+rises. The danger is not averted.
 
 C 375 Stay to explore the tower
 C 335 Return to see Gayolard

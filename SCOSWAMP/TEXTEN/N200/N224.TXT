@@ -1,6 +1,6 @@
 T 224 Terror and Wolves
 
-You throw a Terror Stone. The Wolf Master flees and takes refuge in his
+   You throw a Terror Stone. The Wolf Master flees and takes refuge in his
 dwelling; however the two Wolves attack you. They throw themselves at you in
 turn: you must fight them one after the other.
 

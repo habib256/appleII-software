@@ -1,21 +1,21 @@
 T 305 The Garden Master
 V 238 084 117 251 283 396
 
-The path oriented eastward is very well maintained, the trees and bushes have
-been carefully trimmed and their foliage doesn't invade the trail.
+   The path oriented eastward is very well maintained, the trees and bushes
+have been carefully trimmed and their foliage doesn't invade the trail.
 
-Soon, you arrive before a pleasant clearing. All sorts of plants and flowers
-grow here and there: clearly, they're taken great care of and the place seems
-quite welcoming. This clearing indeed seems too beautiful to be entirely
-natural, but too natural as well to be truly a garden.
+   Soon, you arrive before a pleasant clearing. All sorts of plants and
+flowers grow here and there: clearly, they're taken great care of and the
+place seems quite welcoming. This clearing indeed seems too beautiful to be
+entirely natural, but too natural as well to be truly a garden.
 
-As you cast a glance around you, a man approaches: he's tall, broad-shouldered
-and wears earth-stained clothes. You guess however that you're not dealing
-with a simple gardener, for he wears around his neck a Silver flower-shaped
-Amulet: this is the GARDEN MASTER. Your Copper Ring remains cold: this man is
-driven by friendly intentions.
+   As you cast a glance around you, a man approaches: he's tall,
+broad-shouldered and wears earth-stained clothes. You guess however that
+you're not dealing with a simple gardener, for he wears around his neck a
+Silver flower-shaped Amulet: this is the GARDEN MASTER. Your Copper Ring
+remains cold: this man is driven by friendly intentions.
 
-Which sorcerer do you serve?
+   Which sorcerer do you serve?
 
 MU MARAISNO.MB
 C 036 Gayolard

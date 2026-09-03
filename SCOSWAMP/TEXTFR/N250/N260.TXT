@@ -1,11 +1,11 @@
 T 260 La fin sous les oiseaux
 
-Vous lancez votre Malediction contre la Maitresse des Oiseaux. Pendant un
+   Vous lancez votre Malediction contre la Maitresse des Oiseaux. Pendant un
 instant rien ne se produit, puis son visage se durcit. Votre Pierre de Magie
 la transforme en creature malefique. La jeune femme pousse un hurlement et
 agite la main avec fureur.
 
-Des centaines d'oiseaux fondent sur vous en un nuage noir de becs. Vous
+   Des centaines d'oiseaux fondent sur vous en un nuage noir de becs. Vous
 subissez leurs attaques; le monde se trouble et la douleur vous submerge. Un
 dernier regard vers la Maitresse revele son regret. Les oiseaux s'eloignent;
 il est deja trop tard : vous sombrez. Votre corps cede; vos forces vous

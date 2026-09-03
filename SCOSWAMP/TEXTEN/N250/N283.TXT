@@ -1,10 +1,10 @@
 T 283 The Garden Master
 
-The Garden Master is delighted. You promise to ask Gayolard to send him
+   The Garden Master is delighted. You promise to ask Gayolard to send him
 Antherica berries, then you point out the path to the clearing where you found
 the bush. He gives you a beneficial Magic Stone: choose which one yourself.
 
-Only one path leads out of this clearing, so you take it back towards the
+   Only one path leads out of this clearing, so you take it back towards the
 west.
 
 MU MARAISNO.MB

@@ -1,10 +1,11 @@
 T 200 Challenge to the Bear
 
-You have killed an impressive number of monsters and beasts. A bear therefore
-doesn't scare you: you let out a defiant cry and brandish your sword, ready
-for combat. The bear is massive, its claws would lacerate fragile armor.
+   You have killed an impressive number of monsters and beasts. A bear
+therefore doesn't scare you: you let out a defiant cry and brandish your
+sword, ready for combat. The bear is massive, its claws would lacerate fragile
+armor.
 
-If you feel you're getting the worse of it, Flee.
+   If you feel you're getting the worse of it, Flee.
 
 MU +COMBAT.MB
 M 7 8 BEAR

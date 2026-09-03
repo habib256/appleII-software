@@ -1,11 +1,11 @@
 T 212 Le maitre des grenouilles
 
-Le Sorcier vous regarde d'un air mefiant. "Ah, l'Antherique... je connais,
+   Le Sorcier vous regarde d'un air mefiant. "Ah, l'Antherique... je connais,
 dit-il. Mais je ne suis qu'un sorcier neutre, et ces buissons n'ont aucun
 pouvoir pour moi. Pourquoi donc vous aiderais-je ?"
 
-Sa voix est douce, mais son regard, froid comme la vase du marais. Autour de
-lui, ses grenouilles geantes coassent, pretes a bondir. Il attend votre
+   Sa voix est douce, mais son regard, froid comme la vase du marais. Autour
+de lui, ses grenouilles geantes coassent, pretes a bondir. Il attend votre
 reponse, les doigts poses sur son amulette d'argent.
 
 C 062 Le menacer de votre epee

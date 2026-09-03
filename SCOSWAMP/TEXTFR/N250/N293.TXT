@@ -1,6 +1,6 @@
 T 293 Pierre de Terreur
 
-Vous lancez la Pierre Magique de Terreur sur la Licorne qui se met a hennir et
-a s'eloigner au galop. Un instant plus tard, elle est hors de vue.
+   Vous lancez la Pierre Magique de Terreur sur la Licorne qui se met a hennir
+et a s'eloigner au galop. Un instant plus tard, elle est hors de vue.
 
 C 348 Poursuivre votre route

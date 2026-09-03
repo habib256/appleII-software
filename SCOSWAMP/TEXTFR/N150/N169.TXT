@@ -1,9 +1,9 @@
 T 169 L'Illusion du Serpent
 
-Vous lancez votre Pierre d'Illusion et faites apparaitre l'image d'un serpent
-venimeux entre vous et les Orques.
+   Vous lancez votre Pierre d'Illusion et faites apparaitre l'image d'un
+serpent venimeux entre vous et les Orques.
 
-Mais ceux-ci ne sont nullement effrayes. L'un d'eux se penche meme avec un
+   Mais ceux-ci ne sont nullement effrayes. L'un d'eux se penche meme avec un
 rictus carnassier et tente d'attraper le serpent illusoire ! Votre stratageme
 a echoue... il ne vous reste plus qu'a combattre.
 

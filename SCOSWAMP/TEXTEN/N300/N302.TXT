@@ -1,8 +1,8 @@
 T 302 Wolves' Magic Formula
 
-You pronounce the magic formula the Wolf Master taught you.
+   You pronounce the magic formula the Wolf Master taught you.
 
-The two enormous Wolves then celebrate by licking your hands. You pet them
+   The two enormous Wolves then celebrate by licking your hands. You pet them
 behind the ear and order them to lie down.
 
 C 247 Continue

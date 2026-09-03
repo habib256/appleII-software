@@ -1,7 +1,7 @@
 T 267 Attaque du Voleur
 
-Le Voleur pousse un cri de colere et se precipite sur vous. Il n'est arme que
-d'un poignard, mais c'est un adversaire retors. Il vous est impossible de
+   Le Voleur pousse un cri de colere et se precipite sur vous. Il n'est arme
+que d'un poignard, mais c'est un adversaire retors. Il vous est impossible de
 prendre la fuite; le combat est ineluctable. Si vous parvenez a le tuer,
 poursuivez l'aventure.
 

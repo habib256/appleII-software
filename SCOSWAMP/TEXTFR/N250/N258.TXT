@@ -1,9 +1,9 @@
 T 258 Recours a la magie
 
-Recourir a la magie contre un sorcier est une entreprise hasardeuse. L'air
+   Recourir a la magie contre un sorcier est une entreprise hasardeuse. L'air
 vibre, l'energie gronde autour de vos mains. Chaque sort a un prix.
 
-- Peur : peut briser sa volonte, mais risque de provoquer visions
+   - Peur : peut briser sa volonte, mais risque de provoquer visions
 paralysantes. - Amitie : tente de corrompre son coeur ou de semer le doute;
 approche subtile. Ne rien faire vous permet d'observer et de garder
 l'initiative, mais vous perdez l'avantage d'etre le premier a agir. Pesez la
