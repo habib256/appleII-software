@@ -14,5 +14,5 @@ AMULETS
   The fake Bird stays distinct; Stratagus counts 0, 1-2 or 3+
   Handing them in removes them from the bag and adds the reward
 
-BAG: [A-L] picks a Stone; [ESC] closes; commands are suspended
+BAG: [A-L] picks a Stone; [I] or [ESC] closes; commands are suspended
 FIGHT: [SPACE] attack; [C] Luck; [F] Flee; [I] bag; [ESC] picture

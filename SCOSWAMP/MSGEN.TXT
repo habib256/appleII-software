@@ -3,7 +3,7 @@ YOU
 BACKPACK -- %u Gold Pieces, a sword, a leather jerkin
    forbidden mid-fight
 No Magic Stones.
-A Stone crumbles when used.  [A-Z] use  [ESC] close
+A Stone crumbles when used.  [A-Z] use  [I/ESC] close
 The first blow was struck.
 No such Stone.
 The %s Stone crumbles.

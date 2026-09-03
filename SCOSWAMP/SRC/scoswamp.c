@@ -1301,7 +1301,8 @@ static void show_inventory(int in_combat)
 
         print_at(22, msg(M_UNE_PIERRE_SE));
         key = cgetc();
-        if (key == 27) break;
+        /* [I] est une bascule : elle ouvre le sac et le referme. */
+        if (key == 27 || key == 'I' || key == 'i') break;
         /* Une lettre hors de A..Z passe en negatif, donc au-dela de n
          * une fois dans l'octet : un seul test suffit. */
         i = (unsigned char)((key >= 'a') ? (key - 'a') : (key - 'A'));
