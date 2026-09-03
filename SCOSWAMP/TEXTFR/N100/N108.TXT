@@ -1,11 +1,11 @@
 T 108 Retour dans la clairiere
 
-Vous entrez a nouveau dans la clairiere ou vous aviez rencontre les loups.
+   Vous entrez a nouveau dans la clairiere ou vous aviez rencontre les loups.
 Tout est calme et rien ne semble anormal.
 
-Le buisson demeure au centre, mais il ne porte plus aucune baie. Rien
+   Le buisson demeure au centre, mais il ne porte plus aucune baie. Rien
 d'interessant a decouvrir ici.
 
-Vous repartez donc vers le sud, en direction de la clairiere du Geant.
+   Vous repartez donc vers le sud, en direction de la clairiere du Geant.
 
 C 342 Aller vers la clairiere du Geant

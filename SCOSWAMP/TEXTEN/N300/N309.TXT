@@ -1,9 +1,10 @@
 T 309 Three Paths
 
-Three paths allow you to leave this clearing.
+   Three paths allow you to leave this clearing.
 
-In which direction do you wish to go?
+   In which direction do you wish to go?
 
+MU ORQUES.MB
 C 047 North
 C 053 South
 C 388 West

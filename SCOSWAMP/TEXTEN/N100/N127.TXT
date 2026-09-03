@@ -1,12 +1,13 @@
 T 127 Conversation with the Master
 
-He doesn't look mean, just shy. You throw a Friendship Stone to win him over.
+   He doesn't look mean, just shy. You throw a Friendship Stone to win him
+over.
 
-Immediately, his face lights up. "I don't get many visits," he says. "If you
-need to know something, I'd be delighted to help you. I'm a powerful sorcerer,
-you know? But please sit down, let's chat a bit."
+   Immediately, his face lights up. "I don't get many visits," he says. "If
+you need to know something, I'd be delighted to help you. I'm a powerful
+sorcerer, you know? But please sit down, let's chat a bit."
 
-You talk with the Frog Master, then bring up again the plant you're looking
+   You talk with the Frog Master, then bring up again the plant you're looking
 for.
 
 C 104 Continue the discussion about the plant

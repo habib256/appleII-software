@@ -1,16 +1,17 @@
 T 058 The Cautious Passage
 
-Test your LUCK. If you are lucky, you reach the chosen path without harm. If
-you are unlucky, your foot catches on a root and you fall, hitting your leg
+   Test your LUCK. If you are lucky, you reach the chosen path without harm.
+If you are unlucky, your foot catches on a root and you fall, hitting your leg
 violently against a stone. This bruise costs you 1 STAMINA point.
 
-You regain your senses, the pain reminding you that the Swamp spares no one.
-Despite everything, you continue.
+   You regain your senses, the pain reminding you that the Swamp spares no
+one. Despite everything, you continue.
 
-The clearing is before you, and you must choose a direction. To the west, a
+   The clearing is before you, and you must choose a direction. To the west, a
 dark path. To the east, a passage bordering tall grass. To the south, the way
 back. Your fate is in your hands.
 
+MU RONDPOINT.MB
 CE ENDURANCE 0 -1
 C 398 Take the path heading west
 C 105 Follow the grassy path to the east

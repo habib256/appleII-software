@@ -1,7 +1,8 @@
 T 238 Garden Master's Clearing
 
-You enter the Garden Master's clearing; it's beautiful and completely
+   You enter the Garden Master's clearing; it's beautiful and completely
 deserted. Calm reigns, nothing moves. You decide to leave by following the
 path westward.
 
+MU JARDINS.MB
 C 363 Resume the journey westward

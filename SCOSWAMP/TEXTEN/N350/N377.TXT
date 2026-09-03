@@ -1,9 +1,9 @@
 T 377 Leap over the Scorpions
 
-Roll two dice. If the total is less than or equal to your STAMINA points, you
-manage to leap over the Scorpions.
+   Roll two dice. If the total is less than or equal to your STAMINA points,
+you manage to leap over the Scorpions.
 
-If the total is greater than your STAMINA points, your leap falls short and
+   If the total is greater than your STAMINA points, your leap falls short and
 you get stung.
 
 CS ENDURANCE 319 406

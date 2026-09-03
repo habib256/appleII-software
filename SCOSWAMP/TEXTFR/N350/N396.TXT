@@ -1,20 +1,21 @@
 T 396 Le buisson d'Antherique
 
-"Serait-ce donc possible ? s'ecrie le Maitre des Jardins. Un buisson
+   "Serait-ce donc possible ? s'ecrie le Maitre des Jardins. Un buisson
 d'Antherique quelque part dans ce Marais ? Je savais bien que cet endroit
-devait receler quelque vertu cache lorsque j'ai decide de m'y installer. C'est
-sans doute cela que j'avais pressenti !"
+devait receler quelque vertu cachee lorsque j'ai decide de m'y installer.
+C'est sans doute cela que j'avais pressenti !"
 
-Il reste immobile un instant les paupieres baisses et semble reflechir puis il
-ouvre a nouveau les yeux. " La plante que vous cherchez, dit-il alors, se
-trouve a l'est, mais aucun chemin ne permet d'y parvenir directement. Pour la
-trouver, il vous faut prendre la direction de l'ouest, puis revenir vers l'est
-dans le sens des aiguilles d'une montre. "
+   Il reste immobile un instant les paupieres baissees et semble reflechir
+puis il ouvre a nouveau les yeux. "La plante que vous cherchez, dit-il alors,
+se trouve a l'est, mais aucun chemin ne permet d'y parvenir directement. Pour
+la trouver, il vous faut prendre la direction de l'ouest, puis revenir vers
+l'est dans le sens des aiguilles d'une montre."
 
-Il vous souhaite ensuite bonne chance et vous donne une Pierre de Magie
+   Il vous souhaite ensuite bonne chance et vous donne une Pierre de Magie
 Benefique (choisissez laquelle). Vous reprenez a present votre route. Un seul
-chemin permet de quitter la clairiere vous l'empruntez donc, en marchant vers
-l'ouest.
+chemin permet de quitter la clairiere : vous l'empruntez donc, en marchant
+vers l'ouest.
 
+MU JARDINS.MB
 PC 1 B
 C 363 Continuer vers l'ouest

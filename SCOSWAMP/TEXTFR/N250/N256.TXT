@@ -1,11 +1,11 @@
 T 256 Choix du sort
 
-Vous etes courageux - ou peut-etre simplement temeraire - pour oser utiliser
-la magie contre le Sorcier malefique. L'air vibre autour de vous et vos mains
-chauffent alors que l'essence du sort palpite au bout des doigts.
+   Vous etes courageux - ou peut-etre simplement temeraire - pour oser
+utiliser la magie contre le Sorcier malefique. L'air vibre autour de vous et
+vos mains chauffent alors que l'essence du sort palpite au bout des doigts.
 
-Il est temps de choisir l'incantation qui decidra de l'issue du duel. Pesez la
-porte, le cout et le risque; chaque sort a ses consequences.
+   Il est temps de choisir l'incantation qui decidera de l'issue du duel.
+Pesez la portee, le cout et le risque; chaque sort a ses consequences.
 
 C 274 Lancer la Malediction
 C 365 Prononcer la Terreur

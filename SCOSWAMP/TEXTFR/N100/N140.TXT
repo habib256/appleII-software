@@ -1,13 +1,11 @@
 T 140 La chute de Stratagus
 
-Votre lame perce sa poitrine. Il meurt sans un mot, la lame dentelee tombant
-de ses doigts.
+   Votre lame perce sa poitrine. Il meurt sans un mot, la lame dentelee
+tombant de ses doigts. Vous la ramassez: c'est une Epee Magique, qui ajoute 2
+points au total d'HABILETE de quiconque s'en sert au combat.
 
-Vous la ramassez: c'est une Epee Magique, qui ajoute 2 points au total
-d'HABILETE de quiconque s'en sert au combat.
-
-Mais l'atmosphere s'assombrit. Votre anneau reste chaud. Une odeur de soufre
-s'eleve. Le danger n'est pas ecarte.
+   Mais l'atmosphere s'assombrit. Votre anneau reste chaud. Une odeur de
+soufre s'eleve. Le danger n'est pas ecarte.
 
 G EP
 E BONUS +2

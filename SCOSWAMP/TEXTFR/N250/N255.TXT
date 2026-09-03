@@ -1,18 +1,18 @@
 T 255 La tour de Stratagus
 
-Des que vous voyez la tour de Stratagus, votre Anneau de Cuivre se met a
+   Des que vous voyez la tour de Stratagus, votre Anneau de Cuivre se met a
 chauffer autour de votre doigt. La tour se dresse pres du marais, sombre,
-cerne de statues aux visages grimacants; de hautes arcades laissent filtrer
+cernee de statues aux visages grimacants; de hautes arcades laissent filtrer
 une lumiere froide. Les gargouilles semblent veiller chaque pas.
 
-La sensation de chaleur s'intensifie a mesure que vous vous approchez; les
+   La sensation de chaleur s'intensifie a mesure que vous vous approchez; les
 passants vous evitent et chuchotent. Le nom de Stratagus suffit a clore des
 bouches: un etre malefique, murmurent-ils. Les arbres du marais bruissent. Le
 portail en fer forge est massif; il vous toise, presque vivant.
 
-Vous pesez vos options: aller a la porte ou rebrousser chemin.
+   Vous pesez vos options: aller a la porte ou rebrousser chemin.
 
-Quel choix faites-vous?
+   Quel choix faites-vous?
 
 C 139 Reculer et retourner au village
 C 040 Aller jusqu'a la porte et frapper

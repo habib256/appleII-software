@@ -1,21 +1,22 @@
 T 208 Leaving the Swamp
 
-The brightness seems to grow as you progress. Suddenly, you see a patch of
+   The brightness seems to grow as you progress. Suddenly, you see a patch of
 blue sky through a gap in the foliage, just above your head. A few minutes
 later, the trees part at the path's end and you understand you've left the
 Swamp. The air is drier, the light more pure, and your steps become less
 heavy.
 
-Yet, a question arises: is your mission accomplished? If you haven't yet
+   Yet, a question arises: is your mission accomplished? If you haven't yet
 completed your task, it's still possible to turn back. You can then retrace
 your steps, following this path in the other direction until you find a
 clearing. The Swamp, with its traps and mysteries, remains there, behind you,
 ready to swallow again the imprudent traveler.
 
-But if, on the contrary, you deem your quest accomplished, it's time to
+   But if, on the contrary, you deem your quest accomplished, it's time to
 consider returning to your sorcerer, to report the fruit of your research. The
 choice is yours, between continuing the adventure or returning crowned with
 glory.
 
+MU VILLAGE.MB
 C 195 Retrace your steps and return to a Swamp clearing
 C 159 Return to your sorcerer to report

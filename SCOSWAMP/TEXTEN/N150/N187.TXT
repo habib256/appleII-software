@@ -1,13 +1,14 @@
 T 187 Three Paths
 
-You are in the clearing; three paths open before you.
+   You are in the clearing; three paths open before you.
 
-The southern trail descends toward low mists and peat bogs. The eastern track
-runs along the river; you can hear the water murmuring. The western path runs
-through dense, dark woods.
+   The southern trail descends toward low mists and peat bogs. The eastern
+track runs along the river; you can hear the water murmuring. The western path
+runs through dense, dark woods.
 
-Which direction do you choose?
+   Which direction do you choose?
 
+MU PINCES.MB
 C 144 Go south
 C 290 Take the eastern road along the river
 C 010 Head west through the woods

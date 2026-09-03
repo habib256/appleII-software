@@ -145,6 +145,22 @@ if [ "$bss_end" -gt "$CEILING" ]; then
     exit 1
 fi
 
+# Le segment LOWBSS (scoswamp.cfg) loge les gros tampons en RAM basse,
+# $1000-$1FFF. ld65 refuse lui-meme un debordement de la zone LOWRAM ; on
+# affiche seulement ce qu'il reste, pour savoir ce qu'on peut encore y mettre.
+lowbss_line=$(grep -E '^LOWBSS ' "$MAP" | head -1)
+if [ -n "$lowbss_line" ]; then
+    lb_start=$((16#$(echo "$lowbss_line" | awk '{print $2}')))
+    lb_end=$((16#$(echo "$lowbss_line" | awk '{print $3}')))
+    lb_size=$((16#$(echo "$lowbss_line" | awk '{print $4}')))
+    printf '  LOWBSS        : $%04X - $%04X  (%d o, reste %d o sous $2000)\n' \
+           "$lb_start" "$lb_end" "$lb_size" "$((HGR1_START - lb_end - 1))"
+    if [ "$lb_end" -ge "$HGR1_START" ]; then
+        printf 'ERREUR : LOWBSS deborde dans HGR page 1.\n'
+        exit 1
+    fi
+fi
+
 printf '\n'
 printf 'OK : tient en mémoire, marge de %d octets.\n' "$((CEILING - bss_end))"
 exit 0

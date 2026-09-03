@@ -1,17 +1,17 @@
 T 010 La clairiere des combats
-V 142
+V 142 227
 
-Vous franchissez des arbres noueux et entrez dans une nouvelle clairiere.
-C'est la Clairiere n 5.
+   Vous franchissez des arbres noueux et entrez dans une nouvelle clairiere.
 
-L'endroit porte les marques recentes d'un combat : le sol est foule, l'herbe
-humide tache de sang, et deux fleches sont encore plantes dans un arbre un peu
-plus loin. Des empreintes menent vers l'est et vers l'ouest, comme si des
-forces opposes s'etaient affrontes ici il y a peu. Vous pouvez fouiller la
-clairiere pour decouvrir indices ou butin, mais rester risque d'attirer
-l'attention d'ennemis caches.
+   L'endroit porte les marques recentes d'un combat : le sol est foule,
+l'herbe humide tachee de sang, et deux fleches sont encore plantees dans un
+arbre un peu plus loin. Des empreintes menent vers l'est et vers l'ouest,
+comme si des forces opposees s'etaient affrontees ici il y a peu. Vous pouvez
+fouiller la clairiere pour decouvrir indices ou butin, mais rester risque
+d'attirer l'attention d'ennemis caches.
 
-Que faites-vous ?
+   Que faites-vous ?
 
+MU ARENE.MB
 C 059 Examiner la clairiere et chercher des indices
 C 227 Quitter la clairiere au plus vite et partir

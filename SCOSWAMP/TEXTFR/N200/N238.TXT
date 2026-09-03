@@ -1,7 +1,8 @@
 T 238 Clairiere du Maitre des Jardins
 
-Vous entrez dans la clairiere du Maitre des Jardins; elle est belle et
+   Vous entrez dans la clairiere du Maitre des Jardins; elle est belle et
 completement deserte. Le calme regne, rien ne bouge. Vous decidez de repartir
 en suivant le sentier vers l'ouest.
 
+MU JARDINS.MB
 C 363 Reprendre la route vers l'ouest

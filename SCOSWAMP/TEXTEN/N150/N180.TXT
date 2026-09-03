@@ -1,13 +1,13 @@
 T 180 The Brigand's Honor
 
-The Copper Ring is your only precious possession, but your word obliges you.
-You remove it reluctantly and hand it to the Brigand Chief. He sees your
+   The Copper Ring is your only precious possession, but your word obliges
+you. You remove it reluctantly and hand it to the Brigand Chief. He sees your
 sadness and frowns.
 
-"Keep it," he says in a sincere voice. "You have shown honesty and courage. I
-would be a scoundrel if I took the only thing you have left."
+   "Keep it," he says in a sincere voice. "You have shown honesty and courage.
+I would be a scoundrel if I took the only thing you have left."
 
-He gives you a friendly pat on the shoulder, and you feel mutual respect being
-born.
+   He gives you a friendly pat on the shoulder, and you feel mutual respect
+being born.
 
 C 214 Continue your journey with their friendship

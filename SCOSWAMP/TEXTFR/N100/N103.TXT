@@ -1,12 +1,13 @@
 T 103 Le Geant
 
-Vous expliquez au Geant le but de votre mission. Il hoche la tete et vous
+   Vous expliquez au Geant le but de votre mission. Il hoche la tete et vous
 donne quelques renseignements :
 
-"Ici nous sommes pres de la lisiere nord du Marais, dit-il, et la ville de
+   "Ici nous sommes pres de la lisiere nord du Marais, dit-il, et la ville de
 Courbensaule est tres loin a l'ouest. Vous devriez donc prendre cette
 direction."
 
-Vous le remerciez puis reprenez votre route.
+   Vous le remerciez puis reprenez votre route.
 
+MU GEANT.MB
 C 161 Partir vers l'ouest

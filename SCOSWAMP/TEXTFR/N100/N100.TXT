@@ -1,12 +1,13 @@
 T 100 Fin d'aventure
 
-Epuise et meurtri, vous quittez la maison de Pompatarte et vous vous dirigez
-vers l'auberge.
+   Epuise et meurtri, vous quittez la maison de Pompatarte et vous vous
+dirigez vers l'auberge.
 
-Vous avez echoue dans votre mission, mais vous etes toujours en vie. Peut-etre
-retenterez-vous un jour ?
+   Vous avez echoue dans votre mission, mais vous etes toujours en vie.
+Peut-etre retenterez-vous un jour ?
 
-Pour l'instant, en tout cas, votre aventure est terminee.
+   Pour l'instant, votre aventure est terminee.
 
-FIN DE L'AVENTURE.
+   FIN DE L'AVENTURE.
 
+MU +MORT.MB

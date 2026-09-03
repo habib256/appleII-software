@@ -1,14 +1,15 @@
 T 376 Conseil du Maitre des Grenouilles
 
-Vous lui expliquez que vous cherchez simplement a gagner Courbensaule et a en
-revenir. Une expression de surprise apparait alors sur sa face de grenouille.
+   Vous lui expliquez que vous cherchez simplement a gagner Courbensaule et a
+en revenir. Une expression de surprise apparait alors sur sa face de
+grenouille.
 
-" Courbensaule se trouve loin au nord et a l'ouest, dit-il. Mais vous m'etes
+   "Courbensaule se trouve loin au nord et a l'ouest, dit-il. Mais vous m'etes
 sympathique et je vais vous donner un conseil. Ne suivez pas le Feu Follet ou
 vous mettrez votre vie en peril. Et maintenant, au revoir, j'ai du travail qui
-m'attend. "
+m'attend."
 
-Il disparait brusquement et ses Grenouilles s'eloignent a grands bonds en
+   Il disparait brusquement et ses Grenouilles s'eloignent a grands bonds en
 coassant avec bruit. Vous jetez un coup d'oeil autour de la clairiere, mais
 vous ne decouvrez rien d'interessant. Le seul chemin qui permet de quitter
 l'endroit est oriente au nord et vous l'empruntez donc, revenant sur vos pas

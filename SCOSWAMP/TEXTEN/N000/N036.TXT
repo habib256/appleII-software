@@ -1,13 +1,13 @@
 T 036 Conversation with the Garden Master
 
-You calmly explain the purpose of your quest to the Garden Master. He listens
-to you in a measured voice and gauges your sincerity.
+   You calmly explain the purpose of your quest to the Garden Master. He
+listens to you in a measured voice and gauges your sincerity.
 
-Depending on what you have already discovered, he can guide you. If you've
-found the Antherique bush, he knows what to do. Otherwise, he will indicate
+   Depending on what you have already discovered, he can guide you. If you've
+found the Asphodel bush, he knows what to do. Otherwise, he will indicate
 another path or a trail to follow.
 
-He waits for your answer.
+   He waits for your answer.
 
-CI .T 283 I have already discovered the Antherique bush
+CI .T 283 I have already discovered the Asphodel bush
 CN .T 396 I have not yet found it

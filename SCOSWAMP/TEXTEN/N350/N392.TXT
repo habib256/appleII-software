@@ -1,9 +1,10 @@
 T 392 Combat against the Eagle
 
-The Eagle knows you're an enemy and attacks you.
+   The Eagle knows you're an enemy and attacks you.
 
-You have no possibility of fleeing, for it's larger and faster than you. All
-you can do is trust your sword.
+   You have no possibility of fleeing, for it's larger and faster than you.
+All you can do is trust your sword.
 
+MU +COMBAT.MB
 M 7 6 EAGLE
 MV 132

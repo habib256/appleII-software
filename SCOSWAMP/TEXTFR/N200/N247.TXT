@@ -1,12 +1,13 @@
 T 247 Buisson violet
 
-Vous examinez la clairiere et decouvrez un buisson a feuilles vert fonce et
+   Vous examinez la clairiere et decouvrez un buisson a feuilles vert fonce et
 fleurs blanches. En haut brille une grosse baie violette. Elle semble parfaite
 et juteuse.
 
-Que faites-vous?
+   Que faites-vous?
 
+MU LOUPS.MB
 G .T
-C 020 Manger la baie sur le champ
+C 020 Manger la baie sur-le-champ
 C 232 La cueillir et la ranger soigneusement
 C 342 La laisser et reprendre la route vers le sud

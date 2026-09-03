@@ -1,6 +1,6 @@
 T 130 Choix de Pierre
 
-Quelle Pierre de Magie allez-vous essayer ?
+   Quelle Pierre de Magie allez-vous essayer ?
 
 CU MALEDICTION 260 Utiliser une Pierre de Malediction
 CU TERREUR 201 Utiliser une Pierre de Terreur

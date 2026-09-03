@@ -54,6 +54,12 @@ enum {
     M_MORT_RECOMMENCER,
     M_LANCEZ_LES_DES,
     M_VOUS_JETEZ,
+    M_SAUVEGARDES,
+    M_CHARGEMENTS,
+    M_VIDE,
+    M_SAUVE_OK,
+    M_SAUVE_ERREUR,
+    M_CHARGE_ERREUR,
     MSG_COUNT
 };
 
@@ -62,7 +68,7 @@ enum {
  * un catalogue qui en demandait 1100, dans un binaire ou il en
  * restait 215 de libres. La marge de 32 laisse la place a une
  * traduction un peu plus longue sans toucher au code. */
-#define MSG_BYTES 1413
+#define MSG_BYTES 1643
 
 /* Charge le catalogue de la langue voulue. Rend 0 si le fichier manque
  * ou ne contient pas MSG_COUNT lignes -- mieux vaut un ecran vide

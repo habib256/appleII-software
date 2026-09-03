@@ -1,19 +1,20 @@
 T 000 THE SCORPION SWAMP
 
-You are about to become an adventurer seeking glory.
+   You are about to become an adventurer seeking glory.
 
-The Scorpion Swamp is a cursed place that no one dares explore. Monsters,
+   The Scorpion Swamp is a cursed place that no one dares explore. Monsters,
 traps and sorcerers await you. Yet a fabulous treasure is said to lie in its
 depths. Your decisions will make you a hero... or another victim.
 
-Before taking the first step, create your character. Dice will determine SKILL,
-STAMINA and LUCK. Your Adventure Sheet will then remain at the top of the
-screen. You will start with a sword, armour, a bag and a few Gold Pieces.
+   Before taking the first step, create your character. Dice will determine
+SKILL, STAMINA and LUCK. Your Adventure Sheet will then remain at the top of
+the screen. You will start with a sword, armour, a bag and a few Gold Pieces.
 
-This game is a homage to the gamebook by Steve Jackson, illustrated by Duncan
-Smith (1984), French edition by Gallimard (1985).
+   This game is a homage to the gamebook by Steve Jackson, illustrated by
+Duncan Smith (1984), French edition by Gallimard (1985).
 
-Commands:
+   Commands:
  [A-E] - Choose   [L] - Load a game   [H] - Help   [Q] - Quit
 
+MU ACCUEIL.MB
 C 001 Create my character

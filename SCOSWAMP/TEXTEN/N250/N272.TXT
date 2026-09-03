@@ -1,11 +1,11 @@
 T 272 Return to the Village
 
-You manage somehow to return to the village. You're exhausted and soaked
+   You manage somehow to return to the village. You're exhausted and soaked
 because you fell into a mud pond. Reduce your LUCK total by 2 points and thank
 heaven you're still alive. You take a hot bath at the inn and then feel
 noticeably better.
 
-You then go find Grognard apologizing for your impetuousness. He nods and
+   You then go find Grognard apologizing for your impetuousness. He nods and
 sketches a smile. "You're lucky and you're resilient, otherwise, you would
 never even have come back alive," he says.
 

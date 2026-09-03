@@ -1,19 +1,21 @@
 T 173 Le Marchand Rouge
 
-Pompatarte eclate d'un rire tonitruant qui fait trembler les murs.
+   Pompatarte eclate d'un rire tonitruant qui fait trembler les murs.
 
-Intrigue, vous lui demandez quel est son but dans le Marais. "Des
+   Intrigue, vous lui demandez quel est son but dans le Marais. "Des
 renseignements ! Si j'avais une carte du Marais aux Scorpions, je pourrais y
 faire passer mes caravanes et economiser des semaines. Rapportez-moi une carte
 claire menant a la ville de Courbensaule, et je vous offrirai la moitie des
 benefices de ma premiere annee !"
 
-Pompatarte ouvre alors un coffret rempli de Pierres scintillantes.
+   Pompatarte ouvre alors un coffret rempli de Pierres scintillantes.
 "Choisissez-en cinq, toutes neutres, elles vous seront utiles." Vous notez vos
 cinq Pierres de Magie sur votre Feuille d'Aventure.
 
-Il vous serre la main avec une poigne d'acier, puis la Gobeline vous
+   Il vous serre la main avec une poigne d'acier, puis la Gobeline vous
 raccompagne dehors. Vous quittez le village, direction le nord, vers le sombre
 Marais aux Scorpions, carte et destin en main.
 
+MU VILLAGE.MB
+PC 5 N
 C 009 Commencer votre voyage dans le Marais

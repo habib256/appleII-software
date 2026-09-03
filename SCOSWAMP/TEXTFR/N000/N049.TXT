@@ -1,13 +1,14 @@
 T 049 Vente de l'Anneau
 
-Pousse par l'appat du gain, vous enlevez votre Anneau de Cuivre. Vous le
+   Pousse par l'appat du gain, vous enlevez votre Anneau de Cuivre. Vous le
 lancez sur la table; Pompatarte vous tend un sac et vous compte cent Pieces
 d'Or.
 
-Vous avez desormais assez d'argent pour vivre plusieurs annees sans
+   Vous avez desormais assez d'argent pour vivre plusieurs annees sans
 travailler. Sans l'Anneau, il n'est plus question de vous risquer dans le
 Marais: votre aventure s'acheve donc avant d'avoir commence.
 
-FIN DE L'AVENTURE.
+   FIN DE L'AVENTURE.
 
 GX ANNEAU
+MU +MORT.MB

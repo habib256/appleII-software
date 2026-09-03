@@ -1,9 +1,10 @@
 T 121 The Crossroads
 
-You find yourself at a crossroads. Four directions offer themselves to you.
+   You find yourself at a crossroads. Four directions offer themselves to you.
 
-Which will you choose?
+   Which will you choose?
 
+MU CROISEMENT.MB
 C 170 Go north
 C 014 Go south
 C 275 Go east

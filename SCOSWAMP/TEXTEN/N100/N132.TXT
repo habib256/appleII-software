@@ -1,6 +1,6 @@
 T 132 The Eagle Defeated
 
-You have killed the Eagle.
+   You have killed the Eagle.
 
 C 073 Go examine its nest
 C 202 Leave

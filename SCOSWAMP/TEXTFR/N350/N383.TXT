@@ -1,10 +1,10 @@
 T 383 Benediction sur le Nain
 
-Vous lancez sur le Nain la Pierre Magique de Benediction en esperant ainsi
+   Vous lancez sur le Nain la Pierre Magique de Benediction en esperant ainsi
 pouvoir le sauver. Il bat alors des paupieres, et pendant un instant vous
 pensez avoir reussi.
 
-Helas ! le sortilege n'est pas assez puissant pour ramener quiconque d'entre
-les morts.
+   Helas ! le sortilege n'est pas assez puissant pour ramener quiconque
+d'entre les morts.
 
 C 324 Faire un autre choix

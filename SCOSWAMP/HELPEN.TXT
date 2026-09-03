@@ -2,10 +2,10 @@ THE KEYS
   [A-E] Scene choice (never a command)
   [SPACE/RETURN/ESC] Text, HGR picture, then picture and text
   [I] Bag: items, Magic Stones and amulets
-  [S]/[L] Save/load PARTIE0 to PARTIE9; [H] help; [Q] quit
+  [S]/[L] Saved games page (write / resume); [H] help; [Q] quit
 
 SAVED GAMES
-  [0-9] Slot, only after [S] or [L]
+  [0-9] Slot; each game carries the title of the page it stands on
   Saved state: scene, hero, items, amulets, visits and monsters
   A missing, incomplete or corrupt file is rejected
 
@@ -14,5 +14,5 @@ AMULETS
   The fake Bird stays distinct; Stratagus counts 0, 1-2 or 3+
   Handing them in removes them from the bag and adds the reward
 
-BAG: [A-L] picks a Stone; [ESC] closes; commands are suspended
+BAG: [A-L] picks a Stone; [I] or [ESC] closes; commands are suspended
 FIGHT: [SPACE] attack; [C] Luck; [F] Flee; [I] bag; [ESC] picture

@@ -1,6 +1,6 @@
 T 344 The Wolves Flee
 
-The Wolves lower their ears and start whimpering then they hasten to
+   The Wolves lower their ears and start whimpering then they hasten to
 disappear.
 
 C 247 Continue

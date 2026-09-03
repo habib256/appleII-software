@@ -2,12 +2,24 @@
 """Remet les pages TXT de SCOSWAMP au format attendu par le moteur.
 
   T  <id> <Titre>     titre de scene, une seule ligne, barre inversee ligne 1
-  <corps>             replie a 78 colonnes, tient dans les lignes 2 a 20
+  V  <cible> [<page> ...]  "si vous y etes deja venu, rendez-vous au <cible>".
+                      Doit preceder tout le reste, qu'un detour annule. Les
+                      numeros suivants sont les AUTRES pages de la meme
+                      clairiere (hub, variantes, revisite) : le detour joue
+                      des que l'une d'elles, ou la cible, a ete vue
+  <corps>             replie a 78 colonnes, tient dans les lignes 2 a 20 ;
+                      chaque paragraphe s'ouvre sur un retrait de trois
+                      espaces, comme dans un livre imprime
   M  <hab> <end> <nom>  la creature de la clairiere
   MD <n>              ses coups coutent n ENDURANCE (defaut 2)
   MS <n>              le combat cesse a n ENDURANCE (defaut 0)
   MV <id>             le dernier adversaire tombe : la page envoie en <id>
                       sans repasser par les choix
+  MI <page>           son portrait de bataille est le B<page>.RLE d'une
+                      AUTRE page : le disque n'en range qu'un par page,
+                      et une file peut melanger les especes (les deux
+                      Loups du 120 empruntent le B224, leur Maitre garde
+                      le B120). Sans MI, l'image est celle de la page
   E  <CARAC> <delta>  effet applique en entrant dans la clairiere
   ED <CARAC> <+-ndes> jet de des visible : le signe dit gain ou perte, la
                       valeur absolue le nombre de des (1 ou 2)
@@ -23,19 +35,30 @@
 Ne touche pas aux mots : seuls les retours a la ligne changent. Les lignes
 purement decoratives (----- / =====) sautent, la barre de titre les remplace.
 """
-import re, sys, textwrap
+import json, re, sys, textwrap
 from pathlib import Path
 
-BODY_ROWS   = 19   # lignes 2..20
+# Le moteur laisse maintenant TOUJOURS la ligne 2 vide sous la barre de titre :
+# le corps commence ligne 3 et s'arrete ligne 20. Le budget passe donc de 19 a
+# 18 rangs. Les lignes vides du corps -- celles qui font les paragraphes --
+# comptent dedans : wrap() les rend telles quelles, une seule a la fois.
+BODY_ROWS   = 18   # lignes 3..20, la 2 etant la marge sous le titre
 CHOICE_ROWS = 4    # lignes 21..24
 MAX_FOES    = 3    # doit suivre MAX_FOES dans scoswamp.c
 # Les trois bornes du moteur. Elles ne sont pas decoratives : ce qui les
 # depasse est tronque A L'ECRAN, en silence, et c'est ici -- et nulle part
 # ailleurs -- qu'on peut se payer la verification.
 MAX_CHOICES  = 5     # doit suivre MAX_CHOICES dans scoswamp.c
-FILE_BUFFER  = 1253  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
+FILE_BUFFER  = 1280  # doit suivre FILE_BUFFER_SIZE dans scoswamp.c
 COL         = 39   # largeur d'une colonne de choix (2 par ligne)
 WRAP        = 78
+# Le retrait de premiere ligne de paragraphe. Trois espaces : sur une justif'
+# de 78 colonnes, deux se voient a peine et quatre mangent un mot de plus par
+# paragraphe sans rien ajouter a l'oeil. Il est COMPRIS dans les 78 -- la
+# premiere ligne se remplit donc a 75 -- et le moteur n'en sait rien :
+# classify_line range toute ligne qui ne commence pas par une lettre de
+# directive en colonne 0 dans le corps, et render_scene la sort telle quelle.
+INDENT      = "   "
 
 RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # Les directives de jeu : ni titre, ni corps, ni choix. Elles ne se replient
@@ -43,7 +66,7 @@ RULE = re.compile(r"^[-=_*~#]{4,}\s*$")
 # L'ordre de l'alternance FAIT FOI : `M` avant `MV` avalerait la ligne MV et
 # wrap() la replierait dans le corps. Les deux lettres passent donc devant la
 # lettre seule du meme prefixe, ici comme dans classify_line.
-DIRECTIVE = re.compile(r"^(MD|MS|MV|MB|M|E0|ED|E|PC|PD|PO|PX|P|TR|CF|CP|CU|CI|CN|CA|CL|CE|CS|DV|GU|GX|GA|G|V)(?: |$)")
+DIRECTIVE = re.compile(r"^(MD|MS|MI|MV|MB|MU|M|E0|ED|E|PC|PD|PO|PX|P|TR|CF|CP|CU|CI|CN|CA|CL|CE|CS|DV|GU|GX|GA|G|V)(?: |$)")
 LEGACY_TITLE = re.compile(r"^\s*(\d{1,3})\s*:\s*(.+?)\s*$")
 
 # ── Derivation des combats depuis la prose ──────────────────────────────────
@@ -79,12 +102,25 @@ STOP  = re.compile(r"(?:r[eé]duis\w*|reduce\w*)[^.]{0,30}?\b(?:a|to)\s+(\d+)", 
 # rappelle celles "que Gayolard vous a confiees" (191) et celle ou l'on en
 # LANCE une (282) -- dans les deux cas la Pierre change de main dans l'autre
 # sens, ou pas du tout.
+# Les verbes anglais comptent autant que les francais : sans eux la regle ne
+# lisait que la moitie du corpus, et la page 173 -- Pompatarte ouvrant son
+# coffret -- passait dans les deux langues, la ligne PC manquant aux deux.
+# "notez / inscrivez / note / record" entrent avec eux : c'est la formule du
+# livre pour une Pierre recue ("vous notez vos cinq Pierres de Magie sur votre
+# Feuille d'Aventure"), et la phrase qui l'offre finit souvent avant elle.
 STONES_GIVEN = re.compile(
-    r"\b(?:donne|donnerai|offre|remet|prenez|prendre|choisissez|choisir)\b"
-    r"[^.]{0,80}?\bPierres?\b(?![^.]{0,20}\bdesintegre)", re.I)
+    r"\b(?:donne|donnerai|offre|remet|prenez|prendre|choisissez|choisir"
+    r"|notez|inscrivez|gives?|offers?|choose|note|record)\b"
+    r"[^.]{0,80}?\b(?:Pierres?|Stones?)\b"
+    r"(?![^.]{0,20}\b(?:desintegre|disintegrat))", re.I)
+# Les Pierres qui partent dans l'autre sens : le heros paie le Chef des
+# Brigands (128), remet ses Pierres inutilisees a Pompatarte (141), ou troque
+# des objets chez le marchand de potions (150, dont la ligne TR est au 408).
 STONES_NOT_GIVEN = re.compile(
-    r"\b(?:confie[es]?|lancez|lance|depense[es]?|utilis\w+"
-    r"|entrusted|throw|thrown|spent|used)\b", re.I)
+    r"\b(?:confie[es]?|lancez|lance|depense[es]?|utilis\w+|echang\w+"
+    r"|remettez|lui donner|lui donnez"
+    r"|entrusted|throw|thrown|spent|used|exchang\w+|traded?"
+    r"|give him|give her|hand over)\b", re.I)
 
 
 def derive_combat(text, choices, lang):
@@ -603,19 +639,46 @@ def parse(path):
     while body and not body[0].strip(): body.pop(0)
     return title, body, choices, directives
 
-def _w(text, width):
+def _w(text, width, indent=INDENT):
     # Les blancs multiples sont ramenes a un : textwrap les conserve, et le
     # trou laisse par une phrase retiree se voyait a l'ecran.
     text = re.sub(r"\s+", " ", text)
     # break_on_hyphens=False : sinon "spider-shaped" est coupe en deux mots et
     # la ligne se termine sur un tiret orphelin. break_long_words=False : aucun
     # mot n'est jamais casse ; le controle de largeur ci-dessous le verifierait.
-    return textwrap.wrap(text, width, break_on_hyphens=False,
-                         break_long_words=False)
+    # initial_indent : textwrap DECOMPTE le retrait de la largeur, donc la
+    # premiere ligne se remplit a `width - len(indent)` et le mot de trop
+    # descend tout seul a la ligne suivante. Coller le retrait apres coup
+    # aurait pousse cette ligne a 81 colonnes, et l'Apple II l'aurait
+    # enroulee -- en silence, comme toujours.
+    return textwrap.wrap(text, width, initial_indent=indent,
+                         break_on_hyphens=False, break_long_words=False)
+
+def deindent(body):
+    """Retire le retrait canonique pose par la passe precedente.
+
+    Sans ca, le format ne serait pas idempotent : la premiere ligne d'un
+    paragraphe deja indente tomberait dans la branche "deja mise en forme" de
+    wrap(), le paragraphe se figerait sur la coupe du jour, et les lignes
+    suivantes -- elles, non indentees -- se replieraient a part. Le retrait est
+    donc de la MISE EN FORME et rien d'autre : on le pose a l'ecriture et on
+    l'oublie a la relecture, exactement comme une fin de ligne.
+
+    Seule une premiere ligne de paragraphe est concernee, et seulement avec le
+    retrait exact : la ligne de menu du N000 (" [A-E] - Choisir ...") commence
+    par UNE espace, garde donc son alignement fait main.
+    """
+    out, start = [], True
+    for l in body:
+        if start and l.startswith(INDENT) and not l[len(INDENT):len(INDENT)+1].isspace():
+            l = l[len(INDENT):]
+        out.append(l)
+        start = not l.strip()
+    return out
 
 def wrap(body, width=WRAP):
     out, para = [], []
-    for l in body:
+    for l in deindent(body):
         if not l.strip():
             if para: out += _w(" ".join(para), width); para = []
             if out and out[-1] != "": out.append("")
@@ -668,10 +731,17 @@ def words(seq):
     return " ".join(" ".join(seq).split())
 
 def main():
-    root = Path(sys.argv[1])
+    root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("")
+    # Le chemin attendu est le dossier SCOSWAMP, qui contient TEXTFR et TEXTEN :
+    # passer TEXTFR lui-meme faisait parcourir zero fichier, et le script
+    # repondait "0 / 0" comme si tout allait bien.
+    if not (root / "TEXTFR").is_dir() or not (root / "TEXTEN").is_dir():
+        sys.exit(f"usage : reflow_txt.py <dossier SCOSWAMP> [--apply] [--derive]\n"
+                 f"{root or '(rien)'} ne contient pas TEXTFR et TEXTEN : aucun fichier ne serait lu.")
     apply = "--apply" in sys.argv
     derive = "--derive" in sys.argv
     found = {}          # (lang, id) -> directives, pour le recoupement FR/EN
+    mus = {}            # (lang, id) -> lignes MU, pour le croisement avec carte.json
     problems, changed = [], 0
     for lang in ("TEXTFR", "TEXTEN"):
         for f in sorted((root / lang).rglob("N*.TXT")):
@@ -751,8 +821,32 @@ def main():
             # faute de frappe y passe en silence -- "EDURANCE" serait lue
             # comme ENDURANCE, "OBJET" comme OR -- et c'est ici, du cote ou
             # l'on peut se payer une comparaison de chaines, qu'on la refuse.
+            mus[(lang, sid)] = [d for d in directives if d.startswith("MU ")]
+            if len(mus[(lang, sid)]) > 1:
+                problems.append(f"{f}: plusieurs lignes MU, la derniere gagne")
             for d in directives:
                 parts = d.split()
+                # MU <NOM>.MB (theme de zone), MU +<NOM>.MB (surcouche), MU -
+                # (silence). Le nom tient en 15 caracteres ProDOS et dans le
+                # champ music_name[16] du moteur, qui tronque en silence ; et le
+                # fichier doit exister, music_load echouant sans un mot.
+                if parts[0] == "MU":
+                    arg = parts[1] if len(parts) == 2 else ""
+                    if not re.fullmatch(r"-|\+?[A-Z0-9]{1,12}\.MB", arg):
+                        problems.append(f"{f}: ligne MU mal formee {d!r}")
+                    elif arg != "-" and not (root / "MUSIC" / (arg.lstrip("+") + ".BIN")).exists():
+                        problems.append(f"{f}: MU {arg} : pas de MUSIC/{arg.lstrip('+')}.BIN")
+                # MI <page> : l'image empruntee doit exister, load_foe_image
+                # retombant sans un mot sur celle de la page -- c'est-a-dire
+                # sur le bug qu'on vient de corriger.
+                if parts[0] == "MI":
+                    pg = int(parts[1]) if len(parts) == 2 and parts[1].isdigit() else -1
+                    img = root / "IMG" / ("N%03d" % (pg // 50 * 50)) / ("B%03d.RLE.BIN" % pg)
+                    if pg < 0:
+                        problems.append(f"{f}: ligne MI mal formee {d!r}")
+                    elif not img.exists():
+                        problems.append(f"{f}: MI {pg:03d} : pas de "
+                                        f"IMG/N{pg // 50 * 50:03d}/B{pg:03d}.RLE.BIN")
                 if parts[0] in ("E", "E0", "CE", "ED") and len(parts) > 1 \
                         and parts[1] not in CARAC_WORDS:
                     problems.append(f"{f}: {parts[0]} sur un mot inconnu "
@@ -768,11 +862,29 @@ def main():
                                     "total de depart")
                 if parts[0] in ("G", "GX", "CI", "CN", "GU") and len(parts) > 1:
                     keys = {"ANNEAU", "CAPE", "CH", "AI", "FI", "BA",
-                            "EP", "BJ", "CO", "PL",
+                            "EP", "BJ", "CO", "PL", "GR",
                             ".T", "LOUP", "FLEUR",
                             "OISEAU", "ARAIGNEE", "GRENOUILLE", "FAUX"}
                     if parts[1] not in keys:
                         problems.append(f"{f}: objet/amulette inconnu {parts[1]!r}")
+                # `V <cible> [<page> ...]` : la cible, puis les AUTRES pages de
+                # la meme clairiere. take_uint lit des chiffres et rien
+                # d'autre ; un mot glisse dans la liste serait lu comme un
+                # zero et le moteur testerait la page 000. La liste est libre
+                # en longueur, mais entierement numerique, sans doublon, et
+                # sans la page qui la porte -- que classify_line teste deja.
+                if parts[0] == "V":
+                    nums = parts[1:]
+                    if not nums or not all(x.isdigit() for x in nums):
+                        problems.append(f"{f}: ligne V mal formee {d!r} "
+                                        "(attendu : des numeros de page)")
+                    else:
+                        v = [int(x) for x in nums]
+                        if len(set(v)) != len(v):
+                            problems.append(f"{f}: ligne V avec un doublon {d!r}")
+                        if sid in v:
+                            problems.append(f"{f}: ligne V citant sa propre "
+                                            f"page {sid:03d}")
             if len(choices) > MAX_CHOICES:
                 problems.append(f"{f}: {len(choices)} choix > {MAX_CHOICES} "
                                 f"(MAX_CHOICES)")
@@ -826,7 +938,8 @@ def main():
             # recoupement devient aveugle a son sujet : c'est exactement le
             # bug corrige le 2026-08-29 pour CU/CL/PC, et le lot pose des MV
             # et des ED dans les deux langues.
-            KEEP = {"M": 3, "MD": 2, "MS": 2, "MV": None, "CL": None,
+            KEEP = {"M": 3, "MD": 2, "MS": 2, "MV": None, "MU": None, "CL": None,
+                    "MI": None,
                     "CF": 2, "PC": 3, "CU": 3, "CP": 3, "E": None,
                     "ED": None, "V": None, "E0": None, "CE": None,
                     "CS": None, "DV": None, "MB": None, "G": None,
@@ -859,6 +972,24 @@ def main():
         for sid in combats:
             print("   N%03d  %s" % (sid, "  ".join(found[("TEXTFR", sid)])))
 
+    # Une clairiere, une musique : toutes ses pages (SCOSWAMP.MORE/carte.json,
+    # arbitrages appliques) portent le meme theme de zone, ou une surcouche.
+    # Sans cela, entrer par un autre sentier changerait ou couperait la musique
+    # au milieu du lieu -- exactement ce que le moteur par clairiere evite.
+    carte = root.parent / "SCOSWAMP.MORE" / "carte.json"
+    if carte.exists():
+        for c in json.loads(carte.read_text())["clairieres"]:
+            zones = set()
+            for p in c["pages"]:
+                m = mus.get(("TEXTFR", p))
+                if not m:
+                    problems.append(f"clairiere {c['hub']:03d} : page {p:03d} sans ligne MU")
+                    continue
+                arg = m[-1].split()[1]
+                if not arg.startswith("+") and arg != "-": zones.add(arg)
+            if len(zones) != 1:
+                problems.append(f"clairiere {c['hub']:03d} ({c['titre']}) : "
+                                f"themes de zone {sorted(zones)}, il en faut un seul")
     print(f"problemes : {len(problems)}")
     for p in problems[:40]: print("  " + p)
 

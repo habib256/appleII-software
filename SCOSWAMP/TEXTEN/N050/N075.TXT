@@ -1,9 +1,9 @@
 T 075 The Sword Trees
 
-When you throw your Magic Fire Stone, the Sword Trees retract somewhat,
+   When you throw your Magic Fire Stone, the Sword Trees retract somewhat,
 visibly furious, but without being seriously harmed.
 
-You will now have to fight them, but their total STAMINA is reduced by 2
+   You will now have to fight them, but their total STAMINA is reduced by 2
 points before the start of combat.
 
 C 028 Face the Sword Trees

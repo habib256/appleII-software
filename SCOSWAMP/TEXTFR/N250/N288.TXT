@@ -1,10 +1,10 @@
 T 288 La Maitresse des Oiseaux
 
-Votre anneau reste froid, il est clair que la Maitresse des Oiseaux est une
+   Votre anneau reste froid, il est clair que la Maitresse des Oiseaux est une
 bonne sorciere. Elle porte a son cou l'Amulette d'Argent en forme d'oiseau que
 vous avez pour mission de voler.
 
-Qu'allez- vous faire ?
+   Qu'allez-vous faire ?
 
 C 391 L'attaquer
 C 184 Lui parler de votre mission

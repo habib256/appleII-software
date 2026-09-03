@@ -1,14 +1,15 @@
 T 052 Echec a la baie
 
-Vous n'avez malheureusement pas de baie a lui donner. En racontant ce qui vous
-est arrive dans le Marais, Gayolard voit son visage s'assombrir. "Je suis sur
-que vous avez fait de votre mieux", dit-il d'un air triste.
+   Vous n'avez malheureusement pas de baie a lui donner. En racontant ce qui
+vous est arrive dans le Marais, Gayolard voit son visage s'assombrir. "Je suis
+sur que vous avez fait de votre mieux", dit-il d'un air triste.
 
-A sa deception, vous proposez d'essayer encore, mais il refuse: "Ce serait
+   A sa deception, vous proposez d'essayer encore, mais il refuse: "Ce serait
 courir de trop grands risques", objecte-t-il.
 
-Vous avez fait ce que vous pouviez. Helas, ce n'etait pas suffisant, et votre
-aventure se termine ici.
+   Vous avez fait ce que vous pouviez. Helas, ce n'etait pas suffisant. Votre
+aventure s'acheve ici.
 
-FIN DE L'AVENTURE.
+   FIN DE L'AVENTURE.
 
+MU +MORT.MB

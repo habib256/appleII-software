@@ -1,14 +1,14 @@
 T 147 The Thief's Picnic
 
-You sit down opposite him. "What do you do for a living?" you ask him. "I rob
-travelers," he replies without being troubled. "When someone passes by this
-path, my nets fall and capture them; after, I help myself."
+   You sit down opposite him. "What do you do for a living?" you ask him. "I
+rob travelers," he replies without being troubled. "When someone passes by
+this path, my nets fall and capture them; after, I help myself."
 
-He points at the foliage. Your gaze follows the direction he shows and you
+   He points at the foliage. Your gaze follows the direction he shows and you
 barely distinguish, hidden among the branches, fine cords ready to tighten.
 The thief smiles and seems to wait for you to make the first move.
 
-Test your LUCK: if fate favors you, you will avoid the trap; otherwise, you
+   Test your LUCK: if fate favors you, you will avoid the trap; otherwise, you
 will fall into the net and will have to free yourself by force.
 
 CL 213 106

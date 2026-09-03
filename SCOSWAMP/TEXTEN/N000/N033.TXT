@@ -1,13 +1,14 @@
 T 033 Pincer Grass Again
 
-You hurry to cross the clearing, hoping to escape the plant. Alas, the grass
-grows even faster and stands before you in mass. Pincers open eagerly and seek
-to seize you from all sides.
+   You hurry to cross the clearing, hoping to escape the plant. Alas, the
+grass grows even faster and stands before you in mass. Pincers open eagerly
+and seek to seize you from all sides.
 
-You must choose quickly: strike with your sword or use a spell to contain it.
-You are in Clearing No. 388.
+   You must choose quickly: strike with your sword or use a spell to contain
+it.
 
-What do you do?
+   What do you do?
 
+MU PINCES.MB
 C 134 Fight the Pincer Grass with sword strokes
 C 167 Resort to magic to contain it

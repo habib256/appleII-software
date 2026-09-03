@@ -1,15 +1,15 @@
 T 170 The Green Patroller
-V 363
+V 363 234
 
-The narrow path winds between large rocks in thick fog. The mist suddenly
+   The narrow path winds between large rocks in thick fog. The mist suddenly
 lifts and you emerge into a clearing. A man, tall and tanned, entirely dressed
 in green, greets you from atop a rock. He's a PATROLLER.
 
-"Hey, adventurer! Are you in the service of Good or Evil?" You are in Clearing
-No. 019.
+   "Hey, adventurer! Are you in the service of Good or Evil?"
 
-Which sorcerer do you serve?
+   Which sorcerer do you serve?
 
+MU PATROUIL.MB
 C 029 Stratagus
 C 262 Pompatarte
 C 076 Gayolard

@@ -1,16 +1,16 @@
 T 128 Le prix de la defaite
 
-Vous etes habile, mais le Chef des Brigands est un bretteur redoutable.
+   Vous etes habile, mais le Chef des Brigands est un bretteur redoutable.
 Bientot, sa lame vous effleure les cotes : vous avez perdu.
 
-Il vous felicite cependant pour votre bravoure et etale sa cape pour que vous
-puissiez vous asseoir.
+   Il vous felicite cependant pour votre bravoure et etale sa cape pour que
+vous puissiez vous asseoir.
 
-"Venons-en a notre marche", dit-il. "Qu ai-je gagne ?"
+   "Venons-en a notre marche", dit-il. "Qu'ai-je gagne ?"
 
-Vous devez lui donner une Pierre de Magie, un bijou ou tout autre objet.
+   Vous devez lui donner une Pierre de Magie, un bijou ou tout autre objet.
 
-Si vous ne possedez que l'Anneau de Cuivre :
+   Si vous ne possedez que l'Anneau de Cuivre :
 
 C 180 Lui donner l'Anneau de Cuivre
 C 407 Si vous lui donnez un autre objet de votre choix

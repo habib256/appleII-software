@@ -1,12 +1,13 @@
 T 295 La Riviere Croupie
 
-Vous vous retrouvez bientot dans une petite clairiere au bord de la Riviere
-Croupie. C'est la Clairiere n 33. La rive oppose est a 200 metres de distance
-au moins et le cours d'eau est infeste de crocodiles et d'autres creatures
-tout aussi peu accueillantes.
+   Vous vous retrouvez bientot dans une petite clairiere au bord de la Riviere
+Croupie. La rive opposee est a 200 metres de distance au moins et le cours
+d'eau est infeste de crocodiles et d'autres creatures tout aussi peu
+accueillantes.
 
-Qu'allez-vous faire ?
+   Qu'allez-vous faire ?
 
+MU CROUPIE.MB
 CU GLACE 089 Lancer une Pierre Magique de Glace
 C 183 Marcher vers l'est, le long de la berge
 C 094 Aller plutot vers le sud

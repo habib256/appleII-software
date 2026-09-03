@@ -1,10 +1,10 @@
 T 194 Payment or Surrender?
 
-He laughs while rubbing his hands, obviously satisfied. "Excellent! I knew you
-would succeed! Give me all that."
+   He laughs while rubbing his hands, obviously satisfied. "Excellent! I knew
+you would succeed! Give me all that."
 
-Will you hand over your loot immediately, or demand to be paid first? Choose
-carefully.
+   Will you hand over your loot immediately, or demand to be paid first?
+Choose carefully.
 
 C 099 Hand over the loot without conditions
 C 207 Demand payment first

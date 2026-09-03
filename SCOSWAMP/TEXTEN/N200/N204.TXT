@@ -1,16 +1,17 @@
 T 204 The Anguish Flowers
-V 250
+V 250 367
 
-The path widens, and colorful flowers border the way. This is Clearing No. 23.
-But suddenly, a shiver runs through you: something's wrong. Your Copper Ring
-becomes burning, sign of nearby danger.
+   The path widens, and colorful flowers border the way. But suddenly, a
+shiver runs through you: something's wrong. Your Copper Ring becomes burning,
+sign of nearby danger.
 
-Around you, these flowers seem too beautiful... You then remember their
-dreaded name: the **Anguish Flowers**! Their pollen inspires terror and you
-feel your hands trembling. You lose 1 SKILL point.
+   Around you, these flowers seem too beautiful... You then remember their
+dreaded name: the Anguish Flowers! Their pollen inspires terror and you feel
+your hands trembling. You lose 1 SKILL point.
 
-What do you do?
+   What do you do?
 
+MU ANGOISSE.MB
 E HABILETE -1
 C 269 Flee straight ahead
 C 032 Slash them with sword blows

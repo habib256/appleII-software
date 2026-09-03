@@ -1,14 +1,15 @@
 T 122 Warning
 
-The man tries to convince you seriously.
+   The man tries to convince you seriously.
 
-"It's more interesting to have a mission to fulfill. And above all, magic is
-crucial in the Scorpion Swamp.
+   "It's more interesting to have a mission to fulfill. And above all, magic
+is crucial in the Scorpion Swamp.
 
-You are doubtless valiant, perhaps even a bit of a mage, but without the help
-of an experienced sorcerer, you risk greatly never seeing the sun again."
+   You are doubtless valiant, perhaps even a bit of a mage, but without the
+help of an experienced sorcerer, you risk greatly never seeing the sun again."
 
-His words seem sincere.
+   His words seem sincere.
 
+MU VILLAGE.MB
 C 240 Listen to him further
 C 296 Go alone to the Swamp

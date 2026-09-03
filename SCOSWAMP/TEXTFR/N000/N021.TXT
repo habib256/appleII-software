@@ -1,12 +1,12 @@
 T 021 Repos pres du tronc
 
-Vous vous reposez quelques minutes et recuperez 1 point d'ENDURANCE.
+   Vous vous reposez quelques minutes et recuperez 1 point d'ENDURANCE.
 
-Un bruit vient soudain de l'interieur du tronc creux. Si vous voulez savoir ce
-qui s'y cache, examinez le tronc. Sinon, vous pouvez l'ignorer et reprendre la
-route. Vous etes dans la Clairiere n 012.
+   Un bruit vient soudain de l'interieur du tronc creux. Si vous voulez savoir
+ce qui s'y cache, examinez le tronc. Sinon, vous pouvez l'ignorer et reprendre
+la route.
 
-Que faites-vous?
+   Que faites-vous?
 
 E ENDURANCE +1
 C 055 Explorer le tronc creux

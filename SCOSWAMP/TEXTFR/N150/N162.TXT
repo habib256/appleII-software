@@ -1,14 +1,14 @@
 T 162 Le maitre confiant
 
-Il croit votre histoire et bavarde volontiers; vous apprenez ainsi que les
+   Il croit votre histoire et bavarde volontiers; vous apprenez ainsi que les
 Maitres forment un cercle de sorciers aux alliances changantes. Leur lien
 tient aux Amulettes qu'ils portent: un Maitre ne peut tuer un autre tant que
-celui-ci porte son amulette. Ces bijoux n'ont de pouvoir plutot que lorsqu'un
-sorcier les porte, dit-il, puis il reprend sa parole.
+celui-ci porte son amulette. Ces bijoux n'ont de pouvoir que lorsqu'un sorcier
+les porte, dit-il, puis il reprend sa parole.
 
-Vous le remerciez et reculez jusqu'a l'entree du chemin, hors de sa vue.
+   Vous le remerciez et reculez jusqu'a l'entree du chemin, hors de sa vue.
 
-Que faites-vous?
+   Que faites-vous?
 
 CU ILLUSION 245 Tenter de lui voler l'Amulette avec une Pierre d'Illusion
 C 352 Repartir pour de bon

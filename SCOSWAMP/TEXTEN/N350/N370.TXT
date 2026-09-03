@@ -1,9 +1,10 @@
 T 370 Ice Bridge
 
-Thanks to your Ice Magic Stone, a solid bridge forms on the water's surface
+   Thanks to your Ice Magic Stone, a solid bridge forms on the water's surface
 and you can cross it without difficulty.
 
-You can head north or south.
+   You can head north or south.
 
+MU PROFONDE.MB
 C 157 Go north
 C 398 Go south

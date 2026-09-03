@@ -1,12 +1,13 @@
 T 084 Le Maitre des Jardins
 
-Il ne fait aucun doute que le Maitre des Jardins est un ami, et vous lui
+   Il ne fait aucun doute que le Maitre des Jardins est un ami, et vous lui
 racontez donc votre histoire en toute confiance.
 
-Il vous souhaite bonne chance mais ne peut guere vous aider. En faisant le
+   Il vous souhaite bonne chance mais ne peut guere vous aider. En faisant le
 tour de la clairiere, vous constatez qu'un seul chemin y mene : celui que vous
 avez emprunte.
 
-Vous saluez le Maitre des Jardins et revenez sur vos pas vers l'ouest.
+   Vous saluez le Maitre des Jardins et revenez sur vos pas vers l'ouest.
 
+MU JARDINS.MB
 C 363 Revenir vers l'ouest

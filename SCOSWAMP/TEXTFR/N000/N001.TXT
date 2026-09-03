@@ -1,18 +1,19 @@
 T 001 Le chemin vers le Marais
 
-Le voyage vers le Marais a l'extreme ouest du royaume a ete long. A mesure que
-vous progressez, les montagnes deviennent collines, puis plaines, et enfin
+   Le voyage vers le Marais a l'extreme ouest du royaume a ete long. A mesure
+que vous progressez, les montagnes deviennent collines, puis plaines, et enfin
 terres basses et humides. Vous atteignez Bourbenville. Dans la taverne, vous
 proclamez vouloir explorer le Marais aux Scorpions.
 
-Aussitot, les clients se rassemblent, inquiets. "Explorer le Marais ? Vous n'y
-pensez pas ! D'autres s'y sont perdus, leurs os blanchissent dans ses
+   Aussitot, les clients se rassemblent, inquiets. "Explorer le Marais ? Vous
+n'y pensez pas ! D'autres s'y sont perdus, leurs os blanchissent dans ses
 profondeurs ! Ce lieu grouille de vermine, de monstres et de brigands. Les
 Maitres, un clan de sorciers malfaisants, en sont les seigneurs. L'un d'eux,
 un colosse brutal, est venu avec deux loups gris. Il n'aime pas les intrus."
 Les villageois veulent vous retenir.
 
-Que faites-vous ?
+   Que faites-vous ?
 
+MU VILLAGE.MB
 C 048 Tirer votre epee pour intimider ceux qui vous barrent la route
 C 095 Expliquer poliment que votre decision est irrevocable

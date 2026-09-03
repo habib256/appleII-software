@@ -1,7 +1,8 @@
 T 279 The Sword Trees
 
-To your great dismay, the terrible Sword Trees' branches have already regrown,
-and if you want to fight them with your sword, you must go to 28.
+   To your great dismay, the terrible Sword Trees' branches have already
+regrown,
 
+MU ARBRESEPEES.MB
 C 028 Fight them with your sword
 C 203 Resort to magic

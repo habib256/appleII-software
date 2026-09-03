@@ -1,14 +1,14 @@
 T 087 Les sables mouvants
 
-Vous etes pris dans les sables mouvants et vous vous enfoncez lentement. Votre
-seul espoir est de vous debarrasser de votre armure.
+   Vous etes pris dans les sables mouvants et vous vous enfoncez lentement.
+Votre seul espoir est de vous debarrasser de votre armure.
 
-Vous vous hatez de l'enlever et l'abandonnez. Vous parvenez a vous extraire,
-mais vous perdez 2 points d'HABILETE et devez reduire aussi de 2 points votre
-total initial d'HABILETE.
+   Vous vous hatez de l'enlever et l'abandonnez. Vous parvenez a vous
+extraire, mais vous perdez 2 points d'HABILETE et devez reduire aussi de 2
+points votre total initial d'HABILETE.
 
-Vous ne pourrez plus jamais retrouver tous vos points de depart : tel est le
-prix de la perte de votre armure.
+   Vous ne pourrez plus jamais retrouver tous vos points de depart : tel est
+le prix de la perte de votre armure.
 
 E0 HABILETE -2
 C 270 Continuer votre chemin

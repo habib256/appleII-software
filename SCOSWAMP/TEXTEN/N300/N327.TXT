@@ -1,15 +1,16 @@
 T 327 Flight Through the Window
 
-He's much more dangerous than you thought. Who could have believed that such a
-fat man of such ridiculous appearance can fight with such skill? You then turn
-around and dive through the window, hoping to escape.
+   He's much more dangerous than you thought. Who could have believed that
+such a fat man of such ridiculous appearance can fight with such skill? You
+then turn around and dive through the window, hoping to escape.
 
-Alas! a veritable crowd has gathered before Pompatarte's house, and barely
+   Alas! a veritable crowd has gathered before Pompatarte's house, and barely
 have you had time to regain your senses after such a fall that two robust
 soldiers tie your hands behind your back. Your treachery toward the merchant
 will earn you spending long years in the town's jails.
 
-Your adventure therefore ends here.
+   Your adventure therefore ends here.
 
-END OF ADVENTURE.
+   END OF ADVENTURE.
 
+MU +MORT.MB

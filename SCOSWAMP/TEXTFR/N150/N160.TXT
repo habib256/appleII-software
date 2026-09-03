@@ -1,9 +1,9 @@
 T 160 L'echec de l'amitie
 
-Vous pensez que la creature pourrait devenir un allie et vous lui lancez une
-Pierre Magique d'Amitie.
+   Vous pensez que la creature pourrait devenir un allie et vous lui lancez
+une Pierre Magique d'Amitie.
 
-Mais la Bete Immonde n'a pas d'amis ! Elle avance toujours vers vous, ses six
-pattes griffues labourant le sol.
+   Mais la Bete Immonde n'a pas d'amis ! Elle avance toujours vers vous, ses
+six pattes griffues labourant le sol.
 
 C 176 Vous devez la combattre.

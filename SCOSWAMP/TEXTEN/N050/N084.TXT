@@ -1,11 +1,12 @@
 T 084 The Garden Master
 
-There is no doubt that the Garden Master is a friend, and so you tell him your
-story with complete confidence.
+   There is no doubt that the Garden Master is a friend, and so you tell him
+your story with complete confidence.
 
-He wishes you good luck but can hardly help you. Going around the clearing,
+   He wishes you good luck but can hardly help you. Going around the clearing,
 you notice that only one path leads there: the one you took.
 
-You greet the Garden Master and retrace your steps westward.
+   You greet the Garden Master and retrace your steps westward.
 
+MU JARDINS.MB
 C 363 Return westward

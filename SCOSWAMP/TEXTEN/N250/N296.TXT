@@ -1,15 +1,16 @@
 T 296 Reckless Exploration
 
-You advance bravely into the Scorpion Swamp, but there's in your attitude a
+   You advance bravely into the Scorpion Swamp, but there's in your attitude a
 large part of recklessness and, let's say it, unconsciousness because,
 although your Copper Ring guarantees you'll never get lost, you'd need to
 resort to many other forms of magic to hope to come out alive from this
 exploration.
 
-Without magic's help, indeed, you'll never be able to pierce the Swamp's
+   Without magic's help, indeed, you'll never be able to pierce the Swamp's
 secrets and after a few hours of walking, you're already exhausted and bruised
 after having had to defend yourself against all sorts of creatures, both
 familiar and strange. You soon deem it preferable to return to the village and
 you therefore turn back. Test your Luck.
 
+MU VILLAGE.MB
 CL 272 003

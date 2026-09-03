@@ -1,17 +1,17 @@
 T 292 The Garden Master's Amulet
 
-You explain the nature of your mission to the Garden Master. He then nods
+   You explain the nature of your mission to the Garden Master. He then nods
 sadly then removes the flower-shaped Amulet from his neck and puts it around
 yours. At the moment the Amulet touches you, you're completely paralyzed and
 the Garden Master, looking you straight in the eyes, orders you to tell him
 everything about yourself. An irrepressible force obliges you to obey and you
 tell him your life.
 
-"You're not a bad fellow," says the Garden Master when you've finished. "But
-you serve a despicable master. The best thing I can do for you is to advise
-you to always be on your guard."
+   "You're not a bad fellow," says the Garden Master when you've finished.
+"But you serve a despicable master. The best thing I can do for you is to
+advise you to always be on your guard."
 
-He then recovers his Amulet and moves away. Gradually, you regain your body's
-mobility and you leave taking the western direction.
+   He then recovers his Amulet and moves away. Gradually, you regain your
+body's mobility and you leave taking the western direction.
 
-C 363 Go to 363
+C 363 Head back west

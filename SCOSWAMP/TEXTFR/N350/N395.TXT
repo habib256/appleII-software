@@ -1,14 +1,14 @@
 T 395 L'Ours Noir
 
-Vous decidez de passer la nuit a l'auberge la plus proche : "L'Ours Noir". Au
-rez-de-chausse, la salle est bonde de clients apparemment decides a faire la
-fete, mais vous ne leur pretez aucune attention et vous montez dans votre
+   Vous decidez de passer la nuit a l'auberge la plus proche : "L'Ours Noir".
+Au rez-de-chaussee, la salle est bondee de clients apparemment decides a faire
+la fete, mais vous ne leur pretez aucune attention et vous montez dans votre
 chambre apres avoir paye 1 Piece d'Or a l'aubergiste.
 
-Malheureusement, il y a tant de bruit en bas que vous ne parvenez pas a fermer
-l'oeil. Vous perdez ainsi 1 point d'ENDURANCE.
+   Malheureusement, il y a tant de bruit en bas que vous ne parvenez pas a
+fermer l'oeil. Vous perdez ainsi 1 point d'ENDURANCE.
 
-Qu'allez-vous faire a present ?
+   Qu'allez-vous faire a present ?
 
 E ENDURANCE -1
 C 116 Vous enfouir la tete sous l'oreiller

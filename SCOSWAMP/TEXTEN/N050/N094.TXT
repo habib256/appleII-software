@@ -1,11 +1,12 @@
 T 094 The Fetid Mist
 
-The path descends and swirls of mist surround you. A foul odor fills the air
-and you hold your breath.
+   The path descends and swirls of mist surround you. A foul odor fills the
+air and you hold your breath.
 
-But soon, you are forced to breathe again and the polluted atmosphere costs
+   But soon, you are forced to breathe again and the polluted atmosphere costs
 you 2 STAMINA points.
 
+MU BRUME.MB
 E ENDURANCE -2
 C 295 Go north
 C 320 Go south
