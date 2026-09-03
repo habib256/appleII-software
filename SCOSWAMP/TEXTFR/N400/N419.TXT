@@ -1,0 +1,23 @@
+T 419 Qui vous etes
+
+   Vous etes un aventurier intrepide qu'aucun peril n'a jamais fait reculer,
+et assez sage pour ne s'etre jamais hasarde dans le Marais aux Scorpions. Nul
+n'a jamais pu en dresser la carte : ses sentiers egarent, le brouillard cache
+le ciel, et les boussoles y perdent le nord.
+
+   Puis le destin s'en est mele. Sur la route du Roi vous avez releve une
+vieille femme, vous l'avez portee a l'ombre, et elle vous a donne un cercle de
+cuivre sans gravure. Une heure plus tard, l'anneau s'etait ajuste a votre
+doigt.
+
+   Tant que vous le portez, vous savez ou est le nord et vous ne perdez jamais
+votre chemin. Et il se rechauffe chaque fois que vous vous trouvez devant un
+etre malfaisant, meme si celui-ci vous fait de grandes demonstrations
+d'amitie. Chaud devant le Mal, froid devant le Bien.
+
+   Voila de quoi entrer dans le Marais. Reste a savoir pourquoi : a
+Bourbenville, la derniere bourgade avant les terres basses, trois hommes
+cherchent un aventurier assez hardi pour s'y risquer.
+
+MU ACCUEIL.MB
+C 001 Prendre la route du Marais

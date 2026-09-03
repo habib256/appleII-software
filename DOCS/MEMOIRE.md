@@ -146,12 +146,12 @@ char file_buffer[FILE_BUFFER_SIZE];
 ```
 
 Y vivent le catalogue des messages (1 763 o), le tampon de page (1 280 o), le
-tampon du décodeur HGR (**256 o** depuis le 2026-09-04 — ProDOS lit par blocs
+tampon du décodeur HGR (**128 o** depuis le 2026-09-04 — ProDOS lit par blocs
 de 512 octets et les met en cache dans son propre tampon, donc le même nombre
 de blocs lus, seulement plus d'appels à `fread`), l'état de l'application
-`app` (238 o), la barre de titre (81 o), les lignes de corps, les deux noms de
-musique et la table de rabattement page → clairière : 4 060 octets, 36
-restent. Deux règles :
+`app` (238 o), la mémoire des monstres `seen` (160 o), la barre de titre
+(81 o), les lignes de corps, les deux noms de musique et la table de
+rabattement page → clairière : 4 073 octets, 23 restent. Deux règles :
 
 - `crt0` ne met à zéro que le segment `BSS` ; `main()` efface `LOWBSS` lui-même
   avec `__LOWBSS_RUN__` / `__LOWBSS_SIZE__` (déclarés côté C avec un souligné
@@ -171,7 +171,7 @@ musique, aide, sauvegarde, catalogue, carte). `SRC/scoswamp.cfg` y pose la zone
 | Contenu | Taille |
 |---|---|
 | `map_data[]` — en-tête, 35 clairières, bloc de langue du fichier `MAP` | 884 o |
-| `visited[]` de `rules.c` — le bitmap des pages vues | 52 o |
+| `visited[]` de `rules.c` — le bitmap des pages vues | 53 o |
 | l'en-tête de sauvegarde lu par `slot_title`, la liste de `choose_stones`, les statiques de `cfmt` | ~87 o |
 
 **Ce sont 1 024 octets qui ne coûtent rien à la fenêtre principale.** C'est ce
@@ -234,6 +234,7 @@ Mesures cc65 2.19, chargement à `$4000`, pile 2 Ko.
 | SCOSWAMP 2026-09-03 soir (LOWBSS, sans printf, `-Cl`) | `$A0B0` env. | 24 600 o env. | — | ✅ marge 7 544 o |
 | SCOSWAMP 2026-09-04 (musique, objets, amulettes) — avant le menu MAP | `$BB82` | 31 618 o | — | ✅ marge **510 o** |
 | SCOSWAMP 2026-09-04 (menu MAP, `--codesize 100`, MAPBSS) | `$BC46` | 31 814 o | — | ✅ marge **314 o** |
+| SCOSWAMP 2026-09-04 soir (+ prologue, combat rythmé, banc de traversée) | `$BC87` | 31 879 o | — | ✅ marge **249 o** |
 
 La dernière ligne cumule quatre mesures du même jour, chacune faite seule sur
 le binaire complet :

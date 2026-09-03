@@ -13,4 +13,6 @@ much difficulty in escaping thus from Stratagus's clutches.
 show yourself more circumspect in choosing the masters you'll serve. Your
 adventure, in any case, ends here.
 
-MU TOUR.MB
+   END OF ADVENTURE.
+
+MU -

@@ -14,4 +14,6 @@ difficulte a echapper ainsi aux griffes de Stratagus.
 doute que vous vous montrerez plus circonspect dans le choix des maitres que
 vous servirez. Votre aventure, en tout cas, se termine ici.
 
-MU TOUR.MB
+   FIN DE L'AVENTURE.
+
+MU -

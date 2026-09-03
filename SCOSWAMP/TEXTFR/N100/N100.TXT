@@ -8,3 +8,6 @@ Peut-etre retenterez-vous un jour ?
 
    Pour l'instant, votre aventure est terminee.
 
+   FIN DE L'AVENTURE.
+
+MU +MORT.MB

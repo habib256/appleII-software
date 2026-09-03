@@ -1,0 +1,24 @@
+T 418 Ce qu'on dit des trois hommes
+
+   Les trois ont fait savoir la meme chose : ils cherchent un aventurier pour
+le Marais, et aucun d'eux ne peut y aller lui-meme. Pour le reste, le village
+raconte.
+
+   Gayolard, le bon sorcier, cherche une plante. On l'appelle l'Antherique ;
+les forces du Mal l'ont presque effacee du monde et il en resterait un buisson
+quelque part dans le Marais. On dit qu'il paie en magie.
+
+   Pompatarte, le marchand a la peau rouge, cherche un chemin. Ses caravanes
+contournent le Marais et y perdent des semaines ; une carte sure jusqu'a
+Courbensaule lui vaudrait une fortune, et a vous une part de la sienne.
+
+   Stratagus, dans sa tour, cherche des Amulettes d'argent, celles que
+porteraient au cou les sorciers installes dans le Marais. Il paie en or, et
+bien.
+
+   Grognard, lui, n'en dira que ceci : le premier sert le Bien, le deuxieme
+est un mystere, le troisieme s'est mis au service du Mal.
+
+MU VILLAGE.MB
+C 412 Revenir sur la place
+C 240 Retourner a la table de Grognard

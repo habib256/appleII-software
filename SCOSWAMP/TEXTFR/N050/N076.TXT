@@ -11,5 +11,5 @@ se dit pret a vous aider.
 vous en avez perdu.
 
 E HABILETE +1
-C 166 Si vous avez deja trouve le buisson d'Antherique
-C 333 Sinon
+CI .T 166 Si vous avez deja trouve le buisson d'Antherique
+CN .T 333 Sinon

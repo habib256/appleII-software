@@ -238,7 +238,7 @@ afficher.
 ## 3. La mémoire : ce qu'il a fallu libérer
 
 **Marge de départ : 510 octets de tas** (mesure au lien sur la base fusionnée).
-**Marge d'arrivée : 314 octets.** Entre les deux, le chantier a demandé environ
+**Marge d'arrivée : 314 octets** — 249 après la seconde fusion (§ 8). Entre les deux, le chantier a demandé environ
 **2 900 octets** — 1 950 de code, 950 de données résidentes.
 
 ### 3.1 Le levier décisif : `$0C00-$0FFF`
@@ -283,14 +283,14 @@ Contrôle final :
 ```
 Analyse mémoire : build.map
   Chargement    : $4000
-  BSS           : $AC48 - $BC46
-  Tas           : $BC46 - $BD80  (314 o)
+  BSS           : $AD1F - $BC87
+  Tas           : $BC87 - $BD80  (249 o)
   Plafond       : $BD80  (__HIMEM__ $BF00 moins 384 o de pile C)
-  Empreinte     : 31814 o sur 32128 o disponibles
-  LOWBSS        : $1000 - $1FDB  (4060 o, reste 36 o sous $2000)
-  MAPBSS        : $0C00 - $0FFE  (1023 o, reste 1 o sous $1000)
+  Empreinte     : 31879 o sur 32128 o disponibles
+  LOWBSS        : $1000 - $1FE8  (4073 o, reste 23 o sous $2000)
+  MAPBSS        : $0C00 - $0FFF  (1024 o, reste 0 o sous $1000)
 
-OK : tient en mémoire, marge de 314 octets.
+OK : tient en mémoire, marge de 249 octets.
 ```
 
 `tools/check-memory.sh` affiche désormais `MAPBSS` comme il affiche `LOWBSS`, et
@@ -300,7 +300,7 @@ refuse un débordement dans `LOWRAM`.
 
 | Zone | Reste | Qui refuse le dépassement |
 | --- | ---: | --- |
-| tas (fenêtre principale) | 314 o | `check-memory.sh`, à chaque `make` |
+| tas (fenêtre principale) | 249 o | `check-memory.sh`, à chaque `make` |
 | `LOWBSS` (`$1000-$1FFF`) | 36 o | `ld65`, puis `check-memory.sh` |
 | `MAPBSS` (`$0C00-$0FFF`) | 1 o | `ld65` |
 | `map_data[884]` | 13 o | `build_map.py`, qui dit quoi raccourcir |
@@ -367,7 +367,8 @@ clignotement (`pad_to(79)`).
 | Contrôle | Résultat |
 | --- | --- |
 | `python3 SCOSWAMP.MORE/TOOLS/reflow_txt.py SCOSWAMP` | `a reecrire : 0 fichiers` / **`problemes : 0`** |
-| `cd SCOSWAMP/SRC && make` | **`OK : tient en mémoire, marge de 314 octets.`** |
+| `cd SCOSWAMP/SRC && make` | **`OK : tient en mémoire, marge de 249 octets.`** |
+| `make playtest` | **225 assertions passées, 1 en échec sur 24 scénarios** (voir § 8) |
 | `make hdv` | `SCOSWAMP: 1330 files, 7610 blocks` ; `MAP` présent sur le volume (vérifié dans les entrées de répertoire de l'image) |
 | `cmake --build … --target test_rules && …/test_rules` | **`regles : tout passe`** |
 | `python3 build_map.py --root .` | `MAP.BIN : 1844 octets` ; `resident en $0C00 : 871 / 884` ; 39/39 sentiers retrouvés par la recherche de voisin |
@@ -413,7 +414,65 @@ montre. Ce qu'ils défendent :
 
 ---
 
-## 8. Ce que la fusion a coûté
+## 8. La seconde fusion : quatre chantiers arrivés d'un coup
+
+`feat/scoswamp-memoire` a encore avancé pendant que la carte se construisait,
+avec quatre fusions : **contenu** (`CI FAUX` en 025, le drapeau `.T`, les pages
+124/126/140, sept fins muettes ou endeuillées, deux boucles `V` défaites),
+**prologue** (pages 412-419, `000 → 419 → 001`, `SCENE_MEMORY_SIZE` à 53),
+**combat rythmé** (`run_combat` réécrit : quatre dés dans `Round`, `sfx_beat`,
+`put_verdict`, jauge en pavés inverses, enjeu de la Chance) et **playtest**
+(`TOOLS/playtest.py`, cible `make playtest`, `-Wl -Ln,build.lbl`).
+
+**Quatre conflits, tous petits.**
+
+| Fichier | Conflit | Résolution |
+| --- | --- | --- |
+| `SRC/Makefile` | la ligne `.PHONY` : ma cible `map`, leur cible `playtest` | les deux |
+| `TOOLS/forge_save.py` | `SCENE_MEM` 52 → 53 (prologue) contre mon octet `CLR` | les deux : `24 + 53 + 160 + 1`, **`SAVE_SIZE = 278`** |
+| `SRC/messages.h` | leur suppression des doublons `M_CHANCEUX2` contre mon `M=CARTE` | régénéré par `build_messages.py` — 56 messages |
+| `SCOSWAMP.BIN` | binaire | régénéré par `make` |
+
+`scoswamp.c` et `rules.c` se sont fusionnés seuls, mais méritaient un audit :
+
+* **`classify_line`** — vérifié directive par directive : leur branche n'y a pas
+  touché, les 31 restent les mêmes, ma table de 33 entrées les couvre toutes.
+* **`run_combat`** — leur réécriture est intacte, et ma branche `[M]` s'y est
+  posée à côté de `[I]`.
+* **`SAVE_SIZE`** — se calcule depuis `SCENE_MEMORY_SIZE` : il a suivi 52 → 53
+  tout seul, `+ 1` pour la clairière, soit 278 octets, comme `forge_save.py`.
+* **`wipe()`** — un `clrscr()` restait dans `game_over`, l'écran de mort, qu'on
+  atteint depuis le mode mixte : c'est exactement le cas du § 5. Il est passé à
+  `wipe()`.
+
+**Le prix en mémoire.** La marge de leur base était de 284 octets, la mienne de
+314 ; ensemble, 89. Il a fallu retrouver 160 octets, et le gisement était le
+même qu'avant : le tampon du décodeur HGR est passé de 256 à **128 octets** —
+ProDOS lit toujours le même nombre de blocs, trois `fread` sur quatre ne sont
+plus qu'une recopie depuis son cache — ce qui a fait place en RAM basse à la
+**mémoire des monstres** (`seen[40]`, 160 octets) de `rules.c`.
+**Marge finale : 249 octets.**
+
+**Le banc.** Deux garde-fous de `playtest.py` reposaient sur des voisinages que
+le menu MAP a défaits : `sizeof(AppState)` se mesurait par `_restoring - _app`,
+or `app` est parti en RAM basse (c'est `_file_buffer - _app` désormais), et la
+taille de `seen` par `_visited - _seen`, or `visited` est parti en `$0C00`
+(les tailles se lisent maintenant dans `rules.h`, à la source). Aucune
+*attente de jeu* n'a été touchée. Un scénario **`carte`** a été ajouté — 16
+assertions : la ligne de lieu sous ses deux formes, l'ouverture et la
+fermeture par `[M]`, le compte des clairières, deux portes d'une même
+clairière comptées une fois, et le refus sans l'Anneau.
+
+Résultat : **225 assertions passées, 1 en échec sur 24 scénarios**. L'échec est
+`images` — 13 pages sans planche : les 5 pages relais 407-411, que le § 2.5 de
+`CARTOGRAPHIE.md` documente depuis toujours, et les 8 pages 412-419 du nouveau
+prologue. Vérifié sur `feat/scoswamp-memoire` seule : `IMG/N400/` s'y arrête à
+`N406`. C'est un vrai manque de contenu, pas une régression — l'assertion reste
+debout.
+
+---
+
+## 8 bis. Ce que la première fusion a coûté
 
 Le worktree avait été créé depuis `main` ; la base réelle du travail est
 `feat/scoswamp-memoire`, détectée avant la première ligne de code — la branche
@@ -446,13 +505,14 @@ bougé sur la branche de base.
 | `SCOSWAMP/MAP.BIN` | **nouveau** — 1 844 octets, `MAP` sur le volume |
 | `SCOSWAMP/SRC/scoswamp.c` | le bloc carte, `show_map`, `render_place`, la touche `M`, `SCS4`, `wipe()` à la place de `clrscr()`, la cure mémoire |
 | `SCOSWAMP/SRC/scoswamp.cfg` | zone `MAPRAM` `$0C00-$0400`, segment `MAPBSS`, et la règle « un seul fichier ouvert » |
-| `SCOSWAMP/SRC/rules.c` | `visited[]` en `MAPBSS` |
+| `SCOSWAMP/SRC/rules.c` | `visited[]` en `MAPBSS`, `seen[]` en `LOWBSS` |
 | `SCOSWAMP/SRC/hgr_loader.s` | tampon de lecture de 1 Ko à 256 octets |
 | `SCOSWAMP/SRC/Makefile` | `--codesize 100`, cible `map`, `MAP.BIN` dans `PAYLOAD` et dans `$(HDV)` |
 | `SCOSWAMP/SRC/music.h` | commentaire de `MUSIC_OVER` (valeur inchangée, voir § 8) |
 | `SCOSWAMP.MORE/TOOLS/build_messages.py` | `M=CARTE` dans `M_TOUCHES` ; la note sur les chaînes de l'écran MAP |
 | `SCOSWAMP.MORE/TOOLS/forge_save.py` | `SCS4`, 277 octets, `clairiere=` |
 | `SCOSWAMP.MORE/TOOLS/test_rules.c` | `test_carte` : la table, le brouillard, les arbitrages |
+| `SCOSWAMP.MORE/TOOLS/playtest.py` | scénario `carte`, et deux garde-fous d'adresses remis d'aplomb |
 | `SCOSWAMP/HELPFR.TXT` / `HELPEN.TXT` | section `CARTE` / `MAP`, 18 lignes tenues |
 | `tools/check-memory.sh` | affiche `MAPBSS` |
 | `DOCS/MEMOIRE.md` | la zone `$0C00`, les mesures du jour |

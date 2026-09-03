@@ -13,4 +13,6 @@ annees dans les geoles de la ville.
 
    Votre aventure se termine donc ici.
 
-MU TOUR.MB
+   FIN DE L'AVENTURE.
+
+MU +MORT.MB

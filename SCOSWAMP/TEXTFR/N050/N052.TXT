@@ -10,3 +10,6 @@ courir de trop grands risques", objecte-t-il.
    Vous avez fait ce que vous pouviez. Helas, ce n'etait pas suffisant. Votre
 aventure s'acheve ici.
 
+   FIN DE L'AVENTURE.
+
+MU +MORT.MB

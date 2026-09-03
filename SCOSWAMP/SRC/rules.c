@@ -254,12 +254,33 @@ int monster_is_beaten(const Monster* m) { return m->end <= m->stop_at; }
 
 void combat_round(const Character* c, const Monster* m, Round* out)
 {
-    out->monster_force = (unsigned char)(roll_2d6() + m->hab);
-    out->hero_force    = (unsigned char)(roll_2d6() + c->hab);
-    if (c->objects & (1u << OBJ_EPEMAGIQUE)) out->hero_force += c->weapon_bonus;
-    if (out->hero_force > out->monster_force)      out->outcome = ROUND_HERO_HITS;
-    else if (out->hero_force < out->monster_force) out->outcome = ROUND_MONSTER_HITS;
-    else                                          out->outcome = ROUND_DODGE;
+    /* Les des un par un, et non par roll_2d6 : c'est la meme somme -- donc la
+     * meme partie a semence egale -- mais l'ecran peut ensuite montrer le jet
+     * au lieu du seul total.
+     *
+     * L'assaut se compose dans `t` et ne touche `out` qu'a la toute fin, par
+     * une seule affectation de structure. Cc65 ne garde pas un pointeur de
+     * parametre : chaque `out->x` relit sp, reconstruit ptr1 et refait le
+     * detour, une douzaine d'octets a chaque champ -- sept champs, quatre-
+     * vingts octets de rechargement de pointeur. Avec -Cl les locales sont
+     * statiques, donc `t` s'ecrit en adressage absolu (trois octets par
+     * champ) et la copie finale est un memcpy de sept octets. */
+    unsigned char a  = roll_d6();
+    unsigned char b  = roll_d6();
+    unsigned char d  = roll_d6();
+    unsigned char e  = roll_d6();
+    Round t;
+
+    t.monster_d1 = a; t.monster_d2 = b;
+    t.hero_d1    = d; t.hero_d2    = e;
+    t.monster_force = (unsigned char)(a + b + m->hab);
+    t.hero_force    = (unsigned char)(d + e + c->hab);
+    if (c->objects & (1u << OBJ_EPEMAGIQUE))
+        t.hero_force = (unsigned char)(t.hero_force + c->weapon_bonus);
+    if (t.hero_force > t.monster_force)      t.outcome = ROUND_HERO_HITS;
+    else if (t.hero_force < t.monster_force) t.outcome = ROUND_MONSTER_HITS;
+    else                                     t.outcome = ROUND_DODGE;
+    *out = t;
 }
 
 int combat_apply(Character* c, Monster* m, const Round* r, int use_luck)
@@ -314,11 +335,18 @@ int combat_flee(Character* c, const Monster* m, int use_luck)
  * l'ecran de titre, elle n'a pas d'adversaire. `index` retient lequel de la
  * file etait en cours ; sans lui, fuir devant le deuxieme LOUP puis revenir
  * ferait recommencer au premier. */
+/* En RAM basse ($1000-$1FFF, segment LOWBSS de scoswamp.cfg), avec les gros
+ * tampons : 160 octets de moins dans la fenetre principale, ou il n'en restait
+ * que 89 apres la fusion du menu MAP, du prologue et du combat rythme. Rien ne
+ * change a l'acces -- une adresse absolue en $1xxx vaut une adresse absolue en
+ * $Bxxx -- ni a la sauvegarde, qui passe par monster_memory_export. */
+#pragma bss-name (push, "LOWBSS")
 static struct {
     unsigned int  scene;
     unsigned char index;
     unsigned char end;
 } seen[MONSTER_SLOTS];
+#pragma bss-name (pop)
 
 void monster_memory_reset(void)
 {
@@ -384,7 +412,7 @@ void monster_memory_import(const unsigned char* in)
 
 /* ── Les clairieres deja parcourues ────────────────────────────────────── */
 
-#define SCENE_BITS SCENE_MEMORY_SIZE /* 412 paragraphes arrondis a l'octet */
+#define SCENE_BITS SCENE_MEMORY_SIZE /* 419 paragraphes arrondis a l'octet */
 
 /* Le bitmap des pages vues part dans la zone MAPRAM ($0C00-$0FFF), avec les
  * donnees du menu MAP qui le lisent : 52 octets de moins dans la fenetre

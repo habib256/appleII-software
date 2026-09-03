@@ -15,4 +15,6 @@ en le debarrassant d'un mage aussi nuisible, mais vous vous promettez a
 l'avenir de vous montrer plus circonspect dans le choix des maitres que vous
 servirez. Pour l'instant, en tout cas, votre aventure est terminee.
 
-MU TOUR.MB
+   FIN DE L'AVENTURE.
+
+MU -

@@ -10,16 +10,17 @@ The %s Stone crumbles.
 You flee: it wounds you on the way.
 Lucky!
 Unlucky!
-ROUND %u     your strength %u   %s   its %u
+ROUND %u
+You:
+It :
 You have each dodged.
 You have wounded it
 It has wounded you
-Lucky!
-Unlucky!
 engage
-take the blow
-strike home
+take it
+strike
 test your Luck
+ Test your Luck (LUCK %u): %u or %u
 next round
 flee
 backpack

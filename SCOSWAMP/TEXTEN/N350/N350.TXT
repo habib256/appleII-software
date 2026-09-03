@@ -11,5 +11,5 @@ observing you attentively. Do you have:
 
 MU AIGLE.MB
 CI PL 392 Parrot Feathers
-CI OISEAU 025 A Silver bird-shaped Amulet
+CI FAUX 025 A Silver bird-shaped Amulet
 C 233 Neither one nor the other

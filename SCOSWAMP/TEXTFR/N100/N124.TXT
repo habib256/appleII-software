@@ -4,7 +4,8 @@ T 124 Le duel final
 soudain et se transforme en une lame dentelee.
 
    Il se met en garde. L'arme etincelle: elle est clairement magique. Ce
-combat sera le dernier de votre aventure.
+combat sera le dernier de votre aventure. C'est un combat a mort: il n'est pas
+question de prendre la fuite.
 
 MU +COMBAT.MB
 M 13 18 STRATAGUS

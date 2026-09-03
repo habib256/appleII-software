@@ -803,3 +803,105 @@ bloc 5888 et son entrée au bloc 5878 offset 394 *dans l'image actuelle* ; toute
 reconstruction du volume les déplace. Le script doit parcourir le catalogue
 (25 lignes) au lieu de porter des constantes — sinon il écrira 276 octets au
 milieu d'une image RLE, et le bug qui en sortira coûtera une soirée.
+
+---
+
+## 7. État au 2026-09-04 — le banc existe
+
+Ce qui précède était une étude. Elle est maintenant réalisée : le banc vit
+dans **`SCOSWAMP.MORE/TOOLS/playtest.py`** (≈ 1 100 lignes, bibliothèque
+standard seule), et se lance par
+
+```sh
+make -C SCOSWAMP/SRC playtest
+```
+
+qui reconstruit l'image disque puis rejoue le jeu. **23 scénarios, 207
+assertions, environ 2 min 30** sur un Apple //e émulé à 12×. Une fenêtre POM2
+s'ouvre et se ferme toute seule pour chaque scénario.
+
+### 7.1 Ce qui a été retenu de l'étude
+
+L'option **(c)**, l'injection mémoire, telle que décrite au § 4.1 et § 4.3 :
+`pending_scene`, la Feuille d'Aventure, `hero_ready`, `restoring`, les deux
+mémoires et la graine des dés, puis une touche inerte. **Zéro octet ajouté au
+binaire livré.** L'option **(a2)**, la sauvegarde forgée, sert les quatre
+scénarios qui testent la sauvegarde elle-même et les trois fins.
+
+Trois corrections par rapport à l'étude, toutes trouvées en le faisant marcher :
+
+1. **Les adresses ne viennent pas seulement du `.lbl`.** `ld65 -Ln` (ajouté
+   aux `LDFLAGS`, cf. § 4.2) n'écrit que les symboles **globaux** : `_app` y
+   est, mais `restoring`, `state`, `visited`, `seen` sont des `static` C, et
+   `mb_slot`, `playing`, `cur_lo` des labels locaux de `music.s`. La classe
+   `Symbols` les retrouve en croisant trois sources — les adresses de segment
+   et les offsets par module de `build.map`, la suite ordonnée des labels et
+   de leurs `.res` dans les `.s`, et le `.lbl` comme **contre-épreuve** : si
+   les deux méthodes divergent d'un octet, le banc refuse de démarrer. Les
+   deux invariants de l'étude tiennent toujours (`_restoring - _app` — 238
+   aujourd'hui, `AppState` ayant gagné `foe_img`, `music_name` et
+   `music_over` — et `_visited - _seen == 160`), plus la sonde `app.language
+   ∈ {FR, EN}` avant toute écriture.
+
+2. **La stabilité d'écran demande une fenêtre généreuse.** Deux relevés
+   identiques à 50 ms (§ 5.1) ne suffisent pas : une page de combat écrit son
+   texte, **lit son image RLE au disque — 160 ms d'écran figé** — puis peint
+   le bandeau des combattants. Le banc rendait la main pendant la lecture et
+   jurait que le bandeau n'existait pas. Six relevés, soit 300 ms de silence.
+
+3. **Une touche à la fois.** La file de POM2 est auto-cadencée et **garde ce
+   qui n'a pas été lu** (§ 1.2 b). Une rafale envoyée pendant que le jeu était
+   bloqué dans un `cgetc()` interne se déversait ensuite d'un coup et faisait
+   traverser le Marais au hasard. `goto()` frappe donc **une seule touche par
+   tentative**, et parcourt un alphabet d'échappement : `Z` (inerte dans la
+   boucle principale), `ESPACE` (jets, assauts, « continuer »), `A` (le choix
+   des Pierres), `ESC` (sac, aide, sauvegardes), `R` (**la seule sortie de
+   l'écran de mort**), puis dix `ESPACE` de plus pour mener un combat à son
+   terme — en couchant au passage les adversaires (`end = 0`), sans quoi la
+   file de trois du 120 n'en finissait pas.
+
+Un piège de plus, qui n'est pas dans le jeu : **le lecteur JSON de POM2 ne
+connaît pas les échappements `\uXXXX`** (`AiControlServer.cpp:220-244`, il
+prend la lettre qui suit une contre-oblique telle quelle). Un
+`json.dumps("\x1b")` lui fait taper « u001b » — cinq touches, dont un `b` qui
+prend le choix B de la page en cours. `Pom2.raw()` bâtit donc le corps de la
+requête à la main, octet brut compris.
+
+### 7.2 Les scénarios
+
+| Famille | Scénarios |
+| --- | --- |
+| Prologue et missions | `demarrage`, `gayolard`, `pompatarte`, `stratagus` |
+| Combat et mort | `combat`, `premier_sang`, `mort` |
+| Effets d'entrée | `benediction`, `graines`, `baie_anneau`, `revisite` |
+| Hasard cadré | `hasard` (ED, CS, CL, DV) |
+| Sauvegardes | `sauvegardes`, `forge` |
+| Interface | `interface`, `video`, `anglais` |
+| Les trois fins | `fin_175`, `fin_158`, `fin_358` |
+| Musique | `musique` |
+| Couverture | `images`, `balayage` |
+
+`make playtest PLAYTEST=--list` les liste ;
+`PLAYTEST="--only combat --keep"` en joue un seul et **laisse l'émulateur
+ouvert** pour regarder ; `PLAYTEST="--port 6530"` change de port. Le défaut
+est **6520** : 6503-6506 et 6510 sont pris ailleurs.
+
+### 7.3 Ce que le banc a trouvé, et ce qu'il garantit
+
+Un balayage des **412 pages** (hors banc, ≈ 5 min) : aucune page inatteignable,
+aucun message d'erreur, aucune ligne hors des 80 colonnes, toutes portent leur
+titre. Le corpus est sain.
+
+Le banc échoue sur **une** assertion, et c'est son travail : **les pages 407 à
+411 n'ont pas d'illustration** alors que les 407 autres en ont une. Détail,
+reproduction et diagnostic dans `DOCS/rapport-playtest.md`.
+
+### 7.4 Ce qu'il faudrait encore à POM2
+
+Les priorités du § 4.5 restent valables, dans le même ordre. Deux ont gagné du
+poids à l'usage : `paste_pending` dans `/status` (priorité 2) supprimerait les
+300 ms d'attente de stabilité, soit **la moitié du temps du banc** ; et
+`--ai-control` dans `pom2_headless` (priorité 4) reste la condition d'une CI.
+`GET /screen.txt` (priorité 1) ferait gagner 40 lignes de décodage — le
+décodage inverse/ALTCHARSET du § 1.2 (c) s'est révélé **exact**, la barre de
+titre se relit sans une faute.
