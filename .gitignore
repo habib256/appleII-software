@@ -69,3 +69,6 @@ SPACETRIP.MORE/
 ._*
 .Spotlight-V100
 .Trashes
+
+# Rendus audio des propositions musicales : regeneres par SCOSWAMP.MORE/MUSIC/*.py
+SCOSWAMP.MORE/MUSIC/*.wav
