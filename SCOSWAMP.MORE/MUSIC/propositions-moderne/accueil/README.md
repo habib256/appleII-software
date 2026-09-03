@@ -1,6 +1,6 @@
 # Zone `accueil` — l'écran de titre
 
-**`ACCUEIL.MB.BIN` — 2 070 octets, 49,9 s, boucle.**
+**`ACCUEIL.MB.BIN` — 2 233 octets, 49,7 s, boucle.** Tampon de zone (2 304 o), 71 octets de marge.
 
 ## Ce que la zone couvre
 
@@ -19,36 +19,35 @@ aujourd'hui sur le disque.
 | Titre | **L'Appel du Marais** |
 | Source | composition originale, `accueil.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt — aucune œuvre tierce |
-| Caractère | ouverture de film : un coup de gong à six voix, un bourdon qui s'installe, un appel de cor qui monte à la quinte et revient une octave plus haut |
+| Caractère | ouverture de film : six voix frappent ensemble, un appel de cor monte à la quinte et revient une octave plus haut |
 | Mode | **ré dorien** (ré mi fa sol la **si** do) — le si bécarre est la lueur qui manque à tout le reste du jeu |
 | Tempo | **136** à la noire |
-| Forme | intro (4) — A « le seuil » (8) — B « l'appel » (8) — A' à l'octave (8) |
-| Durée | 28 mesures à 4/4 = **49,9 s** |
-| Taille | **2 070 octets** |
-| Notes | 539 écrites, 0 abandonnée par la réduction |
+| Forme | intro (4) — A « le seuil », crochet énoncé deux fois (8) — B « l'appel » (8) — A' à l'octave (8) |
+| Durée | 28 mesures à 4/4 = **49,7 s** |
+| Taille | **2 233 octets** — 466 notes de hauteur, 105 coups, 0 abandonnée |
 
-Harmonie : Dm-C-Dm-Am puis F-C-G-Dm en A ; B ouvre sur F-G-C-Am avant de
-retomber. Le sol majeur du mode dorien (mesures 19 et 26) est la cadence
-caractéristique, celle qui empêche la pièce de sonner mineur d'école.
+## Ce que la révision a apporté
 
-## Les six voix
+- **Crochet.** Le motif ré-fa-sol-la / ré-do-la est énoncé mesures 5-6, **repris tel quel mesures 9-10** sur une autre harmonie (F-G au lieu de F-Am), et repris une octave au-dessus mesure 21.
+- **Question et réponse.** Mesures 7, 12 et 24 la mélodie tient une ronde et le contre-chant répond en croches : voix 0 à gauche, voix 3 à droite, l'échange traverse la stéréo.
+- **Partie B contrastée.** La mélodie redescend d'une octave et l'harmonie emprunte le **si bémol** du ré éolien, étranger au dorien.
+- **Surprise.** Mesure 20, un **la majeur** : le do dièse est la seule sensible du morceau. Puis **deux temps de silence complet**, batterie comprise, avant que A' reparte à l'octave.
+- **Rythme harmonique.** Douze temps sur ré mineur à l'intro, quatre en A, deux à la mesure 11, huit sur la cadence finale.
+- **Arc.** L'arpège va en noires à l'intro, en croches en A, retombe à la noire dans la première moitié du B, repart ; la batterie passe de 2 à 5 frappes par mesure.
 
-Mesuré par `../verifier.py accueil.mid --bpm 136` — c'est l'attribution réelle
-de `midi_to_mb.py`, pas une intention.
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | D5..A6 | 90 |
-| 1 | **gauche** | médiane (contre-chant / accords) | A3..A4 | 70 |
-| 2 | **gauche** | basse, fondamentale et quinte grave | E2..G3 | 134 |
-| 3 | **droite** | médiane (arpège) | A3..D5 | 111 |
-| 4 | **droite** | médiane (contre-chant / accords) | A3..A4 | 120 |
-| 5 | **droite** | bourdon de ré, refrappé toutes les deux mesures | D2 | 14 |
-
-Image stéréo : **la mélodie et la basse à gauche, l'arpège et le bourdon à
-droite**, les voix d'accompagnement médianes réparties des deux côtés. Voir
-`../INDEX.md` § 3 pour pourquoi l'attribution se fait ainsi et pourquoi elle
-tient.
+| 0 | **gauche** | mélodie | D5..A6 | 71 |
+| 1 | gauche | médiane (arpège / accords tenus) | A3..A4 | 78 |
+| 2 | **gauche** | basse, fondamentale et quinte grave | E2..G3 | 115 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | D4..C5 | 78 |
+| 4 | droite | médiane (arpège) | F3..G4 | 124 |
+| 5 | **droite** | **batterie** — charleston 47, grosse caisse 32, caisse claire 23, cymbale 3 | bruit | 105 |
 
 ## Régénérer
 

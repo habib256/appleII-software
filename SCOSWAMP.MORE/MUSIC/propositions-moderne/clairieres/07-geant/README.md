@@ -1,6 +1,6 @@
 # Clairière 7 — Le Géant (`hub` 161, case 4,1)
 
-**`GEANT.MB.BIN` — 1 260 octets, 43,6 s, boucle.**
+**`GEANT.MB.BIN` — 1 624 octets, 41,7 s, boucle.**
 
 ## Les pages
 
@@ -21,50 +21,63 @@
 | Licence | GPL v3, comme le reste du dépôt |
 | Caractère | énorme, furieux, mais pas maléfique — l'Anneau de Cuivre reste froid. On n'a pas peur de lui, on ne passe pas |
 | Mode | **do mineur éolien** (do ré mi♭ fa sol la♭ si♭) |
-| Tempo | **132** à la noire — le plus lent des douze |
+| Tempo | **138** à la noire (auparavant 132) |
 | Forme | intro (4) — A (8) — B (6) — A' (6) |
-| Durée | 24 mesures à 4/4 = **43,6 s** |
-| Taille | **1 260 octets** — la plus petite des douze, marge 1 044 |
-| Notes | 333 écrites, **0 abandonnée** |
+| Durée | 24 mesures à 4/4 = **41,7 s** |
+| Taille | **1 624 octets** (marge 680 sur le tampon de zone) |
+| Notes | 317 de hauteur + **77 coups de batterie**, **0 abandonnée** |
+| Voix | **cinq parties de hauteur** + la batterie sur la voix 5 |
+
+## Ce que la révision a changé
+
+- **un crochet** de deux mesures, `do mi♭ sol la♭ sol / sol mi♭ do` : la montée
+  du géant, le la♭ qui bute contre le sol, la retombée. Énoncé trois fois ;
+- **une réponse** aux mesures 8, 12 et 24 : le chant tient et l'empreinte — voix
+  3, à droite — répond. Une question à hauteur d'homme, une réponse à hauteur de
+  géant ;
+- **la surprise** : mesure 16, l'accord de **ré bémol majeur**, le napolitain.
+  Un demi-ton au-dessus de la tonique, en majeur, là où tout le morceau est
+  mineur — et l'ostinato le suit, ré♭ - la♭ - fa - la♭, la seule mesure où il
+  bouge. Puis mesure 18, **un temps et demi de silence général** : il s'arrête ;
+- **le rythme harmonique varie** : grille à la demi-mesure. Le géant tient un
+  accord par mesure, la massue en prend deux ;
+- **le tempo monte de 132 à 138** : ce n'était plus une marche, c'en est une.
+
+## La batterie
+
+**Le pas.** Grosse caisse au premier temps, tom au troisième, un souffle de
+charleston par mesure, et rien d'autre — jusqu'au B, où la massue tourne en
+croches et la caisse claire s'ajoute. Les deux dernières mesures reprennent la
+cellule du B : le dernier pas est le plus lourd. Le bourdon de do a cédé la
+place, et la grosse caisse en tient lieu, ce qui est exactement son emploi ici.
 
 ## Ce qui la relie à `nord`, et ce qui l'en sépare
 
 L'ostinato de la zone court en croches. Celui-ci marche en **noires** : quatre
 pas par mesure, **do - sol - mi♭ - sol**, l'empreinte de cinquante centimètres
-de la page 275. Il ne change pas une note du début à la fin, comme celui de la
-zone, mais il occupe deux fois moins d'espace — et c'est exactement ce qui fait
-la taille d'un géant : un pas qui prend le temps d'un pas.
-
-Il ne double en croches que dans le **B**, mesures 13 à 18, quand la massue
-tourne, et il retombe en noires pour le A'. C'est tout le crescendo du morceau,
-et il ne coûte rien : le lecteur MB1 n'a pas de volume par note, on ne peut
-serrer que la densité. La zone `danger` utilise le même moyen ; ici il est
-appliqué à un ostinato de `nord`.
-
-La basse suit : la fondamentale une **blanche**, puis deux appuis. 72 notes
-contre 112 dans la zone. Le morceau entier est plus vide que tous les autres, et
-c'est le seul dont ce soit le sujet.
-
-Le tempo est le plus lent du lot mais reste à **132** : quatre noires à 132
-restent une marche, pas un adagio — la consigne du dossier est de ne jamais
-descendre sous 125.
+de la page 275. Il occupe deux fois moins d'espace que celui de la zone — et
+c'est exactement ce qui fait la taille d'un géant : un pas qui prend le temps
+d'un pas. Il ne double en croches que dans le B, quand la massue tourne, et il
+retombe en noires pour le A'. C'est tout le crescendo, et il ne coûte rien : le
+lecteur MB1 n'a pas de volume par note, on ne peut serrer que la densité.
 
 ## Les six voix, mesurées
 
-`python3 ../../verifier.py geant.mid --bpm 132`
+`python3 ../../verifier.py geant.mid --bpm 138`
 
 | voix | côté | ce qui s'y trouve | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | la mélodie, seule | B♭4..B♭6 | 63 |
-| 1 | gauche | le contre-chant | G3..G4 | 53 |
-| 2 | **gauche** | la basse pesante, seule | F2..A♭3 | 72 |
-| 3 | **droite** | **les pas**, et la massue au B | C4..G4 | 85 |
-| 4 | droite | les accords tenus | G3..G4 | 54 |
-| 5 | **droite** | le bourdon de do, la note la plus grave de la table | C2 | 6 |
+| 0 | **gauche** | la mélodie, seule | A♯4..A♯6 | 68 |
+| 1 | gauche | le contre-chant, détaché | G3..G4 | 54 |
+| 2 | **gauche** | la basse pesante, posée et lâchée | F2..G♯3 | 58 |
+| 3 | **droite** | **l'empreinte**, et les réponses | C4..A♯4 | 83 |
+| 4 | droite | les accords tenus | G3..G♯4 | 54 |
+| 5 | **droite** | **LA BATTERIE** — grosse caisse 30, tom 27, caisse claire 11, charleston fermé 8, cymbale 1 | bruit | 77 |
 
-Les deux voix médianes, 1 à gauche et 4 à droite, partagent la même octave et
-s'échangent parfois : c'est audible comme une largeur, pas comme un défaut
-(`../../INDEX.md § 3`).
+Stéréo mesurée **56/44**, aucune note abandonnée, `verifier.py` conclut `OK`.
+
+**1 624 octets, la plus petite des douze, marge 680.** Un géant tient dans peu
+de notes : trois cent dix-sept, dont quatre-vingt-trois pour l'empreinte.
 
 ## Régénérer
 
@@ -72,5 +85,5 @@ s'échangent parfois : c'est audible comme une largeur, pas comme un défaut
 cd SCOSWAMP.MORE/MUSIC/propositions-moderne/clairieres/07-geant
 python3 geant.py
 python3 ../../../midi_to_mb.py geant.mid GEANT.MB.BIN \
-    --bpm 132 --max 2304 --wav GEANT.wav
+    --bpm 138 --max 2304 --wav GEANT.wav
 ```

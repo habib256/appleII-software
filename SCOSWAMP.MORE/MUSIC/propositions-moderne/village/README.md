@@ -1,6 +1,6 @@
 # Zone `village` — Bourbenville, le prologue, Courbensaule, la sortie
 
-**`VILLAGE.MB.BIN` — 2 285 octets, 46,7 s, boucle.**
+**`VILLAGE.MB.BIN` — 2 254 octets, 40,8 s, boucle.** Tampon de zone (2 304 o), 50 octets de marge.
 
 ## Ce que la zone couvre
 
@@ -30,28 +30,35 @@ compte que cinq pages. C'est la fusion n° 1 recommandée par
 | Titre | **Les Feux de Bourbenville** |
 | Source | composition originale, `village.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | le seul morceau du jeu qui n'ait pas peur : tierces majeures, basse qui balance croche pointée-croche, refrain qui revient |
-| Mode | **sol mixolydien** (sol la si do ré mi **fa**) — septième mineure au lieu de la sensible : chaud sans être pompeux |
+| Caractère | le seul morceau du jeu qui n'ait pas peur : tierces majeures, basse qui balance croche pointée-croche, batterie de danse |
+| Mode | **sol mixolydien** (sol la si do ré mi **fa**) — septième mineure au lieu de la sensible |
 | Tempo | **166** à la noire |
-| Forme | A refrain (8) — B couplet, vers do (8) — A' (8) — coda qui s'éloigne (8) |
-| Durée | 32 mesures à 4/4 = **46,7 s** |
-| Taille | **2 285 octets** — la plus grosse pièce du dossier |
-| Notes | 584 écrites, 0 abandonnée |
+| Forme | intro (4) — A, crochet énoncé deux fois (8) — B (8) — A' à l'octave (8) |
+| Durée | 28 mesures à 4/4 = **40,8 s** |
+| Taille | **2 254 octets** — 461 notes de hauteur, 117 coups, 0 abandonnée |
 
-Harmonie : G-F-C-G / Am-F-C-G au refrain, C-G-Dm-Am / F-C-F-G au couplet, et
-une coda Em-C-F-G / Em-C-Dm-G qui prend congé au lieu de conclure — c'est la
-page 009, l'entrée du Marais.
+## Ce que la révision a apporté
 
-## Les six voix
+- **Crochet.** Ré-sol-si-la puis la retombée la-fa-la, mesures 5-6, **repris mesures 9-10** avec un ré mineur passager à la mesure 11 qui le fait respirer autrement ; à l'octave mesure 21.
+- **Question et réponse.** Mesures 7, 12 et 24 : la mélodie tient, le contre-chant répond en croches montantes.
+- **Partie B contrastée.** La mélodie monte d'une tierce, l'harmonie part sur la mineur.
+- **Surprise.** Mesures 17-18, un accord de **si bémol** étranger au mixolydien **et la batterie qui s'arrête net** ; elle revient mesure 19 sur un coup de cymbale. C'est le seul moment du jeu où le village se tait.
+- **Rythme harmonique.** Huit temps sur sol à l'intro, quatre en A, deux aux mesures 11 et 23, huit sur la cadence.
+- **Arc.** Arpège en noires à l'intro et dans la première moitié du B, en croches ailleurs ; batterie de 3 à 5 frappes par mesure.
+
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | D5..A6 | 96 |
-| 1 | **gauche** | médiane (contre-chant) | G3..A4 | 84 |
-| 2 | **gauche** | basse de danse | D2..F3 | 128 |
-| 3 | **droite** | arpège en croches, le tambourin | C4..D5 | 184 |
-| 4 | **droite** | médiane (accords tenus) | F3..G4 | 84 |
-| 5 | **droite** | bourdon de sol, refrappé toutes les 4 mesures | G2 | 8 |
+| 0 | **gauche** | mélodie | D5..B6 | 72 |
+| 1 | gauche | médiane (accords tenus) | A3..B4 | 41 |
+| 2 | **gauche** | basse de danse | D2..F3 | 112 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | B3..C5 | 69 |
+| 4 | droite | arpège en croches, le tambourin | F3..G4 | 167 |
+| 5 | **droite** | **batterie** — charleston 60, grosse caisse 30, caisse claire 22, cymbale 3 | bruit | 115 |
 
 ## Régénérer
 

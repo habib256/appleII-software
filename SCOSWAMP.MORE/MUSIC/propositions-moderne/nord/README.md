@@ -1,6 +1,6 @@
 # Zone `nord` — les huit clairières au nord de la rivière
 
-**`MARAISNO.MB.BIN` — 1 978 octets, 45,3 s, boucle.**
+**`MARAISNO.MB.BIN` — 2 262 octets, 45,1 s, boucle.** Tampon de zone (2 304 o), 42 octets de marge.
 
 ## Ce que la zone couvre
 
@@ -28,30 +28,31 @@ La page **363** appartient à la clairière 2 et non à la 3
 | Caractère | on est suivi. Un ostinato **fixe** de quatre croches — mi, si, sol, si — qui ne change jamais pendant que les accords bougent dessous |
 | Mode | **mi éolien** (mi fa♯ sol la si do ré) |
 | Tempo | **150** à la noire |
-| Forme | intro (4) — A (8) — B (8) — A' une octave au-dessus (8) |
-| Durée | 28 mesures à 4/4 = **45,3 s** |
-| Taille | **1 978 octets** |
-| Notes | 503 écrites, 0 abandonnée |
+| Forme | intro (4) — A, thème énoncé deux fois (8) — B (8) — A' à l'octave (8) |
+| Durée | 28 mesures à 4/4 = **45,1 s** |
+| Taille | **2 262 octets** — 472 notes de hauteur, 99 coups, 0 abandonnée |
 
-Le procédé est celui de toute la musique de jeu moderne : l'ostinato reste, la
-basse tourne (Em-C-G-D, Em-C-Am-Bm), et le même motif change de sens à chaque
-accord. Sur si mineur (mesure 12) le sol devient une sixte mineure et le motif
-mord ; c'est le seul endroit où la pièce montre les dents, et c'est pour ça
-qu'elle est écrite.
+## Ce que la révision a apporté
 
-## Les six voix
+- **Crochet.** L'ostinato *est* le crochet, et il ne quitte jamais la pièce. Le thème chanté est énoncé mesures 5-6 et **repris mesures 9-10**, poussé plus haut par un la mineur et un si mineur passants.
+- **Question et réponse.** Mesures 7, 12 et 24 : la mélodie tient, le contre-chant répond.
+- **Surprise.** Mesures 17-18, l'accord passe en **mi majeur** et le sol de l'ostinato devient **sol dièse**. Le motif n'a pas bougé d'un pouce et il a changé de nature — les guetteurs se montrent. La batterie s'arrête pendant ces deux mesures, ce qui rend le glissement plus net encore.
+- **Rythme harmonique.** Huit temps sur mi mineur à l'intro, quatre en A, deux à la mesure 11, huit sur le mi majeur, huit sur la cadence.
+- **Arc.** L'ostinato se révèle : deux mesures à la noire avant de passer aux croches. La basse marche en noires mais **retient son pas pendant tout le B** (blanches), et repart en A'.
+
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | E5..B6 | 76 |
-| 1 | **gauche** | médiane (contre-chant) | A3..B4 | 92 |
-| 2 | **gauche** | basse, marche de noires | E2..G3 | 112 |
-| 3 | **droite** | **l'ostinato des guetteurs** | E4..B4 | 179 |
-| 4 | **droite** | médiane (accords tenus) | F♯3..B4 | 37 |
-| 5 | **droite** | bourdon de mi | E2 | 7 |
-
-L'ostinato est entièrement à droite : c'est ce qui rend la zone reconnaissable
-dès la première seconde, sans que la mélodie ait à se répéter.
+| 0 | **gauche** | mélodie | D5..B6 | 68 |
+| 1 | **gauche** | **l'ostinato des guetteurs** | D4..B4 | 171 |
+| 2 | **gauche** | basse, marche de noires | E2..G3 | 96 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | E4..C5 | 110 |
+| 4 | droite | accords tenus | F♯3..E4 | 27 |
+| 5 | **droite** | **batterie** — charleston 44, grosse caisse 30, caisse claire 22, cymbale 2 | bruit | 98 |
 
 ## Régénérer
 

@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 """« Ce qui Attend Sous l'Eau » — les dix clairieres mortelles. Do phrygien, 136.
 
-Le mode phrygien pose un re bemol un demi-ton au-dessus de la tonique : tout le
-morceau est bati sur ce frottement, l'accord de Db qui retombe sur Cm et le
-motif Db-C que la melodie repete a partir de la mesure 21. Le bourdon de do ne
-bouge pas d'un bout a l'autre.
+Ici la batterie n'est pas un rythme : c'est un **coeur**. Une grosse caisse
+seule, deux coups par mesure, sourde, sans charleston ni caisse claire — et
+elle accelere. Deux coups par mesure jusqu'a la mesure 12, trois a partir de la
+13, quatre a partir de la 21 : la piece ne monte pas, elle **s'affole**.
 
-Le crescendo est fait **par la densite**, pas par le volume : le lecteur n'a pas
-de volume par note. Les huit premieres mesures marchent en noires et en blanches,
-les vingt suivantes en croches. Le morceau se resserre au lieu de monter.
+Le bourdon de do reste (c'est la voix d'accords tenus qui a cede la sienne) :
+sous une batterie, il ne reste que cinq voix de hauteur, et entre un accord tenu
+et ce bourdon-la, le choix n'a pas ete long.
 
-28 mesures a 4/4, 49,4 s. Forme intro(4) - A(8) - B(8) - A'(8).
+Le mode phrygien pose un re bemol un demi-ton au-dessus de la tonique. Le
+CROCHET est ce demi-ton : do-re bemol-do, enonce mesure 5, puis **repris a
+l'identique** mesure 9 sur une autre basse. QUESTION ET REPONSE mesures 7, 12 et
+24 : la melodie tient, le contre-chant repond par le meme demi-ton, plus bas.
+
+La SURPRISE est mesure 20 : **tout s'arrete pendant deux temps**, coeur compris,
+et le fa mineur qui suit tombe dans le vide. C'est le seul silence complet du
+dossier avec celui de l'accueil, et il ne dure pas assez pour qu'on croie a une
+panne — juste assez pour qu'on retienne son souffle.
+
+28 mesures a 4/4, 49,4 s.
 
     python3 danger.py && python3 ../../midi_to_mb.py danger.mid \\
         DANGER.MB.BIN --bpm 136 --max 2304 --wav DANGER.wav
@@ -22,47 +32,48 @@ from compose import *                                          # noqa: E402,F403
 
 BPM, BAR, BARS = 136, 4, 28
 LEN = BAR * BARS
-CUT = 8                                    # la mesure ou les croches arrivent
 
-CHORDS = (["Cm", "Cm", "Db", "Db"]
-          + ["Cm", "Db", "Cm", "Bbm", "Ab", "Db", "Cm", "Cm"]
-          + ["Fm", "Db", "Ab", "Eb", "Fm", "Bbm", "Db", "Cm"]
-          + ["Cm", "Db", "Cm", "Bbm", "Ab", "Db", "Fm", "Cm"])
-assert len(CHORDS) == BARS
+CH = (["Cm", "Db"] + ["Cm", "Db", "Cm", "Bbm"] + ["Cm", "Db", "Ab", "Bbm", "Cm"]
+      + ["Fm", "Db", "Ab", "Eb", "Fm", "Bbm", "Db"]
+      + ["Cm", "Db", "Cm", "Bbm", "Ab", "Db", "Fm", "Cm"])
+DU = ([8, 8] + [4, 4, 4, 4] + [4, 4, 2, 2, 4]
+      + [4, 4, 4, 4, 4, 4, 8]
+      + [4, 4, 2, 2, 4, 4, 4, 8])
+assert len(CH) == len(DU) and sum(DU) == LEN
 
 MEL = [
-    "G5:4",                           "G5:4",
-    "Ab5:4",                          "G5:2 F5:2",
-    "C6:2 G5:2",                      "Db6:2 C6:2",
-    "G5:2 Eb6:2",                     "Db6:2 Bb5:2",
-    "C6:1 Ab5:1 Eb6:2",               "F6:1 Db6:1 Ab5:2",
-    "G5:1 C6:1 Eb6:1 C6:1",           "G5:2 F5:2",
+    "G5:4",                           "G5:2 Ab5:2",
+    "Ab5:2 G5:2",                     "G5:2 F5:2",
+    "C6:.5 Db6:.5 C6:1 G5:2",         "Db6:2 C6:2",            # le crochet : le demi-ton
+    "G5:4",                           "Db6:2 Bb5:2",           # 7 : la melodie tient
+    "C6:.5 Db6:.5 C6:1 G5:2",         "Db6:2 Ab5:2",           # le crochet, 2e fois
+    "Eb6:2 F6:2",                     "G5:4",                  # 12 : la melodie tient
     "Ab5:1 C6:1 F6:2",                "Db6:1 Ab5:1 F5:2",
     "Eb6:1 C6:1 Ab5:2",               "G5:1 Bb5:1 Eb6:2",
     "F6:1 Ab6:1 C6:2",                "Db6:1 F6:1 Bb6:2",
-    "Ab6:1 F6:1 Db6:1 Ab5:1",         "G5:2 Eb6:2",
+    "Ab6:1 F6:1 Db6:1 Ab5:1",         "G5:2 -:2",              # 20 : le silence
     "C6:.5 Db6:.5 C6:1 G5:2",         "Db6:.5 C6:.5 Ab5:1 F6:2",
-    "Eb6:.5 Db6:.5 C6:1 G5:2",        "Bb5:1 Db6:1 F6:2",
+    "Eb6:.5 Db6:.5 C6:1 G5:2",        "Bb5:4",                 # 24 : la melodie tient
     "Eb6:1 C6:1 Ab5:2",               "F6:1 Db6:1 Ab5:2",
     "C6:1 Ab5:1 F5:2",                "G5:2 C6:2",
 ]
 assert len(MEL) == BARS
 
-CTR = [
-    "C4:4",                           "C4:2 Eb4:2",
-    "Db4:2 C4:2",                     "Bb3:2 C4:2",
-    "G3:2 Eb4:2",                     "Ab3:2 F4:2",
-    "G3:2 C4:2",                      "Bb3:2 Db4:2",
-    "Ab3:2 C4:2",                     "Db4:2 Ab3:2",
-    "G3:2 Eb4:2",                     "C4:2 G3:2",
-    "Ab3:2 C4:2",                     "F4:2 Db4:2",
-    "Eb4:2 C4:2",                     "Bb3:2 G3:2",
-    "Ab3:2 C4:2",                     "Db4:2 F4:2",
-    "Ab3:2 Db4:2",                    "G3:2 C4:2",
-    "Eb4:2 C4:2",                     "F4:2 Db4:2",
-    "Eb4:2 G3:2",                     "Db4:2 Bb3:2",
-    "C4:2 Ab3:2",                     "F4:2 Db4:2",
-    "Ab3:2 C4:2",                     "G3:2 C4:2",
+CTR = [                       # au-dessus de l'arpege : c'est la voix qui repond
+    "C5:4",                           "C5:2 Eb5:2",
+    "Db5:2 C5:2",                     "Bb4:2 C5:2",
+    "G4:2 Eb5:2",                     "Ab4:2 F4:2",
+    "C5:.5 Db5:.5 C5:1 G4:1 Eb5:1",   "Bb4:2 Db5:2",           # 7 : la reponse
+    "Ab4:2 C5:2",                     "Db5:2 Ab4:2",
+    "G4:2 Eb5:2",                     "C5:.5 Db5:.5 C5:1 Ab4:1 Eb5:1",  # 12
+    "Ab4:2 C5:2",                     "F4:2 Db5:2",
+    "Eb5:2 C5:2",                     "Bb4:2 G4:2",
+    "Ab4:2 C5:2",                     "Db5:2 F4:2",
+    "Ab4:2 Db5:2",                    "G4:2 -:2",              # 20 : le silence
+    "Eb5:2 C5:2",                     "F4:2 Db5:2",
+    "Eb5:2 G4:2",                     "C5:.5 Db5:.5 C5:1 Ab4:1 F4:1",   # 24
+    "C5:2 Ab4:2",                     "F4:2 Db5:2",
+    "Ab4:2 C5:2",                     "G4:2 C5:2",
 ]
 assert len(CTR) == BARS
 
@@ -71,21 +82,24 @@ def build():
     p = Piece("C", "phrygien", BPM, BAR, "Ce qui Attend Sous l'Eau")
     p.add("melodie", lines(MEL, 0, bar=BAR))
 
-    # l'arpege se resserre : noires jusqu'a la mesure 8, croches ensuite
-    arp = arpeggio(CHORDS[:CUT], 0, BAR, 1.0, (0, 1, 2, 1), lo=57)
-    arp += arpeggio(CHORDS[CUT:], BAR * CUT, BAR, 0.5, (0, 1, 2, 1), lo=57)
+    # l'arpege se resserre : blanches, noires, croches
+    arp = arpeggio(CH[0:2], 0, DU[0:2], 2.0, (0, 1, 2, 1), lo=50)
+    arp += arpeggio(CH[2:6], BAR * 4, DU[2:6], 1.0, (0, 1, 2, 1), lo=50)
+    arp += arpeggio(CH[6:], BAR * 8, DU[6:], 0.5, (0, 1, 2, 1), lo=50)
     p.add("arpege", arp)
 
     p.add("contre-chant", lines(CTR, 0, bar=BAR))
-    p.add("accords", bed(CHORDS, 0, BAR, lo=50, which=1))
-
-    # la basse aussi : blanches, puis la marche de noires
-    bass = progression(CHORDS[:CUT], 0, BAR, [(0, 2), (-1, 2)], lo=45)
-    bass += progression(CHORDS[CUT:], BAR * CUT, BAR,
-                        [(0, 1), (0, 1), (-1, 1), (0, 1)], lo=45)
-    p.add("basse", bass)
-
+    p.add("basse", progression(CH[0:6], 0, DU[0:6], [(0, 2), (-1, 2)], lo=45)
+                   + progression(CH[6:], BAR * 8, DU[6:],
+                                 [(0, 1), (0, 1), (-1, 1), (0, 1)], lo=45))
     p.add("bourdon", pedal(midi("C2"), 0, LEN, retrig=BAR * 4))
+
+    # LE COEUR : grosse caisse seule, et il accelere
+    p.add_drums("K.....K.", t0=0, length=BAR * 12)              # deux coups
+    p.add_drums("K...K.K.", t0=BAR * 12, length=BAR * 8)        # trois
+    p.add_drums("K.K.K.K.", t0=BAR * 20, length=BAR * 8)        # quatre
+
+    p.hush(BAR * 19 + 2, BAR * 20)                              # deux temps de rien
     return p
 
 

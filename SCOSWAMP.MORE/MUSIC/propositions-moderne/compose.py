@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Atelier de composition six voix pour la Mockingboard — style fantasy moderne.
+"""Atelier de composition pour la Mockingboard — style fantasy moderne.
 
 Ce module ne joue rien et n'ecrit pas de flux MB1 : il ecrit un **MIDI** que
 `../midi_to_mb.py` reduit ensuite a six voix carrees et rend en WAV stereo.
@@ -7,28 +7,55 @@ C'est une generalisation de `../accueil.py`, qui melait la composition, le MIDI,
 le MB1 et le rendu dans un seul fichier pour trois voix.
 
     from compose import *
-    p = Piece("D", "dorian", bpm=136, beats_per_bar=4)
+    p = Piece("D", "dorien", bpm=136, beats_per_bar=4)
     p.add("melodie", line("D5:1 F5:.5 G5:.5 A5:2"))
     ...
-    p.write(Path(__file__).with_suffix(".mid"))
+    p.add_drums("K..S..K.", "H.H.H.H.", length=LEN)     # facultatif
+    p.write(Path(__file__).with_name("piece.mid"))
 
-## Les six voix et la stereo
+## Les voix et la stereo
 
 Deux AY-3-8910 : voix 0-2 a **gauche**, voix 3-5 a **droite**. Le lecteur ne
 choisit pas la voix — `midi_to_mb.reduce_voices()` le fait, et il le fait par
 **hauteur** : a chaque frontiere, les notes qui commencent sont triees du grave
 a l'aigu (la plus haute servie d'abord) et prennent les voix libres dans
-l'ordre `0, 3, 1, 4, 2, 5`, c'est-a-dire en alternant les deux puces. Quand les
-six registres restent bien separes et qu'ils sonnent tous en meme temps, la
-repartition est donc **entrelacee** :
+l'ordre `0, 3, 1, 4, 2, 5`, c'est-a-dire en alternant les deux puces.
+
+**Sans batterie — six parties de hauteur :**
 
     dessus -> 0 (G)   2e -> 3 (D)   3e -> 1 (G)   4e -> 4 (D)   5e -> 2 (G)   basse -> 5 (D)
 
-Composer pour cette machine, c'est donc **ecrire six registres distincts et les
-garder distincts** : melodie aigue, contre-chant, deux voix d'accords, basse,
-pedale. Si deux voix se croisent, elles echangent leurs cotes en cours de route.
-`stats()` mesure ce qui se passe reellement ; `verifier.py` le confirme apres
-conversion.
+**Avec batterie — la voix 5 est le bruit, il ne reste que CINQ parties :**
+
+    dessus -> 0 (G)   2e -> 3 (D)   3e -> 1 (G)   4e -> 4 (D)   basse -> 2 (G)
+    batterie -> 5 (D)
+
+Une piece avec batterie qui garde six parties de hauteur **perd des notes** :
+il faut en retirer une, en general le bourdon — la grosse caisse en tient lieu —
+ou la voix d'accords tenus si le bourdon fait le caractere de la piece.
+`Piece.write()` le verifie et le dit.
+
+Composer pour cette machine, c'est donc **ecrire des registres distincts et les
+garder distincts**. Si deux parties se croisent, elles echangent leurs cotes en
+cours de route. `stats()` mesure ce qui se passe reellement ; `verifier.py` le
+confirme apres conversion.
+
+## La batterie
+
+`midi_to_mb.py` transforme les notes du **canal MIDI 10** en paquets NOISE sur
+la voix 5, a droite. Six instruments, notes General MIDI, ecrits ici par une
+lettre :
+
+    K grosse caisse (36)   S caisse claire (38)   H charleston ferme (42)
+    O charleston ouvert (46)   T tom (45)   C cymbale (49)
+
+Un coup coute **3 octets** (NOISE + OFF + le delai) : une double croche continue
+de charleston sur 32 mesures, c'est 1 500 octets, plus que le tampon. On ecrit
+donc des motifs, pas des grilles pleines.
+
+La duree se compte en **ticks de 50 Hz**, pas en temps : un coup sec fait 1 a 3
+ticks, une cymbale 6 ou 7. `Piece.add_drums()` fait la conversion depuis le
+tempo de la piece.
 
 ## Le budget
 
@@ -38,7 +65,8 @@ surcouche** (combat, mort, victoire). Une note coute environ 3 a 4 octets
 sous ~330 pour une surcouche : une seule voix en croches continues mange la
 moitie du budget. D'ou l'ecriture du style : bourdons tenus, quintes ouvertes en
 rondes, une seule voix rapide a la fois — et, pour les surcouches, une boucle
-courte plutot qu'une texture amaigrie.
+courte plutot qu'une texture amaigrie. Un coup de batterie coute 3 octets ;
+compter les coups avec les notes.
 
 ## Ce qu'il faut eviter
 
@@ -53,6 +81,7 @@ from pathlib import Path
 import struct
 
 TICKS = 480                       # ticks MIDI par noire
+TICK_HZ = 50                      # l'horloge du lecteur Mockingboard
 GATE = 0.06                       # souffle retire a chaque note, en temps
 LO, HI = 36, 95                   # C2..B6, la table de `midi_to_mb.py`
 
@@ -196,6 +225,65 @@ def seq(items, t0=0.0):
     return out
 
 
+# ── La batterie (canal MIDI 10) ───────────────────────────────────────────
+DRUM_NOTE = {"K": 36, "S": 38, "H": 42, "O": 46, "T": 45, "C": 49}
+DRUM_TICKS = {"K": 3, "S": 2, "H": 1, "O": 4, "T": 2, "C": 7}
+DRUM_NAME = {"K": "grosse caisse", "S": "caisse claire", "H": "charleston ferme",
+             "O": "charleston ouvert", "T": "tom", "C": "cymbale"}
+
+
+def drum_pattern(spec, tpb, t0=0.0, step=0.5, length=None):
+    """Un motif de batterie en notation texte -> [(note MIDI, debut, duree)].
+
+    `spec` : une lettre par pas de `step` temps, `.` ou `-` pour un silence.
+    Les espaces et les `|` sont ignores, ce qui permet d'ecrire les temps :
+
+        "K.H. S.H. K.H. S.H."       une mesure a 4/4 en croches
+        "K..S..K." + step=0.5       le meme motif sans charleston
+
+    `tpb` est le nombre de ticks de 50 Hz par temps (`Piece.tpb`) : la duree de
+    chaque coup est fixee en **ticks** par `DRUM_TICKS`, pas en temps, pour que
+    la frappe reste seche quel que soit le tempo. Le motif se repete jusqu'a
+    `length` temps ; sans `length`, il est joue une fois.
+    """
+    cells = [c for c in spec if c not in " |"]
+    if not cells:
+        return []
+    span = len(cells) * step
+    if length is None:
+        length = span
+    out, base = [], 0.0
+    while base < length - 1e-6:
+        for k, c in enumerate(cells):
+            t = base + k * step
+            if c in ".-" or t >= length - 1e-6:
+                continue
+            if c not in DRUM_NOTE:
+                raise ValueError(f"instrument inconnu : {c!r} "
+                                 f"(attendus {''.join(sorted(DRUM_NOTE))})")
+            out.append((DRUM_NOTE[c], t0 + t, DRUM_TICKS[c] / tpb))
+        base += span
+    return out
+
+
+def drum_at(hits, tpb, t0=0.0):
+    """La forme explicite : [(temps, instrument, ticks facultatifs), ...].
+
+        drum_at([(0, "K"), (1.5, "S"), (3, "K", 5)], p.tpb)
+
+    Utile pour une frappe isolee — une cymbale au debut d'une partie B, un roulement
+    de tom avant la reprise — la ou un motif regulier serait faux.
+    """
+    out = []
+    for h in hits:
+        t, c = h[0], h[1]
+        ticks = h[2] if len(h) > 2 else DRUM_TICKS[c]
+        if c not in DRUM_NOTE:
+            raise ValueError(f"instrument inconnu : {c!r}")
+        out.append((DRUM_NOTE[c], t0 + float(t), ticks / tpb))
+    return out
+
+
 # ── Les figures du style ──────────────────────────────────────────────────
 def ostinato(pitches, durs, t0, length, gap=0.0):
     """Un motif tourne en boucle du temps `t0` jusqu'a `t0 + length`.
@@ -228,6 +316,27 @@ def pedal(pitch, t0, length, retrig=None):
     return ostinato([pitch], retrig, t0, length)
 
 
+def spans(chords, t0, per_chord):
+    """[(accord, debut, duree)] — `per_chord` est un nombre, ou une duree par accord.
+
+    C'est ce qui permet de faire **varier le rythme harmonique** : deux mesures
+    sur le meme accord, puis deux accords dans une mesure. Une harmonie qui
+    change toujours au meme endroit s'entend comme une grille ; c'est le defaut
+    le plus courant de la musique ecrite au clavier d'ordinateur.
+
+        spans(["Dm", "C", "Am"], 0, [8, 2, 2])
+    """
+    if not isinstance(per_chord, (list, tuple)):
+        per_chord = [per_chord] * len(chords)
+    if len(per_chord) != len(chords):
+        raise ValueError(f"{len(chords)} accords pour {len(per_chord)} durees")
+    out, t = [], float(t0)
+    for c, d in zip(chords, per_chord):
+        out.append((c, t, float(d)))
+        t += float(d)
+    return out
+
+
 def bed(chords, t0, per_chord, lo, which=1):
     """Le lit d'accords : **une** note tenue par accord — trois octets la mesure.
 
@@ -235,8 +344,8 @@ def bed(chords, t0, per_chord, lo, which=1):
     quinte une octave plus bas). Deux appels avec deux `lo` differents donnent
     les deux voix d'accords du plan a six voix, sans jamais se croiser.
     """
-    return [(pick(voicing(c, lo), which), t0 + i * per_chord, per_chord)
-            for i, c in enumerate(chords)]
+    return [(pick(voicing(c, lo), which), t, d)
+            for c, t, d in spans(chords, t0, per_chord)]
 
 
 def progression(chords, t0, per_chord, pattern, lo):
@@ -244,28 +353,33 @@ def progression(chords, t0, per_chord, pattern, lo):
 
     Chaque element de `pattern` est `(indice, duree)` ; l'indice designe un son
     de l'accord pose a partir de `lo` (0 = fondamentale), et deborde par octaves.
-    `None` a la place de l'indice fait un silence.
+    `None` a la place de l'indice fait un silence. Le motif tourne en boucle
+    jusqu'a remplir l'accord, quelle que soit sa duree, et la derniere note est
+    rognee : un accord de six temps recoit une fois et demie un motif de quatre.
     """
     out = []
-    for i, c in enumerate(chords):
+    for c, t0c, span in spans(chords, t0, per_chord):
         v = voicing(c, lo)
-        t = t0 + i * per_chord
-        for k, d in pattern:
-            if k is not None:
+        t, i = t0c, 0
+        while t < t0c + span - 1e-6:
+            k, d = pattern[i % len(pattern)]
+            d = min(d, t0c + span - t)
+            if k is not None and d > 0.05:
                 out.append((pick(v, k), t, d))
             t += d
+            i += 1
     return out
 
 
 def arpeggio(chords, t0, per_chord, step, shape, lo):
     """Arpege continu : `shape` parcourt l'accord pose a partir de `lo`."""
     out = []
-    for i, c in enumerate(chords):
+    for c, t0c, span in spans(chords, t0, per_chord):
         v = voicing(c, lo)
-        for k in range(int(round(per_chord / step))):
+        for k in range(int(round(span / step))):
             j = shape[k % len(shape)]
             if j is not None:
-                out.append((pick(v, j), t0 + i * per_chord + k * step, step))
+                out.append((pick(v, j), t0c + k * step, step))
     return out
 
 
@@ -273,6 +387,26 @@ def double(part, semitones=-12, keep=None):
     """Doublure : la meme partie transposee. `keep` filtre (ex. `lambda n,t,d: d>=1`)."""
     return [(n + semitones, t, d) for n, t, d in part
             if keep is None or keep(n, t, d)]
+
+
+def hush(part, t0, t1):
+    """Fait taire une partie entre `t0` et `t1` (en temps), en rognant ce qui deborde.
+
+    Le seul silence qui ne deregle pas la stereo est celui que **toutes** les
+    parties observent ensemble : elles liberent leurs voix au meme instant et les
+    reprennent au meme instant, donc dans le meme ordre de hauteur. Passer par
+    `Piece.hush()` plutot que par cette fonction garantit qu'on n'en oublie pas une.
+    """
+    out = []
+    for n, t, d in part:
+        if t0 - 1e-6 <= t < t1 - 1e-6:
+            continue
+        if t < t0 and t + d > t0:      # une note a cheval : on la rogne
+            d = t0 - t
+            if d <= 0.05:              # ... sauf si le reste n'est plus audible
+                continue
+        out.append((n, t, d))          # les coups de batterie durent 1 a 7 ticks :
+    return out                         # jamais de plancher de duree sur eux
 
 
 def shift(part, dt):
@@ -288,19 +422,65 @@ def repeat(part, times, length):
 
 # ── La piece ──────────────────────────────────────────────────────────────
 class Piece:
-    """Six parties nommees, ecrites dans un MIDI a six pistes."""
+    """Les parties de hauteur, plus une batterie facultative, dans un MIDI.
+
+    Six parties de hauteur si la piece n'a pas de batterie ; **cinq** si elle en
+    a, la voix 5 etant alors le canal de bruit. `write()` refuse de mentir : il
+    dit combien de parties passeront et combien seront ecrasees.
+    """
 
     def __init__(self, root, mode, bpm, beats_per_bar=4, title=""):
         self.root, self.mode, self.bpm = root, mode, bpm
         self.bar = beats_per_bar
         self.title = title
         self.parts = []           # [(nom, [(hauteur, debut, duree)])]
+        self.drums = []           # [(note de batterie, debut, duree)]
+
+    @property
+    def tpb(self):
+        """Ticks de 50 Hz par temps — 20 a 150 bpm, 24 a 125, 15 a 200."""
+        return TICK_HZ * 60.0 / self.bpm
+
+    @property
+    def limit(self):
+        """Parties de hauteur que la carte peut tenir : 5 avec batterie, 6 sans."""
+        return 5 if self.drums else 6
 
     def deg(self, d, octave=4):
         return degree(self.root, self.mode, d, octave)
 
     def add(self, name, part):
         self.parts.append((name, guard(sorted(part, key=lambda e: e[1]), name)))
+        return self
+
+    def hush(self, t0, t1):
+        """Le grand silence : toutes les parties et la batterie se taisent ensemble.
+
+        C'est la seule rupture qui ne melange pas la stereo, et c'est la plus
+        efficace de la boite a outils — deux temps de rien avant la reprise valent
+        mieux qu'un crescendo.
+        """
+        self.parts = [(n, hush(part, t0, t1)) for n, part in self.parts]
+        self.drums = hush(self.drums, t0, t1)
+        return self
+
+    def add_drums(self, *specs, step=0.5, t0=0.0, length=None):
+        """Superpose des motifs de batterie, ou pose des coups explicites.
+
+            p.add_drums("K..S..K.", "H.H.H.H.", length=LEN)
+            p.add_drums([(0, "C", 7), (0, "K")], t0=BAR * 8)
+
+        Chaque chaine est un motif (voir `drum_pattern`) repete jusqu'a `length`
+        temps ; une liste de tuples est passee telle quelle a `drum_at`. Les
+        appels s'accumulent : un motif de base sur toute la piece, puis les
+        ponctuations mesure par mesure.
+        """
+        for spec in specs:
+            if isinstance(spec, str):
+                self.drums += drum_pattern(spec, self.tpb, t0, step, length)
+            else:
+                self.drums += drum_at(spec, self.tpb, t0)
+        self.drums.sort(key=lambda e: e[1])
         return self
 
     @property
@@ -336,13 +516,17 @@ class Piece:
             for n, t, d in p:
                 events.append((t, 1, i, n)); events.append((t + d - 1e-9, -1, i, n))
         events.sort()
+        limit = self.limit
         cur, peak, over, last = 0, 0, 0.0, None
         for t, k, _, _ in events:
-            if last is not None and cur > 6:
+            if last is not None and cur > limit:
                 over += t - last
             cur += k; peak = max(peak, cur); last = t
         notes = sum(len(p) for _, p in self.parts)
         return {"notes": notes, "peak": peak, "over6_beats": round(over, 2),
+                "drums": len(self.drums), "limit": self.limit,
+                "parts": len(self.parts),
+                "octets": 3 * (notes + len(self.drums)) + 40,
                 "beats": round(self.length, 2),
                 "seconds": round(self.length * 60.0 / self.bpm, 1),
                 "ranges": [(n, min((x for x, _, _ in p), default=0),
@@ -367,26 +551,49 @@ class Piece:
         return b"MTrk" + struct.pack(">I", len(data)) + bytes(data)
 
     def write(self, path, gate=GATE):
+        """Ecrit le MIDI : une piste par partie de hauteur, puis la batterie
+        sur le **canal 10** (index 9), la seule que `midi_to_mb.py` transforme
+        en bruit. Les coups de batterie ne sont pas raccourcis par `gate` : leur
+        duree est deja calee en ticks de 50 Hz, et c'est elle qui fait la frappe."""
         tempo = b"\x00\xFF\x51\x03" + struct.pack(">I", 60_000_000 // int(self.bpm))[1:]
         num = self.bar
         chunks = [self._track([], tempo + bytes([0, 0xFF, 0x58, 0x04, num, 2, 0x18, 8]))]
-        for ch, (_, part) in enumerate(self.parts[:16]):
-            ev = [(0, 0, bytes([0xC0 | (ch & 15), 80]))]
+        chans = [c for c in range(16) if c != 9][:len(self.parts)]
+        for ch, (_, part) in zip(chans, self.parts):
+            ev = [(0, 0, bytes([0xC0 | ch, 80]))]
             for n, t, d in part:
                 d = max(d - gate, min(d * 0.6, 0.12))
                 a, b = int(round(t * TICKS)), int(round((t + d) * TICKS))
                 if b <= a:
                     b = a + 1
-                ev.append((a, 1, bytes([0x90 | (ch & 15), n, 100])))
-                ev.append((b, 0, bytes([0x80 | (ch & 15), n, 0])))
+                ev.append((a, 1, bytes([0x90 | ch, n, 100])))
+                ev.append((b, 0, bytes([0x80 | ch, n, 0])))
+            chunks.append(self._track(ev))
+        if self.drums:
+            ev = []
+            for n, t, d in self.drums:
+                a, b = int(round(t * TICKS)), int(round((t + d) * TICKS))
+                if b <= a:
+                    b = a + 1
+                ev.append((a, 1, bytes([0x99, n, 100])))
+                ev.append((b, 0, bytes([0x89, n, 0])))
             chunks.append(self._track(ev))
         Path(path).write_bytes(b"MThd" + struct.pack(">IHHH", 6, 1, len(chunks), TICKS)
                                + b"".join(chunks))
         s = self.stats()
-        print(f"{Path(path).name}: {s['notes']} notes, {s['beats']:g} temps "
-              f"= {s['seconds']}s a {self.bpm:g} bpm, "
-              f"polyphonie max {s['peak']}"
-              + (f" (!! {s['over6_beats']} temps au-dessus de 6)" if s['peak'] > 6 else ""))
+        kit = "".join(sorted({c for c, n in DRUM_NOTE.items()
+                              if any(x == n for x, _, _ in self.drums)}))
+        print(f"{Path(path).name}: {s['notes']} notes"
+              + (f" + {s['drums']} coups [{kit}]" if self.drums else "")
+              + f", {s['beats']:g} temps = {s['seconds']}s a {self.bpm:g} bpm, "
+              f"{s['parts']} parties, polyphonie max {s['peak']}/{s['limit']}"
+              f", ~{s['octets']} octets")
+        if s["parts"] > s["limit"]:
+            print(f"   !! {s['parts']} parties de hauteur pour {s['limit']} voix : "
+                  f"la batterie prend la voix 5, retirer une partie "
+                  f"(le bourdon, en general) sinon des notes seront abandonnees")
+        if s["peak"] > s["limit"]:
+            print(f"   !! {s['over6_beats']} temps au-dessus de {s['limit']} voix")
         for name, miss in self.holes():
             print(f"   !! {name} se tait au temps fort des mesures "
                   f"{', '.join(map(str, miss[:12]))}"
