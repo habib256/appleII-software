@@ -304,39 +304,53 @@ static unsigned char music_slot;
 
 /* Ce qui joue, et le theme de la zone courante : deux noms de MUSIC/.
  * music_cur vide = silence. Ils different quand une surcouche joue.
- * cur_half est le demi-tampon qui joue, zone_half celui qui tient la zone. */
+ * cur_half est la moitie qui joue, zone_half celle qui tient la zone, et
+ * zone_ok dit si ce tampon tient encore la zone (une seconde surcouche
+ * d'affilee l'ecrase : il faudra la relire). */
 static char music_cur[16];
 static char music_zone[16];
-static unsigned char cur_half, zone_half;
+static unsigned char cur_half, zone_half, zone_ok;
 
-/* Lit MUSIC/<name> dans le demi-tampon `half`. Rend 1 si c'est bien un flux
- * MB1. Un seul fichier ouvert a la fois, comme partout ; l'appelant a deja
- * arrete la musique avant la lecture. */
+/* Lit MUSIC/<name> dans la moitie `half`. Rend 1 si c'est bien un flux MB1
+ * qui y tient en entier -- la moitie 1 ne fait que 1 280 octets, et un flux
+ * tronque partirait dans les octets qui suivent. Un seul fichier ouvert a la
+ * fois, comme partout ; la musique en cours joue pendant la lecture. */
 static unsigned char music_load(const char* name, unsigned char half)
 {
     FILE* f;
-    size_t n;
-    unsigned char* dst = music_buf + (half ? MUSIC_HALF : 0);
+    size_t n, cap = half ? MUSIC_OVER : MUSIC_ZONE;
+    unsigned char* dst = music_buf + (half ? MUSIC_ZONE : 0);
+    unsigned char more;
     if (!music_slot) return 0;
     if (chdir("/SCOSWAMP") != 0 || chdir("MUSIC") != 0) return 0;
     f = fopen(name, "rb"); if (!f) return 0;
-    n = fread(dst, 1, MUSIC_HALF, f); fclose(f);
-    return n > 8 && memcmp(dst, "MB1", 3) == 0;
+    n = fread(dst, 1, cap, f);
+    more = (n == cap && fgetc(f) != EOF);
+    fclose(f);
+    return n > 8 && !more && memcmp(dst, "MB1", 3) == 0;
 }
 
-/* Charge <name> dans le demi-tampon LIBRE -- l'autre continue de jouer
- * pendant la lecture -- puis bascule dessus : la seule interruption est la
- * bascule elle-meme, quelques microsecondes. Le seul chemin qui lit le
- * disque. Si la lecture echoue, la musique en cours continue. */
+/* Charge <name> dans la moitie qui ne joue pas -- l'autre continue pendant
+ * la lecture -- puis bascule dessus : la seule interruption est la bascule,
+ * quelques microsecondes. Si la moitie libre est la petite et que le flux
+ * n'y tient pas, on passe par la grande, au prix d'une coupure : cela
+ * n'arrive qu'en changeant de zone. Le seul chemin qui lit le disque. */
 static void music_switch(const char* name, unsigned char over)
 {
     unsigned char h = (unsigned char)(1 - cur_half);
-    if (!music_load(name, h)) return;
+    if (!music_load(name, h)) {
+        if (h == 0) return;             /* la grande n'en a pas voulu : le fichier manque */
+        music_stop();
+        music_cur[0] = '\0';
+        h = 0;
+        if (!music_load(name, 0)) return;
+    }
+    if (over && h == zone_half) zone_ok = 0;   /* la zone vient d'etre ecrasee */
     music_pause();              /* tick arrete : l'echange de curseurs est sur */
     music_select(h);
     music_play();
     cur_half = h;
-    if (!over) zone_half = h;
+    if (!over) { zone_half = h; zone_ok = 1; }
     memcpy(music_cur, name, sizeof music_cur);
 }
 
@@ -353,10 +367,12 @@ static void music_for_page(void)
     if (n[0] == '-') {
         music_stop();
         music_cur[0] = music_zone[0] = '\0';
+        zone_ok = 0;
         return;
     }
     if (n[0] == '\0') {
         if (memcmp(music_cur, music_zone, sizeof music_cur) == 0) return;
+        if (music_zone[0] && !zone_ok) { music_switch(music_zone, 0); return; }
         music_stop();
         music_cur[0] = '\0';
         if (music_zone[0]) {

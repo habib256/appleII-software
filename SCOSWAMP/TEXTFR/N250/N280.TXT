@@ -16,7 +16,7 @@ Courbensaule.
 
 Laquelle choisirez-vous ?
 
-MU COURBENS.MB
+MU VILLAGE.MB
 C 395 L'Ours Noir
 C 078 La Lance Tordue
 C 289 Le Cheval Volant de Tancrede

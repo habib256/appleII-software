@@ -9,20 +9,19 @@ troisieme atteint le la aigu ; l'arpege en croches tient tout du debut a la fin.
 20 mesures a 4/4, 32,0 s. **Sans boucle** (`--no-loop`).
 
     python3 victoire.py && python3 ../../midi_to_mb.py victoire.mid \\
-        VICTOIRE.MB.BIN --bpm 150 --no-loop --max 2400 --wav VICTOIRE.wav
+        VICTOIRE.MB.BIN --bpm 150 --no-loop --max 1280 --wav VICTOIRE.wav
 """
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from compose import *                                          # noqa: E402,F403
 
-BPM, BAR, BARS = 150, 4, 20
+BPM, BAR, BARS = 150, 4, 16
 LEN = BAR * BARS
 
 CHORDS = (["D", "D", "C", "G"]
           + ["D", "C", "G", "D"]
           + ["Bm", "G", "C", "D"]
-          + ["Em", "C", "G", "D"]
           + ["D", "C", "G", "D"])
 assert len(CHORDS) == BARS
 
@@ -33,8 +32,6 @@ MEL = [
     "B5:1 D6:1 G6:2",                 "A5:1 D6:1 F#6:2",
     "B5:1 D6:1 F#6:2",                "G6:1 D6:1 B5:2",
     "C6:1 E6:1 G6:2",                 "A6:2 F#6:2",
-    "E6:1 G6:1 B6:2",                 "C6:1 E6:1 G6:2",
-    "B5:1 D6:1 G6:2",                 "A6:1 F#6:1 D6:2",
     "D6:1 F#6:1 A6:2",                "G6:1 E6:1 C6:2",
     "B5:1 D6:1 G6:2",                 "D6:4",
 ]
@@ -47,8 +44,6 @@ CTR = [
     "D4:2 B3:2",                      "A3:2 D4:2",
     "B3:2 F#4:2",                     "G3:2 D4:2",
     "C4:2 E4:2",                      "A3:2 D4:2",
-    "E4:2 B3:2",                      "C4:2 E4:2",
-    "G3:2 D4:2",                      "A3:2 F#4:2",
     "D4:2 A3:2",                      "G3:2 E4:2",
     "B3:2 D4:2",                      "A3:2 D4:2",
 ]
