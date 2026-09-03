@@ -16,6 +16,7 @@
 #include "dice.h"
 #include "messages.h"
 #include "sfx.h"
+#include "music.h"
 
 /* Bornes du segment LOWBSS, exportees par le lieur (define = yes) sous les
  * noms __LOWBSS_RUN__ et __LOWBSS_SIZE__. cc65 prefixe tout identifiant C
@@ -1818,6 +1819,11 @@ static void die_and_restart(void)
 void load_scene(int scene_id) {
     int issue;
 
+    /* La musique ne joue que sur l'accueil : coupee avant toute lecture
+     * disque (ProDOS masque les IRQ pendant les E/S, et l'AY tiendrait la
+     * derniere note), relancee plus bas une fois la page 000 chargee. */
+    music_stop();
+
     app.current_scene = scene_id;
     app.num_choices = 0;  /* Réinitialiser les choix */
     app.has_image = 0;
@@ -1914,6 +1920,7 @@ void load_scene(int scene_id) {
     app.has_image = 0;
     if (app.foe_count > 0) app.has_image = load_hgr_image_as(scene_id, 'B');
     if (!app.has_image)  app.has_image = load_hgr_image_as(scene_id, 'N');
+    if (scene_id == 0) music_play();   /* apres les lectures disque de la page */
 
     if (app.foe_count == 0) return;
 
@@ -2146,6 +2153,7 @@ void main(void) {
 
     /* Le catalogue de l'interface suit la langue choisie. */
     messages_load(app.language[0] != 'F');
+    music_detect();   /* Mockingboard : slots 7..1 ; sans carte, tout reste muet */
 
     /* L'introduction vient avant les des : son choix A initie explicitement
      * la creation du personnage. [L] peut aussi reprendre une partie ici. */
