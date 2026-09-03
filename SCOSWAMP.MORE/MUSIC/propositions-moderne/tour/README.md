@@ -1,6 +1,6 @@
 # Zone `tour` — la tour de Stratagus
 
-**`TOUR.MB.BIN` — 1 056 octets, 46,5 s, boucle.**
+**`TOUR.MB.BIN` — 1 045 octets, 46,4 s, boucle.** Tampon de zone (2 304 o), 1 259 octets de marge — la pièce la plus légère du dossier.
 
 ## Ce que la zone couvre
 
@@ -23,36 +23,35 @@ effacer la mémoire de la zone, qui revient à la page suivante.
 | Titre | **La Tour de Stratagus** |
 | Source | composition originale, `tour.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | marche lente et haute : la basse ne bouge qu'à la blanche, l'arpège qu'à la noire, la mélodie tient |
+| Caractère | marche lente et haute. Presque pas de batterie : une grosse caisse toutes les deux mesures, un pas dans un escalier de pierre, pas un rythme |
 | Mode | **sol mineur harmonique** (sol la si♭ do ré mi♭ **fa♯**) |
-| Tempo | **125** à la noire |
-| Forme | intro (4) — A (8) — B (8) — coda (4) |
-| Durée | 24 mesures à 4/4 = **46,5 s** |
-| Taille | **1 056 octets** — la plus légère des huit pièces à boucle |
-| Notes | 279 écrites, 0 abandonnée |
+| Tempo | **125** à la noire, écrit en blanches et en noires — le pouls réel est à 62 |
+| Forme | intro (4) — A, crochet énoncé deux fois (8) — B (8) — coda (4) |
+| Durée | 24 mesures à 4/4 = **46,4 s** |
+| Taille | **1 045 octets** — 253 notes de hauteur, 18 coups, 0 abandonnée |
 
-La seconde augmentée mi♭-fa♯ du mineur harmonique est la seule chose qui
-distingue cette zone de tout le reste du jeu : **c'est la magie, et elle est
-écrite, pas suggérée.** Aucun autre morceau du dossier n'a de sensible.
+## Ce que la révision a apporté
 
-Le bourdon est sur **ré**, la dominante, pas sur sol : la tour n'est jamais
-posée, et la cadence D-Gm des mesures 20-21 est la seule fois où elle le
-paraît.
+- **Surprise — la pédale monte d'un demi-ton.** Bourdon sur **ré** (la dominante, la tour n'est jamais posée) pendant tout le A, sur **mi bémol** aux mesures 13 à 20 sous une harmonie qui ne bouge pas, puis retour sur ré mesure 21 pour que la coda puisse cadencer. Rien n'a changé et tout a changé.
+- **Crochet.** La quinte montante sol-ré et la descente mi bémol-ré-do, mesures 5-6, **reprises mesures 9-10** sur mi bémol au lieu de do mineur.
+- **Question et réponse.** Mesures 7, 12 et 23.
+- **Batterie.** Douze coups de grosse caisse en 24 mesures, une cymbale à chaque départ de partie, et **trois toms qui montent** à la mesure 20 avant la coda. Rien d'autre.
+- **Ce qui a cédé sa voix.** La voix d'accords tenus ; le bourdon reste, parce que c'est lui qui fait le morceau.
+- La seconde augmentée mi♭-fa♯ du mineur harmonique est la seule sensible du dossier : **c'est la magie, et elle est écrite, pas suggérée.**
 
-À 125 à la noire avec une basse en blanches, le pouls réel est à 62 : la
-lenteur vient de l'écriture, pas du tempo, et le tempo reste sur les 24 ticks
-par temps qui tombent juste.
+## Les voix
 
-## Les six voix
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie, en valeurs longues | D5..A6 | 57 |
-| 1 | **gauche** | médiane (contre-chant) | G3..G4 | 47 |
-| 2 | **gauche** | basse, deux blanches par mesure | F2..G3 | 48 |
-| 3 | **droite** | arpège à la noire | D4..D5 | 85 |
-| 4 | **droite** | médiane (accords tenus) | F♯3..F4 | 36 |
-| 5 | **droite** | bourdon de ré (la dominante) | D2 | 6 |
+| 0 | **gauche** | mélodie, en valeurs longues | D5..A6 | 54 |
+| 1 | gauche | arpège à la noire | D3..G4 | 83 |
+| 2 | **gauche** | **bourdon — ré, puis mi bémol, puis ré** | D2..D♯2 | 6 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | A♯3..C5 | 62 |
+| 4 | droite | basse, deux blanches par mesure | F2..G3 | 48 |
+| 5 | **droite** | **batterie** — grosse caisse 12, cymbale 3, tom 3 | bruit | 18 |
 
 ## Régénérer
 

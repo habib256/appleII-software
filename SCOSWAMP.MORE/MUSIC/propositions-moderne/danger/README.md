@@ -1,6 +1,6 @@
 # Zone `danger` — les dix clairières où l'on meurt
 
-**`DANGER.MB.BIN` — 1 764 octets, 49,9 s, boucle.**
+**`DANGER.MB.BIN` — 1 951 octets, 49,7 s, boucle.** Tampon de zone (2 304 o), 353 octets de marge.
 
 ## Ce que la zone couvre
 
@@ -28,35 +28,35 @@ reconnaître en une seconde et ne ressembler à rien d'autre.
 | Titre | **Ce qui Attend Sous l'Eau** |
 | Source | composition originale, `danger.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | quelque chose est déjà là et ne bougera qu'au dernier moment |
+| Caractère | quelque chose est déjà là et ne bougera qu'au dernier moment. La batterie n'est pas un rythme : c'est un **cœur**, une grosse caisse seule, sans charleston ni caisse claire |
 | Mode | **do phrygien** (do **ré♭** mi♭ fa sol la♭ si♭) |
 | Tempo | **136** à la noire |
-| Forme | intro (4) — A (8) — B (8) — A' resserré (8) |
-| Durée | 28 mesures à 4/4 = **49,9 s** |
-| Taille | **1 764 octets** |
-| Notes | 453 écrites, 0 abandonnée |
+| Forme | intro (4) — A, crochet énoncé deux fois (8) — B (8) — A' (8) |
+| Durée | 28 mesures à 4/4 = **49,7 s** |
+| Taille | **1 951 octets** — 416 notes de hauteur, 78 coups, 0 abandonnée |
 
-Le phrygien pose un ré bémol **un demi-ton au-dessus de la tonique**, et toute
-la pièce est bâtie sur ce frottement : l'accord de D♭ qui retombe sur Cm
-(mesures 6-7, 22-23), et le motif ré♭-do que la mélodie martèle à partir de la
-mesure 21. Aucun autre morceau du jeu n'a ce demi-ton.
+## Ce que la révision a apporté
 
-**Le crescendo est fait par la densité, pas par le volume** : le lecteur
-Mockingboard n'a pas de volume par note (`SCOSWAMP/SRC/music.s` ne pose `VOL`
-qu'en tête de flux). Les huit premières mesures marchent en blanches et en
-noires, les vingt suivantes en croches. La pièce se resserre au lieu de monter,
-et c'est plus efficace sur une onde carrée.
+- **Le cœur qui s'affole.** Deux coups de grosse caisse par mesure jusqu'à la mesure 12, **trois** à partir de la 13, **quatre** à partir de la 21. La pièce ne monte pas, elle accélère.
+- **Crochet.** Le demi-ton do-ré bémol-do, énoncé mesure 5 et **repris à l'identique mesure 9** sur une autre basse. Aucun autre morceau du jeu n'a ce demi-ton.
+- **Question et réponse.** Mesures 7, 12 et 24 : la mélodie tient, le contre-chant répond par le même demi-ton, plus bas.
+- **Surprise.** Mesure 20, **tout se tait pendant deux temps**, cœur compris, et le fa mineur qui suit tombe dans le vide.
+- **Ce qui a cédé sa voix.** Sous une batterie il ne reste que cinq voix de hauteur ; ici c'est la voix d'accords tenus qui part, pas le bourdon de do — il ne bouge pas d'un bout à l'autre et c'est lui qui fait la zone.
+- **Arc.** L'arpège va en blanches, puis en noires mesure 5, puis en croches mesure 9 ; la basse passe des blanches aux noires au même endroit.
 
-## Les six voix
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | F5..A♯6 | 75 |
-| 1 | **gauche** | médiane (contre-chant) | G3..G♯4 | 97 |
-| 2 | **gauche** | basse, blanches puis noires | F2..G♯3 | 95 |
-| 3 | **droite** | arpège, noires puis croches | A♯3..D♯5 | 102 |
-| 4 | **droite** | médiane (accords tenus) | G3..G♯4 | 77 |
-| 5 | **droite** | bourdon de do, immobile de bout en bout | C2 | 7 |
+| 0 | **gauche** | mélodie | F5..A♯6 | 72 |
+| 1 | gauche | arpège, qui se resserre | D♯3..G♯4 | 179 |
+| 2 | **gauche** | **bourdon de do, immobile de bout en bout** | C2 | 7 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | F4..D♯5 | 64 |
+| 4 | droite | basse | F2..G♯3 | 94 |
+| 5 | **droite** | **batterie — le cœur** : grosse caisse seule, 78 coups | bruit | 78 |
 
 ## Régénérer
 

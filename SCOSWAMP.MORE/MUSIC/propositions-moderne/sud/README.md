@@ -1,6 +1,6 @@
 # Zone `sud` — les douze clairières au sud de la rivière
 
-**`MARAISUD.MB.BIN` — 1 981 octets, 45,3 s, boucle.**
+**`MARAISUD.MB.BIN` — 2 277 octets, 45,1 s, boucle.** Tampon de zone (2 304 o), 27 octets de marge.
 
 ## Ce que la zone couvre
 
@@ -32,31 +32,34 @@ et 25 (`CARTOGRAPHIE.md:810-820`). La page 208 porte en plus la musique de
 | Titre | **Sentiers Verts** |
 | Source | composition originale, `sud.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | marcher longtemps sans savoir où : la zone la plus vaste a la musique la plus large, et la moins pressée de conclure |
+| Caractère | marcher longtemps sans savoir où : la zone la plus vaste a la musique la moins pressée de conclure |
 | Mode | **ré éolien** (ré mi fa sol la **si♭** do) |
 | Tempo | **150** à la noire |
-| Forme | intro (4) — A (8) — B (8) — A' à l'octave (8) |
-| Durée | 28 mesures à 4/4 = **45,3 s** |
-| Taille | **1 981 octets** |
-| Notes | 504 écrites, 0 abandonnée |
+| Forme | intro (4) — A, crochet énoncé deux fois (8) — B (8) — A' à l'octave (8) |
+| Durée | 28 mesures à 4/4 = **45,1 s** |
+| Taille | **2 277 octets** — 469 notes de hauteur, 113 coups, 0 abandonnée |
 
-L'harmonie est la marche i-VI-III-VII (Dm-B♭-F-C), celle de tous les thèmes de
-voyage — mais posée sur un bourdon de ré qui ne bouge jamais, si bien que chaque
-accord se lit comme une couleur du même lieu et non comme un départ. Le si
-bémol la sépare du ré dorien de l'accueil : **c'est la même tonique, et on a
-changé de monde.** Le joueur qui sort du Marais (page 208) réentend le si
-bécarre du village ; c'est le seul repère tonal du jeu, et il est gratuit.
+## Ce que la révision a apporté
 
-## Les six voix
+- **Crochet.** La montée ré-fa-la et la descente si bémol-la-fa, mesures 5-6, **reprises mesures 9-10** ; la seconde fois elle débouche sur un **la majeur** (mesure 11), seule sensible du morceau, et la cadence sur ré en devient franche.
+- **Question et réponse.** Mesures 7, 12 et 24.
+- **Surprise.** Mesures 17-18, tout passe en demi-mesure : la batterie ne frappe plus que les temps 1 et 3, l'arpège retombe à la noire, la basse aux blanches, l'harmonie tient huit temps sur si bémol. Le sentier débouche sur une trouée, on ralentit, puis la marche reprend sur un coup de cymbale.
+- **Rythme harmonique.** Huit temps sur ré mineur à l'intro, quatre en marche, deux aux mesures 11 et 23, huit dans la trouée et sur la cadence.
+- Le si bémol sépare cette pièce du ré dorien de l'accueil : **même tonique, autre monde.** Le joueur qui ressort du Marais (page 208) réentend le si bécarre du village ; c'est le seul repère tonal du jeu, et il est gratuit.
+
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie | D5..A6 | 77 |
-| 1 | **gauche** | médiane (contre-chant) | G3..A4 | 74 |
-| 2 | **gauche** | basse, marche de noires | E2..G3 | 112 |
-| 3 | **droite** | arpège fondamentale-quinte en croches | A♯3..D5 | 141 |
-| 4 | **droite** | médiane (accords tenus) | F3..G4 | 93 |
-| 5 | **droite** | bourdon de ré | D2 | 7 |
+| 0 | **gauche** | mélodie | D5..A6 | 69 |
+| 1 | gauche | médiane (accords tenus) | A3..A4 | 78 |
+| 2 | **gauche** | basse, marche de noires | E2..G3 | 108 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | D4..C5 | 75 |
+| 4 | droite | arpège fondamentale-quinte | F3..G4 | 139 |
+| 5 | **droite** | **batterie** — charleston 54, grosse caisse 32, caisse claire 24, cymbale 2 | bruit | 112 |
 
 ## Régénérer
 

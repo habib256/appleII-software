@@ -1,9 +1,8 @@
 # Zone `mort` — surcouche, 11 pages et l'écran `game_over`
 
-**`MORT.MB.BIN` — 659 octets, 31,2 s, `--no-loop`.**
+**`MORT.MB.BIN` — 673 octets, 31,0 s, `--no-loop`.**
 
-Surcouche : le flux doit tenir dans le **tampon de surcouche de 1 280
-octets**, la moitié de celui des thèmes de zone. Il reste 621 octets — c'est la pièce la plus au large du dossier.
+Surcouche : tampon de 1 280 octets, 607 de marge — la pièce la plus au large du dossier. **Sans batterie** : six voix de hauteur.
 
 ## Ce que la zone couvre
 
@@ -24,26 +23,34 @@ une punition.
 | Titre | **Le Marais Referme** |
 | Source | composition originale, `mort.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | rien ne court. Aucune croche, aucun ostinato ; la seule chose qui bouge est un arpège à la noire, et il descend |
+| Caractère | rien ne court. **Aucune percussion** : c'est la seule pièce du dossier où l'absence de frappe est le sujet |
 | Mode | **do éolien** (do ré mi♭ fa sol la♭ si♭) |
 | Tempo | **125** à la noire, écrit en blanches et en rondes — le pouls réel est à 62 |
-| Forme | quatre phrases de quatre mesures ; la mélodie ne monte qu'une fois, mesure 5, puis retombe de sol à do en huit mesures |
-| Durée | 16 mesures à 4/4 = **31,2 s** |
-| Taille | **659 octets** — la plus petite pièce du dossier |
-| Notes | 170 écrites, 0 abandonnée |
+| Forme | quatre phrases de quatre mesures ; le crochet énoncé deux fois, puis une troisième qui ne remonte plus |
+| Durée | 16 mesures à 4/4 = **31,0 s** |
+| Taille | **673 octets** — 174 notes, 0 abandonnée |
 
-Harmonie : Cm-Cm-A♭-A♭ / E♭-B♭-Fm-Cm / A♭-E♭-Fm-Gm / A♭-B♭-Cm-Cm. La cadence
-finale est plagale (A♭-Cm), pas dominante : elle referme au lieu de conclure.
+## Ce que la révision a apporté
 
-## Les six voix
+- **Crochet.** Une chute : sol-mi bémol, puis la bémol-sol-fa. Énoncé mesures 1-2, **repris mesures 9-10** sur la bémol au lieu de do mineur, et la troisième fois il ne remonte plus.
+- **Question et réponse.** Mesures 3 et 12 : la mélodie tient une ronde, le contre-chant descend seul.
+- **Surprise, deux fois.** Mesure 12, **tout se tait pendant deux temps** — le marais se referme, et il y a un trou. Puis mesure 13 tombe un accord de **ré bémol majeur**, le napolitain : c'est exactement l'accord du thème `danger`, la chose qui vous a tué, citée une fois, sans commentaire.
+- **Rythme harmonique.** Huit temps par accord aux deux premières phrases, quatre ensuite : la pièce se resserre en se refermant.
+- **Arc.** L'arpège descend (quinte, tierce, fondamentale) et **ralentit à la dernière mesure**, passant à la blanche.
+- La cadence finale est plagale (A♭-Cm), pas dominante : elle referme au lieu de conclure.
+
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie, blanches et rondes | D♯5..D♯6 | 26 |
-| 1 | **gauche** | médiane (contre-chant) | G3..F4 | 25 |
-| 2 | **gauche** | basse, deux blanches par mesure | F2..G♯3 | 32 |
-| 3 | **droite** | arpège **descendant** à la noire (quinte, tierce, fondamentale, tierce) | A♯3..D♯5 | 63 |
-| 4 | **droite** | médiane (accords tenus) | G3..D♯4 | 20 |
+| 0 | **gauche** | mélodie, blanches et rondes | D♯5..D♯6 | 31 |
+| 1 | gauche | médiane (accords tenus) | G♯3..F4 | 21 |
+| 2 | **gauche** | basse, deux blanches par mesure | F2..G♯3 | 31 |
+| 3 | **droite** | arpège **descendant**, qui ralentit à la fin | C4..D♯5 | 58 |
+| 4 | droite | contre-chant | G3..F4 | 29 |
 | 5 | **droite** | bourdon de do | C2 | 4 |
 
 ## Régénérer

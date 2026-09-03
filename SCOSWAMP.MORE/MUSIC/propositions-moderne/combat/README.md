@@ -1,9 +1,8 @@
 # Zone `combat` — surcouche, 32 pages
 
-**`COMBAT.MB.BIN` — 1 215 octets, 24,5 s, boucle.**
+**`COMBAT.MB.BIN` — 1 228 octets, 24,3 s, boucle.**
 
-Surcouche : le flux doit tenir dans le **tampon de surcouche de 1 280
-octets**, la moitié de celui des thèmes de zone. Il reste 65 octets.
+Surcouche : le flux doit tenir dans le **tampon de surcouche de 1 280 octets**, la moitié de celui des thèmes de zone. Il reste 52 octets.
 
 ## Ce que la zone couvre
 
@@ -25,33 +24,35 @@ la page, la mémoire de zone n'est pas effacée.
 | Titre | **Le Fer et la Pince** |
 | Source | composition originale, `combat.py` (ce dossier) |
 | Licence | GPL v3, comme le reste du dépôt |
-| Caractère | l'accompagnement court, pas le thème : les quintes martèlent, la basse frappe le contretemps, la mélodie n'a que des notes longues |
+| Caractère | c'est la **batterie** qui court — grosse caisse, caisse claire, charleston en croches — et les quintes à vide n'ont plus qu'à frapper les temps |
 | Mode | **si éolien** (si do♯ ré mi fa♯ sol la) |
 | Tempo | **200** à la noire — **15 ticks par temps**, la valeur la plus rapide qui tombe juste sur l'horloge de 50 Hz |
-| Forme | garde (4) — A (8) — B (8) |
-| Durée | 20 mesures à 4/4 = **24,5 s** — la durée d'une mêlée, et assez court pour reboucler sans lasser pendant les quatre ou cinq assauts |
-| Taille | **1 215 octets** |
-| Notes | 329 écrites, 0 abandonnée |
+| Forme | garde (4) — A, crochet énoncé deux fois (8) — B (8) |
+| Durée | 20 mesures à 4/4 = **24,3 s** — la durée d'une mêlée |
+| Taille | **1 228 octets** — 242 notes de hauteur, 82 coups, 0 abandonnée |
 
-Le bourdon est sur **fa♯**, la dominante : rien ne se résout tant que le combat
-dure. Les accords tournent d'une mesure chacun (Bm-G-D-A, Bm-G-A-F♯m) — c'est
-le seul morceau du dossier où l'harmonie va plus vite que la mélodie.
+## Ce que la révision a apporté
 
-Les quintes à vide vont **à la noire pendant les quatre mesures de garde, puis
-en croches dès la mesure 5** : c'est la seule montée du morceau, et elle sert
-aussi le budget. La reprise A' du thème a été supprimée — un combat ne dure pas
-assez pour qu'on l'entende, et la boucle courte sert le propos.
+- **La batterie prend le travail.** Avant la révision, cinq voix de hauteur essayaient de faire un rythme : l'arpège martelait en croches et la basse frappait le contretemps. Maintenant le bruit s'en charge et les quintes ne jouent plus que les temps — le morceau y gagne en clarté autant qu'en octets.
+- **Crochet.** Si-ré-mi-fa♯ qui monte, sol-fa♯-ré qui retombe, mesures 5-6, **repris mesures 9-10** avec une issue différente (la-fa♯ mineur au lieu de ré-la).
+- **Question et réponse.** Mesures 7 et 12 : la mélodie tient une ronde en haut du registre, le contre-chant répond.
+- **Surprise.** Mesure 16, **deux temps de rien**, batterie comprise, en pleine mêlée. Puis les huit dernières mesures ne lâchent plus.
+- **Arc.** Garde : deux frappes par mesure, quintes à la noire, basse aux blanches. A : quatre frappes. B : cinq frappes, et la basse passe au contretemps.
+- Le bourdon de fa♯ a cédé sa voix à la batterie ; c'est la grosse caisse qui tient la dominante, et rien ne se résout tant que le combat dure.
 
-## Les six voix
+## Les voix
+
+Mesuré par `../verifier.py` — c'est l'attribution réelle de
+`midi_to_mb.py`, pas une intention. Voir `../INDEX.md` § 3.
 
 | voix | côté | rôle | registre | notes |
 | ---: | :---: | --- | --- | ---: |
-| 0 | **gauche** | mélodie, en valeurs longues | F♯5..B6 | 60 |
-| 1 | **gauche** | médiane (contre-chant) | A3..F♯4 | 39 |
-| 2 | **gauche** | basse : le coup, la quinte grave au contretemps, la blanche | A2..B3 | 52 |
-| 3 | **droite** | **quintes à vide martelées**, noires puis croches | B3..D5 | 103 |
-| 4 | **droite** | médiane (accords tenus) | D3..F♯4 | 70 |
-| 5 | **droite** | bourdon de fa♯ (la dominante) | F♯2 | 5 |
+| 0 | **gauche** | mélodie, en valeurs longues | F♯5..B6 | 54 |
+| 1 | gauche | accords tenus | A3..B4 | 29 |
+| 2 | **gauche** | basse | D2..F♯3 | 47 |
+| 3 | **droite** | **contre-chant — la voix qui répond** | D4..C♯5 | 46 |
+| 4 | droite | **quintes à vide**, sur les temps | F♯3..F♯4 | 66 |
+| 5 | **droite** | **batterie** — charleston 39, grosse caisse 24, caisse claire 15, cymbale 2 | bruit | 80 |
 
 ## Régénérer
 
