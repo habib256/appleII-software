@@ -1168,10 +1168,11 @@ enum { D_GX, D_GA, D_G, D_CI, D_CN, D_CA, D_GU, D_PD, D_PO, D_PX, D_TR,
  *                               contre les Loups seuls, et le Maitre garde le
  *                               B120 de sa page. Sans MI, ou si l'emprunt
  *                               manque au disque, c'est l'image de la page
- *   MU <NOM>.MB                 musique lue uniquement lors de l'entree dans
- *                               une nouvelle clairiere, jouee une fois sans
- *                               boucle. Les MU des pages suivantes restent
- *                               muets ; MU - garde l'entree silencieuse
+ *   MU <NOM>.MB                 dans le Marais, musique lue uniquement lors
+ *                               de l'entree dans une nouvelle clairiere ;
+ *                               hors clairieres, morceau scenarise de la page
+ *                               (accueil, village, prologue, fin). Toujours
+ *                               joue une fois sans boucle ; MU - fait silence
  *   MV <id>                     apres le dernier adversaire tombe, la page
  *                               envoie en <id> sans repasser par les choix.
  *                               Le jumeau de CF cote victoire : elle remplace
@@ -2658,8 +2659,10 @@ void load_scene(int scene_id) {
      * les jets et les Pierres, qui attendent une touche. La lecture du texte
      * s'est faite musique ouverte -- ProDOS masque les IRQ ~45 ms, une note
      * tenue, moins genante qu'un silence deliberer. */
-    if (app.revisit < 0 && map_ready && issue != MAP_NONE &&
-        issue != old_clearing) music_for_clearing();
+    if (app.revisit < 0 && map_ready &&
+        ((issue != MAP_NONE && issue != old_clearing) ||
+         (issue == MAP_NONE && app.music_name[0] != '\0')))
+        music_for_clearing();
     /* Une ligne E peut tuer a l'entree -- "vous perdez 5 points d'ENDURANCE",
      * page 357 -- et seuls le de et le combat etaient testes. La page se lit
      * d'abord, puis c'est la mort. La garde hero_ready ecarte l'accueil, ou
