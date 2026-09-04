@@ -17,16 +17,39 @@
    "ref": "SCOSWAMP.MORE/REF/ANNEAU.png"
   },
   {
-   "id": "AMULETTE",
-   "aliases": [
-    "Amulette",
-    "Amulettes",
-    "Amulet",
-    "Amulets"
-   ],
-   "source": "livre",
-   "look": "THE MASTERS' AMULETS: flat SILVER-WHITE discs on a fine chain, each cut into the shape of its owner's creature -- wolf, flower, bird, spider, frog. The Masters' fates hang on them.",
-   "ref": "SCOSWAMP.MORE/REF/AMULETTE.png"
+   "id": "AMULETTE_LOUP",
+   "aliases": ["Amulette en forme de Loup", "Amulette d'Argent en forme de loup"],
+   "source": "livre, paragraphes 154 et 398",
+   "look": "THE WOLF AMULET: one SILVER-WHITE amulet alone on a fine chain, its single flat medallion cut as a bold left-facing wolf head with pointed ears and long muzzle.",
+   "ref": "SCOSWAMP.MORE/REF/AMULETTE_LOUP.png"
+  },
+  {
+   "id": "AMULETTE_FLEUR",
+   "aliases": ["Amulette en forme de fleur", "Amulette a Fleur"],
+   "source": "livre, paragraphes 117, 251, 292 et 305",
+   "look": "THE FLOWER AMULET: one SILVER-WHITE amulet alone on a fine chain, its single flat medallion cut as a bold five-petal flower around a round centre.",
+   "ref": "SCOSWAMP.MORE/REF/AMULETTE_FLEUR.png"
+  },
+  {
+   "id": "AMULETTE_OISEAU",
+   "aliases": ["Amulette d'Argent en forme d'oiseau", "Amulette en forme d'oiseau", "fausse Amulette en forme d'oiseau"],
+   "source": "livre, paragraphes 184, 288 et 350",
+   "look": "THE BIRD AMULET: one SILVER-WHITE amulet alone on a fine chain, its single flat medallion cut as a bold left-facing bird in flight. The false bird amulet is visually identical to the true one.",
+   "ref": "SCOSWAMP.MORE/REF/AMULETTE_OISEAU.png"
+  },
+  {
+   "id": "AMULETTE_ARAIGNEE",
+   "aliases": ["Amulette d'Argent en forme d'araignee", "Amulette en forme d'araignee"],
+   "source": "livre, paragraphes 144 et 354",
+   "look": "THE SPIDER AMULET: one SILVER-WHITE amulet alone on a fine chain, its single flat medallion cut as a bold spider with a round body and eight thick separated legs.",
+   "ref": "SCOSWAMP.MORE/REF/AMULETTE_ARAIGNEE.png"
+  },
+  {
+   "id": "AMULETTE_GRENOUILLE",
+   "aliases": ["Amulette d'Argent en forme de grenouille", "Amulette en forme de grenouille"],
+   "source": "livre, paragraphe 53",
+   "look": "THE FROG AMULET: one SILVER-WHITE amulet alone on a fine chain, its single flat medallion cut as a bold crouching frog with two large eyes and four spread feet.",
+   "ref": "SCOSWAMP.MORE/REF/AMULETTE_GRENOUILLE.png"
   },
   {
    "id": "ANTHERIQUE",

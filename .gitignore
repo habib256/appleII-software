@@ -40,9 +40,9 @@ SCOSWAMP.MORE/GENERATED/
 SCOSWAMP.MORE/GENERATED.prev/
 SCOSWAMP.MORE/HGR-PREVIEW/
 
-# En revanche SCOSWAMP.MORE/REF/ est SUIVI : ces 45 planches sont le canon
-# dont toutes les illustrations decoulent (voir TODO § coherence). Les
-# regenerer changerait les visages ; elles pesent 250 Ko, elles restent.
+# En revanche SCOSWAMP.MORE/REF/ est SUIVI : ces 78 planches sont le canon
+# dont toutes les illustrations decoulent. Les regenerer changerait les
+# personnages et les objets ; elles restent donc versionnees.
 
 # Images disque ProDOS : sorties de build (37 Mo), reconstruites par TOOLS et
 # publiées en GitHub Release. Voir DOCS/RELEASE.md.

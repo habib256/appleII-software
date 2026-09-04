@@ -16,9 +16,9 @@ Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confide
 Composition/framing: landscape 35:24; select one decisive visual moment, never a collage of choices or backstory; one strong focal action; essential shapes remain readable at 280x192 and are at least 3-4 HGR pixels thick; keep critical content away from the extreme edges.
 Color palette: use only black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
 Lighting/mood: theatrical menace, adventure, immediate action.
-The hero's presence: include the hero ONLY when the moment involves him bodily -- meeting, fighting, bargaining, being seized. When the page is a landscape, an arrival, a found object or a quiet observation, leave him OUT of the frame and show the scene itself.
-Where the hero stands and which way he looks -- NON-NEGOTIABLE whenever he shares the frame with a person or a creature: the two are placed on OPPOSITE sides of the image, the hero on the left and the other on the right, with open ground between them, and they are TURNED TOWARD EACH OTHER. The hero stands in profile or three-quarters, his shoulders, his hips, his uncovered head and his gaze all pointing RIGHTWARD at the other figure; the other figure faces LEFTWARD at him. We see the hero from behind his shoulder -- his back is toward the VIEWER, his face toward the person he is dealing with, and the camera looks past him AT them.
-What this rule forbids, because it is the mistake that keeps happening: a hero standing square to the viewer, or turned outward, or walking off, with the back of his uncovered head presented to the very character he is talking to, bargaining with, or confronting. Two people who share a scene look at each other. If you cannot see which of the two the hero is looking at, the drawing is wrong.
+The hero's presence -- NON-NEGOTIABLE: the hero is the recurring protagonist and must be visibly present as the principal visual anchor in EVERY numbered narrative scene, including travel, arrival, discovery, landscape and found-object scenes. Show the location around him rather than replacing him with an empty establishing shot. Keep him large enough to remain recognisable at 280x192, normally in rear three-quarter view so his identity, backpack and silhouette read immediately. Only an isolated object or location reference sheet may omit him; numbered game scenes may not.
+Non-battle staging: place the hero where the narrated action naturally puts him. When he shares the frame with a person or creature, make their attention and eyelines coherent, but do not force a rigid left/right duel layout onto peaceful meetings or exploration.
+Battle staging is separate and absolute: in every battle tableau the hero is on the LEFT facing RIGHT, and his opponent is on the RIGHT facing LEFT, with a clear gap between them.
 The hero's weapon: his sword stays SHEATHED at his hip and his hands stay empty unless the scene text below actually has him fighting, drawing, threatening or striking. Most pages are a walk, a conversation, a discovery or a bargain, and a hero standing sword in hand through all of them looks like a man who means to kill everyone he meets. Draw the posture the page describes.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
 Text (verbatim): ""
@@ -148,7 +148,12 @@ def load_characters(root):
     for name in BIBLES:
         data = json.loads((root / "SCOSWAMP.MORE" / name)
                           .read_text(encoding="utf-8"))
-        kind = "decor" if name == "decors.json" else "figure"
+        if name == "decors.json":
+            kind = "decor"
+        elif name == "objects.json":
+            kind = "object"
+        else:
+            kind = "figure"
         if kind == "decor":
             DECOR_IDS.update(c["id"] for c in data["characters"])
         for c in data["characters"]:
@@ -255,7 +260,7 @@ def refs_for(text, characters, root):
 
 REF_FIGURE = """Use case: reference sheet
 Asset type: a single character reference for an Apple II HGR gamebook
-Primary request: ONE subject alone, full figure head to foot, standing still and facing the viewer three-quarters, on a plain solid black background. No scene, no ground.
+Primary request: ONE subject alone, full figure head to foot, standing still, on a plain solid black background. No scene, no ground.
 Composition/framing: the subject centered and complete, filling most of the frame, nothing cropped.
 Checklist: EVERY garment, weapon and ornament named in the description below must be clearly visible and identifiable in the drawing, and carried EXACTLY as the description words it -- clothing worn rather than implied; a sword described as SHEATHED shown hanging in its scabbard at the hip with the hand empty, never held; a weapon described as raised or drawn shown in the hand. Add nothing the description does not name, and change nothing it does.
 """
@@ -267,7 +272,15 @@ Composition/framing: a wide establishing view, horizon roughly a third from the 
 The sky: follow the subject's description; when it says nothing, keep the sky simple and moody -- dark tones or a few flat clouds, never a large empty WHITE sky.
 """
 
+REF_OBJECT = """Use case: reference sheet
+Asset type: a single object reference for an Apple II HGR gamebook
+Primary request: ONE object alone, completely visible, centered on a plain solid black background. No hand, wearer, person, creature, scene or ground.
+Composition/framing: close enough for its defining silhouette and ornament to remain unmistakable after reduction to 280x192; nothing cropped.
+"""
+
 REF_TAIL = COMMON_STYLE + """
+
+HGR DETAIL TARGET — NON-NEGOTIABLE: balanced intermediate detail, neither a pictogram nor dense concept art. Primary silhouettes are bold; secondary lines remain 2-4 pixels thick after reduction to 280x192. Use only a limited number of broad meaningful interior marks. No hairlines, fine hatching, stippling, micro-texture, gradients or decorative noise.
 
 This sheet is the CANON. Every later illustration of this subject will be drawn
 from it, so the shapes and colours chosen here must be unambiguous.
@@ -283,7 +296,20 @@ def ref_rows(root, characters):
         look = c["look"]
         if c.get("scale"):
             look += " Scale: " + c["scale"] + "."
-        base = REF_DECOR if c["kind"] == "decor" else REF_FIGURE
+        if c["kind"] == "decor":
+            base = REF_DECOR
+        elif c["kind"] == "object":
+            base = REF_OBJECT
+        elif c["id"] == "HERO":
+            base = (REF_FIGURE + "Orientation — ABSOLUTE CANON: show the HERO FROM "
+                    "BEHIND in a rear three-quarter pose, with his uncovered head, "
+                    "gaze, shoulders, hips and feet unmistakably pointing toward "
+                    "IMAGE-RIGHT. He has no cape, cloak or hood.\n")
+        else:
+            base = (REF_FIGURE + "Orientation — ABSOLUTE CANON: show the subject "
+                    "from the front or front three-quarter view, but turn its head, "
+                    "eyes, nose, muzzle or beak unmistakably toward IMAGE-LEFT. "
+                    "Never stare straight at the viewer and never look right.\n")
         rows.append({
             "id": c["id"],
             "source_png": c["ref"],
