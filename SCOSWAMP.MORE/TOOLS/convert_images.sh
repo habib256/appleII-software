@@ -32,8 +32,11 @@ for png in "$ROOT"/SCOSWAMP.MORE/GENERATED/[NB][0-9][0-9][0-9].png; do
         skipped=$((skipped + 1))
         continue
     fi
-    mkdir -p "$(dirname "$out")" "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW"
-    "$DHGR" convert "$png" "$out" "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW/$name.png"
+    mkdir -p "$(dirname "$out")" "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW" \
+        "$ROOT/SCOSWAMP.MORE/CHATMAUVE-PREVIEW"
+    "$DHGR" convert "$png" "$out" \
+        "$ROOT/SCOSWAMP.MORE/HGR-PREVIEW/$name.png" \
+        "$ROOT/SCOSWAMP.MORE/CHATMAUVE-PREVIEW/$name.png"
     echo "  $name -> $bucket/$name.RLE.BIN"
     converted=$((converted + 1))
 done

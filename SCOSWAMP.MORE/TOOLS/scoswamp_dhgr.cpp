@@ -18,11 +18,20 @@ namespace {
 constexpr std::size_t kDhgrBytes = 16384;
 constexpr std::size_t kHgrBytes = 8192;
 struct Rgb { std::uint8_t r, g, b; };
-constexpr Rgb kPalette[16] = {
+/* The same 4-bit indices have two materially different display palettes.
+ * The converter writes indices, not RGB values; keeping both previews is the
+ * only honest way to review an asset intended for composite and Péritel. */
+constexpr Rgb kPaletteComposite[16] = {
     {0x00,0x00,0x00},{0xa7,0x0b,0x40},{0x40,0x1c,0xf7},{0xe6,0x28,0xff},
     {0x00,0x74,0x40},{0x80,0x80,0x80},{0x19,0x90,0xff},{0xbf,0x9c,0xff},
     {0x40,0x63,0x00},{0xe6,0x6f,0x00},{0x80,0x80,0x80},{0xff,0x8b,0xbf},
     {0x19,0xd7,0x00},{0xbf,0xe3,0x08},{0x58,0xf4,0xbf},{0xff,0xff,0xff}
+};
+constexpr Rgb kPaletteChatMauve[16] = {
+    {0x00,0x00,0x00},{0xac,0x12,0x4c},{0x00,0x07,0x83},{0xaa,0x1a,0xd1},
+    {0x00,0x83,0x2f},{0x9f,0x97,0x7e},{0x00,0x8a,0xb5},{0x9f,0x9e,0xff},
+    {0x7a,0x5f,0x00},{0xff,0x72,0x47},{0x78,0x68,0x7f},{0xff,0x7a,0xcf},
+    {0x6f,0xe6,0x2c},{0xff,0xf6,0x7b},{0x6c,0xee,0xb2},{0xff,0xff,0xff}
 };
 
 bool writeFile(const std::filesystem::path& p, const std::vector<std::uint8_t>& v) {
@@ -99,11 +108,12 @@ std::vector<std::uint8_t> encode(const std::vector<std::uint8_t>& raw) {
     return out;
 }
 
-std::vector<std::uint8_t> preview(const std::vector<std::uint8_t>& pair) {
+std::vector<std::uint8_t> preview(const std::vector<std::uint8_t>& pair,
+                                  const Rgb (&palette)[16]) {
     constexpr int w = 280, h = 192;
     std::vector<std::uint8_t> rgb(w * h * 3);
     for (int y = 0; y < h; ++y) for (int x = 0; x < 140; ++x) {
-        const auto c = kPalette[hgrpaint::dhgrColorAt(pair.data(), x, y) & 15];
+        const auto c = palette[hgrpaint::dhgrColorAt(pair.data(), x, y) & 15];
         for (int q = 0; q < 2; ++q) { const auto o = (y * w + x * 2 + q) * 3; rgb[o]=c.r; rgb[o+1]=c.g; rgb[o+2]=c.b; }
     }
     return rgb;
@@ -126,7 +136,7 @@ int main(int argc, char** argv) {
         return 0;
     }
     if (argc < 4 || std::string(argv[1]) != "convert") {
-        std::cerr << "usage:\n  scoswamp_dhgr convert INPUT.png OUTPUT.DHGR.RLE.BIN [PREVIEW.png]\n  scoswamp_dhgr migrate-hgr INPUT.HGR.RLE.BIN OUTPUT.DHGR.RLE.BIN\n  scoswamp_dhgr validate INPUT.DHGR.RLE.BIN\n"; return 2;
+        std::cerr << "usage:\n  scoswamp_dhgr convert INPUT.png OUTPUT.DHGR.RLE.BIN [COMPOSITE_PREVIEW.png [CHAT_MAUVE_PREVIEW.png]]\n  scoswamp_dhgr migrate-hgr INPUT.HGR.RLE.BIN OUTPUT.DHGR.RLE.BIN\n  scoswamp_dhgr validate INPUT.DHGR.RLE.BIN\n"; return 2;
     }
     int w=0,h=0,n=0; auto* rgba = stbi_load(argv[2], &w, &h, &n, 4);
     if (!rgba) { std::cerr << "cannot decode " << argv[2] << "\n"; return 1; }
@@ -135,7 +145,8 @@ int main(int argc, char** argv) {
     hgrpaint::imageToDhgrPage(rgba, w, h, opt, pair.data()); stbi_image_free(rgba);
     const auto packed = encode(pair);
     if (!writeFile(argv[3], packed)) { std::cerr << "cannot write output\n"; return 1; }
-    if (argc >= 5) { const auto rgb=preview(pair); if (!stbi_write_png(argv[4],280,192,3,rgb.data(),280*3)) return 1; }
+    if (argc >= 5) { const auto rgb=preview(pair,kPaletteComposite); if (!stbi_write_png(argv[4],280,192,3,rgb.data(),280*3)) return 1; }
+    if (argc >= 6) { const auto rgb=preview(pair,kPaletteChatMauve); if (!stbi_write_png(argv[5],280,192,3,rgb.data(),280*3)) return 1; }
     std::cout << argv[3] << ": " << packed.size() << " bytes (DHGR 140x192, 16 colours)\n";
     return 0;
 }

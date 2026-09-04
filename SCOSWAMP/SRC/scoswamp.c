@@ -388,6 +388,9 @@ static void music_switch(const char* name, unsigned char over)
     if (over && h == zone_half) zone_ok = 0;   /* la zone vient d'etre ecrasee */
     music_settle();
     music_pause();              /* tick arrete : l'echange de curseurs est sur */
+    /* Le pilote lit ce drapeau à END. Les thèmes et scènes restent à passage
+     * unique ; seule la surcouche de combat, appelée avec over=1, boucle. */
+    music_buf[(h ? MUSIC_ZONE : 0) + 5] = over;
     music_select(h);
     music_play();               /* et la nouvelle monte en fondu */
     cur_half = h;
@@ -2359,13 +2362,19 @@ static unsigned char run_combat(void)
             monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
             wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
             set_video_mode(0);
+            music_stop();
             return character_is_dead(&app.hero) ? 0 : 2;
         }
         /* Le `cha` est le meme que celui qui decide d'afficher l'enjeu : une
          * touche qu'on n'a pas proposee ne doit pas repondre. */
         use_luck = (pending && app.hero.cha && (key == 'C' || key == 'c'));
         if (!use_luck && key != ' ' && key != '\r') continue;
-        if (assaut == 0 && app.has_image) set_video_mode(2);   /* on engage : l'image */
+        if (assaut == 0) {
+            /* La musique d'action commence avec le premier assaut, pas pendant
+             * la lecture de la page ni l'ouverture éventuelle du sac. */
+            music_switch("COMBAT.MB", 1);
+            if (app.has_image) set_video_mode(2);   /* on engage : l'image */
+        }
 
         /* Encaisser la blessure en attente, puis enchainer : c'est ce qui fait
          * tenir un assaut en une seule frappe. */
@@ -2404,6 +2413,7 @@ static unsigned char run_combat(void)
                     app.last_loss = (end_in > app.hero.end)
                                   ? (unsigned char)(end_in - app.hero.end) : 0;
                     set_video_mode(0);
+                    music_stop();
                     return 1;
                 }
                 assaut = 0;      /* le sac redevient ouvrable avant l'assaut */
@@ -2422,6 +2432,7 @@ static unsigned char run_combat(void)
                 sfx_beat();
                 monster_remember((unsigned int)app.current_scene, app.foe_cur, &app.foes[app.foe_cur]);
                 set_video_mode(0);
+                music_stop();
                 return 0;
             }
             /* Duel au premier sang : la blessure vient d'etre encaissee, le
@@ -2431,6 +2442,7 @@ static unsigned char run_combat(void)
                 app.win_scene = hits ? app.mb_ok : app.mb_ko;
                 wait_space_at(CHOICE_ROWN, msg(M_K_CONTINUER));
                 set_video_mode(0);
+                music_stop();
                 return 1;
             }
         }

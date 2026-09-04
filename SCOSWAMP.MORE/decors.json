@@ -392,10 +392,13 @@
    "id": "TOUR",
    "aliases": [
     "tour de Stratagus",
+    "sinistre tour",
+    "tour malefique",
+    "tour du Mal",
     "tower"
    ],
    "source": "livre, paragraphe 40",
-   "look": "STRATAGUS'S TOWER: one ominous massive squat VIOLET stone fortress beside the marsh, built from six broad courses separated by THICK BLACK bands. Its heavy central door bears one huge carved grimacing face; two tall WHITE-lit gothic arcades pierce the upper tower; exactly two broad gargoyles crouch on the parapet and two large grimacing stone statues guard the approach. Sparse DARK-GREEN reeds and MEDIUM-BLUE pools frame the base. No black facade, mountains, clouds, bats, tiny bricks, ornate filigree or micro-texture.",
+   "look": "STRATAGUS'S TOWER: one ominous massive squat stone fortress beside the marsh. Its dominant stone colour is unrestricted but must be chosen from the DHGR palette and held in a few large coherent flat regions. The tower is built from six broad courses separated by THICK contrasting bands. Its heavy central door bears one huge carved grimacing face; two tall light-filled gothic arcades pierce the upper tower; exactly two broad gargoyles crouch on the parapet and two large grimacing stone statues guard the approach. Sparse reeds and pools frame the base. No mountains, clouds, bats, tiny bricks, ornate filigree or micro-texture.",
    "ref": "SCOSWAMP.MORE/REF/TOUR.png"
   },
   {
