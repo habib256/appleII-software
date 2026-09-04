@@ -1,4 +1,4 @@
-; Fast streaming HGRR loader for Apple IIe Enhanced / cc65.
+; Fast streaming DHRR loader for Apple IIe Enhanced / cc65.
 ; int __fastcall__ hgr_rle_load(const char* path);
 ; Reads 1 KiB chunks and decodes natively to HGR page 1 ($2000-$3FFF).
         .setcpu "65C02"
@@ -13,8 +13,10 @@ CHUNK_SIZE = $0080
 file_ptr:       .res 2
 rep_byte:       .res 1
 saved_80store:  .res 1
+saved_page2:    .res 1
 remaining:      .res 2
 saved_dst:      .res 2
+plane:          .res 1        ; 0 = AUX, 1 = MAIN
 
 ; Le tampon de lecture vit en RAM basse ($1000-$1FFF, segment LOWBSS de
 ; scoswamp.cfg) : autant de moins dans la fenetre $4000-$BF00.
@@ -32,7 +34,7 @@ packed_data:    .res CHUNK_SIZE
 
         .segment "RODATA"
 read_mode:      .asciiz "rb"
-magic:          .byte 'H','G','R','R',1,0,0,$20
+magic:          .byte 'D','H','R','R',1,0,0,$40
 
         .segment "CODE"
 
@@ -105,14 +107,33 @@ eof:    plx
         inc ptr2+1
 ok:     lda ptr2+1
         cmp #HGR_END_HI
+        bne done
+        lda plane
+        bne boundary
+        inc plane
+        stz ptr2
+        lda #$20
+        sta ptr2+1
+        sta $C054              ; PAGE1 : deuxieme moitié vers MAIN
+boundary:
+        lda #0                 ; Z=1 : frontière valide pour l'appelant
+done:
         rts
 .endproc
 
 .proc restore_80store
+        bit saved_page2
+        bpl :+
+        sta $C055
+        bra page_done
+:       sta $C054
+page_done:
         bit saved_80store      ; bit 7 = 80STORE était actif avant l'image
         bpl :+
         sta $C001              ; le rétablir, sinon le texte 80 col est amputé
-:       rts
+        rts
+:       sta $C000
+        rts
 .endproc
 
 .proc close_fail
@@ -143,9 +164,13 @@ opened:
         ldx #0
 header_loop:
         jsr get_byte
-        bcc header_fail
+        bcs :+
+        jmp header_fail
+:
         cmp magic,x
-        bne header_fail
+        beq :+
+        jmp header_fail
+:
         inx
         cpx #8
         bne header_loop
@@ -153,16 +178,24 @@ header_loop:
         stz ptr2
         lda #$20
         sta ptr2+1
+        stz plane
         lda $C018              ; RD80STORE : mémoriser l'état avant de couper
         sta saved_80store
+        lda $C01C              ; RDPAGE2 : restauré après le décodage
+        sta saved_page2
         lda #$20
-        sta $C000              ; 80STORE/RAMRD/RAMWRT off
-        sta $C002
+        sta $C002              ; RAMRD/RAMWRT restent sur MAIN : fread et BSS
         sta $C004
+        sta $C057              ; HIRES rend PAGE2 sélectif pour $2000-$3FFF
+        sta $C001              ; 80STORE : PAGE2 ne route que la page graphique
+        sta $C055              ; premier plan DHGR vers AUX
 next_token:
+        lda plane
+        beq not_finished
         lda ptr2+1
         cmp #HGR_END_HI
         beq success
+not_finished:
         jsr get_byte
         bcc decode_fail
         bmi repeat_token

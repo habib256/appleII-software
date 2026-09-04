@@ -104,19 +104,19 @@ Le programme s'attend à cette arborescence relative :
 
 **Pourquoi démarrer à $4000 ?**
 
-La page HGR 1 occupe **$2000-$3FFF** (8192 octets). Si le programme démarrait à l'adresse par défaut (~$0803), il écraserait la zone graphique. En démarrant à **$4000**, on préserve toute la zone HGR.
+La page DHGR 1 occupe **$2000-$3FFF dans chacune des deux banques** (16 384 octets). Si le programme démarrait à l'adresse par défaut (~$0803), il écraserait la zone graphique principale. En démarrant à **$4000**, on préserve les deux plans DHGR.
 
 ```
 $0000-$03FF : Zero page + Stack
 $0400-$07FF : Zone texte (1024 octets, 40×24 caractères)
 $0800-$1FFF : Zone libre système
-$2000-$3FFF : HGR Page 1 (8 KB, décompressé depuis fichiers .RLE)
+$2000-$3FFF : DHGR Page 1 (8 Ko auxiliaires + 8 Ko principaux, flux DHRR)
 $4000-$BFFF : Programme SCOSWAMP.BIN et données
 $C000-$FFFF : ROM et I/O
 ```
 
 - **Adresse de chargement** : $4000 (16384)
-- **Page HGR 1** : $2000-$3FFF (8192 octets, préservé)
+- **Page DHGR 1** : $2000-$3FFF dans les deux banques (16 384 octets, préservés)
 - **Zone texte** : $0400-$07FF (1024 octets, sauvegardé par memory swap)
 - **Memory swap backup** : ~2 KB (texte + choix)
 - **Buffer I/O ProDOS** : 1 Ko par fichier ouvert (géré par libc)

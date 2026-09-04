@@ -75,14 +75,14 @@ Deux jeux d'aventure pour Apple IIe Enhanced démontrant une architecture modern
 ```
 SCOSWAMP  texte FR/EN   [####################] 100%  (804/804 fichiers)
 SCOSWAMP  moteur        [####################] 100%
-SCOSWAMP  images HGR    [####################] 100%  (407/407 scènes + 32 combats)
+SCOSWAMP  images DHGR   [####################] 100%  (407/407 scènes + 32 combats)
 SPACETRIP tout          [####################] 100%
 COMBAT    prototype     [####################] 100%  (fonctionne isolément)
 COMBAT    intégration   [....................]   0%  (voir COMBAT/README.md)
 Distribution            [....................]   0%  (voir DOCS/RELEASE.md)
 ```
 
-**Intégrité** : 439 images HGR compressées (HGRR), toutes vérifiées comme se décodant en 8192 octets exactement. Aucun trou de numérotation, aucune scène FR sans équivalent EN, aucun fichier texte vide.
+**Intégrité** : 439 images DHGR compressées (DHRR), toutes vérifiées comme se décodant en 16 384 octets exactement (8 Ko auxiliaires + 8 Ko principaux). Aucun trou de numérotation, aucune scène FR sans équivalent EN, aucun fichier texte vide.
 
 ### Vérifier soi-même
 
@@ -109,7 +109,7 @@ Adaptation du livre-jeu « Scorpion Swamp » (1985) par Steve JACKSON & Ian LIVI
 - **Memory swap** : transitions optimisées
 
 - **Toutes les scènes sont illustrées** : 407 images de page + 32 tableaux de
-  bataille, en couleur, dans la palette HGR à six teintes.
+  bataille, en couleur, dans la palette DHGR à seize indices.
 
 ### Comment les images sont faites
 
@@ -174,7 +174,7 @@ Aventure galactique interactive démontrant l'architecture pilotée par données
 |----------|--------|
 | Moteur | 12 835 o |
 | Scènes | 14 (FR + EN) |
-| Images HGR | 14 × 8 Ko = 112 Ko |
+| Images DHGR | deux banques de 8 Ko par image, compressées sur disque |
 | Fichiers texte | 28 (14 FR + 14 EN) |
 | Ratio efficacité | 11:1 |
 
@@ -236,7 +236,7 @@ Résumé des obstacles à lever :
 
 ```
 $0000-$1FFF : Système ProDOS (page zéro, pile 6502, buffers)
-$2000-$3FFF : HGR Page 1 (8 Ko image)
+$2000-$3FFF : DHGR Page 1 (8 Ko dans chacune des deux banques)
 $4000-$8DFF : Moteur : CODE + RODATA + DATA + BSS  (19 968 o utilisables)
 $8E00-$95FF : Pile C (__STACKSIZE__ = 2 Ko)
 $9600-$BFFF : ProDOS 8 — MLI, page globale ($BF00), buffers fichier (1 Ko/fichier)
@@ -292,8 +292,8 @@ plafond standard, 12 778 sous le plafond étendu.
 
 ### Format des fichiers
 
-- **Images** : `IMG/N###.HGR` — **exactement 8192 octets**, 280×192, 6 couleurs
-  Une page HGR fait 7680 octets affichés + 512 octets de « screen holes » non
+- **Images** : flux `DHRR` — **exactement 16 384 octets décodés**, 140×192, 16 couleurs
+  Chaque plan DHGR fait 7680 octets affichés + 512 octets de « screen holes » non
   affichés. Un fichier plus court est chargé partiellement et laisse des résidus
   de la scène précédente à l'écran.
 - **Textes** : `TEXTFR/N###/N###.TXT` et `TEXTEN/N###/N###.TXT`

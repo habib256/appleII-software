@@ -27,7 +27,7 @@ extern char _LOWBSS_SIZE__[];
 
 /* Adresse de la page HGR 1 */
 #define HGR_PAGE1 ((unsigned char*)0x2000)
-#define HGR_SIZE  8192
+#define HGR_SIZE  16384
 /* Le corpus ne depasse jamais 5 choix sur une page, et la ligne MV en retire
  * un a trente pages de plus : le sixieme emplacement etait une marge qu'on ne
  * pouvait plus se payer. Chaque emplacement coute 77 octets -- deux vides,
@@ -402,39 +402,24 @@ static void music_switch(const char* name, unsigned char over)
  *   meme nom rien a faire, ni lecture ni redemarrage ;
  *   nouveau  lecture dans l'autre demi-tampon pendant que l'ancien joue,
  *            puis bascule ; un theme (sans +) devient la zone. */
-static void music_for_page(void)
+static void music_for_clearing(void)
 {
     const char* n = app.music_name;
-    if (n[0] == '-') {
-        music_fade_out();
-        music_settle();
-        music_stop();
-        music_cur[0] = music_zone[0] = '\0';
-        zone_ok = 0;
-        return;
-    }
-    if (n[0] == '\0') {
-        if (memcmp(music_cur, music_zone, sizeof music_cur) == 0) return;
-        if (music_zone[0] && !zone_ok) { music_switch(music_zone, 0); return; }
-        music_fade_out();
-        music_settle();
-        music_stop();
-        music_cur[0] = '\0';
-        if (music_zone[0]) {
-            music_select(zone_half);
-            music_continue();
-            cur_half = zone_half;
-            memcpy(music_cur, music_zone, sizeof music_cur);
-        }
-        return;
-    }
-    if (memcmp(n, music_cur, sizeof music_cur) == 0) return;
-    music_switch(n, app.music_over);
-    if (!app.music_over && music_cur[0]) memcpy(music_zone, music_cur, sizeof music_zone);
+    music_fade_out();
+    music_settle();
+    music_stop();
+    music_cur[0] = music_zone[0] = '\0';
+    zone_ok = 0;
+    if (n[0] == '\0' || n[0] == '-') return;
+    /* Forcer la grande moitié : même deux clairières portant le même nom
+     * doivent chacune jouer le morceau une fois depuis son début. */
+    cur_half = 1;
+    music_switch(n, 0);
+    if (music_cur[0]) memcpy(music_zone, music_cur, sizeof music_zone);
 }
 
-/* Fonction pour charger une image HGR */
-/* Charge IMG/<bucket>/<prefixe><id>.RLE en page HGR 1.
+/* Fonction pour charger une image DHGR */
+/* Charge IMG/<bucket>/<prefixe><id>.RLE dans les deux banques DHGR page 1.
  *
  *   'N' : l'illustration de la clairiere ;
  *   'B' : l'image de bataille, les deux adversaires face a face. Elle est
@@ -1183,14 +1168,10 @@ enum { D_GX, D_GA, D_G, D_CI, D_CN, D_CA, D_GU, D_PD, D_PO, D_PX, D_TR,
  *                               contre les Loups seuls, et le Maitre garde le
  *                               B120 de sa page. Sans MI, ou si l'emprunt
  *                               manque au disque, c'est l'image de la page
- *   MU <NOM>.MB                 le theme de la zone : lu dans MUSIC/ et joue
- *                               en boucle, seulement si ce n'est pas deja
- *                               lui qui joue. Toutes les pages d'une
- *                               clairiere portent le meme. Sans MU, la
- *                               musique continue ; MU +<NOM>.MB pose une
- *                               surcouche pour la page (combat, mort,
- *                               victoire) apres laquelle la zone reprend ou
- *                               elle en etait ; MU - fait silence
+ *   MU <NOM>.MB                 musique lue uniquement lors de l'entree dans
+ *                               une nouvelle clairiere, jouee une fois sans
+ *                               boucle. Les MU des pages suivantes restent
+ *                               muets ; MU - garde l'entree silencieuse
  *   MV <id>                     apres le dernier adversaire tombe, la page
  *                               envoie en <id> sans repasser par les choix.
  *                               Le jumeau de CF cote victoire : elle remplace
@@ -2620,7 +2601,7 @@ static void die_and_restart(void)
 {
     /* L'ecran de mort n'est pas une page : sa marche funebre se pose ici, en
      * surcouche, et ne boucle pas. */
-    music_switch("MORT.MB", 1);   /* surcouche : dans l'autre demi-tampon */
+    music_stop();                  /* aucune musique hors entrée de clairière */
     if (game_over()) return;
     monster_memory_reset();
     scene_memory_reset();
@@ -2632,6 +2613,7 @@ static void die_and_restart(void)
 /* Charger une nouvelle scene - version optimisée */
 void load_scene(int scene_id) {
     unsigned char issue;
+    unsigned char old_clearing = map_here;
 
     app.current_scene = scene_id;
     /* La clairiere courante suit la page quand la page en designe une, et
@@ -2676,7 +2658,8 @@ void load_scene(int scene_id) {
      * les jets et les Pierres, qui attendent une touche. La lecture du texte
      * s'est faite musique ouverte -- ProDOS masque les IRQ ~45 ms, une note
      * tenue, moins genante qu'un silence deliberer. */
-    if (app.revisit < 0) music_for_page();
+    if (app.revisit < 0 && map_ready && issue != MAP_NONE &&
+        issue != old_clearing) music_for_clearing();
     /* Une ligne E peut tuer a l'entree -- "vous perdez 5 points d'ENDURANCE",
      * page 357 -- et seuls le de et le combat etaient testes. La page se lit
      * d'abord, puis c'est la mort. La garde hero_ready ecarte l'accueil, ou

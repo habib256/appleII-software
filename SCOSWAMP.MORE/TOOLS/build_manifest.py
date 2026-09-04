@@ -10,11 +10,11 @@ from pathlib import Path
 
 
 STYLE = """Use case: illustration-story
-Asset type: native Apple II HGR scene illustration for SCOSWAMP
+Asset type: native Apple II DHGR scene illustration for SCOSWAMP
 Primary request: Illustrate the numbered French gamebook scene below faithfully.
-Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines and flat solid fills; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents. NOT pixel art: no visible pixels, no jagged staircase edges, no mosaic or dithered texture -- draw clean smooth lines, but keep every stroke and shape bold enough (each stroke at least 1/70 of the image width) that conversion to a 280x192 Apple II HGR screen keeps it readable.
-Composition/framing: landscape 35:24; select one decisive visual moment, never a collage of choices or backstory; one strong focal action; essential shapes remain readable at 280x192 and are at least 3-4 HGR pixels thick; keep critical content away from the extreme edges.
-Color palette: use only black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
+Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines, bold brush shadows and flat solid fills. NOT pixel art: draw clean smooth lines, with every essential stroke thick enough to survive reduction to native 140x192 Apple II DHGR colour pixels.
+Composition/framing: landscape 35:24; select one decisive visual moment, never a collage; one strong focal action; essential shapes remain readable at 140x192 and use broad contours; keep critical content away from the extreme edges.
+Color palette: use ONLY these Apple II DHGR colours: black #000000, dark red #A70B40, dark blue #401CF7, purple #E628FF, dark green #007440, dark gray #808080, medium blue #1990FF, light blue #BF9CFF, brown #406300, orange #E66F00, pink #FF8BBF, light green #19D700, yellow #BFE308, aquamarine #58F4BF, white #FFFFFF. Prefer coherent flat regions; no gradients or invented colours; 30-50% solid black negative space.
 Lighting/mood: theatrical menace, adventure, immediate action.
 The hero's presence -- NON-NEGOTIABLE: the hero is the recurring protagonist and must be visibly present as the principal visual anchor in EVERY numbered narrative scene, including travel, arrival, discovery, landscape and found-object scenes. Show the location around him rather than replacing him with an empty establishing shot. Keep him large enough to remain recognisable at 280x192, normally in rear three-quarter view so his identity, backpack and silhouette read immediately. Only an isolated object or location reference sheet may omit him; numbered game scenes may not.
 Non-battle staging: place the hero where the narrated action naturally puts him. When he shares the frame with a person or creature, make their attention and eyelines coherent, but do not force a rigid left/right duel layout onto peaceful meetings or exploration.
@@ -37,14 +37,14 @@ French scene source:
 BATTLE_HERO = """The hero, drawn identically in every battle image: a lean, muscular human adventurer with short black hair and an uncovered head, wearing a sleeveless orange leather jerkin, his muscular arms bare, and here -- and only here, because this is a fight -- his sword DRAWN and raised in the right hand, a backpack on the shoulders, seen three-quarters from behind-left so the face stays hidden."""
 
 BATTLE_STYLE = """Use case: illustration-story
-Asset type: native Apple II HGR battle tableau for SCOSWAMP
+Asset type: native Apple II DHGR battle tableau for SCOSWAMP
 Primary request: One duel, two figures. The hero faces the adversary named below; both are fully visible, mid-action, caught at the moment blades or claws are about to meet.
 Setting: the duel happens somewhere, so draw the place behind them -- the swamp clearing, hut, water, tower or garden the scene text names, or plain swamp if it names none: BLACK tree trunks, GREEN reeds, VIOLET mud, standing BLUE water. Keep it BEHIND the fighters and quieter than they are: flat shapes, no detail that competes with the two silhouettes, and nothing between the fighters or overlapping them.
-Composition/framing: landscape 35:24 for a 280x192 screen. CRITICAL: during play a text window covers the bottom sixth of the image, and the first attempt had the hero's feet cut off by it. Both figures must be COMPLETE — head to feet — within the upper three quarters of the frame, and the lowest quarter must be plain dark empty ground with nothing in it. Hero in the left third, adversary in the right two thirds, a clear gap of dark ground between them; readable silhouettes at 280x192, every essential shape at least 3-4 HGR pixels thick.
+Composition/framing: landscape 35:24 for a 140x192 DHGR colour screen. CRITICAL: during play a text window covers the bottom sixth. Both figures must be COMPLETE within the upper three quarters, and the lowest quarter plain dark ground. Hero left, adversary right, clear gap; broad readable silhouettes and no fine detail.
 Facing -- NON-NEGOTIABLE: the two are fighting EACH OTHER, so each one looks at the other. The hero stands on the left and faces, leans and strikes RIGHTWARD, toward the adversary. The adversary stands on the right and faces, leans and strikes LEFTWARD, toward the hero. Their heads are turned toward one another, their eyes meet, their weapons are aimed at one another. A figure whose head or gaze points away from the other -- outward, toward the edge of the frame, or at the viewer -- is WRONG: two fighters looking in opposite directions are not in a duel.
 """ + BATTLE_HERO + """
-Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines and flat solid fills; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents. NOT pixel art: no visible pixels, no jagged staircase edges, no mosaic or dithered texture -- draw clean smooth lines, but keep every stroke and shape bold enough (each stroke at least 1/70 of the image width) that conversion to a 280x192 Apple II HGR screen keeps it readable.
-Color palette: use only black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
+Style/medium: late-1970s sword-and-sorcery pulp ink illustration, smooth bold outlines, broad shadows and flat solid fills, designed for reduction to native 140x192 Apple II DHGR colour pixels.
+Color palette: use ONLY black #000000, dark red #A70B40, dark blue #401CF7, purple #E628FF, dark green #007440, dark gray #808080, medium blue #1990FF, light blue #BF9CFF, brown #406300, orange #E66F00, pink #FF8BBF, light green #19D700, yellow #BFE308, aquamarine #58F4BF, white #FFFFFF; no gradients or invented colours.
 Lighting/mood: theatrical menace, imminent violence.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
 Text (verbatim): ""
@@ -130,8 +130,8 @@ BIBLES = ("decors.json", "characters.json", "monsters.json", "objects.json")
 # Le medium et la palette etaient decrits deux fois, une fois pour les scenes
 # et une fois pour les batailles : deux textes qui pouvaient deriver l'un de
 # l'autre. Ils n'existent plus qu'ici.
-COMMON_STYLE = """Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines and flat solid fills; muscular readable silhouettes, bold brush-and-ink shadows, selective flat color accents. NOT pixel art: no visible pixels, no jagged staircase edges, no mosaic or dithered texture -- draw clean smooth lines, but keep every stroke and shape bold enough (each stroke at least 1/70 of the image width) that conversion to a 280x192 Apple II HGR screen keeps it readable.
-Color palette: use ONLY black #000000, white #FFFFFF, violet #AA1AD1, green #6FE62C, blue #008AB5, orange #FF7247 -- no other hue, no grey, no gradient; keep violet/green regions spatially separate from blue/orange regions; 35-55% solid black negative space.
+COMMON_STYLE = """Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth bold outlines, broad ink shadows and flat solid fills. NOT pixel art; every defining feature must survive reduction to native 140x192 Apple II DHGR colour pixels.
+Color palette: use ONLY black #000000, dark red #A70B40, dark blue #401CF7, purple #E628FF, dark green #007440, dark gray #808080, medium blue #1990FF, light blue #BF9CFF, brown #406300, orange #E66F00, pink #FF8BBF, light green #19D700, yellow #BFE308, aquamarine #58F4BF, white #FFFFFF. Use coherent flat regions, no gradients or invented colours; 30-50% solid black negative space.
 Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
 Text (verbatim): ""
 Constraints: no visible words, letters, numbers, captions, border, UI, logo, signature, or watermark; no anti-aliasing; no photorealistic texture; no tiny decorative detail.
@@ -259,28 +259,28 @@ def refs_for(text, characters, root):
 
 
 REF_FIGURE = """Use case: reference sheet
-Asset type: a single character reference for an Apple II HGR gamebook
-Primary request: ONE subject alone, full figure head to foot, standing still, on a plain solid black background. No scene, no ground.
+Asset type: a single character reference for an Apple II DHGR gamebook
+Primary request: ONE subject alone, full figure head to foot, standing still, on a plain solid black background. Even when its description uses a plural or compares its scale to the hero, draw ONE representative subject only: never add the hero, a handler, companions or a scale figure. No scene, no ground.
 Composition/framing: the subject centered and complete, filling most of the frame, nothing cropped.
 Checklist: EVERY garment, weapon and ornament named in the description below must be clearly visible and identifiable in the drawing, and carried EXACTLY as the description words it -- clothing worn rather than implied; a sword described as SHEATHED shown hanging in its scabbard at the hip with the hand empty, never held; a weapon described as raised or drawn shown in the hand. Add nothing the description does not name, and change nothing it does.
 """
 
 REF_DECOR = """Use case: reference sheet
-Asset type: a location reference for an Apple II HGR gamebook
+Asset type: a location reference for an Apple II DHGR gamebook
 Primary request: the place itself, empty of people and creatures, seen wide at eye level. It is the stage other illustrations will be set on, so its shapes and colours must read at a glance.
 Composition/framing: a wide establishing view, horizon roughly a third from the top.
 The sky: follow the subject's description; when it says nothing, keep the sky simple and moody -- dark tones or a few flat clouds, never a large empty WHITE sky.
 """
 
 REF_OBJECT = """Use case: reference sheet
-Asset type: a single object reference for an Apple II HGR gamebook
+Asset type: a single object reference for an Apple II DHGR gamebook
 Primary request: ONE object alone, completely visible, centered on a plain solid black background. No hand, wearer, person, creature, scene or ground.
-Composition/framing: close enough for its defining silhouette and ornament to remain unmistakable after reduction to 280x192; nothing cropped.
+Composition/framing: close enough for its defining silhouette and ornament to remain unmistakable after reduction to 140x192 DHGR colour pixels; nothing cropped.
 """
 
 REF_TAIL = COMMON_STYLE + """
 
-HGR DETAIL TARGET — NON-NEGOTIABLE: balanced intermediate detail, neither a pictogram nor dense concept art. Primary silhouettes are bold; secondary lines remain 2-4 pixels thick after reduction to 280x192. Use only a limited number of broad meaningful interior marks. No hairlines, fine hatching, stippling, micro-texture, gradients or decorative noise.
+DHGR DETAIL TARGET — NON-NEGOTIABLE: balanced intermediate detail, neither a pictogram nor dense concept art. Primary silhouettes are bold; secondary lines remain 2-4 colour pixels thick after reduction to 140x192. Use a limited number of broad meaningful interior marks. No hairlines, fine hatching, stippling, micro-texture, gradients or decorative noise.
 
 This sheet is the CANON. Every later illustration of this subject will be drawn
 from it, so the shapes and colours chosen here must be unambiguous.

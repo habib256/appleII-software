@@ -8,7 +8,7 @@ static int read_byte(FILE* input)
 int hgr_rle_decode_file(FILE* input, unsigned char* dst,
                         unsigned int dst_size)
 {
-    static const unsigned char magic[4] = { 'H', 'G', 'R', 'R' };
+    static const unsigned char magic[4] = { 'D', 'H', 'R', 'R' };
     unsigned int produced = 0;
     unsigned int expected;
     unsigned int i;

@@ -74,7 +74,7 @@ run_one() {
     done < "$d/refs"
 
     mkdir -p "$GEN_ROOT/$(dirname "$dest")"
-    printf '%s\n\nGenerate this image and save it to %s as a PNG. Resolution: HIGH -- the short side must be at least 1000 pixels (e.g. 1400x960 landscape, 1024x1536 portrait). Never output the bare 280x192 display size: this file is a master reference and needs the detail.\n' \
+    printf '%s\n\nGenerate this image and save it to %s as a PNG. Resolution: HIGH -- the short side must be at least 1000 pixels (e.g. 1400x960 landscape, 1024x1536 portrait). Never output the bare 140x192 DHGR colour display size: this file is a master reference and needs the detail.\n' \
         "$(cat "$d/prompt")" "$GEN_ROOT/$dest" \
         | codex exec "${args[@]}" - > "$d/log" 2>&1 || true
 

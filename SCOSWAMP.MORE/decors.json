@@ -2,7 +2,7 @@
  "_comment": [
   "Bible des decors. Le Marais doit se ressembler d'une clairiere a l'autre :",
   "meme lumiere, meme vegetation, meme sol. Meme regle que les deux autres",
-  "fichiers, palette HGR uniquement."
+  "fichiers, palette DHGR 16 couleurs uniquement."
  ],
  "characters": [
   {
@@ -395,7 +395,7 @@
     "tower"
    ],
    "source": "livre, paragraphe 40",
-   "look": "STRATAGUS'S TOWER: one massive squat VIOLET stone tower rising alone from the marsh, built from only six broad violet stone courses separated by THICK BLACK bands and outlined in BLACK; one WHITE arched entrance and two large WHITE-lit arches. Sparse GREEN reeds and small BLUE pools surround its base. No black facade, mountains, distant landscape, ornate masonry, tiny bricks, bats, gargoyles or filigree.",
+   "look": "STRATAGUS'S TOWER: one ominous massive squat VIOLET stone fortress beside the marsh, built from six broad courses separated by THICK BLACK bands. Its heavy central door bears one huge carved grimacing face; two tall WHITE-lit gothic arcades pierce the upper tower; exactly two broad gargoyles crouch on the parapet and two large grimacing stone statues guard the approach. Sparse DARK-GREEN reeds and MEDIUM-BLUE pools frame the base. No black facade, mountains, clouds, bats, tiny bricks, ornate filigree or micro-texture.",
    "ref": "SCOSWAMP.MORE/REF/TOUR.png"
   },
   {
