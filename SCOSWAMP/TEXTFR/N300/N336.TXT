@@ -1,21 +1,22 @@
 T 336 Le bassin de Vase
-V 137
+V 137 153
 
-Vous vous trouvez dans une zone particulierement marecageuse, et chacun de vos
-pas produit sur le sol un bruit de succion. Bientot, le chemin tourne
+   Vous vous trouvez dans une zone particulierement marecageuse, et chacun de
+vos pas produit sur le sol un bruit de succion. Bientot, le chemin tourne
 legerement et longe un grand bassin. Vous vous trouvez dans une clairiere a
-laquelle on ne peut acceder que par ce seul sentier. C'est la Clairiere n 28.
+laquelle on ne peut acceder que par ce seul sentier.
 
-L'eau du bassin est agite de vaguelettes et une Vase verdatre en recouvre la
-surface. Ce n'est certainement pas la que vous souhaiteriez vous desalterer !
-Soudain, la fange du bassin parait se contracter et vous etes stupefait de la
-voir se soulever et se repandre sur le sentier, vous barrant le passage. Il
+   L'eau du bassin est agitee de vaguelettes et une Vase verdatre en recouvre
+la surface. Ce n'est certainement pas la que vous souhaiteriez vous desalterer
+! Soudain, la fange du bassin parait se contracter et vous etes stupefait de
+la voir se soulever et se repandre sur le sentier, vous barrant le passage. Il
 s'agit la d'un gros tas de VASE visqueuse de deux metres de large qui degage
 une odeur repugnante en rampant lentement vers vous.
 
-Qu'allez- vous faire ?
+   Qu'allez-vous faire ?
 
+MU VASE.MB
 C 085 Vous enfuir
-C 257 Essayer de sauter pardessus
-C 171 L'attaquer avec votrepe
+C 257 Essayer de sauter par-dessus
+C 171 L'attaquer avec votre epee
 C 400 Recourir a la magie

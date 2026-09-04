@@ -1,6 +1,6 @@
 T 300 The Giant Has Left
 
-There's no more trace of the enormous Giant: he must have left. You therefore
-continue your path.
+   There's no more trace of the enormous Giant: he must have left. You
+therefore continue your path.
 
 C 161 Continue

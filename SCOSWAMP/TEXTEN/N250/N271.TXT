@@ -1,6 +1,6 @@
 T 271 Treacherous Blow to the Wolf Master
 
-As you pass before the Wolf Master, you strike a blow with your blade from
+   As you pass before the Wolf Master, you strike a blow with your blade from
 behind. This cowardly act costs you 1 LUCK point. The wound inflicted on the
 Master will reduce by 2 points his STAMINA total during the combat that
 follows.

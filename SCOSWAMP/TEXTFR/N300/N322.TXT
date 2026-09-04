@@ -1,6 +1,6 @@
 T 322 Pierre de Fletrissure
 
-La Pierre de Fletrissure desseche l'Herbe a Pinces et vous n'avez plus qu'a
-trancher ses tiges mortes avant de vous rendre au 81.
+   La Pierre de Fletrissure desseche l'Herbe a Pinces et vous n'avez plus qu'a
+trancher ses tiges mortes avant de poursuivre votre chemin.
 
 C 081 Continuer

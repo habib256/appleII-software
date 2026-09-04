@@ -1,9 +1,9 @@
 T 156 Pile of Gravel
 
-Out of breath but alive, you see your adversary reduced to a pile of gravel on
-the floor.
+   Out of breath but alive, you see your adversary reduced to a pile of gravel
+on the floor.
 
-You burst out laughing, throw Stratagus a mocking glance and toss the table
+   You burst out laughing, throw Stratagus a mocking glance and toss the table
 leg over your shoulder; it lands on the debris of a bookcase. Stratagus
 contemplates the disorder that now reigns in the room.
 

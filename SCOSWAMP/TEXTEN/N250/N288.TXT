@@ -1,9 +1,10 @@
 T 288 The Bird Mistress
 
-Your ring remains cold, it's clear the Bird Mistress is a good sorceress. She
-wears around her neck the Silver bird-shaped Amulet you're tasked to steal.
+   Your ring remains cold, it's clear the Bird Mistress is a good sorceress.
+She wears around her neck the Silver bird-shaped Amulet you're tasked to
+steal.
 
-What will you do?
+   What will you do?
 
 C 391 Attack her
 C 184 Tell her about your mission

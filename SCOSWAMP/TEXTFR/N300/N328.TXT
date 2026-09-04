@@ -1,17 +1,17 @@
 T 328 Pierre d'Amitie sur le Geant
 
-Le Geant n'est finalement pas si mechant qu'il en a l'air. Quelque chose l'a
-rendu furieux, tout simplement, et lorsque vous lui jetez la Pierre Magique
-d'Amitie, il se met a rire en laissant tomber sa massue par terre.
+   Le Geant n'est finalement pas si mechant qu'il en a l'air. Quelque chose
+l'a rendu furieux, tout simplement, et lorsque vous lui jetez la Pierre
+Magique d'Amitie, il se met a rire en laissant tomber sa massue par terre.
 
-" Je me demande bien pourquoi je vous ai parle ainsi, dit-il. Vous n'y etes
+   "Je me demande bien pourquoi je vous ai parle ainsi, dit-il. Vous n'y etes
 pour rien, je m'etais mis en colere contre quelqu'un d'autre. Qu'est-ce qui
-vous amene ici ? Si je puis vous aider, je serais heureux de le faire. "
+vous amene ici ? Si je puis vous aider, je serais heureux de le faire."
 
-Soulage que votre sortilege ait evite une effusion de sang, vous lui parlez de
-votre mission.
+   Soulage que votre sortilege ait evite une effusion de sang, vous lui parlez
+de votre mission.
 
-Quel sorcier avez-vous decide de servir ?
+   Quel sorcier avez-vous decide de servir ?
 
 C 244 Gayolard
 C 317 Stratagus

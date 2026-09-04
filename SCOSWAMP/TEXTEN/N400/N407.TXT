@@ -1,7 +1,7 @@
 T 407 The Item Given to the Brigands
-PO
 
-You hand the Chief the first valuable item within reach in your bag. The
+   You hand the Chief the first valuable item within reach in your bag. The
 Copper Ring remains on your finger. The bargain is honoured.
 
+PO
 C 019 Resume your journey

@@ -1,9 +1,9 @@
 T 216 Too Many Scorpions
 
-They are far too numerous to be fought one by one. Already they climb on your
-boots and along your legs.
+   They are far too numerous to be fought one by one. Already they climb on
+your boots and along your legs.
 
-Their stingers sting you: roll 1 die and lose as much STAMINA. Furious, you
+   Their stingers sting you: roll 1 die and lose as much STAMINA. Furious, you
 leap over the melee and rush out of the zone.
 
 ED ENDURANCE -1

@@ -1,9 +1,9 @@
 T 237 Ineffective Withering
 
-You throw the Withering Stone; the spell has no effect. The Basin creature is
-an animal, not a plant: magic doesn't touch it. All that's left is to face it
-hand-to-hand.
+   You throw the Withering Stone; the spell has no effect. The Basin creature
+is an animal, not a plant: magic doesn't touch it. All that's left is to face
+it hand-to-hand.
 
-What do you do?
+   What do you do?
 
 C 082 Attack the Basin Beast with your sword

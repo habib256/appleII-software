@@ -1,9 +1,13 @@
 T 049 Selling the Ring
+
+   Driven by the lure of profit, you remove your Copper Ring. You toss it on
+the table; Pompatarte hands you a bag and counts out one hundred Gold Pieces.
+
+   You now have enough money to live for several years without working.
+Without the Ring, there's no question of risking yourself in the Swamp: your
+adventure therefore ends before it began.
+
+   END OF ADVENTURE.
+
 GX ANNEAU
-
-Driven by the lure of profit, you remove your Copper Ring. You toss it on the
-table; Pompatarte hands you a bag and counts out one hundred Gold Pieces.
-
-You now have enough money to live for several years without working. Without
-the Ring, there's no question of risking yourself in the Swamp. Your adventure
-ends here.
+MU +MORT.MB

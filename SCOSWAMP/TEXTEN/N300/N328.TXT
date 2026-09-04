@@ -1,16 +1,16 @@
 T 328 Friendship Stone on the Giant
 
-The Giant isn't finally as mean as he looks. Something made him furious,
+   The Giant isn't finally as mean as he looks. Something made him furious,
 simply, and when you throw him the Friendship Magic Stone, he starts laughing
 letting his club drop to the ground.
 
-"I really wonder why I spoke to you like that," he says. "It's not your fault,
-I had gotten angry at someone else. What brings you here? If I can help you,
-I'd be happy to do so."
+   "I really wonder why I spoke to you like that," he says. "It's not your
+fault, I had gotten angry at someone else. What brings you here? If I can help
+you, I'd be happy to do so."
 
-Relieved that your spell avoided bloodshed, you tell him of your mission.
+   Relieved that your spell avoided bloodshed, you tell him of your mission.
 
-Which sorcerer have you decided to serve?
+   Which sorcerer have you decided to serve?
 
 C 244 Gayolard
 C 317 Stratagus

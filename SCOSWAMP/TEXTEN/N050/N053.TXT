@@ -1,14 +1,16 @@
 T 053 Frog Clearing
+V 329 230
 
-Progressing south, the croaking of thousands of frogs accompanies you. The
+   Progressing south, the croaking of thousands of frogs accompanies you. The
 path leads to a clearing dotted with ponds.
 
-Huge mushrooms stand in the middle; a small man is sitting on one of them. He
-is small and corpulent, with black eyes and twitching eyelids. His mouth is
+   Huge mushrooms stand in the middle; a small man is sitting on one of them.
+He is small and corpulent, with black eyes and twitching eyelids. His mouth is
 abnormally wide; two enormous frogs guard him. A silver amulet in the shape of
-a frog hangs from his neck and glows faintly. You are in Clearing No. 008.
+a frog hangs from his neck and glows faintly.
 
-What do you do?
+   What do you do?
 
+MU GRENOUILLES.MB
 C 013 Respond with kindness
 C 062 Attack the Frog Master

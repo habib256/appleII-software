@@ -1,10 +1,10 @@
 T 212 The Frog Master
 
-The Sorcerer looks at you warily. "Ah, the Asphodel... I know it," he says.
+   The Sorcerer looks at you warily. "Ah, the Asphodel... I know it," he says.
 "But I'm only a neutral sorcerer, and these bushes have no power for me. Why
 therefore should I help you?"
 
-His voice is soft, but his gaze, cold as swamp slime. Around him, his giant
+   His voice is soft, but his gaze, cold as swamp slime. Around him, his giant
 frogs croak, ready to leap. He awaits your answer, fingers placed on his
 silver amulet.
 

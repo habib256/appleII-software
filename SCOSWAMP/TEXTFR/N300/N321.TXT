@@ -1,10 +1,10 @@
 T 321 Nager jusqu'au pont
 
-Vous pensez que vous pouvez peut-etre atteindre le pont en nagant dans la
+   Vous pensez que vous pouvez peut-etre atteindre le pont en nagant dans la
 riviere.
 
-Peut-etre meme existe-t-il quelque part un chemin oriente vers l'est que vous
-pourrez emprunter. Vous aurez en tout cas une longue distance a parcourir et
-vous vous y preparez soigneusement.
+   Peut-etre meme existe-t-il quelque part un chemin oriente vers l'est que
+vous pourrez emprunter. Vous aurez en tout cas une longue distance a parcourir
+et vous vous y preparez soigneusement.
 
 C 030 Se preparer

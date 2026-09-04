@@ -1,12 +1,13 @@
 T 227 The Choice of Paths
 
-Three paths allow you to leave the clearing. The one leading eastward seems
+   Three paths allow you to leave the clearing. The one leading eastward seems
 narrower and darker than the others. The northern trail rises slightly and
 promises more dry air; the western one seems to return to places already seen.
 Silence weighs, only broken by the buzzing of flies.
 
-In which direction do you wish to go?
+   In which direction do you wish to go?
 
+MU ARENE.MB
 C 066 Take the trail rising northward
 C 388 Take the narrow passage eastward
 C 320 Take the path returning westward

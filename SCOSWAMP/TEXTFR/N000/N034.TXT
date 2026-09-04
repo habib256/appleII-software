@@ -1,12 +1,12 @@
 T 034 Choix de pierre
 
-Quelle Pierre de Magie utilisez-vous contre la BETE DU BASSIN ?
+   Quelle Pierre de Magie utilisez-vous contre la BETE DU BASSIN ?
 
-FLETRISSURE: ralentit et affaiblit la creature, utile pour controler. FEU:
+   FLETRISSURE: ralentit et affaiblit la creature, utile pour controler. FEU:
 inflige des degats immediats mais peut reveler votre position. TERREUR: risque
 de paniquer la bete; effet variable selon la cible.
 
-Attention: l'emploi consume la Pierre choisie; verifiez votre inventaire.
+   Attention: l'emploi consume la Pierre choisie; verifiez votre inventaire.
 
 C 237 UTILISER FLETRISSURE
 C 291 UTILISER FEU

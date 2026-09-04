@@ -1,13 +1,13 @@
 T 099 Stratagus's Purse
-GA 0
 
-You hand over to Stratagus the Amulets conquered at the cost of the perils of
-the Scorpion Swamp. He seizes them with a snicker, leaves the room, then
+   You hand over to Stratagus the Amulets conquered at the cost of the perils
+of the Scorpion Swamp. He seizes them with a snicker, leaves the room, then
 returns with a small purse that appears heavy.
 
-With a quick gesture, he tosses it to you. You hear the clinking of coins
+   With a quick gesture, he tosses it to you. You hear the clinking of coins
 inside.
 
-"Now, be off!" he says. "Never come back, I'm done with you."
+   "Now, be off!" he says. "Never come back, I'm done with you."
 
+GA 0
 C 242 Leave Stratagus

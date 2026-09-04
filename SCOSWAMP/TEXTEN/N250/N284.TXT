@@ -1,17 +1,18 @@
 T 284 Goblin Statue
 
-The stone creature advances toward you dragging its feet while Stratagus,
+   The stone creature advances toward you dragging its feet while Stratagus,
 quite satisfied with this spectacle, emits little diabolical laughs.
 Obviously, your sword will be of no help against an opponent hard as rock.
 
-You think for a fraction of a second then you bring down your weapon on the
+   You think for a fraction of a second then you bring down your weapon on the
 sorcerer's table: the blade splits the wood and you manage to detach one of
 the table's legs. You then drop your sword and you face the statue with this
 improvised club that will be much more effective in the present situation.
 
-Stratagus, impressed by your strength and the promptness of your reflexes,
+   Stratagus, impressed by your strength and the promptness of your reflexes,
 stops laughing and carefully observes the combat.
 
+MU +COMBAT.MB
 M 7 6 GOBLIN STATUE
 CF 315 Flee
 MV 156

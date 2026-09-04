@@ -1,19 +1,19 @@
 T 163 Le duel des Brigands
 
-Vous avancez dans la clairiere d'un pas tranquille. Les cinq Brigands, surpris
-par votre assurance, s'arretent net. "He la ! Ou allez-vous donc ainsi ?"
-demande l'un d'eux. "Au nord", repondez-vous calmement.
+   Vous avancez dans la clairiere d'un pas tranquille. Les cinq Brigands,
+surpris par votre assurance, s'arretent net. "He la ! Ou allez-vous donc ainsi
+?" demande l'un d'eux. "Au nord", repondez-vous calmement.
 
-Votre sang-froid les impressionne. Ces hommes ont l'habitude de taxer les
+   Votre sang-froid les impressionne. Ces hommes ont l'habitude de taxer les
 voyageurs, mais ils ne sont pas des assassins. Leur chef, un gaillard a la
 barbe en bataille, s'avance alors :
 
-"Nous ne volons pas les braves gens, dit-il. Mais si vous etes si sur de vous,
-prouvons-le en duel ! Premier sang declare le vainqueur : - Si je vous touche,
-vous me donnerez un objet de valeur. - Si c'est vous qui me blessez, nous vous
-laissons passer sans rien demander."
+   "Nous ne volons pas les braves gens, dit-il. Mais si vous etes si sur de
+vous, prouvons-le en duel ! Premier sang declare le vainqueur : - Si je vous
+touche, vous me donnerez un objet de valeur. - Si c'est vous qui me blessez,
+nous vous laissons passer sans rien demander."
 
-Acceptez-vous ce defi ?
+   Acceptez-vous ce defi ?
 
 C 079 Accepter le duel
 C 353 Refuser et tenter une autre approche

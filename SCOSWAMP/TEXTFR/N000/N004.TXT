@@ -1,15 +1,15 @@
 T 004 Statue de gobelin
 
-Le sorcier eclate d'un rire mauvais et vous nargue sans retenue. "Je ne vais
-pas gaspiller mon energie a combattre un si pietre adversaire." D'un geste il
-designe une niche dans le mur: la STATUE D'UN GOBELIN s'y dresse.
+   Le sorcier eclate d'un rire mauvais et vous nargue sans retenue. "Je ne
+vais pas gaspiller mon energie a combattre un si pietre adversaire." D'un
+geste il designe une niche dans le mur: la STATUE D'UN GOBELIN s'y dresse.
 
-La statue se met aussitot en mouvement et avance vers vous, epee brandie. Sa
-marche crisse sur le sol; la pierre semble anime d'une volonte froide. Le
+   La statue se met aussitot en mouvement et avance vers vous, epee brandie.
+Sa marche crisse sur le sol; la pierre semble animee d'une volonte froide. Le
 sorcier vous defie: faites la preuve de votre bravoure contre la statue ou
 ripostez directement contre Stratagus, s'il vous semble plus digne.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 284 Combattre la statue de gobelin
 C 123 Attaquer Stratagus le sorcier

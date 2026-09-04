@@ -1,18 +1,18 @@
 THE KEYS
   [A-E] Scene choice (never a command)
   [SPACE/RETURN/ESC] Text, HGR picture, then picture and text
-  [I] Bag: items, Magic Stones and amulets
-  [S]/[L] Save/load PARTIE0 to PARTIE9; [H] help; [Q] quit
+  [I] Bag: items, Magic Stones and amulets; [M] Map of the Swamp
+  [S]/[L] Saved games (write / resume); [H] help; [Q] quit
+
+MAP
+  One cell per clearing, empty until you have set foot in it
+  (nn) seen; <nn> you are here; -- path walked; -? path known, not yet taken
+  [M]/[ESC] closes it; without the Copper Ring, compasses lose their north
 
 SAVED GAMES
-  [0-9] Slot, only after [S] or [L]
-  Saved state: scene, hero, items, amulets, visits and monsters
+  [0-9] Slot; each game carries the title of the page it stands on
+  Saved state: scene, hero, items, amulets, visits, monsters, clearing
   A missing, incomplete or corrupt file is rejected
-
-AMULETS
-  Wolf, Flower, Bird, Spider and Frog are distinct
-  The fake Bird stays distinct; Stratagus counts 0, 1-2 or 3+
-  Handing them in removes them from the bag and adds the reward
-
-BAG: [A-L] picks a Stone; [ESC] closes; commands are suspended
-FIGHT: [SPACE] attack; [C] Luck; [F] Flee; [I] bag; [ESC] picture
+AMULETS: Wolf, Flower, Bird, Spider, Frog; the fake Bird stays a thing apart
+BAG: [A-L] picks a Stone; [I] or [ESC] closes; commands are suspended
+FIGHT: [SPACE] attack; [C] Luck; [F] Flee; [I] bag; [M] map

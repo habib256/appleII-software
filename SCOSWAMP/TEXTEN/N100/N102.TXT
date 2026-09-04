@@ -1,6 +1,6 @@
 T 102 The Foul Beast
 
-Although you have a head start, the Foul Beast quickly gains ground. You
+   Although you have a head start, the Foul Beast quickly gains ground. You
 exhaust yourself running and lose 1 STAMINA point.
 
 E ENDURANCE -1

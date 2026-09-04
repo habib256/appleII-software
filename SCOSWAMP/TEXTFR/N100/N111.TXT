@@ -1,9 +1,9 @@
 T 111 La Maitresse des Oiseaux
 
-Vous ne souhaitez pas attaquer la Maitresse des Oiseaux, mais vous voulez
+   Vous ne souhaitez pas attaquer la Maitresse des Oiseaux, mais vous voulez
 obtenir ce que vous cherchez.
 
-Vous lui lancez une Pierre Magique d'Amitie. Elle rit aussitot : "Stupide
+   Vous lui lancez une Pierre Magique d'Amitie. Elle rit aussitot : "Stupide
 aventurier ! dit-elle. Ignoriez-vous qu'une bonne sorciere est deja l'amie de
 tous ? Vous avez gache votre Pierre !"
 

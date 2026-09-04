@@ -1,11 +1,12 @@
 T 308 Le Bijou Violet
+
+   La Bete du Bassin est enfin morte.
+
+   A l'aide de votre epee, vous entaillez la chair de son front pour en
+detacher le gros Bijou Violet et vous repartez aussitot sans oublier
+d'inscrire votre nouvelle acquisition sur votre Feuille d'Aventure. Le seul
+chemin qui permet de quitter la clairiere vous ramene vers l'ouest.
+
+MU BASSIN.MB
 G BJ
-
-La Bete du Bassin est enfin morte.
-
-A l'aide de votre epee, vous entaillez la chair de son front pour en detacher
-le gros Bijou Violet et vous repartez aussitot sans oublier d'inscrire votre
-nouvelle acquisition sur votre Feuille d'Aventure. Le seul chemin qui permet
-de quitter la clairiere vous ramene vers l'ouest.
-
 C 330 Continuer vers l'ouest

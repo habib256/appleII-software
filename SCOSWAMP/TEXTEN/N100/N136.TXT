@@ -1,8 +1,8 @@
 T 136 Deflected Flame
 
-You throw a Fire Stone at the Garden Master. But with a simple gesture, he
+   You throw a Fire Stone at the Garden Master. But with a simple gesture, he
 deflects the flame effortlessly.
 
-You then decide to attack him.
+   You then decide to attack him.
 
 C 379 Go on the attack

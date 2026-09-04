@@ -1,9 +1,9 @@
 T 406 The Scorpions' Stings
 
-Your leap falls short: you land in the midst of the Scorpions and their stings
-pierce you. You lose 3 STAMINA points.
+   Your leap falls short: you land in the midst of the Scorpions and their
+stings pierce you. You lose 3 STAMINA points.
 
-If you are still alive, you stagger free and resume your journey.
+   If you are still alive, you stagger free and resume your journey.
 
 E ENDURANCE -3
 C 319 Continue

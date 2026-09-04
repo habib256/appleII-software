@@ -1,7 +1,7 @@
 T 259 The Brigands
 
-The brigands startle in surprise, but they recover quickly and face you. When
-they see you're alone, their anger rises; they cover you with insults and rush
-at you, weapons brandished. There's no way out but combat.
+   The brigands startle in surprise, but they recover quickly and face you.
+When they see you're alone, their anger rises; they cover you with insults and
+rush at you, weapons brandished. There's no way out but combat.
 
 C 235 Fight them

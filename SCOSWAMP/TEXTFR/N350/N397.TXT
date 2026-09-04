@@ -1,8 +1,9 @@
 T 397 Fuite de la creature
 
-Vous ne voulez rien avoir a faire avec cette creature et vous quittez donc la
-clairiere aussi vite que possible.
+   Vous ne voulez rien avoir a faire avec cette creature et vous quittez donc
+la clairiere aussi vite que possible.
 
-L'unique chemin qui vous permette de repartir vous ramene vers l'ouest.
+   L'unique chemin qui vous permette de repartir vous ramene vers l'ouest.
 
+MU BASSIN.MB
 C 330 Continuer vers l'ouest

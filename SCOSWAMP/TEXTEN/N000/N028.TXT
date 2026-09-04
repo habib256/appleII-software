@@ -1,12 +1,15 @@
 T 028 The Sword Trees
 
-Several SWORD TREES attack you as if they formed a single adversary. They
+   Several SWORD TREES attack you as if they formed a single adversary. They
 cannot see you and only locate themselves by the sounds you make. Each of them
 bears several branches armed with sharp blades, and they converge in silence.
 You have an advantage: they only detect sound. Show caution and precision in
-your attack. Face them by applying the combat rules from the book. If you
-defeat them, continue reading at the indicated number. Otherwise, your corpse
-will serve as fertilizer for the swamp.
+your attack.
 
+   Face them by applying the combat rules from the book. If you defeat them,
+continue reading at the indicated number. Otherwise, your corpse will serve as
+fertilizer for the swamp.
+
+MU +COMBAT.MB
 M 9 12 SWORD TREES
 MV 362

@@ -51,9 +51,17 @@ typedef enum {
 typedef enum {
     OBJ_ANNEAU = 0, OBJ_CAPE, OBJ_CHAINE, OBJ_AIMANT,
     OBJ_FIOLE, OBJ_BAIE, OBJ_EPEMAGIQUE, OBJ_BIJOU, OBJ_CORNE, OBJ_PLUMES,
+    OBJ_GRAINES,
     OBJ_ANTHERIQUE,
     OBJ_COUNT
 } Object;
+
+/* Les drapeaux caches se rangent APRES les objets, et OBJ_HIDDEN0 est le
+ * premier d'entre eux : tout ce qui le precede a un nom et se montre dans le
+ * sac, tout ce qui le suit est un fait narratif. Ajouter un objet = l'ecrire
+ * juste avant OBJ_ANTHERIQUE, ici et dans build_objects.py, et le sac comme
+ * le vol de PD/PO suivent d'eux-memes. */
+#define OBJ_HIDDEN0 OBJ_ANTHERIQUE
 
 typedef enum {
     AMULET_LOUP = 0, AMULET_FLEUR, AMULET_OISEAU,
@@ -177,9 +185,21 @@ typedef enum {
 } RoundOutcome;
 
 typedef struct {
-    unsigned char hero_force;      /* 2d6 + HABILETE du heros */
+    /* Les deux des de chacun, gardes a part de leur somme : "chacun lance
+     * deux des". Un total tout fait ne se lit pas comme un jet -- l'ecran
+     * doit pouvoir montrer "4 + 3 + 11 = 18", sinon le joueur n'a plus qu'un
+     * verdict, et un verdict n'a pas de suspense. Quatre octets de plus dans
+     * l'unique Round de run_combat -- pas un de plus par adversaire. */
+    unsigned char hero_d1, hero_d2;
+    unsigned char monster_d1, monster_d2;
+    unsigned char hero_force;      /* 2d6 + HABILETE du heros (+ Epee Magique) */
     unsigned char monster_force;   /* 2d6 + HABILETE de la creature */
-    RoundOutcome  outcome;
+    /* Un RoundOutcome, range dans un octet et non dans l'enum lui-meme. Sur
+     * cc65 un enum est un `int` : chaque comparaison passait par le jeu
+     * d'appels 16 bits (pushax, toscmp...), et le seul fait de descendre ce
+     * champ a un octet a rendu 63 octets de code -- de quoi payer les quatre
+     * des ci-dessus cinq fois. Le type reste documente ici. */
+    unsigned char outcome;
 } Round;
 
 /* Un assaut : etapes 1 a 3 du livre. Ne modifie rien, se contente de jeter les
@@ -236,14 +256,17 @@ void monster_remember(unsigned int scene, int index, const Monster* m);
  * description longue la premiere fois et une courte ensuite. Le livre confie
  * ce comptage au joueur ; le portage le tient lui-meme, par la ligne `V`.
  *
- * Un bit par paragraphe, 412 bits = 52 octets -- assez peu pour ne pas
- * chercher plus malin, et sans le plafond d'une table clairsemee. */
+ * Un bit par paragraphe, 419 bits arrondis a 53 octets -- assez peu pour ne
+ * pas chercher plus malin, et sans le plafond d'une table clairsemee. Le
+ * corpus est monte a 419 pages avec le prologue de Bourbenville : a 52 octets
+ * la memoire s'arretait au 415 et les lignes V posees au-dela n'auraient
+ * jamais declenche, en silence. */
 void scene_memory_reset(void);
 int  scene_visited(unsigned int scene);
 void scene_mark_visited(unsigned int scene);
 
 /* Etat opaque exporte pour la sauvegarde. Les tailles sont stables sur cc65. */
-#define SCENE_MEMORY_SIZE 52
+#define SCENE_MEMORY_SIZE 53
 #define MONSTER_MEMORY_SIZE (MONSTER_SLOTS * 4)
 void scene_memory_export(unsigned char* out);
 void scene_memory_import(const unsigned char* in);

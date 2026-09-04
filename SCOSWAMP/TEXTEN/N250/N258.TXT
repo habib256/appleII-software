@@ -1,9 +1,9 @@
 T 258 Resorting to Magic
 
-Resorting to magic against a sorcerer is a hazardous enterprise. The air
+   Resorting to magic against a sorcerer is a hazardous enterprise. The air
 vibrates, energy rumbles around your hands. Each spell has a price.
 
-"Fear" can break his will, but risks provoking paralyzing visions.
+   "Fear" can break his will, but risks provoking paralyzing visions.
 "Friendship" attempts to corrupt his heart or sow doubt; subtle approach.
 Doing nothing allows you to observe and keep the initiative, but you lose the
 advantage of being first to act. Weigh the power, cost and risk.

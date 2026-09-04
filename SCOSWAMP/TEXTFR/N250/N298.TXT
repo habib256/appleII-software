@@ -1,17 +1,20 @@
 T 298 Fuite de la tour
 
-Vous vous hatez de sortir de la piece, vous courez le long du couloir sombre
-et vous franchissez la porte a la hideuse sculpture. Bientot, la tour
+   Vous vous hatez de sortir de la piece, vous courez le long du couloir
+sombre et vous franchissez la porte a la hideuse sculpture. Bientot, la tour
 malefique est loin derriere vous.
 
-Vous avez la vie sauve, mais qu'avez-vous gagne? Vous avez combattu des
+   Vous avez la vie sauve, mais qu'avez-vous gagne? Vous avez combattu des
 adversaires redoutables en affrontant la mort des dizaines de fois et tout
 cela pour quoi ? Un Sorcier malfaisant est un maitre bien ingrat qu'il est
 perilleux de servir.
 
-Vous pouvez vous estimer heureux cependant d'avoir echappe si facilement aux
-griffes de Stratagus. Au moins avez-vous rendu un grand service au monde en le
-debarrassant d'un mage aussi nuisible, mais vous vous promettez a l'avenir de
-vous montrer plus circonspect dans le choix des maitres que vous servirez.
-Pour l'instant, en tout cas, votre aventure est termine.
+   Vous pouvez vous estimer heureux cependant d'avoir echappe si facilement
+aux griffes de Stratagus. Au moins avez-vous rendu un grand service au monde
+en le debarrassant d'un mage aussi nuisible, mais vous vous promettez a
+l'avenir de vous montrer plus circonspect dans le choix des maitres que vous
+servirez. Pour l'instant, en tout cas, votre aventure est terminee.
 
+   FIN DE L'AVENTURE.
+
+MU -

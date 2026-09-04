@@ -1,6 +1,6 @@
 T 399 Magie contre les Orques
 
-Quelle Pierre de Magie allez-vous utiliser contre les Orques des Marais ?
+   Quelle Pierre de Magie allez-vous utiliser contre les Orques des Marais ?
 
 CU TERREUR 346 Une Pierre de Terreur
 CU ILLUSION 169 d'Illusion

@@ -1,15 +1,16 @@
 T 053 Clairiere des grenouilles
+V 329 230
 
-En progressant vers le sud, le coassement de milliers de grenouilles vous
-accompagne. Le sentier debouche sur une clairiere parseme de mares.
+   En progressant vers le sud, le coassement de milliers de grenouilles vous
+accompagne. Le sentier debouche sur une clairiere parsemee de mares.
 
-D'immenses champignons se dressent au milieu; un petit homme est assis sur
-l'un d'eux. Il est petit et corpulent, aux yeux noirs et paupieres agites. Sa
+   D'immenses champignons se dressent au milieu; un petit homme est assis sur
+l'un d'eux. Il est petit et corpulent, aux yeux noirs et paupieres agitees. Sa
 bouche est anormalement large; deux enormes grenouilles le gardent. Une
 amulette d'argent en forme de grenouille pend a son cou et luit faiblement.
-Vous etes dans la Clairiere n 008.
 
-Que faites-vous?
+   Que faites-vous?
 
+MU GRENOUILLES.MB
 C 013 Repondre avec amabilite
 C 062 Attaquer le Maitre des Grenouilles

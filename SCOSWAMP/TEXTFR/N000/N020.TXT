@@ -1,9 +1,9 @@
 T 020 Saveur bienfaisante
 
-Le fruit a un gout delicieux; une sensation de bien-etre vous envahit.
+   Le fruit a un gout delicieux; une sensation de bien-etre vous envahit.
 
-Vous recuperez 2 points d'ENDURANCE et 1 point de CHANCE immediatement. Vous
-ne decouvrez rien d'interessant d'autre; il est temps de repartir.
+   Vous recuperez 2 points d'ENDURANCE et 1 point de CHANCE immediatement.
+Vous ne decouvrez rien d'interessant d'autre; il est temps de repartir.
 
 E ENDURANCE +2
 E CHANCE +1

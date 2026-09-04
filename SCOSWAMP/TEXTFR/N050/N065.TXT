@@ -1,16 +1,18 @@
 T 065 Clairiere aux brigands
+V 343 019
 
-Le sentier suit un trace sinueux; vous ne vous en ecartez pas. Vous contournez
-un grand champignon ou grouillent des creatures.
+   Le sentier suit un trace sinueux; vous ne vous en ecartez pas. Vous
+contournez un grand champignon ou grouillent des creatures.
 
-Bientot, vous approchez d'une autre clairiere: des voix parviennent. Cache
+   Bientot, vous approchez d'une autre clairiere: des voix parviennent. Cache
 derriere un arbre, vous epiez un groupe de cinq hommes. D'apres leur tenue et
 leur langage, ce sont probablement des BRIGANDS. L'Anneau de Cuivre reste
 froid: ils ne paraissent pas malfaisants. Il serait cependant stupide de
-prendre des risques inutiles. Vous etes dans la Clairiere n 009.
+prendre des risques inutiles.
 
-Que faites-vous?
+   Que faites-vous?
 
+MU BRIGANDS.MB
 C 137 Revenir sur vos pas le long du chemin emprunte
 C 231 Vous ruer sur eux en criant et brandissant votre epee
 C 387 Faire usage de magie depuis votre cachette

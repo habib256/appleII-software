@@ -18,13 +18,15 @@ pas une estimation) :
 | Zone | État |
 | --- | --- |
 | `$0800-$0BFF` | tampon d'E/S ProDOS (via `apple2enh-iobuf-0800.o`) |
-| `$0C00-$1FFF` | **5 Ko libres, inutilisés** |
+| `$0C00-$0FFF` | **segment `MAPBSS`** (2026-09-04) : le fichier `MAP` du menu carte, le bitmap `visited`, quelques tampons — 1 024 o, plein. Le « 2e fichier ouvert » n'a jamais existé : le jeu n'en ouvre qu'un |
+| `$1000-$1FFF` | **segment `LOWBSS`** (2026-09-03) : catalogue, tampon de page, tampon HGR, barre de titre — 3 869 o, reste 227 |
 | `$2000-$3FFF` | HGR page 1 (et le lanceur `SCOSWAMP.SYSTEM`, mort après le saut) |
-| `$4000-$97xx` | code + données |
-| `$97xx-$A3D9` | BSS |
-| `$B700-$BF00` | pile C (2 Ko) — **tas ≈ 4 900 octets** |
-| `$D000-$FFFF` | Language Card — **16 Ko inutilisés** |
-| AUX 64 Ko | seul `$400-$7FF` sert (page texte 80 col) — **~46 Ko libres** |
+| `$4000-$A0xx` | code + données (25 Ko) |
+| `$A0xx-$A2xx` | BSS principale (~600 o) |
+| `$A2xx-$BD80` | tas — **~7 500 octets de marge** (2026-09-03 soir ; 184 le matin) |
+| `$BD80-$BF00` | pile C (384 o) |
+| `$D400-$DFFF` | Language Card banque 2 : segment `LC`, **plein** (3 030/3 072). Le reste de la LC est à ProDOS 8 |
+| AUX 64 Ko | seul `$400-$7FF` sert (page texte 80 col) — **~47 Ko libres**, pilote `a2e.auxmem.emd` de cc65 disponible |
 
 Par ordre de rendement décroissant :
 
@@ -59,16 +61,18 @@ Par ordre de rendement décroissant :
   basculement `RAMRD`/`RAMWRT` autour d'une copie. Attention à ne pas marcher
   sur `$400-$7FF` (page texte 80 colonnes).
 
-- 🟡 **3. `$0C00-$1FFF`** — *1 h.* 5 Ko déjà libres en RAM principale, entre le
-  tampon ProDOS et HGR page 1. Utilisables immédiatement pour un buffer de
-  travail sans rien réarchitecturer.
+- ✅ **3. `$1000-$1FFF`** — **fait le 2026-09-03** : segment `LOWBSS` dans
+  `SRC/scoswamp.cfg`, les gros tampons y vont par `#pragma bss-name`. Le tas
+  reste derrière la BSS principale (c'est ce qui rend la chose sûre, voir
+  DOCS/MEMOIRE.md). Le même jour : famille printf remplacée par `cfmt`
+  (876 o), `-Cl` (547 o), `classify_line` et la barre de titre resserrées
+  (~1 100 o). **Marge : 184 → 7 544 octets.**
 
-- 🟡 **4. La Language Card** — *1 j.* 16 Ko à `$D000-$FFFF`, avec un segment
-  `LC` déjà prévu par `apple2enh.cfg` (`__LCADDR__ = $D400`). Demande un
-  basculement de banque explicite.
+- ✅ **4. La Language Card** — le segment `LC` (`$D400-$DFFF`, 3 Ko) est
+  plein depuis le mode carte. Il n'y a rien d'autre à y prendre sous ProDOS 8 :
+  la banque 1 est le noyau, `$D000-$D3FF` de la banque 2 son code de sortie.
 
-**Reste accessible sans rien réécrire : 5 Ko en `$0C00-$1FFF`, 16 Ko en
-Language Card, ~46 Ko en auxiliaire.**
+**Reste accessible : ~47 Ko en auxiliaire (point 2), et 227 o en LOWBSS.**
 
 ---
 
@@ -495,6 +499,22 @@ Quatre bugs, tous vérifiés dans l'émulateur (pas seulement au lien) :
 - **Le choix des Pierres ne se repeint plus a chaque prise.** La liste des
   Pierres permises ne bouge pas ; seul le compteur change. Six Pierres, c'etait
   neuf lignes redessinees neuf fois.
+
+- ✅ **Le mode carte est revenu, en texte** (2026-09-04, branche
+  `feat/scoswamp-map`, `DOCS/rapport-map.md`). Touche `M`, bascule comme `[I]`
+  et `[H]`, refusée sans l'Anneau de Cuivre. Grille 6 × 9 en texte 80
+  colonnes : **aucune primitive de tracé**, c'était elles qui coûtaient les
+  5 019 octets. Les données sont sur le disque (`MAP`, 1 844 octets, écrit par
+  `TOOLS/build_map.py` depuis `carte.json`) et résident dans le kilo-octet de
+  `$0C00-$0FFF` que le second tampon ProDOS n'a jamais réclamé — donc **zéro
+  octet de la fenêtre principale**. Le brouillard de guerre sort du seul
+  bitmap `visited`, déjà sauvegardé ; il n'y a **pas** de table des sentiers,
+  le voisin étant la première case occupée dans la direction annoncée. Une
+  ligne de lieu s'installe sous la barre de titre. Il manque le curseur de
+  consultation et le fil Pompatarte.
+  Coût payé par : `--codesize 100` (1 310 o), la cure `int` → `unsigned char`,
+  `classify_line` en table de directives, `oops()`, et six déménagements de
+  tampons. **Marge finale : 249 octets** apres la fusion du prologue et du combat rythme.
 
 - **Le mode carte a ete retire.** Il avait ete construit (fichier `MAP` genere
   depuis les directions de la prose, cercles numerotes, sentiers, rayons pour

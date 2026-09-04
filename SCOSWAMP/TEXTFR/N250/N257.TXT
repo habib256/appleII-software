@@ -1,8 +1,8 @@
 T 257 Le saut du marais
 
-Vous vous preparez a sauter par-dessus une vaste tache de vase.
+   Vous vous preparez a sauter par-dessus une vaste tache de vase.
 
-Lancez deux des. Si la somme des chiffres obtenus est inferieure ou egale a
+   Lancez deux des. Si la somme des chiffres obtenus est inferieure ou egale a
 votre total d'HABILETE, vous franchissez la vase sans tomber. Si la somme est
 superieure, vous atterrissez en plein dans l'amas de vase.
 

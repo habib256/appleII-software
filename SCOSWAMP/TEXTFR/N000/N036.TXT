@@ -1,13 +1,13 @@
 T 036 Conversation avec le Maitre des Jardins
 
-Vous expliquez calmement le but de votre quete au Maitre des Jardins. Il vous
-ecoute d'une voix mesure et jauge votre sincerite.
+   Vous expliquez calmement le but de votre quete au Maitre des Jardins. Il
+vous ecoute d'une voix mesuree et jauge votre sincerite.
 
-Selon ce que vous avez deja decouvert, il pourra vous orienter. Si vous avez
-trouve le buisson d'Antherique, il sait quoi faire. Sinon, il vous indiquera
-un autre chemin ou une piste a suivre.
+   Selon ce que vous avez deja decouvert, il pourra vous orienter. Si vous
+avez trouve le buisson d'Antherique, il sait quoi faire. Sinon, il vous
+indiquera un autre chemin ou une piste a suivre.
 
-Que faites-vous?
+   Il attend votre reponse.
 
-C 283 J'ai deja decouvert le buisson d'Antherique
-C 396 Je ne l'ai pas encore trouve
+CI .T 283 J'ai deja decouvert le buisson d'Antherique
+CN .T 396 Je ne l'ai pas encore trouve

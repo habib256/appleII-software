@@ -10,6 +10,7 @@
 ; ---------------------------------------------------------------------------
 
         .export _sfx_hit, _sfx_hurt, _sfx_dodge, _sfx_fall, _sfx_death
+        .export _sfx_beat
 
 SPEAKER = $C030
 
@@ -66,6 +67,28 @@ up:     inc     period          ; vers le grave
 done:   rts
 .endproc
 
+; --- Un silence long, le temps d'un battement -----------------------------
+; Le seul "bruitage" qui ne fait aucun bruit. Les des tombent, on les lit,
+; PUIS le coup porte : sans cette respiration les deux annonces apparaissent
+; du meme coup de touche et il ne se passe rien -- le joueur lit un resultat
+; au lieu d'assister a un assaut.
+;
+; La machine n'a pas d'horloge et le portage n'a pas de Mockingboard : il ne
+; reste que le compte de cycles, comme pour les hauteurs ci-dessus. La boucle
+; interne fait 5 cycles (dey/bne) et 256 tours, soit 1 280 cycles ; 160 tours
+; externes font environ 206 000 cycles, un cinquieme de seconde a 1,023 MHz.
+; Sur //c+ a 4 MHz le battement sera quatre fois plus court -- comme les sons,
+; et pour la meme raison.
+.proc _sfx_beat
+        ldx     #160
+outer:  ldy     #0
+:       dey
+        bne     :-
+        dex
+        bne     outer
+        rts
+.endproc
+
 ; --- Un silence court, pour detacher deux coups. ---------------------------
 .proc gap
         ldx     #40
@@ -81,37 +104,49 @@ outer:  ldy     #0
 ; Une note pure sonnait comme un bip de terminal. Un balayage tres court vers
 ; le grave donne un transitoire : l'oreille y entend un choc, pas une note.
 .proc _sfx_hit
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #4
         sta     steplen
         lda     #22
         ldx     #60
-        jmp     sweep
+        jsr     sweep
+        plp
+        rts
 .endproc
 
 ; --- Le heros encaisse ----------------------------------------------------
 ; Deux coups sourds plutot qu'un bourdonnement : le premier est l'impact, le
 ; second, plus grave, le corps qui accuse.
 .proc _sfx_hurt
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #150
         ldx     #26
         jsr     tone
         jsr     gap
         lda     #205
         ldx     #22
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc
 
 ; --- Esquive --------------------------------------------------------------
 ; Deux ticks de hauteurs differentes : deux lames qui se croisent, pas un
 ; double clic de souris.
 .proc _sfx_dodge
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #48
         ldx     #7
         jsr     tone
         jsr     gap
         lda     #38
         ldx     #7
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc
 
 ; --- Une creature s'effondre : une chute vers les graves. -------------------
@@ -119,6 +154,8 @@ outer:  ldy     #0
 ; balayer 60->200 mettait plus d'une seconde -- une eternite quand la page
 ; aligne trois BRIGANDS.
 .proc _sfx_fall
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #12
         sta     steplen
         lda     #60
@@ -127,12 +164,16 @@ outer:  ldy     #0
         jsr     gap
         lda     #235            ; le corps qui touche le sol
         ldx     #30
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc
 
 ; --- Mort du heros : la meme chute, plus lente et plus basse. ---------------
 ; La mort du heros a droit a sa longueur : c'est la fin de la partie.
 .proc _sfx_death
+        php
+        sei                     ; le tick de la Mockingboard fausserait la boucle calibree
         lda     #16             ; paliers plus longs : la chute chante
         sta     steplen
         lda     #90
@@ -140,5 +181,7 @@ outer:  ldy     #0
         jsr     sweep
         lda     #255
         ldx     #120
-        jmp     tone
+        jsr     tone
+        plp
+        rts
 .endproc

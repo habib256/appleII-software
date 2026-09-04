@@ -158,6 +158,14 @@ static void test_assaut(void)
         CHECK((r.outcome == ROUND_HERO_HITS)    == (r.hero_force >  r.monster_force), "issue");
         CHECK((r.outcome == ROUND_MONSTER_HITS) == (r.hero_force <  r.monster_force), "issue");
         CHECK((r.outcome == ROUND_DODGE)        == (r.hero_force == r.monster_force), "issue");
+        /* Les des exposes doivent etre les des du jet, pas un decor : l'ecran
+         * ecrit "d1 + d2 + HABILETE = force", et une somme qui ne retombe pas
+         * dessus ferait mentir la ligne sous les yeux du joueur. */
+        CHECK(r.hero_d1 >= 1 && r.hero_d1 <= 6 && r.hero_d2 >= 1 && r.hero_d2 <= 6 &&
+              r.monster_d1 >= 1 && r.monster_d1 <= 6 && r.monster_d2 >= 1 && r.monster_d2 <= 6,
+              "des hors de 1..6");
+        CHECK(r.hero_d1 + r.hero_d2 + c.hab == r.hero_force, "des du heros");
+        CHECK(r.monster_d1 + r.monster_d2 + m.hab == r.monster_force, "des de la creature");
     }
 
     /* Les deux epees magiques du livre n'ont pas la meme puissance : celle
@@ -321,6 +329,99 @@ static void test_memoire_clairieres(void)
     CHECK(monster_enter(224, m, 2) == 2, "les deux tombes : plus de combat");
 }
 
+/* La file de TROIS du paragraphe 120 : "ses deux creatures bondissent sur
+ * vous. Vous devez les combattre tour a tour. Si vous les tuez, il faudra
+ * ensuite affronter le Maitre lui-meme." Deux Loups puis leur Maitre, dans
+ * l'ordre des lignes M -- et la clairiere 32 est de celles ou l'on revient.
+ *
+ * C'est le combat sur lequel un joueur a signale que l'ecran montrait le
+ * Maitre du debut a la fin. La file, elle, etait juste : ces verifications
+ * fixent l'invariant que le portrait doit suivre (scoswamp.c, ligne MI). */
+static void file_120(Monster* m)
+{
+    monster_init(&m[0]); m[0].hab = 7;  m[0].end = 5;  strcpy(m[0].name, "PREMIER LOUP");
+    monster_init(&m[1]); m[1].hab = 6;  m[1].end = 6;  strcpy(m[1].name, "DEUXIEME LOUP");
+    monster_init(&m[2]); m[2].hab = 11; m[2].end = 10; strcpy(m[2].name, "MAITRE DES LOUPS");
+    monster_seal(&m[0]); monster_seal(&m[1]); monster_seal(&m[2]);
+}
+
+static void test_file_120(void)
+{
+    Monster m[3];
+    unsigned char snapshot[MONSTER_MEMORY_SIZE];
+
+    monster_memory_reset();
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 0,
+          "premier passage : on commence au PREMIER LOUP, pas au Maitre");
+    CHECK(m[0].end == 5 && m[1].end == 6 && m[2].end == 10,
+          "premier passage : les trois sont entiers");
+
+    /* Le premier Loup tombe : run_combat avance la file PUIS retient le
+     * suivant, entier. C'est cet appel-la qu'on rejoue ici. */
+    m[0].end = 0;
+    monster_remember(120, 1, &m[1]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 1, "revisite : au DEUXIEME LOUP");
+    CHECK(m[1].end == 6, "le second n'a pas encore ete touche, vu %u", m[1].end);
+    CHECK(m[1].end0 == 6, "sa jauge garde le maximum du livre, vu %u", m[1].end0);
+
+    /* On l'entame et on fuit : la Fuite retient l'adversaire courant. */
+    m[1].end = 2;
+    monster_remember(120, 1, &m[1]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 1, "retour apres la Fuite : au DEUXIEME");
+    CHECK(m[1].end == 2, "et il est toujours entame, vu %u", m[1].end);
+    CHECK(m[2].end == 10, "le Maitre attend son tour, entier, vu %u", m[2].end);
+
+    /* Le second tombe a son tour : reste le Maitre, entier. */
+    m[1].end = 0;
+    monster_remember(120, 2, &m[2]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 2, "les deux Loups tombes : au MAITRE");
+    CHECK(m[2].end == 10, "le Maitre est intact, vu %u", m[2].end);
+
+    /* Fuir DEVANT le Maitre entame, puis revenir, en passant par le disque. */
+    m[2].end = 4;
+    monster_remember(120, 2, &m[2]);
+    monster_memory_export(snapshot);
+    monster_memory_reset();
+    monster_memory_import(snapshot);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 2,
+          "sauvegarde : la reprise reste au troisieme adversaire");
+    CHECK(m[2].end == 4, "sauvegarde : le Maitre reste blesse, vu %u", m[2].end);
+
+    /* Le Maitre tombe : foe_cur vaut alors 3, et c'est CE nombre-la que
+     * run_combat retient. La file est finie, la page part sur sa ligne MV. */
+    m[2].end = 0;
+    monster_remember(120, 3, &m[2]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 3, "les trois tombes : plus de combat");
+    CHECK(m[0].end == 5 && m[2].end == 10,
+          "file finie : monster_enter ne touche a aucune ENDURANCE");
+
+    /* Un adversaire acheve juste avant la Fuite : la memoire retient l'indice
+     * courant avec une ENDURANCE nulle, et la reprise saute au suivant. */
+    monster_memory_reset();
+    file_120(m);
+    m[0].end = 0;
+    monster_remember(120, 0, &m[0]);
+    file_120(m);
+    CHECK(monster_enter(120, m, 3) == 1,
+          "acheve puis fuite : la reprise passe au DEUXIEME LOUP");
+
+    /* Une AUTRE clairiere garde ses propres Loups : le 224 (Pierre de Terreur)
+     * n'herite pas des blessures du 120. */
+    monster_memory_reset();
+    file_120(m);
+    m[0].end = 1;
+    monster_remember(120, 0, &m[0]);
+    file_120(m);
+    CHECK(monster_enter(224, m, 2) == 0 && m[0].end == 5,
+          "le 224 ne lit pas la memoire du 120");
+}
+
 static void test_pierres(void)
 {
     Character c = hero(11, 20, 9);
@@ -333,6 +434,21 @@ static void test_pierres(void)
     CHECK(stone_kind(STONE_BENEDICTION) == STONE_BENEFIQUE, "BENEDICTION benefique");
     CHECK(stone_kind(STONE_TERREUR)     == STONE_MALEFIQUE, "TERREUR malefique");
     CHECK(stone_kind(STONE_MALEDICTION) == STONE_MALEFIQUE, "MALEDICTION malefique");
+
+    /* Aucune categorie ne doit etre vide : choose_stones dresse sa liste en
+     * filtrant les douze Pierres par leur categorie, et si le filtre ne rend
+     * rien il abandonne le choix EN SILENCE (`count == 0` -> choose_n = 0).
+     * Une ligne PC citant une categorie sans Pierre ne donnerait donc rien,
+     * exactement comme la ligne PC absente du 173 (Pompatarte).
+     * Le compte, lui, tient la liste dans les 20 lignes de l'ecran. */
+    {
+        int par_kind[3];
+        par_kind[0] = par_kind[1] = par_kind[2] = 0;
+        for (s = 0; s < STONE_COUNT; ++s) par_kind[stone_kind(s)]++;
+        CHECK(par_kind[STONE_NEUTRE]    == 6, "6 Pierres neutres (PC ... N)");
+        CHECK(par_kind[STONE_BENEFIQUE] == 3, "3 Pierres benefiques (PC ... B)");
+        CHECK(par_kind[STONE_MALEFIQUE] == 3, "3 Pierres malefiques (PC ... M)");
+    }
 
     /* Reconnaissance des noms, telle que les pages les ecrivent */
     CHECK(stone_from_name("Feu")         == STONE_FEU,         "Feu");
@@ -415,6 +531,26 @@ static void test_objets(void)
     CHECK(character_has_object(&c, OBJ_PLUMES), "plumes entrent dans le sac");
     character_take_object(&c, OBJ_BIJOU);
     CHECK(!character_has_object(&c, OBJ_BIJOU), "bijou remis quitte le sac");
+    /* Les Graines d'Arbres-Epees (pages 362 et 393, ramassees au 022,
+     * repandues au 228) : le jeton du corpus doit tomber sur un objet
+     * VISIBLE, sans quoi la page les donne dans le vide et le sac reste
+     * muet -- c'est exactement le bug qu'on a eu. */
+    CHECK(object_from_name("GR") == OBJ_GRAINES, "graines reconnues");
+    character_give_object(&c, OBJ_GRAINES);
+    CHECK(character_has_object(&c, OBJ_GRAINES), "graines entrent dans le sac");
+    CHECK(OBJ_GRAINES < OBJ_HIDDEN0, "les graines sont un objet, pas un drapeau");
+    CHECK(object_name(OBJ_GRAINES, 0)[0] && object_name(OBJ_GRAINES, 1)[0],
+          "les graines ont un nom dans les deux langues");
+    character_take_object(&c, OBJ_GRAINES);
+    CHECK(!character_has_object(&c, OBJ_GRAINES), "graines repandues au 228");
+    /* Tout ce qui precede OBJ_HIDDEN0 se montre, donc doit se nommer ; tout
+     * ce qui suit est un fait narratif et reste anonyme. */
+    {
+        int k;
+        for (k = 0; k < OBJ_COUNT; ++k)
+            CHECK((object_name((Object)k, 0)[0] != '\0') == (k < OBJ_HIDDEN0),
+                  "objet %d : nom present si et seulement si visible", k);
+    }
     c.amulets = 0;
     CHECK(amulet_from_name("ARAIGNEE") == AMULET_ARAIGNEE, "amulette araignee");
     CHECK(amulet_from_name("FAUX") == AMULET_FAUSSE_OISEAU,
@@ -485,10 +621,24 @@ static void test_benediction(void)
     CHECK(c.cha == 10, "le rattrapage s'arrete au plafond releve, vu %u", c.cha);
 }
 
+/* Le test de la ligne `V <cible> [<page> ...]`, tel que classify_line le joue :
+ * la page courante, puis la cible, puis chaque page citee. Le moteur vit dans
+ * scoswamp.c, qui n'est pas lie ici -- mais la REGLE, elle, ne tient qu'au
+ * bitmap de rules.c, et c'est elle qu'on verifie. */
+static int detour_clairiere(unsigned int courante, unsigned int cible,
+                            const unsigned int* autres, unsigned int n)
+{
+    unsigned int i;
+    if (scene_visited(courante) || scene_visited(cible)) return 1;
+    for (i = 0; i < n; ++i)
+        if (scene_visited(autres[i])) return 1;
+    return 0;
+}
+
 static void test_clairieres_vues(void)
 {
     /* "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui
-     * suit." Quatorze pages ouvrent la-dessus ; c'est ce drapeau qui les
+     * suit." Vingt-six pages ouvrent la-dessus ; c'est ce drapeau qui les
      * departage, la ou le livre s'en remettait a la memoire du joueur. */
     unsigned int i;
     unsigned char snapshot[SCENE_MEMORY_SIZE];
@@ -520,6 +670,209 @@ static void test_clairieres_vues(void)
     scene_memory_reset();
     for (i = 0; i < 412; ++i)
         if (scene_visited(i)) { CHECK(0, "la remise a zero a laisse %u", i); break; }
+
+    /* La clairiere 30, une seule porte : `V 382 270` sur la page 041.
+     * Marquer 041 doit lever le detour, et NE PAS marquer 382 ni 270 --
+     * c'est la page de revisite qui sera marquee a son tour, par load_scene. */
+    {
+        static const unsigned int clr30[] = { 270u };
+        scene_memory_reset();
+        CHECK(detour_clairiere(41, 382, clr30, 1) == 0,
+              "premiere visite des Sables Mouvants : pas de detour");
+        scene_mark_visited(41);
+        CHECK(scene_visited(382) == 0, "041 vue ne marque pas 382");
+        CHECK(scene_visited(270) == 0, "041 vue ne marque pas le hub 270");
+        CHECK(detour_clairiere(41, 382, clr30, 1) == 1,
+              "revenir en 041 renvoie bien au 382");
+    }
+
+    /* La clairiere 13, deux portes : `V 303 319` sur la page 118. Le pont
+     * (045) depose au sud sur 303, la page de revisite ; le sentier de l'est
+     * depose sur 118. Entrer par l'une puis par l'autre ne doit pas rejouer
+     * la nuee de Scorpions -- c'etait le bug : le bitmap disait "page vue",
+     * le livre dit "clairiere deja visitee". */
+    {
+        static const unsigned int clr13[] = { 319u };
+        scene_memory_reset();
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 0,
+              "jamais venu : la premiere visite se joue");
+        scene_mark_visited(303);            /* entree par le pont */
+        CHECK(scene_visited(118) == 0, "303 vue ne marque pas 118");
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 1,
+              "deja passe par la revisite : arriver en 118 detourne");
+        scene_memory_reset();
+        scene_mark_visited(319);            /* seulement la page-hub */
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 1,
+              "le hub 319 vu suffit a dire que la clairiere est connue");
+        scene_memory_reset();
+        scene_mark_visited(117);            /* une page d'une AUTRE clairiere */
+        CHECK(detour_clairiere(118, 303, clr13, 1) == 0,
+              "une page voisine non citee ne declenche rien");
+    }
+}
+
+
+/* ── La carte : le rabattement page -> clairiere ──────────────────────────
+ *
+ * Le fichier MAP est une donnee du disque, comme les pages : ces tests le
+ * lisent la ou build_map.py l'ecrit et rejouent, a l'identique, les deux
+ * boucles du moteur (map_of_page et map_seen dans scoswamp.c). Le moteur
+ * lui-meme ne peut pas etre lie ici -- il parle a ProDOS et a l'ecran -- mais
+ * la table, elle, est de l'arithmetique pure, et c'est elle qui decide quelle
+ * clairiere la touche M montre.
+ */
+#define MAP_CLR    35
+#define MAP_PAGES  115
+#define MAP_NAMEW  13
+#define MAP_HEAD   20
+#define MAP_POOL   (MAP_HEAD + 3 * MAP_CLR)
+#define MAP_NONE   0xFF
+
+static unsigned char carte[2048];
+static unsigned char carte_pages[2 * MAP_PAGES];
+static int carte_ok;
+
+/* La copie conforme de map_of_page() : meme table, meme boucle. */
+static unsigned char map_of_page(unsigned int page)
+{
+    unsigned char i;
+    unsigned int p = 0;
+    const unsigned char* t = carte_pages;
+
+    for (i = MAP_PAGES; i; --i) {
+        p += *t++;
+        if (p >= page) return (p == page) ? *t : MAP_NONE;
+        ++t;
+    }
+    return MAP_NONE;
+}
+
+/* La copie conforme de map_seen() : une clairiere est vue des qu'UNE de ses
+ * pages l'est, quelle que soit la porte par laquelle on y est entre. */
+static void map_seen(unsigned char* out)
+{
+    unsigned char i;
+    unsigned int p = 0;
+    const unsigned char* t = carte_pages;
+
+    memset(out, 0, MAP_CLR);
+    for (i = MAP_PAGES; i; --i) {
+        p += *t++;
+        if (scene_visited(p)) out[*t] = 1;
+        ++t;
+    }
+}
+
+static const char* clr_nom(unsigned char i)
+{
+    return (const char*)(carte + MAP_POOL + MAP_NAMEW * (unsigned)i);
+}
+
+static void charger_carte(void)
+{
+    static const char* const chemins[] = {
+        "SCOSWAMP/MAP.BIN", "../SCOSWAMP/MAP.BIN", "../../SCOSWAMP/MAP.BIN",
+        "../../../SCOSWAMP/MAP.BIN", "../../../../SCOSWAMP/MAP.BIN"
+    };
+    unsigned i;
+    FILE* f = NULL;
+    size_t n;
+
+    for (i = 0; i < sizeof chemins / sizeof *chemins && !f; ++i)
+        f = fopen(chemins[i], "rb");
+    if (!f) { printf("SAUTE carte : MAP.BIN introuvable\n"); return; }
+    n = fread(carte, 1, sizeof carte, f);
+    fclose(f);
+    CHECK(n > MAP_POOL + 2 * MAP_PAGES, "MAP.BIN tronque : %u octets", (unsigned)n);
+    CHECK(memcmp(carte, "MAP\3", 4) == 0, "MAP.BIN : signature absente");
+    CHECK(carte[4] == MAP_CLR, "MAP.BIN : %u clairieres, 35 attendues", carte[4]);
+    CHECK(carte[5] == MAP_PAGES, "MAP.BIN : %u pages, 115 attendues", carte[5]);
+    CHECK(carte[6] == MAP_NAMEW, "MAP.BIN : noms de %u octets", carte[6]);
+    if (n <= MAP_POOL + 2 * MAP_PAGES) return;
+    memcpy(carte_pages, carte + MAP_POOL, sizeof carte_pages);
+    /* Le bloc francais suit la table des pages ; le moteur le lit a la meme
+     * adresse (trois freads d'affilee), ici on le ramene sur place pour que
+     * clr_nom() vise juste. */
+    memmove(carte + MAP_POOL, carte + MAP_POOL + sizeof carte_pages,
+            n - MAP_POOL - sizeof carte_pages);
+    carte_ok = 1;
+}
+
+static void test_carte(void)
+{
+    unsigned char vu[MAP_CLR];
+    unsigned char depart, i;
+    unsigned int p, prec;
+    const unsigned char* t;
+
+    charger_carte();
+    if (!carte_ok) return;
+
+    /* La table est TRIEE et sans doublon : c'est ce qui autorise la sortie
+     * anticipee de map_of_page des que la page cherchee est depassee. */
+    prec = 0;
+    t = carte_pages;
+    for (i = 0; i < MAP_PAGES; ++i) {
+        p = prec + *t++;
+        CHECK(p > prec || i == 0, "table des pages non croissante en %u", i);
+        CHECK(p < 412u, "page %u hors du corpus", p);
+        CHECK(*t < MAP_CLR, "page %u renvoie a la clairiere %u", p, *t);
+        ++t;
+        prec = p;
+    }
+
+    /* Le depart : page 195, la Clairiere n 1, le rond-point.
+     * L'en-tete : 0-3 magie, 4 clairieres, 5 pages, 6 largeur d'un nom,
+     * 7 clairiere de depart, 8 le pont, 9 la ligne de la riviere. */
+    depart = carte[7];
+    CHECK(map_of_page(195) == depart, "la page 195 n'est pas la clairiere de depart");
+    CHECK(carte[MAP_HEAD + 3 * depart + 1] == 1,
+          "la clairiere de depart ne porte pas le numero 1 du livre");
+    CHECK(strcmp(clr_nom(depart), "Rond-point") == 0,
+          "la clairiere de depart s'appelle %s", clr_nom(depart));
+
+    /* Les deux portes de la clairiere 13 : le sentier de l'est depose sur
+     * 118, le pont depose au sud sur 303. Le meme lieu, deux pages -- c'est
+     * exactement ce que les listes des lignes V disent page par page. */
+    CHECK(map_of_page(118) == map_of_page(303),
+          "118 et 303 devraient etre la meme clairiere");
+    CHECK(map_of_page(118) != MAP_NONE, "118 n'est rattachee a aucun lieu");
+
+    /* Les trois arbitrages de CARTOGRAPHIE.md Sec. 6.1 I. */
+    CHECK(map_of_page(363) == map_of_page(234), "363 va au Patrouilleur (clr 19)");
+    CHECK(map_of_page(394) == map_of_page(31),  "394 va au Bassin de cristal (clr 21)");
+    CHECK(map_of_page(330) == map_of_page(390), "330 va aux Pierres et tronc (clr 12)");
+    CHECK(map_of_page(363) != map_of_page(84),  "363 n'est PAS le Maitre des Jardins");
+    CHECK(map_of_page(330) != map_of_page(82),  "330 n'est PAS la Bete du bassin");
+
+    /* Les pages qui ne sont d'aucun lieu : le prologue, les combats, la
+     * sortie du Marais. La clairiere courante doit alors rester COLLANTE --
+     * c'est le moteur qui s'en charge, la table dit seulement "aucune". */
+    CHECK(map_of_page(1) == MAP_NONE,   "la page 1 est le prologue, hors Marais");
+    CHECK(map_of_page(134) == MAP_NONE, "le combat de l'Herbe a Pinces n'est pas un lieu");
+    CHECK(map_of_page(208) == MAP_NONE, "la sortie sud est la route, pas la clairiere");
+    CHECK(map_of_page(0) == MAP_NONE,   "l'ecran d'accueil n'est pas un lieu");
+
+    /* Le brouillard de guerre : une seule page vue allume sa clairiere, et
+     * elle seule. */
+    scene_memory_reset();
+    map_seen(vu);
+    for (i = 0; i < MAP_CLR; ++i) CHECK(vu[i] == 0, "clairiere %u vue a blanc", i);
+
+    scene_mark_visited(303);              /* on arrive par le pont */
+    map_seen(vu);
+    CHECK(vu[map_of_page(118)] == 1, "arriver en 303 allume la clairiere 13");
+    CHECK(vu[map_of_page(195)] == 0, "elle n'allume pas le rond-point");
+
+    /* Toute page rattachee allume sa clairiere, et les 35 s'allument. */
+    scene_memory_reset();
+    t = carte_pages;
+    p = 0;
+    for (i = 0; i < MAP_PAGES; ++i) { p += *t++; ++t; scene_mark_visited(p); }
+    map_seen(vu);
+    for (i = 0; i < MAP_CLR; ++i)
+        CHECK(vu[i] == 1, "clairiere %u restee eteinte, toutes pages vues", i);
+    scene_memory_reset();
 }
 
 int main(void)
@@ -533,11 +886,13 @@ int main(void)
     test_blessures();
     test_fuite();
     test_memoire_clairieres();
+    test_file_120();
     test_clairieres_vues();
     test_perte_definitive();
     test_benediction();
     test_pierres();
     test_objets();
+    test_carte();
     if (failures == 0) printf("regles : tout passe\n");
     else               printf("regles : %d echec(s)\n", failures);
     return failures != 0;

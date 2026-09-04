@@ -14,6 +14,10 @@ spacetrip.s
 *.o
 *.lst
 *.map
+# La table de symboles VICE que `ld65 -Ln` ecrit a cote de la carte memoire :
+# c'est elle qui donne au banc de test (SCOSWAMP.MORE/TOOLS/playtest.py)
+# l'adresse de _app. Regeneree a chaque lien, comme le .map.
+*.lbl
 
 # Exception : sources assembleur volontaires (pas des intermédiaires cc65)
 !DOCS/HELLO_WORLD-ASM/*.s
@@ -69,3 +73,11 @@ SPACETRIP.MORE/
 ._*
 .Spotlight-V100
 .Trashes
+
+# Rendus audio des propositions musicales : regeneres par SCOSWAMP.MORE/MUSIC/*.py
+SCOSWAMP.MORE/MUSIC/*.wav
+SCOSWAMP.MORE/MUSIC/propositions/**/*.wav
+SCOSWAMP.MORE/MUSIC/propositions-moderne/**/*.wav
+
+# Worktrees des agents Claude
+.claude/worktrees/

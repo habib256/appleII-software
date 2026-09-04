@@ -1,14 +1,14 @@
 T 051 Fuite de la tour
 
-Une trappe s'ouvre devant vous, revelant une fosse profonde. D'un bond vous la
-sautez et traversez le hall en courant a toutes jambes.
+   Une trappe s'ouvre devant vous, revelant une fosse profonde. D'un bond vous
+la sautez et traversez le hall en courant a toutes jambes.
 
-Une Statue tente de vous barrer le chemin, mais vous la repoussez d'un coup et
-enfoncez la porte d'un pied nerveux. La tete hideuse sur le panneau de fer
+   Une Statue tente de vous barrer le chemin, mais vous la repoussez d'un coup
+et enfoncez la porte d'un pied nerveux. La tete hideuse sur le panneau de fer
 essaie de vous mordre, en vain. Vous filez loin de la tour, le souffle court,
 le coeur battant.
 
-Que faites-vous?
+   Que faites-vous?
 
 C 296 Prendre la direction du Marais
 C 005 Courir vers le village

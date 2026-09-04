@@ -1,11 +1,12 @@
 T 168 Return to the Basin Clearing
 
-You're back in the clearing where you encountered the Basin Beast.
+   You're back in the clearing where you encountered the Basin Beast.
 
-If you've already killed it, nothing interesting remains here.
+   If you've already killed it, nothing interesting remains here.
 
-If you haven't yet defeated it, it awaits you, with the same STAMINA total as
-when you fled.
+   If you haven't yet defeated it, it awaits you, with the same STAMINA total
+as when you fled.
 
 C 330 Leave the clearing
-C 209 Resume combat against the Basin Beast
+C 082 Resume the fight with your sword
+C 034 Resort to magic

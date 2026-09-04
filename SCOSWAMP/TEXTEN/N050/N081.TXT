@@ -1,10 +1,10 @@
 T 081 The Pincer Grass
 
-You have defeated the Pincer Grass and you are certain it is dead.
+   You have defeated the Pincer Grass and you are certain it is dead.
 
-Inspecting the clearing, you find attached to a tree an old sign bearing these
-words: BEWARE OF ORCS.
+   Inspecting the clearing, you find attached to a tree an old sign bearing
+these words: BEWARE OF ORCS.
 
-There is nothing else to discover, and you leave the place.
+   There is nothing else to discover, and you leave the place.
 
 C 187 Continue your path

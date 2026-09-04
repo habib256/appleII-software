@@ -1,19 +1,22 @@
 T 000 LE MARAIS AUX SCORPIONS
 
-Vous allez incarner un aventurier en quete de gloire.
+   Vous allez incarner un aventurier en quete de gloire.
 
-Le Marais aux Scorpions est un lieu maudit que nul n'ose explorer. Monstres,
-pieges et sorciers vous y attendent. Pourtant, ses profondeurs cacheraient un
-tresor fabuleux. Vos decisions feront de vous un heros... ou une victime.
+   Le Marais aux Scorpions est un lieu maudit que nul n'ose explorer.
+Monstres, pieges et sorciers vous y attendent. Pourtant, ses profondeurs
+cacheraient un tresor fabuleux. Vos decisions feront de vous un heros... ou
+une victime.
 
-Avant le premier pas, creez votre personnage. Les des fixeront son HABILETE,
-son ENDURANCE et sa CHANCE. Sa Feuille d'Aventure restera ensuite en haut de
-l'ecran. Il partira avec une epee, une armure, un sac et quelques Pieces d'Or.
+   Avant le premier pas, creez votre personnage. Les des fixeront son
+HABILETE, son ENDURANCE et sa CHANCE. Sa Feuille d'Aventure restera ensuite en
+haut de l'ecran. Il partira avec une epee, une armure, un sac et quelques
+Pieces d'Or.
 
-Ce jeu est un hommage au livre-jeu de Steve Jackson, illustre par Duncan Smith
-(1984), publie en francais par Gallimard (1985).
+   Ce jeu est un hommage au livre-jeu de Steve Jackson, illustre par Duncan
+Smith (1984), publie en francais par Gallimard (1985).
 
-Commandes :
+   Commandes :
  [A-E] - Choisir   [L] - Charger une partie   [H] - Aide   [Q] - Quitter
 
-C 001 Creer mon personnage
+MU ACCUEIL.MB
+C 419 Creer mon personnage

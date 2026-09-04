@@ -1,10 +1,11 @@
 T 030 Fatal Bite
 
-You throw your boots and backpack at the foot of the cliff then you dive.
+   You throw your boots and backpack at the foot of the cliff then you dive.
 Alas, the water is too shallow and the bottom is covered with a thick layer of
 mud: you find yourself stuck. You struggle, manage to surface, breathless.
 
-Facing you, a crocodile opens its enormous jaws. You grab your sword and
+   Facing you, a crocodile opens its enormous jaws. You grab your sword and
 attempt a move, but it's futile. The jaws close; the pain is brief. Your
 adventure ends in the reptile's stomach.
 
+MU +MORT.MB

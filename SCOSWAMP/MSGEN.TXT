@@ -3,30 +3,31 @@ YOU
 BACKPACK -- %u Gold Pieces, a sword, a leather jerkin
    forbidden mid-fight
 No Magic Stones.
-A Stone crumbles when used.  [A-Z] use  [ESC] close
+A Stone crumbles when used.  [A-Z] use  [I/ESC] close
 The first blow was struck.
 No such Stone.
 The %s Stone crumbles.
 You flee: it wounds you on the way.
 Lucky!
 Unlucky!
-ROUND %u     your strength %u   %s   its %u
+ROUND %u
+You:
+It :
 You have each dodged.
 You have wounded it
 It has wounded you
-Lucky!
-Unlucky!
 engage
-take the blow
-strike home
+take it
+strike
 test your Luck
+ Test your Luck (LUCK %u): %u or %u
 next round
 flee
 backpack
 picture
 continue
   -%u STA
-SPACE=VIEW  A-Z=CHOICE  I=BAG  Q=QUIT
+SPACE=VIEW  A-Z=CHOICE  I=BAG  M=MAP  Q=QUIT
 You roll: %u, against %u.
 %s collapses.
 HELPEN
@@ -44,6 +45,12 @@ CHOOSE YOUR MAGIC STONES -- %u left to take
 You may take the same one several times.  [A-Z] take
 Fate decides. [SPACE] Test your Luck (LUCK %u)
 You roll two dice: %u, against a LUCK of %u.
-[R] start a new adventure   [Q] quit to ProDOS
+[R] start a new adventure  [L] resume a saved game  [Q] quit to ProDOS
 Fate decides. [SPACE] roll the dice
 You roll: %u.
+SAVE -- [0-9] write to a slot   [S/ESC] back
+RESUME -- [0-9] load a slot   [L/ESC] back
+-- empty --
+Game saved.
+Save failed.
+Empty slot or corrupt file.

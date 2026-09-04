@@ -1,17 +1,19 @@
 T 059 The Corpse and the Pendant
+
+   You decide to examine the clearing. Perhaps you'll find something useful,
+or someone needs help. Very quickly, you stumble upon the corpse of a Swamp
+Orc. You search the repugnant remains, but nothing interesting comes of it.
+
+   Then you notice, leaning against a tree, an injured man. You approach to
+help him, but he's already dead: three arrows have pierced his chest. Two
+other Orcs lie at his side. He defended his life dearly.
+
+   Around you, neither weapons nor packs: the survivors must have taken
+everything. You strive to give the man a decent burial. As you move him, you
+notice a small gold pendant he wears around his neck, in the shape of a
+magnet. You can take it if you wish.
+
+   Once your gestures are complete, you resume the journey.
+
 G AI
-
-You decide to examine the clearing. Perhaps you'll find something useful, or
-someone needs help. Very quickly, you stumble upon the corpse of a Swamp Orc.
-You search the repugnant remains, but nothing interesting comes of it.
-
-Then you notice, leaning against a tree, an injured man. You approach to help
-him, but he's already dead: three arrows have pierced his chest. Two other
-Orcs lie at his side. He defended his life dearly. Around you, neither weapons
-nor packs: the survivors must have taken everything. You strive to give the
-man a decent burial. As you move him, you notice a small gold pendant he wears
-around his neck, in the shape of a magnet. You can take it if you wish.
-
-Once your gestures are complete, you resume the journey.
-
 C 227 Leave the clearing and resume the journey

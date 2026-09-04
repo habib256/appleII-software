@@ -1,9 +1,9 @@
 T 111 The Bird Mistress
 
-You don't wish to attack the Bird Mistress, but you want to obtain what you're
-looking for.
+   You don't wish to attack the Bird Mistress, but you want to obtain what
+you're looking for.
 
-You throw her a Magic Friendship Stone. She laughs immediately: "Foolish
+   You throw her a Magic Friendship Stone. She laughs immediately: "Foolish
 adventurer!" she says. "Didn't you know that a good sorceress is already
 everyone's friend? You've wasted your Stone!"
 

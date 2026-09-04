@@ -1,10 +1,14 @@
 T 141 The Warrior's Rest
 
-The offer seems reasonable to you. You hand over your unused Magic Stones to
-Pompatarte.
+   The offer seems reasonable to you. You hand over your unused Magic Stones
+to Pompatarte.
 
-His servant brings a potion. You swallow it, and your wounds heal immediately.
+   His servant brings a potion. You swallow it, and your wounds heal
+immediately.
 
-Your adventure is over. But if you have failed, you have also learned, and
+   Your adventure is over. But if you have failed, you have also learned, and
 perhaps you will return one day to explore the Swamp.
 
+   END OF ADVENTURE.
+
+MU -

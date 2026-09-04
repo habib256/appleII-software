@@ -1,9 +1,9 @@
 T 091 The Risky Jump
 
-Before you stretches a marshy area that must be crossed in one leap. You take
-a run-up.
+   Before you stretches a marshy area that must be crossed in one leap. You
+take a run-up.
 
-Roll two dice. If the total is less than or equal to your STAMINA points, you
-manage to clear the marshy area. Otherwise, your leap falls short.
+   Roll two dice. If the total is less than or equal to your STAMINA points,
+you manage to clear the marshy area. Otherwise, your leap falls short.
 
 CS ENDURANCE 404 405

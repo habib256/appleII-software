@@ -1,19 +1,20 @@
 T 150 The Potion Merchant
 
-The street leading to the town exit is lined with small shops. One catches
+   The street leading to the town exit is lined with small shops. One catches
 your eye: ALPHONSE MACHEFER, POTION MERCHANT AND MAGIC DEALER. You enter
 immediately. The young man with thick beard and prominent nose welcomes you
 with a cautious smile. He's a neutral sorcerer: he only sells neutral Magic
 Stones.
 
-You don't have enough Gold Pieces for his prices, but certain objects from
+   You don't have enough Gold Pieces for his prices, but certain objects from
 your bag interest him. He accepts a fair exchange: - Purple Jewel - Gold Chain
 - Silver Amulet (from one of the Masters) - Gold Magnet - Unicorn Horn
 
-Each of these objects can be exchanged for a neutral Magic Stone of your
+   Each of these objects can be exchanged for a neutral Magic Stone of your
 choice (max. 3 stones). Cross out exchanged objects from your sheet and record
 your new stones. Then, you leave the shop and resume the journey south, toward
 the Scorpion Swamp.
 
+MU COURBENS.MB
 C 408 Trade up to three items for neutral Stones
 C 343 Leave the shop and head back south

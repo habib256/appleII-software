@@ -1,17 +1,18 @@
 T 396 The Antherique Bush
 
-"Could it be possible?" exclaims the Garden Master. "An Antherique bush
+   "Could it be possible?" exclaims the Garden Master. "An Antherique bush
 somewhere in this Swamp? I knew this place must harbor some hidden virtue when
 I decided to settle here. That's doubtless what I sensed!"
 
-He remains motionless for a moment with lowered eyelids and seems to reflect
-then opens his eyes again. "The plant you're looking for," he then says, "is
-to the east, but no path allows reaching it directly. To find it, you must
-head west, then return east clockwise."
+   He remains motionless for a moment with lowered eyelids and seems to
+reflect then opens his eyes again. "The plant you're looking for," he then
+says, "is to the east, but no path allows reaching it directly. To find it,
+you must head west, then return east clockwise."
 
-He then wishes you good luck and gives you a Beneficial Magic Stone (choose
+   He then wishes you good luck and gives you a Beneficial Magic Stone (choose
 which one). You now resume your journey. Only one path allows leaving the
 clearing so you take it, walking west.
 
+MU JARDINS.MB
 PC 1 B
 C 363 Continue west

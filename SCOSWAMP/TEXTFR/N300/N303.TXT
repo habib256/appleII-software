@@ -1,10 +1,11 @@
 T 303 Retour des Scorpions
 
-Vous etes de retour dans la clairiere ou vous avez ete attaque par les
+   Vous etes de retour dans la clairiere ou vous avez ete attaque par les
 Scorpions.
 
-Vous jetez un regard inquiet autour de vous pour voir s'ils sont toujours la,
-et... en effet ils y sont, se precipitant vers vous de tous cotes. Mais cette
-fois, vous etes pret a les affronter.
+   Vous jetez un regard inquiet autour de vous pour voir s'ils sont toujours
+la, et... en effet ils y sont, se precipitant vers vous de tous cotes. Mais
+cette fois, vous etes pret a les affronter.
 
+MU SCORPIONS.MB
 C 070 Affronter les Scorpions

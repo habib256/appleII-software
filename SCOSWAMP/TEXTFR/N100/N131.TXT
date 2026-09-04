@@ -1,15 +1,16 @@
 T 131 La Maitresse des Oiseaux
 
-Le Perroquet vous fixe d'un oeil rond. "Approchez-vous, dit-il, elle sait que
-vous venez."
+   Le Perroquet vous fixe d'un oeil rond. "Approchez-vous, dit-il, elle sait
+que vous venez."
 
-Vous franchissez un rideau de palmiers et decouvrez une clairiere splendide,
-peuple de milliers d'oiseaux aux plumes chatoyantes. Aigles et Herons se
-promennent librement.
+   Vous franchissez un rideau de palmiers et decouvrez une clairiere
+splendide, peuplee de milliers d'oiseaux aux plumes chatoyantes. Aigles et
+Herons se promenent librement.
 
-Au centre, une femme magnifique est assise sur un pedestal. par votre nom.
+   Au centre, une femme magnifique est assise sur un pedestal. Elle vous
+accueille par votre nom.
 
-"Quel sorcier servez-vous ?" demande-t-elle.
+   "Quel sorcier servez-vous ?" demande-t-elle.
 
 C 023 Pompatarte
 C 164 Gayolard

@@ -1,13 +1,14 @@
 T 087 The Quicksand
 
-You are caught in quicksand and you are sinking slowly. Your only hope is to
-get rid of your armor.
+   You are caught in quicksand and you are sinking slowly. Your only hope is
+to get rid of your armor.
 
-You hurry to remove it and abandon it. You manage to extract yourself, but you
-lose 2 SKILL points and must also reduce your initial SKILL total by 2 points.
+   You hurry to remove it and abandon it. You manage to extract yourself, but
+you lose 2 SKILL points and must also reduce your initial SKILL total by 2
+points.
 
-You will never be able to recover all your starting points: such is the price
-of losing your armor.
+   You will never be able to recover all your starting points: such is the
+price of losing your armor.
 
 E0 HABILETE -2
 C 270 Continue your path

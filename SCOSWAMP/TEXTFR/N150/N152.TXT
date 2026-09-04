@@ -1,8 +1,8 @@
 T 152 Choix de la pierre magique
 
-Face au Maitre des Jardins, vous preparez une Pierre Magique.
+   Face au Maitre des Jardins, vous preparez une Pierre Magique.
 
-Laquelle allez-vous utiliser? Chaque pierre peut declencher un effet
+   Laquelle allez-vous utiliser? Chaque pierre peut declencher un effet
 different, mais le choix est crucial et irreversible.
 
 CU FEU 136 Utiliser une Pierre de Feu

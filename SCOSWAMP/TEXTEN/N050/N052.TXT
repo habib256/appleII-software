@@ -1,11 +1,14 @@
 T 052 Failure at the Berry
 
-You unfortunately have no berry to give him. Recounting what happened to you
-in the Swamp, Gayolard's face darkens. "I'm sure you did your best," he says
-sadly.
+   You unfortunately have no berry to give him. Recounting what happened to
+you in the Swamp, Gayolard's face darkens. "I'm sure you did your best," he
+says sadly.
 
-At his disappointment, you offer to try again, but he refuses: "That would be
-taking too great a risk," he objects.
+   At his disappointment, you offer to try again, but he refuses: "That would
+be taking too great a risk," he objects.
 
-You did what you could. Alas, it wasn't enough. Your adventure ends here.
+   You did what you could. Alas, it wasn't enough. Your adventure ends here.
 
+   END OF ADVENTURE.
+
+MU +MORT.MB

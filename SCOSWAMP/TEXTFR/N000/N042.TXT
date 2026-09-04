@@ -1,14 +1,13 @@
 T 042 Fiole decouverte
-G FI
 
-En fouillant la poche du malheureux Nain vous trouvez une fiole scelle. Le
+   En fouillant la poche du malheureux Nain vous trouvez une fiole scellee. Le
 liquide y brille faiblement; il n'y a aucune etiquette ni indice.
 
-Boire pourrait soigner, empoisonner ou declencher un effet magique. Sans
-information, l'acte est risque, mais l'occasion est tentante. Vous etes dans
-la Clairiere n 042.
+   Boire pourrait soigner, empoisonner ou declencher un effet magique. Sans
+information, l'acte est risque, mais l'occasion est tentante.
 
-Que faites-vous?
+   Que faites-vous?
 
+G FI
 C 253 Boire la fiole
 C 088 Ne pas tenter l'experience

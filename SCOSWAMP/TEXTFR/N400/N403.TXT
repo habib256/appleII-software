@@ -1,8 +1,8 @@
 T 403 Le bond parfait
 
-Vous franchissez la vase sans tomber et retombez souplement de l'autre cote.
-Vous gagnez 2 points de CHANCE et poursuivez votre route sans tarder, le coeur
-leger et les bottes moins salies.
+   Vous franchissez la vase sans tomber et retombez souplement de l'autre
+cote. Vous gagnez 2 points de CHANCE et poursuivez votre route sans tarder, le
+coeur leger et les bottes moins salies.
 
 E CHANCE +2
 C 153 Poursuivre votre route

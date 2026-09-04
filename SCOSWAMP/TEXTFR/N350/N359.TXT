@@ -1,16 +1,17 @@
 T 359 Mensonge au Maitre des Grenouilles
 
-Vous etes convaincu que le Maitre des Grenouilles se montrerait beaucoup moins
-amical s'il connaissait la nature exacte de votre mission et vous inventez
-donc un mensonge.
+   Vous etes convaincu que le Maitre des Grenouilles se montrerait beaucoup
+moins amical s'il connaissait la nature exacte de votre mission et vous
+inventez donc un mensonge.
 
-" Je suis au service de Sukumvit, Baron de Fang, pretendez-vous. Il m'a envoye
-explorer le Marais aux Scorpions pour y chercher de nouveaux monstres dont il
-pourrait peupler son celebre Labyrinthe de la Mort. Lorsque je suis arrive au
-village qui se trouve a proximite du Marais, j'ai entendu parler des Maitres
-qui y ont elu domicile et je me suis promis d'en apprendre davantage a leur
-sujet. Qui etes-vous donc et pourquoi etes-vous venu vous installer ici ? "
+   "Je suis au service de Sukumvit, Baron de Fang, pretendez-vous. Il m'a
+envoye explorer le Marais aux Scorpions pour y chercher de nouveaux monstres
+dont il pourrait peupler son celebre Labyrinthe de la Mort. Lorsque je suis
+arrive au village qui se trouve a proximite du Marais, j'ai entendu parler des
+Maitres qui y ont elu domicile et je me suis promis d'en apprendre davantage a
+leur sujet. Qui etes-vous donc et pourquoi etes-vous venu vous installer ici
+?"
 
-Tentez votre Chance.
+   Tentez votre Chance.
 
 CL 162 016

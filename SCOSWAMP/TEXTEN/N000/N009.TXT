@@ -1,16 +1,17 @@
 T 009 The Swamp Entrance
 
-You are at the southern edge of the Scorpion Swamp. Thanks to the Copper Ring,
-you will always know where north is. You discover a path oriented due north. A
-few words painted on a rock warn you: WARNING! SCORPION SWAMP! TURN BACK! Two
-crossed shinbones and a skull add to this threat.
+   You are at the southern edge of the Scorpion Swamp. Thanks to the Copper
+Ring, you will always know where north is. You discover a path oriented due
+north. A few words painted on a rock warn you: WARNING! SCORPION SWAMP! TURN
+BACK! Two crossed shinbones and a skull add to this threat.
 
-You pay no attention. With an assured gait, you cross the edge. The air
+   You pay no attention. With an assured gait, you cross the edge. The air
 becomes heavier, mud oozes from everywhere. Very quickly, you understand that
 it would be foolish to leave the path. The deceptive ground sucks at your
 boots. Only way out: follow the path without ever straying from it.
 
-The humidity clings to your skin and insects swirl in clouds. The Swamp opens
-before you, hostile and silent, like a living trap.
+   The humidity clings to your skin and insects swirl in clouds. The Swamp
+opens before you, hostile and silent, like a living trap.
 
+MU VILLAGE.MB
 C 195 Advance cautiously on the path toward the heart of the Swamp

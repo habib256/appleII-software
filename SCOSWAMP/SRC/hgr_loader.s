@@ -7,7 +7,7 @@
         .export _hgr_rle_load
 
 HGR_END_HI = $40
-CHUNK_SIZE = $0400
+CHUNK_SIZE = $0080
 
         .segment "BSS"
 file_ptr:       .res 2
@@ -15,6 +15,19 @@ rep_byte:       .res 1
 saved_80store:  .res 1
 remaining:      .res 2
 saved_dst:      .res 2
+
+; Le tampon de lecture vit en RAM basse ($1000-$1FFF, segment LOWBSS de
+; scoswamp.cfg) : autant de moins dans la fenetre $4000-$BF00.
+;
+; 128 octets et non 1 Ko depuis le menu MAP (2026-09-04). ProDOS lit par blocs
+; de 512 octets et les met en cache dans SON tampon ($0800) : reduire le notre
+; ne change pas le nombre de BLOCS lus, seulement le nombre d'appels a fread --
+; 64 au lieu de 8 pour une image de 8 Ko, dont trois sur quatre ne sont qu'une
+; recopie depuis le cache. Les 896 octets rendus ont fait place en RAM basse a
+; l'etat de l'application, a la memoire des monstres, a la table de rabattement
+; page -> clairiere, a la barre de titre et aux lignes de corps, qui ont quitte
+; la fenetre principale d'autant.
+        .segment "LOWBSS"
 packed_data:    .res CHUNK_SIZE
 
         .segment "RODATA"
