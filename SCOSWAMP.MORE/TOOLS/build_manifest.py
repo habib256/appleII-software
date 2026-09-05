@@ -13,15 +13,15 @@ STYLE = """Use case: illustration-story
 Asset type: native Apple II DHGR scene illustration for SCOSWAMP
 Primary request: Illustrate the numbered French gamebook scene below faithfully.
 Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth confident outlines, bold brush shadows and flat solid fills. This is a high-resolution master, NOT pixel art, but DESIGN IT AT 140x192 FROM THE START: judge every silhouette as if only 140 colour cells existed across the screen.
-DHGR readability budget: primary outer contours must reduce to 3-6 colour cells thick; eyes, fingers, teeth, blades and facial marks must never be single-cell details. Use at most three depth planes, 6-10 major connected colour shapes and 2-4 broad interior marks per principal figure. Prefer one unmistakable gesture over several small actions. No thin branches, loose hair strands, hatching, stippling, tiny foliage, scattered highlights or busy backgrounds.
+DHGR readability budget: construct the picture from LARGE CONTIGUOUS FLAT COLOUR MASSES, not from linework. At least 75% of every visible subject must be uninterrupted solid fills; use one broad shadow block instead of many ink marks. Primary outer contours must reduce to 3-6 colour cells thick; eyes, fingers, teeth, blades and facial marks must never be single-cell details. Use at most three depth planes, 6-10 major connected colour shapes and 0-3 broad interior marks per principal figure. Trees are solid trunk silhouettes, reeds are grouped wedges, and water is two or three broad horizontal bands. Prefer one unmistakable gesture over several small actions. No thin branches, loose hair strands, hatching, stippling, tiny foliage, scattered highlights, etched texture or busy backgrounds.
 Composition/framing: landscape 35:24; select one decisive visual moment, never a collage; one strong focal action occupying at least half the frame height; essential shapes remain readable at 140x192; keep critical content away from the extreme edges.
 Color palette: use ONLY these Apple II DHGR colours: black #000000, dark red #A70B40, dark blue #401CF7, purple #E628FF, dark green #007440, dark gray #808080, medium blue #1990FF, light blue #BF9CFF, brown #406300, orange #E66F00, pink #FF8BBF, light green #19D700, yellow #BFE308, aquamarine #58F4BF, white #FFFFFF. Prefer black, white, orange, purple, green and blue for identity-critical shapes because they remain strongly separated on both composite and Le Chat Mauve RGB displays. Never use gray for a critical boundary: DHGR gray indices are neutral in composite but differently tinted on Le Chat Mauve. Use coherent flat regions; no gradients or invented colours; 30-50% solid black negative space.
 Lighting/mood: theatrical menace, adventure, immediate action.
-The hero's presence -- NON-NEGOTIABLE: the hero is the recurring protagonist and must be visibly present as the principal visual anchor in EVERY numbered narrative scene, including travel, arrival, discovery, landscape and found-object scenes. Show the location around him rather than replacing him with an empty establishing shot. Keep him large enough to remain recognisable at 280x192, normally in rear three-quarter view so his identity, backpack and silhouette read immediately. Only an isolated object or location reference sheet may omit him; numbered game scenes may not.
+The hero's presence: follow the per-scene HERO DECISION below. Do not add him merely because the prose addresses "vous": gamebook narration uses the second person even when the strongest illustration is the place, object, creature or non-player character alone.
 Non-battle staging: place the hero where the narrated action naturally puts him. When he shares the frame with a person or creature, make their attention and eyelines coherent, but do not force a rigid left/right duel layout onto peaceful meetings or exploration.
 Battle staging is separate and absolute: in every battle tableau the hero is on the LEFT facing RIGHT, and his opponent is on the RIGHT facing LEFT, with a clear gap between them.
 The hero's weapon: his sword stays SHEATHED at his hip and his hands stay empty unless the scene text below actually has him fighting, drawing, threatening or striking. Most pages are a walk, a conversation, a discovery or a bargain, and a hero standing sword in hand through all of them looks like a man who means to kill everyone he meets. Draw the posture the page describes.
-Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
+Materials/textures: dominant hard-edged flat fills and one or two broad shadow masses; outlines define silhouettes but do not scribble texture inside them. No random grain.
 Text (verbatim): ""
 Constraints: no visible words, letters, numbers, captions, border, UI, logo, signature, or watermark; no gradients; no anti-aliasing; no photorealistic texture; no tiny decorative detail; one coherent scene, not a collage.
 Avoid: glossy modern concept art, modern objects, smooth airbrush shading, comic speech effects, noisy dithering, illegible micro-detail, extra characters or objects not supported by the scene.
@@ -44,10 +44,10 @@ Setting: the duel happens somewhere, so draw the place behind them -- the swamp 
 Composition/framing: landscape 35:24 for a 140x192 DHGR colour screen. CRITICAL: during play a text window covers the bottom sixth. Both figures must be COMPLETE within the upper three quarters, each at least half the frame height, and the lowest quarter plain dark ground. Hero left, adversary right, a gap at least one figure-head wide; no weapon, limb or background branch may bridge that gap. Broad readable silhouettes and no fine detail.
 Facing -- NON-NEGOTIABLE: the two are fighting EACH OTHER, so each one looks at the other. The hero stands on the left and faces, leans and strikes RIGHTWARD, toward the adversary. The adversary stands on the right and faces, leans and strikes LEFTWARD, toward the hero. Their heads are turned toward one another, their eyes meet, their weapons are aimed at one another. A figure whose head or gaze points away from the other -- outward, toward the edge of the frame, or at the viewer -- is WRONG: two fighters looking in opposite directions are not in a duel.
 """ + BATTLE_HERO + """
-Style/medium: late-1970s sword-and-sorcery pulp ink illustration, smooth bold outlines, broad shadows and flat solid fills, designed at native 140x192 DHGR logic. Outer contours reduce to 3-6 colour cells; faces and weapons use only broad marks. At most 8 major connected colour shapes per fighter and three quiet background planes.
+Style/medium: late-1970s sword-and-sorcery pulp screen illustration built primarily from LARGE CONTIGUOUS FLAT COLOUR MASSES. At least 75% of each fighter is uninterrupted solid fill, with a single broad shadow block and only 0-3 interior marks. Bold outlines define the outer silhouette but never become dense internal pen work. Designed at native 140x192 DHGR logic: contours reduce to 3-6 colour cells; faces and weapons use only broad marks. At most 8 major connected colour shapes per fighter and three quiet, flat background planes.
 Color palette: use ONLY black #000000, dark red #A70B40, dark blue #401CF7, purple #E628FF, dark green #007440, dark gray #808080, medium blue #1990FF, light blue #BF9CFF, brown #406300, orange #E66F00, pink #FF8BBF, light green #19D700, yellow #BFE308, aquamarine #58F4BF, white #FFFFFF; no gradients or invented colours. Do not use gray to separate touching fighters or define a weapon edge because its two hardware variants diverge on Le Chat Mauve RGB.
 Lighting/mood: theatrical menace, imminent violence.
-Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
+Materials/textures: hard-edged flat fills and one or two deliberate broad shadow masses only; no etched detail, hatching or random grain.
 Text (verbatim): ""
 Constraints: no visible words, letters, numbers, captions, border, UI, logo, signature, or watermark; no gradients; no anti-aliasing; no photorealistic texture; no tiny decorative detail; exactly two figures, the hero and the adversary.
 Avoid: glossy modern concept art, modern objects, smooth airbrush shading, comic speech effects, noisy dithering, illegible micro-detail, extra creatures or bystanders.
@@ -131,9 +131,9 @@ BIBLES = ("decors.json", "characters.json", "monsters.json", "objects.json")
 # Le medium et la palette etaient decrits deux fois, une fois pour les scenes
 # et une fois pour les batailles : deux textes qui pouvaient deriver l'un de
 # l'autre. Ils n'existent plus qu'ici.
-COMMON_STYLE = """Style/medium: late-1970s sword-and-sorcery pulp ink illustration: smooth bold outlines, broad ink shadows and flat solid fills. High-resolution master, NOT pixel art, but composed with a strict 140x192 DHGR shape budget: outer contours 3-6 colour cells thick, no one-cell features, at most 6-10 major connected shapes and 2-4 interior marks per subject.
+COMMON_STYLE = """Style/medium: late-1970s sword-and-sorcery pulp screen illustration constructed primarily from LARGE CONTIGUOUS FLAT COLOUR MASSES. At least 75% of the subject is uninterrupted solid fill. Use one broad shadow block rather than pen texture; outlines define the outer silhouette but do not fill surfaces with strokes. High-resolution master, NOT pixel art, but composed with a strict 140x192 DHGR shape budget: outer contours 3-6 colour cells thick, no one-cell features, at most 6-10 major connected shapes and 0-3 interior marks per subject.
 Color palette: use ONLY black #000000, dark red #A70B40, dark blue #401CF7, purple #E628FF, dark green #007440, dark gray #808080, medium blue #1990FF, light blue #BF9CFF, brown #406300, orange #E66F00, pink #FF8BBF, light green #19D700, yellow #BFE308, aquamarine #58F4BF, white #FFFFFF. Prefer black, white and saturated colours for defining edges; gray is never a critical contour because its two DHGR indices appear differently tinted on Le Chat Mauve RGB. Use coherent flat regions, no gradients or invented colours; 30-50% solid black negative space.
-Materials/textures: hard-edged flat fills and deliberate broad ink shadows only; no random grain.
+Materials/textures: hard-edged flat fills and one or two broad shadow masses only; no etched detail, hatching or random grain.
 Text (verbatim): ""
 Constraints: no visible words, letters, numbers, captions, border, UI, logo, signature, or watermark; no anti-aliasing; no photorealistic texture; no tiny decorative detail.
 Avoid: glossy modern concept art, modern objects, smooth airbrush shading, comic speech effects, noisy dithering, illegible micro-detail."""
@@ -168,10 +168,12 @@ def load_characters(root):
     return out
 
 
-def matching(text, characters):
+def matching(text, characters, include_hero=True):
     """Les fiches qui concernent cette page, dans l'ordre des bibles."""
     out = []
     for c in characters:
+        if c["id"] == "HERO" and not include_hero:
+            continue
         if c.get("always"):
             out.append(c); continue
         for alias in c.get("aliases", []):
@@ -180,7 +182,7 @@ def matching(text, characters):
     return out
 
 
-def bible_hash(text, characters):
+def bible_hash(text, characters, include_hero=True):
     """Empreinte des fiches ayant servi a ce prompt.
 
     Sans elle, modifier une fiche ne dit pas quelles images sont devenues
@@ -188,7 +190,7 @@ def bible_hash(text, characters):
     """
     import hashlib
     blob = "\u0000".join(c["id"] + c["look"] + c.get("scale", "")
-                          for c in matching(text, characters))
+                          for c in matching(text, characters, include_hero))
     return hashlib.sha1(blob.encode("utf-8")).hexdigest()[:12]
 
 
@@ -215,7 +217,7 @@ def uncovered_names(text, characters):
     return out
 
 
-def character_block(text, characters):
+def character_block(text, characters, include_hero=True):
     """Le bloc injecte : description, puis echelle.
 
     L'echelle compte autant que la description : deux images peuvent respecter
@@ -223,7 +225,7 @@ def character_block(text, characters):
     est toujours donnee PAR RAPPORT AU HEROS, seule mesure commune a toutes
     les images.
     """
-    present = matching(text, characters)
+    present = matching(text, characters, include_hero)
     if not present:
         return ""
     out = []
@@ -244,13 +246,13 @@ def character_block(text, characters):
 REF_ATTACH_MAX = 4
 
 
-def refs_for(text, characters, root):
+def refs_for(text, characters, root, include_hero=True):
     """Les planches a joindre au prompt, les plus utiles d'abord."""
     def rank(c):
         return 0 if c.get("always") else (1 if c["kind"] == "figure" else 2)
 
     out = []
-    for c in sorted(matching(text, characters), key=rank):
+    for c in sorted(matching(text, characters, include_hero), key=rank):
         ref = c.get("ref")
         if ref and (root / ref).exists():
             out.append(ref)
@@ -281,7 +283,7 @@ Composition/framing: close enough for its defining silhouette and ornament to re
 
 REF_TAIL = COMMON_STYLE + """
 
-DHGR DETAIL TARGET — NON-NEGOTIABLE: balanced intermediate detail, neither a pictogram nor dense concept art. Primary silhouettes are bold; secondary lines remain 2-4 colour pixels thick after reduction to 140x192. Use a limited number of broad meaningful interior marks. No hairlines, fine hatching, stippling, micro-texture, gradients or decorative noise.
+DHGR DETAIL TARGET — NON-NEGOTIABLE: balanced intermediate detail, neither a pictogram nor dense concept art. The image reads first as broad flat colour areas; detail is subordinate. Primary silhouettes are bold; any secondary line remains 3-5 colour pixels thick after reduction to 140x192. Use no more than three broad meaningful interior marks. No hairlines, fine hatching, stippling, micro-texture, gradients or decorative noise.
 
 This sheet is the CANON. Every later illustration of this subject will be drawn
 from it, so the shapes and colours chosen here must be unambiguous.
@@ -320,6 +322,24 @@ def ref_rows(root, characters):
     return rows
 
 
+# Une scene narrative n'est pas un portrait automatique du joueur. Le heros
+# n'est indispensable que lorsque son corps accomplit l'action qui fait
+# l'image (chute, saut, nage, escalade, coup, manipulation dangereuse, etc.).
+# Les combats ont leur manifeste Bxxx et leur regle absolue distincte.
+HERO_ACTION = re.compile(
+    r"\b(vous (?:tombez|chutez|sautez|bondissez|grimpez|escaladez|nagez|"
+    r"plongez|rampez|frappez|attaquez|combattez|brandissez|tirez|lancez|"
+    r"poussez|soulevez|ouvrez|buvez|mangez|avalez|etes blesse|etes pris|"
+    r"etes attaque)|votre (?:main|bras|jambe|corps)\b)", re.I)
+
+
+def hero_required(scene):
+    """Vrai seulement si retirer le corps du heros ferait perdre l'action."""
+    # Le portrait de la page "Qui vous etes" presente explicitement le
+    # protagoniste, meme sans verbe d'action dans le texte.
+    return scene.lstrip().startswith("T 419") or bool(HERO_ACTION.search(scene))
+
+
 def scene_rows(root, characters, all_pages):
     """Une illustration par clairiere. Par defaut, seulement les manquantes."""
     game = root / "SCOSWAMP"
@@ -340,6 +360,17 @@ def scene_rows(root, characters, all_pages):
         if rle_path.exists() and not all_pages:
             continue
         scene = text_path.read_text(encoding="utf-8").strip()
+        with_hero = hero_required(scene)
+        hero_decision = ("\n\nHERO DECISION — INCLUDE HIM: the page contains an essential "
+                         "physical action or bodily peril. Show the hero large enough "
+                         "to read, from rear three-quarter view, acting exactly as the "
+                         "text says; do not turn this into a posed portrait."
+                         if with_hero else
+                         "\n\nHERO DECISION — OMIT HIM: the protagonist is not visually "
+                         "necessary in this scene. Do not show the hero, his back, a "
+                         "traveller silhouette, or an orange-clad stand-in. Give the "
+                         "frame to the location, object, creature or NPC that makes "
+                         "this page distinct.")
         rows.append({
             "id": scene_id,
             "scene": f"N{sid}",
@@ -347,9 +378,11 @@ def scene_rows(root, characters, all_pages):
             "source_png": str((more / "GENERATED" / f"N{sid}.png").relative_to(root)),
             "hgr_rle": str(rle_path.relative_to(root)),
             "preview_png": str((more / "HGR-PREVIEW" / f"N{sid}.png").relative_to(root)),
-            "prompt": STYLE + scene + character_block(scene, characters),
-            "refs": refs_for(scene, characters, root),
-            "bible": bible_hash(scene, characters),
+            "prompt": STYLE + hero_decision + "\n\n" + scene
+                      + character_block(scene, characters, with_hero),
+            "refs": refs_for(scene, characters, root, with_hero),
+            "bible": bible_hash(scene, characters, with_hero),
+            "hero_required": with_hero,
             "status": "pending",
         })
     return rows

@@ -1,0 +1,160 @@
+{
+  "id": "SCOSWAMP",
+  "titre": "Le Marais aux Scorpions",
+  "commentaire": [
+    "Le DESCRIPTEUR du jeu : tout ce que le lecteur doit savoir pour lire les",
+    "donnees d'un titre, et rien du titre lui-meme. Un second jeu se decrit",
+    "ici, pas dans le code -- c'est le principe que le portage Apple II tient",
+    "deja (le texte, l'aide, la carte et les catalogues vivent sur le disque)",
+    "et que cet atelier pousse d'un cran : les CHEMINS aussi sont une donnee.",
+    "",
+    "Les gabarits acceptent {LANG} (FR/EN), {BUCKET} (le sous-repertoire",
+    "N000/N050/... du volume ProDOS), {PAGE} (N012) et {IMG} (N012 ou B012)."
+  ],
+
+  "moteur": {
+    "colonnes": 80,
+    "lignes": 24,
+    "ligneTexte0": 1,
+    "lignesTexte": 18,
+    "ligneLieu": 19,
+    "ligneChoix0": 20,
+    "maxChoix": 5,
+    "maxAdversaires": 3,
+    "pageMax": 424,
+    "pageDepart": 0
+  },
+
+  "langues": [
+    { "code": "FR", "nom": "Francais" },
+    { "code": "EN", "nom": "English" }
+  ],
+
+  "bucket": 50,
+
+  "titre": { "source": "directive-T" },
+
+  "directivesCommentaire": [
+    "La table des directives, dans l'ordre de kOps (SCOSWAMP/SRC/scoswamp.c) :",
+    "L'ORDRE FAIT FOI -- les prefixes de deux lettres passent devant la lettre",
+    "seule, sinon 'M ' avalerait 'MV' et 'E ' avalerait 'ED'. `troisieme` est",
+    "le caractere exige en position 3 : ' ' un espace, '.' la fin de ligne,",
+    "'*' n'importe lequel. `effetEntree` marque ce qu'une reprise de partie ne",
+    "doit pas rejouer. Une directive absente de cette liste n'existe pas pour",
+    "ce jeu : sa ligne retombe dans le texte de la page.",
+    "Le CODE porte le sens de chaque jeton ; la table dit lesquels ce jeu",
+    "emploie et comment ils s'ecrivent."
+  ],
+  "directives": [
+    { "jeton": "GX",  "troisieme": " ",  "effetEntree": true,  "aide": "retire un objet ou un drapeau" },
+    { "jeton": "GA",  "troisieme": " ",  "effetEntree": true,  "aide": "revend toutes les amulettes, <n> Pieces d'Or chacune" },
+    { "jeton": "G",   "troisieme": "*",  "effetEntree": true,  "aide": "donne un objet, un drapeau ou une amulette" },
+    { "jeton": "CI",  "troisieme": " ",  "effetEntree": false, "aide": "choix conditionne a la possession" },
+    { "jeton": "CN",  "troisieme": " ",  "effetEntree": false, "aide": "choix conditionne a l'absence" },
+    { "jeton": "CA",  "troisieme": " ",  "effetEntree": false, "aide": "choix conditionne au NOMBRE d'amulettes (<lo> <hi>)" },
+    { "jeton": "GU",  "troisieme": " ",  "effetEntree": false, "aide": "choix qui exige et CONSOMME un objet" },
+    { "jeton": "PD",  "troisieme": ".",  "effetEntree": true,  "aide": "on vous prend deux biens" },
+    { "jeton": "PO",  "troisieme": ".",  "effetEntree": true,  "aide": "on vous prend un bien" },
+    { "jeton": "PX",  "troisieme": ".",  "effetEntree": true,  "aide": "on vous prend tout le sac" },
+    { "jeton": "TR",  "troisieme": ".",  "effetEntree": true,  "aide": "troque jusqu'a trois biens contre autant de Pierres neutres" },
+    { "jeton": "MD",  "troisieme": " ",  "effetEntree": false, "aide": "les coups du dernier adversaire coutent <n> ENDURANCE" },
+    { "jeton": "MS",  "troisieme": " ",  "effetEntree": false, "aide": "le combat cesse a <n> ENDURANCE" },
+    { "jeton": "MI",  "troisieme": " ",  "effetEntree": false, "aide": "l'image de bataille du dernier adversaire vient de la page <p>" },
+    { "jeton": "MU",  "troisieme": " ",  "effetEntree": false, "aide": "musique de la page ; + surcouche, - silence" },
+    { "jeton": "MV",  "troisieme": " ",  "effetEntree": false, "aide": "apres le dernier adversaire tombe, aller en <id>" },
+    { "jeton": "MB",  "troisieme": " ",  "effetEntree": false, "aide": "duel au premier sang : <si vous touchez> <si touche>" },
+    { "jeton": "M",   "troisieme": "*",  "effetEntree": false, "aide": "un adversaire : <HABILETE> <ENDURANCE> <nom>" },
+    { "jeton": "E0",  "troisieme": " ",  "effetEntree": true,  "aide": "variation du TOTAL DE DEPART" },
+    { "jeton": "CE",  "troisieme": " ",  "effetEntree": true,  "aide": "Tentez votre Chance sans branchement : <carac> <dok> <dko>" },
+    { "jeton": "ED",  "troisieme": " ",  "effetEntree": true,  "aide": "jet de des visible : <carac> <+-ndes>" },
+    { "jeton": "E",   "troisieme": "*",  "effetEntree": true,  "aide": "effet a l'entree : <carac> <delta>" },
+    { "jeton": "PC",  "troisieme": " ",  "effetEntree": true,  "aide": "le sorcier laisse choisir <n> Pierres parmi <categories>" },
+    { "jeton": "P",   "troisieme": "*",  "effetEntree": true,  "aide": "donne <n> Pierres de la sorte nommee" },
+    { "jeton": "CL",  "troisieme": " ",  "effetEntree": false, "aide": "Tentez votre Chance : <ok> <ko> [<dok> <dko>]" },
+    { "jeton": "CU",  "troisieme": " ",  "effetEntree": false, "aide": "choix qui EXIGE et consomme une Pierre" },
+    { "jeton": "CP",  "troisieme": " ",  "effetEntree": false, "aide": "choix qui REMET une Pierre" },
+    { "jeton": "V",   "troisieme": "*",  "effetEntree": true,  "aide": "deja venu : detour vers <id>, les autres pages du lieu suivent" },
+    { "jeton": "CS",  "troisieme": " ",  "effetEntree": false, "aide": "jet de 2 des contre <carac> : <ok> <ko>" },
+    { "jeton": "DV",  "troisieme": " ",  "effetEntree": false, "aide": "en cascade : perte du dernier combat <= <max> -> <id>" },
+    { "jeton": "CF",  "troisieme": " ",  "effetEntree": false, "aide": "la Fuite de cette page mene en <id>" },
+    { "jeton": "T",   "troisieme": "*",  "effetEntree": false, "aide": "titre de la page" },
+    { "jeton": "C",   "troisieme": "*",  "effetEntree": false, "aide": "choix : <id> <libelle>" }
+  ],
+
+  "assets": {
+    "texte":        "SCOSWAMP/TEXT{LANG}/{BUCKET}/{PAGE}.TXT",
+    "titre":        "SCOSWAMP/TITLE.TXT",
+    "aide":         "SCOSWAMP/HELP{LANG}.TXT",
+    "messages":     "SCOSWAMP/MSG{LANG}.TXT",
+    "messagesEnum": "SCOSWAMP/SRC/messages.h",
+    "objets":       "SCOSWAMP/OBJ{LANG}.TXT",
+    "carte":        "SCOSWAMP/MAP.BIN"
+  },
+
+  "images": [
+    {
+      "id": "master",
+      "nom": "Master (avant DHGR)",
+      "type": "png",
+      "chemin": "SCOSWAMP.MORE/GENERATED/{IMG}.png",
+      "note": "L'illustration d'origine, pleine resolution : ce que la conversion prend en entree."
+    },
+    {
+      "id": "dhgr-chatmauve",
+      "nom": "DHGR decode (Chat Mauve)",
+      "type": "dhgr",
+      "chemin": "SCOSWAMP/IMG/{BUCKET}/{IMG}.RLE.BIN",
+      "palette": "chatmauve",
+      "note": "Le flux RLE du volume, decode ici meme : exactement ce que la machine affiche."
+    },
+    {
+      "id": "dhgr-composite",
+      "nom": "DHGR decode (composite)",
+      "type": "dhgr",
+      "chemin": "SCOSWAMP/IMG/{BUCKET}/{IMG}.RLE.BIN",
+      "palette": "composite"
+    },
+    {
+      "id": "preview-chatmauve",
+      "nom": "Apercu PNG Chat Mauve",
+      "type": "png",
+      "chemin": "SCOSWAMP.MORE/CHATMAUVE-PREVIEW/{IMG}.png"
+    },
+    {
+      "id": "preview-composite",
+      "nom": "Apercu PNG composite",
+      "type": "png",
+      "chemin": "SCOSWAMP.MORE/HGR-PREVIEW/{IMG}.png"
+    }
+  ],
+
+  "objetsSpeciaux": {
+    "epeeMagique": "EP",
+    "anneauBoussole": "ANNEAU",
+    "commentaire": "Les deux seuls jetons dont le moteur connait la regle : l'Epee Magique ajoute son bonus d'assaut, l'Anneau de Cuivre autorise la carte."
+  },
+
+  "amulettes": [
+    { "cle": "LOUP",       "fr": "Amulette du Loup",            "en": "Wolf Amulet" },
+    { "cle": "FLEUR",      "fr": "Amulette de la Fleur",        "en": "Flower Amulet" },
+    { "cle": "OISEAU",     "fr": "Amulette de l'Oiseau",        "en": "Bird Amulet" },
+    { "cle": "ARAIGNEE",   "fr": "Amulette de l'Araignee",      "en": "Spider Amulet" },
+    { "cle": "GRENOUILLE", "fr": "Amulette de la Grenouille",   "en": "Frog Amulet" },
+    { "cle": "FAUX",       "fr": "Fausse Amulette de l'Oiseau", "en": "False Bird Amulet" }
+  ],
+
+  "pierres": [
+    { "fr": "HABILETE", "en": "SKILL", "categorie": "N", "effet": "moitie:HABILETE", "enCombat": false },
+    { "fr": "ENDURANCE", "en": "STAMINA", "categorie": "N", "effet": "moitie:ENDURANCE", "enCombat": false },
+    { "fr": "CHANCE", "en": "LUCK", "categorie": "N", "effet": "moitie:CHANCE", "enCombat": false },
+    { "fr": "FEU", "en": "FIRE", "categorie": "N", "effet": "", "enCombat": true },
+    { "fr": "GLACE", "en": "ICE", "categorie": "N", "effet": "", "enCombat": true },
+    { "fr": "ILLUSION", "en": "ILLUSION", "categorie": "N", "effet": "", "enCombat": true },
+    { "fr": "AMITIE", "en": "FRIENDSHIP", "categorie": "B", "effet": "", "enCombat": true },
+    { "fr": "CROISSANCE", "en": "GROWTH", "categorie": "B", "effet": "", "enCombat": true },
+    { "fr": "BENEDICTION", "en": "BLESSING", "categorie": "B", "effet": "", "enCombat": true },
+    { "fr": "TERREUR", "en": "FEAR", "categorie": "M", "effet": "", "enCombat": true },
+    { "fr": "FLETRISSURE", "en": "WITHERING", "categorie": "M", "effet": "", "enCombat": true },
+    { "fr": "MALEDICTION", "en": "CURSE", "categorie": "M", "effet": "de6:-ENDURANCE", "enCombat": true }
+  ]
+}

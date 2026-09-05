@@ -134,8 +134,8 @@ UI = [
     ("inexploree",                 "unexplored"),                    # 4  INCONNUE
     ("hors du Marais",             "out of the Swamp"),              # 5  HORS
     ("LEGENDE",                    "KEY"),                           # 6  LEGENDE
-    ("(nn) clairiere vue",         "(nn) clearing seen"),            # 7  LEG1
-    ("<nn> vous etes ici",         "<nn> you are here"),             # 8  LEG2
+    ("(*) clairiere vue",           "(*) clearing seen"),             # 7  LEG1
+    ("<*> vous etes ici",           "<*> you are here"),              # 8  LEG2
     ("--   sentier emprunte",      "--   path walked"),              # 9  LEG3
     ("-?   sentier connu",         "-?   path known, not taken"),    # 10 LEG4
     ("v    hors du Marais",        "v    out of the Swamp"),         # 11 LEG5

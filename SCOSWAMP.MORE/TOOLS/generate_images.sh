@@ -78,6 +78,19 @@ run_one() {
         "$(cat "$d/prompt")" "$GEN_ROOT/$dest" \
         | codex exec "${args[@]}" - > "$d/log" 2>&1 || true
 
+    # Certains agents ont historiquement confondu le numero de texte T029
+    # avec le nom d'image N029 et depose le rendu a la racine de MORE. Ne pas
+    # jeter une generation valable pour cette seule erreur de chemin. On ne
+    # recupere toutefois qu'un fichier cree pendant cette tache (`-nt`), afin
+    # de ne jamais recycler un ancien brouillon comme nouvelle image.
+    base="$(basename "$dest" .png)"
+    if [ ! -f "$GEN_ROOT/$dest" ] && [[ "$base" == N[0-9][0-9][0-9] ]]; then
+        misplaced="$GEN_ROOT/SCOSWAMP.MORE/T${base#N}.png"
+        if [ -f "$misplaced" ] && [ "$misplaced" -nt "$d/prompt" ]; then
+            mv "$misplaced" "$GEN_ROOT/$dest"
+        fi
+    fi
+
     # L'agent d'image laisse parfois derriere lui ses essais -- des pastilles
     # de palette de quelques centaines d'octets nommees B284-0.png, B284-1.png
     # a cote de B284.png. Elles echappent au motif du convertisseur, mais un
