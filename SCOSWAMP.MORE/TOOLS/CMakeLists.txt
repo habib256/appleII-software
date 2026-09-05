@@ -13,6 +13,19 @@ add_executable(scoswamp_hgr
     scoswamp_hgr.cpp
     "${POM2_SRC}/hgrpaint/Cam16.cpp"
 )
+
+add_executable(scoswamp_dhgr
+    scoswamp_dhgr.cpp
+    "${POM2_SRC}/hgrpaint/Cam16.cpp"
+    "${POM2_SRC}/hgrpaint/HgrConvert.cpp"
+    "${POM2_SRC}/hgrpaint/HgrPaintModel.cpp"
+    "${POM2_SRC}/hgrpaint/DhgrNtsc8Palette.cpp"
+)
+target_include_directories(scoswamp_dhgr PRIVATE
+    "${POM2_SRC}"
+    "${POM2_SRC}/hgrpaint"
+)
+target_compile_options(scoswamp_dhgr PRIVATE -Wall -Wextra -Wpedantic)
 target_include_directories(scoswamp_hgr PRIVATE
     "${POM2_SRC}"
     "${POM2_SRC}/hgrpaint"

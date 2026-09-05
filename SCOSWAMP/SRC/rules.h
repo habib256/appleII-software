@@ -245,10 +245,12 @@ void monster_memory_reset(void);
  * du Marais sont du second type, d'ou une file. Il faut donc se souvenir non
  * seulement de l'ENDURANCE entamee mais de QUEL adversaire etait en cours.
  *
+ * `zone` est la cle de clairiere fournie par le moteur (jamais le numero de
+ * page) : revenir par une autre entree retrouve donc exactement la meme file.
  * Rend l'indice ou reprendre, et ajuste l'ENDURANCE de cet adversaire-la.
  * Rend `count` si toute la file est tombee lors d'une visite precedente. */
-int  monster_enter(unsigned int scene, Monster* foes, int count);
-void monster_remember(unsigned int scene, int index, const Monster* m);
+int  monster_enter(unsigned int zone, Monster* foes, int count);
+void monster_remember(unsigned int zone, int index, const Monster* m);
 
 /* ── Les clairieres deja parcourues ────────────────────────────────────────
  * "Si vous y etes deja venu, rendez-vous au 142. Sinon, lisez ce qui suit."

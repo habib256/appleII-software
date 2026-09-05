@@ -28,11 +28,10 @@ QUIET=0
 ERRORS=0
 WARNINGS=0
 
-# Taille exacte d'une page HGR Apple II : 280x192 px.
-# 192 lignes x 40 octets = 7680 octets affichés, + 512 octets de "screen holes"
-# non affichés = 8192. Un fichier plus court est chargé partiellement par ProDOS
-# et laisse des résidus de la scène précédente à l'écran.
+# Taille exacte d'une paire DHGR Apple IIe : deux pages de 8192 octets,
+# banque auxiliaire puis banque principale, pour 140x192 pixels en 16 couleurs.
 readonly HGR_SIZE=8192
+readonly DHGR_SIZE=16384
 
 say()  { [ "$QUIET" -eq 0 ] && echo "$@"; return 0; }
 err()  { echo "  ERREUR   $*"; ERRORS=$((ERRORS + 1)); }
@@ -67,8 +66,8 @@ say "  $hgr_total image(s) brute(s) vérifiée(s), $hgr_bad invalide(s)"
 # validateur du convertisseur ; un contrôle de taille de fichier ne dirait
 # plus rien ici.
 say ""
-say "-- Images HGR compressées (doivent se décoder en $HGR_SIZE octets) --"
-readonly HGRTOOL=SCOSWAMP.MORE/TOOLS/build/scoswamp_hgr
+say "-- Images DHGR compressées (doivent se décoder en $DHGR_SIZE octets) --"
+readonly HGRTOOL=SCOSWAMP.MORE/TOOLS/build/scoswamp_dhgr
 rle_total=0
 rle_bad=0
 if [ -x "$HGRTOOL" ]; then
@@ -78,7 +77,7 @@ if [ -x "$HGRTOOL" ]; then
             err "$f : flux HGRR invalide"
             rle_bad=$((rle_bad + 1))
         fi
-    done < <(find SCOSWAMP SPACETRIP COMBAT -name "*.RLE.BIN" 2>/dev/null | sort)
+    done < <(find SCOSWAMP -name "*.RLE.BIN" 2>/dev/null | sort)
     say "  $rle_total image(s) compressée(s) vérifiée(s), $rle_bad invalide(s)"
 else
     warn "$HGRTOOL absent : images compressées non vérifiées"
@@ -164,10 +163,10 @@ say "-- Moteurs compilés --"
 #   SCOSWAMP : __HIMEM__ = $BF00 depuis le 2026-08-29 -- le moteur de combat
 #     n'entrait pas sous $9600. Il prend la place de BASIC.SYSTEM, ce qui lui
 #     coûte le retour au BASIC et lui vaut son propre lanceur SYS. Moins la
-#     pile C de 1536 octets, le plafond est $B900, soit 30976 octets depuis
+#     pile C de 384 octets, le plafond est $BD80, soit 32128 octets depuis
 #     $4000. Chiffre unique, tenu par SCOSWAMP/SRC/Makefile.
 readonly ENGINE_MAX=22016
-readonly SCOSWAMP_MAX=30976
+readonly SCOSWAMP_MAX=32128
 
 # ATTENTION : ce contrôle est NÉCESSAIRE MAIS PAS SUFFISANT.
 # Le fichier .BIN ne contient pas le segment BSS (variables non initialisées),
@@ -187,7 +186,7 @@ for bin in SCOSWAMP/SCOSWAMP.BIN SPACETRIP/SPACETRIP.BIN COMBAT/COMBAT.BIN; do
         size=$(stat -c%s "$bin" 2>/dev/null || stat -f%z "$bin")
         kb=$((size / 1024))
         case "$bin" in
-            SCOSWAMP/*) max=$SCOSWAMP_MAX; top='$B900' ;;
+            SCOSWAMP/*) max=$SCOSWAMP_MAX; top='$BD80' ;;
             *)          max=$ENGINE_MAX;   top='$9600' ;;
         esac
         if [ "$size" -gt "$max" ]; then

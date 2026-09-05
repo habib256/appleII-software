@@ -26,7 +26,7 @@
     "WOLVES"
    ],
    "source": "portage",
-   "look": "THE WOLVES: lean WHITE-and-BLACK timber wolves, low shoulders, ORANGE eyes, bared fangs.",
+   "look": "THE WOLF: one enormous lean WHITE-and-DARK-GRAY timber wolf, low tense shoulders, ORANGE eyes and bared WHITE fangs. A reference sheet always shows exactly one wolf, never its master or a pack.",
    "scale": "waist-high to the hero",
    "ref": "SCOSWAMP.MORE/REF/LOUP.png"
   },
@@ -66,7 +66,7 @@
     "GIANT SCORPION"
    ],
    "source": "titre du livre",
-   "look": "THE GIANT SCORPION: a VIOLET-black scorpion the size of a man's torso, segmented tail raised and curved forward, heavy pincers held wide, low flat body.",
+   "look": "THE GIANT SCORPION: one PURPLE scorpion the size of a man's torso, alone, with a low flat body, eight separated legs, heavy pincers held wide and a thick segmented tail raised and curved forward. Never add a human scale figure to its reference sheet.",
    "scale": "as long as the hero is tall",
    "ref": "SCOSWAMP.MORE/REF/SCORPION.png"
   },

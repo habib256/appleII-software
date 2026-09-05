@@ -331,7 +331,7 @@ int combat_flee(Character* c, const Monster* m, int use_luck)
 /* ── Memoire des clairieres ──────────────────────────────────────────────── */
 
 /* Table clairsemee : seules les clairieres ou l'on a effectivement combattu y
- * figurent. `scene == 0` marque un emplacement libre -- la clairiere 0 est
+ * figurent. `zone == 0` marque un emplacement libre -- la clairiere 0 est
  * l'ecran de titre, elle n'a pas d'adversaire. `index` retient lequel de la
  * file etait en cours ; sans lui, fuir devant le deuxieme LOUP puis revenir
  * ferait recommencer au premier. */
@@ -356,16 +356,16 @@ void monster_memory_reset(void)
     }
 }
 
-static int slot_of(unsigned int scene)
+static int slot_of(unsigned int zone)
 {
     int i;
-    for (i = 0; i < MONSTER_SLOTS; ++i) if (seen[i].scene == scene) return i;
+    for (i = 0; i < MONSTER_SLOTS; ++i) if (seen[i].scene == zone) return i;
     return -1;
 }
 
-int monster_enter(unsigned int scene, Monster* foes, int count)
+int monster_enter(unsigned int zone, Monster* foes, int count)
 {
-    int i = slot_of(scene);
+    int i = slot_of(zone);
     int idx;
 
     if (i < 0) return 0;                 /* jamais combattu ici */
@@ -377,14 +377,14 @@ int monster_enter(unsigned int scene, Monster* foes, int count)
     return idx;
 }
 
-void monster_remember(unsigned int scene, int index, const Monster* m)
+void monster_remember(unsigned int zone, int index, const Monster* m)
 {
-    int i = slot_of(scene);
+    int i = slot_of(zone);
     if (i < 0) i = slot_of(0);      /* premier emplacement libre */
     /* Table pleine : on oublie cette clairiere, ses adversaires seront de
      * nouveau entiers au prochain passage. Impossible avec les 26 du livre. */
     if (i >= 0) {
-        seen[i].scene = scene;
+        seen[i].scene = zone;
         seen[i].index = (unsigned char)index;
         seen[i].end   = m->end;
     }

@@ -5,9 +5,9 @@
   "la page. C'est la constance du TEXTE qui fait la constance de l'image :",
   "ne pas reformuler une fiche sans regenerer les images concernees.",
   "",
-  "Les couleurs ne nomment que la palette HGR de l'Apple II -- noir, blanc,",
-  "violet, vert, bleu, orange. Dire 'gris' produisait du bleu a la",
-  "conversion, de facon coherente mais pas voulue.",
+  "Les couleurs ne nomment que la palette DHGR 16 couleurs de l'Apple II.",
+  "Les gris, rouges sombres, bleus clairs, roses, jaunes et aquamarines sont",
+  "desormais disponibles sans artefacts de voisinage.",
   "",
   "`source` : `livre` = tire du texte original, `portage` = choix assume."
  ],

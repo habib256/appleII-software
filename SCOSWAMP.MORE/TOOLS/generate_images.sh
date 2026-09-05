@@ -74,9 +74,22 @@ run_one() {
     done < "$d/refs"
 
     mkdir -p "$GEN_ROOT/$(dirname "$dest")"
-    printf '%s\n\nGenerate this image and save it to %s as a PNG. Resolution: HIGH -- the short side must be at least 1000 pixels (e.g. 1400x960 landscape, 1024x1536 portrait). Never output the bare 280x192 display size: this file is a master reference and needs the detail.\n' \
+    printf '%s\n\nGenerate this image and save it to %s as a PNG. Resolution: HIGH -- the short side must be at least 1000 pixels (e.g. 1400x960 landscape, 1024x1536 portrait). Never output the bare 140x192 DHGR colour display size: this file is a master reference and needs the detail.\n' \
         "$(cat "$d/prompt")" "$GEN_ROOT/$dest" \
         | codex exec "${args[@]}" - > "$d/log" 2>&1 || true
+
+    # Certains agents ont historiquement confondu le numero de texte T029
+    # avec le nom d'image N029 et depose le rendu a la racine de MORE. Ne pas
+    # jeter une generation valable pour cette seule erreur de chemin. On ne
+    # recupere toutefois qu'un fichier cree pendant cette tache (`-nt`), afin
+    # de ne jamais recycler un ancien brouillon comme nouvelle image.
+    base="$(basename "$dest" .png)"
+    if [ ! -f "$GEN_ROOT/$dest" ] && [[ "$base" == N[0-9][0-9][0-9] ]]; then
+        misplaced="$GEN_ROOT/SCOSWAMP.MORE/T${base#N}.png"
+        if [ -f "$misplaced" ] && [ "$misplaced" -nt "$d/prompt" ]; then
+            mv "$misplaced" "$GEN_ROOT/$dest"
+        fi
+    fi
 
     # L'agent d'image laisse parfois derriere lui ses essais -- des pastilles
     # de palette de quelques centaines d'octets nommees B284-0.png, B284-1.png
