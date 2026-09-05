@@ -347,7 +347,9 @@ def scene_rows(root, characters, all_pages):
     rows = []
     # 402-406 : la page jumelle du Stratagus affaibli et les relais d'effets
     # (chute, piqure, bond parfait) -- voir TODO, "six pages inexprimables".
-    for scene_id in range(407):
+    # Le corpus contient aussi la page 419 "Qui vous etes", atteinte apres la
+    # creation du personnage ; les pages 407-418 sont des numeros absents.
+    for scene_id in range(420):
         sid = f"{scene_id:03d}"
         bucket = f"N{(scene_id // 50) * 50:03d}"
         text_path = game / "TEXTFR" / bucket / f"N{sid}.TXT"
@@ -371,6 +373,11 @@ def scene_rows(root, characters, all_pages):
                          "traveller silhouette, or an orange-clad stand-in. Give the "
                          "frame to the location, object, creature or NPC that makes "
                          "this page distinct.")
+        title_note = ("\n\nTITLE OVERRIDE — this is the cover image only: place the exact words "
+                      "Scorpion's Swamp in very large, bold, readable pulp-gamebook "
+                      "title lettering across the upper third. The title is part of "
+                      "the artwork, not a UI caption; no other words or numbers."
+                      if scene_id == 0 else "")
         rows.append({
             "id": scene_id,
             "scene": f"N{sid}",
@@ -378,7 +385,7 @@ def scene_rows(root, characters, all_pages):
             "source_png": str((more / "GENERATED" / f"N{sid}.png").relative_to(root)),
             "hgr_rle": str(rle_path.relative_to(root)),
             "preview_png": str((more / "HGR-PREVIEW" / f"N{sid}.png").relative_to(root)),
-            "prompt": STYLE + hero_decision + "\n\n" + scene
+            "prompt": STYLE + hero_decision + title_note + "\n\n" + scene
                       + character_block(scene, characters, with_hero),
             "refs": refs_for(scene, characters, root, with_hero),
             "bible": bible_hash(scene, characters, with_hero),
